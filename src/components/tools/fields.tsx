@@ -84,12 +84,14 @@ export function Switch({
   label,
   description,
   className,
+  disabled,
 }: {
   checked: boolean;
   onChange: (checked: boolean) => void;
   label: ReactNode;
   description?: ReactNode;
   className?: string;
+  disabled?: boolean;
 }) {
   const id = useId();
   return (
@@ -111,8 +113,9 @@ export function Switch({
         aria-labelledby={`${id}-label`}
         aria-describedby={description ? `${id}-desc` : undefined}
         onClick={() => onChange(!checked)}
+        disabled={disabled}
         className={cn(
-          "relative mt-0.5 inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-[250ms] ease-[var(--ease-premium)]",
+          "relative mt-0.5 inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-[250ms] ease-[var(--ease-premium)] disabled:cursor-wait disabled:opacity-50",
           checked ? "bg-ink" : "bg-line hover:bg-ink/20",
         )}
       >

@@ -5,36 +5,36 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Check, GitCompareArrows, Heart, Trash2 } from "lucide-react";
-import { getCar, trendingCars } from "@/data/cars";
-import { brandName } from "@/data/brands";
-import { getUsedCar, usedCars } from "@/data/used-cars";
 import { IMG } from "@/data/images";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Tabs } from "@/components/ui/tabs";
 import { Eyebrow } from "@/components/ui/section-heading";
-import { Modal, useIsClient } from "@/components/ui/overlay";
+import { Modal } from "@/components/ui/overlay";
 import { CarCard } from "@/components/vehicle/car-card";
 import { UsedCarCard } from "@/components/vehicle/used-car-card";
 import { useCompare, useUI, useUser, useWishlist } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
 type Shelf = "cars" | "used";
 const GRID = "grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4";
 
 export function WishlistView() {
-  const isClient = useIsClient();
   const router = useRouter();
   const { wishlist, clear } = useWishlist();
-  const { user } = useUser();
+  const { user, ready } = useUser();
   const { set: setCompare, max } = useCompare();
   const { toast } = useUI();
+  const { getCar, getUsedCar, brandName } = useCatalog();
   const [shelf, setShelf] = useState<Shelf>("cars");
   const [selecting, setSelecting] = useState(false);
   const [selected, setSelected] = useState<string[]>([]);
   const [confirming, setConfirming] = useState(false);
 
-  if (!isClient) return <WishlistSkeleton />;
+  // Until the session is confirmed we can't tell a device list from an account list.
+  if (!ready) return <WishlistSkeleton />;
 
+  const hasItems = wishlist.cars.length > 0 || wishlist.used.length > 0;
   const newCars = wishlist.cars.map(getCar).filter((c) => c !== undefined);
   const used = wishlist.used.map(getUsedCar).filter((c) => c !== undefined);
   const picked = selected.filter((s) => wishlist.cars.includes(s));
@@ -68,12 +68,18 @@ export function WishlistView() {
   return (
     <section aria-label="Saved cars" className="pb-20 pt-10 md:pb-28 md:pt-14">
       <div className="container-x">
-        {!user && (wishlist.cars.length > 0 || wishlist.used.length > 0) && (
+        {!user && hasItems && (
           <p className="mb-10 flex flex-col gap-2 border-l-2 border-red bg-mist px-4 py-3 text-[13.5px] text-muted sm:flex-row sm:items-center sm:justify-between">
-            <span>Your shortlist is saved on this device only.</span>
-            <Link href="/login" className="font-medium text-ink underline-offset-4 hover:underline">
-              Sign in to keep it everywhere
+            <span>Your shortlist is saved on this device only. Sign in and we&apos;ll add it to your account.</span>
+            <Link href="/login?next=/wishlist" className="shrink-0 font-medium text-ink underline-offset-4 hover:underline">
+              Sign in to sync it
             </Link>
+          </p>
+        )}
+        {user && hasItems && (
+          <p className="mb-8 flex items-center gap-2 text-[13px] text-muted">
+            <Check aria-hidden className="size-3.5 shrink-0 text-red" strokeWidth={2.5} />
+            Synced to your account — on every device you sign in to.
           </p>
         )}
 
@@ -206,6 +212,7 @@ export function WishlistView() {
 }
 
 function EmptyShelf({ kind }: { kind: Shelf }) {
+  const { trendingCars, usedCars } = useCatalog();
   const isNew = kind === "cars";
   const suggestions = isNew ? trendingCars().slice(0, 3) : [];
   const usedSuggestions = isNew ? [] : usedCars.filter((c) => c.verified).slice(0, 3);

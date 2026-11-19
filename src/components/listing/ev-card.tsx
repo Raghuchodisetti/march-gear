@@ -5,11 +5,11 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRight, BatteryCharging, PlugZap, Zap } from "lucide-react";
 import type { CarModel } from "@/types";
-import { brandName } from "@/data/brands";
 import { formatPrice } from "@/lib/format";
 import { EASE } from "@/lib/motion";
 import { Badge } from "@/components/ui/badge";
 import { CompareToggle, WishlistButton } from "@/components/vehicle/toggles";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { evHref } from "./ev-utils";
 
 /**
@@ -17,6 +17,7 @@ import { evHref } from "./ev-utils";
  * scaled to the longest-range EV on sale; battery and DC charge sit beneath.
  */
 export function EvCard({ car, maxRange, priority = false }: { car: CarModel; maxRange: number; priority?: boolean }) {
+  const { brandName } = useCatalog();
   const ev = car.ev;
   const title = `${brandName(car.brand)} ${car.name}`;
   if (!ev) return null;

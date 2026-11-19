@@ -5,17 +5,17 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown, Clock, MapPin, Star } from "lucide-react";
-import { dealers } from "@/data/dealers";
-import { brandName } from "@/data/brands";
 import { cities } from "@/data/cities";
 import { EASE } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
 import { useCity, useUI } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
 export function DealerNetwork() {
   const { city, setCity } = useCity();
   const { openEnquiry } = useUI();
+  const { dealers, brandName } = useCatalog();
 
   const { list, local } = useMemo(() => {
     const inCity = dealers.filter((d) => d.city === city.name);
@@ -24,10 +24,10 @@ export function DealerNetwork() {
       return { list: [...inCity, ...rest].slice(0, 3), local: inCity.length };
     }
     return { list: [...dealers].sort((a, b) => b.rating - a.rating).slice(0, 3), local: 0 };
-  }, [city.name]);
+  }, [city.name, dealers]);
 
   return (
-    <section aria-labelledby="dealers-title" className="py-20 md:py-28">
+    <section aria-labelledby="dealers-title" className="py-14 md:py-20">
       <div className="container-x">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>
@@ -100,7 +100,7 @@ export function DealerNetwork() {
                     ))}
                   </ul>
                   <div className="mt-auto flex gap-2 pt-6">
-                    <Button size="sm" variant="dark" className="flex-1" onClick={() => openEnquiry({ kind: "contact-dealer", subject: d.name, detail: `${d.area}, ${d.city}` })}>
+                    <Button size="sm" variant="dark" className="flex-1" onClick={() => openEnquiry({ kind: "contact-dealer", subject: d.name, detail: `${d.area}, ${d.city}`, dealerId: d.id })}>
                       Contact dealer
                     </Button>
                     <Button size="sm" variant="outline" href={`/dealers/${d.id}`}>

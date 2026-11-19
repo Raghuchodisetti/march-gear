@@ -3,12 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState, type FormEvent, type KeyboardEvent, type ReactNode } from "react";
+import { useCallback, useEffect, useState, type FormEvent, type KeyboardEvent, type ReactNode } from "react";
 import {
+  AlertCircle,
   Bell,
   GitCompareArrows,
   Heart,
   History,
+  KeyRound,
+  Loader2,
   LogOut,
   MapPin,
   PenLine,
@@ -16,27 +19,28 @@ import {
   UserRound,
   X,
 } from "lucide-react";
-import { getCar } from "@/data/cars";
-import { brandName } from "@/data/brands";
 import { cities } from "@/data/cities";
-import { getUsedCar } from "@/data/used-cars";
 import { IMG } from "@/data/images";
-import { ACTIVITY_LABEL, accountActivity, type ActivityStatus } from "@/data/account-activity";
-import type { MockUser } from "@/lib/store";
+import type { LeadStatus } from "@/db/enums";
+import { DEFAULT_PREFERENCES, type UserPreferences } from "@/lib/action-result";
+import type { AccountUser } from "@/lib/store";
+import { LEAD_STATUS_LABEL, LEAD_TYPE_LABEL, detailLabel, detailValue } from "@/lib/leads";
 import { formatDate, formatPrice, formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
+import { myPreferencesAction, myRequestsAction, savePreferencesAction, type MyRequest } from "@/server/actions/account";
+import { changePasswordAction, updateProfileAction } from "@/server/actions/auth";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Button, IconButton } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Segmented, SelectField, TextField } from "@/components/ui/field";
+import { Label, Segmented, SelectField, TextField } from "@/components/ui/field";
 import { Tabs } from "@/components/ui/tabs";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
-import { useIsClient } from "@/components/ui/overlay";
 import { useCity, useCompare, useUI, useUser, useWishlist } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { Switch } from "@/components/tools/fields";
-import { usedTitle } from "@/components/vehicle/used-car-card";
+import { usedTitle } from "@/components/vehicle/card-utils";
 import { Avatar } from "./avatar";
-import { EMAIL_RE, MOBILE_RE, mobileDigits, prettyMobile } from "./validation";
+import { MIN_PASSWORD, MOBILE_RE, displayMobile, mobileDigits } from "./validation";
 
 type Section = "details" | "saved" | "compare" | "activity" | "preferences";
 
@@ -48,22 +52,43 @@ const SECTIONS: { value: Section; label: string; icon: typeof UserRound }[] = [
   { value: "preferences", label: "Preferences", icon: SlidersHorizontal },
 ];
 
+const NETWORK_ERROR = "Couldn't reach the server. Check your connection and try again.";
+/** The server returns at most this many requests. */
+const REQUESTS_LIMIT = 50;
+
+const FORM_ERROR = "border-l-2 border-red bg-red-50 px-3 py-2.5 text-[13.5px] text-red";
+
+/** ISO timestamp → "November 2026" / "Nov 2026" (falls back to the raw value for older cached accounts). */
+function monthYear(iso: string, month: "long" | "short" = "long") {
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime()) ? iso : d.toLocaleDateString("en-IN", { month, year: "numeric" });
+}
+
+/** ISO timestamp → the visitor's local calendar day as YYYY-MM-DD, for formatDate. */
+function localDay(iso: string) {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso.slice(0, 10);
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
 export function ProfileView() {
-  const isClient = useIsClient();
   const router = useRouter();
-  const { user, update, logout } = useUser();
+  const { user, ready, update, logout } = useUser();
   const { toast } = useUI();
   const { count } = useWishlist();
   const { slugs } = useCompare();
   const [section, setSection] = useState<Section>("details");
   const [leaving, setLeaving] = useState(false);
+  const requests = useMyRequests(ready ? user?.id : undefined);
 
-  if (!isClient || leaving) return <ProfileSkeleton />;
+  // Wait for the server to confirm the session so a signed-in member never sees the signed-out page.
+  if (!ready || leaving) return <ProfileSkeleton />;
   if (!user) return <SignedOut />;
 
-  const signOut = () => {
+  const signOut = async () => {
     setLeaving(true);
-    logout();
+    await logout();
     toast("You've been signed out");
     router.push("/");
   };
@@ -79,6 +104,18 @@ export function ProfileView() {
     document.getElementById(`profile-tab-${next.value}`)?.focus();
   };
 
+  const enquiries: ReactNode =
+    requests.state.status === "done" ? (
+      requests.state.requests.length >= REQUESTS_LIMIT ? `${REQUESTS_LIMIT}+` : requests.state.requests.length
+    ) : requests.state.status === "loading" ? (
+      <>
+        <span aria-hidden className="skeleton inline-block h-[28px] w-8 align-top md:h-[34px]" />
+        <span className="sr-only">Loading</span>
+      </>
+    ) : (
+      "—"
+    );
+
   return (
     <>
       <section className="border-b border-line">
@@ -88,18 +125,16 @@ export function ProfileView() {
             <div className="flex min-w-0 items-center gap-5 md:gap-8">
               <Avatar name={user.name} className="size-16 text-2xl md:size-24 md:text-4xl" />
               <div className="min-w-0">
-                <Eyebrow>Member since {user.memberSince}</Eyebrow>
+                <Eyebrow>Member since {monthYear(user.memberSince, "short")}</Eyebrow>
                 <h1 className="type-h1 mt-4 break-words">{user.name}</h1>
-                <p className="mt-3 truncate text-[14px] text-muted">
-                  {[user.city, user.email || user.phone].filter(Boolean).join(" · ")}
-                </p>
+                <p className="mt-3 truncate text-[14px] text-muted">{[user.city, user.email].filter(Boolean).join(" · ")}</p>
               </div>
             </div>
             <div className="grid grid-cols-3 border-y border-line lg:min-w-[420px]">
               {[
-                { label: "Saved", value: count, to: "saved" as const },
-                { label: "Comparing", value: slugs.length, to: "compare" as const },
-                { label: "Enquiries", value: accountActivity.length, to: "activity" as const },
+                { label: "Saved", value: count as ReactNode, to: "saved" as const },
+                { label: "Comparing", value: slugs.length as ReactNode, to: "compare" as const },
+                { label: "Enquiries", value: enquiries, to: "activity" as const },
               ].map((s) => (
                 <button
                   key={s.label}
@@ -163,10 +198,15 @@ export function ProfileView() {
             onChange={(v) => setSection(v as Section)}
           />
           <div id="profile-panel" role="tabpanel" aria-label={current.label} className="pt-10 lg:pt-0">
-            {section === "details" && <DetailsPanel user={user} onSave={update} />}
+            {section === "details" && (
+              <div className="space-y-14">
+                <DetailsPanel user={user} onSave={update} />
+                <PasswordPanel email={user.email} />
+              </div>
+            )}
             {section === "saved" && <SavedPanel />}
             {section === "compare" && <ComparePanel />}
-            {section === "activity" && <ActivityPanel />}
+            {section === "activity" && <ActivityPanel state={requests.state} onRetry={requests.retry} />}
             {section === "preferences" && <PreferencesPanel />}
           </div>
           <div className="mt-14 border-t border-line pt-6 lg:hidden">
@@ -192,56 +232,91 @@ function PanelHeader({ title, description, action }: { title: string; descriptio
   );
 }
 
+function Busy({ children }: { children: ReactNode }) {
+  return (
+    <>
+      <Loader2 aria-hidden className="size-4 animate-spin" /> {children}
+    </>
+  );
+}
+
 /* ── Personal details ───────────────────────────────────────── */
 
-type DetailErrors = Partial<Record<"name" | "email" | "mobile", string>>;
+type DetailField = "name" | "mobile" | "city";
+type DetailErrors = Partial<Record<DetailField, string>>;
 
-function DetailsPanel({ user, onSave }: { user: MockUser; onSave: (patch: Partial<MockUser>) => void }) {
+function DetailsPanel({ user, onSave }: { user: AccountUser; onSave: (patch: Partial<AccountUser>) => void }) {
   const { toast } = useUI();
   const [editing, setEditing] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", mobile: "", city: "" });
+  const [form, setForm] = useState({ name: "", mobile: "", city: "" });
   const [errors, setErrors] = useState<DetailErrors>({});
+  const [formError, setFormError] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+
+  // Our city list, plus the member's saved city if it isn't one of them.
+  const cityOptions = [
+    ...(user.city && !cities.some((c) => c.name === user.city) ? [{ value: user.city, label: user.city }] : []),
+    ...cities.map((c) => ({ value: c.name, label: `${c.name}, ${c.state}` })),
+  ];
 
   const startEditing = () => {
-    const match = cities.find((c) => c.name === user.city);
-    setForm({ name: user.name, email: user.email, mobile: mobileDigits(user.phone), city: match?.slug ?? cities[0].slug });
+    setForm({ name: user.name, mobile: mobileDigits(user.phone), city: user.city });
     setErrors({});
+    setFormError(null);
     setEditing(true);
   };
 
   const set = (key: keyof typeof form, value: string) => {
     setForm((p) => ({ ...p, [key]: value }));
-    if (key in errors) setErrors((p) => ({ ...p, [key]: undefined }));
+    if (errors[key]) setErrors((p) => ({ ...p, [key]: undefined }));
   };
 
-  const save = (e: FormEvent) => {
+  const focusFirst = (errs: DetailErrors) => {
+    const first = (["name", "mobile", "city"] as const).find((k) => errs[k]);
+    if (first) document.getElementById(`profile-${first}`)?.focus();
+    return Boolean(first);
+  };
+
+  const save = async (e: FormEvent) => {
     e.preventDefault();
-    const email = form.email.trim();
+    if (busy) return;
     const next: DetailErrors = {
       name: form.name.trim().length >= 2 ? undefined : "Enter your full name",
-      email: email && !EMAIL_RE.test(email) ? "Enter a valid email address" : !email && !form.mobile ? "Add an email or a mobile number" : undefined,
       mobile: form.mobile && !MOBILE_RE.test(form.mobile) ? "Enter a valid 10-digit mobile number" : undefined,
     };
     setErrors(next);
-    const first = (["name", "email", "mobile"] as const).find((k) => next[k]);
-    if (first) {
-      document.getElementById(`profile-${first}`)?.focus();
-      return;
+    setFormError(null);
+    if (focusFirst(next)) return;
+
+    setBusy(true);
+    try {
+      const res = await updateProfileAction({ name: form.name.trim().replace(/\s+/g, " "), phone: form.mobile, city: form.city });
+      if (!res.ok) {
+        const f = res.fieldErrors ?? {};
+        const mapped: DetailErrors = { name: f.name, mobile: f.phone, city: f.city };
+        setErrors(mapped);
+        if (!focusFirst(mapped)) setFormError(res.error ?? "We couldn't save your details. Please try again.");
+        return;
+      }
+      onSave({ name: res.user.name, phone: res.user.phone ?? "", city: res.user.city ?? "" });
+      setEditing(false);
+      toast("Profile updated", { tone: "success" });
+    } catch {
+      setFormError(NETWORK_ERROR);
+    } finally {
+      setBusy(false);
     }
-    onSave({
-      name: form.name.trim().replace(/\s+/g, " "),
-      email,
-      phone: form.mobile ? prettyMobile(form.mobile) : "",
-      city: cities.find((c) => c.slug === form.city)?.name ?? user.city,
-    });
-    setEditing(false);
-    toast("Profile updated", { tone: "success" });
   };
 
   if (editing) {
     return (
       <form noValidate onSubmit={save}>
         <PanelHeader title="Edit personal details" description="Used to pre-fill test-drive and quote requests." />
+        {formError && (
+          <p role="alert" className={cn(FORM_ERROR, "mt-8 max-w-2xl")}>
+            {formError}
+          </p>
+        )}
         <div className="mt-8 grid max-w-2xl grid-cols-1 gap-5 sm:grid-cols-2">
           <TextField
             id="profile-name"
@@ -252,7 +327,20 @@ function DetailsPanel({ user, onSave }: { user: MockUser; onSave: (patch: Partia
             error={errors.name}
             onChange={(e) => set("name", e.target.value)}
           />
-          <TextField id="profile-email" label="Email" type="email" autoComplete="email" value={form.email} error={errors.email} onChange={(e) => set("email", e.target.value)} />
+          <div>
+            <Label htmlFor="profile-email">Email</Label>
+            <input
+              id="profile-email"
+              type="email"
+              value={user.email}
+              readOnly
+              aria-describedby="profile-email-msg"
+              className="h-12 w-full cursor-default rounded-[3px] border border-line bg-mist px-4 text-[15px] text-muted outline-none"
+            />
+            <p id="profile-email-msg" className="mt-1.5 text-xs text-muted">
+              Your sign-in email — it can&apos;t be changed here.
+            </p>
+          </div>
           <TextField
             id="profile-mobile"
             label="Mobile"
@@ -266,18 +354,21 @@ function DetailsPanel({ user, onSave }: { user: MockUser; onSave: (patch: Partia
             onChange={(e) => set("mobile", e.target.value.replace(/\D/g, "").slice(0, 10))}
           />
           <SelectField
+            id="profile-city"
             className="sm:col-span-2"
             label="City"
-            options={cities.map((c) => ({ value: c.slug, label: `${c.name}, ${c.state}` }))}
+            placeholder="Choose your city"
+            options={cityOptions}
             value={form.city}
+            error={errors.city}
             onChange={(e) => set("city", e.target.value)}
           />
         </div>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button type="submit" variant="dark">
-            Save changes
+          <Button type="submit" variant="dark" disabled={busy}>
+            {busy ? <Busy>Saving…</Busy> : "Save changes"}
           </Button>
-          <Button type="button" variant="ghost" onClick={() => setEditing(false)}>
+          <Button type="button" variant="ghost" onClick={() => setEditing(false)} disabled={busy}>
             Cancel
           </Button>
         </div>
@@ -285,12 +376,12 @@ function DetailsPanel({ user, onSave }: { user: MockUser; onSave: (patch: Partia
     );
   }
 
-  const rows: { label: string; value: string }[] = [
+  const rows: { label: string; value: string; note?: string }[] = [
     { label: "Full name", value: user.name },
-    { label: "Email", value: user.email },
-    { label: "Mobile", value: user.phone },
+    { label: "Email", value: user.email, note: "Your sign-in email" },
+    { label: "Mobile", value: user.phone ? displayMobile(user.phone) : "" },
     { label: "City", value: user.city },
-    { label: "Member since", value: user.memberSince },
+    { label: "Member since", value: monthYear(user.memberSince) },
   ];
 
   return (
@@ -314,6 +405,7 @@ function DetailsPanel({ user, onSave }: { user: MockUser; onSave: (patch: Partia
                   Add {r.label.toLowerCase()}
                 </button>
               )}
+              {r.note && <span className="mt-0.5 block text-[12.5px] font-normal text-muted">{r.note}</span>}
             </dd>
           </div>
         ))}
@@ -322,10 +414,151 @@ function DetailsPanel({ user, onSave }: { user: MockUser; onSave: (patch: Partia
   );
 }
 
+/* ── Password ───────────────────────────────────────────────── */
+
+type PasswordField = "current" | "next" | "confirm";
+const EMPTY_PASSWORDS: Record<PasswordField, string> = { current: "", next: "", confirm: "" };
+
+function PasswordPanel({ email }: { email: string }) {
+  const { toast } = useUI();
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState(EMPTY_PASSWORDS);
+  const [errors, setErrors] = useState<Partial<Record<PasswordField, string>>>({});
+  const [formError, setFormError] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+
+  const set = (key: PasswordField, value: string) => {
+    setForm((p) => ({ ...p, [key]: value }));
+    if (errors[key]) setErrors((p) => ({ ...p, [key]: undefined }));
+  };
+
+  const close = () => {
+    setOpen(false);
+    setForm(EMPTY_PASSWORDS);
+    setErrors({});
+    setFormError(null);
+  };
+
+  const focusFirst = (errs: Partial<Record<PasswordField, string>>) => {
+    const first = (["current", "next", "confirm"] as const).find((k) => errs[k]);
+    if (first) document.getElementById(`password-${first}`)?.focus();
+    return Boolean(first);
+  };
+
+  const submit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (busy) return;
+    const next = {
+      current: form.current ? undefined : "Enter your current password",
+      next:
+        form.next.length < MIN_PASSWORD
+          ? `Use at least ${MIN_PASSWORD} characters`
+          : form.next === form.current
+            ? "Choose a password you haven't used here"
+            : undefined,
+      confirm: form.confirm === form.next ? undefined : "Passwords don't match",
+    };
+    setErrors(next);
+    setFormError(null);
+    if (focusFirst(next)) return;
+
+    setBusy(true);
+    try {
+      const res = await changePasswordAction({ current: form.current, next: form.next });
+      if (!res.ok) {
+        const mapped = { current: res.fieldErrors?.current, next: res.fieldErrors?.next };
+        setErrors(mapped);
+        if (!focusFirst(mapped)) setFormError(res.error ?? "We couldn't change your password. Please try again.");
+        return;
+      }
+      close();
+      toast("Password changed. You've been signed out on your other devices.", { tone: "success" });
+    } catch {
+      setFormError(NETWORK_ERROR);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <div>
+      <PanelHeader
+        title="Password"
+        description="Changing it signs you out on every other device."
+        action={
+          !open && (
+            <Button
+              variant="outline"
+              size="sm"
+              icon={<KeyRound className="size-3.5" aria-hidden />}
+              onClick={() => {
+                setOpen(true);
+                requestAnimationFrame(() => document.getElementById("password-current")?.focus());
+              }}
+            >
+              Change password
+            </Button>
+          )
+        }
+      />
+      {open && (
+        <form noValidate onSubmit={submit} aria-label="Change password" className="pt-8">
+          {/* Lets password managers pair the new password with this account. */}
+          <input type="email" name="username" autoComplete="username" value={email} readOnly hidden />
+          {formError && (
+            <p role="alert" className={cn(FORM_ERROR, "mb-6 max-w-3xl")}>
+              {formError}
+            </p>
+          )}
+          <div className="grid max-w-3xl grid-cols-1 gap-5 md:grid-cols-3">
+            <TextField
+              id="password-current"
+              label="Current password"
+              type="password"
+              autoComplete="current-password"
+              value={form.current}
+              error={errors.current}
+              onChange={(e) => set("current", e.target.value)}
+            />
+            <TextField
+              id="password-next"
+              label="New password"
+              type="password"
+              autoComplete="new-password"
+              value={form.next}
+              error={errors.next}
+              hint={errors.next ? undefined : `At least ${MIN_PASSWORD} characters`}
+              onChange={(e) => set("next", e.target.value)}
+            />
+            <TextField
+              id="password-confirm"
+              label="Confirm new password"
+              type="password"
+              autoComplete="new-password"
+              value={form.confirm}
+              error={errors.confirm}
+              onChange={(e) => set("confirm", e.target.value)}
+            />
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button type="submit" variant="dark" disabled={busy}>
+              {busy ? <Busy>Updating…</Busy> : "Update password"}
+            </Button>
+            <Button type="button" variant="ghost" onClick={close} disabled={busy}>
+              Cancel
+            </Button>
+          </div>
+        </form>
+      )}
+    </div>
+  );
+}
+
 /* ── Saved cars ─────────────────────────────────────────────── */
 
 function SavedPanel() {
   const { wishlist } = useWishlist();
+  const { getCar, getUsedCar, brandName } = useCatalog();
   const newCars = wishlist.cars.map(getCar).filter((c) => c !== undefined);
   const usedList = wishlist.used.map(getUsedCar).filter((c) => c !== undefined);
 
@@ -340,7 +573,7 @@ function SavedPanel() {
         <InlineEmpty
           icon={<Heart className="size-5" aria-hidden />}
           title="Nothing saved yet"
-          body="Tap the heart on any car to keep it here. Your shortlist follows you across devices once you're signed in."
+          body="Tap the heart on any car to keep it here. Your shortlist is saved to your account, so it's on every device you sign in to."
         >
           <Button href="/new-cars" variant="dark" size="sm" arrow>
             Browse new cars
@@ -363,7 +596,7 @@ function SavedPanel() {
               key: "used",
               label: "Used cars",
               total: usedList.length,
-              items: usedList.slice(0, 4).map((c) => ({ id: c.id, href: `/used-cars/${c.id}`, image: c.images[0], focus: c.focus, title: usedTitle(c), meta: formatPrice(c.price) })),
+              items: usedList.slice(0, 4).map((c) => ({ id: c.id, href: `/used-cars/${c.id}`, image: c.images[0], focus: c.focus, title: usedTitle(c, brandName), meta: formatPrice(c.price) })),
               empty: { label: "Explore used cars", href: "/used-cars" },
             },
           ].map((group) => (
@@ -421,6 +654,7 @@ function SavedPanel() {
 function ComparePanel() {
   const { slugs, remove, clear, max } = useCompare();
   const { toast } = useUI();
+  const { getCar, brandName } = useCatalog();
   const list = slugs.map(getCar).filter((c) => c !== undefined);
 
   return (
@@ -502,44 +736,140 @@ function ComparePanel() {
 
 /* ── Activity ───────────────────────────────────────────────── */
 
-const STATUS_TONE: Record<ActivityStatus, "ink" | "red" | "outline" | "mist"> = {
-  Confirmed: "ink",
-  "Quotes received": "red",
-  "In progress": "outline",
-  Completed: "mist",
+type RequestsState = { status: "loading" } | { status: "error"; message: string } | { status: "done"; requests: MyRequest[] };
+
+/** The signed-in member's enquiries and bookings, loaded once their session is confirmed. */
+function useMyRequests(userId: number | undefined) {
+  const [loaded, setLoaded] = useState<{ userId?: number; state: RequestsState }>({ state: { status: "loading" } });
+  const [attempt, setAttempt] = useState(0);
+
+  useEffect(() => {
+    if (userId === undefined) return;
+    let cancelled = false;
+    const settle = (state: RequestsState) => {
+      if (!cancelled) setLoaded({ userId, state });
+    };
+    myRequestsAction()
+      .then((res) =>
+        settle(res.ok ? { status: "done", requests: res.requests } : { status: "error", message: res.error ?? "We couldn't load your requests." }),
+      )
+      .catch(() => settle({ status: "error", message: NETWORK_ERROR }));
+    return () => {
+      cancelled = true;
+    };
+  }, [userId, attempt]);
+
+  const retry = useCallback(() => {
+    setLoaded({ state: { status: "loading" } });
+    setAttempt((n) => n + 1);
+  }, []);
+
+  const state: RequestsState = userId !== undefined && loaded.userId === userId ? loaded.state : { status: "loading" };
+  return { state, retry };
+}
+
+const STATUS_TONE: Record<LeadStatus, "ink" | "red" | "outline" | "mist"> = {
+  new: "outline",
+  contacted: "ink",
+  qualified: "ink",
+  converted: "red",
+  closed: "mist",
 };
 
-function ActivityPanel() {
+function requestLink(r: MyRequest): { href: string; label: string } | null {
+  if (r.carSlug) return { href: `/cars/${r.carSlug}`, label: "View car" };
+  if (r.usedCarId) return { href: `/used-cars/${r.usedCarId}`, label: "View listing" };
+  if (r.dealerId) return { href: `/dealers/${r.dealerId}`, label: "View dealer" };
+  return null;
+}
+
+function requestDetails(r: MyRequest) {
+  return Object.entries(r.details ?? {})
+    .filter(([, v]) => v !== null && v !== "")
+    .slice(0, 3)
+    .map(([k, v]) => `${detailLabel(k)}: ${typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v) ? formatDate(v) : detailValue(k, v)}`);
+}
+
+function ActivityPanel({ state, onRetry }: { state: RequestsState; onRetry: () => void }) {
   const { openEnquiry } = useUI();
   return (
     <div>
       <PanelHeader
         title="Recent activity"
-        description="Bookings, quotes and requests from the last 30 days."
+        description="Enquiries and bookings you've made while signed in, newest first."
         action={
           <Button variant="outline" size="sm" onClick={() => openEnquiry({ kind: "callback", subject: "March Gear concierge", detail: "Help with an existing request" })}>
             Get help with a request
           </Button>
         }
       />
-      <ol>
-        {accountActivity.map((a) => (
-          <li key={a.id} className="grid grid-cols-1 gap-3 border-b border-line py-6 md:grid-cols-[132px_minmax(0,1fr)_auto] md:items-start md:gap-8">
-            <div className="flex items-center gap-3 md:block">
-              <p className="text-[13px] font-medium num">{formatDate(a.date)}</p>
-              <p className="type-eyebrow text-muted md:mt-2">{ACTIVITY_LABEL[a.kind]}</p>
-            </div>
-            <div className="min-w-0">
-              <p className="type-h4">{a.title}</p>
-              <p className="mt-1 text-[14px] text-muted">{a.detail}</p>
-            </div>
-            <div className="flex items-center justify-between gap-6 md:flex-col md:items-end md:gap-3">
-              <Badge tone={STATUS_TONE[a.status]}>{a.status}</Badge>
-              <TextLink href={a.href}>{a.cta}</TextLink>
-            </div>
-          </li>
-        ))}
-      </ol>
+      {state.status === "loading" ? (
+        <ol aria-busy="true" aria-label="Loading your requests">
+          {Array.from({ length: 3 }, (_, i) => (
+            <li key={i} className="grid grid-cols-1 gap-3 border-b border-line py-6 md:grid-cols-[132px_minmax(0,1fr)_auto] md:gap-8">
+              <div className="space-y-2">
+                <div className="skeleton h-3.5 w-20" />
+                <div className="skeleton h-3 w-16" />
+              </div>
+              <div className="space-y-2">
+                <div className="skeleton h-5 w-2/3" />
+                <div className="skeleton h-3.5 w-1/2" />
+              </div>
+              <div className="skeleton h-6 w-20" />
+            </li>
+          ))}
+        </ol>
+      ) : state.status === "error" ? (
+        <InlineEmpty icon={<AlertCircle className="size-5" aria-hidden />} title="We couldn't load your requests" body={state.message}>
+          <Button variant="dark" size="sm" onClick={onRetry}>
+            Try again
+          </Button>
+        </InlineEmpty>
+      ) : state.requests.length === 0 ? (
+        <InlineEmpty
+          icon={<History className="size-5" aria-hidden />}
+          title="No requests yet"
+          body="Test drives, price quotes, callbacks and messages you send while signed in will appear here, with their latest status."
+        >
+          <Button href="/new-cars" variant="dark" size="sm" arrow>
+            Browse new cars
+          </Button>
+          <Button href="/contact" variant="outline" size="sm">
+            Contact us
+          </Button>
+        </InlineEmpty>
+      ) : (
+        <ol>
+          {state.requests.map((r) => {
+            const type = LEAD_TYPE_LABEL[r.type] ?? r.type;
+            const link = requestLink(r);
+            const details = requestDetails(r);
+            return (
+              <li key={r.reference} className="grid grid-cols-1 gap-3 border-b border-line py-6 md:grid-cols-[132px_minmax(0,1fr)_auto] md:items-start md:gap-8">
+                <div className="flex items-center gap-3 md:block">
+                  <p className="text-[13px] font-medium num">
+                    <time dateTime={r.createdAt}>{formatDate(localDay(r.createdAt))}</time>
+                  </p>
+                  <p className="type-eyebrow text-muted md:mt-2">{type}</p>
+                </div>
+                <div className="min-w-0">
+                  <p className="type-h4 break-words">{r.subject || type}</p>
+                  <p className="mt-1 break-words text-[14px] text-muted">
+                    Ref <span className="font-mono text-ink/80">{r.reference}</span>
+                    {details.map((d) => (
+                      <span key={d}> · {d}</span>
+                    ))}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between gap-6 md:flex-col md:items-end md:gap-3">
+                  <Badge tone={STATUS_TONE[r.status] ?? "outline"}>{LEAD_STATUS_LABEL[r.status] ?? r.status}</Badge>
+                  {link && <TextLink href={link.href}>{link.label}</TextLink>}
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      )}
     </div>
   );
 }
@@ -556,8 +886,35 @@ const ALERTS = [
 function PreferencesPanel() {
   const { city } = useCity();
   const { setLocationOpen, toast } = useUI();
-  const [alerts, setAlerts] = useState<Record<(typeof ALERTS)[number]["key"], boolean>>({ price: true, launch: true, digest: false, whatsapp: false });
-  const [contact, setContact] = useState<"call" | "whatsapp" | "email">("whatsapp");
+  // Saved on the account; null until loaded.
+  const [prefs, setPrefs] = useState<UserPreferences | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    myPreferencesAction()
+      .then((res) => {
+        if (!cancelled) setPrefs(res.ok ? res.preferences : DEFAULT_PREFERENCES);
+      })
+      .catch(() => {
+        if (!cancelled) setPrefs(DEFAULT_PREFERENCES);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const save = async (next: UserPreferences, message: string, tone: "success" | "default") => {
+    const before = prefs;
+    setPrefs(next);
+    const res = await savePreferencesAction(next).catch(() => ({ ok: false as const, error: undefined }));
+    if (res.ok) toast(message, { tone });
+    else {
+      setPrefs(before);
+      toast("Couldn't save your preferences. Please try again.", { tone: "error" });
+    }
+  };
+  const alerts = prefs?.alerts ?? DEFAULT_PREFERENCES.alerts;
+  const contact = prefs?.contact ?? DEFAULT_PREFERENCES.contact;
 
   return (
     <div className="space-y-14">
@@ -589,10 +946,8 @@ function PreferencesPanel() {
               label={a.label}
               description={a.description}
               checked={alerts[a.key]}
-              onChange={(on) => {
-                setAlerts((p) => ({ ...p, [a.key]: on }));
-                toast(`${a.label} ${on ? "turned on" : "turned off"}`, { tone: on ? "success" : "default" });
-              }}
+              disabled={!prefs}
+              onChange={(on) => save({ alerts: { ...alerts, [a.key]: on }, contact }, `${a.label} ${on ? "turned on" : "turned off"}`, on ? "success" : "default")}
             />
           ))}
         </div>
@@ -611,8 +966,7 @@ function PreferencesPanel() {
             ]}
             value={contact}
             onChange={(v) => {
-              setContact(v);
-              toast(`Dealers will contact you by ${v === "call" ? "phone" : v === "whatsapp" ? "WhatsApp" : "email"}`, { tone: "success" });
+              if (prefs) save({ alerts, contact: v }, `We'll contact you by ${v === "call" ? "phone" : v === "whatsapp" ? "WhatsApp" : "email"}`, "success");
             }}
           />
         </div>
@@ -622,10 +976,15 @@ function PreferencesPanel() {
         <div className="flex gap-3">
           <Bell aria-hidden className="mt-0.5 size-4 shrink-0 text-muted" />
           <p className="text-[13.5px] leading-relaxed text-muted">
-            Want your data removed? Deleting your account erases saved cars, comparisons and enquiry history.
+            Want your data removed? Email us from your sign-in address and we&apos;ll delete your account, saved cars and enquiry history.
           </p>
         </div>
-        <Button variant="ghost" size="sm" className="shrink-0 text-muted hover:text-red" onClick={() => toast("Account deletion is disabled in this demo")}>
+        <Button
+          href="mailto:hello@marchgear.in?subject=Please%20delete%20my%20March%20Gear%20account"
+          variant="ghost"
+          size="sm"
+          className="shrink-0 text-muted hover:text-red"
+        >
           Delete account
         </Button>
       </div>
@@ -660,7 +1019,7 @@ function SignedOut() {
           <h1 className="type-h1 mt-5 text-balance">
             Sign in to see your <span className="type-editorial">profile</span>.
           </h1>
-          <p className="type-lead mt-5 max-w-lg text-muted">Your shortlist, comparisons, bookings and alerts — kept in one place and synced across devices.</p>
+          <p className="type-lead mt-5 max-w-lg text-muted">Your saved cars on every device, and every enquiry and booking you make — with its latest status — in one place.</p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Button href="/login" variant="dark" size="lg" arrow>
               Sign in
@@ -673,7 +1032,7 @@ function SignedOut() {
             {[
               { icon: Heart, title: "Saved cars", body: "Your shortlist, everywhere." },
               { icon: GitCompareArrows, title: "Comparisons", body: "Pick up where you left off." },
-              { icon: Bell, title: "Price alerts", body: "Know when offers change." },
+              { icon: History, title: "Your requests", body: "Track bookings and quotes." },
             ].map(({ icon: Icon, title, body }) => (
               <li key={title} className="bg-white p-5">
                 <Icon aria-hidden className="size-4 text-red" strokeWidth={1.8} />

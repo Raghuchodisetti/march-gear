@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { brands } from "@/data/brands";
-import { carsByBrand } from "@/data/cars";
+import { getCatalog } from "@/server/catalog";
 import { formatPriceShort } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { BrandLogo, logoFit } from "@/components/ui/brand-logo";
@@ -9,14 +8,15 @@ import { RevealGroup, RevealItem } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 /** Homepage: every marque as a logo tile, linking to its line-up. */
-export function BrowseByBrand() {
+export async function BrowseByBrand() {
+  const { brands, carsByBrand } = await getCatalog();
   const list = brands.map((b) => {
     const models = carsByBrand(b.slug);
     return { ...b, count: models.length, from: Math.min(...models.map((c) => c.priceMin)) };
   });
 
   return (
-    <section aria-labelledby="brands-title" className="bg-mist py-20 md:py-28">
+    <section aria-labelledby="brands-title" className="bg-mist py-14 md:py-20">
       <div className="container-x">
         <SectionHeading
           eyebrow="Browse by brand"

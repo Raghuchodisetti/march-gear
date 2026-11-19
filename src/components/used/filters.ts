@@ -1,6 +1,4 @@
 import type { UsedCar } from "@/types";
-import { usedCars } from "@/data/used-cars";
-import { brandName } from "@/data/brands";
 import { formatKm } from "@/lib/format";
 
 const L = 100_000;
@@ -33,15 +31,19 @@ export const OWNER_OPTIONS = [
 const uniq = <T,>(list: T[]) => Array.from(new Set(list));
 
 /** Facets present in the inventory, in a sensible display order. */
-export const FACETS = {
-  cities: uniq(usedCars.map((c) => c.city)).sort(),
-  brands: uniq(usedCars.map((c) => c.brand)).sort((a, b) => brandName(a).localeCompare(brandName(b))),
-  bodies: (["SUV", "Sedan", "Hatchback", "MUV", "Coupe"] as const).filter((b) => usedCars.some((c) => c.bodyType === b)),
-  fuels: (["Petrol", "Diesel", "CNG", "Hybrid", "Electric"] as const).filter((f) => usedCars.some((c) => c.fuel === f)),
-  transmissions: (["Manual", "Automatic", "AMT", "DCT", "CVT"] as const).filter((t) => usedCars.some((c) => c.transmission === t)),
-  yearMin: Math.min(...usedCars.map((c) => c.year)),
-  yearMax: Math.max(...usedCars.map((c) => c.year)),
-};
+export function usedFacets(usedCars: UsedCar[], brandName: (slug: string) => string) {
+  return {
+    cities: uniq(usedCars.map((c) => c.city)).sort(),
+    brands: uniq(usedCars.map((c) => c.brand)).sort((a, b) => brandName(a).localeCompare(brandName(b))),
+    bodies: (["SUV", "Sedan", "Hatchback", "MUV", "Coupe"] as const).filter((b) => usedCars.some((c) => c.bodyType === b)),
+    fuels: (["Petrol", "Diesel", "CNG", "Hybrid", "Electric"] as const).filter((f) => usedCars.some((c) => c.fuel === f)),
+    transmissions: (["Manual", "Automatic", "AMT", "DCT", "CVT"] as const).filter((t) => usedCars.some((c) => c.transmission === t)),
+    yearMin: Math.min(...usedCars.map((c) => c.year)),
+    yearMax: Math.max(...usedCars.map((c) => c.year)),
+  };
+}
+
+export type UsedFacets = ReturnType<typeof usedFacets>;
 
 export const KM_MIN = 10_000;
 export const KM_MAX = 100_000;
@@ -105,14 +107,14 @@ const int = (v: string | null) => {
 const canonical = (values: string[], options: readonly string[]) =>
   values.map((v) => options.find((o) => o.toLowerCase() === v.toLowerCase()) ?? v);
 
-export function parseUsedFilters(params: ParamReader): UsedFilters {
+export function parseUsedFilters(params: ParamReader, facets: UsedFacets): UsedFilters {
   const sort = params.get("sort");
   return {
-    city: canonical(list(params.get("city")), FACETS.cities),
+    city: canonical(list(params.get("city")), facets.cities),
     budget: USED_BUDGETS.some((b) => b.slug === params.get("budget")) ? params.get("budget")! : "",
-    body: canonical(list(params.get("body")), FACETS.bodies),
-    fuel: canonical(list(params.get("fuel")), FACETS.fuels),
-    transmission: canonical(list(params.get("transmission")), FACETS.transmissions),
+    body: canonical(list(params.get("body")), facets.bodies),
+    fuel: canonical(list(params.get("fuel")), facets.fuels),
+    transmission: canonical(list(params.get("transmission")), facets.transmissions),
     brand: list(params.get("brand")).map((b) => b.toLowerCase()),
     yearFrom: int(params.get("yearFrom")),
     yearTo: int(params.get("yearTo")),
@@ -186,7 +188,7 @@ export interface ActiveChip {
   patch: Partial<UsedFilters>;
 }
 
-export function activeChips(f: UsedFilters): ActiveChip[] {
+export function activeChips(f: UsedFilters, brandName: (slug: string) => string): ActiveChip[] {
   const out: ActiveChip[] = [];
   if (f.verified) out.push({ id: "verified", label: "Verified only", patch: { verified: false } });
   const listChip = (key: ListKey, fmt: (v: string) => string = (v) => v) =>

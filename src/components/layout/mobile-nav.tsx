@@ -24,7 +24,7 @@ export function MobileNav({ open, onClose }: { open: boolean; onClose: () => voi
   const { setSearchOpen, setLocationOpen } = useUI();
   const { count } = useWishlist();
   const { slugs } = useCompare();
-  const { user } = useUser();
+  const { user, ready } = useUser();
   useDialogBehaviour(open, onClose, panel);
 
   if (!isClient) return null;
@@ -150,8 +150,13 @@ export function MobileNav({ open, onClose }: { open: boolean; onClose: () => voi
                   {user.name.split(" ")[0]}&apos;s profile
                 </Link>
               ) : (
-                <Link href="/login" onClick={onClose} className="inline-flex h-12 items-center justify-center rounded-[3px] border border-line text-sm font-medium">
-                  Sign in
+                // Before the session is confirmed, link to the profile page — it shows the right state either way.
+                <Link
+                  href={ready ? "/login" : "/profile"}
+                  onClick={onClose}
+                  className="inline-flex h-12 items-center justify-center rounded-[3px] border border-line text-sm font-medium"
+                >
+                  {ready ? "Sign in" : "My account"}
                 </Link>
               )}
               <Link href="/sell-car" onClick={onClose} className="inline-flex h-12 items-center justify-center rounded-[3px] bg-red text-sm font-medium text-white">

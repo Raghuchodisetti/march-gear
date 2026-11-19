@@ -10,7 +10,7 @@ import { Reveal } from "@/components/ui/reveal";
 /** Suspense fallback for the listing: mirrors the sidebar + grid geometry. */
 export function UsedListingSkeleton() {
   return (
-    <div className="container-x pb-20 md:pb-28" aria-busy="true" aria-label="Loading cars">
+    <div className="container-x pb-14 md:pb-20" aria-busy="true" aria-label="Loading cars">
       <div className="lg:grid lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-12 xl:gap-16">
         <div className="hidden space-y-8 pt-10 lg:block">
           <div className="skeleton h-6 w-24" />

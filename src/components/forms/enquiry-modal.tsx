@@ -1,12 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { CalendarCheck, Check, Loader2, PhoneCall, ShieldCheck, Tag, Wrench } from "lucide-react";
-import { cities } from "@/data/cities";
+import { cities, getCity } from "@/data/cities";
+import { submitLeadAction, type LeadInput } from "@/server/actions/leads";
 import { Modal } from "@/components/ui/overlay";
 import { SelectField, TextArea, TextField, Segmented } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
+import { Honeypot } from "@/components/forms/honeypot";
 import { useCity, useUI, useUser, type EnquiryKind } from "@/components/providers/app-provider";
 
 const COPY: Record<EnquiryKind, { title: string; intro: string; cta: string; icon: React.ReactNode; done: string }> = {
@@ -47,18 +50,34 @@ const COPY: Record<EnquiryKind, { title: string; intro: string; cta: string; ico
   },
 };
 
+/** `YYYY-MM-DD` in the visitor's own calendar (toISOString would shift it to UTC). */
+const isoDay = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+
 function nextDays(n: number) {
   const out: { value: string; label: string }[] = [];
   const d = new Date();
   for (let i = 1; i <= n; i++) {
     const x = new Date(d.getFullYear(), d.getMonth(), d.getDate() + i);
     out.push({
-      value: x.toISOString().slice(0, 10),
+      value: isoDay(x),
       label: x.toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short" }),
     });
   }
   return out;
 }
+
+const LEAD_TYPE = {
+  "test-drive": "test_drive",
+  "best-price": "best_price",
+  "contact-dealer": "contact_dealer",
+  callback: "callback",
+  inspection: "inspection",
+} as const satisfies Record<EnquiryKind, LeadInput["type"]>;
+
+/** Server field paths → this form's error slots. */
+const FIELD_FOR: Record<string, string> = { name: "name", phone: "phone", city: "city", "details.date": "date" };
+
+const NETWORK_ERROR = "Couldn't send — check your connection and try again.";
 
 export function EnquiryModal() {
   const { enquiry, closeEnquiry } = useUI();
@@ -75,6 +94,7 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
   const { enquiry, toast } = useUI();
   const { city } = useCity();
   const { user } = useUser();
+  const pathname = usePathname();
   const kind = enquiry?.kind ?? "callback";
   const copy = COPY[kind];
 
@@ -89,10 +109,12 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [reference, setReference] = useState("");
+  const [website, setWebsite] = useState("");
   const days = useState(() => nextDays(7))[0];
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === "sending") return;
     const next: Record<string, string> = {};
     if (name.trim().length < 2) next.name = "Please enter your full name";
     if (!/^[6-9]\d{9}$/.test(phone.replace(/\D/g, "").slice(-10))) next.phone = "Enter a valid 10-digit mobile number";
@@ -101,12 +123,49 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
     setErrors(next);
     if (Object.keys(next).length) return;
 
+    const subject = enquiry?.subject ? `${enquiry.subject}${enquiry.detail ? ` · ${enquiry.detail}` : ""}`.slice(0, 200) : undefined;
+    const common = {
+      name: name.trim(),
+      phone,
+      city: getCity(citySlug).name,
+      subject,
+      carSlug: enquiry?.carSlug,
+      usedCarId: enquiry?.usedCarId,
+      dealerId: enquiry?.dealerId,
+      source: pathname,
+      website,
+    };
+    const type = LEAD_TYPE[kind];
+    const input: LeadInput =
+      type === "test_drive" || type === "inspection"
+        ? { ...common, type, details: { date, slot } }
+        : type === "best_price"
+          ? { ...common, type, details: { timeline } }
+          : { ...common, type, message: message.trim() || undefined };
+
     setStatus("sending");
-    window.setTimeout(() => {
-      setReference(`MG-${Math.random().toString(36).slice(2, 8).toUpperCase()}`);
+    try {
+      const res = await submitLeadAction(input);
+      if (!res.ok) {
+        setStatus("idle");
+        const mapped: Record<string, string> = {};
+        let unplaced: string | undefined;
+        for (const [key, msg] of Object.entries(res.fieldErrors ?? {})) {
+          if (FIELD_FOR[key]) mapped[FIELD_FOR[key]] ??= msg;
+          else unplaced ??= msg;
+        }
+        setErrors(mapped);
+        const note = unplaced ?? res.error;
+        if (note) toast(note, { tone: "error" });
+        return;
+      }
+      setReference(res.reference);
       setStatus("done");
       toast(`${copy.title} — request received`, { tone: "success" });
-    }, 900);
+    } catch {
+      setStatus("idle");
+      toast(NETWORK_ERROR, { tone: "error" });
+    }
   };
 
   if (status === "done") {
@@ -128,7 +187,6 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
           <span className="text-muted">Reference</span>
           <span className="font-mono font-semibold tracking-wider">{reference}</span>
         </div>
-        <p className="mt-6 text-[12px] text-muted">This is a demo — no data has been sent anywhere.</p>
         <Button variant="dark" className="mt-8 w-full" onClick={onClose}>
           Done
         </Button>
@@ -138,6 +196,7 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
 
   return (
     <form onSubmit={submit} noValidate>
+      <Honeypot value={website} onChange={setWebsite} />
       <div className="flex items-start justify-between gap-6 border-b border-line px-6 py-5 sm:px-8">
         <div className="flex gap-4">
           <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-full bg-mist text-ink">{copy.icon}</span>
@@ -173,7 +232,7 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
             placeholder="98765 43210"
           />
         </div>
-        <SelectField label="City" value={citySlug} onChange={(e) => setCitySlug(e.target.value)} options={cities.map((c) => ({ value: c.slug, label: c.name }))} />
+        <SelectField label="City" value={citySlug} onChange={(e) => setCitySlug(e.target.value)} options={cities.map((c) => ({ value: c.slug, label: c.name }))} error={errors.city} />
 
         {(kind === "test-drive" || kind === "inspection") && (
           <>

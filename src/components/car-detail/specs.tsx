@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { CarModel } from "@/types";
-import { brandName } from "@/data/brands";
+import { getCatalog } from "@/server/catalog";
 import { formatNumber } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { SpecRow } from "./section";
@@ -76,8 +76,10 @@ export function SpecTables({ car, dark, className }: { car: CarModel; dark?: boo
 }
 
 /** Horizontal bars measuring the car against its listed competitors. */
-export function SpecComparison({ car }: { car: CarModel }) {
-  const rivals = competitorsOf(car, 3);
+export async function SpecComparison({ car }: { car: CarModel }) {
+  const cat = await getCatalog();
+  const { brandName } = cat;
+  const rivals = competitorsOf(car, cat, 3);
   if (rivals.length === 0) return null;
   const field = [car, ...rivals];
 

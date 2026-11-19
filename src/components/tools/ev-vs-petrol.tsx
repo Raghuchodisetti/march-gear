@@ -2,26 +2,25 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, type ReactNode } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { ArrowUpRight, Zap } from "lucide-react";
 import type { CarModel } from "@/types";
-import { cars, electricCars, isElectric } from "@/data/cars";
-import { brandName } from "@/data/brands";
+import { carTitle, isElectric } from "@/lib/catalog";
 import { CO2_PER_KWH, CO2_PER_LITRE, FUEL_PRICE, HOME_TARIFF, TREE_KG_PER_YEAR } from "@/data/tools-assumptions";
 import { formatINR, formatNumber, formatPrice, formatPriceShort } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { RangeField, SelectField } from "@/components/ui/field";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { evKwhPerKm, evVsIce, formatYears, iceKmpl, splitPrice } from "./calc";
 import { CostLineChart } from "./cost-line-chart";
 import { EstimateNote, Readout, StepLabel } from "./instrument";
 
-const title = (c: CarModel) => `${brandName(c.brand)} ${c.name}`;
-const byName = (a: CarModel, b: CarModel) => title(a).localeCompare(title(b));
-
-const evs = electricCars().sort(byName);
-const ices = cars.filter((c) => !isElectric(c)).sort(byName);
-
 export function EvVsPetrol() {
+  const { cars, electricCars, brandName } = useCatalog();
+  const { evs, ices } = useMemo(() => {
+    const byName = (a: CarModel, b: CarModel) => carTitle(a, brandName).localeCompare(carTitle(b, brandName));
+    return { evs: electricCars().sort(byName), ices: cars.filter((c) => !isElectric(c)).sort(byName) };
+  }, [cars, electricCars, brandName]);
   const [evSlug, setEvSlug] = useState("tata-nexon-ev");
   const [iceSlug, setIceSlug] = useState("hyundai-creta");
   const [dailyKm, setDailyKm] = useState(40);
@@ -194,6 +193,8 @@ function Contender({
   onChange: (slug: string) => void;
   facts: string[];
 }) {
+  const { brandName } = useCatalog();
+  const title = (c: CarModel) => carTitle(c, brandName);
   return (
     <div className="min-w-0">
       <div className="relative aspect-[2/1] overflow-hidden bg-mist md:aspect-[16/9]">

@@ -1,29 +1,46 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { CalendarCheck, Check, Loader2, ShieldCheck } from "lucide-react";
-import { cars } from "@/data/cars";
-import { brandName } from "@/data/brands";
 import { cities } from "@/data/cities";
 import { pdiPlans, type PdiPlanId } from "@/data/pdi";
 import { formatINR } from "@/lib/format";
 import { useStore } from "@/lib/store";
 import { EASE } from "@/lib/motion";
+import { submitLeadAction } from "@/server/actions/leads";
 import { Button } from "@/components/ui/button";
 import { Label, Segmented, SelectField, TextField } from "@/components/ui/field";
+import { Honeypot } from "@/components/forms/honeypot";
 import { useCity, useUI, useUser } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { pdiPlanStore } from "./pdi-plans";
 
-const carOptions = cars
-  .map((c) => ({ value: c.slug, label: `${brandName(c.brand)} ${c.name}` }))
-  .sort((a, b) => a.label.localeCompare(b.label));
+/** Server field paths → this form's error slots. */
+const FIELD_FOR: Record<string, string> = {
+  name: "name",
+  phone: "phone",
+  city: "city",
+  subject: "car",
+  carSlug: "car",
+  "details.dealer": "dealer",
+  "details.deliveryDate": "date",
+};
+
+const NETWORK_ERROR = "Couldn't send — check your connection and try again.";
 
 export function PdiBooking() {
   const plan = useStore(pdiPlanStore);
   const { city } = useCity();
   const { user } = useUser();
   const { toast } = useUI();
+  const pathname = usePathname();
+  const { cars, brandName } = useCatalog();
+  const carOptions = useMemo(
+    () => cars.map((c) => ({ value: c.slug, label: `${brandName(c.brand)} ${c.name}` })).sort((a, b) => a.label.localeCompare(b.label)),
+    [cars, brandName],
+  );
 
   const [car, setCar] = useState("");
   const [citySlug, setCitySlug] = useState(city.slug);
@@ -35,13 +52,15 @@ export function PdiBooking() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [reference, setReference] = useState("");
+  const [website, setWebsite] = useState("");
 
   const selectedPlan = pdiPlans.find((p) => p.id === plan) ?? pdiPlans[1];
   const carLabel = carOptions.find((c) => c.value === car)?.label;
   const cityName = cities.find((c) => c.slug === citySlug)?.name;
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === "sending") return;
     const next: Record<string, string> = {};
     if (!car) next.car = "Choose the car you're buying";
     if (dealer.trim().length < 2) next.dealer = "Enter the dealership name";
@@ -56,11 +75,38 @@ export function PdiBooking() {
     if (Object.keys(next).length) return;
 
     setStatus("sending");
-    window.setTimeout(() => {
-      setReference(`PDI-${Math.random().toString(36).slice(2, 8).toUpperCase()}`);
+    try {
+      const res = await submitLeadAction({
+        type: "pdi_booking",
+        name: name.trim(),
+        phone,
+        city: cityName ?? "",
+        subject: carLabel ?? "",
+        carSlug: car,
+        source: pathname,
+        website,
+        details: { plan: selectedPlan.name, dealer: dealer.trim(), deliveryDate: date },
+      });
+      if (!res.ok) {
+        setStatus("idle");
+        const mapped: Record<string, string> = {};
+        let unplaced: string | undefined;
+        for (const [key, msg] of Object.entries(res.fieldErrors ?? {})) {
+          if (FIELD_FOR[key]) mapped[FIELD_FOR[key]] ??= msg;
+          else unplaced ??= msg;
+        }
+        setErrors(mapped);
+        const note = unplaced ?? res.error;
+        if (note) toast(note, { tone: "error" });
+        return;
+      }
+      setReference(res.reference);
       setStatus("done");
       toast("PDI booked — an expert will call to confirm", { tone: "success" });
-    }, 900);
+    } catch {
+      setStatus("idle");
+      toast(NETWORK_ERROR, { tone: "error" });
+    }
   };
 
   if (status === "done") {
@@ -82,7 +128,7 @@ export function PdiBooking() {
           <Row label="Delivery date" value={deliveryDate} />
           <Row label="Contact" value={`${name} · +91 ${phone}`} />
         </dl>
-        <p className="mt-6 text-[12px] text-muted">This is a demo — no booking has been sent and no payment taken.</p>
+        <p className="mt-6 text-[12px] text-muted">No payment has been taken — you pay after the inspection.</p>
         <Button variant="outline" className="mt-6" onClick={() => setStatus("idle")}>
           Book another PDI
         </Button>
@@ -92,6 +138,7 @@ export function PdiBooking() {
 
   return (
     <form onSubmit={submit} noValidate className="border border-line bg-white">
+      <Honeypot value={website} onChange={setWebsite} />
       <div className="border-b border-line p-6 md:p-8">
         <Label>Choose a plan</Label>
         <Segmented<PdiPlanId>
@@ -111,7 +158,7 @@ export function PdiBooking() {
           <SelectField label="Car you're buying" placeholder="Select your car" value={car} onChange={(e) => setCar(e.target.value)} options={carOptions} aria-invalid={errors.car ? true : undefined} />
           {errors.car && <p className="mt-1.5 text-xs text-red">{errors.car}</p>}
         </div>
-        <SelectField label="City" value={citySlug} onChange={(e) => setCitySlug(e.target.value)} options={cities.map((c) => ({ value: c.slug, label: c.name }))} />
+        <SelectField label="City" value={citySlug} onChange={(e) => setCitySlug(e.target.value)} options={cities.map((c) => ({ value: c.slug, label: c.name }))} error={errors.city} />
         <TextField label="Dealership name" placeholder="e.g. Torque Motors, Indiranagar" value={dealer} onChange={(e) => setDealer(e.target.value)} error={errors.dealer} />
         <TextField label="Delivery date" type="date" value={date} onChange={(e) => setDate(e.target.value)} error={errors.date} />
         <TextField label="Your name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} error={errors.name} placeholder="Full name" />

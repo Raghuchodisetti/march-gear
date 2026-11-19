@@ -1,14 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Play } from "lucide-react";
-import { articles, getAuthor } from "@/data/news";
+import { getCatalog } from "@/server/catalog";
 import { formatDate } from "@/lib/format";
 import { topicLabel } from "@/components/editorial/primitives";
 import { cn } from "@/lib/utils";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
 
-export function AutomotiveStories() {
+export async function AutomotiveStories() {
+  const { articles, getAuthor } = await getCatalog();
   const written = articles.filter((a) => a.category !== "Video");
   const videos = articles.filter((a) => a.category === "Video");
   const lead = written.find((a) => a.category === "First Drive") ?? written[0];
@@ -16,7 +17,7 @@ export function AutomotiveStories() {
   const author = getAuthor(lead.authorId);
 
   return (
-    <section aria-labelledby="stories-title" className="py-20 md:py-28">
+    <section aria-labelledby="stories-title" className="py-14 md:py-20">
       <div className="container-x">
         <div className="flex flex-col gap-6 border-b border-ink pb-8 md:flex-row md:items-end md:justify-between">
           <div>

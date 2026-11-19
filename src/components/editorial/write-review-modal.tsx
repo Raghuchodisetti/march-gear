@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Check } from "lucide-react";
-import type { OwnerReview } from "@/types";
+import { Check, Loader2 } from "lucide-react";
+import { submitOwnerReviewAction } from "@/server/actions/leads";
 import { Modal } from "@/components/ui/overlay";
 import { SelectField, TextArea, TextField } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
+import { Honeypot } from "@/components/forms/honeypot";
 import { useUser } from "@/components/providers/app-provider";
 import { cn } from "@/lib/utils";
 import { StarInput } from "./star-input";
@@ -20,51 +21,47 @@ const OWNED_FOR = ["Less than 6 months", "6 – 12 months", "1 – 2 years", "2 
 const MIN_BODY = 40;
 const MIN_TITLE = 6;
 
-type Field = "car" | "rating" | "title" | "body" | "name" | "km";
+type Field = "car" | "variant" | "rating" | "title" | "body" | "name" | "city" | "km";
+const ORDER: Field[] = ["car", "variant", "rating", "title", "body", "km", "name", "city"];
+/** Server field → form field (the detailed ratings follow the overall one). */
+const FIELD_FOR: Record<string, Field> = {
+  carSlug: "car",
+  variant: "variant",
+  rating: "rating",
+  "ratings.exterior": "rating",
+  "ratings.comfort": "rating",
+  "ratings.performance": "rating",
+  "ratings.value": "rating",
+  title: "title",
+  body: "body",
+  kmDriven: "km",
+  name: "name",
+  city: "city",
+};
 
-/** Event-time only: a unique id for a locally published review. */
-function localId() {
-  return `local-${Date.now().toString(36)}`;
-}
-
-function todayIso() {
-  const d = new Date();
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
-}
-
-/** "Write a review" dialog. The form mounts fresh each time it opens. */
+/**
+ * "Write a review" dialog. The form mounts fresh each time it opens.
+ * Reviews are sent for moderation and only appear once the MarchGear team approves them.
+ */
 export function WriteReviewModal({
   open,
   onClose,
   cars,
   defaultCar,
-  onSubmit,
 }: {
   open: boolean;
   onClose: () => void;
   cars: CarOption[];
   defaultCar?: string;
-  onSubmit: (review: OwnerReview) => void;
 }) {
   return (
     <Modal open={open} onClose={onClose} title="Write an owner review" description="Share what it’s really like to live with your car." size="lg">
-      <ReviewForm cars={cars} defaultCar={defaultCar} onSubmit={onSubmit} onClose={onClose} />
+      <ReviewForm cars={cars} defaultCar={defaultCar} onClose={onClose} />
     </Modal>
   );
 }
 
-function ReviewForm({
-  cars,
-  defaultCar,
-  onSubmit,
-  onClose,
-}: {
-  cars: CarOption[];
-  defaultCar?: string;
-  onSubmit: (review: OwnerReview) => void;
-  onClose: () => void;
-}) {
+function ReviewForm({ cars, defaultCar, onClose }: { cars: CarOption[]; defaultCar?: string; onClose: () => void }) {
   const { user } = useUser();
   const [car, setCar] = useState(defaultCar ?? "");
   const [variant, setVariant] = useState("");
@@ -75,10 +72,15 @@ function ReviewForm({
   const [body, setBody] = useState("");
   const [name, setName] = useState(user?.name ?? "");
   const [city, setCity] = useState(user?.city ?? "");
+  const [website, setWebsite] = useState("");
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
-  const [done, setDone] = useState<OwnerReview | null>(null);
+  const [formError, setFormError] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [done, setDone] = useState<{ name: string; carLabel: string } | null>(null);
 
   const carOption = cars.find((c) => c.value === car);
+  // A car with a single variant doesn't need the extra step.
+  const variantValue = variant || (carOption?.variants.length === 1 ? carOption.variants[0] : "");
   const bodyLength = body.trim().length;
 
   const clearError = (field: Field) => setErrors((e) => (e[field] ? { ...e, [field]: undefined } : e));
@@ -91,52 +93,76 @@ function ReviewForm({
     setKm("");
     setVariant("");
     setErrors({});
+    setFormError(null);
   };
 
-  const submit = (e: FormEvent) => {
+  const focusFirst = (errs: Partial<Record<Field, string>>) => {
+    const first = ORDER.find((f) => errs[f]);
+    const target =
+      first === "rating"
+        ? document.querySelector<HTMLElement>('#wr-rating [role="radio"][tabindex="0"]')
+        : first
+          ? document.getElementById(`wr-${first}`)
+          : null;
+    target?.focus();
+    return Boolean(first);
+  };
+
+  const submit = async (e: FormEvent) => {
     e.preventDefault();
+    if (busy) return;
     const next: Partial<Record<Field, string>> = {};
     const kmValue = km.trim() ? Number(km.replace(/[,\s]/g, "")) : 0;
     if (!carOption) next.car = "Choose the car you own";
+    else if (!variantValue && carOption.variants.length > 0) next.variant = "Choose your variant";
     if (!rating) next.rating = "Select an overall rating";
     if (title.trim().length < MIN_TITLE) next.title = `Add a short headline (at least ${MIN_TITLE} characters)`;
     if (bodyLength < MIN_BODY) next.body = `Tell us a little more — at least ${MIN_BODY} characters`;
-    if (!name.trim()) next.name = "Add your name as you’d like it to appear";
-    if (!Number.isFinite(kmValue) || kmValue < 0 || kmValue > 999_999) next.km = "Enter kilometres as a number, e.g. 12500";
+    if (!Number.isInteger(kmValue) || kmValue < 0 || kmValue > 999_999) next.km = "Enter kilometres as a whole number, e.g. 12500";
+    if (name.trim().length < 2) next.name = "Add your name as you’d like it to appear";
+    if (city.trim().length < 2) next.city = "Enter your city";
     setErrors(next);
-    if (Object.keys(next).length > 0 || !carOption) {
-      const first = (["car", "rating", "title", "body", "name", "km"] as Field[]).find((f) => next[f]);
-      const target =
-        first === "rating"
-          ? document.querySelector<HTMLElement>('#wr-rating [role="radio"][tabindex="0"]')
-          : first
-            ? document.getElementById(`wr-${first}`)
-            : null;
-      target?.focus();
-      return;
-    }
+    setFormError(null);
+    if (focusFirst(next) || !carOption) return;
 
-    const review: OwnerReview = {
-      id: localId(),
-      carSlug: carOption.value,
-      name: name.trim(),
-      city: city.trim() || "India",
-      variant: variant || carOption.variants[0] || "—",
-      ownedFor,
-      kmDriven: Math.round(kmValue),
-      rating,
-      title: title.trim(),
-      body: body.trim(),
-      date: todayIso(),
-      helpful: 0,
-      ratings: { exterior: rating, comfort: rating, performance: rating, value: rating },
-    };
-    onSubmit(review);
-    setDone(review);
+    const reviewer = name.trim().replace(/\s+/g, " ");
+    // Bots fill the hidden field: pretend it worked and send nothing.
+    if (website) return setDone({ name: reviewer, carLabel: carOption.label });
+
+    setBusy(true);
+    try {
+      const res = await submitOwnerReviewAction({
+        carSlug: carOption.value,
+        variant: variantValue || "Not specified",
+        rating,
+        ownedFor,
+        kmDriven: kmValue,
+        title: title.trim(),
+        body: body.trim(),
+        name: reviewer,
+        city: city.trim(),
+        ratings: { exterior: rating, comfort: rating, performance: rating, value: rating },
+      });
+      if (!res.ok) {
+        const mapped: Partial<Record<Field, string>> = {};
+        let unplaced: string | undefined;
+        for (const [key, msg] of Object.entries(res.fieldErrors ?? {})) {
+          if (FIELD_FOR[key]) mapped[FIELD_FOR[key]] ??= msg;
+          else unplaced ??= msg;
+        }
+        setErrors(mapped);
+        if (!focusFirst(mapped) || unplaced) setFormError(unplaced ?? res.error ?? "We couldn't send your review. Please try again.");
+        return;
+      }
+      setDone({ name: reviewer, carLabel: carOption.label });
+    } catch {
+      setFormError("Couldn't reach the server. Check your connection and try again.");
+    } finally {
+      setBusy(false);
+    }
   };
 
   if (done) {
-    const carLabel = cars.find((c) => c.value === done.carSlug)?.label ?? "your car";
     return (
       <div className="px-6 py-12 text-center sm:px-10" role="status">
         <span className="mx-auto flex size-14 items-center justify-center rounded-full bg-ink text-white">
@@ -144,14 +170,14 @@ function ReviewForm({
         </span>
         <h3 className="type-h3 mt-6 text-balance">Thank you, {done.name.split(" ")[0]}.</h3>
         <p className="mx-auto mt-3 max-w-sm text-[15px] leading-relaxed text-muted">
-          Your review of the {carLabel} is now at the top of the list. In the live product a moderator reads every review before it is published.
+          Your review of the {done.carLabel} has been sent. It&apos;ll appear here once the MarchGear team has checked it.
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Button variant="dark" onClick={onClose} data-autofocus>
-            View my review
+            Done
           </Button>
           <Button variant="outline" onClick={reset}>
-            Write another
+            Review another car
           </Button>
         </div>
       </div>
@@ -160,35 +186,39 @@ function ReviewForm({
 
   return (
     <form onSubmit={submit} noValidate className="space-y-6 px-6 py-6 sm:px-8 sm:py-8">
+      <Honeypot value={website} onChange={setWebsite} />
+      {formError && (
+        <p role="alert" className="border-l-2 border-red bg-red-50 px-3 py-2.5 text-[13.5px] text-red">
+          {formError}
+        </p>
+      )}
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-        <div>
-          <SelectField
-            id="wr-car"
-            label="Your car"
-            placeholder="Select a car"
-            options={cars.map(({ value, label }) => ({ value, label }))}
-            value={car}
-            onChange={(e) => {
-              setCar(e.target.value);
-              setVariant("");
-              clearError("car");
-            }}
-            aria-invalid={errors.car ? true : undefined}
-            aria-describedby={errors.car ? "wr-car-error" : undefined}
-            data-autofocus={!defaultCar ? true : undefined}
-          />
-          {errors.car && (
-            <p id="wr-car-error" className="mt-1.5 text-xs text-red">
-              {errors.car}
-            </p>
-          )}
-        </div>
         <SelectField
+          id="wr-car"
+          label="Your car"
+          placeholder="Select a car"
+          options={cars.map(({ value, label }) => ({ value, label }))}
+          value={car}
+          onChange={(e) => {
+            setCar(e.target.value);
+            setVariant("");
+            clearError("car");
+            clearError("variant");
+          }}
+          error={errors.car}
+          data-autofocus={!defaultCar ? true : undefined}
+        />
+        <SelectField
+          id="wr-variant"
           label="Variant"
-          placeholder={carOption ? "Select variant (optional)" : "Choose a car first"}
+          placeholder={carOption ? "Select variant" : "Choose a car first"}
           options={(carOption?.variants ?? []).map((v) => ({ value: v, label: v }))}
-          value={variant}
-          onChange={(e) => setVariant(e.target.value)}
+          value={variantValue}
+          onChange={(e) => {
+            setVariant(e.target.value);
+            clearError("variant");
+          }}
+          error={errors.variant}
           disabled={!carOption}
         />
       </div>
@@ -264,13 +294,29 @@ function ReviewForm({
           }}
           error={errors.name}
         />
-        <TextField label="City (optional)" autoComplete="address-level2" value={city} onChange={(e) => setCity(e.target.value)} />
+        <TextField
+          id="wr-city"
+          label="City"
+          autoComplete="address-level2"
+          value={city}
+          onChange={(e) => {
+            setCity(e.target.value);
+            clearError("city");
+          }}
+          error={errors.city}
+        />
       </div>
 
       <div className="flex flex-col-reverse gap-3 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-[12px] leading-relaxed text-muted">Demo only — your review is kept on this page and not sent anywhere.</p>
-        <Button type="submit" variant="primary" className="shrink-0">
-          Publish review
+        <p className="text-[12px] leading-relaxed text-muted">Every review is read by the MarchGear team before it&apos;s published.</p>
+        <Button type="submit" variant="primary" className="shrink-0" disabled={busy}>
+          {busy ? (
+            <>
+              <Loader2 aria-hidden className="size-4 animate-spin" /> Sending…
+            </>
+          ) : (
+            "Submit review"
+          )}
         </Button>
       </div>
     </form>

@@ -68,6 +68,24 @@ export function createPersistentStore<T>(key: string, initial: T): PersistentSto
   };
 }
 
+/** Same shape as a persistent store, but kept in memory only. */
+export function createMemoryStore<T>(initial: T): PersistentStore<T> {
+  let state = initial;
+  const listeners = new Set<Listener>();
+  return {
+    get: () => state,
+    getServer: () => initial,
+    set: (next) => {
+      state = typeof next === "function" ? (next as (prev: T) => T)(state) : next;
+      listeners.forEach((l) => l());
+    },
+    subscribe: (listener) => {
+      listeners.add(listener);
+      return () => listeners.delete(listener);
+    },
+  };
+}
+
 export function useStore<T>(store: PersistentStore<T>) {
   return useSyncExternalStore(store.subscribe, store.get, store.getServer);
 }
@@ -79,16 +97,23 @@ export interface Wishlist {
   used: string[];
 }
 
-export interface MockUser {
+/** The signed-in customer, cached on the device for a fast first paint. The server session is the source of truth. */
+export interface AccountUser {
+  id: number;
   name: string;
   email: string;
   phone: string;
   city: string;
   memberSince: string;
+  role: "customer" | "editor" | "admin";
 }
+/** @deprecated Use AccountUser. */
+export type MockUser = AccountUser;
 
 export const wishlistStore = createPersistentStore<Wishlist>("mg.wishlist", { cars: [], used: [] });
 export const compareStore = createPersistentStore<string[]>("mg.compare", []);
 export const cityStore = createPersistentStore<string>("mg.city", "mumbai");
-export const userStore = createPersistentStore<MockUser | null>("mg.user", null);
+export const userStore = createPersistentStore<AccountUser | null>("mg.account", null);
+/** True once the server has confirmed who (if anyone) is signed in. */
+export const sessionReadyStore = createMemoryStore(false);
 export const announcementStore = createPersistentStore<boolean>("mg.announcement.dismissed", false);

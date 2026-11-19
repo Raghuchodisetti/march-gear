@@ -9,6 +9,19 @@ const nextConfig: NextConfig = {
     remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
     qualities: [60, 75, 85],
   },
+  async headers() {
+    return [
+      {
+        // The admin panel must never be framed (clickjacking).
+        source: "/admin/:path*",
+        headers: [
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "Content-Security-Policy", value: "frame-ancestors 'none'" },
+          { key: "Referrer-Policy", value: "same-origin" },
+        ],
+      },
+    ];
+  },
   turbopack: {
     rules: {
       "*.css": {

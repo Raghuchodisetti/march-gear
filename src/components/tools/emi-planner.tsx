@@ -2,14 +2,13 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { getCar } from "@/data/cars";
-import { brandName } from "@/data/brands";
 import { formatINR, formatPrice, formatPriceShort } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Chip } from "@/components/ui/chip";
 import { DemoNote } from "@/components/ui/badge";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
 import { EmiCalculator } from "@/components/tools/emi-calculator";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { amortise } from "./calc";
 import { Readout, StepLabel } from "./instrument";
 import { ScheduleChart } from "./schedule-chart";
@@ -29,9 +28,9 @@ const PICKS = [
 const DEFAULTS = { price: 1_200_000, downPct: 20, rate: 9.25, years: 5 };
 type Inputs = typeof DEFAULTS;
 
-const picks = PICKS.map((slug) => getCar(slug)).filter((c) => c !== undefined);
-
 export function EmiPlanner() {
+  const { getCar, brandName } = useCatalog();
+  const picks = useMemo(() => PICKS.map((slug) => getCar(slug)).filter((c) => c !== undefined), [getCar]);
   const [pick, setPick] = useState<string | null>(null);
   const [inputs, setInputs] = useState<Inputs>(DEFAULTS);
   // Bumped on every pick so re-selecting the same chip also resets the calculator.
@@ -97,7 +96,7 @@ export function EmiPlanner() {
         </div>
       </section>
 
-      <section aria-labelledby="schedule-heading" className="border-t border-line py-20 md:py-28">
+      <section aria-labelledby="schedule-heading" className="border-t border-line py-14 md:py-20">
         <div className="container-x">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
             <div className="lg:col-span-5">

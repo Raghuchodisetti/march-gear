@@ -19,12 +19,14 @@ export function BottomActionBar({
   ev,
   subject,
   detail,
+  carSlug,
   tone = "light",
 }: {
   exShowroom: number;
   ev: boolean;
   subject: string;
   detail: string;
+  carSlug?: string;
   tone?: "light" | "dark";
 }) {
   const { city } = useCity();
@@ -68,11 +70,11 @@ export function BottomActionBar({
         <Button
           variant={dark ? "outline-light" : "outline"}
           className="px-3.5 text-[13px]"
-          onClick={() => openEnquiry({ kind: "test-drive", subject, detail })}
+          onClick={() => openEnquiry({ kind: "test-drive", subject, detail, carSlug })}
         >
           Test drive
         </Button>
-        <Button className="px-3.5 text-[13px]" onClick={() => openEnquiry({ kind: "best-price", subject, detail: `${detail} · ${city.name}` })}>
+        <Button className="px-3.5 text-[13px]" onClick={() => openEnquiry({ kind: "best-price", subject, detail: `${detail} · ${city.name}`, carSlug })}>
           Best price
         </Button>
       </div>
@@ -82,6 +84,6 @@ export function BottomActionBar({
 
 /** Model-page wrapper: follows the variant chosen in the hero. */
 export function ModelBottomBar() {
-  const { variant, ev, title } = useCarDetail();
-  return <BottomActionBar exShowroom={variant.price} ev={ev} subject={title} detail={variant.name} />;
+  const { car, variant, ev, title } = useCarDetail();
+  return <BottomActionBar exShowroom={variant.price} ev={ev} subject={title} detail={variant.name} carSlug={car.slug} />;
 }

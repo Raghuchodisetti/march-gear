@@ -1,17 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Check, Plus, Search } from "lucide-react";
 import type { CarModel } from "@/types";
-import { cars } from "@/data/cars";
-import { brandName, brands } from "@/data/brands";
 import { formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Chip } from "@/components/ui/chip";
 import { Modal } from "@/components/ui/overlay";
-
-const BRANDS_WITH_CARS = brands.filter((b) => cars.some((c) => c.brand === b.slug));
+import { useCatalog } from "@/components/providers/catalog-provider";
 
 /** Modal car chooser: search, brand chips and a thumbnail list. Suggests rivals of the cars already chosen. */
 export function CarPicker({
@@ -27,6 +24,8 @@ export function CarPicker({
   onPick: (slug: string) => void;
   max: number;
 }) {
+  const { cars, brands, brandName } = useCatalog();
+  const brandsWithCars = useMemo(() => brands.filter((b) => cars.some((c) => c.brand === b.slug)), [brands, cars]);
   const [query, setQuery] = useState("");
   const [brand, setBrand] = useState("");
   const [wasOpen, setWasOpen] = useState(open);
@@ -73,7 +72,7 @@ export function CarPicker({
           <Chip selected={brand === ""} onClick={() => setBrand("")} className="h-8 px-3 text-[12.5px]">
             All brands
           </Chip>
-          {BRANDS_WITH_CARS.map((b) => (
+          {brandsWithCars.map((b) => (
             <Chip key={b.slug} selected={brand === b.slug} onClick={() => setBrand(brand === b.slug ? "" : b.slug)} className="h-8 px-3 text-[12.5px]">
               {b.name}
             </Chip>
@@ -96,6 +95,7 @@ export function CarPicker({
 }
 
 function PickerSection({ title, items, selected, onPick, full }: { title: string; items: CarModel[]; selected: string[]; onPick: (slug: string) => void; full: boolean }) {
+  const { brandName } = useCatalog();
   return (
     <div className="py-2">
       <p className="type-eyebrow px-3 pb-2 pt-3 text-muted">{title}</p>

@@ -1,27 +1,30 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowLeft, Check, RotateCcw, Wrench } from "lucide-react";
+import { ArrowLeft, Check, Loader2, RotateCcw, Wrench } from "lucide-react";
 import type { FuelType } from "@/types";
+import type { Catalog } from "@/lib/catalog";
 import { cities } from "@/data/cities";
-import { usedCars } from "@/data/used-cars";
-import { brandName } from "@/data/brands";
 import { formatKm, formatPrice, formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
+import { submitLeadAction } from "@/server/actions/leads";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { DemoNote } from "@/components/ui/badge";
 import { Label, RangeField, Segmented, SelectField, TextField } from "@/components/ui/field";
+import { Honeypot } from "@/components/forms/honeypot";
 import { useUI } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import {
   FUELS,
-  VALUATION_BRANDS,
   VALUATION_YEAR,
   YEARS,
   modelsForBrand,
   valuate,
+  valuationBrands,
   valuationTitle,
   type GearboxKind,
 } from "./valuation";
@@ -83,6 +86,40 @@ const EMPTY: Draft = {
 
 const digits = (s: string) => s.replace(/\D/g, "");
 
+const NETWORK_ERROR = "Couldn't send — check your connection and try again.";
+
+/** Server field paths → the step that collects them. */
+const STEP_FOR: Record<string, number> = {
+  "details.brand": 0,
+  "details.model": 1,
+  carSlug: 1,
+  subject: 1,
+  "details.year": 2,
+  "details.fuel": 3,
+  "details.transmission": 3,
+  "details.km": 4,
+  city: 5,
+  name: 6,
+  phone: 6,
+};
+
+/** The instant valuation shown on the result screen. */
+const valuationFor = (d: Draft, catalog: Catalog) =>
+  valuate(
+    {
+      brand: d.brand,
+      modelSlug: d.modelSlug || undefined,
+      year: d.year ?? VALUATION_YEAR,
+      km: d.km,
+      fuel: d.fuel ?? "Petrol",
+      transmission: d.transmission ?? "Manual",
+      owners: 1,
+      condition: "good",
+      city: d.city,
+    },
+    catalog,
+  );
+
 function validate(step: number, d: Draft): string | undefined {
   switch (STEPS[step]?.key) {
     case "brand":
@@ -110,10 +147,16 @@ function validate(step: number, d: Draft): string | undefined {
  */
 export function SellFlow({ className }: { className?: string }) {
   const { openEnquiry, toast } = useUI();
+  const pathname = usePathname();
+  const catalog = useCatalog();
+  const { brandName } = catalog;
+  const brandOptions = useMemo(() => valuationBrands(catalog), [catalog]);
   const [step, setStep] = useState(0);
   const [dir, setDir] = useState(1);
   const [draft, setDraft] = useState<Draft>(EMPTY);
   const [error, setError] = useState<string | undefined>();
+  const [sending, setSending] = useState(false);
+  const [website, setWebsite] = useState("");
   const interacted = useRef(false);
   const advanceTimer = useRef<number | undefined>(undefined);
 
@@ -143,15 +186,66 @@ export function SellFlow({ className }: { className?: string }) {
     advanceTimer.current = window.setTimeout(() => go(target), 240);
   };
 
-  const next = (e?: FormEvent) => {
+  /** Stores the valuation request. Resolves true only when the server accepted it. */
+  const sendLead = async () => {
+    const brand = brandName(draft.brand);
+    const model = catalog.getCar(draft.modelSlug)?.name ?? draft.modelName.trim();
+    const year = draft.year ?? VALUATION_YEAR;
+    const r = valuationFor(draft, catalog);
+    setSending(true);
+    try {
+      const res = await submitLeadAction({
+        type: "sell_car",
+        name: draft.name.trim(),
+        phone: digits(draft.phone),
+        city: draft.city,
+        subject: `${brand} ${model} ${year}`,
+        carSlug: draft.modelSlug || undefined,
+        source: pathname,
+        website,
+        details: {
+          brand,
+          model,
+          year,
+          fuel: draft.fuel ?? "",
+          transmission: draft.transmission ?? "",
+          km: draft.km,
+          estimate: formatPriceRange(r.byCondition.fair.mid, r.byCondition.excellent.mid),
+        },
+      });
+      setSending(false);
+      if (res.ok) return true;
+      // Take the visitor to the earliest step the server objected to.
+      const problems = Object.entries(res.fieldErrors ?? {});
+      const placed = problems.filter(([key]) => key in STEP_FOR).sort(([a], [b]) => STEP_FOR[a] - STEP_FOR[b]);
+      if (placed.length) {
+        const [key, msg] = placed[0];
+        if (STEP_FOR[key] !== step) go(STEP_FOR[key]);
+        setError(msg);
+      }
+      const note = problems.find(([key]) => !(key in STEP_FOR))?.[1] ?? res.error;
+      if (note) toast(note, { tone: "error" });
+      return false;
+    } catch {
+      setSending(false);
+      toast(NETWORK_ERROR, { tone: "error" });
+      return false;
+    }
+  };
+
+  const next = async (e?: FormEvent) => {
     e?.preventDefault();
+    if (sending) return;
     const problem = validate(step, draft);
     if (problem) {
       setError(problem);
       return;
     }
     if (step === RESULT - 1) {
-      toast(`Thanks, ${draft.name.trim().split(" ")[0]}. Your price is ready — we've also sent it by SMS.`, { tone: "success" });
+      if (!(await sendLead())) return;
+      toast(`Thanks, ${draft.name.trim().split(" ")[0]}. Your price is ready — our team will call you to confirm it.`, { tone: "success" });
+      go(RESULT);
+      return;
     }
     go(step + 1);
   };
@@ -161,9 +255,9 @@ export function SellFlow({ className }: { className?: string }) {
     go(0);
   };
 
-  const models = draft.brand ? modelsForBrand(draft.brand) : [];
+  const models = draft.brand ? modelsForBrand(draft.brand, catalog) : [];
   const title = draft.brand
-    ? valuationTitle({ brand: draft.brand, modelSlug: draft.modelSlug || undefined, year: draft.year ?? VALUATION_YEAR }, draft.modelName)
+    ? valuationTitle({ brand: draft.brand, modelSlug: draft.modelSlug || undefined, year: draft.year ?? VALUATION_YEAR }, catalog, draft.modelName)
     : "";
 
   const summary: { step: number; label: string }[] = [
@@ -286,7 +380,7 @@ export function SellFlow({ className }: { className?: string }) {
                         placeholder="More brands…"
                         value={POPULAR_BRANDS.includes(draft.brand) ? "" : draft.brand}
                         onChange={(e) => e.target.value && pick({ brand: e.target.value, modelSlug: "", modelName: "" })}
-                        options={VALUATION_BRANDS.filter((b) => !POPULAR_BRANDS.includes(b.value))}
+                        options={brandOptions.filter((b) => !POPULAR_BRANDS.includes(b.value))}
                       />
                     </div>
                   )}
@@ -402,6 +496,7 @@ export function SellFlow({ className }: { className?: string }) {
 
                   {STEPS[step].key === "contact" && (
                     <div className="space-y-5">
+                      <Honeypot value={website} onChange={setWebsite} />
                       <TextField
                         label="Your name"
                         autoComplete="name"
@@ -419,7 +514,7 @@ export function SellFlow({ className }: { className?: string }) {
                         onChange={(e) => update({ phone: e.target.value.replace(/[^\d ]/g, "").slice(0, 11) })}
                       />
                       <p className="text-[12px] leading-relaxed text-muted">
-                        We&apos;ll text your price and only call to schedule an inspection if you ask us to. No spam, ever.
+                        We&apos;ll only use your number to talk about this sale. No spam, ever.
                       </p>
                     </div>
                   )}
@@ -429,8 +524,15 @@ export function SellFlow({ className }: { className?: string }) {
                   <p className="min-h-5 text-[12.5px] text-red" role="alert">
                     {error}
                   </p>
-                  <Button type="submit" size="lg" className="mt-2 w-full" arrow>
-                    {step === RESULT - 1 ? "See my price" : "Continue"}
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="mt-2 w-full"
+                    arrow={!sending}
+                    disabled={sending}
+                    icon={sending ? <Loader2 className="size-4 animate-spin" aria-hidden /> : undefined}
+                  >
+                    {step === RESULT - 1 ? (sending ? "Sending…" : "See my price") : "Continue"}
                   </Button>
                 </div>
               </>
@@ -438,7 +540,9 @@ export function SellFlow({ className }: { className?: string }) {
               <ResultView
                 title={title}
                 draft={draft}
-                onInspect={() => openEnquiry({ kind: "inspection", subject: title, detail: `${formatKm(draft.km)} · ${draft.city}` })}
+                onInspect={() =>
+                  openEnquiry({ kind: "inspection", subject: title, detail: `${formatKm(draft.km)} · ${draft.city}`, carSlug: draft.modelSlug || undefined })
+                }
                 onRestart={restart}
                 headingRef={headingRef}
               />
@@ -495,17 +599,9 @@ function ResultView({
   onRestart: () => void;
   headingRef: (el: HTMLHeadingElement | null) => void;
 }) {
-  const r = valuate({
-    brand: draft.brand,
-    modelSlug: draft.modelSlug || undefined,
-    year: draft.year ?? VALUATION_YEAR,
-    km: draft.km,
-    fuel: draft.fuel ?? "Petrol",
-    transmission: draft.transmission ?? "Manual",
-    owners: 1,
-    condition: "good",
-    city: draft.city,
-  });
+  const catalog = useCatalog();
+  const { usedCars } = catalog;
+  const r = valuationFor(draft, catalog);
   const low = r.byCondition.fair.mid;
   const high = r.byCondition.excellent.mid;
   const similar = usedCars.some((c) => c.brand === draft.brand) ? `/used-cars?brand=${draft.brand}` : "/used-cars";

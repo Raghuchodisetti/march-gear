@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { SVGProps } from "react";
-import type { Article, ArticleCategory } from "@/types";
-import { getAuthor } from "@/data/news";
+import type { Article, ArticleCategory, Author } from "@/types";
 import { formatDate } from "@/lib/format";
 import { cn, initials } from "@/lib/utils";
 
@@ -73,18 +72,20 @@ export function InitialsAvatar({
 /** "Meera Nair · 17 Nov 2026 · 8 min read" */
 export function StoryMeta({
   article,
+  author,
   tone = "dark",
   showAuthor = true,
   showRead = true,
   className,
 }: {
   article: Pick<Article, "authorId" | "publishedOn" | "readMinutes" | "category" | "videoDuration">;
+  /** The article's author, resolved by the caller (catalog.getAuthor) */
+  author: Pick<Author, "name">;
   tone?: "dark" | "light";
   showAuthor?: boolean;
   showRead?: boolean;
   className?: string;
 }) {
-  const author = getAuthor(article.authorId);
   const parts = [
     showAuthor ? author.name : null,
     formatDate(article.publishedOn),

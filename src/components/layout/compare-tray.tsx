@@ -6,11 +6,10 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown, GitCompareArrows, Plus, X } from "lucide-react";
-import { getCar } from "@/data/cars";
-import { brandName } from "@/data/brands";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { MAX_COMPARE, useCompare } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
 /** Pages that carry their own sticky bottom action bar on mobile. */
 const HAS_BOTTOM_BAR = /^\/(cars|used-cars|electric-cars)\/[^/]+/;
@@ -18,6 +17,7 @@ const HAS_BOTTOM_BAR = /^\/(cars|used-cars|electric-cars)\/[^/]+/;
 export function CompareTray() {
   const pathname = usePathname();
   const { slugs, remove, clear } = useCompare();
+  const { getCar, brandName } = useCatalog();
   const [collapsed, setCollapsed] = useState(false);
 
   const cars = slugs.map(getCar).filter((c) => c !== undefined);

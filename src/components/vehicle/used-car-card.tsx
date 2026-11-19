@@ -1,19 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Cog, Fuel, Gauge, MapPin } from "lucide-react";
 import type { UsedCar } from "@/types";
-import { brandName } from "@/data/brands";
-import { calculateEmi } from "@/lib/finance";
 import { formatINR, formatKm, formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { VerifiedBadge } from "@/components/ui/badge";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { WishlistButton } from "./toggles";
-
-export const usedHref = (car: Pick<UsedCar, "id">) => `/used-cars/${car.id}`;
-export const usedTitle = (car: Pick<UsedCar, "brand" | "name" | "year">) => `${car.year} ${brandName(car.brand)} ${car.name}`;
-
-/** Indicative EMI with 20% down at 9.5% over 5 years. */
-export const usedEmi = (price: number) => calculateEmi(price * 0.8, 9.5, 60);
+import { usedEmi, usedHref, usedTitle } from "./card-utils";
 
 export function UsedCarCard({
   car,
@@ -27,7 +23,8 @@ export function UsedCarCard({
   priority?: boolean;
   sizes?: string;
 }) {
-  const title = usedTitle(car);
+  const { brandName } = useCatalog();
+  const title = usedTitle(car, brandName);
   return (
     <article
       className={cn(

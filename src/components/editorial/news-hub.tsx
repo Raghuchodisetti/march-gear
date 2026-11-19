@@ -7,11 +7,11 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, CalendarDays, Clock, Play, Search, X } from "lucide-react";
 import type { Article, ArticleCategory } from "@/types";
-import { getAuthor } from "@/data/news";
 import { formatDate } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { storyHref, topicLabel } from "./primitives";
 
 /** Topics in the order readers look for them. Values match ?category= links used across the site. */
@@ -214,6 +214,7 @@ function TopicPill({ category }: { category: ArticleCategory }) {
 }
 
 function TopStory({ article }: { article: Article }) {
+  const { getAuthor } = useCatalog();
   const author = getAuthor(article.authorId);
   return (
     <article className="group/top relative mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center lg:gap-12">

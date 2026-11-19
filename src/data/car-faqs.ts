@@ -1,6 +1,5 @@
 import type { CarModel } from "@/types";
-import { brandName } from "./brands";
-import { getCar } from "./cars";
+import type { Catalog } from "@/lib/catalog";
 import { formatDate, formatPrice, formatPriceRange } from "@/lib/format";
 
 export interface CarFaq {
@@ -13,7 +12,8 @@ const list = (items: string[]) =>
   items.length <= 1 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
 
 /** FAQs generated from catalogue data so every model page has accurate answers. */
-export function carFaqs(car: CarModel): CarFaq[] {
+export function carFaqs(car: CarModel, cat: Catalog): CarFaq[] {
+  const { brandName, getCar } = cat;
   const title = `${brandName(car.brand)} ${car.name}`;
   const ev = car.fuelTypes.includes("Electric");
   const variants = [...car.variants].sort((a, b) => a.price - b.price);

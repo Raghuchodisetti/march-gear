@@ -20,8 +20,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import type { Dealer } from "@/types";
-import type { DealerReview } from "@/data/dealer-reviews";
-import { brandName } from "@/data/brands";
+import type { DealerReview } from "@/lib/catalog";
+import { getCatalog } from "@/server/catalog";
 import { formatDate } from "@/lib/format";
 import { Stars } from "@/components/ui/rating";
 import { Eyebrow } from "@/components/ui/section-heading";
@@ -85,7 +85,7 @@ function distribution(rating: number) {
 
 export function DealerReviews({ dealer, reviews }: { dealer: Dealer; reviews: DealerReview[] }) {
   return (
-    <section aria-labelledby="reviews-title" className="bg-mist py-20 md:py-28">
+    <section aria-labelledby="reviews-title" className="bg-mist py-14 md:py-20">
       <div className="container-x grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-[96px]">
@@ -146,10 +146,11 @@ export function DealerReviews({ dealer, reviews }: { dealer: Dealer; reviews: De
 
 /* ── Nearby showrooms ─────────────────────────────────────────── */
 
-export function NearbyDealers({ items, city }: { items: { dealer: Dealer; km: number }[]; city: string }) {
+export async function NearbyDealers({ items, city }: { items: { dealer: Dealer; km: number }[]; city: string }) {
   if (items.length === 0) return null;
+  const { brandName } = await getCatalog();
   return (
-    <section aria-labelledby="nearby-title" className="py-20 md:py-28">
+    <section aria-labelledby="nearby-title" className="py-14 md:py-20">
       <div className="container-x">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>

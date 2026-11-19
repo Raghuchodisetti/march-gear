@@ -7,8 +7,7 @@ import { useState } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "motion/react";
 import { ChevronDown, Plus, X } from "lucide-react";
 import type { CarModel } from "@/types";
-import { cars, getCar, isElectric } from "@/data/cars";
-import { brandName } from "@/data/brands";
+import { isElectric } from "@/lib/catalog";
 import { formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
@@ -16,6 +15,7 @@ import { Stars } from "@/components/ui/rating";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { useCompare } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
 const DEFAULT = ["hyundai-creta", "toyota-hyryder", "honda-elevate"];
 const MAX = 4;
@@ -61,6 +61,7 @@ const METRICS: Metric[] = [
 export function CompareShowcase() {
   const router = useRouter();
   const compare = useCompare();
+  const { getCar, brandName } = useCatalog();
   const [slugs, setSlugs] = useState<string[]>(DEFAULT);
   const [adding, setAdding] = useState(false);
   const selected = slugs.map(getCar).filter((c): c is CarModel => Boolean(c));
@@ -80,7 +81,7 @@ export function CompareShowcase() {
   const cols = selected.length + (selected.length < MAX ? 1 : 0);
 
   return (
-    <section aria-labelledby="compare-title" className="bg-mist py-20 md:py-28">
+    <section aria-labelledby="compare-title" className="bg-mist py-14 md:py-20">
       <div className="container-x">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
@@ -232,6 +233,7 @@ function CarSelect({
   placeholder?: string;
   autoOpen?: boolean;
 }) {
+  const { cars, getCar, brandName } = useCatalog();
   const current = value ? getCar(value) : undefined;
   return (
     <div className="group relative mt-4">

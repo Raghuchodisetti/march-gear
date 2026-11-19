@@ -1,16 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { upcomingCars } from "@/data/upcoming";
-import { brandName } from "@/data/brands";
+import { getCatalog } from "@/server/catalog";
 import { formatMonth, formatPriceRange } from "@/lib/format";
 import { Carousel } from "@/components/ui/carousel";
 import { Eyebrow } from "@/components/ui/section-heading";
 
-export function UpcomingCars() {
+export async function UpcomingCars() {
+  const { upcoming: upcomingCars, brandName } = await getCatalog();
   const list = [...upcomingCars].sort((a, b) => (a.expectedLaunch > b.expectedLaunch ? 1 : -1));
   return (
-    <section aria-labelledby="upcoming-title" className="bg-mist py-20 md:py-28">
+    <section aria-labelledby="upcoming-title" className="bg-mist py-14 md:py-20">
       <div className="container-x">
         <Carousel
           label="upcoming cars"

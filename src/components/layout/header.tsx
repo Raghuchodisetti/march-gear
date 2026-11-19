@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowUpRight, ChevronDown, Heart, LogOut, MapPin, Menu, Search, User } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Heart, Loader2, LogOut, MapPin, Menu, Search, User } from "lucide-react";
 import { mainNav, type NavItem } from "@/data/navigation";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
@@ -338,10 +338,17 @@ function MegaPanel({ item, onNavigate }: { item: NavItem; onNavigate: () => void
 }
 
 function ProfileMenu({ transparent }: { transparent: boolean }) {
-  const { user, logout } = useUser();
+  // `user` is the device's cached copy (fast first paint); `ready` means the server has confirmed it.
+  const { user, ready, logout } = useUser();
   const { toast } = useUI();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+
+  const signOut = async () => {
+    setOpen(false);
+    await logout();
+    toast("You've been signed out");
+  };
 
   useEffect(() => {
     if (!open) return;
@@ -403,20 +410,20 @@ function ProfileMenu({ transparent }: { transparent: boolean }) {
                 <button
                   type="button"
                   role="menuitem"
-                  onClick={() => {
-                    logout();
-                    setOpen(false);
-                    toast("You've been signed out");
-                  }}
+                  onClick={signOut}
                   className="mt-1 flex w-full items-center gap-2 border-t border-line px-3 pb-2 pt-3 text-left text-[14px] text-muted transition-colors hover:text-red"
                 >
                   <LogOut className="size-4" aria-hidden /> Sign out
                 </button>
               </>
+            ) : !ready ? (
+              <p className="flex items-center gap-2 p-3 text-[13px] text-muted" aria-live="polite">
+                <Loader2 className="size-4 animate-spin" aria-hidden /> Checking your account…
+              </p>
             ) : (
               <div className="p-3">
                 <p className="type-h4">Welcome to March Gear</p>
-                <p className="mt-1 text-[13px] text-muted">Sign in to sync saved cars, comparisons and test-drive bookings.</p>
+                <p className="mt-1 text-[13px] text-muted">Sign in to keep your saved cars on every device and track your enquiries and bookings.</p>
                 <div className="mt-4 grid grid-cols-2 gap-2">
                   <Link href="/login" onClick={() => setOpen(false)} className="inline-flex h-10 items-center justify-center rounded-[3px] bg-ink text-[13px] font-medium text-white hover:bg-ink-3">
                     Sign in

@@ -2,14 +2,15 @@
 
 import Link from "next/link";
 import type { Dealer } from "@/types";
-import { dealerProfile } from "@/data/dealer-details";
+import type { DealerProfile } from "@/lib/catalog";
 import { clamp, cn } from "@/lib/utils";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
 /* Schematic map geometry, in a 0–100 square. The viewer sits at the centre. */
 const MAX_KM = 15;
 const radiusFor = (km: number) => 8 + (km / MAX_KM) * 36;
 
-export function mapPosition(dealer: Dealer) {
+export function mapPosition(dealer: Dealer, dealerProfile: (id: string) => DealerProfile) {
   const r = radiusFor(dealer.distanceKm);
   const a = (dealerProfile(dealer.id).bearing * Math.PI) / 180;
   return { x: 50 + r * Math.sin(a), y: 50 - r * Math.cos(a), r };
@@ -79,7 +80,8 @@ export function DealerMap({
   locationLabel: string;
   className?: string;
 }) {
-  const pins = dealers.map((d, i) => ({ dealer: d, index: i, ...mapPosition(d) }));
+  const { dealerProfile } = useCatalog();
+  const pins = dealers.map((d, i) => ({ dealer: d, index: i, ...mapPosition(d, dealerProfile) }));
   const maxR = Math.max(14, ...pins.map((p) => p.r));
   const scale = clamp(42 / maxR, 1, 2.6);
   const project = (v: number) => 50 + (v - 50) * scale;

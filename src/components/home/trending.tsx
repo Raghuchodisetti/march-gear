@@ -3,12 +3,13 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import type { CategorySlug } from "@/types";
-import { carCategories, cars } from "@/data/cars";
+import { carCategories } from "@/lib/catalog";
 import { EASE } from "@/lib/motion";
 import { Carousel } from "@/components/ui/carousel";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
 import { Tabs } from "@/components/ui/tabs";
 import { CarCard } from "@/components/vehicle/car-card";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
 const FILTERS: { value: "all" | CategorySlug; label: string }[] = [
   { value: "all", label: "All" },
@@ -20,16 +21,17 @@ const FILTERS: { value: "all" | CategorySlug; label: string }[] = [
 ];
 
 export function TrendingCars() {
+  const { cars } = useCatalog();
   const [filter, setFilter] = useState<(typeof FILTERS)[number]["value"]>("all");
 
   const list = useMemo(() => {
     const pool = filter === "all" ? cars : cars.filter((c) => carCategories(c).includes(filter));
     // Trending first, then the strongest reviews.
     return [...pool].sort((a, b) => Number(!!b.trending) - Number(!!a.trending) || b.rating * b.reviewCount - a.rating * a.reviewCount).slice(0, 8);
-  }, [filter]);
+  }, [cars, filter]);
 
   return (
-    <section aria-labelledby="trending-title" className="py-20 md:py-28">
+    <section aria-labelledby="trending-title" className="py-14 md:py-20">
       <div className="container-x">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>

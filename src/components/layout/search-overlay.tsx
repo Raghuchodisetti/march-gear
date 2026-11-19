@@ -7,15 +7,13 @@ import { useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight, CornerDownLeft, Search, X } from "lucide-react";
-import { cars } from "@/data/cars";
-import { usedCars } from "@/data/used-cars";
-import { articles } from "@/data/news";
-import { brands, brandName } from "@/data/brands";
+import type { Catalog } from "@/lib/catalog";
 import { formatPrice, formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { useDialogBehaviour, useIsClient } from "@/components/ui/overlay";
 import { useUI } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
 interface Result {
   id: string;
@@ -35,7 +33,7 @@ const POPULAR = [
   { label: "Upcoming launches", href: "/upcoming-cars" },
 ];
 
-function search(query: string): Result[] {
+function search(query: string, { cars, usedCars, brands, articles, brandName }: Catalog): Result[] {
   const q = query.trim().toLowerCase();
   if (q.length < 2) return [];
   const terms = q.split(/\s+/);
@@ -85,6 +83,8 @@ export function SearchOverlay() {
   const panel = useRef<HTMLDivElement>(null);
   const [query, setQuery] = useState("");
   const [cursor, setCursor] = useState(0);
+  const catalog = useCatalog();
+  const { cars, brandName } = catalog;
 
   const close = () => {
     setSearchOpen(false);
@@ -93,7 +93,7 @@ export function SearchOverlay() {
   };
   useDialogBehaviour(searchOpen, close, panel);
 
-  const results = useMemo(() => search(query), [query]);
+  const results = useMemo(() => search(query, catalog), [query, catalog]);
   const groups = useMemo(() => {
     const map = new Map<string, Result[]>();
     results.forEach((r) => map.set(r.group, [...(map.get(r.group) ?? []), r]));

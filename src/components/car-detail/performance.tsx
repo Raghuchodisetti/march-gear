@@ -1,4 +1,5 @@
 import type { CarModel } from "@/types";
+import { getCatalog } from "@/server/catalog";
 import { Reveal } from "@/components/ui/reveal";
 import { ArcGauge } from "./meters";
 import { isEv, maxOf, minOf, peersOf } from "./utils";
@@ -7,9 +8,9 @@ import { isEv, maxOf, minOf, peersOf } from "./utils";
  * Engine & performance: four arc gauges scaled against comparable cars in the
  * catalogue (same class and body style), so the arcs mean something.
  */
-export function CarPerformance({ car }: { car: CarModel }) {
+export async function CarPerformance({ car }: { car: CarModel }) {
   const ev = isEv(car);
-  const peers = peersOf(car);
+  const peers = peersOf(car, await getCatalog());
   const power = maxOf(car.power);
   const torque = maxOf(car.torque);
   const accel = maxOf(car.acceleration);

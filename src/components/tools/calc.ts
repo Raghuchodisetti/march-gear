@@ -5,7 +5,7 @@
 import type { CarModel } from "@/types";
 import { calculateEmi, principalForEmi } from "@/lib/finance";
 import { formatNumber } from "@/lib/format";
-import { isElectric } from "@/data/cars";
+import { isElectric } from "@/lib/catalog";
 import { onRoadPrice } from "@/data/cities";
 import {
   CO2_PER_KWH,

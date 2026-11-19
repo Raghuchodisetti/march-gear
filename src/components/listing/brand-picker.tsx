@@ -2,16 +2,15 @@
 
 import { useEffect, useRef } from "react";
 import { ArrowLeft, ArrowUpRight, LayoutGrid } from "lucide-react";
-import type { Brand } from "@/types";
-import { brands } from "@/data/brands";
-import { carsByBrand, cars } from "@/data/cars";
+import type { Brand, CarModel } from "@/types";
 import { formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { RevealGroup, RevealItem } from "@/components/ui/reveal";
 import { BrandMonogram } from "@/components/ui/page-header";
 import { BrandLogo, logoFit } from "@/components/ui/brand-logo";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
-function brandStats(brand: Brand) {
+function brandStats(brand: Brand, carsByBrand: (brand: string) => CarModel[]) {
   const models = carsByBrand(brand.slug);
   return {
     count: models.length,
@@ -20,16 +19,17 @@ function brandStats(brand: Brand) {
   };
 }
 
-const GROUPS: { title: string; note: string; list: Brand[] }[] = [
-  { title: "Mainstream", note: "Everyday cars, SUVs and EVs", list: brands.filter((b) => !b.isLuxury) },
-  { title: "Luxury & performance", note: "Premium marques", list: brands.filter((b) => b.isLuxury) },
-];
-
 /** Step one of /new-cars: choose a marque. */
 export function BrandPicker({ onSelect, onShowAll }: { onSelect: (slug: string) => void; onShowAll: () => void }) {
+  const { brands, cars, carsByBrand } = useCatalog();
+  const groups: { title: string; note: string; list: Brand[] }[] = [
+    { title: "Mainstream", note: "Everyday cars, SUVs and EVs", list: brands.filter((b) => !b.isLuxury) },
+    { title: "Luxury & performance", note: "Premium marques", list: brands.filter((b) => b.isLuxury) },
+  ];
+
   return (
     <section aria-label="Choose a brand" className="container-x pb-20 pt-10 md:pb-28 md:pt-14">
-      {GROUPS.map((group, gi) => (
+      {groups.map((group, gi) => (
         <div key={group.title} className={cn(gi > 0 && "mt-16 md:mt-20")}>
           <div className="flex items-baseline justify-between gap-6 border-b border-ink pb-4">
             <h2 className="type-h3">{group.title}</h2>
@@ -39,7 +39,7 @@ export function BrandPicker({ onSelect, onShowAll }: { onSelect: (slug: string) 
           </div>
           <RevealGroup className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 xl:grid-cols-4" gap={0.04}>
             {group.list.map((brand) => {
-              const s = brandStats(brand);
+              const s = brandStats(brand, carsByBrand);
               return (
                 <RevealItem key={brand.slug}>
                   <button
@@ -99,6 +99,7 @@ export function BrandPicker({ onSelect, onShowAll }: { onSelect: (slug: string) 
 
 /** Step two: a slim brand switcher that sits above the model results. */
 export function BrandRail({ selected, onSelect, onAllBrands }: { selected: string[]; onSelect: (slug: string) => void; onAllBrands: () => void }) {
+  const { brands, carsByBrand } = useCatalog();
   const rail = useRef<HTMLElement>(null);
   const key = selected.join(",");
 

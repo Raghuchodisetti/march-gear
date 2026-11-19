@@ -1,13 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Clock, List, Map as MapIcon, MapPin, Navigation, Search, SearchX } from "lucide-react";
 import type { Dealer } from "@/types";
-import { dealers } from "@/data/dealers";
-import { brandName } from "@/data/brands";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
@@ -15,14 +13,22 @@ import { Segmented, SelectField, TextField } from "@/components/ui/field";
 import { EmptyState } from "@/components/ui/page-header";
 import { RatingInline } from "@/components/ui/rating";
 import { useUI } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { ClearAllButton } from "@/components/used/filter-ui";
 import { DealerMap } from "./dealer-map";
 import { dealerBrandLabel } from "./dealer-utils";
 
-const DEALER_CITIES = Array.from(new Set(dealers.map((d) => d.city))).sort();
-const DEALER_BRANDS = Array.from(new Set(dealers.map((d) => d.brand))).sort((a, b) =>
-  a === "multi-brand" ? 1 : b === "multi-brand" ? -1 : brandName(a).localeCompare(brandName(b)),
-);
+/** Cities and brands present in the dealer network, in display order. */
+function dealerFacets(dealers: Dealer[], brandName: (slug: string) => string) {
+  return {
+    cities: Array.from(new Set(dealers.map((d) => d.city))).sort(),
+    brands: Array.from(new Set(dealers.map((d) => d.brand))).sort((a, b) =>
+      a === "multi-brand" ? 1 : b === "multi-brand" ? -1 : brandName(a).localeCompare(brandName(b)),
+    ),
+  };
+}
+
+type DealerFacets = ReturnType<typeof dealerFacets>;
 const SORTS = [
   { value: "nearest", label: "Nearest first" },
   { value: "rating", label: "Highest rated" },
@@ -35,14 +41,14 @@ interface DealerFilters {
   sort: DealerSort;
 }
 
-function parse(params: { get(name: string): string | null }): DealerFilters {
+function parse(params: { get(name: string): string | null }, facets: DealerFacets): DealerFilters {
   const city = params.get("city") ?? "";
   return {
-    city: DEALER_CITIES.find((c) => c.toLowerCase() === city.toLowerCase()) ?? "",
+    city: facets.cities.find((c) => c.toLowerCase() === city.toLowerCase()) ?? "",
     brand: (params.get("brand") ?? "")
       .split(",")
       .map((b) => b.trim().toLowerCase())
-      .filter((b) => DEALER_BRANDS.includes(b)),
+      .filter((b) => facets.brands.includes(b)),
     sort: params.get("sort") === "rating" ? "rating" : "nearest",
   };
 }
@@ -60,9 +66,11 @@ export function DealerDirectory() {
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
+  const { dealers, brandName } = useCatalog();
+  const facets = useMemo(() => dealerFacets(dealers, brandName), [dealers, brandName]);
   const paramsKey = params.toString();
   const [optimistic, setOptimistic] = useState<{ base: string; next: DealerFilters } | null>(null);
-  const filters = optimistic && optimistic.base === paramsKey ? optimistic.next : parse(params);
+  const filters = optimistic && optimistic.base === paramsKey ? optimistic.next : parse(params, facets);
 
   const [query, setQuery] = useState("");
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -91,7 +99,7 @@ export function DealerDirectory() {
     commit({ brand: filters.brand.includes(b) ? filters.brand.filter((x) => x !== b) : [...filters.brand, b] });
 
   return (
-    <div className="container-x pb-20 md:pb-28">
+    <div className="container-x pb-14 md:pb-20">
       {/* Search bar */}
       <div className="grid grid-cols-1 gap-3 border-b border-line pb-6 md:grid-cols-[220px_minmax(0,1fr)_200px]">
         <SelectField
@@ -99,7 +107,7 @@ export function DealerDirectory() {
           value={filters.city}
           onChange={(e) => commit({ city: e.target.value })}
           placeholder="All cities"
-          options={DEALER_CITIES.map((c) => ({ value: c, label: c }))}
+          options={facets.cities.map((c) => ({ value: c, label: c }))}
         />
         {/* TextField's `prefix` is typed as the native string attribute, so the icon is overlaid here;
             a blank prefix still gives the input its left padding. */}
@@ -127,7 +135,7 @@ export function DealerDirectory() {
         <Chip selected={filters.brand.length === 0} onClick={() => commit({ brand: [] })}>
           All brands
         </Chip>
-        {DEALER_BRANDS.map((b) => (
+        {facets.brands.map((b) => (
           <Chip key={b} selected={filters.brand.includes(b)} onClick={() => toggleBrand(b)} showCheck>
             {brandName(b)}
           </Chip>
@@ -234,6 +242,7 @@ function DealerCard({
   onActive: (id: string | null) => void;
 }) {
   const { openEnquiry } = useUI();
+  const { brandName } = useCatalog();
   const href = `/dealers/${dealer.id}`;
   return (
     <li>
@@ -271,7 +280,7 @@ function DealerCard({
 
         <div className="flex min-w-0 flex-col p-5 md:p-6">
           <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-            <p className="type-eyebrow text-muted">{dealerBrandLabel(dealer)}</p>
+            <p className="type-eyebrow text-muted">{dealerBrandLabel(dealer, brandName)}</p>
             <RatingInline value={dealer.rating} count={dealer.reviewCount} />
           </div>
           <h3 className="type-h3 mt-3">
@@ -298,7 +307,7 @@ function DealerCard({
             <Button
               size="sm"
               variant="dark"
-              onClick={() => openEnquiry({ kind: "contact-dealer", subject: dealer.name, detail: `${dealer.area}, ${dealer.city}` })}
+              onClick={() => openEnquiry({ kind: "contact-dealer", subject: dealer.name, detail: `${dealer.area}, ${dealer.city}`, dealerId: dealer.id })}
             >
               Contact dealer
             </Button>

@@ -4,8 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Cog, Droplet, Fuel, Gauge, LayoutGrid, Leaf, List, RotateCcw, Search, Users, Wind, X, Zap } from "lucide-react";
 import type { CarModel, CategorySlug, FuelType } from "@/types";
-import { BUDGETS, carCategories, cars, inBudget } from "@/data/cars";
-import { brandName, brands, getBrand } from "@/data/brands";
+import { BUDGETS, carCategories, inBudget } from "@/lib/catalog";
 import { categories } from "@/data/categories";
 import { EASE } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
@@ -13,6 +12,7 @@ import { Segmented } from "@/components/ui/field";
 import { EmptyState } from "@/components/ui/page-header";
 import { TextLink } from "@/components/ui/section-heading";
 import { CarCard } from "@/components/vehicle/car-card";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { CarRow } from "./car-row";
 import { type ActiveFilter } from "./filter-ui";
 import { BrandTiles, FilterBar, IconTiles, ImageTiles, ValueTiles, summarise, type Facet } from "./filter-bar";
@@ -26,7 +26,6 @@ const BODY_SLUGS = ["suv", "sedan", "hatchback", "muv", "luxury", "electric"] as
 const FUEL_SLUGS = ["petrol", "diesel", "cng", "hybrid", "electric"] as const;
 const TRANSMISSION_SLUGS = ["manual", "automatic"] as const;
 const BUDGET_SLUGS = BUDGETS.map((b) => b.slug);
-const BRAND_SLUGS = brands.map((b) => b.slug);
 
 const FUEL_MAP: Record<(typeof FUEL_SLUGS)[number], FuelType> = {
   petrol: "Petrol",
@@ -65,7 +64,7 @@ const FILTER_PARAMS = ["q", "body", "budget", "fuel", "transmission", "brand", "
 
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-function readFilters(params: URLSearchParams): Filters {
+function readFilters(params: URLSearchParams, brandSlugs: string[]): Filters {
   const sort = params.get("sort") ?? "popular";
   return {
     q: (params.get("q") ?? "").trim(),
@@ -73,13 +72,13 @@ function readFilters(params: URLSearchParams): Filters {
     budget: readList(params, "budget", BUDGET_SLUGS),
     fuel: readList(params, "fuel", FUEL_SLUGS),
     transmission: readList(params, "transmission", TRANSMISSION_SLUGS),
-    brand: readList(params, "brand", BRAND_SLUGS),
+    brand: readList(params, "brand", brandSlugs),
     seats: Number(params.get("seats")) >= 7,
     sort: SORTS.some((s) => s.value === sort) ? sort : "popular",
   };
 }
 
-function matches(car: CarModel, f: Filters, skip?: FacetKey) {
+function matches(car: CarModel, f: Filters, brandName: (slug: string) => string, skip?: FacetKey) {
   if (f.q) {
     const hay = `${brandName(car.brand)} ${car.name} ${car.bodyType} ${car.fuelTypes.join(" ")}`.toLowerCase();
     if (!f.q.toLowerCase().split(/\s+/).every((t) => hay.includes(t))) return false;
@@ -135,7 +134,7 @@ const BUDGET_PHRASE: Record<string, string> = {
   "above-1cr": "above ₹1 Crore",
 };
 
-function buildTitle(f: Filters) {
+function buildTitle(f: Filters, brandName: (slug: string) => string) {
   const words: string[] = [];
   if (f.brand.length === 1) words.push(brandName(f.brand[0]));
   if (f.seats) words.push("7-seater");
@@ -158,11 +157,13 @@ function buildTitle(f: Filters) {
 
 export function NewCarsExplorer() {
   const { params, update } = useQueryState();
-  const f = useMemo(() => readFilters(params), [params]);
+  const { cars, brands, brandName, getBrand } = useCatalog();
+  const brandSlugs = useMemo(() => brands.map((b) => b.slug), [brands]);
+  const f = useMemo(() => readFilters(params, brandSlugs), [params, brandSlugs]);
   const [view, setView] = useState<"grid" | "list">("grid");
 
-  const results = useMemo(() => sortCars(cars.filter((c) => matches(c, f)), f.sort), [f]);
-  const count = (skip: FacetKey, test: (c: CarModel) => boolean) => cars.filter((c) => matches(c, f, skip) && test(c)).length;
+  const results = useMemo(() => sortCars(cars.filter((c) => matches(c, f, brandName)), f.sort), [cars, f, brandName]);
+  const count = (skip: FacetKey, test: (c: CarModel) => boolean) => cars.filter((c) => matches(c, f, brandName, skip) && test(c)).length;
 
   const setList = (key: string, list: string[]) => update((p) => writeList(p, key, list));
   const toggle = (key: "body" | "budget" | "fuel" | "transmission" | "brand", value: string) => setList(key, toggleValue(f[key], value));
@@ -313,7 +314,7 @@ export function NewCarsExplorer() {
       <ListingHeader
         crumbs={singleBrand ? [{ label: "New cars", href: "/new-cars" }, { label: singleBrand.name }] : [{ label: "New cars" }]}
         eyebrow={singleBrand ? `${singleBrand.name} · ${singleBrand.country}` : "New cars"}
-        title={buildTitle(f)}
+        title={buildTitle(f, brandName)}
         description={
           singleBrand?.description ??
           "Every model on sale in India, with indicative ex-showroom prices, claimed efficiency and safety ratings in one place."

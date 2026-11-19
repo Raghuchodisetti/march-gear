@@ -1,13 +1,13 @@
 import type { Article, ArticleCategory, BodyType } from "@/types";
+import type { Catalog } from "@/lib/catalog";
 import { u } from "@/lib/utils";
-import { articles, authors } from "./news";
 import { IMG } from "./images";
 
 /* ──────────────────────────────────────────────────────────────
    Editorial extras for /news, /reviews and /about. Stories here
-   are fictional and written for demonstration, like data/news.
-   Client components import from this file, so it deliberately
-   avoids importing the (large) cars catalogue.
+   are fictional and written for demonstration, like the seeded newsroom.
+   Client components import from this file, so it stays pure: the
+   catalogue-dependent helpers take the catalogue as a parameter.
    ────────────────────────────────────────────────────────────── */
 
 /** Additional desk stories so every category has coverage. */
@@ -73,12 +73,11 @@ export const extraArticles: Article[] = [
   },
 ];
 
-/** Every story, newest first. */
-export const allArticles: Article[] = [...articles, ...extraArticles].sort((a, b) =>
-  a.publishedOn < b.publishedOn ? 1 : a.publishedOn > b.publishedOn ? -1 : 0,
-);
+/** Every story (catalogue articles plus the desk extras), newest first. */
+export const allArticles = (cat: Catalog): Article[] =>
+  [...cat.articles, ...extraArticles].sort((a, b) => (a.publishedOn < b.publishedOn ? 1 : a.publishedOn > b.publishedOn ? -1 : 0));
 
-export const getStory = (slug: string) => allArticles.find((a) => a.slug === slug);
+export const getStory = (slug: string, cat: Catalog) => allArticles(cat).find((a) => a.slug === slug);
 
 export const ARTICLE_CATEGORIES: ArticleCategory[] = [
   "News",
@@ -100,13 +99,13 @@ export function inCategory(article: Article, category: ArticleCategory) {
   return category === "Electric" && article.tags.includes("Electric");
 }
 
-export function storiesIn(category: ArticleCategory) {
-  return allArticles.filter((a) => inCategory(a, category));
+export function storiesIn(category: ArticleCategory, cat: Catalog) {
+  return allArticles(cat).filter((a) => inCategory(a, category));
 }
 
 /** Same category first, then by number of shared tags; newest breaks ties. */
-export function relatedStories(article: Article, limit = 3) {
-  return allArticles
+export function relatedStories(article: Article, cat: Catalog, limit = 3) {
+  return allArticles(cat)
     .filter((a) => a.slug !== article.slug)
     .map((a) => ({
       a,
@@ -119,14 +118,14 @@ export function relatedStories(article: Article, limit = 3) {
 }
 
 /** Tags that appear most across the archive. */
-export const trendingTags: string[] = (() => {
+export function trendingTags(cat: Catalog): string[] {
   const counts = new Map<string, number>();
-  for (const a of allArticles) for (const t of a.tags) counts.set(t, (counts.get(t) ?? 0) + 1);
+  for (const a of allArticles(cat)) for (const t of a.tags) counts.set(t, (counts.get(t) ?? 0) + 1);
   return [...counts.entries()]
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .slice(0, 12)
     .map(([t]) => t);
-})();
+}
 
 /* ── People ─────────────────────────────────────────────────── */
 
@@ -164,7 +163,7 @@ export const authorProfiles: Record<string, AuthorProfile> = {
   },
 };
 
-export const authorProfile = (id: string) => authorProfiles[id] ?? authorProfiles[authors[0].id];
+export const authorProfile = (id: string, cat: Catalog) => authorProfiles[id] ?? authorProfiles[cat.authors[0].id];
 
 /* ── Reviews ────────────────────────────────────────────────── */
 

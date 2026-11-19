@@ -1,29 +1,54 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useId, useState, type FormEvent } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Loader2 } from "lucide-react";
+import { subscribeAction } from "@/server/actions/leads";
+import { Honeypot } from "@/components/forms/honeypot";
 import { useUI } from "@/components/providers/app-provider";
 import { cn } from "@/lib/utils";
 
 export const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-/** Compact newsletter sign-up for "The Weekly Gear". */
-export function NewsletterForm({ tone = "dark", className }: { tone?: "dark" | "light"; className?: string }) {
+/**
+ * Compact newsletter sign-up for "The Weekly Gear".
+ * `source` is stored with the subscriber so the team can see where sign-ups come from (defaults to the current page).
+ */
+export function NewsletterForm({ tone = "dark", className, source }: { tone?: "dark" | "light"; className?: string; source?: string }) {
   const id = useId();
+  const pathname = usePathname();
   const { toast } = useUI();
   const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
   const [done, setDone] = useState<string | null>(null);
   const light = tone === "light";
 
-  const submit = (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
     e.preventDefault();
+    if (busy) return;
     const value = email.trim();
     if (!value) return setError("Enter your email address");
     if (!EMAIL_RE.test(value)) return setError("That doesn’t look like a valid email address");
     setError(null);
-    setDone(value);
-    toast("You’re on the list — the next Weekly Gear arrives Friday", { tone: "success" });
+    // Bots fill the hidden field: pretend it worked and send nothing.
+    if (website) return setDone(value);
+
+    setBusy(true);
+    try {
+      const res = await subscribeAction({ email: value, source: (source ?? `page: ${pathname}`).slice(0, 200) });
+      if (!res.ok) {
+        setError(res.fieldErrors?.email ?? res.error ?? "We couldn’t subscribe you. Please try again.");
+        return;
+      }
+      setDone(value);
+      toast("You’re on the list — the next Weekly Gear arrives Friday", { tone: "success" });
+    } catch {
+      setError("Couldn’t reach the server. Check your connection and try again.");
+    } finally {
+      setBusy(false);
+    }
   };
 
   if (done) {
@@ -32,8 +57,8 @@ export function NewsletterForm({ tone = "dark", className }: { tone?: "dark" | "
         <span className="mt-0.5 inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-red text-white">
           <Check className="size-3.5" aria-hidden />
         </span>
-        <div>
-          <p className={cn("text-[14px] font-medium", light ? "text-white" : "text-ink")}>Subscribed as {done}</p>
+        <div className="min-w-0">
+          <p className={cn("break-words text-[14px] font-medium", light ? "text-white" : "text-ink")}>Subscribed as {done}</p>
           <button
             type="button"
             onClick={() => {
@@ -51,6 +76,7 @@ export function NewsletterForm({ tone = "dark", className }: { tone?: "dark" | "
 
   return (
     <form onSubmit={submit} noValidate className={className}>
+      <Honeypot value={website} onChange={setWebsite} />
       <label htmlFor={`${id}-email`} className="sr-only">
         Email address
       </label>
@@ -81,14 +107,19 @@ export function NewsletterForm({ tone = "dark", className }: { tone?: "dark" | "
         />
         <button
           type="submit"
-          aria-label="Subscribe"
-          className="group/nl inline-flex size-10 shrink-0 items-center justify-center rounded-full transition-colors duration-[250ms] hover:bg-red hover:text-white"
+          aria-label={busy ? "Subscribing" : "Subscribe"}
+          disabled={busy}
+          className="group/nl inline-flex size-10 shrink-0 items-center justify-center rounded-full transition-colors duration-[250ms] hover:bg-red hover:text-white disabled:pointer-events-none"
         >
-          <ArrowRight className="size-4 transition-transform duration-[250ms] group-hover/nl:translate-x-0.5" aria-hidden />
+          {busy ? (
+            <Loader2 className="size-4 animate-spin" aria-hidden />
+          ) : (
+            <ArrowRight className="size-4 transition-transform duration-[250ms] group-hover/nl:translate-x-0.5" aria-hidden />
+          )}
         </button>
       </div>
       {error ? (
-        <p id={`${id}-error`} className="mt-2 text-xs text-red">
+        <p id={`${id}-error`} role="alert" className="mt-2 text-xs text-red">
           {error}
         </p>
       ) : (

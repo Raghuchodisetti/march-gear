@@ -22,14 +22,14 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import type { CarModel } from "@/types";
-import { cars, isElectric } from "@/data/cars";
-import { brandName } from "@/data/brands";
+import { isElectric } from "@/lib/catalog";
 import { IMG } from "@/data/images";
 import { formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/section-heading";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
 type Answers = { budget?: string; seats?: string; body?: string; usage?: string; fuel?: string };
 
@@ -168,6 +168,7 @@ function score(car: CarModel, a: Answers) {
 }
 
 export function PerfectCarQuiz() {
+  const { cars } = useCatalog();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [dir, setDir] = useState(1);
@@ -179,7 +180,7 @@ export function PerfectCarQuiz() {
       .map((car) => ({ car, ...score(car, answers) }))
       .sort((x, y) => y.match - x.match)
       .slice(0, 3);
-  }, [done, answers]);
+  }, [done, answers, cars]);
 
   const choose = (key: keyof Answers, value: string) => {
     setAnswers((prev) => ({ ...prev, [key]: value }));
@@ -208,7 +209,7 @@ export function PerfectCarQuiz() {
   const progress = Math.min(step, QUESTIONS.length) / QUESTIONS.length;
 
   return (
-    <section aria-labelledby="quiz-title" className="py-20 md:py-28">
+    <section aria-labelledby="quiz-title" className="py-14 md:py-20">
       <div className="container-x grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-0">
         {/* Intro panel */}
         <div className="relative isolate flex min-h-[340px] flex-col justify-between overflow-hidden bg-ink p-7 text-white md:p-10 lg:col-span-5">
@@ -324,6 +325,7 @@ export function PerfectCarQuiz() {
 }
 
 function Result({ results, answers, onRestart }: { results: { car: CarModel; match: number; reasons: string[] }[]; answers: Answers; onRestart: () => void }) {
+  const { brandName } = useCatalog();
   const [best, ...alts] = results;
   if (!best) return null;
   const title = `${brandName(best.car.brand)} ${best.car.name}`;

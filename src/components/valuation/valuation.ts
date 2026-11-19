@@ -1,6 +1,5 @@
 import type { CarModel, FuelType } from "@/types";
-import { brands, brandName } from "@/data/brands";
-import { carsByBrand, getCar } from "@/data/cars";
+import type { Catalog } from "@/lib/catalog";
 import { clamp } from "@/lib/utils";
 
 /**
@@ -94,16 +93,13 @@ const CONDITION_FACTOR: Record<Condition, number> = { fair: 0.9, good: 1, excell
 const KM_PER_YEAR = 11_000;
 
 /** Brands offered in the valuation flows: the catalogue plus legacy marques. */
-export const VALUATION_BRANDS = [
-  ...brands.map((b) => b.slug),
-  "volkswagen",
-  "ford",
-  "nissan",
-  "fiat",
-  "jaguar",
-].map((slug) => ({ value: slug, label: brandName(slug) }));
+export const valuationBrands = (cat: Catalog) =>
+  [...cat.brands.map((b) => b.slug), "volkswagen", "ford", "nissan", "fiat", "jaguar"].map((slug) => ({
+    value: slug,
+    label: cat.brandName(slug),
+  }));
 
-export const modelsForBrand = (brand: string): CarModel[] => carsByBrand(brand);
+export const modelsForBrand = (brand: string, cat: Catalog): CarModel[] => cat.carsByBrand(brand);
 
 export interface ValuationInput {
   brand: string;
@@ -153,8 +149,8 @@ export function retentionAt(age: number) {
 }
 
 /** Indicative ex-showroom price when new. */
-export function estimateNewPrice(brand: string, modelSlug?: string) {
-  const car = modelSlug ? getCar(modelSlug) : undefined;
+export function estimateNewPrice(brand: string, cat: Catalog, modelSlug?: string) {
+  const car = modelSlug ? cat.getCar(modelSlug) : undefined;
   if (car) return car.priceMin + (car.priceMax - car.priceMin) * 0.5;
   return BRAND_BASE[brand] ?? 12 * L;
 }
@@ -182,8 +178,8 @@ export function tidy(value: number) {
 
 const pct = (factor: number) => Math.round((factor - 1) * 1000) / 10;
 
-export function valuate(input: ValuationInput): ValuationResult {
-  const newPrice = estimateNewPrice(input.brand, input.modelSlug);
+export function valuate(input: ValuationInput, cat: Catalog): ValuationResult {
+  const newPrice = estimateNewPrice(input.brand, cat, input.modelSlug);
   // Assume mid-year registration; valuations are dated late in the reference year.
   const age = Math.max(0.5, VALUATION_YEAR - input.year + 0.5);
   const brandF = BRAND_RETENTION[input.brand] ?? 1;
@@ -232,8 +228,8 @@ export function valuate(input: ValuationInput): ValuationResult {
   };
 }
 
-export function valuationTitle(input: Pick<ValuationInput, "brand" | "modelSlug" | "year">, modelName?: string) {
-  const car = input.modelSlug ? getCar(input.modelSlug) : undefined;
+export function valuationTitle(input: Pick<ValuationInput, "brand" | "modelSlug" | "year">, cat: Catalog, modelName?: string) {
+  const car = input.modelSlug ? cat.getCar(input.modelSlug) : undefined;
   const name = car?.name ?? modelName?.trim();
-  return [input.year, brandName(input.brand), name].filter(Boolean).join(" ");
+  return [input.year, cat.brandName(input.brand), name].filter(Boolean).join(" ");
 }

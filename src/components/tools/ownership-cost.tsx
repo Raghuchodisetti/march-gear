@@ -1,28 +1,35 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { CarModel } from "@/types";
-import { cars, getCar } from "@/data/cars";
-import { brandName } from "@/data/brands";
+import { carTitle } from "@/lib/catalog";
 import { cities, getCity } from "@/data/cities";
 import { formatINR, formatNumber, formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { RangeField, Segmented, SelectField } from "@/components/ui/field";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
 import { useCity } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { ownershipCost, splitPrice } from "./calc";
 import { Switch } from "./fields";
 import { EstimateNote, Readout, StepLabel } from "./instrument";
 
-const title = (c: CarModel) => `${brandName(c.brand)} ${c.name}`;
-const carOptions = [...cars].sort((a, b) => title(a).localeCompare(title(b))).map((c) => ({ value: c.slug, label: title(c) }));
 const cityOptions = cities.map((c) => ({ value: c.slug, label: `${c.name}, ${c.state}` }));
 
 type PartKey = "depreciation" | "fuel" | "interest" | "insurance" | "maintenance" | "registration";
 
 export function OwnershipCost() {
   const { city } = useCity();
+  const { cars, getCar, brandName } = useCatalog();
+  const title = (c: CarModel) => carTitle(c, brandName);
+  const carOptions = useMemo(
+    () =>
+      [...cars]
+        .sort((a, b) => carTitle(a, brandName).localeCompare(carTitle(b, brandName)))
+        .map((c) => ({ value: c.slug, label: carTitle(c, brandName) })),
+    [cars, brandName],
+  );
   const [slug, setSlug] = useState("hyundai-creta");
   // Follows the visitor's preferred city until they pick one here.
   const [cityChoice, setCityChoice] = useState<string | null>(null);
@@ -183,7 +190,7 @@ export function OwnershipCost() {
         </div>
       </section>
 
-      <section aria-labelledby="yearly-heading" className="border-t border-line py-20 md:py-28">
+      <section aria-labelledby="yearly-heading" className="border-t border-line py-14 md:py-20">
         <div className="container-x">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>

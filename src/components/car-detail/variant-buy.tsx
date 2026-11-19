@@ -59,10 +59,10 @@ export function VariantBuyPanel({
       </p>
 
       <div className="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-        <Button size="lg" arrow onClick={() => openEnquiry({ kind: "best-price", subject: title, detail: `${variantName} · ${city.name}` })}>
+        <Button size="lg" arrow onClick={() => openEnquiry({ kind: "best-price", subject: title, detail: `${variantName} · ${city.name}`, carSlug: slug })}>
           Get best price
         </Button>
-        <Button size="lg" variant={dark ? "outline-light" : "outline"} onClick={() => openEnquiry({ kind: "test-drive", subject: title, detail: variantName })}>
+        <Button size="lg" variant={dark ? "outline-light" : "outline"} onClick={() => openEnquiry({ kind: "test-drive", subject: title, detail: variantName, carSlug: slug })}>
           Book a test drive
         </Button>
       </div>
@@ -78,14 +78,14 @@ export function VariantBuyPanel({
 }
 
 /** Dark CTA band buttons. */
-export function EnquiryButtons({ title, detail, tone = "dark" }: { title: string; detail: string; tone?: "light" | "dark" }) {
+export function EnquiryButtons({ title, detail, carSlug, tone = "dark" }: { title: string; detail: string; carSlug?: string; tone?: "light" | "dark" }) {
   const { openEnquiry } = useUI();
   return (
     <div className="flex flex-col gap-3 sm:flex-row">
-      <Button size="lg" arrow onClick={() => openEnquiry({ kind: "best-price", subject: title, detail })}>
+      <Button size="lg" arrow onClick={() => openEnquiry({ kind: "best-price", subject: title, detail, carSlug })}>
         Get best price
       </Button>
-      <Button size="lg" variant={tone === "dark" ? "outline-light" : "outline"} onClick={() => openEnquiry({ kind: "test-drive", subject: title, detail })}>
+      <Button size="lg" variant={tone === "dark" ? "outline-light" : "outline"} onClick={() => openEnquiry({ kind: "test-drive", subject: title, detail, carSlug })}>
         Book a test drive
       </Button>
     </div>

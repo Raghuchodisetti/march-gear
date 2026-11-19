@@ -1,7 +1,7 @@
 import type { CarModel } from "@/types";
 import { formatDate } from "@/lib/format";
 import { Counter, Reveal } from "@/components/ui/reveal";
-import { fuelSummary, transmissionSummary } from "@/components/vehicle/car-card";
+import { fuelSummary, transmissionSummary } from "@/components/vehicle/card-utils";
 import { DetailSection } from "./section";
 import { isEv, maxOf, pad2, seatsLabel } from "./utils";
 

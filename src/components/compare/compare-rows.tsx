@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Check, Minus } from "lucide-react";
 import type { CarModel, FeatureGroup } from "@/types";
-import { isElectric } from "@/data/cars";
+import { isElectric } from "@/lib/catalog";
 import { onRoadPrice } from "@/data/cities";
 import { calculateEmi } from "@/lib/finance";
 import { formatINR, formatNumber, formatPrice, formatPriceRange } from "@/lib/format";

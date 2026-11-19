@@ -1,0 +1,1 @@
+ALTER TABLE `leads` MODIFY COLUMN `name` varchar(120);

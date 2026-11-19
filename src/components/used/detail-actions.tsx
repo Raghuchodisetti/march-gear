@@ -1,17 +1,22 @@
 "use client";
 
 import { useEffect, useState, type FormEvent } from "react";
-import { CalendarCheck, HandCoins, MessageSquare, Share2 } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { CalendarCheck, HandCoins, Loader2, MessageSquare, Share2 } from "lucide-react";
 import type { UsedCar } from "@/types";
 import { formatINR, formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
+import { submitLeadAction } from "@/server/actions/leads";
 import { Button, IconButton } from "@/components/ui/button";
 import { Modal } from "@/components/ui/overlay";
 import { RangeField, TextField } from "@/components/ui/field";
 import { Chip } from "@/components/ui/chip";
+import { Honeypot } from "@/components/forms/honeypot";
 import { WishlistButton } from "@/components/vehicle/toggles";
-import { usedEmi } from "@/components/vehicle/used-car-card";
-import { useUI } from "@/components/providers/app-provider";
+import { usedEmi } from "@/components/vehicle/card-utils";
+import { useUI, useUser } from "@/components/providers/app-provider";
+
+const NETWORK_ERROR = "Couldn't send — check your connection and try again.";
 
 type ActionCar = Pick<UsedCar, "id" | "price" | "city" | "variant" | "seller">;
 
@@ -64,8 +69,9 @@ export function UsedPurchaseActions({
     return () => io.disconnect();
   }, []);
   const detail = `${car.variant} · ${car.city}`;
-  const testDrive = () => openEnquiry({ kind: "test-drive", subject: title, detail });
-  const contact = () => openEnquiry({ kind: "contact-dealer", subject: car.seller.name, detail: `About the ${title}` });
+  const testDrive = () => openEnquiry({ kind: "test-drive", subject: title, detail, usedCarId: car.id });
+  const contact = () =>
+    openEnquiry({ kind: "contact-dealer", subject: car.seller.name, detail: `About the ${title}`, usedCarId: car.id, dealerId: car.seller.dealerId });
 
   return (
     <>
@@ -112,7 +118,7 @@ export function UsedPurchaseActions({
         title="Make an offer"
         description={`${title} · asking ${formatPrice(car.price)}`}
       >
-        <OfferForm car={car} fairLow={fairLow} fairHigh={fairHigh} onDone={() => setOfferOpen(false)} />
+        <OfferForm car={car} title={title} fairLow={fairLow} fairHigh={fairHigh} onDone={() => setOfferOpen(false)} />
       </Modal>
     </>
   );
@@ -122,38 +128,70 @@ const QUICK = [90, 93, 95, 98];
 
 function OfferForm({
   car,
+  title,
   fairLow,
   fairHigh,
   onDone,
 }: {
   car: ActionCar;
+  title: string;
   fairLow: number;
   fairHigh: number;
   onDone: () => void;
 }) {
   const { toast } = useUI();
+  const { user } = useUser();
+  const pathname = usePathname();
   const [pct, setPct] = useState(95);
   const [phone, setPhone] = useState("");
   const [error, setError] = useState<string | undefined>();
+  const [sending, setSending] = useState(false);
+  const [website, setWebsite] = useState("");
 
   const offer = Math.round((car.price * pct) / 100 / 5000) * 5000;
   const below = car.price - offer;
   const inFair = offer >= fairLow && offer <= fairHigh;
 
-  const submit = (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
     e.preventDefault();
+    if (sending) return;
     if (!/^[6-9]\d{9}$/.test(phone.replace(/\D/g, ""))) {
       setError("Enter a valid 10-digit mobile number");
       return;
     }
-    toast(`Offer of ${formatPrice(offer)} sent to ${car.seller.name.replace(/\.$/, "")}. Expect a reply within 24 hours.`, {
-      tone: "success",
-    });
-    onDone();
+    setSending(true);
+    try {
+      const res = await submitLeadAction({
+        type: "used_car",
+        name: user && user.name.trim().length >= 2 ? user.name.trim() : undefined,
+        phone,
+        usedCarId: car.id,
+        subject: title.slice(0, 200),
+        source: pathname,
+        website,
+        details: { offer, askingPrice: Math.round(car.price) },
+      });
+      setSending(false);
+      if (!res.ok) {
+        const fieldErrors = res.fieldErrors ?? {};
+        if (fieldErrors.phone) setError(fieldErrors.phone);
+        const note = Object.entries(fieldErrors).find(([key]) => key !== "phone")?.[1] ?? res.error;
+        if (note) toast(note, { tone: "error" });
+        return;
+      }
+      toast(`Offer of ${formatPrice(offer)} received (ref ${res.reference}). We'll pass it to ${car.seller.name.replace(/\.$/, "")} and get back to you within 24 hours.`, {
+        tone: "success",
+      });
+      onDone();
+    } catch {
+      setSending(false);
+      toast(NETWORK_ERROR, { tone: "error" });
+    }
   };
 
   return (
     <form onSubmit={submit} className="px-6 pb-7 pt-6 sm:px-8" noValidate>
+      <Honeypot value={website} onChange={setWebsite} />
       <div className="flex items-end justify-between gap-6">
         <div>
           <p className="text-[12.5px] text-muted">Your offer</p>
@@ -220,10 +258,16 @@ function OfferForm({
         hint="The seller replies through March Gear — your number stays private."
       />
 
-      <Button type="submit" size="lg" className="mt-7 w-full">
-        Send offer of {formatPrice(offer)}
+      <Button
+        type="submit"
+        size="lg"
+        className="mt-7 w-full"
+        disabled={sending}
+        icon={sending ? <Loader2 className="size-4 animate-spin" aria-hidden /> : undefined}
+      >
+        {sending ? "Sending…" : `Send offer of ${formatPrice(offer)}`}
       </Button>
-      <p className="mt-3 text-center text-[11.5px] text-muted">Offers are non-binding until both parties confirm. Demo only.</p>
+      <p className="mt-3 text-center text-[11.5px] text-muted">Offers are non-binding until both parties confirm.</p>
     </form>
   );
 }

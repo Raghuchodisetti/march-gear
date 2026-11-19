@@ -5,15 +5,14 @@ import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown, Search } from "lucide-react";
-import { BUDGETS, carCategories, cars, inBudget } from "@/data/cars";
-import { usedCars } from "@/data/used-cars";
-import { brands } from "@/data/brands";
+import { BUDGETS, carCategories, inBudget } from "@/lib/catalog";
 import { cities } from "@/data/cities";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { Segmented } from "@/components/ui/field";
 import { Reveal } from "@/components/ui/reveal";
 import { useCity } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
 const BODY = [
   { value: "suv", label: "SUV", used: "SUV" },
@@ -34,6 +33,7 @@ type Mode = "new" | "used";
 export function SmartFinder() {
   const router = useRouter();
   const { city, setCity } = useCity();
+  const { cars, usedCars, brands } = useCatalog();
   const [mode, setMode] = useState<Mode>("new");
   const [budget, setBudget] = useState("");
   const [body, setBody] = useState("");
@@ -51,7 +51,7 @@ export function SmartFinder() {
           (!transmission || (transmission === "manual" ? c.transmissions.includes("Manual") : c.transmissions.some((t) => t !== "Manual"))) &&
           (!brand || c.brand === brand),
       ),
-    [budget, body, fuel, transmission, brand],
+    [cars, budget, body, fuel, transmission, brand],
   );
 
   const usedMatches = useMemo(() => {
@@ -65,7 +65,7 @@ export function SmartFinder() {
         (!transmission || (transmission === "manual" ? c.transmission === "Manual" : c.transmission !== "Manual")) &&
         (!brand || c.brand === brand),
     );
-  }, [budget, body, fuel, transmission, brand]);
+  }, [usedCars, budget, body, fuel, transmission, brand]);
 
   const matches = mode === "new" ? newMatches : usedMatches;
   const previews = matches.slice(0, 4).map((m) => m.images[0]);

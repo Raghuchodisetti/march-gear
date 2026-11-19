@@ -1,6 +1,5 @@
 import type { CarModel } from "@/types";
-import { articles } from "./news";
-import { brandName } from "./brands";
+import type { Catalog } from "@/lib/catalog";
 
 export interface CarVideo {
   id: string;
@@ -18,11 +17,11 @@ export interface CarVideo {
  * Newsroom videos tagged to the model, padded with demo walkaround / drive
  * clips titled from the car so every model page has a Videos section.
  */
-export function videosForCar(car: CarModel): CarVideo[] {
-  const title = `${brandName(car.brand)} ${car.name}`;
+export function videosForCar(car: CarModel, cat: Catalog): CarVideo[] {
+  const title = `${cat.brandName(car.brand)} ${car.name}`;
   const poster = (i: number) => car.images[i % car.images.length];
 
-  const fromNewsroom: CarVideo[] = articles
+  const fromNewsroom: CarVideo[] = cat.articles
     .filter((a) => a.category === "Video" && a.relatedCar === car.slug)
     .map((a) => ({
       id: a.slug,

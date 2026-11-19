@@ -1,18 +1,21 @@
 "use client";
 
-import { useId, useState, useSyncExternalStore } from "react";
+import { useId, useMemo, useState, useSyncExternalStore } from "react";
+import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { Check, ClipboardCheck, Download, Loader2, Mail } from "lucide-react";
-import type { FuelType } from "@/types";
-import { cars } from "@/data/cars";
-import { brandName, brands } from "@/data/brands";
+import type { CarModel, FuelType } from "@/types";
+import type { Catalog } from "@/lib/catalog";
 import { PDI_FUELS } from "@/data/pdi";
 import { createPersistentStore, useStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
+import { submitLeadAction } from "@/server/actions/leads";
 import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/overlay";
 import { SelectField, TextField } from "@/components/ui/field";
+import { Honeypot } from "@/components/forms/honeypot";
 import { useUI, useUser } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { downloadChecklistPdf, pdfCheckCount } from "./checklist-pdf";
 
 /* ──────────────────────────────────────────────────────────────
@@ -50,7 +53,7 @@ export const openChecklistGate = () => setGateOpen(true);
 const OTHER = "other";
 const FUEL_LABEL: Record<FuelType, string> = { Petrol: "Petrol", Diesel: "Diesel", CNG: "CNG", Hybrid: "Hybrid", Electric: "Electric (EV)" };
 
-const brandOptions = [
+const brandOptionsFor = ({ brands, cars }: Catalog) => [
   ...brands
     .filter((b) => cars.some((c) => c.brand === b.slug))
     .map((b) => ({ value: b.slug, label: b.name }))
@@ -58,7 +61,7 @@ const brandOptions = [
   { value: OTHER, label: "Other brand" },
 ];
 
-const modelOptions = (brand: string) => [
+const modelOptions = (brand: string, cars: CarModel[]) => [
   ...cars
     .filter((c) => c.brand === brand)
     .map((c) => ({ value: c.slug, label: c.name }))
@@ -67,7 +70,7 @@ const modelOptions = (brand: string) => [
 ];
 
 /** Maps a saved lead back to the brand / model fields. */
-function carFields(lead: ChecklistLead | null) {
+function carFields(lead: ChecklistLead | null, { brands, cars }: Catalog) {
   if (!lead?.brand) return { brand: "", brandOther: "", model: "", modelOther: "" };
   const brand = brands.find((b) => b.name === lead.brand);
   if (!brand) return { brand: OTHER, brandOther: lead.brand, model: "", modelOther: lead.model };
@@ -81,6 +84,8 @@ const todayISO = () => {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 };
+
+const NETWORK_ERROR = "Couldn't send — check your connection and try again.";
 
 /** Hero call-to-action. */
 export function ChecklistCtaButton() {
@@ -107,7 +112,11 @@ export function ChecklistGateModal() {
 function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClose: () => void }) {
   const { user } = useUser();
   const { toast } = useUI();
-  const [initial] = useState(() => carFields(existing));
+  const pathname = usePathname();
+  const catalog = useCatalog();
+  const { cars, brandName } = catalog;
+  const brandOptions = useMemo(() => brandOptionsFor(catalog), [catalog]);
+  const [initial] = useState(() => carFields(existing, catalog));
   const [name, setName] = useState(existing?.name ?? user?.name ?? "");
   const [email, setEmail] = useState(existing?.email ?? user?.email ?? "");
   const [phone, setPhone] = useState(existing?.phone ?? user?.phone ?? "");
@@ -121,6 +130,7 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState<ChecklistLead | null>(null);
+  const [website, setWebsite] = useState("");
 
   const otherBrand = brand === OTHER;
   const typedModel = otherBrand || model === OTHER;
@@ -151,8 +161,9 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
     setFuel(car?.fuelTypes.length === 1 ? car.fuelTypes[0] : "");
   };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (sending) return;
     const next: Record<string, string> = {};
     if (name.trim().length < 2) next.name = "Enter your full name";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) next.email = "Enter a valid email address";
@@ -181,18 +192,58 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
       car: `${brandLabel} ${modelLabel}`,
       delivery,
     };
-    // Front-end demo: no mail server is connected, so delivery is simulated.
-    window.setTimeout(async () => {
-      pdiLeadStore.set(saved);
-      setSent(saved);
-      setSending(false);
-      toast(`Checklist PDF sent to ${saved.email}`, { tone: "success" });
-      try {
-        await downloadChecklistPdf(saved);
-      } catch {
-        toast("Couldn't create the PDF — use the download button to try again", { tone: "error" });
+
+    // The lead is stored server-side; the PDF itself is generated and downloaded here.
+    try {
+      const res = await submitLeadAction({
+        type: "pdi_checklist",
+        name: saved.name,
+        email: saved.email,
+        phone: saved.phone,
+        subject: `${saved.car} (${saved.fuel})`,
+        carSlug: knownCar?.slug,
+        source: pathname,
+        website,
+        details: { brand: saved.brand, model: saved.model, fuel: saved.fuel, deliveryDate: saved.delivery },
+      });
+      if (!res.ok) {
+        setSending(false);
+        // Server field paths → this form's error slots.
+        const slot: Record<string, string> = {
+          name: "name",
+          email: "email",
+          phone: "phone",
+          "details.brand": otherBrand ? "brandOther" : "brand",
+          "details.model": typedModel ? "modelOther" : "model",
+          "details.fuel": "fuel",
+          "details.deliveryDate": "delivery",
+        };
+        const mapped: Record<string, string> = {};
+        let unplaced: string | undefined;
+        for (const [key, msg] of Object.entries(res.fieldErrors ?? {})) {
+          if (slot[key]) mapped[slot[key]] ??= msg;
+          else unplaced ??= msg;
+        }
+        setErrors(mapped);
+        const note = unplaced ?? res.error;
+        if (note) toast(note, { tone: "error" });
+        return;
       }
-    }, 1000);
+    } catch {
+      setSending(false);
+      toast(NETWORK_ERROR, { tone: "error" });
+      return;
+    }
+
+    pdiLeadStore.set(saved);
+    setSent(saved);
+    setSending(false);
+    toast(`Checklist PDF sent to ${saved.email}`, { tone: "success" });
+    try {
+      await downloadChecklistPdf(saved);
+    } catch {
+      toast("Couldn't create the PDF — use the download button to try again", { tone: "error" });
+    }
   };
 
   if (sent) {
@@ -238,6 +289,7 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
 
   return (
     <form onSubmit={submit} noValidate>
+      <Honeypot value={website} onChange={setWebsite} />
       <div className="border-b border-line px-6 py-5 sm:px-8">
         <p className="type-eyebrow text-red">Free download</p>
         <h2 id="gate-title" className="type-h3 mt-2">
@@ -283,7 +335,7 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
                   placeholder={brand ? "Select model" : "Choose a brand first"}
                   value={model}
                   onChange={(e) => chooseModel(e.target.value)}
-                  options={brand ? modelOptions(brand) : []}
+                  options={brand ? modelOptions(brand, cars) : []}
                   disabled={!brand}
                   error={errors.model}
                 />

@@ -143,7 +143,7 @@ function BuyPanel() {
           size="lg"
           className="w-full"
           arrow
-          onClick={() => openEnquiry({ kind: "best-price", subject: title, detail: `${variant.name} · ${city.name}` })}
+          onClick={() => openEnquiry({ kind: "best-price", subject: title, detail: `${variant.name} · ${city.name}`, carSlug: car.slug })}
         >
           Get best price
         </Button>
@@ -151,7 +151,7 @@ function BuyPanel() {
           size="lg"
           variant="outline"
           className="w-full"
-          onClick={() => openEnquiry({ kind: "test-drive", subject: title, detail: variant.name })}
+          onClick={() => openEnquiry({ kind: "test-drive", subject: title, detail: variant.name, carSlug: car.slug })}
         >
           Book a test drive
         </Button>

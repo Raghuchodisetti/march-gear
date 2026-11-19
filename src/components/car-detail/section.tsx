@@ -47,7 +47,7 @@ export function DetailSection({
       <div className="container-x">
         <div
           className={cn(
-            size === "large" ? "py-20 md:py-28" : "py-14 md:py-20",
+            size === "large" ? "py-14 md:py-20" : "py-14 md:py-20",
             divider && tone === "light" && "border-t border-line",
             divider && dark && "border-t border-white/10",
           )}

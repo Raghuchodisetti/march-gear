@@ -1,35 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Cog, Fuel, Gauge, Zap } from "lucide-react";
 import type { CarModel } from "@/types";
-import { brandName } from "@/data/brands";
-import { isElectric } from "@/data/cars";
+import { isElectric } from "@/lib/catalog";
 import { formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { CompareToggle, WishlistButton } from "./toggles";
-
-export function carHref(car: Pick<CarModel, "slug">) {
-  return `/cars/${car.slug}`;
-}
-
-/** Short transmission summary: "MT / AT", "Automatic" or "Manual". */
-export function transmissionSummary(car: CarModel) {
-  const auto = car.transmissions.some((t) => t !== "Manual");
-  const manual = car.transmissions.includes("Manual");
-  if (auto && manual) return "MT / AT";
-  return auto ? "Automatic" : "Manual";
-}
-
-/** Best claimed figure: "21.8 kmpl" or "489 km" for EVs. */
-export function bestEfficiency(car: CarModel) {
-  if (car.ev) return `${car.ev.rangeKm} km`;
-  return car.efficiency.split("–").pop()!.trim();
-}
-
-export function fuelSummary(car: CarModel) {
-  return car.fuelTypes.length > 2 ? `${car.fuelTypes[0]} + ${car.fuelTypes.length - 1}` : car.fuelTypes.join(" / ");
-}
+import { bestEfficiency, carHref, fuelSummary, transmissionSummary } from "./card-utils";
 
 /**
  * The primary new-car card. The model name is a stretched link, so the whole
@@ -48,6 +29,7 @@ export function CarCard({
   badge?: string;
   sizes?: string;
 }) {
+  const { brandName } = useCatalog();
   const title = `${brandName(car.brand)} ${car.name}`;
   const ev = isElectric(car);
   const tag = badge ?? (car.launchedOn ? "New" : car.trending ? "Trending" : undefined);

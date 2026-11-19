@@ -1,15 +1,20 @@
 "use client";
 
-import { createContext, useCallback, useContext, useMemo, useRef, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { MotionConfig } from "motion/react";
 import {
   cityStore,
   compareStore,
+  sessionReadyStore,
   useStore,
   userStore,
   wishlistStore,
-  type MockUser,
+  type AccountUser,
+  type Wishlist,
 } from "@/lib/store";
+import type { SessionUser } from "@/lib/action-result";
+import { signOutAction } from "@/server/actions/auth";
+import { clearWishlistAction, setWishlistItemAction } from "@/server/actions/wishlist";
 import { getCity } from "@/data/cities";
 
 export const MAX_COMPARE = 4;
@@ -22,6 +27,10 @@ export interface EnquiryRequest {
   subject?: string;
   /** Optional secondary line (variant, location, etc.) */
   detail?: string;
+  /** Linked records, stored on the lead for the admin panel */
+  carSlug?: string;
+  usedCarId?: string;
+  dealerId?: string;
 }
 
 export interface Toast {
@@ -66,6 +75,31 @@ export function AppProvider({ children }: { children: ReactNode }) {
     [dismissToast],
   );
 
+  // Confirm the session with the server once per page load.
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/auth/me", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((data: { user: SessionUser | null; wishlist: Wishlist | null }) => {
+        if (cancelled) return;
+        if (data.user) {
+          userStore.set(toAccount(data.user));
+          if (data.wishlist) wishlistStore.set(data.wishlist);
+        } else if (userStore.get()) {
+          // Signed out elsewhere or the session expired: drop the account's saved list from this device.
+          userStore.set(null);
+          wishlistStore.set({ cars: [], used: [] });
+        }
+      })
+      .catch(() => undefined)
+      .finally(() => {
+        if (!cancelled) sessionReadyStore.set(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const value = useMemo<UIContextValue>(
     () => ({
       enquiry,
@@ -109,10 +143,22 @@ export function useWishlist() {
   const toggle = useCallback(
     (kind: "cars" | "used", id: string, label?: string) => {
       const exists = wishlistStore.get()[kind].includes(id);
+      const before = wishlistStore.get();
       wishlistStore.set((prev) => ({
         ...prev,
         [kind]: exists ? prev[kind].filter((x) => x !== id) : [...prev[kind], id],
       }));
+      // Signed in: keep the account in step; undo if the server refuses.
+      if (userStore.get()) {
+        setWishlistItemAction(kind, id, !exists)
+          .then((res) => {
+            if (!res.ok) throw new Error(res.error);
+          })
+          .catch(() => {
+            wishlistStore.set(before);
+            toast("Couldn't update your saved cars. Please try again.", { tone: "error" });
+          });
+      }
       toast(exists ? `Removed ${label ?? "car"} from saved` : `Saved ${label ?? "car"}`, {
         tone: exists ? "default" : "success",
         action: exists ? undefined : { label: "View saved", href: "/wishlist" },
@@ -123,6 +169,7 @@ export function useWishlist() {
 
   const clear = useCallback((kind?: "cars" | "used") => {
     wishlistStore.set((prev) => (kind ? { ...prev, [kind]: [] } : { cars: [], used: [] }));
+    if (userStore.get()) clearWishlistAction(kind).catch(() => undefined);
   }, []);
 
   return { wishlist, count: wishlist.cars.length + wishlist.used.length, has, toggle, clear };
@@ -167,10 +214,24 @@ export function useCity() {
   return { city: getCity(slug), setCity };
 }
 
+const toAccount = (u: SessionUser): AccountUser => ({ ...u, phone: u.phone ?? "", city: u.city ?? "" });
+
+/**
+ * The signed-in customer. `ready` turns true once the server has confirmed the session.
+ * `login` is called after a successful sign-in/sign-up Server Action with what it returned.
+ */
 export function useUser() {
   const user = useStore(userStore);
-  const login = useCallback((next: MockUser) => userStore.set(next), []);
-  const logout = useCallback(() => userStore.set(null), []);
-  const update = useCallback((patch: Partial<MockUser>) => userStore.set((prev) => (prev ? { ...prev, ...patch } : prev)), []);
-  return { user, login, logout, update };
+  const ready = useStore(sessionReadyStore);
+  const login = useCallback((next: SessionUser, wishlist?: Wishlist) => {
+    userStore.set(toAccount(next));
+    if (wishlist) wishlistStore.set(wishlist);
+  }, []);
+  const logout = useCallback(async () => {
+    userStore.set(null);
+    wishlistStore.set({ cars: [], used: [] });
+    await signOutAction().catch(() => undefined);
+  }, []);
+  const update = useCallback((patch: Partial<AccountUser>) => userStore.set((prev) => (prev ? { ...prev, ...patch } : prev)), []);
+  return { user, ready, login, logout, update };
 }

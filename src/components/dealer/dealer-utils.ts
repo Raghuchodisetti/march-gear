@@ -1,6 +1,5 @@
 import type { Dealer } from "@/types";
-import { brandName } from "@/data/brands";
 
 /** "Hyundai · Authorised" or "Multi-brand · Pre-owned". */
-export const dealerBrandLabel = (d: Pick<Dealer, "brand">) =>
+export const dealerBrandLabel = (d: Pick<Dealer, "brand">, brandName: (slug: string) => string) =>
   d.brand === "multi-brand" ? "Multi-brand · Pre-owned" : `${brandName(d.brand)} · Authorised`;

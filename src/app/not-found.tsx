@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { SearchLauncher } from "@/components/account/search-launcher";
+import { SiteShell } from "@/components/layout/site-shell";
 
 export const metadata: Metadata = {
   title: "Page not found",
@@ -22,9 +23,10 @@ const DESTINATIONS = [
 
 const READING = "000404";
 
+// Handles unmatched URLs too, so it brings its own site chrome.
 export default function NotFound() {
   return (
-    <>
+    <SiteShell>
       <section className="border-b border-line">
         <div className="container-x grid grid-cols-1 gap-14 py-14 md:py-24 lg:grid-cols-12 lg:items-center lg:gap-10">
           <div className="lg:col-span-7">
@@ -81,7 +83,7 @@ export default function NotFound() {
         </div>
       </section>
 
-      <section aria-labelledby="destinations-heading" className="py-16 md:py-24">
+      <section aria-labelledby="destinations-heading" className="py-12 md:py-16">
         <div className="container-x">
           <Eyebrow>Popular destinations</Eyebrow>
           <h2 id="destinations-heading" className="type-h3 mt-4">
@@ -106,6 +108,6 @@ export default function NotFound() {
           </ul>
         </div>
       </section>
-    </>
+    </SiteShell>
   );
 }

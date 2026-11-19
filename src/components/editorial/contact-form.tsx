@@ -1,35 +1,45 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import { Check } from "lucide-react";
+import { Check, Loader2 } from "lucide-react";
 import { contactTopics } from "@/data/editorial-company";
+import { submitLeadAction } from "@/server/actions/leads";
 import { SelectField, TextArea, TextField } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
+import { Honeypot } from "@/components/forms/honeypot";
 import { useUI, useUser } from "@/components/providers/app-provider";
 import { cn } from "@/lib/utils";
 import { EMAIL_RE } from "./newsletter-form";
 
 type Field = "name" | "email" | "phone" | "topic" | "message";
-const MIN_MESSAGE = 20;
+const MIN_MESSAGE = 10;
 const ORDER: Field[] = ["name", "email", "phone", "topic", "message"];
+const EMPTY: Record<Field, string> = { name: "", email: "", phone: "", topic: "", message: "" };
+/** Server field → form field. */
+const FIELD_FOR: Record<string, Field> = { name: "name", email: "email", phone: "phone", subject: "topic", message: "message" };
+const NETWORK_ERROR = "Couldn't reach the server. Check your connection and try again.";
+
+/** "+91 98765 43210" / "098765 43210" → "9876543210" */
+function phoneDigits(value: string) {
+  return value.replace(/\D/g, "").replace(/^(0091|91|0)(?=\d{10}$)/, "");
+}
 
 /** Indian mobile: optional +91 / 0 prefix, then 10 digits starting 6–9. */
 function validPhone(value: string) {
-  const digits = value.replace(/[\s()-]/g, "").replace(/^(\+91|0091|0)/, "");
-  return /^[6-9]\d{9}$/.test(digits);
-}
-
-/** Event-time only: a short human-readable reference. */
-function makeReference() {
-  return `MG-${Date.now().toString(36).slice(-6).toUpperCase()}`;
+  return /^[6-9]\d{9}$/.test(phoneDigits(value));
 }
 
 export function ContactForm() {
+  const pathname = usePathname();
   const { toast } = useUI();
   const { user } = useUser();
-  const [values, setValues] = useState<Record<Field, string>>({ name: "", email: "", phone: "", topic: "", message: "" });
+  const [values, setValues] = useState<Record<Field, string>>(EMPTY);
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
+  const [formError, setFormError] = useState<string | null>(null);
+  const [website, setWebsite] = useState("");
+  const [busy, setBusy] = useState(false);
   const [sent, setSent] = useState<{ ref: string; name: string; email: string; topic: string } | null>(null);
 
   const set = (field: Field, value: string) => {
@@ -42,8 +52,15 @@ export function ContactForm() {
     setValues((v) => ({ ...v, name: v.name || user.name, email: v.email || user.email, phone: v.phone || user.phone }));
   };
 
-  const submit = (e: FormEvent) => {
+  const focusFirst = (errs: Partial<Record<Field, string>>) => {
+    const first = ORDER.find((f) => errs[f]);
+    if (first) document.getElementById(`contact-${first}`)?.focus();
+    return Boolean(first);
+  };
+
+  const submit = async (e: FormEvent) => {
     e.preventDefault();
+    if (busy) return;
     const next: Partial<Record<Field, string>> = {};
     if (values.name.trim().length < 2) next.name = "Please tell us your name";
     if (!EMAIL_RE.test(values.email.trim())) next.email = "Enter a valid email address so we can reply";
@@ -51,19 +68,40 @@ export function ContactForm() {
     if (!values.topic) next.topic = "Choose what your message is about";
     if (values.message.trim().length < MIN_MESSAGE) next.message = `A little more detail helps — at least ${MIN_MESSAGE} characters`;
     setErrors(next);
-    const first = ORDER.find((f) => next[f]);
-    if (first) {
-      document.getElementById(`contact-${first}`)?.focus();
-      return;
+    setFormError(null);
+    if (focusFirst(next)) return;
+
+    const topic = contactTopics.find((t) => t.value === values.topic)?.label ?? "Something else";
+    setBusy(true);
+    try {
+      const res = await submitLeadAction({
+        type: "contact",
+        name: values.name.trim(),
+        email: values.email.trim(),
+        phone: values.phone.trim() ? phoneDigits(values.phone) : undefined,
+        subject: topic,
+        message: values.message.trim(),
+        source: pathname,
+        website,
+      });
+      if (!res.ok) {
+        const mapped: Partial<Record<Field, string>> = {};
+        let unplaced: string | undefined;
+        for (const [key, msg] of Object.entries(res.fieldErrors ?? {})) {
+          if (FIELD_FOR[key]) mapped[FIELD_FOR[key]] ??= msg;
+          else unplaced ??= msg;
+        }
+        setErrors(mapped);
+        if (!focusFirst(mapped) || unplaced) setFormError(unplaced ?? res.error ?? "We couldn't send your message. Please try again.");
+        return;
+      }
+      setSent({ ref: res.reference, name: values.name.trim().split(" ")[0], email: values.email.trim(), topic });
+      toast(`Message sent — reference ${res.reference}`, { tone: "success" });
+    } catch {
+      setFormError(NETWORK_ERROR);
+    } finally {
+      setBusy(false);
     }
-    const ref = makeReference();
-    setSent({
-      ref,
-      name: values.name.trim().split(" ")[0],
-      email: values.email.trim(),
-      topic: contactTopics.find((t) => t.value === values.topic)?.label ?? "General",
-    });
-    toast(`Message sent — reference ${ref}`, { tone: "success" });
   };
 
   if (sent) {
@@ -94,7 +132,8 @@ export function ContactForm() {
             variant="outline"
             onClick={() => {
               setSent(null);
-              setValues({ name: "", email: "", phone: "", topic: "", message: "" });
+              setValues(EMPTY);
+              setWebsite("");
             }}
           >
             Send another message
@@ -103,13 +142,22 @@ export function ContactForm() {
             Read the latest news
           </Button>
         </div>
-        <p className="mt-8 text-[12px] text-muted">Demo only — no message has been sent.</p>
+        {user && (
+          <p className="mt-8 text-[12px] text-muted">
+            You can follow this request in{" "}
+            <Link href="/profile" className="text-ink underline underline-offset-4 hover:text-red">
+              your profile
+            </Link>
+            .
+          </p>
+        )}
       </div>
     );
   }
 
   return (
     <form onSubmit={submit} noValidate aria-labelledby="contact-form-heading">
+      <Honeypot value={website} onChange={setWebsite} />
       <div className="flex flex-wrap items-end justify-between gap-4">
         <h2 id="contact-form-heading" className="type-h3">
           Send us a message
@@ -120,6 +168,12 @@ export function ContactForm() {
           </button>
         )}
       </div>
+
+      {formError && (
+        <p role="alert" className="mt-6 border-l-2 border-red bg-red-50 px-3 py-2.5 text-[13.5px] text-red">
+          {formError}
+        </p>
+      )}
 
       <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
         <TextField
@@ -152,23 +206,15 @@ export function ContactForm() {
           error={errors.phone}
           hint="Only if you'd prefer a call back"
         />
-        <div>
-          <SelectField
-            id="contact-topic"
-            label="Topic"
-            placeholder="Choose a topic"
-            options={contactTopics}
-            value={values.topic}
-            onChange={(e) => set("topic", e.target.value)}
-            aria-invalid={errors.topic ? true : undefined}
-            aria-describedby={errors.topic ? "contact-topic-msg" : undefined}
-          />
-          {errors.topic && (
-            <p id="contact-topic-msg" className="mt-1.5 text-xs text-red">
-              {errors.topic}
-            </p>
-          )}
-        </div>
+        <SelectField
+          id="contact-topic"
+          label="Topic"
+          placeholder="Choose a topic"
+          options={contactTopics}
+          value={values.topic}
+          onChange={(e) => set("topic", e.target.value)}
+          error={errors.topic}
+        />
         <div className="sm:col-span-2">
           <TextArea
             id="contact-message"
@@ -195,8 +241,14 @@ export function ContactForm() {
           </Link>
           .
         </p>
-        <Button type="submit" variant="primary" size="lg" arrow className="shrink-0">
-          Send message
+        <Button type="submit" variant="primary" size="lg" arrow={!busy} className="shrink-0" disabled={busy}>
+          {busy ? (
+            <>
+              <Loader2 aria-hidden className="size-4 animate-spin" /> Sending…
+            </>
+          ) : (
+            "Send message"
+          )}
         </Button>
       </div>
     </form>

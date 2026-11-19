@@ -146,11 +146,11 @@ export function SectionNav({ sections }: { sections: NavSection[] }) {
                 size="sm"
                 variant="ghost"
                 className="hidden xl:inline-flex"
-                onClick={() => openEnquiry({ kind: "test-drive", subject: title, detail: variant.name })}
+                onClick={() => openEnquiry({ kind: "test-drive", subject: title, detail: variant.name, carSlug: car.slug })}
               >
                 Test drive
               </Button>
-              <Button size="sm" onClick={() => openEnquiry({ kind: "best-price", subject: title, detail: `${variant.name} · ${city.name}` })}>
+              <Button size="sm" onClick={() => openEnquiry({ kind: "best-price", subject: title, detail: `${variant.name} · ${city.name}`, carSlug: car.slug })}>
                 Get best price
               </Button>
             </motion.div>

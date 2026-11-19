@@ -9,6 +9,9 @@ export function EnquiryButton({
   kind,
   subject,
   detail,
+  carSlug,
+  usedCarId,
+  dealerId,
   children,
   variant = "primary",
   size = "md",
@@ -19,6 +22,9 @@ export function EnquiryButton({
   kind: EnquiryKind;
   subject?: string;
   detail?: string;
+  carSlug?: string;
+  usedCarId?: string;
+  dealerId?: string;
   children: ReactNode;
   variant?: ComponentProps<typeof Button>["variant"];
   size?: ComponentProps<typeof Button>["size"];
@@ -28,7 +34,7 @@ export function EnquiryButton({
 }) {
   const { openEnquiry } = useUI();
   return (
-    <Button variant={variant} size={size} icon={icon} arrow={arrow} className={className} onClick={() => openEnquiry({ kind, subject, detail })}>
+    <Button variant={variant} size={size} icon={icon} arrow={arrow} className={className} onClick={() => openEnquiry({ kind, subject, detail, carSlug, usedCarId, dealerId })}>
       {children}
     </Button>
   );

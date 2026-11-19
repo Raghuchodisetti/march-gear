@@ -1,12 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState, type ComponentProps } from "react";
+import { useEffect, useMemo, useRef, useState, type ComponentProps } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight, BadgeCheck, Car, CarFront, Cog, Droplet, Fuel, Gauge, Leaf, Mountain, SearchX, Users, Wind, Zap } from "lucide-react";
 import Link from "next/link";
-import { usedCars } from "@/data/used-cars";
-import { brandName } from "@/data/brands";
 import { formatKm } from "@/lib/format";
 import { EASE } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
@@ -14,10 +12,10 @@ import { RangeField, SelectField } from "@/components/ui/field";
 import { EmptyState } from "@/components/ui/page-header";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { UsedCarCard } from "@/components/vehicle/used-car-card";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { BrandTiles, FilterBar, IconTiles, ValueTiles, summarise, type Facet } from "@/components/listing/filter-bar";
 import {
   EMPTY_FILTERS,
-  FACETS,
   KM_MAX,
   KM_MIN,
   KM_STEP,
@@ -30,15 +28,18 @@ import {
   matches,
   parseUsedFilters,
   serializeUsedFilters,
+  usedFacets,
   type ListKey,
+  type UsedFacets,
   type UsedFilters,
   type UsedSort,
 } from "./filters";
 
-const YEAR_OPTIONS = Array.from({ length: FACETS.yearMax - FACETS.yearMin + 1 }, (_, i) => {
-  const y = String(FACETS.yearMax - i);
-  return { value: y, label: y };
-});
+const yearOptionsFor = (facets: UsedFacets) =>
+  Array.from({ length: facets.yearMax - facets.yearMin + 1 }, (_, i) => {
+    const y = String(facets.yearMax - i);
+    return { value: y, label: y };
+  });
 
 type Commit = (patch: Partial<UsedFilters>) => void;
 
@@ -50,8 +51,10 @@ export function UsedListing() {
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
+  const { usedCars, brandName } = useCatalog();
+  const inventory = useMemo(() => usedFacets(usedCars, brandName), [usedCars, brandName]);
   const paramsKey = params.toString();
-  const urlFilters = parseUsedFilters(params);
+  const urlFilters = parseUsedFilters(params, inventory);
 
   // Optimistic copy so rapid taps build on each other while the URL catches up.
   const [optimistic, setOptimistic] = useState<{ base: string; next: UsedFilters } | null>(null);
@@ -87,7 +90,7 @@ export function UsedListing() {
 
   const effective: UsedFilters = kmDraft === null ? filters : { ...filters, km: kmDraft >= KM_MAX ? null : kmDraft };
   const results = applyUsedFilters(usedCars, effective);
-  const chips = activeChips(filters);
+  const chips = activeChips(filters, brandName);
   const clearAll = () => commit({ ...EMPTY_FILTERS, sort: filters.sort });
   const count = results.length;
   const cityLabel = filters.city.length === 1 ? ` in ${filters.city[0]}` : "";
@@ -101,6 +104,7 @@ export function UsedListing() {
   return (
     <UsedFilterBar
       filters={effective}
+      inventory={inventory}
       commit={commit}
       kmValue={kmDraft ?? filters.km ?? KM_MAX}
       onKm={onKm}
@@ -163,16 +167,21 @@ const BODY_ICON: Record<string, typeof Fuel> = { SUV: Mountain, Sedan: CarFront,
 
 function UsedFilterBar({
   filters,
+  inventory,
   commit,
   kmValue,
   onKm,
   ...bar
 }: {
   filters: UsedFilters;
+  /** Facets present in the inventory */
+  inventory: UsedFacets;
   commit: Commit;
   kmValue: number;
   onKm: (value: number) => void;
 } & Omit<ComponentProps<typeof FilterBar>, "facets">) {
+  const { usedCars, brandName } = useCatalog();
+  const yearOptions = yearOptionsFor(inventory);
   const toggle = (key: ListKey, value: string) => {
     const current = filters[key];
     commit({ [key]: current.includes(value) ? current.filter((v) => v !== value) : [...current, value] });
@@ -205,7 +214,7 @@ function UsedFilterBar({
       onClear: () => commit({ city: [] }),
       content: (
         <ValueTiles
-          options={FACETS.cities.map((city) => ({ value: city, label: city, count: facetCount(usedCars, filters, "city", city) }))}
+          options={inventory.cities.map((city) => ({ value: city, label: city, count: facetCount(usedCars, filters, "city", city) }))}
           selected={filters.city}
           onToggle={(v) => toggle("city", v)}
         />
@@ -233,7 +242,7 @@ function UsedFilterBar({
       onClear: () => commit({ body: [] }),
       content: (
         <IconTiles
-          options={FACETS.bodies.map((b) => ({ value: b, label: b === "Coupe" ? "Coupé" : b, icon: BODY_ICON[b] ?? Car, count: facetCount(usedCars, filters, "body", b) }))}
+          options={inventory.bodies.map((b) => ({ value: b, label: b === "Coupe" ? "Coupé" : b, icon: BODY_ICON[b] ?? Car, count: facetCount(usedCars, filters, "body", b) }))}
           selected={filters.body}
           onToggle={(v) => toggle("body", v)}
         />
@@ -247,7 +256,7 @@ function UsedFilterBar({
       onClear: () => commit({ brand: [] }),
       content: (
         <BrandTiles
-          options={FACETS.brands.map((b) => ({ value: b, label: brandName(b), count: facetCount(usedCars, filters, "brand", b) }))}
+          options={inventory.brands.map((b) => ({ value: b, label: brandName(b), count: facetCount(usedCars, filters, "brand", b) }))}
           selected={filters.brand}
           onToggle={(v) => toggle("brand", v)}
         />
@@ -262,12 +271,12 @@ function UsedFilterBar({
       content: (
         <div className="space-y-6">
           <IconTiles
-            options={FACETS.fuels.map((f) => ({ value: f, label: f, icon: FUEL_ICON[f] ?? Fuel, count: facetCount(usedCars, filters, "fuel", f) }))}
+            options={inventory.fuels.map((f) => ({ value: f, label: f, icon: FUEL_ICON[f] ?? Fuel, count: facetCount(usedCars, filters, "fuel", f) }))}
             selected={filters.fuel}
             onToggle={(v) => toggle("fuel", v)}
           />
           <IconTiles
-            options={FACETS.transmissions.map((t) => ({
+            options={inventory.transmissions.map((t) => ({
               value: t,
               label: t,
               icon: t === "Manual" ? Cog : Gauge,
@@ -298,7 +307,7 @@ function UsedFilterBar({
                   const v = e.target.value ? Number(e.target.value) : null;
                   commit({ yearFrom: v, yearTo: v && filters.yearTo && filters.yearTo < v ? null : filters.yearTo });
                 }}
-                options={YEAR_OPTIONS}
+                options={yearOptions}
               />
               <SelectField
                 aria-label="Model year to"
@@ -308,7 +317,7 @@ function UsedFilterBar({
                   const v = e.target.value ? Number(e.target.value) : null;
                   commit({ yearTo: v, yearFrom: v && filters.yearFrom && filters.yearFrom > v ? null : filters.yearFrom });
                 }}
-                options={YEAR_OPTIONS}
+                options={yearOptions}
               />
             </div>
           </div>

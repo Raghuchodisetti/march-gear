@@ -1,12 +1,10 @@
 "use client";
 
-import { useRef, useState, type FormEvent } from "react";
+import { useMemo, useRef, useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Gauge, LineChart, ListChecks } from "lucide-react";
 import type { FuelType } from "@/types";
 import { cities } from "@/data/cities";
-import { usedCars } from "@/data/used-cars";
-import { brandName } from "@/data/brands";
 import { formatKm, formatPrice, formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
@@ -14,15 +12,16 @@ import { Button } from "@/components/ui/button";
 import { DemoNote } from "@/components/ui/badge";
 import { Label, RangeField, Segmented, SelectField, TextField } from "@/components/ui/field";
 import { Eyebrow } from "@/components/ui/section-heading";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { ConditionGauge } from "./condition-gauge";
 import { DepreciationChart } from "./depreciation-chart";
 import {
   CONDITIONS,
   FUELS,
-  VALUATION_BRANDS,
   YEARS,
   modelsForBrand,
   valuate,
+  valuationBrands,
   valuationTitle,
   type Condition,
   type GearboxKind,
@@ -31,6 +30,9 @@ import {
 const OTHER = "other";
 
 export function ValuationTool() {
+  const catalog = useCatalog();
+  const { usedCars, brandName } = catalog;
+  const brandOptions = useMemo(() => valuationBrands(catalog), [catalog]);
   const [brand, setBrand] = useState("hyundai");
   const [model, setModel] = useState("hyundai-creta");
   const [otherModel, setOtherModel] = useState("");
@@ -45,15 +47,15 @@ export function ValuationTool() {
   const [error, setError] = useState<string | undefined>();
   const resultRef = useRef<HTMLDivElement>(null);
 
-  const models = modelsForBrand(brand);
+  const models = modelsForBrand(brand, catalog);
   const modelSlug = model !== OTHER ? model : undefined;
-  const result = valuate({ brand, modelSlug, year, km, fuel, transmission, owners: Number(owners), condition, city });
-  const title = valuationTitle({ brand, modelSlug, year }, otherModel);
+  const result = valuate({ brand, modelSlug, year, km, fuel, transmission, owners: Number(owners), condition, city }, catalog);
+  const title = valuationTitle({ brand, modelSlug, year }, catalog, otherModel);
   const hasListings = usedCars.some((c) => c.brand === brand);
 
   const changeBrand = (next: string) => {
     setBrand(next);
-    setModel(modelsForBrand(next)[0]?.slug ?? OTHER);
+    setModel(modelsForBrand(next, catalog)[0]?.slug ?? OTHER);
     setOtherModel("");
   };
 
@@ -79,7 +81,7 @@ export function ValuationTool() {
         <p className="mt-1 text-[13px] text-muted">Seven details. No sign-up.</p>
 
         <div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2">
-          <SelectField label="Brand" value={brand} onChange={(e) => changeBrand(e.target.value)} options={VALUATION_BRANDS} />
+          <SelectField label="Brand" value={brand} onChange={(e) => changeBrand(e.target.value)} options={brandOptions} />
           {models.length > 0 ? (
             <SelectField
               label="Model"

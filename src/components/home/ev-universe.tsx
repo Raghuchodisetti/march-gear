@@ -2,24 +2,24 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight, BatteryCharging, Gauge, PlugZap } from "lucide-react";
-import { electricCars } from "@/data/cars";
-import { brandName } from "@/data/brands";
 import { formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { Counter } from "@/components/ui/reveal";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
-const EVS = electricCars().sort((a, b) => a.priceMin - b.priceMin);
 const MAX_RANGE = 700;
 
 export function EvUniverse() {
-  const [active, setActive] = useState(EVS.findIndex((c) => c.slug === "porsche-taycan"));
-  const car = EVS[active] ?? EVS[0];
+  const { electricCars, brandName } = useCatalog();
+  const evs = useMemo(() => electricCars().sort((a, b) => a.priceMin - b.priceMin), [electricCars]);
+  const [active, setActive] = useState(evs.findIndex((c) => c.slug === "porsche-taycan"));
+  const car = evs[active] ?? evs[0];
   const ev = car.ev!;
 
   return (
@@ -42,7 +42,7 @@ export function EvUniverse() {
           {/* Selector */}
           <div className="lg:col-span-4">
             <ul role="tablist" aria-label="Electric models" aria-orientation="vertical" className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 lg:mx-0 lg:block lg:space-y-0 lg:overflow-visible lg:px-0">
-              {EVS.map((c, i) => {
+              {evs.map((c, i) => {
                 const on = i === active;
                 return (
                   <li key={c.slug} className="shrink-0 lg:border-b lg:border-white/10">

@@ -1,24 +1,26 @@
 "use client";
 
-import { useRef, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { PenLine, Star, ThumbsUp } from "lucide-react";
+import { Check, Loader2, PenLine, Star, ThumbsUp } from "lucide-react";
 import type { OwnerReview } from "@/types";
 import { formatDate, formatKm } from "@/lib/format";
 import { cn, initials } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
+import { submitOwnerReviewAction } from "@/server/actions/leads";
 import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/overlay";
 import { Segmented, SelectField, TextArea, TextField } from "@/components/ui/field";
 import { ScoreBar, Stars } from "@/components/ui/rating";
 import { TextLink } from "@/components/ui/section-heading";
-import { useUI } from "@/components/providers/app-provider";
+import { Honeypot } from "@/components/forms/honeypot";
+import { useUI, useUser } from "@/components/providers/app-provider";
 import { useCarDetail } from "./context";
 import { ratingDistribution } from "./utils";
 
 type Sort = "helpful" | "recent";
 
-/** Owner rating summary, review list and a local-only "write a review" flow. */
+/** Owner rating summary, the approved review list and a "write a review" flow (new reviews are moderated first). */
 export function OwnerReviews({ initial }: { initial: OwnerReview[] }) {
   const { car, title } = useCarDetail();
   const { toast } = useUI();
@@ -137,16 +139,7 @@ export function OwnerReviews({ initial }: { initial: OwnerReview[] }) {
         )}
       </div>
 
-      <WriteReviewModal
-        open={writing}
-        onClose={() => setWriting(false)}
-        onSubmit={(review) => {
-          setReviews((list) => [review, ...list]);
-          setSort("recent");
-          setWriting(false);
-          toast("Review added — thanks for sharing (demo, saved on this page only)", { tone: "success" });
-        }}
-      />
+      <WriteReviewModal open={writing} onClose={() => setWriting(false)} />
     </div>
   );
 }
@@ -209,97 +202,218 @@ function ReviewCard({ review, voted, onVote }: { review: OwnerReview; voted: boo
   );
 }
 
+const OWNED_FOR = ["Less than 6 months", "6 – 12 months", "1 – 2 years", "2 – 3 years", "More than 3 years"];
+
 interface FormState {
   name: string;
   city: string;
   variant: string;
+  ownedFor: string;
+  km: string;
   rating: number;
   title: string;
   body: string;
 }
+type FormErrors = Partial<Record<keyof FormState, string>>;
 
-function WriteReviewModal({ open, onClose, onSubmit }: { open: boolean; onClose: () => void; onSubmit: (review: OwnerReview) => void }) {
+/** Server field → form field (the detailed ratings follow the overall one). */
+const FIELD_FOR: Record<string, keyof FormState> = {
+  variant: "variant",
+  rating: "rating",
+  "ratings.exterior": "rating",
+  "ratings.comfort": "rating",
+  "ratings.performance": "rating",
+  "ratings.value": "rating",
+  ownedFor: "ownedFor",
+  kmDriven: "km",
+  title: "title",
+  body: "body",
+  name: "name",
+  city: "city",
+};
+
+function WriteReviewModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const { title: carTitle } = useCarDetail();
+  return (
+    <Modal
+      open={open}
+      onClose={onClose}
+      title={`Review the ${carTitle}`}
+      description="Share your ownership experience. Every review is read by the MarchGear team before it's published."
+      size="lg"
+    >
+      <ReviewForm onClose={onClose} />
+    </Modal>
+  );
+}
+
+/** Mounts fresh each time the dialog opens. */
+function ReviewForm({ onClose }: { onClose: () => void }) {
   const { car, title: carTitle } = useCarDetail();
-  const empty: FormState = { name: "", city: "", variant: car.variants[0].name, rating: 0, title: "", body: "" };
-  const [form, setForm] = useState<FormState>(empty);
+  const { user } = useUser();
+  const [form, setForm] = useState<FormState>({
+    name: user?.name ?? "",
+    city: user?.city ?? "",
+    variant: car.variants[0].name,
+    ownedFor: OWNED_FOR[1],
+    km: "",
+    rating: 0,
+    title: "",
+    body: "",
+  });
   const [submitted, setSubmitted] = useState(false);
-  const counter = useRef(1);
+  const [serverErrors, setServerErrors] = useState<FormErrors>({});
+  const [formError, setFormError] = useState<string | null>(null);
+  const [website, setWebsite] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [done, setDone] = useState<string | null>(null);
 
-  const errors: Partial<Record<keyof FormState, string>> = {};
+  const kmValue = form.km.trim() ? Number(form.km.replace(/[,\s]/g, "")) : 0;
+  const errors: FormErrors = {};
   if (form.name.trim().length < 2) errors.name = "Please enter your name.";
+  if (form.city.trim().length < 2) errors.city = "Please enter your city.";
   if (form.rating < 1) errors.rating = "Choose a star rating.";
   if (form.title.trim().length < 4) errors.title = "Add a short headline (at least 4 characters).";
   if (form.body.trim().length < 40) errors.body = `Tell us a little more — at least 40 characters (${form.body.trim().length}/40).`;
-  const show = (k: keyof FormState) => (submitted ? errors[k] : undefined);
+  if (!Number.isInteger(kmValue) || kmValue < 0 || kmValue > 999_999) errors.km = "Enter kilometres as a whole number, e.g. 12500.";
+  const show = (k: keyof FormState) => (submitted ? errors[k] : undefined) ?? serverErrors[k];
 
-  const set = <K extends keyof FormState>(key: K, value: FormState[K]) => setForm((f) => ({ ...f, [key]: value }));
-
-  const submit = (e: FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    if (Object.keys(errors).length) return;
-    const today = new Date().toISOString().slice(0, 10);
-    onSubmit({
-      id: `local-${car.slug}-${counter.current++}`,
-      carSlug: car.slug,
-      name: form.name.trim(),
-      city: form.city.trim() || "India",
-      variant: form.variant,
-      ownedFor: "Recently",
-      kmDriven: 0,
-      rating: form.rating,
-      title: form.title.trim(),
-      body: form.body.trim(),
-      date: today,
-      helpful: 0,
-      ratings: { exterior: form.rating, comfort: form.rating, performance: form.rating, value: form.rating },
-    });
-    setForm(empty);
-    setSubmitted(false);
+  const set = <K extends keyof FormState>(key: K, value: FormState[K]) => {
+    setForm((f) => ({ ...f, [key]: value }));
+    setServerErrors((e) => (e[key] ? { ...e, [key]: undefined } : e));
   };
 
+  const submit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (busy) return;
+    setSubmitted(true);
+    setFormError(null);
+    if (Object.keys(errors).length) return;
+
+    const reviewer = form.name.trim().replace(/\s+/g, " ");
+    // Bots fill the hidden field: pretend it worked and send nothing.
+    if (website) return setDone(reviewer);
+
+    setBusy(true);
+    try {
+      const res = await submitOwnerReviewAction({
+        carSlug: car.slug,
+        variant: form.variant,
+        rating: form.rating,
+        ownedFor: form.ownedFor,
+        kmDriven: kmValue,
+        title: form.title.trim(),
+        body: form.body.trim(),
+        name: reviewer,
+        city: form.city.trim(),
+        ratings: { exterior: form.rating, comfort: form.rating, performance: form.rating, value: form.rating },
+      });
+      if (!res.ok) {
+        const mapped: FormErrors = {};
+        let unplaced: string | undefined;
+        for (const [key, msg] of Object.entries(res.fieldErrors ?? {})) {
+          if (FIELD_FOR[key]) mapped[FIELD_FOR[key]] ??= msg;
+          else unplaced ??= msg;
+        }
+        setServerErrors(mapped);
+        if (!Object.keys(mapped).length || unplaced) setFormError(unplaced ?? res.error ?? "We couldn't send your review. Please try again.");
+        return;
+      }
+      setDone(reviewer);
+    } catch {
+      setFormError("Couldn't reach the server. Check your connection and try again.");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  if (done) {
+    return (
+      <div className="px-6 py-12 text-center sm:px-10" role="status">
+        <span className="mx-auto flex size-14 items-center justify-center rounded-full bg-ink text-white">
+          <Check className="size-6" aria-hidden />
+        </span>
+        <h3 className="type-h3 mt-6 text-balance">Thank you, {done.split(" ")[0]}.</h3>
+        <p className="mx-auto mt-3 max-w-sm text-[15px] leading-relaxed text-muted">
+          Your review of the {carTitle} has been sent. It&apos;ll appear on this page once the MarchGear team has checked it.
+        </p>
+        <Button variant="dark" className="mt-8" onClick={onClose} data-autofocus>
+          Done
+        </Button>
+      </div>
+    );
+  }
+
   return (
-    <Modal open={open} onClose={onClose} title={`Review the ${carTitle}`} description="Share your ownership experience. Demo only — reviews stay on this page." size="lg">
-      <form onSubmit={submit} noValidate className="space-y-6 p-6 sm:p-8">
-        <div>
-          <p className="mb-2 text-[12.5px] font-medium" id="rating-label">
-            Your rating
-          </p>
-          <StarInput value={form.rating} onChange={(v) => set("rating", v)} labelledBy="rating-label" invalid={Boolean(show("rating"))} />
-          {show("rating") && <p className="mt-1.5 text-xs text-red">{show("rating")}</p>}
-        </div>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-          <TextField label="Your name" value={form.name} onChange={(e) => set("name", e.target.value)} error={show("name")} autoComplete="name" data-autofocus />
-          <TextField label="City (optional)" value={form.city} onChange={(e) => set("city", e.target.value)} autoComplete="address-level2" />
-        </div>
+    <form onSubmit={submit} noValidate className="space-y-6 p-6 sm:p-8">
+      <Honeypot value={website} onChange={setWebsite} />
+      {formError && (
+        <p role="alert" className="border-l-2 border-red bg-red-50 px-3 py-2.5 text-[13.5px] text-red">
+          {formError}
+        </p>
+      )}
+      <div>
+        <p className="mb-2 text-[12.5px] font-medium" id="rating-label">
+          Your rating
+        </p>
+        <StarInput value={form.rating} onChange={(v) => set("rating", v)} labelledBy="rating-label" invalid={Boolean(show("rating"))} />
+        {show("rating") && <p className="mt-1.5 text-xs text-red">{show("rating")}</p>}
+      </div>
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <TextField label="Your name" value={form.name} onChange={(e) => set("name", e.target.value)} error={show("name")} autoComplete="name" data-autofocus />
+        <TextField label="City" value={form.city} onChange={(e) => set("city", e.target.value)} error={show("city")} autoComplete="address-level2" />
+      </div>
+      <SelectField
+        label="Variant you own"
+        value={form.variant}
+        onChange={(e) => set("variant", e.target.value)}
+        options={car.variants.map((v) => ({ value: v.name, label: v.name }))}
+        error={show("variant")}
+      />
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <SelectField
-          label="Variant you own"
-          value={form.variant}
-          onChange={(e) => set("variant", e.target.value)}
-          options={car.variants.map((v) => ({ value: v.name, label: v.name }))}
+          label="Owned for"
+          value={form.ownedFor}
+          onChange={(e) => set("ownedFor", e.target.value)}
+          options={OWNED_FOR.map((o) => ({ value: o, label: o }))}
+          error={show("ownedFor")}
         />
-        <TextField label="Headline" value={form.title} onChange={(e) => set("title", e.target.value)} error={show("title")} maxLength={90} />
-        <div>
-          <TextArea
-            label="Your review"
-            value={form.body}
-            onChange={(e) => set("body", e.target.value)}
-            rows={5}
-            aria-invalid={show("body") ? true : undefined}
-            placeholder="Comfort, efficiency, service experience, what you'd change…"
-          />
-          {show("body") && <p className="mt-1.5 text-xs text-red">{show("body")}</p>}
-        </div>
-        <div className="flex flex-col-reverse gap-3 border-t border-line pt-6 sm:flex-row sm:justify-end">
-          <Button variant="ghost" onClick={onClose}>
-            Cancel
-          </Button>
-          <Button type="submit" arrow>
-            Publish review
-          </Button>
-        </div>
-      </form>
-    </Modal>
+        <TextField
+          label="Kilometres driven (optional)"
+          inputMode="numeric"
+          placeholder="e.g. 12500"
+          value={form.km}
+          onChange={(e) => set("km", e.target.value)}
+          error={show("km")}
+        />
+      </div>
+      <TextField label="Headline" value={form.title} onChange={(e) => set("title", e.target.value)} error={show("title")} maxLength={90} />
+      <div>
+        <TextArea
+          label="Your review"
+          value={form.body}
+          onChange={(e) => set("body", e.target.value)}
+          rows={5}
+          aria-invalid={show("body") ? true : undefined}
+          placeholder="Comfort, efficiency, service experience, what you'd change…"
+        />
+        {show("body") && <p className="mt-1.5 text-xs text-red">{show("body")}</p>}
+      </div>
+      <div className="flex flex-col-reverse gap-3 border-t border-line pt-6 sm:flex-row sm:justify-end">
+        <Button variant="ghost" onClick={onClose} disabled={busy}>
+          Cancel
+        </Button>
+        <Button type="submit" arrow={!busy} disabled={busy}>
+          {busy ? (
+            <>
+              <Loader2 aria-hidden className="size-4 animate-spin" /> Sending…
+            </>
+          ) : (
+            "Submit review"
+          )}
+        </Button>
+      </div>
+    </form>
   );
 }
 

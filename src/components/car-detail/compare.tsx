@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { CarModel } from "@/types";
-import { brandName } from "@/data/brands";
+import { getCatalog } from "@/server/catalog";
 import { formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -13,8 +13,10 @@ import { competitorsOf, maxOf } from "./utils";
  * figure in each row is marked; mobile scrolls horizontally with the label
  * column pinned.
  */
-export function CompareRivals({ car }: { car: CarModel }) {
-  const rivals = competitorsOf(car, 3);
+export async function CompareRivals({ car }: { car: CarModel }) {
+  const cat = await getCatalog();
+  const { brandName } = cat;
+  const rivals = competitorsOf(car, cat, 3);
   const field = [car, ...rivals];
   const href = `/compare?cars=${field.map((c) => c.slug).join(",")}`;
 

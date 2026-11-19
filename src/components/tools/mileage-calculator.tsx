@@ -1,26 +1,30 @@
 "use client";
 
-import { useState } from "react";
-import { cars, isElectric } from "@/data/cars";
-import { brandName } from "@/data/brands";
+import { useMemo, useState } from "react";
+import { isElectric } from "@/lib/catalog";
 import { FUEL_PRICE } from "@/data/tools-assumptions";
 import { formatINR, formatNumber } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { SelectField } from "@/components/ui/field";
 import { TextLink } from "@/components/ui/section-heading";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { niceTicks, parseAmount } from "./calc";
 import { UnitField } from "./fields";
 import { EstimateNote, LegendKey, Readout, StepLabel } from "./instrument";
 
-const iceCars = cars
-  .filter((c) => !isElectric(c))
-  .sort((a, b) => `${brandName(a.brand)} ${a.name}`.localeCompare(`${brandName(b.brand)} ${b.name}`));
-
-const carOptions = iceCars.map((c) => ({ value: c.slug, label: `${brandName(c.brand)} ${c.name} — claimed ${c.efficiencyValue} kmpl` }));
-
 const fmt1 = (n: number) => (Number.isFinite(n) ? n.toFixed(1) : "—");
 
 export function MileageCalculator() {
+  const { cars, brandName } = useCatalog();
+  const { iceCars, carOptions } = useMemo(() => {
+    const ice = cars
+      .filter((c) => !isElectric(c))
+      .sort((a, b) => `${brandName(a.brand)} ${a.name}`.localeCompare(`${brandName(b.brand)} ${b.name}`));
+    return {
+      iceCars: ice,
+      carOptions: ice.map((c) => ({ value: c.slug, label: `${brandName(c.brand)} ${c.name} — claimed ${c.efficiencyValue} kmpl` })),
+    };
+  }, [cars, brandName]);
   const [slug, setSlug] = useState("hyundai-creta");
   const [distance, setDistance] = useState("412");
   const [litres, setLitres] = useState("24");

@@ -1,5 +1,5 @@
 import type { CarModel, Variant } from "@/types";
-import { cars, getCar } from "@/data/cars";
+import type { Catalog } from "@/lib/catalog";
 import { onRoadPrice } from "@/data/cities";
 import { calculateEmi } from "@/lib/finance";
 
@@ -63,26 +63,26 @@ export function ratingDistribution(rating: number, count: number) {
   return raw.map((share, i) => ({ stars: 5 - i, share: share / sum, count: Math.round((share / sum) * count) }));
 }
 
-export function competitorsOf(car: CarModel, limit = 3) {
+export function competitorsOf(car: CarModel, cat: Catalog, limit = 3) {
   return car.competitors
-    .map((slug) => getCar(slug))
+    .map((slug) => cat.getCar(slug))
     .filter((c): c is CarModel => c !== undefined)
     .slice(0, limit);
 }
 
 /** Direct rivals first, then the closest-priced cars of the same body style. */
-export function similarCars(car: CarModel, limit = 8) {
-  const rivals = competitorsOf(car, 8);
+export function similarCars(car: CarModel, cat: Catalog, limit = 8) {
+  const rivals = competitorsOf(car, cat, 8);
   const seen = new Set([car.slug, ...rivals.map((c) => c.slug)]);
-  const sameBody = cars
+  const sameBody = cat.cars
     .filter((c) => !seen.has(c.slug) && c.bodyType === car.bodyType)
     .sort((a, b) => Math.abs(a.priceMin - car.priceMin) - Math.abs(b.priceMin - car.priceMin));
   return [...rivals, ...sameBody].slice(0, limit);
 }
 
 /** Comparable cars used to scale performance meters. */
-export function peersOf(car: CarModel) {
-  const sameClass = cars.filter((c) => c.isLuxury === car.isLuxury);
+export function peersOf(car: CarModel, cat: Catalog) {
+  const sameClass = cat.cars.filter((c) => c.isLuxury === car.isLuxury);
   const sameBody = sameClass.filter((c) => c.bodyType === car.bodyType);
   return sameBody.length >= 4 ? sameBody : sameClass;
 }

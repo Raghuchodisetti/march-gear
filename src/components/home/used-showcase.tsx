@@ -3,13 +3,13 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { BadgeCheck, RotateCcw, ShieldCheck, Tag } from "lucide-react";
-import { usedCars } from "@/data/used-cars";
 import { EASE } from "@/lib/motion";
 import { Chip } from "@/components/ui/chip";
 import { Counter } from "@/components/ui/reveal";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { UsedCarCard } from "@/components/vehicle/used-car-card";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
 const CITIES = ["All cities", "Mumbai", "New Delhi", "Bengaluru", "Hyderabad", "Pune"];
 
@@ -21,14 +21,15 @@ const PROMISES = [
 ];
 
 export function UsedShowcase() {
+  const { usedCars } = useCatalog();
   const [city, setCity] = useState(CITIES[0]);
   const list = useMemo(() => {
     const pool = city === CITIES[0] ? usedCars : usedCars.filter((c) => c.city === city);
     return [...pool].sort((a, b) => Number(b.verified) - Number(a.verified) || b.inspectionScore - a.inspectionScore).slice(0, 4);
-  }, [city]);
+  }, [usedCars, city]);
 
   return (
-    <section aria-labelledby="used-title" className="border-t border-line py-20 md:py-28">
+    <section aria-labelledby="used-title" className="border-t border-line py-14 md:py-20">
       <div className="container-x grid grid-cols-1 gap-14 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-28">

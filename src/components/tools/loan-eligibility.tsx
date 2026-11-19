@@ -5,8 +5,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowRight, CircleAlert } from "lucide-react";
 import type { CarModel } from "@/types";
-import { BUDGETS, cars, isElectric } from "@/data/cars";
-import { brandName } from "@/data/brands";
+import { BUDGETS, isElectric } from "@/lib/catalog";
 import { LOAN_TO_VALUE, type Employment } from "@/data/tools-assumptions";
 import { calculateEmi } from "@/lib/finance";
 import { formatINR, formatPrice, formatPriceShort } from "@/lib/format";
@@ -16,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
 import { useUI } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { loanEligibility, splitPrice } from "./calc";
 import { EstimateNote, Readout, StepLabel } from "./instrument";
 
@@ -33,6 +33,7 @@ const matches = (car: CarModel, f: BodyFilter) => (f === "all" ? true : f === "e
 
 export function LoanEligibility() {
   const { openEnquiry } = useUI();
+  const { cars } = useCatalog();
   const [employment, setEmployment] = useState<Employment>("salaried");
   const [income, setIncome] = useState(100_000);
   const [existing, setExisting] = useState(10_000);
@@ -46,7 +47,7 @@ export function LoanEligibility() {
 
   const affordable = useMemo(
     () => cars.filter((c) => c.priceMin <= result.carBudget).sort((a, b) => b.priceMin - a.priceMin),
-    [result.carBudget],
+    [cars, result.carBudget],
   );
   const shown = affordable.filter((c) => matches(c, filter));
   const visible = expanded ? shown : shown.slice(0, 6);
@@ -194,7 +195,7 @@ export function LoanEligibility() {
         </div>
       </section>
 
-      <section aria-labelledby="afford-heading" className="border-t border-line py-20 md:py-28">
+      <section aria-labelledby="afford-heading" className="border-t border-line py-14 md:py-20">
         <div className="container-x">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
@@ -274,6 +275,7 @@ export function LoanEligibility() {
 }
 
 function AffordRow({ car, budget, emi, years }: { car: CarModel; budget: number; emi: number; years: number }) {
+  const { brandName } = useCatalog();
   const title = `${brandName(car.brand)} ${car.name}`;
   const share = Math.min(1, car.priceMin / Math.max(1, budget));
   return (

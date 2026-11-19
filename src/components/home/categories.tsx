@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { categories } from "@/data/categories";
-import { carsInCategory } from "@/data/cars";
+import { getCatalog } from "@/server/catalog";
 import { cn } from "@/lib/utils";
 import { RevealGroup, RevealItem } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -17,9 +17,10 @@ const LAYOUT: Record<string, string> = {
   electric: "col-span-2 lg:col-span-12 lg:h-[300px]",
 };
 
-export function DiscoverCategories() {
+export async function DiscoverCategories() {
+  const { carsInCategory } = await getCatalog();
   return (
-    <section aria-labelledby="categories-title" className="py-20 md:py-28">
+    <section aria-labelledby="categories-title" className="py-14 md:py-20">
       <div className="container-x">
         <SectionHeading
           eyebrow="Discover by category"

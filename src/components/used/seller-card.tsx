@@ -4,14 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Clock, Eye, MapPin, UserRound } from "lucide-react";
 import type { UsedCar } from "@/types";
-import { getDealer } from "@/data/dealers";
 import { cn, initials } from "@/lib/utils";
 import { BrandMonogram } from "@/components/ui/page-header";
 import { RatingInline } from "@/components/ui/rating";
 import { useUI } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { maskPhone, sellerPhone } from "./inspection";
 
 export function SellerCard({ car, className }: { car: Pick<UsedCar, "id" | "city" | "seller">; className?: string }) {
+  const { getDealer } = useCatalog();
   const dealer = car.seller.dealerId ? getDealer(car.seller.dealerId) : undefined;
 
   if (car.seller.type === "Dealer") {

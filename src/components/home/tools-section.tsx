@@ -15,7 +15,7 @@ export function ToolsSection() {
   const emi = calculateEmi(price * 0.8, 9.25, 60);
 
   return (
-    <section aria-labelledby="tools-title" className="bg-mist py-20 md:py-28">
+    <section aria-labelledby="tools-title" className="bg-mist py-14 md:py-20">
       <div className="container-x grid grid-cols-1 gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <Eyebrow>Automotive tools</Eyebrow>

@@ -1,21 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
-import { latestLaunches } from "@/data/cars";
-import { brandName } from "@/data/brands";
+import { getCatalog } from "@/server/catalog";
 import { formatDate, formatPriceRange } from "@/lib/format";
 import { Reveal } from "@/components/ui/reveal";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 
-export function LatestLaunches() {
+export async function LatestLaunches() {
+  const { latestLaunches, brandName } = await getCatalog();
   const [lead, ...rest] = latestLaunches();
   if (!lead) return null;
   const leadTitle = `${brandName(lead.brand)} ${lead.name}`;
   const [day, month, year] = formatDate(lead.launchedOn!).split(" ");
 
   return (
-    <section aria-labelledby="launches-title" className="py-20 md:py-28">
+    <section aria-labelledby="launches-title" className="py-14 md:py-20">
       <div className="container-x">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>

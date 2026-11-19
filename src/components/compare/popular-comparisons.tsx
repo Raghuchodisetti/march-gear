@@ -1,16 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
 import { ArrowRight } from "lucide-react";
 import type { CarModel } from "@/types";
-import { getCar } from "@/data/cars";
-import { brandName } from "@/data/brands";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { popularComparisons } from "@/data/compare-listing";
 import { formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 /** Curated comparison starters. Each card links to /compare?cars=… so it is shareable. */
 export function PopularComparisons({ exclude, className }: { exclude?: string; className?: string }) {
+  const { getCar, brandName } = useCatalog();
   const items = popularComparisons
     .map((p) => ({ ...p, models: p.cars.map(getCar).filter((c): c is CarModel => c !== undefined) }))
     .filter((p) => p.models.length >= 2 && p.cars.join(",") !== exclude);

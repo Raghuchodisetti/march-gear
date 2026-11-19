@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, Calendar, CalendarCheck, Car, Cog, FileText, Fuel, Gauge, Palette, ShieldCheck, Users } from "lucide-react";
 import type { UsedCar } from "@/types";
-import { getCar } from "@/data/cars";
-import { brandName } from "@/data/brands";
+import { getCatalog } from "@/server/catalog";
 import { formatDate, formatKm, formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Badge, DemoNote } from "@/components/ui/badge";
@@ -101,7 +100,7 @@ export function InspectionReportPanel({ car, title }: { car: UsedCar; title: str
               <p className="text-[12.5px] leading-relaxed text-white/55">
                 Seller-declared condition from a basic 50-point check. We recommend a full 200-point inspection before you buy.
               </p>
-              <EnquiryButton kind="inspection" subject={title} detail={car.city} variant="outline-light" size="sm" className="mt-4">
+              <EnquiryButton kind="inspection" subject={title} detail={car.city} usedCarId={car.id} variant="outline-light" size="sm" className="mt-4">
                 Book an inspection
               </EnquiryButton>
             </div>
@@ -122,7 +121,8 @@ export function InspectionReportPanel({ car, title }: { car: UsedCar; title: str
 
 /* ── Price analysis ───────────────────────────────────────────── */
 
-export function PriceAnalysis({ car }: { car: UsedCar }) {
+export async function PriceAnalysis({ car }: { car: UsedCar }) {
+  const { getCar, brandName } = await getCatalog();
   const band = fairPriceBand(car);
   const span = band.high - band.low;
   const min = band.low - span * 0.6;

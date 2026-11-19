@@ -6,8 +6,6 @@ import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties }
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown, Link2, MapPin, MoveHorizontal, Plus, X } from "lucide-react";
 import type { CarModel } from "@/types";
-import { getCar } from "@/data/cars";
-import { brandName } from "@/data/brands";
 import { formatPrice, formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
@@ -15,7 +13,8 @@ import { Button, IconButton } from "@/components/ui/button";
 import { useIsClient } from "@/components/ui/overlay";
 import { Eyebrow, SectionHeading } from "@/components/ui/section-heading";
 import { MAX_COMPARE, useCity, useCompare, useUI } from "@/components/providers/app-provider";
-import { carHref } from "@/components/vehicle/car-card";
+import { useCatalog } from "@/components/providers/catalog-provider";
+import { carHref } from "@/components/vehicle/card-utils";
 import { useQueryState } from "@/components/listing/use-query-state";
 import { bestCells, buildGroups, rowDiffers, type SpecGroup, type SpecRow } from "./compare-rows";
 import { CarPicker } from "./car-picker";
@@ -29,7 +28,7 @@ const GRID =
 const MIN_W = "min-w-[calc(var(--m)*150px)] md:min-w-[808px] lg:min-w-0";
 const HEADER_H = 73;
 
-function sanitize(list: readonly string[]) {
+function sanitize(list: readonly string[], getCar: (slug: string) => CarModel | undefined) {
   return Array.from(new Set(list.map((s) => s.trim()).filter((s) => getCar(s) !== undefined))).slice(0, MAX_COMPARE);
 }
 
@@ -39,12 +38,13 @@ export function CompareExperience() {
   const { slugs, set } = useCompare();
   const { city } = useCity();
   const { openEnquiry, toast, setLocationOpen } = useUI();
+  const { getCar, brandName } = useCatalog();
 
   /* ── Source of truth: ?cars= when present, otherwise the compare store ── */
   const urlRaw = params.get("cars");
-  const urlSlugs = useMemo(() => (urlRaw === null ? null : sanitize(urlRaw.split(","))), [urlRaw]);
-  const active = useMemo(() => urlSlugs ?? sanitize(slugs), [urlSlugs, slugs]);
-  const selected = useMemo(() => active.map((s) => getCar(s)).filter((c): c is CarModel => c !== undefined), [active]);
+  const urlSlugs = useMemo(() => (urlRaw === null ? null : sanitize(urlRaw.split(","), getCar)), [urlRaw, getCar]);
+  const active = useMemo(() => urlSlugs ?? sanitize(slugs, getCar), [urlSlugs, slugs, getCar]);
+  const selected = useMemo(() => active.map((s) => getCar(s)).filter((c): c is CarModel => c !== undefined), [active, getCar]);
   const filled = selected.length;
 
   // URL → store: whenever the query string changes (first load, shared links, popular comparisons).
@@ -60,16 +60,16 @@ export function CompareExperience() {
 
   // Store → URL: landing on /compare with no query mirrors the saved list into the URL.
   useEffect(() => {
-    if (urlRaw === null && slugs.length > 0) update((p) => p.set("cars", sanitize(slugs).join(",")));
-  }, [urlRaw, slugs, update]);
+    if (urlRaw === null && slugs.length > 0) update((p) => p.set("cars", sanitize(slugs, getCar).join(",")));
+  }, [urlRaw, slugs, update, getCar]);
 
   const commit = useCallback(
     (next: string[]) => {
-      const clean = sanitize(next);
+      const clean = sanitize(next, getCar);
       update((p) => (clean.length ? p.set("cars", clean.join(",")) : p.delete("cars")));
       set(clean);
     },
-    [update, set],
+    [update, set, getCar],
   );
 
   /* ── UI state ── */
@@ -131,7 +131,7 @@ export function CompareExperience() {
     commit(active.filter((s) => s !== car.slug));
     toast(`${car.name} removed from comparison`);
   };
-  const testDrive = (car: CarModel) => openEnquiry({ kind: "test-drive", subject: `${brandName(car.brand)} ${car.name}`, detail: `From ${formatPrice(car.priceMin)} · ex-showroom` });
+  const testDrive = (car: CarModel) => openEnquiry({ kind: "test-drive", subject: `${brandName(car.brand)} ${car.name}`, detail: `From ${formatPrice(car.priceMin)} · ex-showroom`, carSlug: car.slug });
   const share = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
@@ -170,7 +170,7 @@ export function CompareExperience() {
             Choose up to four new cars. We&rsquo;ll line up price, performance, efficiency, space, safety and every feature — and flag the best value in each row.
           </p>
         </section>
-        <section className="border-t border-line py-20 md:py-28">
+        <section className="border-t border-line py-14 md:py-20">
           <div className="container-x">
             <SectionHeading eyebrow="Popular comparisons" title="Or start with a classic rivalry" description="Tap a pairing to load it instantly. You can swap cars in and out afterwards." />
             <PopularComparisons className="mt-12 md:mt-16" />
@@ -305,7 +305,7 @@ export function CompareExperience() {
         </p>
       </section>
 
-      <section className="border-t border-line py-20 md:py-28">
+      <section className="border-t border-line py-14 md:py-20">
         <div className="container-x">
           <SectionHeading eyebrow="Popular comparisons" title="More rivalries worth settling" action={{ label: "Browse all new cars", href: "/new-cars" }} />
           <PopularComparisons exclude={active.join(",")} className="mt-12 md:mt-16" />
@@ -370,6 +370,7 @@ export function CompareExperience() {
 /* ── Pieces ──────────────────────────────────────────────────── */
 
 function SlotCard({ car, onRemove, onTestDrive }: { car: CarModel; onRemove: () => void; onTestDrive: () => void }) {
+  const { brandName } = useCatalog();
   const title = `${brandName(car.brand)} ${car.name}`;
   return (
     <div>

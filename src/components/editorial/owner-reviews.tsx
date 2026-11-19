@@ -12,7 +12,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Stars } from "@/components/ui/rating";
 import { EmptyState } from "@/components/ui/page-header";
-import { useUI } from "@/components/providers/app-provider";
 import { formatDate, formatKm } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { InitialsAvatar } from "./primitives";
@@ -40,13 +39,11 @@ const PAGE = 6;
 export function OwnerReviews({ reviews, cars }: { reviews: OwnerReview[]; cars: CarOption[] }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const { toast } = useUI();
 
   const param = searchParams.get("car");
   const car = param && cars.some((c) => c.value === param) ? param : "";
   const carLabel = cars.find((c) => c.value === car)?.label;
 
-  const [added, setAdded] = useState<OwnerReview[]>([]);
   const [voted, setVoted] = useState<string[]>([]);
   const [rating, setRating] = useState<RatingFilter>("all");
   const [sort, setSort] = useState<Sort>("helpful");
@@ -63,20 +60,16 @@ export function OwnerReviews({ reviews, cars }: { reviews: OwnerReview[]; cars: 
     window.history.replaceState(null, "", qs ? `${pathname}?${qs}` : pathname);
   };
 
-  const all = [...added, ...reviews];
+  const all = reviews;
   const forCar = all.filter((r) => !car || r.carSlug === car);
   const min = rating === "all" ? 0 : Number(rating);
   const matches = forCar.filter((r) => (rating === "5" ? r.rating === 5 : r.rating >= min));
-  const mine = matches.filter((r) => r.id.startsWith("local-"));
-  const rest = matches
-    .filter((r) => !r.id.startsWith("local-"))
-    .sort((a, b) => {
+  const ordered = [...matches].sort((a, b) => {
       if (sort === "newest") return a.date < b.date ? 1 : a.date > b.date ? -1 : 0;
       if (sort === "highest") return b.rating - a.rating || b.helpful - a.helpful;
       if (sort === "lowest") return a.rating - b.rating || b.helpful - a.helpful;
       return b.helpful - a.helpful;
     });
-  const ordered = [...mine, ...rest];
   const visible = ordered.slice(0, limit);
 
   // Summary for the selected car (rating filter deliberately ignored)
@@ -91,13 +84,6 @@ export function OwnerReviews({ reviews, cars }: { reviews: OwnerReview[]; cars: 
     .filter((c) => c.n > 0)
     .sort((a, b) => b.n - a.n || a.label.localeCompare(b.label))
     .slice(0, 6);
-
-  const publish = (review: OwnerReview) => {
-    setAdded((list) => [review, ...list]);
-    setRating("all");
-    if (car && car !== review.carSlug) setCar(review.carSlug);
-    toast("Your review has been published on this page", { tone: "success" });
-  };
 
   const vote = (id: string) => {
     if (voted.includes(id)) return;
@@ -305,7 +291,7 @@ export function OwnerReviews({ reviews, cars }: { reviews: OwnerReview[]; cars: 
         </aside>
       </div>
 
-      <WriteReviewModal open={writing} onClose={() => setWriting(false)} cars={cars} defaultCar={car || undefined} onSubmit={publish} />
+      <WriteReviewModal open={writing} onClose={() => setWriting(false)} cars={cars} defaultCar={car || undefined} />
     </>
   );
 }

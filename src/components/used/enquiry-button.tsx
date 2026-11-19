@@ -12,6 +12,9 @@ export function EnquiryButton({
   kind,
   subject,
   detail,
+  carSlug,
+  usedCarId,
+  dealerId,
   variant,
   size,
   arrow,
@@ -22,6 +25,9 @@ export function EnquiryButton({
   kind: EnquiryKind;
   subject?: string;
   detail?: string;
+  carSlug?: string;
+  usedCarId?: string;
+  dealerId?: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
   arrow?: boolean;
@@ -37,7 +43,7 @@ export function EnquiryButton({
       arrow={arrow}
       icon={icon}
       className={className}
-      onClick={() => openEnquiry({ kind, subject, detail })}
+      onClick={() => openEnquiry({ kind, subject, detail, carSlug, usedCarId, dealerId })}
     >
       {children}
     </Button>

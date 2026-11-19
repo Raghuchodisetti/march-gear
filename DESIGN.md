@@ -29,7 +29,7 @@ Rules: no other hues. Red never fills large areas. Dark sections use `bg-ink` wi
 
 **Type** (utilities in `globals.css`): `type-display` (hero only), `type-h1` (page titles), `type-h2` (section titles), `type-h3`, `type-h4`, `type-eyebrow` (uppercase label), `type-lead`, `type-editorial` (italic serif accent — max one phrase per section), `num` (tabular figures for prices/specs). Display type is Archivo (expanded); UI text is Geist; specs may use `font-mono` sparingly.
 
-**Layout**: wrap content in `container-x` (max 1400px with 20/32/48px gutters). Section vertical rhythm: `py-20 md:py-28` (large), `py-14 md:py-20` (compact). Grids use `gap-5` for cards, `gap-10`+ for editorial blocks.
+**Layout**: wrap content in `container-x` (max 1400px with 20/32/48px gutters). Section vertical rhythm: `py-14 md:py-20` (standard), `py-12 md:py-16` (compact). Grids use `gap-5` for cards, `gap-10`+ for editorial blocks.
 
 **Shape**: corners are nearly square — buttons/inputs `rounded-[3px]`, cards have **no radius** with a `border-line` hairline. Pills (`rounded-full`) only for chips and icon buttons. Shadows only on floating layers (`shadow-soft`, `shadow-lift`) — never on resting cards.
 

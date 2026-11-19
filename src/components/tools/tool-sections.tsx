@@ -18,7 +18,7 @@ export interface MethodStep {
 
 export function HowItWorks({ intro, steps, title = "How it's calculated" }: { intro: ReactNode; steps: MethodStep[]; title?: string }) {
   return (
-    <section aria-labelledby="method-heading" className="border-t border-line py-20 md:py-28">
+    <section aria-labelledby="method-heading" className="border-t border-line py-14 md:py-20">
       <div className="container-x grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
         <Reveal className="lg:col-span-4">
           <Eyebrow>Method</Eyebrow>
@@ -50,7 +50,7 @@ export function HowItWorks({ intro, steps, title = "How it's calculated" }: { in
 
 export function ToolFaqs({ items }: { items: { q: string; a: ReactNode }[] }) {
   return (
-    <section aria-labelledby="faq-heading" className="bg-mist py-20 md:py-28">
+    <section aria-labelledby="faq-heading" className="bg-mist py-14 md:py-20">
       <div className="container-x grid grid-cols-1 gap-10 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <Eyebrow>FAQ</Eyebrow>
@@ -69,7 +69,7 @@ export function ToolFaqs({ items }: { items: { q: string; a: ReactNode }[] }) {
 export function RelatedTools({ current, slugs, children }: { current: string; slugs: string[]; children?: ReactNode }) {
   const related = slugs.map((s) => tools.find((t) => t.slug === s)).filter((t): t is Tool => t !== undefined && t.slug !== current);
   return (
-    <section aria-labelledby="related-heading" className="py-20 md:py-24">
+    <section aria-labelledby="related-heading" className="py-14 md:py-16">
       <div className="container-x">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -123,7 +123,7 @@ export function ToolMetaRow({ items }: { items: string[] }) {
 /** Numbered advice grid used beneath an instrument. */
 export function ToolTips({ eyebrow, title, tips }: { eyebrow: string; title: ReactNode; tips: { title: string; body: ReactNode }[] }) {
   return (
-    <section aria-labelledby="tips-heading" className="border-t border-line py-20 md:py-28">
+    <section aria-labelledby="tips-heading" className="border-t border-line py-14 md:py-20">
       <div className="container-x">
         <div className="max-w-2xl">
           <Eyebrow>{eyebrow}</Eyebrow>
@@ -147,7 +147,7 @@ export function ToolTips({ eyebrow, title, tips }: { eyebrow: string; title: Rea
 
 export function ToolDisclaimer({ children, className }: { children?: ReactNode; className?: string }) {
   return (
-    <div className={cn("container-x pb-20 md:pb-28", className)}>
+    <div className={cn("container-x pb-14 md:pb-20", className)}>
       <aside aria-label="Disclaimer" className="flex gap-4 border border-line p-5 md:items-center md:p-6">
         <Info aria-hidden className="mt-0.5 size-4 shrink-0 text-muted md:mt-0" />
         <p className="text-[13px] leading-relaxed text-muted">

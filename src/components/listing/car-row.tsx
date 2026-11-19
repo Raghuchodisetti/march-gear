@@ -1,13 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Cog, Fuel, Gauge, ShieldCheck, Users, Zap } from "lucide-react";
 import type { CarModel } from "@/types";
-import { brandName } from "@/data/brands";
-import { isElectric } from "@/data/cars";
+import { isElectric } from "@/lib/catalog";
 import { formatPriceRange } from "@/lib/format";
 import { Badge } from "@/components/ui/badge";
 import { RatingInline } from "@/components/ui/rating";
-import { bestEfficiency, carHref, fuelSummary, transmissionSummary } from "@/components/vehicle/car-card";
+import { useCatalog } from "@/components/providers/catalog-provider";
+import { bestEfficiency, carHref, fuelSummary, transmissionSummary } from "@/components/vehicle/card-utils";
 import { CompareToggle, WishlistButton } from "@/components/vehicle/toggles";
 
 /**
@@ -15,6 +17,7 @@ import { CompareToggle, WishlistButton } from "@/components/vehicle/toggles";
  * price column. On mobile it collapses to a dense thumbnail + text row.
  */
 export function CarRow({ car }: { car: CarModel }) {
+  const { brandName } = useCatalog();
   const brand = brandName(car.brand);
   const title = `${brand} ${car.name}`;
   const ev = isElectric(car);

@@ -1,0 +1,260 @@
+import type {
+  Article,
+  Author,
+  Brand,
+  CarModel,
+  CategorySlug,
+  Dealer,
+  ExpertReview,
+  OwnerReview,
+  UpcomingCar,
+  UsedCar,
+} from "@/types";
+
+/* ──────────────────────────────────────────────────────────────
+   The catalogue: everything the public site reads from MySQL,
+   plus the lookup helpers pages use. Pure — no database access —
+   so it runs on the server (getCatalog) and in the browser
+   (useCatalog) from the same data.
+   ────────────────────────────────────────────────────────────── */
+
+export interface DealerProfile {
+  about: string;
+  facilities: string[];
+  showroomArea: string;
+  serviceBays: number;
+  languages: string[];
+  /** Compass bearing (0 = north) for the schematic dealer map. */
+  bearing: number;
+}
+
+export interface DealerReview {
+  id: string;
+  dealerId: string;
+  name: string;
+  visit: "Purchase" | "Service" | "Test drive" | "Pre-owned purchase" | "Trade-in";
+  date: string;
+  rating: number;
+  title: string;
+  body: string;
+}
+
+export interface CatalogData {
+  brands: Brand[];
+  cars: CarModel[];
+  upcoming: UpcomingCar[];
+  dealers: Dealer[];
+  dealerProfiles: Record<string, DealerProfile>;
+  dealerReviews: DealerReview[];
+  usedCars: UsedCar[];
+  authors: Author[];
+  articles: Article[];
+  ownerReviews: OwnerReview[];
+}
+
+/* ── Pure helpers (no catalogue needed) ─────────────────────── */
+
+const L = 100_000;
+const CR = 10_000_000;
+
+/** Marques that appear only in pre-owned inventory or dealer records. */
+export const LEGACY_BRANDS: Record<string, string> = {
+  ford: "Ford",
+  volkswagen: "Volkswagen",
+  jaguar: "Jaguar",
+  nissan: "Nissan",
+  fiat: "Fiat",
+  "multi-brand": "Multi-brand",
+};
+
+export const carTitle = (car: Pick<CarModel, "brand" | "name">, brandNameFn: (s: string) => string) => `${brandNameFn(car.brand)} ${car.name}`;
+
+export const isElectric = (car: Pick<CarModel, "fuelTypes">) => car.fuelTypes.includes("Electric");
+
+export function carCategories(car: CarModel): CategorySlug[] {
+  const out: CategorySlug[] = [];
+  if (car.bodyType === "SUV") out.push("suv");
+  if (car.bodyType === "Sedan") out.push("sedan");
+  if (car.bodyType === "Hatchback") out.push("hatchback");
+  if (car.bodyType === "MUV") out.push("muv");
+  if (car.isLuxury) out.push("luxury");
+  if (isElectric(car)) out.push("electric");
+  return out;
+}
+
+export const getVariant = (car: CarModel, variantSlug: string) => car.variants.find((x) => x.slug === variantSlug);
+
+export const BUDGETS = [
+  { slug: "under-8", label: "Under ₹8 Lakh", min: 0, max: 8 * L },
+  { slug: "8-15", label: "₹8 – 15 Lakh", min: 8 * L, max: 15 * L },
+  { slug: "15-25", label: "₹15 – 25 Lakh", min: 15 * L, max: 25 * L },
+  { slug: "25-50", label: "₹25 – 50 Lakh", min: 25 * L, max: 50 * L },
+  { slug: "50-1cr", label: "₹50 Lakh – 1 Cr", min: 50 * L, max: CR },
+  { slug: "above-1cr", label: "Above ₹1 Crore", min: CR, max: Infinity },
+] as const;
+
+/** Whether a model's price band overlaps a budget band. */
+export function inBudget(car: Pick<CarModel, "priceMin" | "priceMax">, budgetSlug: string) {
+  const b = BUDGETS.find((x) => x.slug === budgetSlug);
+  if (!b) return true;
+  return car.priceMin < b.max && car.priceMax >= b.min;
+}
+
+/** Approximate city centres (lat, lng) for "nearby" calculations. */
+const CITY_COORDS: Record<string, [number, number]> = {
+  Mumbai: [19.076, 72.878],
+  "New Delhi": [28.614, 77.209],
+  Bengaluru: [12.972, 77.595],
+  Hyderabad: [17.385, 78.487],
+  Chennai: [13.083, 80.271],
+  Pune: [18.52, 73.857],
+  Kolkata: [22.573, 88.364],
+  Ahmedabad: [23.023, 72.571],
+  Jaipur: [26.912, 75.787],
+  Kochi: [9.931, 76.267],
+  Chandigarh: [30.733, 76.779],
+  Lucknow: [26.847, 80.947],
+  Panaji: [15.49, 73.828],
+  Indore: [22.72, 75.858],
+  Coimbatore: [11.017, 76.956],
+  Bhubaneswar: [20.296, 85.825],
+  Visakhapatnam: [17.687, 83.218],
+};
+
+/** Great-circle distance between two cities in km (0 when unknown or equal). */
+export function cityDistanceKm(a: string, b: string) {
+  if (a === b) return 0;
+  const p = CITY_COORDS[a];
+  const q = CITY_COORDS[b];
+  if (!p || !q) return 0;
+  const rad = (d: number) => (d * Math.PI) / 180;
+  const dLat = rad(q[0] - p[0]);
+  const dLng = rad(q[1] - p[1]);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(p[0])) * Math.cos(rad(q[0])) * Math.sin(dLng / 2) ** 2;
+  return Math.round(2 * 6371 * Math.asin(Math.sqrt(h)));
+}
+
+export const FALLBACK_DEALER_PROFILE: DealerProfile = {
+  about: "An authorised MarchGear partner showroom.",
+  facilities: ["Customer lounge", "Free Wi-Fi", "Covered parking"],
+  showroomArea: "—",
+  serviceBays: 0,
+  languages: ["English", "Hindi"],
+  bearing: 0,
+};
+
+const REVIEW_AUTHORS = ["kabir", "meera", "aditi", "arjun"];
+const REVIEW_DATES = ["2026-11-12", "2026-11-02", "2026-10-24", "2026-10-15", "2026-10-03", "2026-09-21"];
+
+/** Expert review derived from the model's own scores, so every car has one. */
+function expertReviewFor(car: CarModel, i: number): ExpertReview {
+  const base = car.expertScore;
+  const jitter = (n: number) => Math.max(5, Math.min(10, Number((base + n).toFixed(1))));
+  return {
+    slug: `${car.slug}-review`,
+    carSlug: car.slug,
+    title: `${car.tagline.replace(/\.$/, "")}: our verdict`,
+    dek: car.expertVerdict,
+    // getAuthor() falls back to the first author if this one is removed.
+    authorId: REVIEW_AUTHORS[i % REVIEW_AUTHORS.length],
+    publishedOn: REVIEW_DATES[i % REVIEW_DATES.length],
+    score: car.expertScore,
+    scores: [
+      { label: "Design", value: jitter(0.3) },
+      { label: "Comfort", value: jitter(i % 2 ? 0.2 : -0.3) },
+      { label: "Performance", value: jitter(i % 3 ? -0.2 : 0.4) },
+      { label: "Technology", value: jitter(0.1) },
+      { label: "Value", value: jitter(car.isLuxury ? -0.8 : 0.3) },
+    ],
+    verdict: car.expertVerdict,
+    image: car.images[0],
+  };
+}
+
+export type BrandSegment = "all" | "mainstream" | "luxury" | "electric";
+
+export interface BrandSummary {
+  brand: Brand;
+  models: number;
+  evs: number;
+  upcoming: number;
+  /** Lowest ex-showroom price across the line-up, if any models are on sale */
+  startingPrice?: number;
+  segments: BrandSegment[];
+}
+
+/* ── Catalogue-bound helpers ────────────────────────────────── */
+
+export function createCatalog(data: CatalogData) {
+  const { brands, cars, upcoming, dealers, dealerProfiles, dealerReviews, usedCars, authors, articles, ownerReviews } = data;
+
+  const brandBySlug = new Map(brands.map((b) => [b.slug, b]));
+  const carBySlug = new Map(cars.map((c) => [c.slug, c]));
+  const expertReviews = cars.map(expertReviewFor);
+
+  const getBrand = (slug: string) => brandBySlug.get(slug);
+  const brandName = (slug: string) => brandBySlug.get(slug)?.name ?? LEGACY_BRANDS[slug] ?? slug;
+  const getCar = (slug: string) => carBySlug.get(slug);
+  const carsByBrand = (brand: string) => cars.filter((c) => c.brand === brand);
+
+  const brandSummary = (brand: Brand): BrandSummary => {
+    const line = carsByBrand(brand.slug);
+    const evs = line.filter(isElectric).length;
+    const segments: BrandSegment[] = ["all", brand.isLuxury ? "luxury" : "mainstream"];
+    // "Electric-first": at least half of the current line-up is battery-electric.
+    if (line.length > 0 && evs / line.length >= 0.5) segments.push("electric");
+    return {
+      brand,
+      models: line.length,
+      evs,
+      upcoming: upcoming.filter((c) => c.brand === brand.slug).length,
+      startingPrice: line.length ? Math.min(...line.map((c) => c.priceMin)) : undefined,
+      segments,
+    };
+  };
+
+  const getDealer = (id: string) => dealers.find((d) => d.id === id);
+
+  return {
+    ...data,
+    expertReviews,
+
+    // Brands
+    getBrand,
+    brandName,
+    brandSummary,
+    brandSummaries: () => brands.map(brandSummary).sort((a, b) => a.brand.name.localeCompare(b.brand.name)),
+
+    // New cars
+    getCar,
+    carsByBrand,
+    carsInCategory: (category: CategorySlug) => cars.filter((c) => carCategories(c).includes(category)),
+    trendingCars: () => cars.filter((c) => c.trending),
+    latestLaunches: () => cars.filter((c) => c.launchedOn).sort((a, b) => (b.launchedOn! > a.launchedOn! ? 1 : -1)),
+    electricCars: () => cars.filter(isElectric),
+    getUpcoming: (slug: string) => upcoming.find((c) => c.slug === slug),
+
+    // Used cars
+    getUsedCar: (id: string) => usedCars.find((c) => c.id === id),
+
+    // Dealers
+    getDealer,
+    dealerProfile: (id: string) => dealerProfiles[id] ?? FALLBACK_DEALER_PROFILE,
+    reviewsForDealer: (dealerId: string) => dealerReviews.filter((r) => r.dealerId === dealerId).sort((a, b) => (a.date < b.date ? 1 : -1)),
+    /** Other showrooms, same city first, then by distance between cities. */
+    nearbyDealers: (dealer: Dealer, limit = 3) =>
+      dealers
+        .filter((d) => d.id !== dealer.id)
+        .map((d) => ({ dealer: d, km: cityDistanceKm(dealer.city, d.city) }))
+        .sort((a, b) => a.km - b.km || b.dealer.rating - a.dealer.rating)
+        .slice(0, limit),
+
+    // Editorial
+    getAuthor: (id: string) => authors.find((a) => a.id === id) ?? authors[0],
+    getArticle: (slug: string) => articles.find((a) => a.slug === slug),
+    getExpertReview: (carSlug: string) => expertReviews.find((r) => r.carSlug === carSlug),
+    ownerReviewsFor: (carSlug: string) => ownerReviews.filter((r) => r.carSlug === carSlug),
+  };
+}
+
+export type Catalog = ReturnType<typeof createCatalog>;
