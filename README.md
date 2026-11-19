@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# March Gear
 
-## Getting Started
+A premium automotive discovery platform for the Indian market — research, compare and discover new and used cars. Frontend only: every interaction runs on local mock data.
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build (all routes statically generated)
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Requires Node.js 20.9+.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Next.js 16 (App Router, Turbopack) · React 19 · TypeScript · Tailwind CSS v4 · Motion · lucide-react.
 
-## Learn More
+## Where things live
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/                 Routes (home, new/used cars, model & variant pages, compare,
+                       reviews, news, EVs, tools, dealers, account, legal)
+  components/
+    ui/                Design-system primitives (buttons, fields, tabs, modals, carousel…)
+    layout/            Header + mega menus, mobile nav, search, location, compare tray, footer
+    home/              Homepage sections
+    vehicle/           Car cards, used-car cards, gallery, wishlist/compare toggles
+    providers/         App state (wishlist, compare, city, mock user, enquiries, toasts)
+    …                  Feature folders for each page family
+  data/                Mock catalogue, used inventory, dealers, editorial, navigation
+  lib/                 Formatting, finance maths, motion tokens, persisted stores
+  types/               Domain types
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The design system — tokens, type scale, motion timings, component inventory and conventions — is documented in [DESIGN.md](DESIGN.md).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Notes
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- All prices, specifications, listings, reviews and dealers are demonstration data.
+- Photography is served from Unsplash via a custom `next/image` loader (`src/lib/image-loader.ts`) and is representative — it may not show the exact model described.
+- Wishlist, compare list, selected city and the mock signed-in user persist in `localStorage`.
