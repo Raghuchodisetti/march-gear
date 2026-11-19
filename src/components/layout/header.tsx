@@ -22,6 +22,7 @@ function isActive(pathname: string, item: NavItem) {
     reviews: ["/reviews"],
     news: ["/news"],
     ev: ["/electric-cars"],
+    pdi: ["/pdi-check"],
     tools: ["/tools"],
   };
   return (roots[item.key] ?? [item.href]).some((r) => pathname === r || pathname.startsWith(`${r}/`));
@@ -103,7 +104,7 @@ export function Header() {
         onKeyDown={(e) => e.key === "Escape" && closeNow()}
       >
         {transparent && !glass && <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 h-32 bg-gradient-to-b from-ink/50 to-transparent" />}
-        <div className="container-x flex h-[72px] items-center gap-6 xl:gap-8 3xl:gap-12">
+        <div className="container-x flex h-[72px] items-center gap-4 xl:gap-8 3xl:gap-12">
           <Logo tone={transparent ? "light" : "dark"} className="shrink-0" />
 
           <nav aria-label="Primary" className="hidden h-full flex-1 items-stretch lg:flex">
@@ -132,7 +133,7 @@ export function Header() {
                           aria-label={`${expanded ? "Close" : "Open"} ${item.label} menu`}
                           onClick={() => (expanded ? closeNow() : open(item.key, 0))}
                           className={cn(
-                            "flex items-center pr-2.5 transition-colors duration-[250ms] xl:pr-3.5",
+                            "flex items-center pr-[7px] transition-colors duration-[250ms] xl:pr-3.5",
                             transparent ? "text-white/80 hover:text-white" : "text-ink/70 hover:text-ink",
                           )}
                         >
@@ -222,7 +223,7 @@ export function Header() {
 
 function navItemClass(transparent: boolean, on: boolean) {
   return cn(
-    "group/nav relative flex items-center gap-1 whitespace-nowrap px-2.5 text-[14px] font-medium transition-colors duration-[250ms] xl:px-3.5",
+    "group/nav relative flex items-center gap-1 whitespace-nowrap px-[7px] text-[14px] font-medium transition-colors duration-[250ms] xl:px-3.5",
     transparent ? (on ? "text-white" : "text-white/80 hover:text-white") : on ? "text-ink" : "text-ink/70 hover:text-ink",
   );
 }
@@ -242,7 +243,7 @@ function Underline({ on, className }: { on: boolean; className?: string }) {
     <span
       aria-hidden
       className={cn(
-        "absolute inset-x-2.5 bottom-[18px] h-[2px] origin-left bg-red transition-transform duration-[350ms] ease-[var(--ease-premium)] xl:inset-x-3.5",
+        "absolute inset-x-[7px] bottom-[18px] h-[2px] origin-left bg-red transition-transform duration-[350ms] ease-[var(--ease-premium)] xl:inset-x-3.5",
         on ? "scale-x-100" : "scale-x-0",
         className,
       )}

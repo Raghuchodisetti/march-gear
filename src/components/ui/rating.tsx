@@ -40,7 +40,7 @@ export function ScoreBar({ label, value, max = 10, tone = "dark" }: { label: str
     <div>
       <div className="mb-2 flex items-baseline justify-between text-[13px]">
         <span className={tone === "dark" ? "text-muted" : "text-white/60"}>{label}</span>
-        <span className="font-semibold num">{value.toFixed(1)}</span>
+        <span className="font-semibold num">{max === 10 ? value.toFixed(1) : Math.round(value)}</span>
       </div>
       <div className={cn("h-[3px] w-full", tone === "dark" ? "bg-line" : "bg-white/15")}>
         <div className="h-full bg-red" style={{ width: `${(value / max) * 100}%` }} />

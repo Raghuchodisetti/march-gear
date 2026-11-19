@@ -52,10 +52,12 @@ export function SelectField({
   options,
   className,
   placeholder,
+  error,
   ...props
 }: ComponentProps<"select"> & {
   label?: string;
   placeholder?: string;
+  error?: string;
   options: { value: string; label: string }[];
 }) {
   const id = useId();
@@ -64,7 +66,13 @@ export function SelectField({
     <div className={className}>
       {label && <Label htmlFor={selectId}>{label}</Label>}
       <div className="relative">
-        <select id={selectId} {...props} className={cn(control, "cursor-pointer appearance-none pr-10")}>
+        <select
+          id={selectId}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={error ? `${selectId}-msg` : undefined}
+          {...props}
+          className={cn(control, "cursor-pointer appearance-none pr-10 disabled:cursor-not-allowed disabled:bg-mist disabled:text-muted disabled:hover:border-line")}
+        >
           {placeholder && <option value="">{placeholder}</option>}
           {options.map((o) => (
             <option key={o.value} value={o.value}>
@@ -74,6 +82,11 @@ export function SelectField({
         </select>
         <ChevronDown aria-hidden className="pointer-events-none absolute right-3.5 top-1/2 size-4 -translate-y-1/2 text-muted" />
       </div>
+      {error && (
+        <p id={`${selectId}-msg`} className="mt-1.5 text-xs text-red">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

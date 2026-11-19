@@ -136,6 +136,7 @@ export const mainNav: NavItem[] = [
     },
   },
   { key: "ev", label: "Electric Vehicles", shortLabel: "Electric", href: "/electric-cars" },
+  { key: "pdi", label: "PDI Check", href: "/pdi-check" },
   { key: "compare", label: "Compare", href: "/compare" },
   {
     key: "reviews",
