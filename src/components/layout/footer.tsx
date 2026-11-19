@@ -98,7 +98,7 @@ export function Footer() {
           </p>
           <div className="mt-6 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div className="flex flex-col gap-3 text-[12.5px] sm:flex-row sm:items-center sm:gap-6">
-              <p className="text-white/50">© 2026 March Gear Mobility Pvt. Ltd.</p>
+              <p className="text-white/50">© 2026 MarchGear. All rights reserved.</p>
               <ul className="flex flex-wrap gap-x-5 gap-y-2">
                 {footerLegal.map((l) => (
                   <li key={l.href}>

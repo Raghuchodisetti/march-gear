@@ -5,11 +5,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ArrowUpRight, Search } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { u, cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
-import { Button } from "@/components/ui/button";
-import { useUI } from "@/components/providers/app-provider";
 
 /**
  * Bright, daylight campaign frames. Each keeps the car low and right of
@@ -48,7 +46,6 @@ export function Hero() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const reduced = useReducedMotion();
-  const { setSearchOpen } = useUI();
   const router = useRouter();
 
   useEffect(() => {
@@ -122,25 +119,6 @@ export function Hero() {
           <p className="type-lead mt-6 max-w-md animate-rise text-white/90 [animation-delay:650ms] [animation-duration:1.2s]">
             Explore, compare and discover your next car with confidence.
           </p>
-        </div>
-
-        <div className="mt-8 grid animate-rise grid-cols-2 gap-2 [animation-delay:800ms] [animation-duration:1.2s] sm:mt-9 sm:flex sm:items-center sm:gap-3">
-          <Button href="/new-cars" size="lg" arrow className="px-4 sm:px-7">
-            <span className="sm:hidden">New Cars</span>
-            <span className="hidden sm:inline">Explore New Cars</span>
-          </Button>
-          <Button href="/used-cars" size="lg" variant="light" className="px-4 sm:px-7">
-            <span className="sm:hidden">Used Cars</span>
-            <span className="hidden sm:inline">Discover Used Cars</span>
-          </Button>
-          <button
-            type="button"
-            onClick={() => setSearchOpen(true)}
-            className="hidden h-13 items-center gap-2.5 rounded-[3px] border border-white/30 bg-white/10 px-5 sm:inline-flex text-[15px] text-white backdrop-blur-md transition-colors duration-[250ms] hover:bg-white/20 sm:ml-1"
-          >
-            <Search className="size-4" aria-hidden />
-            Search
-          </button>
         </div>
 
         {/* Chapter cards — jump between campaigns; the active one shows its timer */}
