@@ -19,7 +19,7 @@ import { useQueryState } from "@/components/listing/use-query-state";
 import { bestCells, buildGroups, rowDiffers, type SpecGroup, type SpecRow } from "./compare-rows";
 import { CarPicker } from "./car-picker";
 import { CompareSkeleton } from "./compare-skeleton";
-import { PopularComparisons } from "./popular-comparisons";
+import { PopularComparisonsSection } from "./popular-comparisons";
 
 /* Shared column template: label + 4 slots on desktop; on mobile the label
    becomes a caption row and only filled slots (+1 "add") take a column. */
@@ -38,7 +38,7 @@ export function CompareExperience() {
   const { slugs, set } = useCompare();
   const { city } = useCity();
   const { openEnquiry, toast, setLocationOpen } = useUI();
-  const { getCar, brandName } = useCatalog();
+  const { getCar, brandName, onRoadPrice } = useCatalog();
 
   /* ── Source of truth: ?cars= when present, otherwise the compare store ── */
   const urlRaw = params.get("cars");
@@ -79,7 +79,7 @@ export function CompareExperience() {
   const [collapsed, setCollapsed] = useState<string[]>([]);
   const [showBar, setShowBar] = useState(false);
 
-  const groups = useMemo(() => buildGroups(selected, { slug: city.slug, name: city.name }), [selected, city.slug, city.name]);
+  const groups = useMemo(() => buildGroups(selected, { slug: city.slug, name: city.name }, onRoadPrice), [selected, city.slug, city.name, onRoadPrice]);
   const comparable = filled >= 2;
   const allRows = groups.flatMap((g) => g.rows);
   const diffCount = comparable ? allRows.filter(rowDiffers).length : 0;
@@ -170,12 +170,9 @@ export function CompareExperience() {
             Choose up to four new cars. We&rsquo;ll line up price, performance, efficiency, space, safety and every feature — and flag the best value in each row.
           </p>
         </section>
-        <section className="border-t border-line py-14 md:py-20">
-          <div className="container-x">
-            <SectionHeading eyebrow="Popular comparisons" title="Or start with a classic rivalry" description="Tap a pairing to load it instantly. You can swap cars in and out afterwards." />
-            <PopularComparisons className="mt-12 md:mt-16" />
-          </div>
-        </section>
+        <PopularComparisonsSection
+          heading={<SectionHeading eyebrow="Popular comparisons" title="Or start with a classic rivalry" description="Tap a pairing to load it instantly. You can swap cars in and out afterwards." />}
+        />
         {picker}
       </>
     );
@@ -227,7 +224,7 @@ export function CompareExperience() {
           onScroll={(e) => {
             if (barRef.current) barRef.current.scrollLeft = e.currentTarget.scrollLeft;
           }}
-          className="mt-6 snap-x snap-proximity overflow-x-auto overscroll-x-contain md:mt-8 md:snap-none"
+          className="relative mt-6 snap-x snap-proximity overflow-x-auto overscroll-x-contain md:mt-8 md:snap-none"
         >
           <div className={MIN_W} style={vars}>
             {/* Slot cards */}
@@ -305,12 +302,10 @@ export function CompareExperience() {
         </p>
       </section>
 
-      <section className="border-t border-line py-14 md:py-20">
-        <div className="container-x">
-          <SectionHeading eyebrow="Popular comparisons" title="More rivalries worth settling" action={{ label: "Browse all new cars", href: "/new-cars" }} />
-          <PopularComparisons exclude={active.join(",")} className="mt-12 md:mt-16" />
-        </div>
-      </section>
+      <PopularComparisonsSection
+        exclude={active.join(",")}
+        heading={<SectionHeading eyebrow="Popular comparisons" title="More rivalries worth settling" action={{ label: "Browse all new cars", href: "/new-cars" }} />}
+      />
 
       {/* Compact sticky header */}
       <AnimatePresence>

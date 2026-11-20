@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { FOIR, LOAN_TO_VALUE } from "@/data/tools-assumptions";
+import { getCatalog } from "@/server/catalog";
+import { calcRates } from "@/components/tools/calc";
 import { PageHeader } from "@/components/ui/page-header";
 import { LoanEligibility } from "@/components/tools/loan-eligibility";
 import { HowItWorks, RelatedTools, ToolDisclaimer, ToolFaqs, ToolMetaRow } from "@/components/tools/tool-sections";
@@ -12,7 +13,8 @@ export const metadata: Metadata = {
 
 const pct = (n: number) => `${Math.round(n * 100)}%`;
 
-export default function CarLoanPage() {
+export default async function CarLoanPage() {
+  const { foir, loanToValue } = calcRates((await getCatalog()).content.toolRates);
   return (
     <>
       <PageHeader
@@ -25,7 +27,7 @@ export default function CarLoanPage() {
         }
         description="Lenders cap your total EMIs at a share of take-home pay. Tell us your income and obligations to see the loan you're likely to qualify for — and the cars it puts within reach."
       >
-        <ToolMetaRow items={["FOIR-based", `${pct(FOIR.salaried)} salaried · ${pct(FOIR["self-employed"])} self-employed`, "Matched to real models", "Illustrative estimate"]} />
+        <ToolMetaRow items={["FOIR-based", `${pct(foir.salaried)} salaried · ${pct(foir["self-employed"])} self-employed`, "Matched to real models", "Illustrative estimate"]} />
       </PageHeader>
 
       <LoanEligibility />
@@ -35,8 +37,8 @@ export default function CarLoanPage() {
         steps={[
           {
             title: "Apply the FOIR cap",
-            body: `We cap total EMIs at ${pct(FOIR.salaried)} of take-home pay for salaried applicants and ${pct(FOIR["self-employed"])} for the self-employed, whose income lenders treat as more variable.`,
-            formula: `EMI cap = net monthly income × ${FOIR.salaried} (or ${FOIR["self-employed"]})`,
+            body: `We cap total EMIs at ${pct(foir.salaried)} of take-home pay for salaried applicants and ${pct(foir["self-employed"])} for the self-employed, whose income lenders treat as more variable.`,
+            formula: `EMI cap = net monthly income × ${foir.salaried} (or ${foir["self-employed"]})`,
           },
           {
             title: "Subtract existing EMIs",
@@ -50,8 +52,8 @@ export default function CarLoanPage() {
           },
           {
             title: "Turn the loan into a car budget",
-            body: `Most lenders fund around ${pct(LOAN_TO_VALUE)} of the car's price, so we assume a ${pct(1 - LOAN_TO_VALUE)} down payment and match models whose starting price fits.`,
-            formula: `car budget = loan ÷ ${LOAN_TO_VALUE}`,
+            body: `Most lenders fund around ${pct(loanToValue)} of the car's price, so we assume a ${pct(1 - loanToValue)} down payment and match models whose starting price fits.`,
+            formula: `car budget = loan ÷ ${loanToValue}`,
           },
         ]}
       />

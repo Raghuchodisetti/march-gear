@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { ExpertReview } from "@/types";
 import { getCatalog } from "@/server/catalog";
 import { IMG } from "@/data/images";
-import { allArticles, featuredReviewPicks, RECOMMEND_THRESHOLD } from "@/data/editorial-extra";
+import { RECOMMEND_THRESHOLD } from "@/data/editorial-extra";
 import { formatDate, formatPriceRange } from "@/lib/format";
 import { PageHeader } from "@/components/ui/page-header";
 import { Eyebrow } from "@/components/ui/section-heading";
@@ -50,7 +50,8 @@ export default async function ReviewsPage() {
     ];
   });
 
-  const picks = featuredReviewPicks.map(getExpertReview).filter((r): r is ExpertReview => !!r);
+  // Slugs of cars that were removed or unpublished have no expert review and are skipped.
+  const picks = cat.content.reviewsFeatured.picks.map((slug) => getExpertReview(slug)).filter((r): r is ExpertReview => !!r);
   const cover = [...picks].sort(byScore)[0] ?? [...expertReviews].sort(byScore)[0];
   const coverCar = getCar(cover.carSlug)!;
   const coverAuthor = getAuthor(cover.authorId);
@@ -58,7 +59,7 @@ export default async function ReviewsPage() {
 
   const top = [...expertReviews].sort(byScore).slice(0, 10);
   const lastUpdated = [...expertReviews].map((r) => r.publishedOn).sort().at(-1)!;
-  const features = allArticles(cat).filter((a) => a.category === "Expert Review" || a.category === "First Drive");
+  const features = cat.articles.filter((a) => a.category === "Expert Review" || a.category === "First Drive");
 
   const ownerAvg = ownerReviews.reduce((s, r) => s + r.rating, 0) / ownerReviews.length;
   const recommend = Math.round((ownerReviews.filter((r) => r.rating >= RECOMMEND_THRESHOLD).length / ownerReviews.length) * 100);
@@ -82,7 +83,7 @@ export default async function ReviewsPage() {
           </div>
           <div>
             <dt className="text-muted">Road testers</dt>
-            <dd className="mt-1 type-h4 num">4</dd>
+            <dd className="mt-1 type-h4 num">{cat.authors.length}</dd>
           </div>
           <div>
             <dt className="text-muted">Criteria</dt>

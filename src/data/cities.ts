@@ -1,5 +1,9 @@
 import type { City } from "@/types";
 
+/* Launch defaults for the `cities` content block (src/content/blocks/cities.ts).
+   The site reads the saved block through the catalogue: `cities`, `getCity` and
+   `onRoadPrice` from getCatalog() / useCatalog(). */
+
 export const cities: City[] = [
   { slug: "mumbai", name: "Mumbai", state: "Maharashtra", onRoadFactor: 1.19, popular: true },
   { slug: "delhi", name: "New Delhi", state: "Delhi", onRoadFactor: 1.14, popular: true },
@@ -21,12 +25,5 @@ export const cities: City[] = [
 
 export const DEFAULT_CITY = "mumbai";
 
-export const getCity = (slug: string) => cities.find((c) => c.slug === slug) ?? cities[0];
-
-/** Indicative on-road price: ex-showroom plus RTO, insurance and handling for the city. */
-export function onRoadPrice(exShowroom: number, citySlug: string, isElectric = false) {
-  const city = getCity(citySlug);
-  // EVs attract near-zero road tax in most states.
-  const factor = isElectric ? 1 + (city.onRoadFactor - 1) * 0.35 : city.onRoadFactor;
-  return Math.round((exShowroom * factor) / 1000) * 1000;
-}
+/** EVs attract near-zero road tax in most states, so they pay only this share of a city's on-road markup. */
+export const EV_ON_ROAD_SHARE = 0.35;

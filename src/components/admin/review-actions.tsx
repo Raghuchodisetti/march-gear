@@ -2,16 +2,18 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Check, Loader2, Trash2, X } from "lucide-react";
+import { Check, Loader2, Pencil, Trash2, X } from "lucide-react";
 import type { ReviewStatus } from "@/db/enums";
 import { deleteReviewAction, setReviewStatusAction } from "@/server/actions/admin";
 import { useUI } from "@/components/providers/app-provider";
+import { ReviewEditDialog, type EditableReview } from "./review-editor";
 
-/** Approve / reject / delete buttons for one review row. */
-export function ReviewActions({ kind, id, status }: { kind: "owner" | "dealer"; id: string; status: ReviewStatus }) {
+/** Approve / reject / edit / delete buttons for one review row. */
+export function ReviewActions({ kind, id, status, review }: { kind: "owner" | "dealer"; id: string; status: ReviewStatus; review: EditableReview }) {
   const router = useRouter();
   const { toast } = useUI();
   const [busy, setBusy] = useState<string | null>(null);
+  const [editing, setEditing] = useState(false);
 
   const run = async (key: string, fn: () => Promise<{ ok: boolean; error?: string }>, done: string) => {
     setBusy(key);
@@ -35,6 +37,9 @@ export function ReviewActions({ kind, id, status }: { kind: "owner" | "dealer"; 
           {busy === "reject" ? <Loader2 className="size-3.5 animate-spin" aria-hidden /> : <X className="size-3.5" aria-hidden />} {status === "approved" ? "Hide" : "Reject"}
         </button>
       )}
+      <button type="button" disabled={busy !== null} onClick={() => setEditing(true)} className={`${btn} border-line hover:border-ink`}>
+        <Pencil className="size-3.5" aria-hidden /> Edit
+      </button>
       <button
         type="button"
         disabled={busy !== null}
@@ -42,8 +47,9 @@ export function ReviewActions({ kind, id, status }: { kind: "owner" | "dealer"; 
         className={`${btn} border-line text-muted hover:border-red hover:text-red`}
         aria-label="Delete review"
       >
-        <Trash2 className="size-3.5" aria-hidden />
+        {busy === "delete" ? <Loader2 className="size-3.5 animate-spin" aria-hidden /> : <Trash2 className="size-3.5" aria-hidden />}
       </button>
+      <ReviewEditDialog kind={kind} id={id} review={review} open={editing} onClose={() => setEditing(false)} />
     </div>
   );
 }

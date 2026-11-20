@@ -19,7 +19,7 @@ export interface CarOption {
 
 const OWNED_FOR = ["Less than 6 months", "6 – 12 months", "1 – 2 years", "2 – 3 years", "More than 3 years"];
 const MIN_BODY = 40;
-const MIN_TITLE = 6;
+const MIN_TITLE = 4; // matches the server rule and the car-page review form
 
 type Field = "car" | "variant" | "rating" | "title" | "body" | "name" | "city" | "km";
 const ORDER: Field[] = ["car", "variant", "rating", "title", "body", "km", "name", "city"];

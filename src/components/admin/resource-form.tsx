@@ -9,8 +9,11 @@ import { Button } from "@/components/ui/button";
 import { Label, SelectField, TextField } from "@/components/ui/field";
 import { useUI } from "@/components/providers/app-provider";
 import { slugify, type Field, type FormValues, type Section } from "./fields";
+import { MediaPickerButton } from "./media-picker";
 
 type SaveAction = (values: FormValues) => Promise<ActionResult<{ id: string | number }>>;
+
+const HEX = /^#[0-9a-f]{6}$/i;
 
 const inputClass =
   "w-full rounded-[3px] border border-line bg-white px-3.5 text-[14px] text-ink placeholder:text-muted/70 outline-none transition-[border-color] duration-200 hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red";
@@ -60,11 +63,26 @@ export function ResourceForm({
     return v;
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  // Bumped after a failed save, so the effect below scrolls once the new errors are on screen.
+  const [errorScroll, setErrorScroll] = useState(0);
   const [dirty, setDirty] = useState(false);
   const [saving, setSaving] = useState(false);
   // The field that auto-fills from another (e.g. slug from name) until edited by hand.
   const slugField = sections.flatMap((s) => s.fields).find((f) => f.type === "text" && f.slugFrom)?.name;
   const [slugTouched, setSlugTouched] = useState(Boolean(slugField && initial[slugField]));
+
+  useEffect(() => {
+    if (!errorScroll) return;
+    // The highest field with an error (issue order isn't always page order)…
+    const first = Object.keys(errors)
+      .map(fieldElement)
+      .filter((el): el is Element => el !== null)
+      .sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1))[0];
+    // …then its first marked control or message: a whole list of rows is taller than the screen, and its own message sits at the bottom.
+    (first?.querySelector('[aria-invalid="true"], [data-error]') ?? first)?.scrollIntoView({ behavior: "smooth", block: "center" });
+    // Only after a save attempt, not as errors clear while editing.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [errorScroll]);
 
   useEffect(() => {
     if (!dirty) return;
@@ -99,12 +117,7 @@ export function ResourceForm({
       if (!res.ok) {
         setErrors(res.fieldErrors ?? {});
         toast(res.error ?? "Couldn't save. Check the highlighted fields.", { tone: "error" });
-        // Scroll to the highest field with an error (issue order isn't always page order).
-        const first = Object.keys(res.fieldErrors ?? {})
-          .map(fieldElement)
-          .filter((el): el is Element => el !== null)
-          .sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1))[0];
-        first?.scrollIntoView({ behavior: "smooth", block: "center" });
+        setErrorScroll((n) => n + 1);
         return;
       }
       setDirty(false);
@@ -183,7 +196,7 @@ function fieldElement(key: string): Element | null {
 function ErrorText({ path, errors, id, className }: { path: string; errors: Record<string, string>; id?: string; className?: string }) {
   const msg = errors[path];
   return msg ? (
-    <p id={id} className={cn("mt-1.5 text-xs text-red", className)}>
+    <p id={id} data-error className={cn("mt-1.5 text-xs text-red", className)}>
       {msg}
     </p>
   ) : null;
@@ -239,7 +252,14 @@ function FieldInput({
         <div>
           <Label htmlFor={id}>{label}</Label>
           <div className="flex gap-2">
-            <input type="color" aria-label={`${f.label} picker`} value={String(value || "#111111")} onChange={(e) => onChange(e.target.value)} className="h-12 w-14 shrink-0 cursor-pointer rounded-[3px] border border-line bg-white p-1" />
+            {/* The picker only accepts #rrggbb; while the text box holds anything else (half-typed, "red"…) it shows the fallback. */}
+            <input
+              type="color"
+              aria-label={`${f.label} picker`}
+              value={HEX.test(String(value ?? "")) ? String(value) : "#111111"}
+              onChange={(e) => onChange(e.target.value)}
+              className="h-12 w-14 shrink-0 cursor-pointer rounded-[3px] border border-line bg-white p-1"
+            />
             <input id={id} className={cn(inputClass, "h-12")} value={String(value ?? "")} onChange={(e) => onChange(e.target.value)} placeholder="#111111" aria-invalid={err ? true : undefined} aria-describedby={errId} />
           </div>
           <ErrorText id={errId} path={path} errors={errors} />
@@ -249,7 +269,10 @@ function FieldInput({
       return wrap(
         <div className="flex gap-3">
           <Preview src={String(value ?? "")} />
-          <TextField className="min-w-0 flex-1" label={label} type="url" value={String(value ?? "")} onChange={(e) => onChange(e.target.value)} placeholder="https://…" hint={f.hint} error={err} />
+          <div className="min-w-0 flex-1">
+            <TextField label={label} type="url" value={String(value ?? "")} onChange={(e) => onChange(e.target.value)} placeholder="https://… or upload one" hint={f.hint} error={err} />
+            <MediaPickerButton className="mt-2" onPick={([url]) => url && onChange(url)} />
+          </div>
         </div>,
       );
     case "textarea":
@@ -308,14 +331,25 @@ function FieldInput({
         />,
       );
     case "checkbox":
+      // Rules can fail on a checkbox too (e.g. "only one plan can be most popular"), so it shows its own error.
       return wrap(
-        <label className="flex h-full cursor-pointer items-start gap-3 rounded-[3px] border border-line px-4 py-3.5 transition-colors hover:border-ink/30">
-          <input type="checkbox" checked={Boolean(value)} onChange={(e) => onChange(e.target.checked)} className="mt-0.5 size-4 accent-[var(--color-red)]" />
-          <span>
-            <span className="block text-[14px] font-medium">{f.label}</span>
-            {f.hint && <span className="mt-0.5 block text-[12.5px] text-muted">{f.hint}</span>}
-          </span>
-        </label>,
+        <div className="flex h-full flex-col">
+          <label className={cn("flex flex-1 cursor-pointer items-start gap-3 rounded-[3px] border px-4 py-3.5 transition-colors hover:border-ink/30", err ? "border-red" : "border-line")}>
+            <input
+              type="checkbox"
+              checked={Boolean(value)}
+              onChange={(e) => onChange(e.target.checked)}
+              aria-invalid={err ? true : undefined}
+              aria-describedby={errId}
+              className="mt-0.5 size-4 accent-[var(--color-red)]"
+            />
+            <span>
+              <span className="block text-[14px] font-medium">{f.label}</span>
+              {f.hint && <span className="mt-0.5 block text-[12.5px] text-muted">{f.hint}</span>}
+            </span>
+          </label>
+          <ErrorText id={errId} path={path} errors={errors} />
+        </div>,
       );
     case "multi": {
       const list = Array.isArray(value) ? (value as string[]) : [];
@@ -349,6 +383,9 @@ function FieldInput({
     }
     case "lines": {
       const list = Array.isArray(value) ? (value as string[]) : [];
+      // Rules on individual lines report at "<path>.<n>" (n counts non-blank lines).
+      const lineErr = err ? null : Object.entries(errors).find(([k]) => k.startsWith(`${path}.`));
+      const lineMsg = lineErr ? `Line ${Number(lineErr[0].slice(path.length + 1).split(".")[0]) + 1}: ${lineErr[1]}` : null;
       return wrap(
         <div>
           <Label htmlFor={id}>{label}</Label>
@@ -359,11 +396,16 @@ function FieldInput({
             value={list.join("\n")}
             onChange={(e) => onChange(e.target.value.split("\n"))}
             placeholder={f.placeholder ?? "One per line"}
-            aria-invalid={err ? true : undefined}
+            aria-invalid={err || lineMsg ? true : undefined}
             aria-describedby={errId}
           />
           <p className="mt-1.5 text-xs text-muted">{f.hint ?? "One item per line."}</p>
           <ErrorText id={errId} path={path} errors={errors} />
+          {lineMsg && (
+            <p id={errId} data-error className="mt-1.5 text-xs text-red">
+              {lineMsg}
+            </p>
+          )}
         </div>,
       );
     }
@@ -404,9 +446,13 @@ function FieldInput({
               );
             })}
           </ul>
-          <button type="button" onClick={() => onChange([...list, ""])} className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-medium text-red hover:underline">
-            <Plus aria-hidden className="size-4" /> Add image
-          </button>
+          <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
+            <button type="button" onClick={() => onChange([...list, ""])} className="inline-flex items-center gap-1.5 text-[13px] font-medium text-red hover:underline">
+              <Plus aria-hidden className="size-4" /> Add image URL
+            </button>
+            {/* Picked images replace any blank rows and go to the end. */}
+            <MediaPickerButton multiple look="link" onPick={(urls) => reshape([...list.filter((x) => x.trim()), ...urls])} />
+          </div>
           <p className="mt-1.5 text-xs text-muted">{f.hint ?? "The first image is the cover."}</p>
           <ErrorText path={path} errors={errors} />
         </div>,

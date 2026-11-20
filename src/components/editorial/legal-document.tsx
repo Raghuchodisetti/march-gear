@@ -1,5 +1,6 @@
 import { ChevronDown, Info } from "lucide-react";
-import type { LegalSection } from "@/data/editorial-legal";
+import type { SiteContent } from "@/content/registry";
+import { slugify } from "@/lib/utils";
 import { PageHeader } from "@/components/ui/page-header";
 import { TextLink } from "@/components/ui/section-heading";
 import { Badge } from "@/components/ui/badge";
@@ -13,12 +14,26 @@ function longDate(iso: string) {
   return `${d} ${MONTHS[m - 1]} ${y}`;
 }
 
+type LegalSection = SiteContent["legal"]["privacy"][number];
+
+/** Each section's #anchor: the one set in the admin, else one made from the heading — unique on the page. */
+function withIds(sections: LegalSection[]) {
+  const used = new Set<string>();
+  return sections.map((s, i) => {
+    const base = s.anchor || slugify(s.title) || `section-${i + 1}`;
+    let id = base;
+    for (let n = 2; used.has(id); n++) id = `${base}-${n}`;
+    used.add(id);
+    return { ...s, id };
+  });
+}
+
 /** Typeset legal page: header, sticky contents on desktop, anchored sections. */
 export function LegalDocument({
   eyebrow,
   title,
   intro,
-  sections,
+  sections: content,
   updated,
   sibling,
 }: {
@@ -29,6 +44,7 @@ export function LegalDocument({
   updated: string;
   sibling: { label: string; href: string };
 }) {
+  const sections = withIds(content);
   const toc = sections.map(({ id, title }) => ({ id, title }));
 
   return (
@@ -92,7 +108,7 @@ export function LegalDocument({
                   <p key={j}>{p}</p>
                 ))}
               </div>
-              {s.list && (
+              {s.list.length > 0 && (
                 <ul className="mt-5 max-w-[68ch] space-y-3 text-[16px] leading-[1.7] text-ink/80">
                   {s.list.map((item, j) => (
                     <li key={j} className="flex gap-4">

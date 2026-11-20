@@ -12,6 +12,8 @@ import { requireStaff } from "@/server/auth";
 import { expireCatalog } from "@/server/catalog";
 import { invalid } from "@/server/validation";
 import { isDuplicate, isInUse, isMissingParent } from "@/server/db-errors";
+import { audit } from "@/server/audit";
+import { LEGACY_BRANDS } from "@/lib/catalog";
 
 /* ── Field rules ────────────────────────────────────────────── */
 
@@ -75,6 +77,13 @@ function done(path: string): void {
   revalidatePath(path, "layout");
 }
 
+/** A brand's display name (including marques only sold pre-owned), for activity-log summaries. */
+async function brandLabel(slug: string) {
+  const [b] = await getDb().select({ name: brands.name }).from(brands).where(eq(brands.slug, slug));
+  return b?.name ?? LEGACY_BRANDS[slug] ?? slug;
+}
+const verb = (isNew: boolean) => (isNew ? "Created" : "Updated");
+
 const recordId = z.coerce.number().int().positive();
 
 /* Record ids arrive from the client (bound to the action), so check them like any other input. null = create. */
@@ -99,7 +108,7 @@ const brandSchema = z.object({
 });
 
 export async function saveBrandAction(recordKey: unknown, input: unknown): Promise<Saved> {
-  await requireStaff();
+  const me = await requireStaff();
   const rid = numericId.safeParse(recordKey);
   if (!rid.success) return BAD_ID;
   const id = rid.data;
@@ -122,10 +131,12 @@ export async function saveBrandAction(recordKey: unknown, input: unknown): Promi
       });
       if (!found) return GONE;
       done("/admin/brands");
+      await audit(me.id, "update", "brand", id, `Updated brand “${parsed.data.name}”`);
       return { ok: true, id };
     }
     const [res] = await db.insert(brands).values(parsed.data);
     done("/admin/brands");
+    await audit(me.id, "create", "brand", res.insertId, `Created brand “${parsed.data.name}”`);
     return { ok: true, id: res.insertId };
   } catch (err) {
     if (isDuplicate(err)) return { ok: false, fieldErrors: { slug: "Another brand already uses this slug." } };
@@ -134,9 +145,10 @@ export async function saveBrandAction(recordKey: unknown, input: unknown): Promi
 }
 
 export async function deleteBrandAction(id: unknown): Promise<ActionResult> {
-  await requireStaff();
+  const me = await requireStaff();
   const rid = recordId.safeParse(id);
   if (!rid.success) return { ok: false, error: "Invalid brand" };
+  const [before] = await getDb().select({ name: brands.name }).from(brands).where(eq(brands.id, rid.data));
   try {
     await getDb().delete(brands).where(eq(brands.id, rid.data));
   } catch (err) {
@@ -144,6 +156,7 @@ export async function deleteBrandAction(id: unknown): Promise<ActionResult> {
     throw err;
   }
   done("/admin/brands");
+  if (before) await audit(me.id, "delete", "brand", rid.data, `Deleted brand “${before.name}”`);
   return { ok: true };
 }
 
@@ -247,7 +260,7 @@ async function renameCarReferences(tx: Tx, from: string, to: string) {
 }
 
 export async function saveCarAction(recordKey: unknown, input: unknown): Promise<Saved> {
-  await requireStaff();
+  const me = await requireStaff();
   const rid = numericId.safeParse(recordKey);
   if (!rid.success) return BAD_ID;
   const id = rid.data;
@@ -255,7 +268,7 @@ export async function saveCarAction(recordKey: unknown, input: unknown): Promise
   if (!parsed.success) return invalid(parsed.error);
   const { variants: variantRows, competitors, ...car } = parsed.data;
   const db = getDb();
-  const [brand] = await db.select({ slug: brands.slug }).from(brands).where(eq(brands.slug, car.brand));
+  const [brand] = await db.select({ slug: brands.slug, name: brands.name }).from(brands).where(eq(brands.slug, car.brand));
   if (!brand) return { ok: false, fieldErrors: { brand: "Choose a brand" } };
   const values = { ...car, competitors: competitors.filter((s) => s !== car.slug), features: car.features.filter((g) => g.items.length) };
 
@@ -274,6 +287,7 @@ export async function saveCarAction(recordKey: unknown, input: unknown): Promise
     });
     if (!carId) return GONE;
     done("/admin/cars");
+    await audit(me.id, id ? "update" : "create", "car", carId, `${verb(!id)} car “${brand.name} ${car.name}”`);
     return { ok: true, id: carId };
   } catch (err) {
     if (isDuplicate(err)) return { ok: false, fieldErrors: { slug: "Another car already uses this slug." } };
@@ -282,11 +296,13 @@ export async function saveCarAction(recordKey: unknown, input: unknown): Promise
 }
 
 export async function deleteCarAction(id: unknown): Promise<ActionResult> {
-  await requireStaff();
+  const me = await requireStaff();
   const rid = recordId.safeParse(id);
   if (!rid.success) return { ok: false, error: "Invalid car" };
+  const [before] = await getDb().select({ name: cars.name, brand: cars.brand }).from(cars).where(eq(cars.id, rid.data));
   await getDb().delete(cars).where(eq(cars.id, rid.data));
   done("/admin/cars");
+  if (before) await audit(me.id, "delete", "car", rid.data, `Deleted car “${await brandLabel(before.brand)} ${before.name}”`);
   return { ok: true };
 }
 
@@ -311,7 +327,7 @@ const upcomingSchema = z
   .refine((u) => u.priceMax >= u.priceMin, { path: ["priceMax"], message: "Must be at least the price from" });
 
 export async function saveUpcomingAction(recordKey: unknown, input: unknown): Promise<Saved> {
-  await requireStaff();
+  const me = await requireStaff();
   const rid = numericId.safeParse(recordKey);
   if (!rid.success) return BAD_ID;
   let id = rid.data;
@@ -329,15 +345,18 @@ export async function saveUpcomingAction(recordKey: unknown, input: unknown): Pr
     throw err;
   }
   done("/admin/upcoming");
+  await audit(me.id, rid.data ? "update" : "create", "upcoming", id, `${verb(!rid.data)} upcoming launch “${await brandLabel(parsed.data.brand)} ${parsed.data.name}”`);
   return { ok: true, id };
 }
 
 export async function deleteUpcomingAction(id: unknown): Promise<ActionResult> {
-  await requireStaff();
+  const me = await requireStaff();
   const rid = recordId.safeParse(id);
   if (!rid.success) return { ok: false, error: "Invalid launch" };
+  const [before] = await getDb().select({ name: upcomingCars.name, brand: upcomingCars.brand }).from(upcomingCars).where(eq(upcomingCars.id, rid.data));
   await getDb().delete(upcomingCars).where(eq(upcomingCars.id, rid.data));
   done("/admin/upcoming");
+  if (before) await audit(me.id, "delete", "upcoming", rid.data, `Deleted upcoming launch “${await brandLabel(before.brand)} ${before.name}”`);
   return { ok: true };
 }
 
@@ -373,7 +392,7 @@ const usedSchema = z.object({
 });
 
 export async function saveUsedCarAction(recordKey: unknown, input: unknown): Promise<Saved> {
-  await requireStaff();
+  const me = await requireStaff();
   const rid = stringId.safeParse(recordKey);
   if (!rid.success) return BAD_ID;
   let id = rid.data;
@@ -393,15 +412,19 @@ export async function saveUsedCarAction(recordKey: unknown, input: unknown): Pro
     throw err;
   }
   done("/admin/used-cars");
+  const u = parsed.data;
+  await audit(me.id, rid.data ? "update" : "create", "used_car", id, `${verb(!rid.data)} used car “${u.year} ${await brandLabel(u.brand)} ${u.name} ${u.variant}” (${id})`);
   return { ok: true, id };
 }
 
 export async function deleteUsedCarAction(id: unknown): Promise<ActionResult> {
-  await requireStaff();
+  const me = await requireStaff();
   const rid = z.string().min(1).max(64).safeParse(id);
   if (!rid.success) return { ok: false, error: "Invalid listing" };
+  const [before] = await getDb().select({ year: usedCars.year, brand: usedCars.brand, name: usedCars.name }).from(usedCars).where(eq(usedCars.id, rid.data));
   await getDb().delete(usedCars).where(eq(usedCars.id, rid.data));
   done("/admin/used-cars");
+  if (before) await audit(me.id, "delete", "used_car", rid.data, `Deleted used car “${before.year} ${await brandLabel(before.brand)} ${before.name}” (${rid.data})`);
   return { ok: true };
 }
 
@@ -440,7 +463,7 @@ const dealerSchema = z.object({
 });
 
 export async function saveDealerAction(recordKey: unknown, input: unknown): Promise<Saved> {
-  await requireStaff();
+  const me = await requireStaff();
   const rid = stringId.safeParse(recordKey);
   if (!rid.success) return BAD_ID;
   const id = rid.data;
@@ -456,16 +479,19 @@ export async function saveDealerAction(recordKey: unknown, input: unknown): Prom
     if (isDuplicate(err)) return { ok: false, fieldErrors: { id: "Another dealer already uses this ID." } };
     throw err;
   }
-  done("/admin/dealers");
+  done("/admin/showrooms");
+  await audit(me.id, id ? "update" : "create", "dealer", parsed.data.id, `${verb(!id)} dealer “${parsed.data.name}”`);
   return { ok: true, id: parsed.data.id };
 }
 
 export async function deleteDealerAction(id: unknown): Promise<ActionResult> {
-  await requireStaff();
+  const me = await requireStaff();
   const rid = z.string().min(1).max(64).safeParse(id);
   if (!rid.success) return { ok: false, error: "Invalid dealer" };
+  const [before] = await getDb().select({ name: dealers.name }).from(dealers).where(eq(dealers.id, rid.data));
   await getDb().delete(dealers).where(eq(dealers.id, rid.data));
-  done("/admin/dealers");
+  done("/admin/showrooms");
+  if (before) await audit(me.id, "delete", "dealer", rid.data, `Deleted dealer “${before.name}”`);
   return { ok: true };
 }
 
@@ -489,7 +515,7 @@ const articleSchema = z.object({
 });
 
 export async function saveArticleAction(recordKey: unknown, input: unknown): Promise<Saved> {
-  await requireStaff();
+  const me = await requireStaff();
   const rid = numericId.safeParse(recordKey);
   if (!rid.success) return BAD_ID;
   let id = rid.data;
@@ -507,22 +533,33 @@ export async function saveArticleAction(recordKey: unknown, input: unknown): Pro
     throw err;
   }
   done("/admin/news");
+  await audit(me.id, rid.data ? "update" : "create", "article", id, `${verb(!rid.data)} story “${parsed.data.title}”`);
   return { ok: true, id };
 }
 
 export async function deleteArticleAction(id: unknown): Promise<ActionResult> {
-  await requireStaff();
+  const me = await requireStaff();
   const rid = recordId.safeParse(id);
   if (!rid.success) return { ok: false, error: "Invalid story" };
+  const [before] = await getDb().select({ title: articles.title }).from(articles).where(eq(articles.id, rid.data));
   await getDb().delete(articles).where(eq(articles.id, rid.data));
   done("/admin/news");
+  if (before) await audit(me.id, "delete", "article", rid.data, `Deleted story “${before.title}”`);
   return { ok: true };
 }
 
-const authorSchema = z.object({ name: text("name", 120), id: slug.max(64), role: text("role", 120) });
+const authorSchema = z.object({
+  name: text("name", 120),
+  id: slug.max(64),
+  role: text("role", 120),
+  bio: optText(2000),
+  beat: optText(160),
+  base: optText(80),
+  joined: optInt(1950, 2100),
+});
 
 export async function saveAuthorAction(recordKey: unknown, input: unknown): Promise<Saved> {
-  await requireStaff();
+  const me = await requireStaff();
   const rid = stringId.safeParse(recordKey);
   if (!rid.success) return BAD_ID;
   const id = rid.data;
@@ -547,13 +584,15 @@ export async function saveAuthorAction(recordKey: unknown, input: unknown): Prom
     throw err;
   }
   done("/admin/authors");
+  await audit(me.id, id ? "update" : "create", "author", parsed.data.id, `${verb(!id)} author “${parsed.data.name}”`);
   return { ok: true, id: parsed.data.id };
 }
 
 export async function deleteAuthorAction(id: unknown): Promise<ActionResult> {
-  await requireStaff();
+  const me = await requireStaff();
   const rid = z.string().min(1).max(64).safeParse(id);
   if (!rid.success) return { ok: false, error: "Invalid author" };
+  const [before] = await getDb().select({ name: authors.name }).from(authors).where(eq(authors.id, rid.data));
   try {
     await getDb().delete(authors).where(eq(authors.id, rid.data));
   } catch (err) {
@@ -561,5 +600,6 @@ export async function deleteAuthorAction(id: unknown): Promise<ActionResult> {
     throw err;
   }
   done("/admin/authors");
+  if (before) await audit(me.id, "delete", "author", rid.data, `Deleted author “${before.name}”`);
   return { ok: true };
 }

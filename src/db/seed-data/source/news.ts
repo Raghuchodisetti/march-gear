@@ -2,11 +2,44 @@ import type { Article, Author } from "@/types";
 import { u } from "@/lib/utils";
 import { IMG } from "@/data/images";
 
+/** The desk, with the profiles shown on story pages and /about (edited later in the admin panel). */
 export const authors: Author[] = [
-  { id: "aditi", name: "Aditi Raghavan", role: "Editor-in-Chief" },
-  { id: "kabir", name: "Kabir Malhotra", role: "Senior Road Tester" },
-  { id: "meera", name: "Meera Nair", role: "EV & Technology Editor" },
-  { id: "arjun", name: "Arjun Sethi", role: "Industry Correspondent" },
+  {
+    id: "aditi",
+    name: "Aditi Raghavan",
+    role: "Editor-in-Chief",
+    bio: "Aditi has edited motoring titles for fifteen years and sets March Gear's editorial standards. She still owns the first car she ever reviewed.",
+    beat: "Ownership, safety and regulation",
+    base: "Mumbai",
+    joined: 2019,
+  },
+  {
+    id: "kabir",
+    name: "Kabir Malhotra",
+    role: "Senior Road Tester",
+    bio: "A former racing instructor, Kabir leads our road tests and comparison drives. He has driven more than 600 cars on Indian roads and tracks.",
+    beat: "Road tests and comparisons",
+    base: "Gurugram",
+    joined: 2020,
+  },
+  {
+    id: "meera",
+    name: "Meera Nair",
+    role: "EV & Technology Editor",
+    bio: "Meera trained as an electrical engineer before turning to journalism. She runs our long-term EV fleet and charging-network investigations.",
+    beat: "Electric vehicles and technology",
+    base: "Bengaluru",
+    joined: 2021,
+  },
+  {
+    id: "arjun",
+    name: "Arjun Sethi",
+    role: "Industry Correspondent",
+    bio: "Arjun covers sales, policy and the business of carmaking, and hosts our long-distance video films from the Himalaya to the Rann.",
+    beat: "Industry, markets and video",
+    base: "New Delhi",
+    joined: 2022,
+  },
 ];
 
 /** Editorial content is fictional and written for demonstration. */

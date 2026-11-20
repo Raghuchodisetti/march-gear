@@ -141,12 +141,12 @@ export function WishlistView() {
                   </div>
                 )}
                 <ul className={cn(GRID, "mt-10")}>
-                  {newCars.map((car) => {
+                  {newCars.map((car, i) => {
                     const title = `${brandName(car.brand)} ${car.name}`;
                     const isOn = picked.includes(car.slug);
                     return (
                       <li key={car.slug} className="relative">
-                        <CarCard car={car} className={cn(selecting && isOn && "border-ink")} />
+                        <CarCard car={car} priority={i < 2} className={cn(selecting && isOn && "border-ink")} />
                         {selecting && (
                           <button
                             type="button"
@@ -181,9 +181,9 @@ export function WishlistView() {
               <EmptyShelf kind="used" />
             ) : (
               <ul className={cn(GRID, "mt-10")}>
-                {used.map((car) => (
+                {used.map((car, i) => (
                   <li key={car.id}>
-                    <UsedCarCard car={car} />
+                    <UsedCarCard car={car} priority={i < 2} />
                   </li>
                 ))}
               </ul>
@@ -224,6 +224,7 @@ function EmptyShelf({ kind }: { kind: Shelf }) {
             src={isNew ? IMG.showroomSpot : IMG.lotRow}
             alt=""
             fill
+            loading="eager"
             sizes="(min-width: 768px) 55vw, 100vw"
             className="object-cover"
           />

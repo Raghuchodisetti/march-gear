@@ -4,8 +4,7 @@ import { useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { CalendarCheck, Check, Loader2, ShieldCheck } from "lucide-react";
-import { cities } from "@/data/cities";
-import { pdiPlans, type PdiPlanId } from "@/data/pdi";
+import { resolvePlan } from "@/lib/pdi";
 import { formatINR } from "@/lib/format";
 import { useStore } from "@/lib/store";
 import { EASE } from "@/lib/motion";
@@ -32,7 +31,9 @@ const NETWORK_ERROR = "Couldn't send — check your connection and try again.";
 
 export function PdiBooking() {
   const plan = useStore(pdiPlanStore);
+  const { plans } = useCatalog().content.pdiPlans;
   const { city } = useCity();
+  const { cities } = useCatalog();
   const { user } = useUser();
   const { toast } = useUI();
   const pathname = usePathname();
@@ -54,7 +55,7 @@ export function PdiBooking() {
   const [reference, setReference] = useState("");
   const [website, setWebsite] = useState("");
 
-  const selectedPlan = pdiPlans.find((p) => p.id === plan) ?? pdiPlans[1];
+  const selectedPlan = resolvePlan(plans, plan);
   const carLabel = carOptions.find((c) => c.value === car)?.label;
   const cityName = cities.find((c) => c.slug === citySlug)?.name;
 
@@ -141,12 +142,12 @@ export function PdiBooking() {
       <Honeypot value={website} onChange={setWebsite} />
       <div className="border-b border-line p-6 md:p-8">
         <Label>Choose a plan</Label>
-        <Segmented<PdiPlanId>
+        <Segmented<string>
           className="flex w-full"
           ariaLabel="PDI plan"
-          value={plan}
+          value={selectedPlan.id}
           onChange={(v) => pdiPlanStore.set(v)}
-          options={pdiPlans.map((p) => ({ value: p.id, label: p.name.replace(" PDI", "") }))}
+          options={plans.map((p) => ({ value: p.id, label: p.name.replace(" PDI", "") }))}
         />
         <p className="mt-3 text-[13px] text-muted num">
           {selectedPlan.name}: {formatINR(selectedPlan.price)} · {selectedPlan.checks}+ checks · {selectedPlan.duration}

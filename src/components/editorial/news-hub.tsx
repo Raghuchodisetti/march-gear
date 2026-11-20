@@ -161,7 +161,7 @@ export function NewsHub({ stories }: { stories: Article[] }) {
           <>
             <ul className={cn("grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3", top ? "mt-14" : "mt-8")}>
               <AnimatePresence mode="popLayout" initial={false}>
-                {visible.map((a) => (
+                {visible.map((a, i) => (
                   <motion.li
                     key={a.slug}
                     layout="position"
@@ -170,7 +170,7 @@ export function NewsHub({ stories }: { stories: Article[] }) {
                     exit={{ opacity: 0, transition: { duration: 0.15 } }}
                     transition={{ duration: 0.4, ease: EASE }}
                   >
-                    <StoryCard article={a} />
+                    <StoryCard article={a} eager={!top && i < 2} />
                   </motion.li>
                 ))}
               </AnimatePresence>
@@ -218,7 +218,7 @@ function TopStory({ article }: { article: Article }) {
   const author = getAuthor(article.authorId);
   return (
     <article className="group/top relative mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center lg:gap-12">
-      <Link href={storyHref(article)} className="relative block aspect-[16/10] overflow-hidden bg-mist lg:col-span-7">
+      <Link href={storyHref(article)} tabIndex={-1} aria-hidden className="relative block aspect-[16/10] overflow-hidden bg-mist lg:col-span-7">
         <Image
           src={article.image}
           alt=""
@@ -253,7 +253,8 @@ function TopStory({ article }: { article: Article }) {
   );
 }
 
-function StoryCard({ article }: { article: Article }) {
+/** `eager`: the first cards are above the fold when there's no top story (filtered views). */
+function StoryCard({ article, eager = false }: { article: Article; eager?: boolean }) {
   const video = article.category === "Video";
   return (
     <article className="group/card relative flex h-full flex-col">
@@ -262,6 +263,7 @@ function StoryCard({ article }: { article: Article }) {
           src={article.image}
           alt=""
           fill
+          loading={eager ? "eager" : undefined}
           sizes="(min-width: 1024px) 31vw, (min-width: 640px) 46vw, 100vw"
           className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/card:scale-[1.04]"
         />

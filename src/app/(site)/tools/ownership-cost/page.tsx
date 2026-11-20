@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { EV_MAINTENANCE_FACTOR, INSURANCE_RATE, MAINTENANCE_GROWTH, RESALE_CURVE } from "@/data/tools-assumptions";
+import { getCatalog } from "@/server/catalog";
+import { calcRates } from "@/components/tools/calc";
 import { PageHeader } from "@/components/ui/page-header";
 import { OwnershipCost } from "@/components/tools/ownership-cost";
 import { HowItWorks, RelatedTools, ToolDisclaimer, ToolFaqs, ToolMetaRow } from "@/components/tools/tool-sections";
@@ -12,7 +13,9 @@ export const metadata: Metadata = {
 
 const pct = (n: number) => `${Math.round(n * 100)}%`;
 
-export default function OwnershipCostPage() {
+export default async function OwnershipCostPage() {
+  const rates = calcRates((await getCatalog()).content.toolRates);
+  const resale = rates.resaleCurve;
   return (
     <>
       <PageHeader
@@ -40,7 +43,7 @@ export default function OwnershipCostPage() {
           },
           {
             title: "Depreciation",
-            body: `We apply a typical resale curve — ${pct(RESALE_CURVE[1])} of the ex-showroom value after one year, ${pct(RESALE_CURVE[3])} after three, ${pct(RESALE_CURVE[5])} after five — a little steeper for luxury cars and EVs.`,
+            body: `We apply a typical resale curve — ${pct(resale[1])} of the ex-showroom value after one year, ${pct(resale[3])} after three, ${pct(resale[5])} after five — a little steeper for luxury cars and EVs.`,
             formula: "depreciation = ex-showroom − resale value",
           },
           {
@@ -50,7 +53,7 @@ export default function OwnershipCostPage() {
           },
           {
             title: "Insurance and servicing",
-            body: `Insurance renews at about ${pct(INSURANCE_RATE)} of the car's current value. Servicing starts from a segment average and rises ${pct(MAINTENANCE_GROWTH)} a year; EVs need around ${pct(EV_MAINTENANCE_FACTOR)} as much.`,
+            body: `Insurance renews at about ${pct(rates.insuranceRate)} of the car's current value. Servicing starts from a segment average and rises ${pct(rates.maintenanceGrowth)} a year; EVs need around ${pct(rates.evMaintenanceFactor)} as much.`,
           },
           {
             title: "Interest",

@@ -9,6 +9,7 @@ import type { ActionResult } from "@/lib/action-result";
 import { getSessionUser } from "@/server/auth";
 import { HOUR, allowFromIp } from "@/server/rate-limit";
 import { isDuplicate } from "@/server/db-errors";
+import { routeSiteLead } from "@/server/partner/lead-routing";
 import { email, invalid, isoDate, mobile, name, optionalText, todayISO } from "@/server/validation";
 
 /* ──────────────────────────────────────────────────────────────
@@ -118,7 +119,7 @@ export async function submitLeadAction(input: LeadInput): Promise<ActionResult<{
   for (let attempt = 0; attempt < 3; attempt++) {
     const ref = reference(lead.type);
     try {
-      await db.insert(leads).values({
+      const [inserted] = await db.insert(leads).values({
         ...lead,
         reference: ref,
         name: lead.name ?? user?.name ?? null,
@@ -134,6 +135,8 @@ export async function submitLeadAction(input: LeadInput): Promise<ActionResult<{
         details: details ?? null,
         userId: user?.id ?? null,
       });
+      // Enquiries about a dealer partner's page, listing or offer also go to that dealer's CRM (never throws).
+      await routeSiteLead(inserted.insertId);
       return { ok: true, reference: ref };
     } catch (err) {
       // Retry only on a (very unlikely) duplicate reference.

@@ -13,6 +13,7 @@ import { AutomotiveStories } from "@/components/home/stories";
 import { ToolsSection } from "@/components/home/tools-section";
 import { DealerNetwork } from "@/components/home/dealer-network";
 import { Newsletter } from "@/components/home/newsletter";
+import { AdSlot } from "@/components/ads/ad-slot";
 
 export default function HomePage() {
   return (
@@ -23,6 +24,7 @@ export default function HomePage() {
       <BrowseByBrand />
       <DiscoverCategories />
       <LatestLaunches />
+      <AdSlot placement="home_banner" />
       <CompareShowcase />
       <PerfectCarQuiz />
       <UsedShowcase />

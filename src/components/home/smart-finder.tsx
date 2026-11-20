@@ -6,7 +6,6 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown, Search } from "lucide-react";
 import { BUDGETS, carCategories, inBudget } from "@/lib/catalog";
-import { cities } from "@/data/cities";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { Segmented } from "@/components/ui/field";
@@ -33,7 +32,7 @@ type Mode = "new" | "used";
 export function SmartFinder() {
   const router = useRouter();
   const { city, setCity } = useCity();
-  const { cars, usedCars, brands } = useCatalog();
+  const { cars, usedCars, brands, cities } = useCatalog();
   const [mode, setMode] = useState<Mode>("new");
   const [budget, setBudget] = useState("");
   const [body, setBody] = useState("");

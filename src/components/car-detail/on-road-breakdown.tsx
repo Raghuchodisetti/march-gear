@@ -2,19 +2,20 @@
 
 import { MapPin } from "lucide-react";
 import { motion } from "motion/react";
-import { cities, onRoadPrice } from "@/data/cities";
 import { formatINR, formatPriceShort } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { DemoNote } from "@/components/ui/badge";
 import { useCity, useUI } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { onRoadBreakdown } from "./utils";
 
 /** On-road price build-up for the chosen city, plus a city-by-city ladder. */
 export function OnRoadBreakdown({ exShowroom, ev, variantName }: { exShowroom: number; ev: boolean; variantName: string }) {
   const { city, setCity } = useCity();
   const { setLocationOpen, toast } = useUI();
-  const b = onRoadBreakdown(exShowroom, city.slug, ev);
+  const { cities, onRoadPrice } = useCatalog();
+  const b = onRoadBreakdown(exShowroom, onRoadPrice(exShowroom, city.slug, ev), ev);
 
   const lines = [
     { key: "ex", label: "Ex-showroom price", note: "Before taxes collected at registration", value: b.exShowroom, swatch: "bg-ink" },

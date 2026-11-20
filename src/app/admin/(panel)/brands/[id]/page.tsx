@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ExternalLink } from "lucide-react";
 import { deleteBrandAction, saveBrandAction } from "@/server/actions/catalog";
 import { brandForm, NEW_DEFAULTS } from "@/server/admin/catalog";
 import { requireStaff } from "@/server/auth";
-import { Button } from "@/components/ui/button";
-import { AdminHeader } from "@/components/admin/ui";
+import { AdminHeader, ViewOnSite } from "@/components/admin/ui";
 import { DeleteButton } from "@/components/admin/delete-button";
 import { ResourceForm } from "@/components/admin/resource-form";
 import { brandSections } from "@/components/admin/resources";
@@ -28,9 +26,7 @@ export default async function BrandEditPage({ params }: PageProps<"/admin/brands
         actions={
           !isNew && (
             <>
-              <Button href={`/brands/${initial.slug}`} target="_blank" variant="outline" size="sm" icon={<ExternalLink className="size-4" aria-hidden />}>
-                View on site
-              </Button>
+              <ViewOnSite href={`/brands/${initial.slug}`} offline={!initial.isActive && "Hidden — not on the site"} />
               <DeleteButton action={deleteBrandAction.bind(null, recordId)} confirmText={`Delete ${initial.name}? This can't be undone.`} redirectTo="/admin/brands" />
             </>
           )

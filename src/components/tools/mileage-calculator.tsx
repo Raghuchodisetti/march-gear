@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import { isElectric } from "@/lib/catalog";
-import { FUEL_PRICE } from "@/data/tools-assumptions";
 import { formatINR, formatNumber } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { SelectField } from "@/components/ui/field";
@@ -15,7 +14,7 @@ import { EstimateNote, LegendKey, Readout, StepLabel } from "./instrument";
 const fmt1 = (n: number) => (Number.isFinite(n) ? n.toFixed(1) : "—");
 
 export function MileageCalculator() {
-  const { cars, brandName } = useCatalog();
+  const { cars, brandName, content } = useCatalog();
   const { iceCars, carOptions } = useMemo(() => {
     const ice = cars
       .filter((c) => !isElectric(c))
@@ -28,7 +27,7 @@ export function MileageCalculator() {
   const [slug, setSlug] = useState("hyundai-creta");
   const [distance, setDistance] = useState("412");
   const [litres, setLitres] = useState("24");
-  const [price, setPrice] = useState(String(FUEL_PRICE.Petrol));
+  const [price, setPrice] = useState(String(content.toolRates.fuelPrices.petrol));
   const [monthly, setMonthly] = useState("1200");
 
   const car = iceCars.find((c) => c.slug === slug) ?? iceCars[0];

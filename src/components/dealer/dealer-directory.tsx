@@ -261,6 +261,7 @@ function DealerCard({
             src={dealer.image}
             alt={`${dealer.name} showroom, ${dealer.area}`}
             fill
+            loading={index < 2 ? "eager" : undefined}
             sizes="(min-width: 1280px) 250px, (min-width: 640px) 220px, 100vw"
             className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/card:scale-[1.04]"
           />

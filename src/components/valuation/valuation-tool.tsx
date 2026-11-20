@@ -4,7 +4,6 @@ import { useMemo, useRef, useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Gauge, LineChart, ListChecks } from "lucide-react";
 import type { FuelType } from "@/types";
-import { cities } from "@/data/cities";
 import { formatKm, formatPrice, formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
@@ -31,7 +30,7 @@ const OTHER = "other";
 
 export function ValuationTool() {
   const catalog = useCatalog();
-  const { usedCars, brandName } = catalog;
+  const { usedCars, brandName, cities } = catalog;
   const brandOptions = useMemo(() => valuationBrands(catalog), [catalog]);
   const [brand, setBrand] = useState("hyundai");
   const [model, setModel] = useState("hyundai-creta");

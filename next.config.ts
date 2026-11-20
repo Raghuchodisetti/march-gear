@@ -20,6 +20,15 @@ const nextConfig: NextConfig = {
           { key: "Referrer-Policy", value: "same-origin" },
         ],
       },
+      {
+        // Nor the insurance vendor portal (its private file route sets its own framing headers for PDF previews).
+        source: "/insurance-vendor/:path((?!files/).*)",
+        headers: [
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "Content-Security-Policy", value: "frame-ancestors 'none'" },
+          { key: "Referrer-Policy", value: "same-origin" },
+        ],
+      },
     ];
   },
   turbopack: {

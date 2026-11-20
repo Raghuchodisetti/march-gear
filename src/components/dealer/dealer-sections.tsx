@@ -133,6 +133,15 @@ export function DealerReviews({ dealer, reviews }: { dealer: Dealer; reviews: De
                   <p className="mt-5 text-[12.5px] text-muted">
                     <span className="font-medium text-ink">{r.name}</span> · {r.visit}
                   </p>
+                  {r.reply && (
+                    <div className="mt-6 border-l-2 border-red bg-mist/70 px-5 py-4">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-ink">Response from {dealer.name}</p>
+                      <p className="mt-2 max-w-2xl whitespace-pre-line text-[14px] leading-relaxed text-ink/75">{r.reply}</p>
+                      {r.repliedAt && (
+                        <p className="mt-2 text-[11.5px] text-muted">{formatDate(new Date(new Date(r.repliedAt).getTime() + 19_800_000).toISOString().slice(0, 10))}</p>
+                      )}
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>

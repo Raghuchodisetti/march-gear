@@ -2,8 +2,8 @@
 
 import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
 import type { CarModel, City, Variant } from "@/types";
-import { onRoadPrice } from "@/data/cities";
 import { useCity } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { isEv } from "./utils";
 
 interface CarDetailValue {
@@ -26,6 +26,7 @@ const CarDetailContext = createContext<CarDetailValue | null>(null);
 export function CarDetailProvider({ car, brand, children }: { car: CarModel; brand: string; children: ReactNode }) {
   const [slug, setSlug] = useState(car.variants[0].slug);
   const { city } = useCity();
+  const { onRoadPrice } = useCatalog();
 
   const value = useMemo<CarDetailValue>(() => {
     const variant = car.variants.find((v) => v.slug === slug) ?? car.variants[0];
@@ -40,7 +41,7 @@ export function CarDetailProvider({ car, brand, children }: { car: CarModel; bra
       city,
       onRoad: onRoadPrice(variant.price, city.slug, ev),
     };
-  }, [car, brand, slug, city]);
+  }, [car, brand, slug, city, onRoadPrice]);
 
   return <CarDetailContext.Provider value={value}>{children}</CarDetailContext.Provider>;
 }

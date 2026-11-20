@@ -10,9 +10,13 @@ const globalForDb = globalThis as unknown as { mgPool?: mysql.Pool; mgDb?: Datab
 function createPool() {
   const uri = process.env.DATABASE_URL;
   if (!uri) throw new Error("DATABASE_URL is not set — add it to .env.local (see README › Backend).");
+  // `next build` prerenders with many worker processes at once; keep each one's pool small so a
+  // local MySQL isn't flooded with simultaneous connection attempts.
+  const building = process.env.NEXT_PHASE === "phase-production-build";
   const pool = mysql.createPool({
     uri,
-    connectionLimit: process.env.VERCEL ? 5 : 10,
+    connectionLimit: building ? 2 : process.env.VERCEL ? 5 : 10,
+    connectTimeout: 30_000,
     waitForConnections: true,
     // Hosted MySQL providers usually require TLS; local XAMPP does not.
     ssl: /sslaccept=strict|ssl=true|ssl-mode=required/i.test(uri) ? { rejectUnauthorized: true } : undefined,

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, EyeOff, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 /* Server-safe building blocks for admin pages. */
 
@@ -29,6 +30,27 @@ export function AdminHeader({
       </div>
       {actions && <div className="flex shrink-0 flex-wrap gap-2">{actions}</div>}
     </header>
+  );
+}
+
+/**
+ * "View on site" for an edit page. Records without a public page right now (drafts, hidden,
+ * sold…) would only open a 404, so they get a note saying why instead of the link.
+ */
+export function ViewOnSite({ href, offline }: { href: string; offline?: string | false | null }) {
+  if (offline)
+    return (
+      <span
+        title="The website only shows published, visible records. Change the status or visibility below and save to put it live."
+        className="inline-flex h-9 items-center gap-2 rounded-[3px] border border-dashed border-line px-3.5 text-[13px] font-medium text-muted"
+      >
+        <EyeOff aria-hidden className="size-4" /> {offline}
+      </span>
+    );
+  return (
+    <Button href={href} target="_blank" variant="outline" size="sm" icon={<ExternalLink className="size-4" aria-hidden />}>
+      View on site
+    </Button>
   );
 }
 
@@ -80,7 +102,8 @@ export function Badge({ children, tone = "neutral" }: { children: ReactNode; ton
 
 export function Table({ children }: { children: ReactNode }) {
   return (
-    <div className="overflow-x-auto border border-line bg-white">
+    // relative: keeps sr-only header labels inside the scroll box (they'd otherwise widen the page on phones).
+    <div className="relative overflow-x-auto border border-line bg-white">
       <table className="w-full min-w-[720px] border-collapse text-left text-[13.5px]">{children}</table>
     </div>
   );

@@ -3,13 +3,15 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { LEAD_STATUS_LABEL, LEAD_STATUS_TONE, LEAD_TYPE_LABEL } from "@/lib/leads";
 import { getDashboard } from "@/server/admin/dashboard";
+import { recentActivity } from "@/server/admin/activity";
 import { getSessionUser } from "@/server/auth";
 import { AdminHeader, Badge, Panel, StatCard, formatDateTime, formatDay } from "@/components/admin/ui";
+import { ActivityFeed } from "@/components/admin/activity";
 
 export const metadata: Metadata = { title: "Dashboard" };
 
 export default async function DashboardPage({ searchParams }: PageProps<"/admin">) {
-  const [{ kpis, days, byType, recent, deliveries }, me, sp] = await Promise.all([getDashboard(), getSessionUser(), searchParams]);
+  const [{ kpis, days, byType, recent, deliveries }, activity, me, sp] = await Promise.all([getDashboard(), recentActivity(8), getSessionUser(), searchParams]);
   const max = Math.max(1, ...days.map((d) => d.n));
   const typeMax = Math.max(1, ...byType.map((t) => t.n));
   const delta = kpis.leadsWeek - kpis.leadsPrevWeek;
@@ -130,6 +132,19 @@ export default async function DashboardPage({ searchParams }: PageProps<"/admin"
           )}
         </Panel>
       </div>
+
+      <Panel
+        title="Recent activity"
+        className="mt-6"
+        padded={false}
+        action={
+          <Link href="/admin/activity" className="inline-flex items-center gap-1 text-[13px] font-medium text-red hover:underline">
+            Full log <ArrowRight aria-hidden className="size-3.5" />
+          </Link>
+        }
+      >
+        {activity.length === 0 ? <p className="p-5 text-[13.5px] text-muted">No changes yet. Edits, lead updates and sign-ins will show up here.</p> : <ActivityFeed entries={activity} />}
+      </Panel>
 
       <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-5">
         <StatCard label="Live new cars" value={kpis.liveCars} href="/admin/cars" />

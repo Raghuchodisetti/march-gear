@@ -91,6 +91,7 @@ export const getSessionUser = cache(async (): Promise<SessionUser | null> => {
       name: users.name,
       email: users.email,
       phone: users.phone,
+      state: users.state,
       city: users.city,
       role: users.role,
       createdAt: users.createdAt,

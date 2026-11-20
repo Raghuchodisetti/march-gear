@@ -10,6 +10,7 @@ import type {
   UpcomingCar,
   UsedCar,
 } from "@/types";
+import type { SiteContent } from "@/content/registry";
 
 /* ──────────────────────────────────────────────────────────────
    The catalogue: everything the public site reads from MySQL,
@@ -37,6 +38,9 @@ export interface DealerReview {
   rating: number;
   title: string;
   body: string;
+  /** The dealer's public reply (from the dealer portal). */
+  reply?: string;
+  repliedAt?: string;
 }
 
 export interface CatalogData {
@@ -50,6 +54,8 @@ export interface CatalogData {
   authors: Author[];
   articles: Article[];
   ownerReviews: OwnerReview[];
+  /** Editable site copy and settings (see src/content). */
+  content: SiteContent;
 }
 
 /* ── Pure helpers (no catalogue needed) ─────────────────────── */
@@ -101,7 +107,7 @@ export function inBudget(car: Pick<CarModel, "priceMin" | "priceMax">, budgetSlu
 }
 
 /** Approximate city centres (lat, lng) for "nearby" calculations. */
-const CITY_COORDS: Record<string, [number, number]> = {
+export const CITY_COORDS: Record<string, [number, number]> = {
   Mumbai: [19.076, 72.878],
   "New Delhi": [28.614, 77.209],
   Bengaluru: [12.972, 77.595],
@@ -120,6 +126,26 @@ const CITY_COORDS: Record<string, [number, number]> = {
   Bhubaneswar: [20.296, 85.825],
   Visakhapatnam: [17.687, 83.218],
 };
+
+const haversineKm = (p: [number, number], q: [number, number]) => {
+  const rad = (d: number) => (d * Math.PI) / 180;
+  const dLat = rad(q[0] - p[0]);
+  const dLng = rad(q[1] - p[1]);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(p[0])) * Math.cos(rad(q[0])) * Math.sin(dLng / 2) ** 2;
+  return Math.round(2 * 6371 * Math.asin(Math.sqrt(h)));
+};
+
+/** The covered city closest to a point (e.g. the browser's location), using each city's coordinates. */
+export function nearestCity<C extends { name: string; lat?: number | null; lng?: number | null }>(lat: number, lng: number, list: C[]) {
+  let best: { city: C; km: number } | null = null;
+  for (const city of list) {
+    const at: [number, number] | undefined = city.lat != null && city.lng != null ? [city.lat, city.lng] : CITY_COORDS[city.name];
+    if (!at) continue;
+    const km = haversineKm([lat, lng], at);
+    if (!best || km < best.km) best = { city, km };
+  }
+  return best;
+}
 
 /** Great-circle distance between two cities in km (0 when unknown or equal). */
 export function cityDistanceKm(a: string, b: string) {
@@ -215,6 +241,20 @@ export function createCatalog(data: CatalogData) {
 
   const getDealer = (id: string) => dealers.find((d) => d.id === id);
 
+  // Cities come from the `cities` content block, which always has at least one.
+  const { items: cities, evMarkupShare } = data.content.cities;
+  const defaultCity = cities.find((c) => c.isDefault) ?? cities[0];
+  const cityBySlug = new Map(cities.map((c) => [c.slug, c]));
+  /** A removed or unknown city falls back to the default city. */
+  const getCity = (slug: string) => cityBySlug.get(slug) ?? defaultCity;
+  /** Indicative on-road price: ex-showroom plus RTO, insurance and handling for the city, to the nearest ₹1,000. */
+  const onRoadPrice = (exShowroom: number, citySlug: string, isElectric = false) => {
+    const { onRoadFactor } = getCity(citySlug);
+    // EVs attract near-zero road tax in most states, so they pay only part of the markup.
+    const factor = isElectric ? 1 + (onRoadFactor - 1) * (evMarkupShare / 100) : onRoadFactor;
+    return Math.round((exShowroom * factor) / 1000) * 1000;
+  };
+
   return {
     ...data,
     expertReviews,
@@ -248,6 +288,12 @@ export function createCatalog(data: CatalogData) {
         .map((d) => ({ dealer: d, km: cityDistanceKm(dealer.city, d.city) }))
         .sort((a, b) => a.km - b.km || b.dealer.rating - a.dealer.rating)
         .slice(0, limit),
+
+    // Cities & on-road prices
+    cities,
+    defaultCity,
+    getCity,
+    onRoadPrice,
 
     // Editorial
     getAuthor: (id: string) => authors.find((a) => a.id === id) ?? authors[0],

@@ -1,12 +1,12 @@
 "use client";
 
 import { MapPin } from "lucide-react";
-import { onRoadPrice } from "@/data/cities";
 import { formatINR, formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { CompareToggle, WishlistButton } from "@/components/vehicle/toggles";
 import { useCity, useUI } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { ShareButton } from "./buy-actions";
 import { emiFrom } from "./utils";
 
@@ -30,6 +30,7 @@ export function VariantBuyPanel({
 }) {
   const { city } = useCity();
   const { openEnquiry, setLocationOpen } = useUI();
+  const { onRoadPrice } = useCatalog();
   const onRoad = onRoadPrice(price, city.slug, ev);
   const dark = tone === "dark";
 

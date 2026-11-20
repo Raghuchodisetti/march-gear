@@ -12,6 +12,9 @@ import { Button } from "@/components/ui/button";
 import { SelectField } from "@/components/ui/field";
 import { Panel } from "./ui";
 
+// A failed request must not leave the buttons stuck on "busy".
+const OFFLINE = { ok: false as const, error: "Couldn't reach the server. Please try again." };
+
 interface Note {
   id: number;
   kind: "note" | "status" | "assign";
@@ -45,7 +48,7 @@ export function LeadManager({
 
   const save = async () => {
     setBusy("save");
-    const res = await updateLeadAction(leadId, { status, assignedTo: assignee });
+    const res = await updateLeadAction(leadId, { status, assignedTo: assignee }).catch(() => OFFLINE);
     setBusy(null);
     if (!res.ok) return toast(res.error ?? "Couldn't update the lead", { tone: "error" });
     toast("Lead updated", { tone: "success" });
@@ -56,7 +59,7 @@ export function LeadManager({
     e.preventDefault();
     if (!note.trim()) return;
     setBusy("note");
-    const res = await addLeadNoteAction(leadId, note);
+    const res = await addLeadNoteAction(leadId, note).catch(() => OFFLINE);
     setBusy(null);
     if (!res.ok) return toast(res.error ?? "Couldn't add the note", { tone: "error" });
     setNote("");
@@ -66,7 +69,7 @@ export function LeadManager({
   const remove = async () => {
     if (!window.confirm("Delete this lead and its notes? This can't be undone.")) return;
     setBusy("delete");
-    const res = await deleteLeadAction(leadId);
+    const res = await deleteLeadAction(leadId).catch(() => OFFLINE);
     if (!res.ok) {
       setBusy(null);
       return toast(res.error ?? "Couldn't delete the lead", { tone: "error" });

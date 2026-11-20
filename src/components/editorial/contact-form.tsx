@@ -4,12 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import { Check, Loader2 } from "lucide-react";
-import { contactTopics } from "@/data/editorial-company";
 import { submitLeadAction } from "@/server/actions/leads";
 import { SelectField, TextArea, TextField } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Honeypot } from "@/components/forms/honeypot";
 import { useUI, useUser } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { cn } from "@/lib/utils";
 import { EMAIL_RE } from "./newsletter-form";
 
@@ -35,6 +35,7 @@ export function ContactForm() {
   const pathname = usePathname();
   const { toast } = useUI();
   const { user } = useUser();
+  const { contactTopics } = useCatalog().content.site;
   const [values, setValues] = useState<Record<Field, string>>(EMPTY);
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
   const [formError, setFormError] = useState<string | null>(null);

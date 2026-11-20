@@ -8,7 +8,7 @@ import { AdminHeader, Badge, EmptyRow, FilterForm, FilterSelect, Pagination, Sea
 
 export const metadata: Metadata = { title: "Customers & staff" };
 
-const ROLE: Record<string, string> = { customer: "Customer", editor: "Editor", admin: "Admin" };
+const ROLE: Record<string, string> = { customer: "Customer", editor: "Editor", admin: "Admin", dealer: "Dealer partner" };
 
 export default async function UsersAdminPage({ searchParams }: PageProps<"/admin/users">) {
   const sp = await searchParams;

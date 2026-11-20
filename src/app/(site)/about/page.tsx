@@ -4,8 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { getCatalog } from "@/server/catalog";
 import { IMG } from "@/data/images";
-import { aboutStats, aboutTimeline, aboutValues, editorialPrinciples } from "@/data/editorial-company";
-import { allArticles, authorProfile } from "@/data/editorial-extra";
+import { authorProfile } from "@/data/editorial-extra";
 import { PageHeader } from "@/components/ui/page-header";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
@@ -18,9 +17,15 @@ export const metadata: Metadata = {
     "March Gear is an independent automotive discovery platform for India — expert road tests, moderated owner reviews and clear tools to help you choose with confidence.",
 };
 
+const NUMBER_WORDS = ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
+
+/** "Four specialists", "One specialist", "14 specialists" — follows the authors in the admin panel. */
+const teamSize = (n: number) => `${NUMBER_WORDS[n] ?? n} specialist${n === 1 ? "" : "s"}`;
+
 export default async function AboutPage() {
   const cat = await getCatalog();
-  const stories = allArticles(cat);
+  const { timeline, stats, values, principles } = cat.content.about;
+  const stories = cat.articles;
   return (
     <>
       <PageHeader
@@ -60,8 +65,8 @@ export default async function AboutPage() {
         </div>
 
         <ol className="mt-16 grid grid-cols-1 border-t border-line sm:grid-cols-2 md:mt-24 lg:grid-cols-4">
-          {aboutTimeline.map((t) => (
-            <li key={t.year} className="border-b border-line py-8 sm:pr-8 sm:even:pl-8 lg:border-b-0 lg:border-l lg:px-8 lg:first:border-l-0 lg:first:pl-0 lg:even:pl-8">
+          {timeline.map((t, i) => (
+            <li key={i} className="border-b border-line py-8 sm:pr-8 sm:even:pl-8 lg:border-b-0 lg:border-l lg:px-8 lg:first:border-l-0 lg:first:pl-0 lg:even:pl-8">
               <p className="font-display text-[2.5rem] font-semibold leading-none tracking-[-0.04em] num [font-stretch:110%]">{t.year}</p>
               <p className="type-h4 mt-6">{t.title}</p>
               <p className="mt-2 text-[14px] leading-relaxed text-muted">{t.body}</p>
@@ -93,9 +98,9 @@ export default async function AboutPage() {
       {/* Numbers */}
       <section aria-label="March Gear in numbers" className="container-x py-12 md:py-16">
         <dl className="grid grid-cols-2 lg:grid-cols-4">
-          {aboutStats.map((s, i) => (
+          {stats.map((s, i) => (
             <div
-              key={s.label}
+              key={i}
               className={
                 "flex flex-col border-t border-line pb-8 pt-6 lg:border-l lg:border-t-0 lg:px-8 lg:pb-2 lg:pt-0 lg:first:border-l-0 lg:first:pl-0 " +
                 (i % 2 === 1 ? "pl-5 lg:pl-8" : "pr-5")
@@ -127,8 +132,8 @@ export default async function AboutPage() {
             </Reveal>
           </div>
           <RevealGroup className="grid grid-cols-1 gap-x-10 sm:grid-cols-2 lg:col-span-7 lg:col-start-6">
-            {aboutValues.map((v, i) => (
-              <RevealItem key={v.title} className="border-t border-line py-8 md:py-10">
+            {values.map((v, i) => (
+              <RevealItem key={i} className="border-t border-line py-8 md:py-10">
                 <p className="type-eyebrow text-muted num">{String(i + 1).padStart(2, "0")}</p>
                 <h3 className="type-h3 mt-5">{v.title}</h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-muted">{v.body}</p>
@@ -149,7 +154,7 @@ export default async function AboutPage() {
               </h2>
             </div>
             <p className="max-w-md text-[15px] leading-relaxed text-muted lg:text-right">
-              Four specialists, more than 2,000 cars driven between them, and a shared rule: if we wouldn&apos;t tell a friend, we don&apos;t publish it.
+              {teamSize(cat.authors.length)}, more than 2,000 cars driven between them, and a shared rule: if we wouldn&apos;t tell a friend, we don&apos;t publish it.
             </p>
           </div>
 
@@ -161,14 +166,19 @@ export default async function AboutPage() {
                 <li key={a.id} className="flex flex-col bg-white p-6 md:p-7">
                   <div className="flex items-start justify-between">
                     <InitialsAvatar name={a.name} size="xl" tone="ink" />
-                    <span className="text-[11.5px] text-muted num">Since {profile.joined}</span>
+                    {profile.joined && <span className="text-[11.5px] text-muted num">Since {profile.joined}</span>}
                   </div>
                   <h3 className="type-h3 mt-8">{a.name}</h3>
                   <p className="mt-1 text-[13px] text-muted">
-                    {a.role} · {profile.base}
+                    {a.role}
+                    {profile.base && ` · ${profile.base}`}
                   </p>
-                  <p className="mt-5 border-t border-line pt-5 text-[12px] font-medium text-ink">{profile.beat}</p>
-                  <p className="mt-2 text-[14px] leading-relaxed text-muted">{profile.bio}</p>
+                  {(profile.beat || profile.bio) && (
+                    <div className="mt-5 space-y-2 border-t border-line pt-5">
+                      {profile.beat && <p className="text-[12px] font-medium text-ink">{profile.beat}</p>}
+                      {profile.bio && <p className="text-[14px] leading-relaxed text-muted">{profile.bio}</p>}
+                    </div>
+                  )}
                   {latest && (
                     <div className="mt-auto pt-6">
                       <Link
@@ -203,8 +213,8 @@ export default async function AboutPage() {
             </p>
           </Reveal>
           <ol className="border-t border-white/10 lg:col-span-6 lg:col-start-7">
-            {editorialPrinciples.map((p, i) => (
-              <li key={p.title} className="grid grid-cols-[44px_1fr] gap-4 border-b border-white/10 py-7 md:grid-cols-[64px_1fr] md:py-8">
+            {principles.map((p, i) => (
+              <li key={i} className="grid grid-cols-[44px_1fr] gap-4 border-b border-white/10 py-7 md:grid-cols-[64px_1fr] md:py-8">
                 <span aria-hidden className="font-display text-[1.75rem] font-semibold leading-none tracking-[-0.04em] text-white/25 num md:text-[2rem]">
                   {String(i + 1).padStart(2, "0")}
                 </span>

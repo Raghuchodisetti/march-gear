@@ -16,7 +16,7 @@ export default async function NewsAdminPage({ searchParams }: PageProps<"/admin/
     <>
       <AdminHeader
         title="News & reviews"
-        description="Stories on /news and /reviews. Drafts and future-dated stories stay hidden until published."
+        description="Stories on /news and /reviews. Drafts stay hidden, and published stories dated in the future go live on that date."
         actions={
           <Button href="/admin/news/new" size="sm" icon={<Plus className="size-4" aria-hidden />}>
             Write story

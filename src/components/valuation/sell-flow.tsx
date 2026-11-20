@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from "motion/react";
 import { ArrowLeft, Check, Loader2, RotateCcw, Wrench } from "lucide-react";
 import type { FuelType } from "@/types";
 import type { Catalog } from "@/lib/catalog";
-import { cities } from "@/data/cities";
 import { formatKm, formatPrice, formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
@@ -55,7 +54,6 @@ const POPULAR_BRANDS = [
   "bmw",
   "mercedes-benz",
 ];
-const POPULAR_CITIES = cities.filter((c) => c.popular).map((c) => c.name);
 const KM_PRESETS = [10_000, 30_000, 50_000, 80_000, 120_000];
 
 interface Draft {
@@ -150,6 +148,8 @@ export function SellFlow({ className }: { className?: string }) {
   const pathname = usePathname();
   const catalog = useCatalog();
   const { brandName } = catalog;
+  const popularCities = useMemo(() => catalog.cities.filter((c) => c.popular).map((c) => c.name), [catalog.cities]);
+  const otherCities = useMemo(() => catalog.cities.filter((c) => !c.popular).map((c) => ({ value: c.name, label: c.name })), [catalog.cities]);
   const brandOptions = useMemo(() => valuationBrands(catalog), [catalog]);
   const [step, setStep] = useState(0);
   const [dir, setDir] = useState(1);
@@ -477,7 +477,7 @@ export function SellFlow({ className }: { className?: string }) {
                   {STEPS[step].key === "city" && (
                     <div>
                       <TileGrid className="grid-cols-2 sm:grid-cols-4">
-                        {POPULAR_CITIES.map((c) => (
+                        {popularCities.map((c) => (
                           <Tile key={c} selected={draft.city === c} onClick={() => pick({ city: c })} compact>
                             {c}
                           </Tile>
@@ -487,9 +487,9 @@ export function SellFlow({ className }: { className?: string }) {
                         className="mt-4"
                         aria-label="Other cities"
                         placeholder="Another city…"
-                        value={POPULAR_CITIES.includes(draft.city) ? "" : draft.city}
+                        value={popularCities.includes(draft.city) ? "" : draft.city}
                         onChange={(e) => e.target.value && pick({ city: e.target.value })}
-                        options={cities.filter((c) => !c.popular).map((c) => ({ value: c.name, label: c.name }))}
+                        options={otherCities}
                       />
                     </div>
                   )}
@@ -541,7 +541,7 @@ export function SellFlow({ className }: { className?: string }) {
                 title={title}
                 draft={draft}
                 onInspect={() =>
-                  openEnquiry({ kind: "inspection", subject: title, detail: `${formatKm(draft.km)} · ${draft.city}`, carSlug: draft.modelSlug || undefined })
+                  openEnquiry({ kind: "inspection", subject: title, detail: `${formatKm(draft.km)} · ${draft.city}`, city: draft.city, carSlug: draft.modelSlug || undefined })
                 }
                 onRestart={restart}
                 headingRef={headingRef}

@@ -1,21 +1,9 @@
-import { BatteryCharging, ClipboardCheck, FileWarning, Gauge, PackageX, Paintbrush, ScanSearch, ShieldCheck, Wrench, Zap, type LucideIcon } from "lucide-react";
 import type { FuelType } from "@/types";
+import type { ChecklistGroup, FuelChecks, PdiFaq, PdiPlan, PdiProblem, PdiSampleReport, PdiStep } from "@/lib/pdi";
 
-/** PDI (pre-delivery inspection) content. Prices are indicative demo figures. */
-
-export type PdiPlanId = "essential" | "complete" | "ev";
-
-export interface PdiPlan {
-  id: PdiPlanId;
-  name: string;
-  price: number;
-  duration: string;
-  checks: number;
-  summary: string;
-  features: string[];
-  popular?: boolean;
-  icon: LucideIcon;
-}
+/** Launch PDI (pre-delivery inspection) content — the defaults for the editable PDI blocks
+    (src/content/blocks/pdi-*.ts). Read the live copy from `content.pdiPlans` / `pdiChecklist` /
+    `pdiPage`; helpers live in src/lib/pdi.ts. Prices are indicative demo figures. */
 
 export const pdiPlans: PdiPlan[] = [
   {
@@ -25,7 +13,7 @@ export const pdiPlans: PdiPlan[] = [
     duration: "45–60 min",
     checks: 120,
     summary: "The must-do checks before you sign for any new car.",
-    icon: ClipboardCheck,
+    icon: "clipboard-check",
     features: [
       "Body, paint and glass walk-around",
       "VIN, engine number and manufacturing date check",
@@ -41,7 +29,7 @@ export const pdiPlans: PdiPlan[] = [
     duration: "60–90 min",
     checks: 220,
     summary: "Our most thorough inspection, with professional tools.",
-    icon: ScanSearch,
+    icon: "scan-search",
     popular: true,
     features: [
       "Everything in Essential",
@@ -59,7 +47,7 @@ export const pdiPlans: PdiPlan[] = [
     duration: "75–90 min",
     checks: 240,
     summary: "Built for electric cars — battery and charging included.",
-    icon: BatteryCharging,
+    icon: "battery-charging",
     features: [
       "Everything in Complete",
       "Battery health and state-of-charge report",
@@ -70,33 +58,29 @@ export const pdiPlans: PdiPlan[] = [
   },
 ];
 
-export const pdiProblems: { icon: LucideIcon; title: string; text: string }[] = [
-  { icon: Paintbrush, title: "Hidden dents & repaints", text: "Cars get scratched in transit and quietly repainted at the yard. A paint gauge shows what the eye can't." },
-  { icon: FileWarning, title: "Old stock", text: "A car built 10 months ago is sold at the same price as a fresh one. We check the real manufacturing date." },
-  { icon: PackageX, title: "Missing items", text: "Floor mats, the second key, the toolkit or a paid accessory — easy to miss on delivery day." },
-  { icon: Zap, title: "Electrical faults", text: "Warning lights, dead speakers or a faulty camera are far easier to fix before you sign." },
+export const pdiProblems: PdiProblem[] = [
+  { icon: "paintbrush", title: "Hidden dents & repaints", text: "Cars get scratched in transit and quietly repainted at the yard. A paint gauge shows what the eye can't." },
+  { icon: "file-warning", title: "Old stock", text: "A car built 10 months ago is sold at the same price as a fresh one. We check the real manufacturing date." },
+  { icon: "package-x", title: "Missing items", text: "Floor mats, the second key, the toolkit or a paid accessory — easy to miss on delivery day." },
+  { icon: "zap", title: "Electrical faults", text: "Warning lights, dead speakers or a faulty camera are far easier to fix before you sign." },
 ];
 
-export const pdiSteps: { title: string; text: string }[] = [
+/** "How it works" heading — it names the number of steps, so it's edited alongside them. */
+export const pdiStepsTitle = "Four simple steps to a worry-free delivery.";
+
+export const pdiSteps: PdiStep[] = [
   { title: "Book in 2 minutes", text: "Tell us your car, dealership and delivery date. Pick a plan." },
   { title: "Expert meets you", text: "A certified inspector joins you at the dealership or stockyard before delivery." },
   { title: "200+ point inspection", text: "Body, paint, documents, tyres, electricals and a short drive — with professional tools." },
   { title: "Report & decision", text: "Get a photo report on the spot. Take delivery, or ask the dealer to fix issues first." },
 ];
 
-export interface ChecklistGroup {
-  id: string;
-  title: string;
-  icon: LucideIcon;
-  items: { id: string; text: string; tip?: string }[];
-}
-
 /** Free do-it-yourself checklist — plain-language, in the order you'd do it at the dealership. */
 export const pdiChecklist: ChecklistGroup[] = [
   {
     id: "docs",
     title: "Documents",
-    icon: ClipboardCheck,
+    icon: "clipboard-check",
     items: [
       { id: "docs-vin", text: "VIN and engine number on the car match the invoice", tip: "The VIN is on the windscreen corner and a plate near the door." },
       { id: "docs-mfg", text: "Manufacturing month is recent (ideally within 3–6 months)", tip: "Shown on the VIN plate or a sticker on the door frame." },
@@ -109,7 +93,7 @@ export const pdiChecklist: ChecklistGroup[] = [
   {
     id: "exterior",
     title: "Exterior",
-    icon: Paintbrush,
+    icon: "paintbrush",
     items: [
       { id: "ext-walk", text: "Walk around in daylight — no dents, scratches or chips" },
       { id: "ext-gaps", text: "Gaps between doors, bonnet and boot look even" },
@@ -122,7 +106,7 @@ export const pdiChecklist: ChecklistGroup[] = [
   {
     id: "tyres",
     title: "Tyres & wheels",
-    icon: Gauge,
+    icon: "gauge",
     items: [
       { id: "tyre-match", text: "All four tyres are the same brand and size" },
       { id: "tyre-date", text: "Tyre manufacturing date is recent", tip: "Look for a 4-digit code on the sidewall: '2426' means week 24 of 2026." },
@@ -133,7 +117,7 @@ export const pdiChecklist: ChecklistGroup[] = [
   {
     id: "interior",
     title: "Interior",
-    icon: ShieldCheck,
+    icon: "shield-check",
     items: [
       { id: "int-clean", text: "Seats, carpets and roof lining are clean — no stains or tears" },
       { id: "int-odo", text: "Odometer shows very low kilometres (usually under 50 km)" },
@@ -146,7 +130,7 @@ export const pdiChecklist: ChecklistGroup[] = [
   {
     id: "electrical",
     title: "Engine & electricals",
-    icon: Wrench,
+    icon: "wrench",
     items: [
       { id: "ele-start", text: "Engine starts smoothly and no warning lights stay on" },
       { id: "ele-fluids", text: "Engine oil, coolant and brake fluid are at the right level" },
@@ -158,7 +142,7 @@ export const pdiChecklist: ChecklistGroup[] = [
   {
     id: "handover",
     title: "Test drive & handover",
-    icon: Zap,
+    icon: "zap",
     items: [
       { id: "ho-drive", text: "Short drive: brakes, steering and gears feel normal" },
       { id: "ho-noise", text: "No rattles, squeaks or unusual noises" },
@@ -169,75 +153,78 @@ export const pdiChecklist: ChecklistGroup[] = [
   },
 ];
 
-type ChecklistItem = ChecklistGroup["items"][number];
+/** What the locked preview says is behind the lock (everything after the free first section). */
+export const pdiLockedSummary = "Exterior, tyres, interior, electricals and the test drive.";
 
-export const PDI_FUELS: FuelType[] = ["Petrol", "Diesel", "CNG", "Hybrid", "Electric"];
-
-const FUEL_NOUN: Record<FuelType, string> = { Petrol: "petrol", Diesel: "diesel", CNG: "CNG", Hybrid: "hybrid", Electric: "electric" };
-
-/** Extra checks added to the emailed PDF for the buyer's fuel type. */
-export const pdiFuelChecks: Record<FuelType, ChecklistItem[]> = {
-  Petrol: [
-    { id: "fuel-petrol-idle", text: "Engine idles smoothly with no shaking after a cold start" },
-    { id: "fuel-petrol-exhaust", text: "No smoke or strong smell from the exhaust" },
-    { id: "fuel-petrol-cap", text: "Fuel lid opens and the cap closes and locks properly" },
-  ],
-  Diesel: [
-    { id: "fuel-diesel-start", text: "Starts cleanly with no black smoke from the exhaust" },
-    { id: "fuel-diesel-adblue", text: "AdBlue (DEF) is topped up and its warning light is off", tip: "Many BS6 diesels need AdBlue — ask the dealer to fill it before delivery." },
-    { id: "fuel-diesel-cap", text: "Fuel lid is marked 'Diesel' and the cap closes properly" },
-  ],
-  CNG: [
-    { id: "fuel-cng-cert", text: "CNG cylinder test certificate is in your documents", tip: "It shows the cylinder's test date. The cylinder must be re-tested every 3 years." },
-    { id: "fuel-cng-rc", text: "Registration papers show the fuel as 'Petrol/CNG'" },
-    { id: "fuel-cng-switch", text: "Car switches between CNG and petrol smoothly" },
-    { id: "fuel-cng-smell", text: "No gas smell in the boot or near the cylinder" },
-  ],
-  Hybrid: [
-    { id: "fuel-hyb-ready", text: "Car shows 'Ready' on start and no hybrid warning light stays on" },
-    { id: "fuel-hyb-regen", text: "Energy screen shows the battery charging when you brake or coast" },
-    { id: "fuel-hyb-warranty", text: "Hybrid battery warranty is written in the warranty booklet", tip: "Usually 8 years — check the exact years and kilometres." },
-  ],
-  Electric: [
-    { id: "fuel-ev-charge", text: "Battery is charged above 80% and the range shown looks right" },
-    { id: "fuel-ev-cable", text: "Portable charging cable is in the car and home charger installation is booked" },
-    { id: "fuel-ev-port", text: "Charging port flap opens and locks, and a test charge starts" },
-    { id: "fuel-ev-warranty", text: "Battery warranty (years and km) is written in your documents", tip: "Most EV batteries get 8 years — some brands offer more for the first owner." },
-  ],
+/** The extra section for the buyer's fuel type — added to the unlocked list and the PDF, before the test drive. */
+export const pdiFuelChecks: Record<FuelType, FuelChecks> = {
+  Petrol: {
+    title: "Extra checks for your petrol car",
+    icon: "gauge",
+    items: [
+      { id: "fuel-petrol-idle", text: "Engine idles smoothly with no shaking after a cold start" },
+      { id: "fuel-petrol-exhaust", text: "No smoke or strong smell from the exhaust" },
+      { id: "fuel-petrol-cap", text: "Fuel lid opens and the cap closes and locks properly" },
+    ],
+  },
+  Diesel: {
+    title: "Extra checks for your diesel car",
+    icon: "gauge",
+    items: [
+      { id: "fuel-diesel-start", text: "Starts cleanly with no black smoke from the exhaust" },
+      { id: "fuel-diesel-adblue", text: "AdBlue (DEF) is topped up and its warning light is off", tip: "Many BS6 diesels need AdBlue — ask the dealer to fill it before delivery." },
+      { id: "fuel-diesel-cap", text: "Fuel lid is marked 'Diesel' and the cap closes properly" },
+    ],
+  },
+  CNG: {
+    title: "Extra checks for your CNG car",
+    icon: "gauge",
+    items: [
+      { id: "fuel-cng-cert", text: "CNG cylinder test certificate is in your documents", tip: "It shows the cylinder's test date. The cylinder must be re-tested every 3 years." },
+      { id: "fuel-cng-rc", text: "Registration papers show the fuel as 'Petrol/CNG'" },
+      { id: "fuel-cng-switch", text: "Car switches between CNG and petrol smoothly" },
+      { id: "fuel-cng-smell", text: "No gas smell in the boot or near the cylinder" },
+    ],
+  },
+  Hybrid: {
+    title: "Extra checks for your hybrid car",
+    icon: "gauge",
+    items: [
+      { id: "fuel-hyb-ready", text: "Car shows 'Ready' on start and no hybrid warning light stays on" },
+      { id: "fuel-hyb-regen", text: "Energy screen shows the battery charging when you brake or coast" },
+      { id: "fuel-hyb-warranty", text: "Hybrid battery warranty is written in the warranty booklet", tip: "Usually 8 years — check the exact years and kilometres." },
+    ],
+  },
+  Electric: {
+    title: "Extra checks for your electric car",
+    icon: "battery-charging",
+    items: [
+      { id: "fuel-ev-charge", text: "Battery is charged above 80% and the range shown looks right" },
+      { id: "fuel-ev-cable", text: "Portable charging cable is in the car and home charger installation is booked" },
+      { id: "fuel-ev-port", text: "Charging port flap opens and locks, and a test charge starts" },
+      { id: "fuel-ev-warranty", text: "Battery warranty (years and km) is written in your documents", tip: "Most EV batteries get 8 years — some brands offer more for the first owner." },
+    ],
+  },
 };
 
-// An electric car has no engine, so these checks are worded differently.
-const EV_WORDING: Record<string, string> = {
-  "docs-vin": "VIN and motor number on the car match the invoice",
-  "ele-start": "Car switches on ('Ready') and no warning lights stay on",
-  "ele-fluids": "Coolant and brake fluid are at the right level",
-};
+// An electric car has no engine, so these sections and checks are worded differently.
+export const pdiEvGroupTitles: { id: string; title: string }[] = [{ id: "electrical", title: "Motor & electricals" }];
 
-/** The DIY checklist tailored to a fuel type — adds its own checks before the test drive. */
-export function checklistFor(fuel?: FuelType): ChecklistGroup[] {
-  if (!fuel) return pdiChecklist;
-  const ev = fuel === "Electric";
-  const groups = pdiChecklist.map((g) =>
-    ev
-      ? {
-          ...g,
-          title: g.id === "electrical" ? "Motor & electricals" : g.title,
-          items: g.items.map((i) => (EV_WORDING[i.id] ? { ...i, text: EV_WORDING[i.id] } : i)),
-        }
-      : g,
-  );
-  const extra: ChecklistGroup = {
-    id: `fuel-${fuel.toLowerCase()}`,
-    title: `Extra checks for your ${FUEL_NOUN[fuel]} car`,
-    icon: ev ? BatteryCharging : Gauge,
-    items: pdiFuelChecks[fuel],
-  };
-  return [...groups.slice(0, -1), extra, ...groups.slice(-1)];
-}
+export const pdiEvWording: { id: string; text: string }[] = [
+  { id: "docs-vin", text: "VIN and motor number on the car match the invoice" },
+  { id: "ele-start", text: "Car switches on ('Ready') and no warning lights stay on" },
+  { id: "ele-fluids", text: "Coolant and brake fluid are at the right level" },
+];
 
-export const checklistCount = (groups: ChecklistGroup[]) => groups.reduce((n, g) => n + g.items.length, 0);
+/** Hero strip on /pdi-check. The "starting price" stat is added after these from the cheapest plan. */
+export const pdiHeroStats: { value: string; label: string }[] = [
+  { value: "200+", label: "points checked" },
+  { value: "60–90 min", label: "at the dealership" },
+  { value: "On the spot", label: "photo report" },
+];
+export const pdiStartingPriceLabel = "starting price";
 
-export const pdiSampleReport = {
+export const pdiSampleReport: PdiSampleReport = {
   car: "Hyundai Creta SX(O) Turbo DCT",
   dealer: "Torque Motors, Indiranagar",
   date: "14 Nov 2026",
@@ -250,13 +237,13 @@ export const pdiSampleReport = {
     { label: "Electricals", value: 100 },
   ],
   findings: [
-    { level: "attention" as const, text: "Front-left tyre made 11 months ago", action: "Dealer agreed to replace it before delivery" },
-    { level: "minor" as const, text: "Light scratch on rear bumper", action: "Polished out on the spot" },
-    { level: "minor" as const, text: "Floor mats missing from accessory pack", action: "Fitted before handover" },
+    { level: "attention", text: "Front-left tyre made 11 months ago", action: "Dealer agreed to replace it before delivery" },
+    { level: "minor", text: "Light scratch on rear bumper", action: "Polished out on the spot" },
+    { level: "minor", text: "Floor mats missing from accessory pack", action: "Fitted before handover" },
   ],
 };
 
-export const pdiFaqs: { q: string; a: string }[] = [
+export const pdiFaqs: PdiFaq[] = [
   {
     q: "What exactly is a PDI?",
     a: "PDI stands for pre-delivery inspection. It is a final, detailed check of your new car at the dealership — before you sign the delivery papers and pay the balance — so any damage, missing item or fault is fixed while the dealer is still responsible.",

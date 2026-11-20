@@ -5,13 +5,13 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, MapPin } from "lucide-react";
 import type { Variant } from "@/types";
-import { onRoadPrice } from "@/data/cities";
 import { formatINR, formatPrice, formatPriceShort } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { Chip } from "@/components/ui/chip";
 import { DemoNote } from "@/components/ui/badge";
 import { useUI } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { useCarDetail } from "./context";
 import { sortedVariants } from "./utils";
 
@@ -22,6 +22,7 @@ const isAuto = (v: Variant) => v.transmission !== "Manual";
 /** Variants & prices: filterable table on desktop, stacked rows on mobile. */
 export function VariantsTable() {
   const { car, ev, city, variant: selected, setVariant } = useCarDetail();
+  const { onRoadPrice } = useCatalog();
   const { setLocationOpen } = useUI();
   const [fuel, setFuel] = useState<string>("all");
   const [gear, setGear] = useState<GearFilter>("all");

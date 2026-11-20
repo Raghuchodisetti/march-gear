@@ -4,6 +4,10 @@ import type { BodyType, FuelType } from "@/types";
    Modelling assumptions shared by the March Gear calculators.
    Every figure here is an illustrative, rounded industry average
    used for demonstration — not a quote, tariff or lender policy.
+
+   These are the launch defaults for the `toolRates` content block
+   (src/content/blocks/tool-rates.ts). The calculators read the saved
+   block instead: calcRates(content.toolRates) in components/tools/calc.ts.
    ────────────────────────────────────────────────────────────── */
 
 export type IceFuel = Exclude<FuelType, "Electric">;

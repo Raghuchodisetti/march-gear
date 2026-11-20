@@ -14,7 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { buttonClasses } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
-import { evVsIce, formatYears, loanEligibility, ownershipCost, splitPrice } from "@/components/tools/calc";
+import { calcRates, evVsIce, formatYears, loanEligibility, ownershipCost, splitPrice } from "@/components/tools/calc";
 
 export const metadata: Metadata = {
   title: "Car Tools & Calculators",
@@ -35,7 +35,6 @@ const tool = (slug: string) => tools.find((t) => t.slug === slug) ?? tools[0];
 
 /* Worked examples, computed with the same models the tools use. */
 const emiSample = calculateEmi(1_200_000 * 0.8, 9.25, 60);
-const loanSample = splitPrice(loanEligibility({ income: 100_000, existingEmis: 0, employment: "salaried", ratePct: 9.25, years: 5 }).eligible);
 
 function Meta({ t, tone = "dark" }: { t: Tool; tone?: "dark" | "light" }) {
   const index = tools.indexOf(t) + 1;
@@ -77,15 +76,21 @@ const zoom = "object-cover transition-transform duration-[700ms] ease-[var(--eas
 const cardBase = "group/tool relative flex border border-line bg-white transition-[border-color] duration-[400ms] ease-[var(--ease-premium)] hover:border-ink/30";
 
 export default async function ToolsPage() {
-  const { getCar, cars } = await getCatalog();
+  const { getCar, cars, getCity, onRoadPrice, content } = await getCatalog();
+  const rates = calcRates(content.toolRates);
   const car = (slug: string) => getCar(slug) ?? cars[0];
-  const evSample = evVsIce({ ev: car("tata-nexon-ev"), ice: car("hyundai-creta"), dailyKm: 40, years: 5, tariff: 8, fuelPrice: 105 });
+  const loanSample = splitPrice(loanEligibility({ income: 100_000, existingEmis: 0, employment: "salaried", ratePct: 9.25, years: 5, rates }).eligible);
+  const evSample = evVsIce({ ev: car("tata-nexon-ev"), ice: car("hyundai-creta"), dailyKm: 40, years: 5, tariff: rates.homeTariff, fuelPrice: rates.fuelPrice.Petrol, rates });
+  // Worked in Mumbai, or the default city if Mumbai is removed from site content.
+  const sampleCity = getCity("mumbai");
   const ownSample = ownershipCost({
     car: car("hyundai-creta"),
-    citySlug: "mumbai",
+    citySlug: sampleCity.slug,
     kmPerYear: 12_000,
     years: 5,
     finance: { enabled: false, downPct: 20, ratePct: 9.25 },
+    rates,
+    onRoadPrice,
   });
 
   const emi = tool("emi-calculator");
@@ -212,7 +217,7 @@ export default async function ToolsPage() {
                     </div>
                   </div>
                   <div className="md:border-l md:border-line md:pl-8">
-                    <Sample label="Worked example" value={`₹${ownSample.perKm.toFixed(1)}`} unit="per km" caption="Hyundai Creta in Mumbai · 12,000 km a year · 5 years" />
+                    <Sample label="Worked example" value={`₹${ownSample.perKm.toFixed(1)}`} unit="per km" caption={`Hyundai Creta in ${sampleCity.name} · 12,000 km a year · 5 years`} />
                   </div>
                 </div>
               </Link>

@@ -108,7 +108,8 @@ export function Header() {
           <Logo tone={transparent ? "light" : "dark"} className="shrink-0" />
 
           <nav aria-label="Primary" className="hidden h-full flex-1 items-stretch lg:flex">
-            <ul className="flex shrink-0 items-stretch">
+            {/* Item padding grows from 4px at 1024 to 12px by ~1240, so the nine items spread out instead of bunching up beside an empty gap. */}
+            <ul className="flex shrink-0 items-stretch [--nav-px:clamp(4px,calc(100vw/27_-_34px),12px)]">
               {mainNav.map((item) => {
                 const current = isActive(pathname, item);
                 const expanded = active === item.key;
@@ -133,7 +134,7 @@ export function Header() {
                           aria-label={`${expanded ? "Close" : "Open"} ${item.label} menu`}
                           onClick={() => (expanded ? closeNow() : open(item.key, 0))}
                           className={cn(
-                            "flex items-center pr-[7px] transition-colors duration-[250ms] xl:pr-3.5",
+                            "flex items-center pr-(--nav-px) transition-colors duration-[250ms]",
                             transparent ? "text-white/80 hover:text-white" : "text-ink/70 hover:text-ink",
                           )}
                         >
@@ -223,19 +224,14 @@ export function Header() {
 
 function navItemClass(transparent: boolean, on: boolean) {
   return cn(
-    "group/nav relative flex items-center gap-1 whitespace-nowrap px-[7px] text-[14px] font-medium transition-colors duration-[250ms] xl:px-3.5",
+    "group/nav relative flex items-center gap-1 whitespace-nowrap px-(--nav-px) text-[13.5px] font-medium xl:text-[14px] transition-colors duration-[250ms]",
     transparent ? (on ? "text-white" : "text-white/80 hover:text-white") : on ? "text-ink" : "text-ink/70 hover:text-ink",
   );
 }
 
+/** The desktop bar always uses the short label (nine items don't fit with the long ones); the mobile menu shows the full label. */
 function NavLabel({ item }: { item: NavItem }) {
-  if (!item.shortLabel) return <span>{item.label}</span>;
-  return (
-    <>
-      <span className="3xl:hidden">{item.shortLabel}</span>
-      <span className="hidden 3xl:inline">{item.label}</span>
-    </>
-  );
+  return <span>{item.shortLabel ?? item.label}</span>;
 }
 
 function Underline({ on, className }: { on: boolean; className?: string }) {
@@ -243,7 +239,7 @@ function Underline({ on, className }: { on: boolean; className?: string }) {
     <span
       aria-hidden
       className={cn(
-        "absolute inset-x-[7px] bottom-[18px] h-[2px] origin-left bg-red transition-transform duration-[350ms] ease-[var(--ease-premium)] xl:inset-x-3.5",
+        "absolute inset-x-(--nav-px) bottom-[18px] h-[2px] origin-left bg-red transition-transform duration-[350ms] ease-[var(--ease-premium)]",
         on ? "scale-x-100" : "scale-x-0",
         className,
       )}

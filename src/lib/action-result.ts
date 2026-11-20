@@ -9,8 +9,9 @@ export interface SessionUser {
   name: string;
   email: string;
   phone: string | null;
+  state: string | null;
   city: string | null;
-  role: "customer" | "editor" | "admin";
+  role: "customer" | "editor" | "admin" | "dealer" | "insurer";
   memberSince: string;
 }
 

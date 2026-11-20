@@ -19,7 +19,6 @@ import {
   UserRound,
   X,
 } from "lucide-react";
-import { cities } from "@/data/cities";
 import { IMG } from "@/data/images";
 import type { LeadStatus } from "@/db/enums";
 import { DEFAULT_PREFERENCES, type UserPreferences } from "@/lib/action-result";
@@ -32,7 +31,7 @@ import { changePasswordAction, updateProfileAction } from "@/server/actions/auth
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Button, IconButton } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Label, Segmented, SelectField, TextField } from "@/components/ui/field";
+import { Label, Segmented, TextField } from "@/components/ui/field";
 import { Tabs } from "@/components/ui/tabs";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
 import { useCity, useCompare, useUI, useUser, useWishlist } from "@/components/providers/app-provider";
@@ -40,6 +39,7 @@ import { useCatalog } from "@/components/providers/catalog-provider";
 import { Switch } from "@/components/tools/fields";
 import { usedTitle } from "@/components/vehicle/card-utils";
 import { Avatar } from "./avatar";
+import { StateCityFields } from "./state-city-fields";
 import { MIN_PASSWORD, MOBILE_RE, displayMobile, mobileDigits } from "./validation";
 
 type Section = "details" | "saved" | "compare" | "activity" | "preferences";
@@ -242,25 +242,21 @@ function Busy({ children }: { children: ReactNode }) {
 
 /* ── Personal details ───────────────────────────────────────── */
 
-type DetailField = "name" | "mobile" | "city";
+type DetailField = "name" | "mobile" | "city" | "state";
 type DetailErrors = Partial<Record<DetailField, string>>;
 
 function DetailsPanel({ user, onSave }: { user: AccountUser; onSave: (patch: Partial<AccountUser>) => void }) {
   const { toast } = useUI();
+  const { cities } = useCatalog();
   const [editing, setEditing] = useState(false);
-  const [form, setForm] = useState({ name: "", mobile: "", city: "" });
+  const [form, setForm] = useState({ name: "", mobile: "", state: "", city: "" });
   const [errors, setErrors] = useState<DetailErrors>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
-  // Our city list, plus the member's saved city if it isn't one of them.
-  const cityOptions = [
-    ...(user.city && !cities.some((c) => c.name === user.city) ? [{ value: user.city, label: user.city }] : []),
-    ...cities.map((c) => ({ value: c.name, label: `${c.name}, ${c.state}` })),
-  ];
-
   const startEditing = () => {
-    setForm({ name: user.name, mobile: mobileDigits(user.phone), city: user.city });
+    // Older accounts have a city but no state — fill it in when we know the city.
+    setForm({ name: user.name, mobile: mobileDigits(user.phone), state: user.state || cities.find((c) => c.name === user.city)?.state || "", city: user.city });
     setErrors({});
     setFormError(null);
     setEditing(true);
@@ -272,7 +268,7 @@ function DetailsPanel({ user, onSave }: { user: AccountUser; onSave: (patch: Par
   };
 
   const focusFirst = (errs: DetailErrors) => {
-    const first = (["name", "mobile", "city"] as const).find((k) => errs[k]);
+    const first = (["name", "mobile", "state", "city"] as const).find((k) => errs[k]);
     if (first) document.getElementById(`profile-${first}`)?.focus();
     return Boolean(first);
   };
@@ -283,6 +279,8 @@ function DetailsPanel({ user, onSave }: { user: AccountUser; onSave: (patch: Par
     const next: DetailErrors = {
       name: form.name.trim().length >= 2 ? undefined : "Enter your full name",
       mobile: form.mobile && !MOBILE_RE.test(form.mobile) ? "Enter a valid 10-digit mobile number" : undefined,
+      state: form.state ? undefined : "Choose your state",
+      city: form.city.trim().length >= 2 ? undefined : "Enter your city",
     };
     setErrors(next);
     setFormError(null);
@@ -290,15 +288,15 @@ function DetailsPanel({ user, onSave }: { user: AccountUser; onSave: (patch: Par
 
     setBusy(true);
     try {
-      const res = await updateProfileAction({ name: form.name.trim().replace(/\s+/g, " "), phone: form.mobile, city: form.city });
+      const res = await updateProfileAction({ name: form.name.trim().replace(/\s+/g, " "), phone: form.mobile, state: form.state, city: form.city.trim() });
       if (!res.ok) {
         const f = res.fieldErrors ?? {};
-        const mapped: DetailErrors = { name: f.name, mobile: f.phone, city: f.city };
+        const mapped: DetailErrors = { name: f.name, mobile: f.phone, state: f.state, city: f.city };
         setErrors(mapped);
         if (!focusFirst(mapped)) setFormError(res.error ?? "We couldn't save your details. Please try again.");
         return;
       }
-      onSave({ name: res.user.name, phone: res.user.phone ?? "", city: res.user.city ?? "" });
+      onSave({ name: res.user.name, phone: res.user.phone ?? "", state: res.user.state ?? "", city: res.user.city ?? "" });
       setEditing(false);
       toast("Profile updated", { tone: "success" });
     } catch {
@@ -353,16 +351,16 @@ function DetailsPanel({ user, onSave }: { user: AccountUser; onSave: (patch: Par
             error={errors.mobile}
             onChange={(e) => set("mobile", e.target.value.replace(/\D/g, "").slice(0, 10))}
           />
-          <SelectField
-            id="profile-city"
-            className="sm:col-span-2"
-            label="City"
-            placeholder="Choose your city"
-            options={cityOptions}
-            value={form.city}
-            error={errors.city}
-            onChange={(e) => set("city", e.target.value)}
-          />
+          <div className="sm:col-span-2">
+            <StateCityFields
+              idPrefix="profile"
+              state={form.state}
+              city={form.city}
+              onState={(v) => set("state", v)}
+              onCity={(v) => set("city", v)}
+              errors={{ state: errors.state, city: errors.city }}
+            />
+          </div>
         </div>
         <div className="mt-8 flex flex-wrap gap-3">
           <Button type="submit" variant="dark" disabled={busy}>
@@ -381,6 +379,7 @@ function DetailsPanel({ user, onSave }: { user: AccountUser; onSave: (patch: Par
     { label: "Email", value: user.email, note: "Your sign-in email" },
     { label: "Mobile", value: user.phone ? displayMobile(user.phone) : "" },
     { label: "City", value: user.city },
+    { label: "State", value: user.state },
     { label: "Member since", value: monthYear(user.memberSince) },
   ];
 
@@ -879,12 +878,13 @@ function ActivityPanel({ state, onRetry }: { state: RequestsState; onRetry: () =
 const ALERTS = [
   { key: "price", label: "Price-drop alerts", description: "When a saved car's price or offers change." },
   { key: "launch", label: "Launches & first drives", description: "New models in the segments you browse." },
-  { key: "digest", label: "Weekly digest", description: "Our editors' picks, every Sunday morning." },
+  { key: "digest", label: "Weekly digest", description: "The Weekly Gear — our editors' picks, every Friday morning." },
   { key: "whatsapp", label: "WhatsApp updates", description: "Booking confirmations and dealer replies." },
 ] as const;
 
 function PreferencesPanel() {
   const { city } = useCity();
+  const contactEmail = useCatalog().content.site.email;
   const { setLocationOpen, toast } = useUI();
   // Saved on the account; null until loaded.
   const [prefs, setPrefs] = useState<UserPreferences | null>(null);
@@ -980,7 +980,7 @@ function PreferencesPanel() {
           </p>
         </div>
         <Button
-          href="mailto:hello@marchgear.in?subject=Please%20delete%20my%20March%20Gear%20account"
+          href={`mailto:${contactEmail}?subject=Please%20delete%20my%20March%20Gear%20account`}
           variant="ghost"
           size="sm"
           className="shrink-0 text-muted hover:text-red"
@@ -1043,7 +1043,7 @@ function SignedOut() {
           </ul>
         </div>
         <div className="relative aspect-[4/3] overflow-hidden bg-mist sm:aspect-[16/10] lg:col-span-5 lg:col-start-8 lg:aspect-[4/5]">
-          <Image src={IMG.garage} alt="A car parked in a quiet private garage" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+          <Image src={IMG.garage} alt="A car parked in a quiet private garage" fill loading="eager" sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
         </div>
       </div>
     </section>

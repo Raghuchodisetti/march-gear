@@ -22,7 +22,7 @@ export function CompareTray() {
 
   const cars = slugs.map(getCar).filter((c) => c !== undefined);
   const visible = cars.length > 0 && !pathname.startsWith("/compare");
-  const href = `/compare?cars=${slugs.join(",")}`;
+  const href = `/compare?cars=${cars.map((c) => c.slug).join(",")}`;
   const raised = HAS_BOTTOM_BAR.test(pathname);
 
   return (

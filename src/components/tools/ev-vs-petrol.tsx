@@ -6,17 +6,17 @@ import { useMemo, useState, type ReactNode } from "react";
 import { ArrowUpRight, Zap } from "lucide-react";
 import type { CarModel } from "@/types";
 import { carTitle, isElectric } from "@/lib/catalog";
-import { CO2_PER_KWH, CO2_PER_LITRE, FUEL_PRICE, HOME_TARIFF, TREE_KG_PER_YEAR } from "@/data/tools-assumptions";
 import { formatINR, formatNumber, formatPrice, formatPriceShort } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { RangeField, SelectField } from "@/components/ui/field";
 import { useCatalog } from "@/components/providers/catalog-provider";
-import { evKwhPerKm, evVsIce, formatYears, iceKmpl, splitPrice } from "./calc";
+import { calcRates, evKwhPerKm, evVsIce, formatYears, iceKmpl, splitPrice } from "./calc";
 import { CostLineChart } from "./cost-line-chart";
 import { EstimateNote, Readout, StepLabel } from "./instrument";
 
 export function EvVsPetrol() {
-  const { cars, electricCars, brandName } = useCatalog();
+  const { cars, electricCars, brandName, content } = useCatalog();
+  const rates = useMemo(() => calcRates(content.toolRates), [content.toolRates]);
   const { evs, ices } = useMemo(() => {
     const byName = (a: CarModel, b: CarModel) => carTitle(a, brandName).localeCompare(carTitle(b, brandName));
     return { evs: electricCars().sort(byName), ices: cars.filter((c) => !isElectric(c)).sort(byName) };
@@ -25,17 +25,22 @@ export function EvVsPetrol() {
   const [iceSlug, setIceSlug] = useState("hyundai-creta");
   const [dailyKm, setDailyKm] = useState(40);
   const [years, setYears] = useState(5);
-  const [tariff, setTariff] = useState(HOME_TARIFF);
-  const [fuelPrice, setFuelPrice] = useState(FUEL_PRICE.Petrol);
+  const [tariff, setTariff] = useState(rates.homeTariff);
+  const [fuelPrice, setFuelPrice] = useState(rates.fuelPrice.Petrol);
+  // Slider bounds widen if the starting prices set in site content fall outside them.
+  const tariffMin = Math.min(4, Math.floor(rates.homeTariff));
+  const tariffMax = Math.max(20, Math.ceil(rates.homeTariff));
+  const fuelMin = Math.min(80, Math.floor(rates.fuelPrice.Petrol));
+  const fuelMax = Math.max(130, Math.ceil(rates.fuelPrice.Petrol));
   const [showTable, setShowTable] = useState(false);
 
   const ev = evs.find((c) => c.slug === evSlug) ?? evs[0];
   const ice = ices.find((c) => c.slug === iceSlug) ?? ices[0];
-  const r = evVsIce({ ev, ice, dailyKm, years, tariff, fuelPrice });
+  const r = evVsIce({ ev, ice, dailyKm, years, tariff, fuelPrice, rates });
 
   const [figure, unit] = splitPrice(Math.abs(r.savings));
   const co2Tonnes = r.co2AvoidedKg / 1000;
-  const trees = r.co2AvoidedKg > 0 ? Math.round(r.co2AvoidedKg / (TREE_KG_PER_YEAR * years)) : 0;
+  const trees = r.co2AvoidedKg > 0 ? Math.round(r.co2AvoidedKg / (rates.treeKgPerYear * years)) : 0;
 
   const breakEven = {
     "ev-always": { value: "Day one", caption: "Cheaper to buy and to run" },
@@ -86,8 +91,18 @@ export function EvVsPetrol() {
             <div className="border-t border-line pt-9">
               <StepLabel index="02">Energy prices</StepLabel>
             </div>
-            <RangeField label="Electricity tariff" value={tariff} min={4} max={20} step={0.5} onChange={setTariff} format={(v) => `₹${v.toFixed(1)}/kWh`} minLabel="₹4" maxLabel="₹20 (public DC)" />
-            <RangeField label="Fuel price" value={fuelPrice} min={80} max={130} step={1} onChange={setFuelPrice} format={(v) => `₹${v}/L`} minLabel="₹80" maxLabel="₹130" />
+            <RangeField
+              label="Electricity tariff"
+              value={tariff}
+              min={tariffMin}
+              max={tariffMax}
+              step={0.5}
+              onChange={setTariff}
+              format={(v) => `₹${v.toFixed(1)}/kWh`}
+              minLabel={`₹${tariffMin}`}
+              maxLabel={tariffMax === 20 ? "₹20 (public DC)" : `₹${tariffMax}`}
+            />
+            <RangeField label="Fuel price" value={fuelPrice} min={fuelMin} max={fuelMax} step={1} onChange={setFuelPrice} format={(v) => `₹${v}/L`} minLabel={`₹${fuelMin}`} maxLabel={`₹${fuelMax}`} />
             <p className="text-[12.5px] leading-relaxed text-muted">
               Running {formatNumber(r.annualKm)} km a year. Home charging is usually ₹6–10/kWh; public fast chargers ₹18–24.
             </p>
@@ -116,8 +131,8 @@ export function EvVsPetrol() {
             />
 
             <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-line pt-8 md:grid-cols-4">
-              <Readout size="sm" label="EV per km" value={`₹${r.evPerKm.toFixed(2)}`} caption={`${(evKwhPerKm(ev) * 100).toFixed(1)} kWh / 100 km`} />
-              <Readout size="sm" label={`${ice.name} per km`} value={`₹${r.icePerKm.toFixed(2)}`} caption={`${iceKmpl(ice).toFixed(1)} kmpl real-world`} />
+              <Readout size="sm" label="EV per km" value={`₹${r.evPerKm.toFixed(2)}`} caption={`${(evKwhPerKm(ev, rates) * 100).toFixed(1)} kWh / 100 km`} />
+              <Readout size="sm" label={`${ice.name} per km`} value={`₹${r.icePerKm.toFixed(2)}`} caption={`${iceKmpl(ice, rates).toFixed(1)} kmpl real-world`} />
               <Readout size="sm" label="CO₂ avoided" value={co2Tonnes > 0 ? `${co2Tonnes.toFixed(1)} t` : "—"} caption={trees > 0 ? `≈ ${formatNumber(trees)} trees over ${years} yrs` : "No reduction"} />
               <Readout size="sm" label="Energy saved / yr" value={formatINR(Math.max(0, r.iceAnnual - r.evAnnual))} caption="Running cost difference" />
             </div>
@@ -168,8 +183,8 @@ export function EvVsPetrol() {
             )}
 
             <EstimateNote className="mt-8">
-              Illustrative estimate. EV use = battery ÷ claimed range × 1.25; fuel economy = claimed × 0.85. CO₂ at {CO2_PER_LITRE} kg/L petrol vs{" "}
-              {CO2_PER_KWH} kg/kWh grid. Excludes insurance, servicing, subsidies and resale.
+              Illustrative estimate. EV use = battery ÷ claimed range × {rates.evRealWorldFactor}; fuel economy = claimed × {rates.iceRealWorldFactor}. CO₂ at{" "}
+              {rates.co2PerLitre} kg/L petrol vs {rates.co2PerKwh} kg/kWh grid. Excludes insurance, servicing, subsidies and resale.
             </EstimateNote>
           </div>
         </div>
@@ -203,6 +218,7 @@ function Contender({
           src={car.images[0]}
           alt={title(car)}
           fill
+          loading="eager"
           sizes="(min-width: 768px) 45vw, 100vw"
           className="object-cover"
           style={{ objectPosition: car.focus ?? "50% 55%" }}

@@ -2,18 +2,27 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Check, Copy, KeyRound, Loader2, UserPlus } from "lucide-react";
+import { Check, Copy, KeyRound, Loader2, LogOut, UserPlus } from "lucide-react";
 import { USER_ROLES, type UserRole } from "@/db/enums";
+import { INDIAN_STATES } from "@/data/states";
 import type { ActionResult } from "@/lib/action-result";
 import { changePasswordAction } from "@/server/actions/auth";
-import { createStaffAction, resetUserPasswordAction, updateUserAction } from "@/server/actions/admin";
+import { createStaffAction, resetUserPasswordAction, signOutEverywhereAction, updateUserAction } from "@/server/actions/admin";
 import { useUI } from "@/components/providers/app-provider";
 import { Button } from "@/components/ui/button";
 import { SelectField, TextField } from "@/components/ui/field";
 import { Panel } from "./ui";
 
-const ROLE_LABEL: Record<UserRole, string> = { customer: "Customer", editor: "Editor — catalogue, content & leads", admin: "Admin — everything, incl. users" };
-const roleOptions = USER_ROLES.map((r) => ({ value: r, label: ROLE_LABEL[r] }));
+const ROLE_LABEL: Record<UserRole, string> = {
+  customer: "Customer",
+  editor: "Editor — catalogue, content & leads",
+  admin: "Admin — everything, incl. users",
+  dealer: "Dealer partner — dealer portal only",
+  insurer: "Insurance vendor — insurance vendor portal only",
+};
+// Portal accounts are created by dealer / insurance vendor registration and keep their role.
+const PORTAL_ROLES: UserRole[] = ["dealer", "insurer"];
+const roleOptions = USER_ROLES.filter((r) => !PORTAL_ROLES.includes(r)).map((r) => ({ value: r, label: ROLE_LABEL[r] }));
 
 function useSubmit() {
   const { toast } = useUI();
@@ -38,7 +47,7 @@ function useSubmit() {
       setBusy(false);
     }
   };
-  return { busy, errors, run };
+  return { busy, errors, setErrors, run };
 }
 
 function TempPassword({ email, password }: { email: string; password: string }) {
@@ -64,19 +73,19 @@ function TempPassword({ email, password }: { email: string; password: string }) 
 export function UserEditor({
   user,
 }: {
-  user: { id: number; name: string; email: string; phone: string | null; city: string | null; role: UserRole; isActive: boolean };
+  user: { id: number; name: string; email: string; phone: string | null; state: string | null; city: string | null; role: UserRole; isActive: boolean };
 }) {
   const router = useRouter();
   const { toast } = useUI();
   const { busy, errors, run } = useSubmit();
-  const [v, setV] = useState({ name: user.name, email: user.email, phone: user.phone ?? "", city: user.city ?? "", role: user.role, isActive: user.isActive });
+  const [v, setV] = useState({ name: user.name, email: user.email, phone: user.phone ?? "", state: user.state ?? "", city: user.city ?? "", role: user.role, isActive: user.isActive });
   const [temp, setTemp] = useState<string | null>(null);
   const [resetting, setResetting] = useState(false);
   const set = (k: keyof typeof v, value: string | boolean) => setV((p) => ({ ...p, [k]: value }));
 
   const save = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (await run(() => updateUserAction(user.id, { ...v, city: v.city || null }), "User updated")) router.refresh();
+    if (await run(() => updateUserAction(user.id, { ...v, state: v.state || null, city: v.city || null }), "User updated")) router.refresh();
   };
 
   const reset = async () => {
@@ -96,8 +105,23 @@ export function UserEditor({
             <TextField label="Name" value={v.name} onChange={(e) => set("name", e.target.value)} error={errors.name} />
             <TextField label="Email" type="email" value={v.email} onChange={(e) => set("email", e.target.value)} error={errors.email} />
             <TextField label="Mobile" prefix="+91" inputMode="numeric" value={v.phone} onChange={(e) => set("phone", e.target.value.replace(/\D/g, "").slice(0, 10))} error={errors.phone} />
+            <SelectField
+              label="State"
+              placeholder="Not set"
+              options={INDIAN_STATES.map((s) => ({ value: s, label: s }))}
+              value={v.state}
+              onChange={(e) => set("state", e.target.value)}
+              error={errors.state}
+            />
             <TextField label="City" value={v.city} onChange={(e) => set("city", e.target.value)} error={errors.city} />
-            <SelectField label="Role" value={v.role} onChange={(e) => set("role", e.target.value)} options={roleOptions} className="sm:col-span-2" />
+            <SelectField
+              label="Role"
+              value={v.role}
+              onChange={(e) => set("role", e.target.value)}
+              options={PORTAL_ROLES.includes(user.role) ? [{ value: user.role, label: ROLE_LABEL[user.role] }] : roleOptions}
+              disabled={PORTAL_ROLES.includes(user.role)}
+              className="sm:col-span-2"
+            />
             <label className="flex cursor-pointer items-start gap-3 rounded-[3px] border border-line px-4 py-3.5 sm:col-span-2">
               <input type="checkbox" checked={v.isActive} onChange={(e) => set("isActive", e.target.checked)} className="mt-0.5 size-4 accent-[var(--color-red)]" />
               <span>
@@ -170,13 +194,17 @@ export function CreateStaffForm() {
 }
 
 export function ChangePasswordForm() {
-  const { busy, errors, run } = useSubmit();
+  const { busy, errors, setErrors, run } = useSubmit();
   const [v, setV] = useState({ current: "", next: "", confirm: "" });
   const [mismatch, setMismatch] = useState(false);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (v.next !== v.confirm) return setMismatch(true);
+    if (v.next !== v.confirm) {
+      // Only this message applies now — the previous attempt's server errors may be stale.
+      setErrors({});
+      return setMismatch(true);
+    }
     setMismatch(false);
     if (await run(() => changePasswordAction({ current: v.current, next: v.next }), "Password changed. Other devices were signed out.")) setV({ current: "", next: "", confirm: "" });
   };
@@ -194,5 +222,30 @@ export function ChangePasswordForm() {
         </Button>
       </Panel>
     </form>
+  );
+}
+
+/** Ends the account's sessions on every device (on your own account, this browser stays signed in). */
+export function SignOutEverywhereButton({ userId, name, self, count }: { userId: number; name: string; self: boolean; count: number }) {
+  const router = useRouter();
+  const { toast } = useUI();
+  const [busy, setBusy] = useState(false);
+  const others = self ? count - 1 : count;
+
+  const run = async () => {
+    const question = self ? "Sign out of all your other sessions? This browser stays signed in." : `Sign ${name} out on every device? They'll need to sign in again.`;
+    if (!window.confirm(question)) return;
+    setBusy(true);
+    const res = await signOutEverywhereAction(userId).catch(() => null);
+    setBusy(false);
+    if (!res?.ok) return toast(res?.error ?? "Couldn't reach the server. Please try again.", { tone: "error" });
+    toast(res.ended ? `Ended ${res.ended} ${res.ended === 1 ? "session" : "sessions"}` : "There were no other sessions to end", { tone: "success" });
+    router.refresh();
+  };
+
+  return (
+    <Button variant="outline" size="sm" onClick={run} disabled={busy || others < 1} icon={busy ? <Loader2 className="size-4 animate-spin" aria-hidden /> : <LogOut className="size-4" aria-hidden />}>
+      {self ? "Sign out other sessions" : "Sign out everywhere"}
+    </Button>
   );
 }

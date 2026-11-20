@@ -221,7 +221,7 @@ export function PerfectCarQuiz() {
               Five questions. One <span className="type-editorial">honest</span> answer.
             </h2>
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-white/70">
-              Our recommendation engine weighs budget, space, usage and fuel against 33 models and our expert scores.
+              Our recommendation engine weighs budget, space, usage and fuel against {cars.length} models and our expert scores.
             </p>
           </div>
           <ol className="mt-10 space-y-3">

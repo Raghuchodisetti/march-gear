@@ -5,16 +5,18 @@ import { Fuel, Zap } from "lucide-react";
 import { formatINR } from "@/lib/format";
 import { RangeField } from "@/components/ui/field";
 import { Counter } from "@/components/ui/reveal";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { Bar } from "./meters";
 import { REAL_WORLD_FACTOR } from "./utils";
 
-const TARIFF = 8; // ₹ per kWh, home
-const PETROL = 105; // ₹ per litre
 const PETROL_KMPL = 15;
 
 /** Home-charging running cost vs an equivalent petrol car. */
 export function EvCostCalculator({ batteryKwh, rangeKm, name }: { batteryKwh: number; rangeKm: number; name: string }) {
   const [kmPerDay, setKmPerDay] = useState(40);
+  // Home tariff and petrol price from the admin-editable rates.
+  const { homeTariff: TARIFF, fuelPrices } = useCatalog().content.toolRates;
+  const PETROL = fuelPrices.petrol;
   const kwhPerKm = batteryKwh / (rangeKm * REAL_WORLD_FACTOR);
   const monthlyKm = kmPerDay * 30;
   const evMonthly = monthlyKm * kwhPerKm * TARIFF;

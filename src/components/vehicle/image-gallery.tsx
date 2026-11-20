@@ -124,7 +124,7 @@ export function ImageGallery({
                 i === index ? "opacity-100 ring-2 ring-red ring-offset-2" : "opacity-55 hover:opacity-100",
               )}
             >
-              <Image src={src} alt="" fill sizes="112px" className="object-cover" />
+              <Image src={src} alt="" fill sizes="112px" quality={60} className="object-cover" />
             </button>
           ))}
         </div>

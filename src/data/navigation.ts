@@ -49,6 +49,7 @@ export const mainNav: NavItem[] = [
             { label: "Latest launches", href: "/new-cars?sort=latest" },
             { label: "Upcoming cars", href: "/upcoming-cars", note: "8 expected" },
             { label: "Electric cars", href: "/electric-cars" },
+            { label: "Dealer offers", href: "/offers", note: "Live deals" },
           ],
         },
         {
@@ -136,7 +137,52 @@ export const mainNav: NavItem[] = [
     },
   },
   { key: "ev", label: "Electric Vehicles", shortLabel: "Electric", href: "/electric-cars" },
-  { key: "pdi", label: "PDI Check", href: "/pdi-check" },
+  { key: "pdi", label: "PDI Check", shortLabel: "PDI", href: "/pdi-check" },
+  {
+    key: "insurance",
+    label: "Insurance",
+    href: "/insurance",
+    mega: {
+      columns: [
+        {
+          title: "Get covered",
+          links: [
+            { label: "Car insurance", href: "/insurance" },
+            { label: "Buy a new policy", href: "/insurance/new-car" },
+            { label: "Renew your policy", href: "/insurance/renewal", note: "Keep your NCB" },
+            { label: "Compare plans", href: "/insurance/compare" },
+            { label: "Insurance providers", href: "/insurance/providers" },
+          ],
+        },
+        {
+          title: "Cover",
+          links: [
+            { label: "Policy types", href: "/insurance/types" },
+            { label: "Add-on covers", href: "/insurance/add-ons" },
+            { label: "Used car insurance", href: "/insurance/used-car" },
+            { label: "Electric car insurance", href: "/insurance/ev" },
+            { label: "Your quote requests", href: "/insurance/quotes" },
+          ],
+        },
+        {
+          title: "Help",
+          links: [
+            { label: "Claim assistance", href: "/insurance/claims" },
+            { label: "Insurance guides", href: "/insurance/guides" },
+            { label: "Insurance stories", href: "/insurance/articles" },
+            { label: "For insurers", href: "/insurance-vendor", note: "List products" },
+          ],
+        },
+      ],
+      feature: {
+        eyebrow: "Car insurance",
+        title: "Compare cover clearly, then ask for real quotes",
+        href: "/insurance",
+        image: IMG.autumnRoad,
+        cta: "Start with your car",
+      },
+    },
+  },
   { key: "compare", label: "Compare", href: "/compare" },
   {
     key: "reviews",
@@ -229,23 +275,24 @@ export const footerColumns: MegaColumn[] = [
     ],
   },
   {
-    title: "Research",
+    title: "Research & tools",
     links: [
       { label: "Compare cars", href: "/compare" },
       { label: "Expert reviews", href: "/reviews" },
       { label: "Owner reviews", href: "/reviews/owners" },
       { label: "News & media", href: "/news" },
-      { label: "Video reviews", href: "/news?category=Video" },
+      { label: "EMI calculator", href: "/tools/emi-calculator" },
+      { label: "All car tools", href: "/tools" },
     ],
   },
   {
-    title: "Tools",
+    title: "Insurance",
     links: [
-      { label: "EMI calculator", href: "/tools/emi-calculator" },
-      { label: "Car loan eligibility", href: "/tools/car-loan" },
-      { label: "Mileage calculator", href: "/tools/mileage-calculator" },
-      { label: "EV vs Petrol", href: "/tools/ev-vs-petrol" },
-      { label: "Ownership cost", href: "/tools/ownership-cost" },
+      { label: "Car insurance", href: "/insurance" },
+      { label: "Renew insurance", href: "/insurance/renewal" },
+      { label: "Compare plans", href: "/insurance/compare" },
+      { label: "Claim help", href: "/insurance/claims" },
+      { label: "For insurers", href: "/insurance-vendor" },
     ],
   },
 ];

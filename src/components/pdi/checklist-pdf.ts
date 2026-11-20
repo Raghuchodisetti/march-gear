@@ -1,5 +1,5 @@
 import type { jsPDF as JsPDF } from "jspdf";
-import { checklistCount, checklistFor, pdiChecklist } from "@/data/pdi";
+import { checklistCount, checklistFor, type PdiChecklistContent } from "@/lib/pdi";
 import type { FuelType } from "@/types";
 import { formatDate } from "@/lib/format";
 
@@ -16,20 +16,26 @@ const RED: [number, number, number] = [227, 30, 36];
 const MUTED: [number, number, number] = [119, 119, 119];
 const LINE: [number, number, number] = [232, 232, 232];
 
-export const CHECKLIST_TOTAL = checklistCount(pdiChecklist);
+/** What the PDF is built from — the same content the page shows (`content.pdiChecklist`, `content.site.phone`). */
+export interface PdfContent {
+  checklist: PdiChecklistContent;
+  /** Footer contact number. */
+  phone: string;
+}
+
 /** Number of checks in the PDF for a fuel type (base list + fuel-specific checks). */
-export const pdfCheckCount = (fuel?: FuelType) => checklistCount(checklistFor(fuel));
+export const pdfCheckCount = (checklist: PdiChecklistContent, fuel?: FuelType) => checklistCount(checklistFor(checklist, fuel));
 export const CHECKLIST_FILENAME = "MarchGear-PDI-Checklist.pdf";
 
 /** Lays out the branded A4 checklist. Pure — used in the browser and in tests. */
-export function buildChecklistPdf(doc: JsPDF, lead?: PdfLead | null) {
+export function buildChecklistPdf(doc: JsPDF, content: PdfContent, lead?: PdfLead | null) {
   const W = doc.internal.pageSize.getWidth();
   const H = doc.internal.pageSize.getHeight();
   const M = 48;
   const textX = M + 22;
   const textW = W - textX - M;
   const bottom = H - 64;
-  const groups = checklistFor(lead?.fuel);
+  const groups = checklistFor(content.checklist, lead?.fuel);
   const total = checklistCount(groups);
 
   const header = (first: boolean) => {
@@ -170,16 +176,16 @@ export function buildChecklistPdf(doc: JsPDF, lead?: PdfLead | null) {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(8);
     doc.setTextColor(...MUTED);
-    doc.text("Want an expert to do this for you? Book a PDI at marchgear.in/pdi-check  |  +91 91283 33777", M, H - 28);
+    doc.text(`Want an expert to do this for you? Book a PDI at marchgear.in/pdi-check  |  ${content.phone}`, M, H - 28);
     doc.text(`Page ${i} of ${pages}`, W - M, H - 28, { align: "right" });
   }
   return doc;
 }
 
 /** Builds the PDF in the browser and downloads it. */
-export async function downloadChecklistPdf(lead?: PdfLead | null) {
+export async function downloadChecklistPdf(content: PdfContent, lead?: PdfLead | null) {
   const { jsPDF } = await import("jspdf");
-  const doc = buildChecklistPdf(new jsPDF({ unit: "pt", format: "a4" }), lead);
+  const doc = buildChecklistPdf(new jsPDF({ unit: "pt", format: "a4" }), content, lead);
   doc.setProperties({ title: "MarchGear PDI checklist", author: "MarchGear", subject: "New car pre-delivery inspection checklist" });
   doc.save(CHECKLIST_FILENAME);
 }

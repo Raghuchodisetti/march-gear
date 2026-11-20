@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Banknote, Clock, FileText, Handshake, Quote, ShieldCheck, Timer, Wrench, type LucideIcon } from "lucide-react";
+import { BadgeCheck, Banknote, Car, Clock, FileText, Handshake, Phone, Quote, ShieldCheck, Timer, Wrench, type LucideIcon } from "lucide-react";
+import type { SellIcon } from "@/content/blocks/sell";
 import { IMG } from "@/data/images";
-import { SELL_BENEFITS, SELL_FAQS, SELL_STATS, SELL_STEPS, SELL_TESTIMONIALS } from "@/data/used-sell";
+import { getCatalog } from "@/server/catalog";
 import { formatPrice } from "@/lib/format";
 import { Accordion } from "@/components/ui/accordion";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
@@ -19,16 +20,21 @@ export const metadata: Metadata = {
     "Get an instant indicative price for your car, book a free 200-point doorstep inspection and get paid before pick-up. RC transfer and loan closure handled.",
 };
 
-const BENEFIT_ICONS: Record<(typeof SELL_BENEFITS)[number]["key"], LucideIcon> = {
-  price: Banknote,
-  inspection: Wrench,
-  payment: Timer,
-  paperwork: FileText,
-  privacy: ShieldCheck,
-  flexible: Handshake,
+const BENEFIT_ICONS: Record<SellIcon, LucideIcon> = {
+  banknote: Banknote,
+  wrench: Wrench,
+  timer: Timer,
+  file: FileText,
+  shield: ShieldCheck,
+  handshake: Handshake,
+  clock: Clock,
+  car: Car,
+  badge: BadgeCheck,
+  phone: Phone,
 };
 
-export default function SellCarPage() {
+export default async function SellCarPage() {
+  const { stats, steps, benefits, testimonials, faqs } = (await getCatalog()).content.sell;
   return (
     <>
       {/* Hero + instant valuation */}
@@ -57,11 +63,11 @@ export default function SellCarPage() {
               </p>
             </Reveal>
             <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-white/15 pt-8 sm:grid-cols-4 lg:mt-auto lg:pt-10">
-              {SELL_STATS.map((s) => (
-                <div key={s.label} className="flex flex-col-reverse justify-end">
+              {stats.map((s, i) => (
+                <div key={i} className="flex flex-col-reverse justify-end">
                   <dt className="mt-2 text-[12.5px] leading-snug text-white/55">{s.label}</dt>
                   <dd className="type-h3 num">
-                    <Counter to={s.value} decimals={"decimals" in s ? s.decimals : 0} suffix={s.suffix} />
+                    <Counter to={s.value} decimals={s.decimals} prefix={s.prefix} suffix={s.suffix} />
                   </dd>
                 </div>
               ))}
@@ -86,9 +92,9 @@ export default function SellCarPage() {
             description="No listings to manage, no strangers on test drives, no haggling. Most sellers are paid within 24 hours of their inspection."
           />
           <RevealGroup role="list" className="mt-14 grid grid-cols-1 md:mt-20 lg:grid-cols-4 lg:border-t lg:border-ink">
-            {SELL_STEPS.map((s, i) => (
+            {steps.map((s, i) => (
               <RevealItem
-                key={s.title}
+                key={i}
                 role="listitem"
                 className="relative border-l border-line pb-12 pl-8 last:pb-0 lg:border-l-0 lg:pb-0 lg:pl-0 lg:pr-10 lg:pt-10"
               >
@@ -146,10 +152,10 @@ export default function SellCarPage() {
               </p>
             </Reveal>
             <ul className="mt-12 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2">
-              {SELL_BENEFITS.map((b) => {
-                const Icon = BENEFIT_ICONS[b.key];
+              {benefits.map((b, i) => {
+                const Icon = BENEFIT_ICONS[b.icon];
                 return (
-                  <li key={b.key} className="bg-white p-6 md:p-7">
+                  <li key={i} className="bg-white p-6 md:p-7">
                     <Icon className="size-5 text-ink" aria-hidden />
                     <h3 className="type-h4 mt-6">{b.title}</h3>
                     <p className="mt-2 text-[14px] leading-relaxed text-muted">{b.body}</p>
@@ -177,8 +183,8 @@ export default function SellCarPage() {
               </div>
             }
           >
-            {SELL_TESTIMONIALS.map((t) => (
-              <figure key={t.name} className="flex h-full flex-col border border-white/12 p-7 md:p-9">
+            {testimonials.map((t, i) => (
+              <figure key={i} className="flex h-full flex-col border border-white/12 p-7 md:p-9">
                 <Quote className="size-6 text-red" aria-hidden />
                 <blockquote className="mt-6 flex-1 text-[1.1875rem] leading-[1.5] tracking-[-0.01em] text-white/90 md:text-[1.3125rem]">
                   “{t.quote}”
@@ -219,10 +225,7 @@ export default function SellCarPage() {
             </div>
           </div>
           <div className="lg:col-span-8">
-            <Accordion
-              defaultOpen={[SELL_FAQS[0].id]}
-              items={SELL_FAQS.map((f) => ({ id: f.id, title: f.q, content: f.a }))}
-            />
+            <Accordion defaultOpen={["faq-0"]} items={faqs.map((f, i) => ({ id: `faq-${i}`, title: f.q, content: f.a }))} />
           </div>
         </div>
       </section>

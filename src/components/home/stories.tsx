@@ -38,7 +38,7 @@ export async function AutomotiveStories() {
         <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
             <article className="group/lead">
-              <Link href={`/news/${lead.slug}`} className="relative block aspect-[4/3] overflow-hidden bg-mist md:aspect-[16/11]">
+              <Link href={`/news/${lead.slug}`} tabIndex={-1} aria-hidden className="relative block aspect-[4/3] overflow-hidden bg-mist md:aspect-[16/11]">
                 <Image src={lead.image} alt="" fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover transition-transform duration-[1200ms] ease-[var(--ease-premium)] group-hover/lead:scale-[1.03]" style={{ objectPosition: "50% 70%" }} />
               </Link>
               <div className="mt-7 grid grid-cols-1 gap-6 md:grid-cols-[auto_1fr] md:gap-10">

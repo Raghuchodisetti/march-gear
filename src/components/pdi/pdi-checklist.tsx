@@ -1,26 +1,30 @@
 "use client";
 
 import { Check, Download, Lock, Mail, RotateCcw } from "lucide-react";
-import { checklistCount, checklistFor, pdiChecklist } from "@/data/pdi";
+import { checklistCount, checklistFor } from "@/lib/pdi";
 import { createPersistentStore, useStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import { useUI } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { Button } from "@/components/ui/button";
 import { openChecklistGate, pdiLeadStore } from "./checklist-gate";
 import { downloadChecklistPdf } from "./checklist-pdf";
+import { PDI_ICON } from "./icons";
 
 const checklistStore = createPersistentStore<string[]>("mg.pdi.checklist", []);
-const BASE_TOTAL = checklistCount(pdiChecklist);
 
 /** Free do-it-yourself PDI checklist. Ticks are saved on this device. */
 export function PdiChecklist() {
+  const { content } = useCatalog();
+  const checklist = content.pdiChecklist;
   const done = useStore(checklistStore);
   const lead = useStore(pdiLeadStore);
   const unlocked = Boolean(lead);
-  const [freeGroup, ...lockedGroups] = pdiChecklist;
+  const [freeGroup, ...lockedGroups] = checklist.groups;
+  const baseTotal = checklistCount(checklist.groups);
   const lockedCount = checklistCount(lockedGroups);
   // Once unlocked, the list matches the emailed PDF for the buyer's fuel type.
-  const groups = unlocked ? checklistFor(lead?.fuel) : pdiChecklist;
+  const groups = unlocked ? checklistFor(checklist, lead?.fuel) : checklist.groups;
   const total = checklistCount(groups);
   const doneCount = groups.reduce((n, g) => n + g.items.filter((i) => done.includes(i.id)).length, 0);
   const { toast } = useUI();
@@ -46,7 +50,7 @@ export function PdiChecklist() {
             </span>
             <p className="type-h3 mt-6">Get the full checklist as a PDF</p>
             <p className="mt-3 text-[14.5px] leading-relaxed text-white/65">
-              The first {freeGroup.items.length} checks are free to use here. Tell us about your car and we&apos;ll email you all {BASE_TOTAL}+ checks as a printable PDF, with extras for your fuel type — and unlock them on this page.
+              The first {freeGroup.items.length} checks are free to use here. Tell us about your car and we&apos;ll email you all {baseTotal}+ checks as a printable PDF, with extras for your fuel type — and unlock them on this page.
             </p>
             <ul className="mt-6 space-y-2.5 text-[14px] text-white/80">
               {["Printable PDF with tick boxes", "Tips for every tricky check", "Works offline at the dealership"].map((t) => (
@@ -108,7 +112,7 @@ export function PdiChecklist() {
           <div className="mt-8 flex gap-2">
             <button
               type="button"
-              onClick={() => downloadChecklistPdf(lead)}
+              onClick={() => downloadChecklistPdf({ checklist, phone: content.site.phone }, lead)}
               className="inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-[3px] border border-line text-[13px] font-medium transition-colors hover:border-ink"
             >
               <Download aria-hidden className="size-4" /> Download PDF
@@ -132,7 +136,7 @@ export function PdiChecklist() {
       {/* Items */}
       <div className="space-y-6 lg:col-span-8">
         {(unlocked ? groups : [freeGroup]).map((g) => {
-          const Icon = g.icon;
+          const Icon = PDI_ICON[g.icon];
           return (
             <section key={g.id} id={`pdi-${g.id}`} aria-labelledby={`pdi-${g.id}-title`} className="scroll-mt-32 border border-line bg-white">
               <h3 id={`pdi-${g.id}-title`} className="flex items-center gap-3 border-b border-line px-5 py-4 text-[16px] font-semibold md:px-6">
@@ -198,9 +202,7 @@ export function PdiChecklist() {
                   <Lock aria-hidden className="size-5" />
                 </span>
                 <p className="type-h3 mt-5">{lockedCount} more checks</p>
-                <p className="mt-2 text-[14.5px] text-muted">
-                  Exterior, tyres, interior, electricals and the test drive. Get them all as a PDF in your inbox.
-                </p>
+                <p className="mt-2 text-[14.5px] text-muted">{checklist.lockedSummary} Get them all as a PDF in your inbox.</p>
                 <Button className="mt-6" onClick={openChecklistGate} arrow>
                   Unlock &amp; get the PDF
                 </Button>

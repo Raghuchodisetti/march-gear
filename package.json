@@ -11,7 +11,10 @@
     "db:migrate": "drizzle-kit migrate",
     "db:seed": "tsx --env-file=.env.local src/db/seed.ts",
     "db:studio": "drizzle-kit studio",
-    "db:setup": "npm run db:migrate && npm run db:seed"
+    "db:setup": "npm run db:migrate && npm run db:seed",
+    "db:admin": "tsx --env-file=.env.local src/db/set-admin.ts",
+    "db:seed-demo": "tsx --env-file=.env.local src/db/seed-demo-dealer.ts",
+    "db:seed-insurance": "tsx --env-file=.env.local src/db/seed-demo-insurance.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

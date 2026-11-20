@@ -127,7 +127,9 @@ export async function PriceAnalysis({ car }: { car: UsedCar }) {
   const span = band.high - band.low;
   const min = band.low - span * 0.6;
   const max = band.high + span * 0.6;
-  const at = (v: number) => `${Math.min(100, Math.max(0, ((v - min) / (max - min)) * 100))}%`;
+  const pct = (v: number) => Math.min(100, Math.max(0, ((v - min) / (max - min)) * 100));
+  const at = (v: number) => `${pct(v)}%`;
+  const pricePct = pct(car.price);
   const age = Math.max(1, VALUATION_YEAR - car.year);
   const newModel = car.modelSlug ? getCar(car.modelSlug) : undefined;
 
@@ -181,7 +183,13 @@ export async function PriceAnalysis({ car }: { car: UsedCar }) {
             <span key={v} className="absolute top-1/2 h-3 w-px -translate-y-1/2 bg-ink" style={{ left: at(v) }} />
           ))}
           <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ left: at(car.price) }}>
-            <span className="absolute bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-ink px-2 py-1 text-[11.5px] font-medium text-white num">
+            {/* Near either end, anchor the label to the marker's inner side so it never leaves the screen. */}
+            <span
+              className={cn(
+                "absolute bottom-full mb-3 whitespace-nowrap bg-ink px-2 py-1 text-[11.5px] font-medium text-white num",
+                pricePct < 25 ? "-left-2" : pricePct > 75 ? "-right-2" : "left-1/2 -translate-x-1/2",
+              )}
+            >
               This car · {formatPrice(car.price)}
             </span>
             <span className="block size-3.5 rounded-full border-2 border-white bg-red shadow-soft" />

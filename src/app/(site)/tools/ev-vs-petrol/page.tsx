@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { CO2_PER_KWH, CO2_PER_LITRE, EV_REAL_WORLD_FACTOR, HOME_TARIFF, ICE_REAL_WORLD_FACTOR } from "@/data/tools-assumptions";
+import { getCatalog } from "@/server/catalog";
+import { calcRates } from "@/components/tools/calc";
 import { PageHeader } from "@/components/ui/page-header";
 import { EvVsPetrol } from "@/components/tools/ev-vs-petrol";
 import { HowItWorks, RelatedTools, ToolDisclaimer, ToolFaqs, ToolMetaRow } from "@/components/tools/tool-sections";
@@ -10,7 +11,8 @@ export const metadata: Metadata = {
     "Compare an electric car with a petrol, diesel or hybrid rival. See cumulative costs year by year, the break-even point, total savings and CO₂ avoided.",
 };
 
-export default function EvVsPetrolPage() {
+export default async function EvVsPetrolPage() {
+  const rates = calcRates((await getCatalog()).content.toolRates);
   return (
     <>
       <PageHeader
@@ -33,13 +35,13 @@ export default function EvVsPetrolPage() {
         steps={[
           {
             title: "Real-world EV consumption",
-            body: `Claimed ranges are optimistic, so we take the battery size over the claimed range and add ${Math.round((EV_REAL_WORLD_FACTOR - 1) * 100)}% for highway speeds, AC and charging losses.`,
-            formula: `kWh per km = battery kWh ÷ claimed range × ${EV_REAL_WORLD_FACTOR}`,
+            body: `Claimed ranges are optimistic, so we take the battery size over the claimed range and add ${Math.round((rates.evRealWorldFactor - 1) * 100)}% for highway speeds, AC and charging losses.`,
+            formula: `kWh per km = battery kWh ÷ claimed range × ${rates.evRealWorldFactor}`,
           },
           {
             title: "Real-world fuel economy",
-            body: `For the combustion car, we assume ${Math.round(ICE_REAL_WORLD_FACTOR * 100)}% of the claimed kmpl.`,
-            formula: `real kmpl = claimed kmpl × ${ICE_REAL_WORLD_FACTOR}`,
+            body: `For the combustion car, we assume ${Math.round(rates.iceRealWorldFactor * 100)}% of the claimed kmpl.`,
+            formula: `real kmpl = claimed kmpl × ${rates.iceRealWorldFactor}`,
           },
           {
             title: "Cumulative cost",
@@ -49,7 +51,7 @@ export default function EvVsPetrolPage() {
           {
             title: "CO₂ avoided",
             body: "Tailpipe emissions from the fuel burned, minus the emissions from generating the electricity on India's grid.",
-            formula: `CO₂ = litres × ${CO2_PER_LITRE} kg − kWh × ${CO2_PER_KWH} kg`,
+            formula: `CO₂ = litres × ${rates.co2PerLitre} kg − kWh × ${rates.co2PerKwh} kg`,
           },
         ]}
       />
@@ -58,7 +60,7 @@ export default function EvVsPetrolPage() {
         items={[
           {
             q: "What electricity tariff should I use?",
-            a: `Home charging on a residential connection typically costs ₹6–10 per kWh depending on your state and slab — we default to ₹${HOME_TARIFF}. Public DC fast charging is usually ₹18–24, so heavy fast-charger use can more than double running costs.`,
+            a: `Home charging on a residential connection typically costs ₹6–10 per kWh depending on your state and slab — we default to ₹${rates.homeTariff}. Public DC fast charging is usually ₹18–24, so heavy fast-charger use can more than double running costs.`,
           },
           {
             q: "Does this include servicing and insurance?",

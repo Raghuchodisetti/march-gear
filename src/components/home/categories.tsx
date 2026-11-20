@@ -1,24 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { categories } from "@/data/categories";
 import { getCatalog } from "@/server/catalog";
 import { cn } from "@/lib/utils";
 import { RevealGroup, RevealItem } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-// Asymmetric mosaic: SUVs lead, Electric closes the grid wide.
-const LAYOUT: Record<string, string> = {
-  suv: "col-span-2 row-span-2 lg:col-span-6 lg:row-span-2",
-  sedan: "col-span-1 lg:col-span-3",
-  hatchback: "col-span-1 lg:col-span-3",
-  muv: "col-span-1 lg:col-span-3",
-  luxury: "col-span-1 lg:col-span-3",
-  electric: "col-span-2 lg:col-span-12 lg:h-[300px]",
-};
+// Asymmetric mosaic: the first tile leads large, the last closes the grid wide.
+const LARGE = "col-span-2 row-span-2 lg:col-span-6 lg:row-span-2";
+const SMALL = "col-span-1 lg:col-span-3";
+const WIDE = "col-span-2 lg:col-span-12 lg:h-[300px]";
 
 export async function DiscoverCategories() {
-  const { carsInCategory } = await getCatalog();
+  const { carsInCategory, content } = await getCatalog();
+  const categories = content.homeCategories.items;
   return (
     <section aria-labelledby="categories-title" className="py-14 md:py-20">
       <div className="container-x">
@@ -29,12 +24,12 @@ export async function DiscoverCategories() {
         />
 
         <RevealGroup className="mt-12 grid auto-rows-[200px] grid-cols-2 gap-3 md:auto-rows-[240px] lg:grid-cols-12 lg:gap-4" gap={0.07}>
-          {categories.map((cat) => {
+          {categories.map((cat, i) => {
             const count = carsInCategory(cat.slug).length;
-            const large = cat.slug === "suv";
-            const wide = cat.slug === "electric";
+            const large = i === 0;
+            const wide = !large && i === categories.length - 1;
             return (
-              <RevealItem key={cat.slug} className={cn(LAYOUT[cat.slug])}>
+              <RevealItem key={cat.slug} className={large ? LARGE : wide ? WIDE : SMALL}>
                 <Link
                   href={cat.slug === "electric" ? "/electric-cars" : `/new-cars?body=${cat.slug}`}
                   className="group/cat relative flex h-full flex-col justify-end overflow-hidden bg-ink p-5 text-white md:p-7"
@@ -45,7 +40,7 @@ export async function DiscoverCategories() {
                     fill
                     sizes={large ? "(min-width: 1024px) 50vw, 100vw" : wide ? "100vw" : "(min-width: 1024px) 25vw, 50vw"}
                     className="object-cover opacity-85 transition-[transform,opacity] duration-[900ms] ease-[var(--ease-premium)] group-hover/cat:scale-[1.05] group-hover/cat:opacity-100"
-                    style={{ objectPosition: cat.focus ?? "50% 50%" }}
+                    style={{ objectPosition: cat.focus || "50% 50%" }}
                   />
                   <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/15 to-transparent" />
                   <div className="relative flex items-end justify-between gap-4">

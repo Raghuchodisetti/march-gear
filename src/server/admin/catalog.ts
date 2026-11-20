@@ -2,7 +2,8 @@ import "server-only";
 import { and, asc, count, desc, eq, like, or, type SQL } from "drizzle-orm";
 import { getDb } from "@/db";
 import { USED_STATUS, articles, authors, brands, cars, dealers, upcomingCars, usedCars, variants, type UsedStatus } from "@/db/schema";
-import { cities } from "@/data/cities";
+import type { SiteContent } from "@/content/registry";
+import { contentForm } from "@/server/admin/content";
 import { LEGACY_BRANDS } from "@/lib/catalog";
 import type { FormValues, Option } from "@/components/admin/fields";
 import { requireStaff } from "@/server/auth";
@@ -18,6 +19,13 @@ export async function brandOptions({ legacy = false, multi = false } = {}): Prom
     .filter(([value]) => (value === "multi-brand" ? multi : legacy) && !rows.some((r) => r.value === value))
     .map(([value, label]) => ({ value, label: value === "multi-brand" ? "Multi-brand dealer" : `${label} (pre-owned only)` }));
   return [...rows, ...extra];
+}
+
+/** Whether a brand is shown on the site (a hidden brand hides its cars too). */
+export async function isBrandVisible(slug: string) {
+  await requireStaff();
+  const [b] = await getDb().select({ isActive: brands.isActive }).from(brands).where(eq(brands.slug, slug));
+  return Boolean(b?.isActive);
 }
 
 export async function carOptions(): Promise<Option[]> {
@@ -38,7 +46,11 @@ export async function authorOptions(): Promise<Option[]> {
   return getDb().select({ value: authors.id, label: authors.name }).from(authors).orderBy(asc(authors.name));
 }
 
-export const cityOptions = (): Option[] => [...cities].sort((a, b) => a.name.localeCompare(b.name)).map((c) => ({ value: c.name, label: c.name }));
+/** Cities from the `cities` content block, by name (dealers and used cars store the city name). Read fresh, not from the public catalogue cache. */
+export async function cityOptions(): Promise<Option[]> {
+  const { items } = (await contentForm("cities")).values as SiteContent["cities"];
+  return [...items].sort((a, b) => a.name.localeCompare(b.name)).map((c) => ({ value: c.name, label: c.name }));
+}
 
 /* ── Lists ──────────────────────────────────────────────────── */
 

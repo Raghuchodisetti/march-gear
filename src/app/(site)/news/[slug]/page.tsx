@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { notFound } from "next/navigation";
 import { getCatalog } from "@/server/catalog";
-import { allArticles, authorProfile, getStory, relatedStories } from "@/data/editorial-extra";
+import { authorProfile, relatedStories } from "@/data/editorial-extra";
 import { formatDate } from "@/lib/format";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
@@ -18,13 +18,13 @@ import { CategoryLabel, InitialsAvatar, StoryMeta, shortTitle, storyHref, tagHre
 
 export async function generateStaticParams() {
   const cat = await getCatalog();
-  return allArticles(cat).map((a) => ({ slug: a.slug }));
+  return cat.articles.map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata(props: PageProps<"/news/[slug]">): Promise<Metadata> {
   const { slug } = await props.params;
   const cat = await getCatalog();
-  const article = getStory(slug, cat);
+  const article = cat.getArticle(slug);
   if (!article) return { title: "Story not found" };
   const author = cat.getAuthor(article.authorId);
   return {
@@ -45,7 +45,7 @@ export async function generateMetadata(props: PageProps<"/news/[slug]">): Promis
 export default async function ArticlePage(props: PageProps<"/news/[slug]">) {
   const { slug } = await props.params;
   const cat = await getCatalog();
-  const article = getStory(slug, cat);
+  const article = cat.getArticle(slug);
   if (!article) notFound();
 
   const author = cat.getAuthor(article.authorId);
@@ -160,9 +160,10 @@ export default async function ArticlePage(props: PageProps<"/news/[slug]">) {
                   <p className="type-eyebrow text-muted">Written by</p>
                   <p className="type-h4 mt-3">{author.name}</p>
                   <p className="mt-1 text-[13px] text-muted">
-                    {author.role} · {profile.base}
+                    {author.role}
+                    {profile.base && ` · ${profile.base}`}
                   </p>
-                  <p className="mt-4 text-[14.5px] leading-relaxed text-ink/80">{profile.bio}</p>
+                  {profile.bio && <p className="mt-4 text-[14.5px] leading-relaxed text-ink/80">{profile.bio}</p>}
                   <TextLink href="/about#team" className="mt-5">
                     Meet the editorial team
                   </TextLink>

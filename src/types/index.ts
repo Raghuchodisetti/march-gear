@@ -155,6 +155,11 @@ export interface Author {
   id: string;
   name: string;
   role: string;
+  /** Optional profile, edited in the admin panel. */
+  bio?: string;
+  beat?: string;
+  base?: string;
+  joined?: number;
 }
 
 export interface Article {

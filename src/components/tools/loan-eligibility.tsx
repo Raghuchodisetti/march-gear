@@ -6,7 +6,7 @@ import { useMemo, useState } from "react";
 import { ArrowRight, CircleAlert } from "lucide-react";
 import type { CarModel } from "@/types";
 import { BUDGETS, isElectric } from "@/lib/catalog";
-import { LOAN_TO_VALUE, type Employment } from "@/data/tools-assumptions";
+import type { Employment } from "@/data/tools-assumptions";
 import { calculateEmi } from "@/lib/finance";
 import { formatINR, formatPrice, formatPriceShort } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -16,7 +16,7 @@ import { Chip } from "@/components/ui/chip";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
 import { useUI } from "@/components/providers/app-provider";
 import { useCatalog } from "@/components/providers/catalog-provider";
-import { loanEligibility, splitPrice } from "./calc";
+import { calcRates, loanEligibility, splitPrice } from "./calc";
 import { EstimateNote, Readout, StepLabel } from "./instrument";
 
 const TENURES = [1, 2, 3, 4, 5, 6, 7];
@@ -33,7 +33,9 @@ const matches = (car: CarModel, f: BodyFilter) => (f === "all" ? true : f === "e
 
 export function LoanEligibility() {
   const { openEnquiry } = useUI();
-  const { cars } = useCatalog();
+  const { cars, content } = useCatalog();
+  const rates = useMemo(() => calcRates(content.toolRates), [content.toolRates]);
+  const ltv = rates.loanToValue;
   const [employment, setEmployment] = useState<Employment>("salaried");
   const [income, setIncome] = useState(100_000);
   const [existing, setExisting] = useState(10_000);
@@ -42,7 +44,7 @@ export function LoanEligibility() {
   const [filter, setFilter] = useState<BodyFilter>("all");
   const [expanded, setExpanded] = useState(false);
 
-  const result = loanEligibility({ income, existingEmis: existing, employment, ratePct: rate, years });
+  const result = loanEligibility({ income, existingEmis: existing, employment, ratePct: rate, years, rates });
   const [figure, unit] = splitPrice(result.eligible);
 
   const affordable = useMemo(
@@ -166,7 +168,7 @@ export function LoanEligibility() {
                   size="sm"
                   label="Car budget"
                   value={formatPrice(result.carBudget)}
-                  caption={`With ${Math.round((1 - LOAN_TO_VALUE) * 100)}% down · ${formatPriceShort(result.downPayment)}`}
+                  caption={`With ${Math.round((1 - ltv) * 100)}% down · ${formatPriceShort(result.downPayment)}`}
                 />
                 <Readout tone="light" size="sm" label="FOIR applied" value={`${Math.round(result.foir * 100)}%`} caption={employment === "salaried" ? "Salaried" : "Self-employed"} />
               </div>
@@ -210,8 +212,8 @@ export function LoanEligibility() {
                 )}
               </h2>
               <p className="mt-4 text-[15px] leading-relaxed text-muted">
-                Starting ex-showroom prices at or below your loan plus a {Math.round((1 - LOAN_TO_VALUE) * 100)}% down payment, most expensive first.
-                EMIs assume an {Math.round(LOAN_TO_VALUE * 100)}% loan at your rate and tenure.
+                Starting ex-showroom prices at or below your loan plus a {Math.round((1 - ltv) * 100)}% down payment, most expensive first.
+                EMIs assume {Math.round(ltv * 100)}% of the price is financed at your rate and tenure.
               </p>
             </div>
             {affordable.length > 0 && <TextLink href={`/new-cars?budget=${band.slug}`}>Browse {band.label} cars</TextLink>}
@@ -255,7 +257,7 @@ export function LoanEligibility() {
 
               <ul className="mt-8 border-t border-ink">
                 {visible.map((car) => (
-                  <AffordRow key={car.slug} car={car} budget={result.carBudget} emi={calculateEmi(car.priceMin * LOAN_TO_VALUE, rate, years * 12)} years={years} />
+                  <AffordRow key={car.slug} car={car} budget={result.carBudget} emi={calculateEmi(car.priceMin * ltv, rate, years * 12)} ltv={ltv} years={years} />
                 ))}
               </ul>
 
@@ -274,7 +276,7 @@ export function LoanEligibility() {
   );
 }
 
-function AffordRow({ car, budget, emi, years }: { car: CarModel; budget: number; emi: number; years: number }) {
+function AffordRow({ car, budget, emi, ltv, years }: { car: CarModel; budget: number; emi: number; ltv: number; years: number }) {
   const { brandName } = useCatalog();
   const title = `${brandName(car.brand)} ${car.name}`;
   const share = Math.min(1, car.priceMin / Math.max(1, budget));
@@ -307,7 +309,7 @@ function AffordRow({ car, budget, emi, years }: { car: CarModel; budget: number;
         </div>
         <div className="hidden md:block">
           <p className="text-[15px] font-semibold num">{formatINR(emi)}<span className="text-[12px] font-normal text-muted">/mo</span></p>
-          <p className="mt-0.5 text-[11.5px] text-muted">{Math.round(LOAN_TO_VALUE * 100)}% loan · {years} yrs</p>
+          <p className="mt-0.5 text-[11.5px] text-muted">{Math.round(ltv * 100)}% loan · {years} yrs</p>
         </div>
         <div className="hidden md:block">
           <div className="h-[3px] bg-line">

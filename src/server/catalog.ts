@@ -5,6 +5,8 @@ import { asc, desc, eq } from "drizzle-orm";
 import { getDb } from "@/db";
 import * as s from "@/db/schema";
 import { createCatalog, type CatalogData, type DealerProfile, type DealerReview } from "@/lib/catalog";
+import { todayISO } from "@/server/validation";
+import { BLOCKS, BLOCK_KEYS, type SiteContent } from "@/content/registry";
 import type { Article, ArticleCategory, CarModel, OwnerReview, UsedCar } from "@/types";
 
 /** Cache tag for everything the public site reads. Admin writes expire it. */
@@ -13,9 +15,12 @@ export const CATALOG_TAG = "catalog";
 // `undefined` keeps optional fields out of the serialised payload.
 const opt = <T,>(v: T | null | undefined) => (v ?? undefined) as T | undefined;
 
-async function loadCatalogData(): Promise<CatalogData> {
+/** Everything from MySQL; content rows stay raw so they're validated against the current schemas on read. */
+type CachedCatalog = Omit<CatalogData, "content"> & { contentRows: { key: string; data: unknown }[] };
+
+async function loadCatalogData(): Promise<CachedCatalog> {
   const db = getDb();
-  const [brandRows, carRows, variantRows, upcomingRows, dealerRows, dealerReviewRows, usedRows, authorRows, articleRows, ownerReviewRows] =
+  const [brandRows, carRows, variantRows, upcomingRows, dealerRows, dealerReviewRows, usedRows, authorRows, articleRows, ownerReviewRows, contentRows] =
     await Promise.all([
       db.select().from(s.brands).where(eq(s.brands.isActive, true)).orderBy(asc(s.brands.sortOrder), asc(s.brands.name)),
       db.select().from(s.cars).where(eq(s.cars.status, "published")).orderBy(asc(s.cars.sortOrder), asc(s.cars.id)),
@@ -27,6 +32,7 @@ async function loadCatalogData(): Promise<CatalogData> {
       db.select().from(s.authors).orderBy(asc(s.authors.createdAt), asc(s.authors.name)),
       db.select().from(s.articles).where(eq(s.articles.status, "published")).orderBy(desc(s.articles.publishedOn), desc(s.articles.id)),
       db.select().from(s.ownerReviews).where(eq(s.ownerReviews.status, "approved")).orderBy(desc(s.ownerReviews.date)),
+      db.select({ key: s.siteContent.key, data: s.siteContent.data }).from(s.siteContent),
     ]);
 
   const brandSlugs = new Set(brandRows.map((b) => b.slug));
@@ -171,6 +177,8 @@ async function loadCatalogData(): Promise<CatalogData> {
       rating: r.rating,
       title: r.title,
       body: r.body,
+      reply: opt(r.reply),
+      repliedAt: opt(r.repliedAt?.toISOString()),
     }));
 
   return {
@@ -221,14 +229,52 @@ async function loadCatalogData(): Promise<CatalogData> {
     dealerProfiles,
     dealerReviews,
     usedCars,
-    authors: authorRows.map((a) => ({ id: a.id, name: a.name, role: a.role })),
+    authors: authorRows.map((a) => ({ id: a.id, name: a.name, role: a.role, bio: opt(a.bio), beat: opt(a.beat), base: opt(a.base), joined: opt(a.joined) })),
     articles,
     ownerReviews,
+    contentRows,
   };
 }
 
+/** Saved blocks win; anything unsaved (or no longer valid after a schema change) falls back to the defaults. */
+function loadContent(rows: { key: string; data: unknown }[]): SiteContent {
+  const saved = new Map(rows.map((r) => [r.key, r.data]));
+  const out: Record<string, unknown> = {};
+  for (const key of BLOCK_KEYS) {
+    const block = BLOCKS[key];
+    if (!saved.has(key)) {
+      out[key] = block.defaults;
+      continue;
+    }
+    const parsed = block.schema.safeParse(saved.get(key));
+    if (!parsed.success) console.warn(`[content] "${key}" in the database doesn't match its schema — using defaults.`);
+    out[key] = parsed.success ? parsed.data : block.defaults;
+  }
+  return out as SiteContent;
+}
+
+/**
+ * Bump when the shape of CatalogData changes. Together with the block list and the
+ * deployment's commit, it keys the cache — `unstable_cache` entries outlive deployments,
+ * and an entry in an old shape would otherwise crash every page after an upgrade.
+ */
+const CATALOG_SHAPE_VERSION = 3;
+const CACHE_KEY = ["catalog-data", `v${CATALOG_SHAPE_VERSION}`, BLOCK_KEYS.join(","), process.env.VERCEL_GIT_COMMIT_SHA ?? "local"];
+
 /** Raw catalogue data, cached across requests until an admin edit expires it. */
-export const getCatalogData = unstable_cache(loadCatalogData, ["catalog-data-v1"], { tags: [CATALOG_TAG], revalidate: 3600 });
+const getCachedCatalog = unstable_cache(loadCatalogData, CACHE_KEY, { tags: [CATALOG_TAG], revalidate: 3600 });
+
+/**
+ * Raw catalogue data, cached across requests until an admin edit expires it.
+ * Content blocks are parsed per request, so a block whose shape changed in code
+ * can never be served from the cache in its old shape.
+ */
+export const getCatalogData = cache(async (): Promise<CatalogData> => {
+  const { contentRows, ...data } = await getCachedCatalog();
+  // Scheduled stories: published but dated in the future stay hidden until their day (IST).
+  const today = todayISO();
+  return { ...data, articles: data.articles.filter((a) => a.publishedOn <= today), content: loadContent(contentRows) };
+});
 
 /** The catalogue with lookup helpers — deduplicated per request. */
 export const getCatalog = cache(async () => createCatalog(await getCatalogData()));

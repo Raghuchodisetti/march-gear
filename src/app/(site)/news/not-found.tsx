@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { getCatalog } from "@/server/catalog";
-import { allArticles } from "@/data/editorial-extra";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { CategoryLabel, StoryMeta, storyHref } from "@/components/editorial/primitives";
@@ -8,7 +7,7 @@ import { CategoryLabel, StoryMeta, storyHref } from "@/components/editorial/prim
 /** Shown when /news/[slug] does not match a story. */
 export default async function StoryNotFound() {
   const cat = await getCatalog();
-  const latest = allArticles(cat).slice(0, 3);
+  const latest = cat.articles.slice(0, 3);
   return (
     <section className="container-x py-14 md:py-20">
       <div className="max-w-2xl">

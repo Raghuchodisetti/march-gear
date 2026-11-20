@@ -12,6 +12,8 @@ export const LEAD_TYPE_LABEL: Record<LeadType, string> = {
   sell_car: "Sell car",
   used_car: "Used-car offer",
   contact: "Contact form",
+  insurance_claim: "Insurance claim help",
+  insurance_help: "Insurance enquiry",
 };
 
 export const LEAD_STATUS_LABEL: Record<LeadStatus, string> = {

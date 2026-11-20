@@ -29,6 +29,9 @@ import { OwnerReviews } from "@/components/car-detail/owner-reviews";
 import { CompareRivals } from "@/components/car-detail/compare";
 import { CarEmi } from "@/components/car-detail/emi";
 import { BOTTOM_BAR_PADDING, competitorsOf, isEv, maxOf, similarCars } from "@/components/car-detail/utils";
+import { DealerStock } from "@/components/car-detail/dealer-stock";
+import { getModelStock } from "@/server/partner/inventory";
+import { CarOffersPanel } from "@/components/offers/page-sections";
 
 export async function generateStaticParams() {
   const { cars } = await getCatalog();
@@ -64,6 +67,8 @@ export default async function CarPage(props: PageProps<"/cars/[slug]">) {
   const videos = videosForCar(car, cat);
   const faqs = carFaqs(car, cat);
   const tested = car.safetyAgency !== "Not tested";
+  // Partner dealers' published stock of this model (dealer portal).
+  const stock = await getModelStock(car.slug);
 
   const sections: NavSection[] = [
     { id: "overview", label: "Overview" },
@@ -101,6 +106,7 @@ export default async function CarPage(props: PageProps<"/cars/[slug]">) {
         <SectionNav sections={sections} />
 
         <CarOverview car={car} index={n("overview")} />
+        <CarOffersPanel car={car} carName={car.name} />
 
         <DetailSection
           id="variants"
@@ -111,6 +117,8 @@ export default async function CarPage(props: PageProps<"/cars/[slug]">) {
         >
           <VariantsTable />
         </DetailSection>
+
+        <DealerStock items={stock.items} dealers={stock.dealers} carName={`${brand} ${car.name}`} carSlug={car.slug} />
 
         <DetailSection
           id="specifications"

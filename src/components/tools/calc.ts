@@ -2,31 +2,69 @@
  * Pure calculation models behind the March Gear tools. No React, no I/O —
  * safe to import from server pages (for sample figures) and client islands.
  */
-import type { CarModel } from "@/types";
+import type { BodyType, CarModel } from "@/types";
+import type { SiteContent } from "@/content/registry";
+import { isElectric, type Catalog } from "@/lib/catalog";
 import { calculateEmi, principalForEmi } from "@/lib/finance";
 import { formatNumber } from "@/lib/format";
-import { isElectric } from "@/lib/catalog";
-import { onRoadPrice } from "@/data/cities";
-import {
-  CO2_PER_KWH,
-  CO2_PER_LITRE,
-  EV_DEPRECIATION_DRAG,
-  EV_MAINTENANCE_FACTOR,
-  EV_REAL_WORLD_FACTOR,
-  FOIR,
-  FUEL_PRICE,
-  HOME_TARIFF,
-  ICE_REAL_WORLD_FACTOR,
-  INSURANCE_RATE,
-  LOAN_TO_VALUE,
-  LUXURY_DEPRECIATION_DRAG,
-  LUXURY_MAINTENANCE,
-  MAINTENANCE_BY_SEGMENT,
-  MAINTENANCE_GROWTH,
-  RESALE_CURVE,
-  type Employment,
-  type IceFuel,
-} from "@/data/tools-assumptions";
+import type { Employment, IceFuel } from "@/data/tools-assumptions";
+
+/* ── Rates ──────────────────────────────────────────────────── */
+
+/** The calculators' assumptions as fractions and multipliers, built from the `toolRates` content block. */
+export interface CalcRates {
+  /** ₹ per litre (CNG per kg) */
+  fuelPrice: Record<IceFuel, number>;
+  /** ₹ per kWh, home charging */
+  homeTariff: number;
+  /** Real-world EV energy use ÷ what the claimed range implies */
+  evRealWorldFactor: number;
+  /** Real-world fuel economy ÷ claimed */
+  iceRealWorldFactor: number;
+  /** kg CO₂ per litre of petrol */
+  co2PerLitre: number;
+  /** kg CO₂ per kWh from the grid */
+  co2PerKwh: number;
+  /** kg CO₂ a mature tree absorbs in a year */
+  treeKgPerYear: number;
+  foir: Record<Employment, number>;
+  loanToValue: number;
+  insuranceRate: number;
+  /** Share of ex-showroom value retained at each age (index = years old) */
+  resaleCurve: number[];
+  luxuryDepreciationDrag: number;
+  evDepreciationDrag: number;
+  /** ₹ per year, first year of ownership */
+  maintenanceBySegment: Record<BodyType, number>;
+  luxuryMaintenance: number;
+  evMaintenanceFactor: number;
+  maintenanceGrowth: number;
+}
+
+/** Content stores percentages as admins type them (50 = 50%); the models work in fractions. */
+export function calcRates(c: SiteContent["toolRates"]): CalcRates {
+  const frac = (pct: number) => pct / 100;
+  const r = c.resaleCurve;
+  return {
+    fuelPrice: { Petrol: c.fuelPrices.petrol, Diesel: c.fuelPrices.diesel, Hybrid: c.fuelPrices.hybrid, CNG: c.fuelPrices.cng },
+    homeTariff: c.homeTariff,
+    evRealWorldFactor: c.evRealWorldFactor,
+    iceRealWorldFactor: c.iceRealWorldFactor,
+    co2PerLitre: c.co2PerLitre,
+    co2PerKwh: c.co2PerKwh,
+    treeKgPerYear: c.treeKgPerYear,
+    foir: { salaried: frac(c.foir.salaried), "self-employed": frac(c.foir.selfEmployed) },
+    loanToValue: frac(c.loanToValue),
+    insuranceRate: frac(c.insuranceRate),
+    resaleCurve: [1, ...[r.year1, r.year2, r.year3, r.year4, r.year5, r.year6, r.year7].map(frac)],
+    luxuryDepreciationDrag: c.luxuryDepreciationDrag,
+    evDepreciationDrag: c.evDepreciationDrag,
+    maintenanceBySegment: { Hatchback: c.maintenance.hatchback, Sedan: c.maintenance.sedan, SUV: c.maintenance.suv, MUV: c.maintenance.muv, Coupe: c.maintenance.coupe },
+    luxuryMaintenance: c.maintenance.luxury,
+    evMaintenanceFactor: frac(c.evMaintenanceFactor),
+    maintenanceGrowth: frac(c.maintenanceGrowth),
+  };
+}
 
 /* ── Formatting ─────────────────────────────────────────────── */
 
@@ -120,18 +158,20 @@ export function loanEligibility({
   employment,
   ratePct,
   years,
+  rates,
 }: {
   income: number;
   existingEmis: number;
   employment: Employment;
   ratePct: number;
   years: number;
+  rates: CalcRates;
 }) {
-  const foir = FOIR[employment];
+  const foir = rates.foir[employment];
   const cap = income * foir;
   const maxEmi = Math.max(0, cap - existingEmis);
   const eligible = maxEmi > 0 ? principalForEmi(maxEmi, ratePct, years * 12) : 0;
-  const carBudget = eligible / LOAN_TO_VALUE;
+  const carBudget = eligible / rates.loanToValue;
   const safeIncome = Math.max(1, income);
   return {
     foir,
@@ -149,14 +189,14 @@ export function loanEligibility({
 /* ── Energy ─────────────────────────────────────────────────── */
 
 /** Real-world EV consumption, kWh per km. */
-export function evKwhPerKm(car: CarModel) {
+export function evKwhPerKm(car: CarModel, rates: CalcRates) {
   if (!car.ev) return 0;
-  return (car.ev.batteryKwh / car.ev.rangeKm) * EV_REAL_WORLD_FACTOR;
+  return (car.ev.batteryKwh / car.ev.rangeKm) * rates.evRealWorldFactor;
 }
 
 /** Real-world fuel economy, km per litre (km/kg for CNG figures). */
-export function iceKmpl(car: CarModel) {
-  return car.efficiencyValue * ICE_REAL_WORLD_FACTOR;
+export function iceKmpl(car: CarModel, rates: CalcRates) {
+  return car.efficiencyValue * rates.iceRealWorldFactor;
 }
 
 export function primaryFuel(car: CarModel): IceFuel {
@@ -164,9 +204,9 @@ export function primaryFuel(car: CarModel): IceFuel {
 }
 
 /** Running cost per km at the given energy prices. */
-export function runningCostPerKm(car: CarModel, tariff = HOME_TARIFF, fuelPrice?: number) {
-  if (isElectric(car)) return evKwhPerKm(car) * tariff;
-  return (fuelPrice ?? FUEL_PRICE[primaryFuel(car)]) / iceKmpl(car);
+export function runningCostPerKm(car: CarModel, rates: CalcRates, tariff = rates.homeTariff, fuelPrice?: number) {
+  if (isElectric(car)) return evKwhPerKm(car, rates) * tariff;
+  return (fuelPrice ?? rates.fuelPrice[primaryFuel(car)]) / iceKmpl(car, rates);
 }
 
 export type BreakEvenStatus = "ev-always" | "breakeven" | "later" | "never";
@@ -178,6 +218,7 @@ export function evVsIce({
   years,
   tariff,
   fuelPrice,
+  rates,
 }: {
   ev: CarModel;
   ice: CarModel;
@@ -185,10 +226,11 @@ export function evVsIce({
   years: number;
   tariff: number;
   fuelPrice: number;
+  rates: CalcRates;
 }) {
   const annualKm = dailyKm * 365;
-  const evPerKm = evKwhPerKm(ev) * tariff;
-  const icePerKm = fuelPrice / iceKmpl(ice);
+  const evPerKm = evKwhPerKm(ev, rates) * tariff;
+  const icePerKm = fuelPrice / iceKmpl(ice, rates);
   const evAnnual = annualKm * evPerKm;
   const iceAnnual = annualKm * icePerKm;
   const ev0 = ev.priceMin;
@@ -212,8 +254,8 @@ export function evVsIce({
     status = "never";
   }
 
-  const litres = (annualKm * years) / iceKmpl(ice);
-  const kwh = annualKm * years * evKwhPerKm(ev);
+  const litres = (annualKm * years) / iceKmpl(ice, rates);
+  const kwh = annualKm * years * evKwhPerKm(ev, rates);
   const last = series[series.length - 1];
 
   return {
@@ -227,7 +269,7 @@ export function evVsIce({
     breakEven,
     savings: last.ice - last.ev,
     runningSavings: (iceAnnual - evAnnual) * years,
-    co2AvoidedKg: litres * CO2_PER_LITRE - kwh * CO2_PER_KWH,
+    co2AvoidedKg: litres * rates.co2PerLitre - kwh * rates.co2PerKwh,
     litres,
     kwh,
   };
@@ -247,10 +289,11 @@ export interface OwnershipYear {
   value: number;
 }
 
-export function retainedValue(car: CarModel, age: number) {
-  const base = RESALE_CURVE[Math.min(age, RESALE_CURVE.length - 1)];
-  const luxury = car.isLuxury ? Math.pow(LUXURY_DEPRECIATION_DRAG, age) : 1;
-  const electric = isElectric(car) ? Math.pow(EV_DEPRECIATION_DRAG, age) : 1;
+export function retainedValue(car: CarModel, age: number, rates: CalcRates) {
+  const curve = rates.resaleCurve;
+  const base = curve[Math.min(age, curve.length - 1)];
+  const luxury = car.isLuxury ? Math.pow(rates.luxuryDepreciationDrag, age) : 1;
+  const electric = isElectric(car) ? Math.pow(rates.evDepreciationDrag, age) : 1;
   return base * luxury * electric;
 }
 
@@ -260,34 +303,39 @@ export function ownershipCost({
   kmPerYear,
   years,
   finance,
+  rates,
+  onRoadPrice,
 }: {
   car: CarModel;
   citySlug: string;
   kmPerYear: number;
   years: number;
   finance: { enabled: boolean; downPct: number; ratePct: number };
+  rates: CalcRates;
+  /** The catalogue's city pricing, from getCatalog() or useCatalog(). */
+  onRoadPrice: Catalog["onRoadPrice"];
 }) {
   const ev = isElectric(car);
   const exShowroom = car.priceMin;
   const onRoad = onRoadPrice(exShowroom, citySlug, ev);
-  const firstInsurance = exShowroom * INSURANCE_RATE;
+  const firstInsurance = exShowroom * rates.insuranceRate;
   const registration = Math.max(0, onRoad - exShowroom - firstInsurance);
-  const perKm = runningCostPerKm(car);
-  const serviceBase = (car.isLuxury ? LUXURY_MAINTENANCE : MAINTENANCE_BY_SEGMENT[car.bodyType]) * (ev ? EV_MAINTENANCE_FACTOR : 1);
+  const perKm = runningCostPerKm(car, rates);
+  const serviceBase = (car.isLuxury ? rates.luxuryMaintenance : rates.maintenanceBySegment[car.bodyType]) * (ev ? rates.evMaintenanceFactor : 1);
 
   const loanAmount = finance.enabled ? onRoad * (1 - finance.downPct / 100) : 0;
   const loan = finance.enabled && loanAmount > 0 ? amortise(loanAmount, finance.ratePct, years) : null;
 
   const rows: OwnershipYear[] = [];
   for (let y = 1; y <= years; y++) {
-    const startValue = exShowroom * retainedValue(car, y - 1);
-    const endValue = exShowroom * retainedValue(car, y);
+    const startValue = exShowroom * retainedValue(car, y - 1, rates);
+    const endValue = exShowroom * retainedValue(car, y, rates);
     const row = {
       year: y,
       fuel: kmPerYear * perKm,
       // First-year cover is bundled into the on-road price.
-      insurance: y === 1 ? firstInsurance : startValue * INSURANCE_RATE,
-      maintenance: serviceBase * Math.pow(1 + MAINTENANCE_GROWTH, y - 1),
+      insurance: y === 1 ? firstInsurance : startValue * rates.insuranceRate,
+      maintenance: serviceBase * Math.pow(1 + rates.maintenanceGrowth, y - 1),
       interest: loan?.rows[y - 1]?.interest ?? 0,
       depreciation: startValue - endValue,
       value: endValue,

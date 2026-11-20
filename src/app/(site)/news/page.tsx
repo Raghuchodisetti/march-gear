@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getCatalog } from "@/server/catalog";
-import { allArticles } from "@/data/editorial-extra";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { NewsHub, NewsHubSkeleton } from "@/components/editorial/news-hub";
 
@@ -27,7 +26,7 @@ export default async function NewsPage() {
       </section>
 
       <Suspense fallback={<NewsHubSkeleton />}>
-        <NewsHub stories={allArticles(cat)} />
+        <NewsHub stories={cat.articles} />
       </Suspense>
     </>
   );

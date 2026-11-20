@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 import { Check, ClipboardCheck, Download, Loader2, Mail } from "lucide-react";
 import type { CarModel, FuelType } from "@/types";
 import type { Catalog } from "@/lib/catalog";
-import { PDI_FUELS } from "@/data/pdi";
+import { PDI_FUELS } from "@/lib/pdi";
 import { createPersistentStore, useStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import { submitLeadAction } from "@/server/actions/leads";
@@ -115,6 +115,7 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
   const pathname = usePathname();
   const catalog = useCatalog();
   const { cars, brandName } = catalog;
+  const pdf = { checklist: catalog.content.pdiChecklist, phone: catalog.content.site.phone };
   const brandOptions = useMemo(() => brandOptionsFor(catalog), [catalog]);
   const [initial] = useState(() => carFields(existing, catalog));
   const [name, setName] = useState(existing?.name ?? user?.name ?? "");
@@ -240,7 +241,7 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
     setSending(false);
     toast(`Checklist PDF sent to ${saved.email}`, { tone: "success" });
     try {
-      await downloadChecklistPdf(saved);
+      await downloadChecklistPdf(pdf, saved);
     } catch {
       toast("Couldn't create the PDF — use the download button to try again", { tone: "error" });
     }
@@ -261,7 +262,7 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
           Checklist sent!
         </h2>
         <p className="mx-auto mt-3 max-w-sm text-[15px] text-muted">
-          We&apos;ve emailed the {pdfCheckCount(sent.fuel)}-point PDI checklist for your{" "}
+          We&apos;ve emailed the {pdfCheckCount(pdf.checklist, sent.fuel)}-point PDI checklist for your{" "}
           <span className="font-medium text-ink">
             {sent.car} ({sent.fuel})
           </span>{" "}
@@ -279,7 +280,7 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
           >
             Open checklist now
           </Button>
-          <Button variant="outline" icon={<Download className="size-4" aria-hidden />} onClick={() => downloadChecklistPdf(sent)}>
+          <Button variant="outline" icon={<Download className="size-4" aria-hidden />} onClick={() => downloadChecklistPdf(pdf, sent)}>
             Download PDF again
           </Button>
         </div>

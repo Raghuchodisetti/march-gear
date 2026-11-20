@@ -2,14 +2,16 @@
 
 import { useState } from "react";
 import { Check, LocateFixed, Loader2, Search } from "lucide-react";
-import { cities } from "@/data/cities";
 import { cn } from "@/lib/utils";
 import { Modal } from "@/components/ui/overlay";
 import { useCity, useUI } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
+import { nearestCity } from "@/lib/catalog";
 
 export function LocationModal() {
   const { locationOpen, setLocationOpen, toast } = useUI();
   const { city, setCity } = useCity();
+  const { cities } = useCatalog();
   const [query, setQuery] = useState("");
   const [detecting, setDetecting] = useState(false);
 
@@ -22,6 +24,31 @@ export function LocationModal() {
     setCity(slug);
     close();
     toast(`Showing prices and dealers for ${name}`, { tone: "success" });
+  };
+
+  // Real browser geolocation, matched to the nearest city we cover.
+  const locate = () => {
+    if (!("geolocation" in navigator)) {
+      toast("Your browser can't share its location — pick your city below.", { tone: "error" });
+      return;
+    }
+    setDetecting(true);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setDetecting(false);
+        const near = nearestCity(pos.coords.latitude, pos.coords.longitude, cities);
+        if (!near) {
+          toast("We couldn't match your location to a city we cover — pick one below.", { tone: "error" });
+          return;
+        }
+        choose(near.city.slug, near.km > 150 ? `${near.city.name}, the nearest city we cover (${near.km} km away)` : near.city.name);
+      },
+      (err) => {
+        setDetecting(false);
+        toast(err.code === err.PERMISSION_DENIED ? "Location access is blocked — pick your city below." : "Couldn't get your location — pick your city below.", { tone: "error" });
+      },
+      { timeout: 10_000, maximumAge: 10 * 60_000 },
+    );
   };
 
   const filtered = cities.filter((c) => `${c.name} ${c.state}`.toLowerCase().includes(query.trim().toLowerCase()));
@@ -46,13 +73,7 @@ export function LocationModal() {
           <button
             type="button"
             disabled={detecting}
-            onClick={() => {
-              setDetecting(true);
-              window.setTimeout(() => {
-                setDetecting(false);
-                choose("bengaluru", "Bengaluru (demo detection)");
-              }, 1100);
-            }}
+            onClick={locate}
             className="inline-flex h-12 items-center justify-center gap-2 rounded-[3px] border border-ink px-5 text-[14px] font-medium transition-colors hover:bg-ink hover:text-white disabled:opacity-60"
           >
             {detecting ? <Loader2 className="size-4 animate-spin" aria-hidden /> : <LocateFixed className="size-4 text-red" aria-hidden />}
@@ -96,6 +117,7 @@ export function LocationModal() {
                   key={c.slug}
                   type="button"
                   onClick={() => choose(c.slug, c.name)}
+                  aria-pressed={c.slug === city.slug}
                   className={cn(
                     "rounded-full border px-4 py-2 text-[13px] transition-colors duration-[250ms]",
                     c.slug === city.slug ? "border-ink bg-ink text-white" : "border-line hover:border-ink",

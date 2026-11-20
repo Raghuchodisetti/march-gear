@@ -4,17 +4,18 @@ import Link from "next/link";
 import { useState, type FormEvent, type ReactNode } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
-import { cities, getCity } from "@/data/cities";
 import type { SessionUser, WishlistData } from "@/lib/action-result";
 import { wishlistStore } from "@/lib/store";
 import { signInAction, signUpAction } from "@/server/actions/auth";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Label, SelectField, TextField } from "@/components/ui/field";
+import { Label, TextField } from "@/components/ui/field";
 import { Tabs } from "@/components/ui/tabs";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { useCity, useUI, useUser } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { Avatar } from "./avatar";
+import { StateCityFields } from "./state-city-fields";
 import { EMAIL_RE, MOBILE_RE, greetingName } from "./validation";
 
 type Tab = "signin" | "register";
@@ -51,7 +52,12 @@ export function AuthPanel() {
   const switchTab = (next: string) => {
     const t: Tab = next === "register" ? "register" : "signin";
     setTab(t);
-    window.history.replaceState(null, "", t === "register" ? "/login?mode=register" : "/login");
+    // Keep ?next= so switching tabs doesn't lose where the visitor was heading.
+    const query = new URLSearchParams(window.location.search);
+    if (t === "register") query.set("mode", "register");
+    else query.delete("mode");
+    const search = query.toString();
+    window.history.replaceState(null, "", search ? `/login?${search}` : "/login");
   };
 
   const complete = (next: SessionUser, wishlist: WishlistData, isNew: boolean) => {
@@ -69,7 +75,8 @@ export function AuthPanel() {
         <Eyebrow>Signed in</Eyebrow>
         <h1 className="type-h2 mt-5">Welcome{greetingName(welcome) ? `, ${greetingName(welcome)}` : ""}.</h1>
         <p className="mt-4 inline-flex items-center gap-2 text-[15px] text-muted">
-          <Loader2 aria-hidden className="size-4 animate-spin text-red" /> Taking you to your profile…
+          <Loader2 aria-hidden className="size-4 animate-spin text-red" />{" "}
+          {safeNext(params.get("next")) === "/profile" ? "Taking you to your profile…" : "Taking you back…"}
         </p>
       </div>
     );
@@ -170,6 +177,7 @@ export function AuthPanel() {
 
 function EmailSignIn({ onSuccess }: { onSuccess: OnSuccess }) {
   const { toast } = useUI();
+  const contactEmail = useCatalog().content.site.email;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
@@ -241,7 +249,7 @@ function EmailSignIn({ onSuccess }: { onSuccess: OnSuccess }) {
                 document.getElementById("signin-email")?.focus();
                 return;
               }
-              toast("To reset your password, email hello@marchgear.in from this address and we'll help you.", { tone: "default" });
+              toast(`To reset your password, email ${contactEmail} from this address and we'll help you.`, { tone: "default" });
             }}
             className="text-[12.5px] text-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
           >
@@ -264,12 +272,16 @@ function EmailSignIn({ onSuccess }: { onSuccess: OnSuccess }) {
 
 /* ── Register ───────────────────────────────────────────────── */
 
-type RegisterErrors = Partial<Record<"name" | "email" | "mobile" | "password" | "terms", string>>;
+type RegisterErrors = Partial<Record<"name" | "email" | "mobile" | "state" | "city" | "password" | "terms", string>>;
 
 function Register({ defaultCity, onSuccess }: { defaultCity: string; onSuccess: OnSuccess }) {
-  const [form, setForm] = useState({ name: "", email: "", mobile: "", city: "", password: "" });
-  // Empty until chosen, so it tracks the visitor's preferred city once the store hydrates.
-  const citySlug = form.city || defaultCity;
+  const { getCity } = useCatalog();
+  const [form, setForm] = useState({ name: "", email: "", mobile: "", password: "" });
+  // null until the visitor picks, so they follow the preferred city once the store hydrates.
+  const [place, setPlace] = useState<{ state: string | null; city: string | null }>({ state: null, city: null });
+  const preferred = getCity(defaultCity);
+  const stateValue = place.state ?? preferred.state;
+  const cityValue = place.city ?? preferred.name;
   const [terms, setTerms] = useState(false);
   const [errors, setErrors] = useState<RegisterErrors>({});
   const [busy, setBusy] = useState(false);
@@ -287,11 +299,13 @@ function Register({ defaultCity, onSuccess }: { defaultCity: string; onSuccess: 
       name: form.name.trim().length >= 2 ? undefined : "Enter your full name",
       email: EMAIL_RE.test(form.email.trim()) ? undefined : "Enter a valid email address",
       mobile: MOBILE_RE.test(form.mobile) ? undefined : "Enter a valid 10-digit mobile number",
+      state: stateValue ? undefined : "Choose your state",
+      city: cityValue.trim().length >= 2 ? undefined : "Enter your city",
       password: form.password.length < 8 ? "Use at least 8 characters" : strength.score < 2 ? "Add a number, symbol or mixed case" : undefined,
       terms: terms ? undefined : "Please accept the terms to continue",
     };
     setErrors(next);
-    const first = (["name", "email", "mobile", "password", "terms"] as const).find((k) => next[k]);
+    const first = (["name", "email", "mobile", "state", "city", "password", "terms"] as const).find((k) => next[k]);
     if (first) {
       document.getElementById(`reg-${first}`)?.focus();
       return;
@@ -303,13 +317,14 @@ function Register({ defaultCity, onSuccess }: { defaultCity: string; onSuccess: 
         name: form.name.trim().replace(/\s+/g, " "),
         email: form.email.trim(),
         phone: form.mobile,
-        city: getCity(citySlug).name,
+        state: stateValue,
+        city: cityValue.trim(),
         password: form.password,
         wishlist: wishlistStore.get(),
       });
       if (!res.ok) {
         const f = res.fieldErrors ?? {};
-        setErrors({ name: f.name, email: f.email, mobile: f.phone, password: f.password });
+        setErrors({ name: f.name, email: f.email, mobile: f.phone, state: f.state, city: f.city, password: f.password });
         setFormError(res.fieldErrors ? null : (res.error ?? "Couldn't create your account."));
         setBusy(false);
         return;
@@ -352,11 +367,19 @@ function Register({ defaultCity, onSuccess }: { defaultCity: string; onSuccess: 
           onChange={(e) => set("mobile", e.target.value.replace(/\D/g, "").slice(0, 10))}
         />
       </div>
-      <SelectField
-        label="City"
-        options={cities.map((c) => ({ value: c.slug, label: c.name }))}
-        value={citySlug}
-        onChange={(e) => set("city", e.target.value)}
+      <StateCityFields
+        idPrefix="reg"
+        state={stateValue}
+        city={cityValue}
+        onState={(v) => {
+          setPlace((p) => ({ ...p, state: v }));
+          if (errors.state) setErrors((p) => ({ ...p, state: undefined }));
+        }}
+        onCity={(v) => {
+          setPlace((p) => ({ ...p, city: v }));
+          if (errors.city) setErrors((p) => ({ ...p, city: undefined }));
+        }}
+        errors={{ state: errors.state, city: errors.city }}
       />
       <div>
         <PasswordField

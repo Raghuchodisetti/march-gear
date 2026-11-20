@@ -310,7 +310,7 @@ export const articleSections: Section[] = [
     title: "Publishing",
     fields: [
       { name: "status", label: "Status", type: "select", required: true, options: PUBLISH },
-      { name: "publishedOn", label: "Publish date", type: "date", required: true },
+      { name: "publishedOn", label: "Publish date", type: "date", required: true, hint: "Pick a future date to schedule the story — it goes live that day." },
       { name: "authorId", label: "Author", type: "select", required: true, options: [] /* from DB */ },
       { name: "readMinutes", label: "Reading time", type: "number", required: true, min: 1, max: 60, suffix: "min" },
       { name: "image", label: "Cover image URL", type: "image", required: true, wide: true },
@@ -328,6 +328,16 @@ export const authorSections: Section[] = [
       { name: "name", label: "Name", type: "text", required: true },
       { name: "id", label: "ID", type: "text", required: true, slugFrom: "name", hint: "Short, permanent identifier." },
       { name: "role", label: "Role", type: "text", required: true, wide: true, placeholder: "Senior Road Tester" },
+    ],
+  },
+  {
+    title: "Profile",
+    description: "Shown on the author's page and under their stories.",
+    fields: [
+      { name: "bio", label: "Bio", type: "textarea", rows: 4 },
+      { name: "beat", label: "Covers", type: "text", placeholder: "EVs, charging and technology" },
+      { name: "base", label: "Based in", type: "text", placeholder: "Bengaluru" },
+      { name: "joined", label: "Joined MarchGear (year)", type: "number", min: 1950, max: 2100 },
     ],
   },
 ];

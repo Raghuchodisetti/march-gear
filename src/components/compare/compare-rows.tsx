@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
 import { Check, Minus } from "lucide-react";
 import type { CarModel, FeatureGroup } from "@/types";
-import { isElectric } from "@/lib/catalog";
-import { onRoadPrice } from "@/data/cities";
+import { isElectric, type Catalog } from "@/lib/catalog";
 import { calculateEmi } from "@/lib/finance";
 import { formatINR, formatNumber, formatPrice, formatPriceRange } from "@/lib/format";
 import { RatingInline, ScoreBar, Stars } from "@/components/ui/rating";
@@ -45,7 +44,7 @@ function row(id: string, label: string, cars: CarModel[], fn: (car: CarModel) =>
 }
 
 /** Builds every comparison group for the selected cars, in display order. */
-export function buildGroups(cars: CarModel[], city: { slug: string; name: string }): SpecGroup[] {
+export function buildGroups(cars: CarModel[], city: { slug: string; name: string }, onRoadPrice: Catalog["onRoadPrice"]): SpecGroup[] {
   const allEv = cars.every(isElectric);
   const noneEv = cars.every((c) => !isElectric(c));
   const sameEfficiencyKind = allEv || noneEv;

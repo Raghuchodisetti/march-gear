@@ -4,23 +4,26 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, X } from "lucide-react";
-import { announcements } from "@/data/navigation";
 import { announcementStore, useStore } from "@/lib/store";
 import { EASE } from "@/lib/motion";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
+/** Messages come from the "announcements" content block; with none, the bar is hidden. */
 export function AnnouncementBar() {
+  const announcements = useCatalog().content.announcements.items;
+  const count = announcements.length;
   const dismissed = useStore(announcementStore);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (dismissed || paused) return;
-    const id = window.setInterval(() => setIndex((i) => (i + 1) % announcements.length), 5000);
+    if (dismissed || paused || count < 2) return;
+    const id = window.setInterval(() => setIndex((i) => (i + 1) % count), 5000);
     return () => window.clearInterval(id);
-  }, [dismissed, paused]);
+  }, [dismissed, paused, count]);
 
-  if (dismissed) return null;
-  const item = announcements[index];
+  if (dismissed || count === 0) return null;
+  const item = announcements[index % count];
 
   return (
     <div
@@ -52,7 +55,7 @@ export function AnnouncementBar() {
         </div>
         <div className="hidden shrink-0 items-center gap-1.5 md:flex" aria-hidden>
           {announcements.map((_, i) => (
-            <span key={i} className={`h-px w-4 transition-colors duration-500 ${i === index ? "bg-white" : "bg-white/25"}`} />
+            <span key={i} className={`h-px w-4 transition-colors duration-500 ${i === index % count ? "bg-white" : "bg-white/25"}`} />
           ))}
         </div>
         <button

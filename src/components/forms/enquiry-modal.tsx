@@ -4,13 +4,13 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { CalendarCheck, Check, Loader2, PhoneCall, ShieldCheck, Tag, Wrench } from "lucide-react";
-import { cities, getCity } from "@/data/cities";
 import { submitLeadAction, type LeadInput } from "@/server/actions/leads";
 import { Modal } from "@/components/ui/overlay";
 import { SelectField, TextArea, TextField, Segmented } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Honeypot } from "@/components/forms/honeypot";
 import { useCity, useUI, useUser, type EnquiryKind } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
 const COPY: Record<EnquiryKind, { title: string; intro: string; cta: string; icon: React.ReactNode; done: string }> = {
   "test-drive": {
@@ -93,6 +93,7 @@ export function EnquiryModal() {
 function EnquiryForm({ onClose }: { onClose: () => void }) {
   const { enquiry, toast } = useUI();
   const { city } = useCity();
+  const { cities, getCity } = useCatalog();
   const { user } = useUser();
   const pathname = usePathname();
   const kind = enquiry?.kind ?? "callback";
@@ -100,11 +101,12 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
 
   const [name, setName] = useState(user?.name ?? "");
   const [phone, setPhone] = useState(user?.phone ?? "");
-  const [citySlug, setCitySlug] = useState(city.slug);
+  const [citySlug, setCitySlug] = useState(() => cities.find((c) => c.name === enquiry?.city)?.slug ?? city.slug);
   const [date, setDate] = useState("");
   const [slot, setSlot] = useState<"morning" | "afternoon" | "evening">("morning");
   const [timeline, setTimeline] = useState<"week" | "month" | "later">("month");
-  const [message, setMessage] = useState(enquiry?.subject ? `I'm interested in the ${enquiry.subject}.` : "");
+  // Only a car makes sense in "I'm interested in the …" — dealers, advisors and loan offers start blank.
+  const [message, setMessage] = useState(enquiry?.subject && enquiry.carSlug ? `I'm interested in the ${enquiry.subject}.` : "");
   const [consent, setConsent] = useState(true);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");

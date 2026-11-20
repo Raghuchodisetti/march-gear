@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown, Clock, MapPin, Star } from "lucide-react";
-import { cities } from "@/data/cities";
 import { EASE } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
@@ -15,7 +14,7 @@ import { useCatalog } from "@/components/providers/catalog-provider";
 export function DealerNetwork() {
   const { city, setCity } = useCity();
   const { openEnquiry } = useUI();
-  const { dealers, brandName } = useCatalog();
+  const { dealers, brandName, cities } = useCatalog();
 
   const { list, local } = useMemo(() => {
     const inCity = dealers.filter((d) => d.city === city.name);

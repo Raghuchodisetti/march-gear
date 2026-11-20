@@ -188,7 +188,7 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
         eyebrow="Running costs"
         tone="dark"
         title="What it costs to run, charged at home."
-        description="Move the slider to your daily distance. Compared with an equivalent petrol car at ₹105 per litre and 15 kmpl."
+        description={`Move the slider to your daily distance. Compared with an equivalent petrol car at ₹${cat.content.toolRates.fuelPrices.petrol} per litre and 15 kmpl.`}
       >
         <EvCostCalculator batteryKwh={ev.batteryKwh} rangeKm={ev.rangeKm} name={car.name} />
       </DetailSection>

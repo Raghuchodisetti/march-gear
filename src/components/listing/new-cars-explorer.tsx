@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "motion/react";
 import { Cog, Droplet, Fuel, Gauge, LayoutGrid, Leaf, List, RotateCcw, Search, Users, Wind, X, Zap } from "lucide-react";
 import type { CarModel, CategorySlug, FuelType } from "@/types";
 import { BUDGETS, carCategories, inBudget } from "@/lib/catalog";
-import { categories } from "@/data/categories";
 import { EASE } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
 import { Segmented } from "@/components/ui/field";
@@ -157,7 +156,8 @@ function buildTitle(f: Filters, brandName: (slug: string) => string) {
 
 export function NewCarsExplorer() {
   const { params, update } = useQueryState();
-  const { cars, brands, brandName, getBrand } = useCatalog();
+  const { cars, brands, brandName, getBrand, content } = useCatalog();
+  const categories = content.homeCategories.items;
   const brandSlugs = useMemo(() => brands.map((b) => b.slug), [brands]);
   const f = useMemo(() => readFilters(params, brandSlugs), [params, brandSlugs]);
   const [view, setView] = useState<"grid" | "list">("grid");
@@ -238,7 +238,7 @@ export function NewCarsExplorer() {
         <ImageTiles
           options={bodyOptions.map((o) => {
             const cat = categories.find((c) => c.slug === o.value);
-            return { ...o, image: cat?.image, imageFocus: cat?.focus };
+            return { ...o, image: cat?.image, imageFocus: cat?.focus || undefined };
           })}
           selected={f.body}
           onToggle={(v) => toggle("body", v)}

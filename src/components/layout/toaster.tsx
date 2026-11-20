@@ -25,7 +25,7 @@ export function Toaster() {
             className="pointer-events-auto flex w-full max-w-sm items-center gap-3 bg-ink py-3 pl-4 pr-2 text-[13.5px] text-white shadow-lift"
           >
             {t.tone === "success" ? (
-              <CheckCircle2 className="size-4 shrink-0 text-red" aria-hidden />
+              <CheckCircle2 className="size-4 shrink-0 text-[#4ade80]" aria-hidden />
             ) : t.tone === "error" ? (
               <AlertCircle className="size-4 shrink-0 text-red" aria-hidden />
             ) : (

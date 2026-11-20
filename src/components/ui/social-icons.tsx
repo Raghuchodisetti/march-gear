@@ -34,8 +34,9 @@ export const FacebookIcon = (p: IconProps) => (
   </svg>
 );
 
+/** The footer's social profiles, in order. Links come from the "site" content block (empty hides the icon). */
 export const socials = [
-  { label: "Instagram", href: "https://instagram.com", Icon: InstagramIcon },
-  { label: "YouTube", href: "https://youtube.com", Icon: YoutubeIcon },
-  { label: "Facebook", href: "https://facebook.com", Icon: FacebookIcon },
-];
+  { key: "instagram", label: "Instagram", Icon: InstagramIcon },
+  { key: "youtube", label: "YouTube", Icon: YoutubeIcon },
+  { key: "facebook", label: "Facebook", Icon: FacebookIcon },
+] as const;

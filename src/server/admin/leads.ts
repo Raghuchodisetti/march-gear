@@ -1,5 +1,5 @@
 import "server-only";
-import { and, asc, count, desc, eq, inArray, isNull, like, or, type SQL } from "drizzle-orm";
+import { and, asc, count, desc, eq, gte, inArray, isNull, like, lt, or, type SQL } from "drizzle-orm";
 import { alias } from "drizzle-orm/mysql-core";
 import { getDb } from "@/db";
 import { LEAD_STATUS, LEAD_TYPES, leadNotes, leads, users, type LeadStatus, type LeadType } from "@/db/schema";
@@ -10,12 +10,35 @@ export interface LeadFilters {
   type?: string;
   status?: string;
   assigned?: string;
+  /** Received on or after this IST day (YYYY-MM-DD). */
+  from?: string;
+  /** Received on or before this IST day (YYYY-MM-DD). */
+  to?: string;
   page?: number;
 }
 
 export const LEADS_PAGE_SIZE = 25;
 
 const assignee = alias(users, "assignee");
+const DAY_MS = 86_400_000;
+const IST_OFFSET_MS = 330 * 60_000;
+
+/** Midnight IST at the start of a YYYY-MM-DD day, or null if it isn't a real date. */
+function istDayStart(day: string | undefined) {
+  if (!day || !/^\d{4}-\d{2}-\d{2}$/.test(day)) return null;
+  const utc = new Date(`${day}T00:00:00Z`);
+  // Rejects impossible days like 2026-02-30, which Date would roll over into March.
+  if (Number.isNaN(utc.getTime()) || utc.toISOString().slice(0, 10) !== day) return null;
+  return new Date(utc.getTime() - IST_OFFSET_MS);
+}
+
+/** A valid from/to pair (either may be missing), swapped if entered the wrong way round. */
+export function leadDateRange(f: Pick<LeadFilters, "from" | "to">) {
+  let from = istDayStart(f.from) ? f.from : undefined;
+  let to = istDayStart(f.to) ? f.to : undefined;
+  if (from && to && from > to) [from, to] = [to, from];
+  return { from, to };
+}
 
 function where(f: LeadFilters, meId: number) {
   const conds: SQL[] = [];
@@ -23,6 +46,11 @@ function where(f: LeadFilters, meId: number) {
   if (f.status && (LEAD_STATUS as readonly string[]).includes(f.status)) conds.push(eq(leads.status, f.status as LeadStatus));
   if (f.assigned === "me") conds.push(eq(leads.assignedTo, meId));
   if (f.assigned === "none") conds.push(isNull(leads.assignedTo));
+  const range = leadDateRange(f);
+  const start = istDayStart(range.from);
+  const end = istDayStart(range.to);
+  if (start) conds.push(gte(leads.createdAt, start));
+  if (end) conds.push(lt(leads.createdAt, new Date(end.getTime() + DAY_MS)));
   if (f.q) {
     const term = `%${f.q.replace(/[%_\\]/g, (c) => `\\${c}`)}%`;
     conds.push(or(like(leads.name, term), like(leads.email, term), like(leads.phone, term), like(leads.reference, term), like(leads.subject, term))!);
@@ -75,6 +103,16 @@ export async function exportLeads(f: LeadFilters) {
     .where(where(f, me.id))
     .orderBy(desc(leads.createdAt), desc(leads.id))
     .limit(20_000);
+}
+
+/** Active staff accounts — the people a lead can be assigned to. */
+export async function listStaff() {
+  await requireStaff();
+  return getDb()
+    .select({ id: users.id, name: users.name })
+    .from(users)
+    .where(and(inArray(users.role, STAFF_ROLES), eq(users.isActive, true)))
+    .orderBy(asc(users.name));
 }
 
 export async function getLead(id: number) {

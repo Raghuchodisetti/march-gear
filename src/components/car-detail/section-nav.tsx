@@ -84,7 +84,7 @@ export function SectionNav({ sections }: { sections: NavSection[] }) {
               className="hidden shrink-0 items-center gap-3 border-r border-line pr-6 lg:flex"
             >
               <span className="relative h-9 w-12 overflow-hidden bg-mist">
-                <Image src={car.images[0]} alt="" fill sizes="48px" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
+                <Image src={car.images[0]} alt="" fill sizes="48px" quality={60} className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
               </span>
               <span className="min-w-0">
                 <span className="block max-w-[180px] truncate text-[13px] font-semibold">{title}</span>

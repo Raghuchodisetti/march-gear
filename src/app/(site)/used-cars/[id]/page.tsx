@@ -21,6 +21,8 @@ import {
   KeyFacts,
   PriceAnalysis,
 } from "@/components/used/detail-sections";
+import { TrackView } from "@/components/portal/track";
+import { getUsedMirrorRef } from "@/server/partner/inventory";
 
 export async function generateStaticParams() {
   const { usedCars } = await getCatalog();
@@ -47,6 +49,8 @@ export default async function UsedCarPage(props: PageProps<"/used-cars/[id]">) {
   const title = usedTitle(car, brandName);
   const band = fairPriceBand(car);
   const ownerLabel = car.owners === 1 ? "1st owner" : `${car.owners} owners`;
+  // A dealer-portal listing (mirrored as pv-<id>) counts its views for the dealer's analytics.
+  const partnerRef = car.id.startsWith("pv-") ? await getUsedMirrorRef(car.id) : null;
 
   const similar = usedCars
     .filter((c) => c.id !== car.id)
@@ -57,6 +61,7 @@ export default async function UsedCarPage(props: PageProps<"/used-cars/[id]">) {
 
   return (
     <div className="pb-[calc(76px+env(safe-area-inset-bottom))] lg:pb-0">
+      {partnerRef && <TrackView partnerId={partnerRef.partnerId} kind="vehicle_view" refId={partnerRef.vehicleId} />}
       <section className="container-x pt-8 md:pt-10">
         <Breadcrumbs
           items={[

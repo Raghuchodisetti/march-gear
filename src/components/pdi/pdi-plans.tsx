@@ -1,27 +1,31 @@
 "use client";
 
 import { Check } from "lucide-react";
-import { pdiPlans, type PdiPlanId } from "@/data/pdi";
+import { resolvePlan } from "@/lib/pdi";
 import { createPersistentStore, useStore } from "@/lib/store";
 import { formatINR } from "@/lib/format";
 import { cn } from "@/lib/utils";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { Button } from "@/components/ui/button";
+import { PDI_ICON } from "./icons";
 
-/** Shared between the plan cards and the booking form. */
-export const pdiPlanStore = createPersistentStore<PdiPlanId>("mg.pdi.plan", "complete");
+/** The chosen plan's key, shared between the plan cards and the booking form. Empty = the "most popular" plan (see resolvePlan). */
+export const pdiPlanStore = createPersistentStore<string>("mg.pdi.plan", "");
 
 export function PdiPlans() {
-  const selected = useStore(pdiPlanStore);
+  const { plans } = useCatalog().content.pdiPlans;
+  const saved = useStore(pdiPlanStore);
+  const selected = resolvePlan(plans, saved).id;
 
-  const choose = (id: PdiPlanId) => {
+  const choose = (id: string) => {
     pdiPlanStore.set(id);
     document.getElementById("book")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
-      {pdiPlans.map((plan) => {
-        const Icon = plan.icon;
+      {plans.map((plan) => {
+        const Icon = PDI_ICON[plan.icon];
         const dark = plan.popular;
         return (
           <article
@@ -50,8 +54,8 @@ export function PdiPlans() {
               {plan.checks}+ checks · {plan.duration}
             </p>
             <ul className={cn("mt-6 space-y-3 border-t pt-6 text-[14px]", dark ? "border-white/10" : "border-line")}>
-              {plan.features.map((f) => (
-                <li key={f} className="flex gap-3">
+              {plan.features.map((f, i) => (
+                <li key={i} className="flex gap-3">
                   <Check aria-hidden className="mt-0.5 size-4 shrink-0 text-red" strokeWidth={2.5} />
                   {f}
                 </li>

@@ -4,24 +4,26 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import type { CarModel } from "@/types";
 import { carTitle } from "@/lib/catalog";
-import { cities, getCity } from "@/data/cities";
 import { formatINR, formatNumber, formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { RangeField, Segmented, SelectField } from "@/components/ui/field";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
 import { useCity } from "@/components/providers/app-provider";
 import { useCatalog } from "@/components/providers/catalog-provider";
-import { ownershipCost, splitPrice } from "./calc";
+import { calcRates, ownershipCost, splitPrice } from "./calc";
 import { Switch } from "./fields";
 import { EstimateNote, Readout, StepLabel } from "./instrument";
 
-const cityOptions = cities.map((c) => ({ value: c.slug, label: `${c.name}, ${c.state}` }));
+/** 0.03 → "3%", 0.025 → "2.5%" */
+const pct = (fraction: number) => `${Number((fraction * 100).toFixed(1))}%`;
 
 type PartKey = "depreciation" | "fuel" | "interest" | "insurance" | "maintenance" | "registration";
 
 export function OwnershipCost() {
   const { city } = useCity();
-  const { cars, getCar, brandName } = useCatalog();
+  const { cars, getCar, brandName, cities, getCity, onRoadPrice, content } = useCatalog();
+  const rates = useMemo(() => calcRates(content.toolRates), [content.toolRates]);
+  const cityOptions = useMemo(() => cities.map((c) => ({ value: c.slug, label: `${c.name}, ${c.state}` })), [cities]);
   const title = (c: CarModel) => carTitle(c, brandName);
   const carOptions = useMemo(
     () =>
@@ -43,15 +45,15 @@ export function OwnershipCost() {
   const citySlug = cityChoice ?? city.slug;
   const car = getCar(slug) ?? cars[0];
   const n = Number(years);
-  const r = ownershipCost({ car, citySlug, kmPerYear: km, years: n, finance: { enabled: finance, downPct, ratePct: rate } });
+  const r = ownershipCost({ car, citySlug, kmPerYear: km, years: n, finance: { enabled: finance, downPct, ratePct: rate }, rates, onRoadPrice });
   const [figure, unit] = splitPrice(r.total);
 
   const allParts: { key: PartKey; label: string; swatch: string; value: number; note: string }[] = [
       { key: "depreciation", label: "Depreciation", swatch: "bg-red", value: r.components.depreciation, note: "Ex-showroom value lost by resale" },
       { key: "fuel", label: r.ev ? "Charging" : "Fuel", swatch: "bg-ink", value: r.components.fuel, note: `₹${r.runningPerKm.toFixed(2)} per km` },
       { key: "interest", label: "Loan interest", swatch: "bg-ink/70", value: r.components.interest, note: `${downPct}% down · ${rate.toFixed(2)}%` },
-      { key: "insurance", label: "Insurance", swatch: "bg-ink/45", value: r.components.insurance, note: "~3% of value, falling yearly" },
-      { key: "maintenance", label: "Servicing & wear", swatch: "bg-ink/25", value: r.components.maintenance, note: "Rises ~8% a year with age" },
+      { key: "insurance", label: "Insurance", swatch: "bg-ink/45", value: r.components.insurance, note: `~${pct(rates.insuranceRate)} of value, falling yearly` },
+      { key: "maintenance", label: "Servicing & wear", swatch: "bg-ink/25", value: r.components.maintenance, note: `Rises ~${pct(rates.maintenanceGrowth)} a year with age` },
       { key: "registration", label: "Registration & road tax", swatch: "bg-ink/12", value: r.components.registration, note: "Paid once, in the on-road price" },
   ];
   const parts = allParts.filter((p) => p.value > 0);

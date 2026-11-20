@@ -1,8 +1,27 @@
 import "server-only";
-import { and, asc, count, desc, eq, like, or, type SQL } from "drizzle-orm";
+import { createHash } from "node:crypto";
+import { cookies } from "next/headers";
+import { and, asc, count, desc, eq, gt, inArray, like, or, type SQL } from "drizzle-orm";
 import { getDb } from "@/db";
-import { REVIEW_STATUS, USER_ROLES, brands, cars, dealerReviews, dealers, leads, ownerReviews, subscribers, users, wishlistItems, type ReviewStatus, type UserRole } from "@/db/schema";
-import { requireStaff } from "@/server/auth";
+import {
+  REVIEW_STATUS,
+  USER_ROLES,
+  brands,
+  cars,
+  dealerReviews,
+  dealers,
+  leads,
+  ownerReviews,
+  sessions,
+  subscribers,
+  usedCars,
+  users,
+  wishlistItems,
+  type ReviewStatus,
+  type UserRole,
+} from "@/db/schema";
+import { LEGACY_BRANDS } from "@/lib/catalog";
+import { SESSION_COOKIE, requireStaff } from "@/server/auth";
 
 const term = (q: string) => `%${q.replace(/[%_\\]/g, (c) => `\\${c}`)}%`;
 
@@ -78,7 +97,7 @@ export async function listUsers(q?: string, role?: string, page = 1) {
   // A ?page= past the end shows the last page rather than an empty one.
   const current = Math.min(Math.max(1, page), Math.max(1, Math.ceil(total / USERS_PAGE_SIZE)));
   const rows = await db
-    .select({ id: users.id, name: users.name, email: users.email, phone: users.phone, city: users.city, role: users.role, isActive: users.isActive, createdAt: users.createdAt, lastLoginAt: users.lastLoginAt })
+    .select({ id: users.id, name: users.name, email: users.email, phone: users.phone, state: users.state, city: users.city, role: users.role, isActive: users.isActive, createdAt: users.createdAt, lastLoginAt: users.lastLoginAt })
     .from(users)
     .where(where)
     .orderBy(desc(users.createdAt), desc(users.id))
@@ -87,24 +106,91 @@ export async function listUsers(q?: string, role?: string, page = 1) {
   return { rows, total, page: current };
 }
 
+/** Why a saved item can or can't be opened on the public site. */
+export type SavedState = "live" | "draft" | "hidden" | "reserved" | "sold" | "gone";
+
+export interface SavedItem {
+  kind: "cars" | "used";
+  itemId: string;
+  savedAt: Date;
+  title: string | null;
+  /** Public page, when the item is still listed. */
+  href: string | null;
+  state: SavedState;
+}
+
+/** A customer's saved new and used cars, resolved against the catalogue — items may have been removed or unpublished since. */
+async function savedItems(userId: number): Promise<SavedItem[]> {
+  const db = getDb();
+  const rows = await db.select().from(wishlistItems).where(eq(wishlistItems.userId, userId)).orderBy(desc(wishlistItems.createdAt));
+  const carSlugs = rows.filter((r) => r.kind === "cars").map((r) => r.itemId);
+  const usedIds = rows.filter((r) => r.kind === "used").map((r) => r.itemId);
+  const [carRows, usedRows] = await Promise.all([
+    carSlugs.length
+      ? db
+          .select({ slug: cars.slug, name: cars.name, status: cars.status, brand: brands.name, brandActive: brands.isActive })
+          .from(cars)
+          .leftJoin(brands, eq(brands.slug, cars.brand))
+          .where(inArray(cars.slug, carSlugs))
+      : Promise.resolve([]),
+    usedIds.length
+      ? db
+          .select({ id: usedCars.id, name: usedCars.name, variant: usedCars.variant, year: usedCars.year, brand: usedCars.brand, brandName: brands.name, status: usedCars.status })
+          .from(usedCars)
+          .leftJoin(brands, eq(brands.slug, usedCars.brand))
+          .where(inArray(usedCars.id, usedIds))
+      : Promise.resolve([]),
+  ]);
+  const carBySlug = new Map(carRows.map((c) => [c.slug, c]));
+  const usedById = new Map(usedRows.map((u) => [u.id, u]));
+  return rows.map((r): SavedItem => {
+    const base = { kind: r.kind, itemId: r.itemId, savedAt: r.createdAt };
+    if (r.kind === "cars") {
+      const c = carBySlug.get(r.itemId);
+      if (!c) return { ...base, title: null, href: null, state: "gone" };
+      const state: SavedState = c.status !== "published" ? "draft" : c.brandActive === false ? "hidden" : "live";
+      return { ...base, title: [c.brand, c.name].filter(Boolean).join(" "), href: state === "live" ? `/cars/${c.slug}` : null, state };
+    }
+    const u = usedById.get(r.itemId);
+    if (!u) return { ...base, title: null, href: null, state: "gone" };
+    const state: SavedState = u.status === "active" ? "live" : u.status;
+    const brand = u.brandName ?? LEGACY_BRANDS[u.brand] ?? u.brand;
+    return { ...base, title: `${u.year} ${brand} ${u.name} ${u.variant}`, href: state === "live" ? `/used-cars/${encodeURIComponent(u.id)}` : null, state };
+  });
+}
+
+/** Sessions that are still valid; `current` marks the browser making this request. */
+async function activeSessions(userId: number) {
+  const token = (await cookies()).get(SESSION_COOKIE)?.value;
+  const mine = token ? createHash("sha256").update(token).digest("hex") : null;
+  const rows = await getDb()
+    .select({ id: sessions.id, createdAt: sessions.createdAt, expiresAt: sessions.expiresAt, userAgent: sessions.userAgent, ip: sessions.ip })
+    .from(sessions)
+    .where(and(eq(sessions.userId, userId), gt(sessions.expiresAt, new Date())))
+    .orderBy(desc(sessions.createdAt));
+  // The session id is the token's hash — it stays on the server.
+  return rows.map(({ id, ...s }) => ({ ...s, current: id === mine }));
+}
+
 export async function getUserDetail(id: number) {
   await requireStaff(["admin"]);
   const db = getDb();
   const [user] = await db
-    .select({ id: users.id, name: users.name, email: users.email, phone: users.phone, city: users.city, role: users.role, isActive: users.isActive, createdAt: users.createdAt, lastLoginAt: users.lastLoginAt })
+    .select({ id: users.id, name: users.name, email: users.email, phone: users.phone, state: users.state, city: users.city, role: users.role, isActive: users.isActive, createdAt: users.createdAt, lastLoginAt: users.lastLoginAt })
     .from(users)
     .where(eq(users.id, id));
   if (!user) return null;
-  const [userLeads, [{ saved }]] = await Promise.all([
+  const [userLeads, saved, signedIn] = await Promise.all([
     db
       .select({ id: leads.id, reference: leads.reference, type: leads.type, status: leads.status, subject: leads.subject, createdAt: leads.createdAt })
       .from(leads)
       .where(eq(leads.userId, id))
       .orderBy(desc(leads.createdAt))
       .limit(50),
-    db.select({ saved: count() }).from(wishlistItems).where(eq(wishlistItems.userId, id)),
+    savedItems(id),
+    activeSessions(id),
   ]);
-  return { user, leads: userLeads, saved };
+  return { user, leads: userLeads, saved, sessions: signedIn };
 }
 
 /** For the on-screen list (capped; use the CSV export for everything). */

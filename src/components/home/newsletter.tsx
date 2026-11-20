@@ -41,7 +41,7 @@ export function Newsletter() {
         return;
       }
       setDone(true);
-      toast("You're subscribed to The Briefing", { tone: "success" });
+      toast("You're subscribed to The Weekly Gear", { tone: "success" });
     } catch {
       setError("Couldn't reach the server. Check your connection and try again.");
     } finally {
@@ -53,7 +53,7 @@ export function Newsletter() {
     <section aria-labelledby="newsletter-title" className="border-t border-line py-14 md:py-20">
       <div className="container-x grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-end">
         <div>
-          <p className="type-eyebrow text-muted">The Briefing · every Friday</p>
+          <p className="type-eyebrow text-muted">The Weekly Gear · every Friday</p>
           <h2 id="newsletter-title" className="mt-5 font-display text-5xl font-semibold leading-[0.95] tracking-[-0.04em] [font-stretch:110%] md:text-7xl">
             Five minutes.
             <br />

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ICE_REAL_WORLD_FACTOR } from "@/data/tools-assumptions";
+import { getCatalog } from "@/server/catalog";
 import { PageHeader } from "@/components/ui/page-header";
 import { MileageCalculator } from "@/components/tools/mileage-calculator";
 import { HowItWorks, RelatedTools, ToolDisclaimer, ToolFaqs, ToolMetaRow, ToolTips } from "@/components/tools/tool-sections";
@@ -10,7 +10,8 @@ export const metadata: Metadata = {
     "Work out your car's real-world mileage with the tank-to-tank method, see your cost per km and monthly fuel bill, and compare it against the claimed figure.",
 };
 
-export default function MileagePage() {
+export default async function MileagePage() {
+  const { iceRealWorldFactor } = (await getCatalog()).content.toolRates;
   return (
     <>
       <PageHeader
@@ -71,7 +72,7 @@ export default function MileagePage() {
           },
           {
             title: "Compare with the claim",
-            body: `Claimed figures come from a standardised lab cycle. Real-world results usually land between 75% and 95% of them — our other tools assume about ${Math.round(ICE_REAL_WORLD_FACTOR * 100)}%.`,
+            body: `Claimed figures come from a standardised lab cycle. Real-world results usually land between 75% and 95% of them — our other tools assume about ${Math.round(iceRealWorldFactor * 100)}%.`,
             formula: "achieved = your kmpl ÷ claimed kmpl",
           },
         ]}

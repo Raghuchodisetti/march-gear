@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ExternalLink } from "lucide-react";
 import { deleteUsedCarAction, saveUsedCarAction } from "@/server/actions/catalog";
 import { brandOptions, carOptions, cityOptions, dealerOptions, NEW_DEFAULTS, usedForm } from "@/server/admin/catalog";
 import { requireStaff } from "@/server/auth";
-import { Button } from "@/components/ui/button";
-import { AdminHeader } from "@/components/admin/ui";
+import { AdminHeader, ViewOnSite } from "@/components/admin/ui";
 import { DeleteButton } from "@/components/admin/delete-button";
 import { ResourceForm } from "@/components/admin/resource-form";
 import { withOptions } from "@/components/admin/fields";
@@ -24,6 +22,7 @@ export default async function UsedEditPage({ params }: PageProps<"/admin/used-ca
     dealerOptions(),
   ]);
   if (!initial) notFound();
+  const status = String(initial.status);
 
   return (
     <>
@@ -34,16 +33,17 @@ export default async function UsedEditPage({ params }: PageProps<"/admin/used-ca
         actions={
           !isNew && (
             <>
-              <Button href={`/used-cars/${id}`} target="_blank" variant="outline" size="sm" icon={<ExternalLink className="size-4" aria-hidden />}>
-                View on site
-              </Button>
+              <ViewOnSite
+                href={`/used-cars/${encodeURIComponent(id)}`}
+                offline={status !== "active" && `${status[0].toUpperCase()}${status.slice(1)} — not on the site`}
+              />
               <DeleteButton action={deleteUsedCarAction.bind(null, id)} confirmText="Delete this listing? This can't be undone." redirectTo="/admin/used-cars" />
             </>
           )
         }
       />
       <ResourceForm
-        sections={withOptions(usedSections, { brand: brands, modelSlug: models, dealerId: dealers, city: cityOptions() })}
+        sections={withOptions(usedSections, { brand: brands, modelSlug: models, dealerId: dealers, city: await cityOptions() })}
         initial={initial}
         action={saveUsedCarAction.bind(null, isNew ? null : id)}
         listHref="/admin/used-cars"

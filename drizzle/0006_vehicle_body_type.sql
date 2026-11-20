@@ -1,0 +1,1 @@
+ALTER TABLE `partner_vehicles` ADD `body_type` varchar(20) DEFAULT 'SUV' NOT NULL;

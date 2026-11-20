@@ -2,20 +2,42 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment } from "react";
+import { Fragment, type ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import type { CarModel } from "@/types";
 import { useCatalog } from "@/components/providers/catalog-provider";
-import { popularComparisons } from "@/data/compare-listing";
 import { formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
+/** The "comparisons" content block, minus cars that aren't in the catalogue (deleted, unpublished or mistyped slugs). */
+function usePopularComparisons(exclude?: string) {
+  const { getCar, content } = useCatalog();
+  return content.comparisons.items
+    .map((p, i) => {
+      const models = p.cars.map(getCar).filter((c): c is CarModel => c !== undefined);
+      return { ...p, id: `${i}-${p.theme}`, models, cars: models.map((c) => c.slug) };
+    })
+    .filter((p) => p.models.length >= 2 && p.cars.join(",") !== exclude);
+}
+
+/** A bordered page section around the cards — renders nothing when no comparison has two published cars. */
+export function PopularComparisonsSection({ heading, exclude }: { heading: ReactNode; exclude?: string }) {
+  const items = usePopularComparisons(exclude);
+  if (items.length === 0) return null;
+  return (
+    <section className="border-t border-line py-14 md:py-20">
+      <div className="container-x">
+        {heading}
+        <PopularComparisons exclude={exclude} className="mt-12 md:mt-16" />
+      </div>
+    </section>
+  );
+}
+
 /** Curated comparison starters. Each card links to /compare?cars=… so it is shareable. */
 export function PopularComparisons({ exclude, className }: { exclude?: string; className?: string }) {
-  const { getCar, brandName } = useCatalog();
-  const items = popularComparisons
-    .map((p) => ({ ...p, models: p.cars.map(getCar).filter((c): c is CarModel => c !== undefined) }))
-    .filter((p) => p.models.length >= 2 && p.cars.join(",") !== exclude);
+  const { brandName } = useCatalog();
+  const items = usePopularComparisons(exclude);
 
   return (
     <ul className={cn("grid grid-cols-1 gap-5 md:grid-cols-2", className)}>

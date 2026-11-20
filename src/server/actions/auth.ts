@@ -18,6 +18,9 @@ import {
 } from "@/server/auth";
 import { HOUR, MINUTE, allowFromIp, clientIp, reset, take } from "@/server/rate-limit";
 import { isDuplicate } from "@/server/db-errors";
+import { getCatalogData } from "@/server/catalog";
+import { isIndianState } from "@/data/states";
+import { audit } from "@/server/audit";
 import { getWishlist, mergeWishlist } from "@/server/wishlist";
 import { email, invalid, mobile, name, password } from "@/server/validation";
 
@@ -26,7 +29,8 @@ const localWishlist = z
   .partial()
   .optional();
 const optionalMobile = z.union([z.literal("").transform(() => undefined), mobile]).optional();
-const city = z.string().trim().max(64).optional();
+const city = z.string().trim().min(2, "Enter your city").max(64, "Keep the city under 64 characters");
+const state = z.string({ error: "Choose your state" }).refine(isIndianState, "Choose your state");
 
 type AuthResult = ActionResult<{ user: SessionUser; wishlist: WishlistData }>;
 
@@ -38,12 +42,12 @@ async function signedIn(userId: number, local: Partial<WishlistData> | undefined
   const [u] = await getDb().select().from(users).where(eq(users.id, userId));
   return {
     ok: true,
-    user: { id: u.id, name: u.name, email: u.email, phone: u.phone, city: u.city, role: u.role, memberSince: u.createdAt.toISOString() },
+    user: { id: u.id, name: u.name, email: u.email, phone: u.phone, state: u.state, city: u.city, role: u.role, memberSince: u.createdAt.toISOString() },
     wishlist: await getWishlist(userId),
   };
 }
 
-const signUpSchema = z.object({ name, email, phone: optionalMobile, city, password, wishlist: localWishlist });
+const signUpSchema = z.object({ name, email, phone: optionalMobile, state, city, password, wishlist: localWishlist });
 
 const EMAIL_TAKEN: AuthResult = { ok: false, fieldErrors: { email: "An account with this email already exists — sign in instead." } };
 
@@ -57,7 +61,7 @@ export async function signUpAction(input: unknown): Promise<AuthResult> {
   if (existing) return EMAIL_TAKEN;
 
   try {
-    const [res] = await db.insert(users).values({ ...data, phone: data.phone ?? null, city: data.city ?? null, passwordHash: await hashPassword(pw) });
+    const [res] = await db.insert(users).values({ ...data, phone: data.phone ?? null, passwordHash: await hashPassword(pw) });
     return signedIn(res.insertId, wishlist);
   } catch (err) {
     // Two sign-ups with the same email at the same moment.
@@ -81,7 +85,10 @@ async function checkCredentials(input: unknown) {
   const [user] = await getDb().select().from(users).where(eq(users.email, parsed.data.email));
   const valid = await verifyPassword(parsed.data.password, user?.passwordHash);
   if (!user || !valid) return { result: { ok: false, error: "Email or password is incorrect." } as AuthResult };
-  if (!user.isActive) return { result: { ok: false, error: "This account has been disabled. Contact hello@marchgear.in." } as AuthResult };
+  if (!user.isActive) {
+    const { email: contact } = (await getCatalogData()).content.site;
+    return { result: { ok: false, error: `This account has been disabled. Contact ${contact}.` } as AuthResult };
+  }
   keys.forEach(reset);
   return { user, wishlist: parsed.data.wishlist };
 }
@@ -98,6 +105,7 @@ export async function adminSignInAction(input: unknown): Promise<ActionResult> {
   if (checked.result) return checked.result;
   if (!isStaff(checked.user!.role)) return { ok: false, error: "This account doesn't have admin access." };
   await createSession(checked.user!.id, SESSION_TTL.staff);
+  await audit(checked.user!.id, "login", "session", checked.user!.id, `${checked.user!.name} signed in to the admin panel`);
   return { ok: true };
 }
 
@@ -106,19 +114,19 @@ export async function signOutAction(): Promise<ActionResult> {
   return { ok: true };
 }
 
-const profileSchema = z.object({ name, phone: optionalMobile, city });
+const profileSchema = z.object({ name, phone: optionalMobile, state, city });
 
 export async function updateProfileAction(input: unknown): Promise<ActionResult<{ user: SessionUser }>> {
   const me = await getSessionUser();
   if (!me) return { ok: false, error: "Your session has expired. Please sign in again." };
   const parsed = profileSchema.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
-  const { name: newName, phone, city: newCity } = parsed.data;
+  const { name: newName, phone, state: newState, city: newCity } = parsed.data;
   await getDb()
     .update(users)
-    .set({ name: newName, phone: phone ?? null, city: newCity ?? null })
+    .set({ name: newName, phone: phone ?? null, state: newState, city: newCity })
     .where(eq(users.id, me.id));
-  return { ok: true, user: { ...me, name: newName, phone: phone ?? null, city: newCity ?? null } };
+  return { ok: true, user: { ...me, name: newName, phone: phone ?? null, state: newState, city: newCity } };
 }
 
 const passwordSchema = z.object({ current: z.string().min(1, "Enter your current password"), next: password });

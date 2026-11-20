@@ -1,6 +1,5 @@
 import type { CarModel, Variant } from "@/types";
 import type { Catalog } from "@/lib/catalog";
-import { onRoadPrice } from "@/data/cities";
 import { calculateEmi } from "@/lib/finance";
 
 /* Pure helpers shared by the car, variant and EV detail pages. */
@@ -41,9 +40,8 @@ export const sortedVariants = (car: CarModel) => [...car.variants].sort((a, b) =
 /** Indicative monthly EMI: 80% financed at 9.25% over five years. */
 export const emiFrom = (price: number) => calculateEmi(price * 0.8, 9.25, 60);
 
-/** Split the indicative on-road premium into plausible line items. */
-export function onRoadBreakdown(exShowroom: number, citySlug: string, ev: boolean) {
-  const total = onRoadPrice(exShowroom, citySlug, ev);
+/** Split the indicative on-road premium (`total` from the catalogue's onRoadPrice) into plausible line items. */
+export function onRoadBreakdown(exShowroom: number, total: number, ev: boolean) {
   const extra = Math.max(0, total - exShowroom);
   // EVs attract near-zero road tax, so insurance dominates the premium.
   const share = ev ? { tax: 0.08, insurance: 0.74 } : { tax: 0.68, insurance: 0.24 };

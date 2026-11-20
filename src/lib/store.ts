@@ -103,16 +103,18 @@ export interface AccountUser {
   name: string;
   email: string;
   phone: string;
+  state: string;
   city: string;
   memberSince: string;
-  role: "customer" | "editor" | "admin";
+  role: "customer" | "editor" | "admin" | "dealer" | "insurer";
 }
 /** @deprecated Use AccountUser. */
 export type MockUser = AccountUser;
 
 export const wishlistStore = createPersistentStore<Wishlist>("mg.wishlist", { cars: [], used: [] });
 export const compareStore = createPersistentStore<string[]>("mg.compare", []);
-export const cityStore = createPersistentStore<string>("mg.city", "mumbai");
+/** City slug the visitor picked; "" until they pick one, so useCity() shows the default city from site content. */
+export const cityStore = createPersistentStore<string>("mg.city", "");
 export const userStore = createPersistentStore<AccountUser | null>("mg.account", null);
 /** True once the server has confirmed who (if anyone) is signed in. */
 export const sessionReadyStore = createMemoryStore(false);

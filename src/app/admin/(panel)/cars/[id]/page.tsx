@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ExternalLink } from "lucide-react";
 import { deleteCarAction, saveCarAction } from "@/server/actions/catalog";
-import { brandOptions, carForm, carOptions, NEW_DEFAULTS } from "@/server/admin/catalog";
+import { brandOptions, carForm, carOptions, isBrandVisible, NEW_DEFAULTS } from "@/server/admin/catalog";
 import { requireStaff } from "@/server/auth";
-import { Button } from "@/components/ui/button";
-import { AdminHeader } from "@/components/admin/ui";
+import { AdminHeader, ViewOnSite } from "@/components/admin/ui";
 import { DeleteButton } from "@/components/admin/delete-button";
 import { ResourceForm } from "@/components/admin/resource-form";
 import { withOptions } from "@/components/admin/fields";
@@ -26,6 +24,7 @@ export default async function CarEditPage({ params }: PageProps<"/admin/cars/[id
   if (!initial) notFound();
 
   const sections = withOptions(carSections, { brand: brands, competitors: cars.filter((c) => c.value !== initial.slug) });
+  const offline = isNew ? null : initial.status !== "published" ? "Draft — not on the site" : !(await isBrandVisible(String(initial.brand))) ? "Brand hidden — not on the site" : null;
 
   return (
     <>
@@ -36,9 +35,7 @@ export default async function CarEditPage({ params }: PageProps<"/admin/cars/[id
         actions={
           !isNew && (
             <>
-              <Button href={`/cars/${initial.slug}`} target="_blank" variant="outline" size="sm" icon={<ExternalLink className="size-4" aria-hidden />}>
-                View on site
-              </Button>
+              <ViewOnSite href={`/cars/${initial.slug}`} offline={offline} />
               <DeleteButton action={deleteCarAction.bind(null, recordId)} confirmText={`Delete ${initial.name} and all its variants? This can't be undone.`} redirectTo="/admin/cars" />
             </>
           )

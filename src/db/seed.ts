@@ -1,7 +1,7 @@
 /**
  * Seeds MySQL with the launch catalogue and the first admin account.
  *
- *   npm run db:seed            fill empty tables only (safe to re-run)
+ *   npm run db:seed            fill empty tables, add missing authors/stories by key (safe to re-run)
  *   npm run db:seed -- --reset reload catalogue + editorial (keeps users & leads)
  */
 import bcrypt from "bcryptjs";
@@ -15,6 +15,7 @@ import { seedDealerProfiles } from "./seed-data/dealer-details";
 import { seedDealerReviews } from "./seed-data/dealer-reviews";
 import { seedDealers } from "./seed-data/dealers";
 import { seedArticles, seedAuthors } from "./seed-data/news";
+import { seedExtraArticles } from "./seed-data/news-extra";
 import { seedOwnerReviews } from "./seed-data/reviews";
 import { seedUpcoming } from "./seed-data/upcoming";
 import { seedUsedCars } from "./seed-data/used-cars";
@@ -35,6 +36,16 @@ async function step(label: string, table: MySqlTable, run: () => Promise<number>
   const n = await run();
   console.log(`  ✓ ${label}: ${n}`);
 }
+
+const authorRow = (a: (typeof seedAuthors)[number]) => ({
+  id: a.id,
+  name: a.name,
+  role: a.role,
+  bio: a.bio ?? null,
+  beat: a.beat ?? null,
+  base: a.base ?? null,
+  joined: a.joined ?? null,
+});
 
 async function main() {
   console.log(reset ? "Resetting catalogue and editorial…" : "Seeding empty tables…");
@@ -91,7 +102,10 @@ async function main() {
   });
 
   await step("dealer reviews", s.dealerReviews, async () => {
-    await db.insert(s.dealerReviews).values(seedDealerReviews.map((r) => ({ ...r, status: "approved" as const })));
+    // Seeded reviews have no dealer replies — those are written from the dealer portal.
+    await db
+      .insert(s.dealerReviews)
+      .values(seedDealerReviews.map(({ id, dealerId, name, visit, date, rating, title, body }) => ({ id, dealerId, name, visit, date, rating, title, body, status: "approved" as const })));
     return seedDealerReviews.length;
   });
 
@@ -110,22 +124,46 @@ async function main() {
     return seedUsedCars.length;
   });
 
-  await step("authors", s.authors, async () => {
-    await db.insert(s.authors).values(seedAuthors);
-    return seedAuthors.length;
-  });
+  // Authors and stories are seeded by key rather than "only if empty", so seed data added after
+  // launch (new desk stories, author profiles) reaches existing databases. Authors go first:
+  // every story references one.
+  const authorRows = await db.select().from(s.authors);
+  const haveAuthor = new Set(authorRows.map((a) => a.id));
+  const newAuthors = seedAuthors.filter((a) => !haveAuthor.has(a.id));
+  if (newAuthors.length) {
+    await db.insert(s.authors).values(newAuthors.map(authorRow));
+    console.log(`  ✓ authors: ${newAuthors.length}`);
+  } else console.log("  · authors: all present, skipped");
 
-  await step("articles", s.articles, async () => {
+  // Fill only the profile fields that are still empty — anything edited in the admin panel is kept.
+  let profilesFilled = 0;
+  for (const row of authorRows) {
+    const seed = seedAuthors.find((a) => a.id === row.id);
+    if (!seed) continue;
+    const patch: Partial<typeof s.authors.$inferInsert> = {};
+    if (!row.bio && seed.bio) patch.bio = seed.bio;
+    if (!row.beat && seed.beat) patch.beat = seed.beat;
+    if (!row.base && seed.base) patch.base = seed.base;
+    if (row.joined == null && seed.joined != null) patch.joined = seed.joined;
+    if (!Object.keys(patch).length) continue;
+    await db.update(s.authors).set(patch).where(eq(s.authors.id, row.id));
+    profilesFilled++;
+  }
+  console.log(profilesFilled ? `  ✓ author profiles: filled ${profilesFilled}` : "  · author profiles: nothing to fill, skipped");
+
+  const haveStory = new Set((await db.select({ slug: s.articles.slug }).from(s.articles)).map((a) => a.slug));
+  const newStories = [...seedArticles, ...seedExtraArticles].filter((a) => !haveStory.has(a.slug));
+  if (newStories.length) {
     await db.insert(s.articles).values(
-      seedArticles.map((a) => ({
+      newStories.map((a) => ({
         ...a,
         pullQuote: a.pullQuote ?? null,
         relatedCar: a.relatedCar ?? null,
         videoDuration: a.videoDuration ?? null,
       })),
     );
-    return seedArticles.length;
-  });
+    console.log(`  ✓ articles: ${newStories.length}`);
+  } else console.log("  · articles: all present, skipped");
 
   // Owner reviews also hold customer submissions, so seed by id instead of "only if empty".
   const [{ n: seededReviews }] = await db.select({ n: count() }).from(s.ownerReviews).where(inArray(s.ownerReviews.id, seedOwnerReviews.map((r) => r.id)));

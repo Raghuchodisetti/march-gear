@@ -1,16 +1,11 @@
 import type { CarModel, Variant } from "@/types";
+import { getCatalog } from "@/server/catalog";
 import { formatINR, formatNumber } from "@/lib/format";
 import { TextLink } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { Bar, RangeRing } from "./meters";
 import { REAL_WORLD_FACTOR, efficiencyOf, parseAc, parseDc, sortedVariants } from "./utils";
 
-const FUEL_PRICE: Record<string, { price: number; unit: string }> = {
-  Petrol: { price: 105, unit: "L" },
-  Hybrid: { price: 105, unit: "L" },
-  Diesel: { price: 92, unit: "L" },
-  CNG: { price: 80, unit: "kg" },
-};
 
 function VariantBars({ variants, unit }: { variants: Variant[]; unit: string }) {
   const max = Math.max(...variants.map((v) => efficiencyOf(v).value));
@@ -42,7 +37,15 @@ function VariantBars({ variants, unit }: { variants: Variant[]; unit: string }) 
 }
 
 /** Mileage section for combustion and hybrid cars. */
-export function CarMileage({ car }: { car: CarModel }) {
+export async function CarMileage({ car }: { car: CarModel }) {
+  // Same fuel prices as the calculators (admin: Site content → Fuel prices & finance rates).
+  const { fuelPrices } = (await getCatalog()).content.toolRates;
+  const FUEL_PRICE: Record<string, { price: number; unit: string }> = {
+    Petrol: { price: fuelPrices.petrol, unit: "L" },
+    Hybrid: { price: fuelPrices.hybrid, unit: "L" },
+    Diesel: { price: fuelPrices.diesel, unit: "L" },
+    CNG: { price: fuelPrices.cng, unit: "kg" },
+  };
   const variants = sortedVariants(car);
   const groups = Array.from(new Set(variants.map((v) => efficiencyOf(v).unit))).map((unit) => ({
     unit,

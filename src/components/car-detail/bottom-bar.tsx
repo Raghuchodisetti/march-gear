@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { onRoadPrice } from "@/data/cities";
 import { formatPriceShort } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useCity, useUI } from "@/components/providers/app-provider";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { useCarDetail } from "./context";
 
 /**
@@ -30,6 +30,7 @@ export function BottomActionBar({
   tone?: "light" | "dark";
 }) {
   const { city } = useCity();
+  const { onRoadPrice } = useCatalog();
   const { openEnquiry, setLocationOpen } = useUI();
   const [hidden, setHidden] = useState(false);
   const dark = tone === "dark";

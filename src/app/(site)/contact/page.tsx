@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Headphones, Mail, Newspaper } from "lucide-react";
-import { contactFaqs, offices, supportChannels, supportHours } from "@/data/editorial-company";
+import { getCatalog } from "@/server/catalog";
 import { PageHeader } from "@/components/ui/page-header";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
@@ -14,13 +14,16 @@ export const metadata: Metadata = {
   description: "Get in touch with March Gear — reader support, dealer partnerships, press enquiries and editorial corrections.",
 };
 
-const channels = [
-  { icon: Mail, label: "Reader support", value: supportChannels.email, copy: "Copy support email" },
-  { icon: Headphones, label: "Helpline", value: supportChannels.phone, copy: "Copy helpline number" },
-  { icon: Newspaper, label: "Press & media", value: supportChannels.press, copy: "Copy press email" },
-];
-
-export default function ContactPage() {
+export default async function ContactPage() {
+  const { site } = (await getCatalog()).content;
+  const { offices, contactFaqs } = site;
+  const supportHours = [{ day: "Phone & email", hours: site.hours }];
+  const channels = [
+    { icon: Mail, label: "Reader support", value: site.supportEmail, copy: "Copy support email" },
+    { icon: Headphones, label: "Helpline", value: site.phone, copy: "Copy helpline number" },
+    { icon: Newspaper, label: "Press & media", value: site.pressEmail, copy: "Copy press email" },
+  ];
+  const homeCity = (offices.find((o) => o.hq) ?? offices[0]).city;
   return (
     <>
       <PageHeader
@@ -95,15 +98,15 @@ export default function ContactPage() {
             <div>
               <Eyebrow>Offices</Eyebrow>
               <h2 id="offices-heading" className="type-h2 mt-5">
-                Based in <span className="type-editorial">Visakhapatnam</span>
+                Based in <span className="type-editorial">{homeCity}</span>
               </h2>
             </div>
             <p className="max-w-md text-[14.5px] leading-relaxed text-muted lg:text-right">Visits are by appointment — call or email ahead and we&apos;ll be glad to meet you.</p>
           </div>
 
           <ul className="mt-12 border-t border-line md:mt-16">
-            {offices.map((o) => (
-              <li key={o.city} className="grid grid-cols-1 gap-8 border-b border-line py-10 md:grid-cols-3 md:gap-10 md:py-12">
+            {offices.map((o, i) => (
+              <li key={i} className="grid grid-cols-1 gap-8 border-b border-line py-10 md:grid-cols-3 md:gap-10 md:py-12">
                 <div>
                 <div className="flex min-h-6 items-center gap-3">
                   <p className="type-eyebrow text-muted">{o.label}</p>
@@ -113,8 +116,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                 <address className="text-[15px] not-italic leading-relaxed text-ink/80">
-                  {o.address.map((line) => (
-                    <span key={line} className="block">
+                  {o.address.map((line, j) => (
+                    <span key={j} className="block">
                       {line}
                     </span>
                   ))}
@@ -148,23 +151,25 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section aria-labelledby="faq-heading" className="bg-mist py-14 md:py-20">
-        <div className="container-x grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-4">
-            <Eyebrow>FAQ</Eyebrow>
-            <h2 id="faq-heading" className="type-h2 mt-5">
-              Quick answers
-            </h2>
-            <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted">The questions our support team hears most often.</p>
-            <TextLink href="/terms" className="mt-6">
-              Terms of use
-            </TextLink>
+      {contactFaqs.length > 0 && (
+        <section aria-labelledby="faq-heading" className="bg-mist py-14 md:py-20">
+          <div className="container-x grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-10">
+            <div className="lg:col-span-4">
+              <Eyebrow>FAQ</Eyebrow>
+              <h2 id="faq-heading" className="type-h2 mt-5">
+                Quick answers
+              </h2>
+              <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted">The questions our support team hears most often.</p>
+              <TextLink href="/terms" className="mt-6">
+                Terms of use
+              </TextLink>
+            </div>
+            <div className="lg:col-span-7 lg:col-start-6">
+              <Accordion items={contactFaqs.map((f, i) => ({ id: `faq-${i}`, title: f.q, content: f.a }))} defaultOpen={["faq-0"]} />
+            </div>
           </div>
-          <div className="lg:col-span-7 lg:col-start-6">
-            <Accordion items={contactFaqs.map((f) => ({ id: f.id, title: f.q, content: f.a }))} defaultOpen={[contactFaqs[0].id]} />
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
     </>
   );
 }

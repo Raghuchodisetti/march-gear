@@ -15,7 +15,7 @@ import {
 import type { SessionUser } from "@/lib/action-result";
 import { signOutAction } from "@/server/actions/auth";
 import { clearWishlistAction, setWishlistItemAction } from "@/server/actions/wishlist";
-import { getCity } from "@/data/cities";
+import { useCatalog } from "@/components/providers/catalog-provider";
 
 export const MAX_COMPARE = 4;
 
@@ -27,6 +27,8 @@ export interface EnquiryRequest {
   subject?: string;
   /** Optional secondary line (variant, location, etc.) */
   detail?: string;
+  /** City name to preselect instead of the visitor's city (e.g. where the car being sold is) */
+  city?: string;
   /** Linked records, stored on the lead for the admin panel */
   carSlug?: string;
   usedCarId?: string;
@@ -208,13 +210,15 @@ export function useCompare() {
   return { slugs, has, toggle, set, remove, clear, max: MAX_COMPARE };
 }
 
+/** The visitor's city, resolved through the catalogue: unset, removed or unknown cities fall back to the default city. */
 export function useCity() {
   const slug = useStore(cityStore);
+  const { getCity } = useCatalog();
   const setCity = useCallback((next: string) => cityStore.set(next), []);
   return { city: getCity(slug), setCity };
 }
 
-const toAccount = (u: SessionUser): AccountUser => ({ ...u, phone: u.phone ?? "", city: u.city ?? "" });
+const toAccount = (u: SessionUser): AccountUser => ({ ...u, phone: u.phone ?? "", state: u.state ?? "", city: u.city ?? "" });
 
 /**
  * The signed-in customer. `ready` turns true once the server has confirmed the session.

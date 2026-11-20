@@ -16,6 +16,9 @@ import { dealerBrandLabel } from "@/components/dealer/dealer-utils";
 import { TabbedPanels, type Panel } from "@/components/dealer/tabbed-panels";
 import { DealerReviews, FacilityGrid, NearbyDealers } from "@/components/dealer/dealer-sections";
 import { VALUATION_YEAR } from "@/components/valuation/valuation";
+import { StockSection } from "@/components/dealer/stock-section";
+import { getDealerStock } from "@/server/partner/inventory";
+import { DealerOffersSection } from "@/components/offers/page-sections";
 
 export async function generateStaticParams() {
   const { dealers } = await getCatalog();
@@ -38,6 +41,8 @@ export default async function DealerPage(props: PageProps<"/dealers/[id]">) {
   const { getDealer, dealerProfile, usedCars, carsByBrand, reviewsForDealer, nearbyDealers, getBrand, brandName } = await getCatalog();
   const dealer = getDealer(id);
   if (!dealer) notFound();
+  // Published new-car stock of the partner behind this listing (dealer portal).
+  const stock = await getDealerStock(dealer.id);
 
   const profile = dealerProfile(dealer.id);
   const used = usedCars.filter((c) => c.seller.dealerId === dealer.id);
@@ -179,6 +184,8 @@ export default async function DealerPage(props: PageProps<"/dealers/[id]">) {
         </div>
       </section>
 
+      <DealerOffersSection dealerId={dealer.id} dealerName={dealer.name} />
+
       {/* Showroom */}
       <section aria-labelledby="showroom-title" className="py-14 md:py-20">
         <div className="container-x grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">
@@ -229,6 +236,8 @@ export default async function DealerPage(props: PageProps<"/dealers/[id]">) {
         </div>
       </section>
 
+      {stock.length > 0 && <StockSection items={stock} dealerId={dealer.id} dealerName={dealer.name} />}
+
       {/* Inventory */}
       <section aria-labelledby="inventory-title" className="border-t border-line py-14 md:py-20">
         <div className="container-x">
@@ -244,6 +253,8 @@ export default async function DealerPage(props: PageProps<"/dealers/[id]">) {
           <div className="mt-10">
             {panels.length > 0 ? (
               <TabbedPanels ariaLabel="Inventory" panels={panels} />
+            ) : stock.length > 0 ? (
+              <p className="max-w-xl text-[14px] text-muted">The new cars in stock are listed above. Pre-owned cars appear here when the showroom lists them.</p>
             ) : (
               <EmptyState
                 title="No cars listed right now"
