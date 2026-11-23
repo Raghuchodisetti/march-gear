@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowUpRight, ChevronDown, GitCompareArrows, Heart, MapPin, Search, X } from "lucide-react";
+import { ArrowUpRight, Bell, CarFront, ChevronDown, ChevronRight, GitCompareArrows, Heart, Inbox, LayoutDashboard, MapPin, Search, X, type LucideIcon } from "lucide-react";
 import { mainNav } from "@/data/navigation";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
@@ -16,7 +16,14 @@ import { useCity, useCompare, useUI, useUser, useWishlist } from "@/components/p
  * Full-screen mobile navigation: large display type, accordion sub-menus and
  * quick actions up top so the most common tasks are one tap away.
  */
-export function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
+const ACCOUNT_LINKS: { href: string; label: string; icon: LucideIcon; badge?: "unread" }[] = [
+  { href: "/account", label: "My account", icon: LayoutDashboard },
+  { href: "/account/garage", label: "My garage", icon: CarFront },
+  { href: "/account/enquiries", label: "Enquiries", icon: Inbox },
+  { href: "/account/notifications", label: "Notifications", icon: Bell, badge: "unread" },
+];
+
+export function MobileNav({ open, onClose, unread = 0 }: { open: boolean; onClose: () => void; /** Unread account notifications (signed-in customers). */ unread?: number }) {
   const isClient = useIsClient();
   const panel = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -73,9 +80,33 @@ export function MobileNav({ open, onClose }: { open: boolean; onClose: () => voi
                   icon={<MapPin className="size-4 text-red" />}
                   label={city.name}
                 />
-                <QuickAction href="/wishlist" onClick={onClose} icon={<Heart className="size-4" />} label={`Saved${count ? ` · ${count}` : ""}`} />
+                <QuickAction href={user ? "/account/saved" : "/wishlist"} onClick={onClose} icon={<Heart className="size-4" />} label={`Saved${count ? ` · ${count}` : ""}`} />
                 <QuickAction href="/compare" onClick={onClose} icon={<GitCompareArrows className="size-4" />} label={`Compare${slugs.length ? ` · ${slugs.length}` : ""}`} />
               </div>
+
+              {user && (
+                <nav aria-label="Your account" className="mt-6">
+                  <p className="type-eyebrow text-muted">Your account</p>
+                  <ul className="mt-3 grid grid-cols-2 gap-2">
+                    {ACCOUNT_LINKS.map(({ href, label, icon: Icon, badge }) => (
+                      <li key={href}>
+                        <Link href={href} onClick={onClose} className="flex h-12 items-center gap-2.5 rounded-[3px] border border-line px-3 text-[13.5px] font-medium">
+                          <Icon aria-hidden className="size-4 shrink-0 text-ink/60" strokeWidth={1.8} />
+                          <span className="min-w-0 flex-1 truncate">{label}</span>
+                          {badge === "unread" && unread > 0 ? (
+                            <span className="rounded-full bg-red px-1.5 py-0.5 text-[10.5px] font-semibold leading-none text-white num">
+                              {unread > 99 ? "99+" : unread}
+                              <span className="sr-only"> unread</span>
+                            </span>
+                          ) : (
+                            <ChevronRight aria-hidden className="size-4 shrink-0 text-muted" />
+                          )}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              )}
 
               <nav aria-label="Mobile" className="mt-8">
                 <ul className="border-t border-line">
@@ -146,13 +177,14 @@ export function MobileNav({ open, onClose }: { open: boolean; onClose: () => voi
           <div className="shrink-0 border-t border-line bg-white px-5 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
             <div className="grid grid-cols-2 gap-2">
               {user ? (
-                <Link href="/profile" onClick={onClose} className="inline-flex h-12 items-center justify-center rounded-[3px] border border-line text-sm font-medium">
-                  {user.name.split(" ")[0]}&apos;s profile
+                <Link href="/account" onClick={onClose} className="relative inline-flex h-12 items-center justify-center gap-2 rounded-[3px] border border-line text-sm font-medium">
+                  My account
+                  {unread > 0 && <span aria-label={`${unread} unread`} className="size-2 rounded-full bg-red" />}
                 </Link>
               ) : (
-                // Before the session is confirmed, link to the profile page — it shows the right state either way.
+                // Before the session is confirmed, link to the account — it sends signed-out visitors to sign in.
                 <Link
-                  href={ready ? "/login" : "/profile"}
+                  href={ready ? "/login" : "/account"}
                   onClick={onClose}
                   className="inline-flex h-12 items-center justify-center rounded-[3px] border border-line text-sm font-medium"
                 >

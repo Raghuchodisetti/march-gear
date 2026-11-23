@@ -27,6 +27,7 @@ import {
   valuationTitle,
   type GearboxKind,
 } from "./valuation";
+import type { CarPrefill } from "./prefill";
 
 const STEPS = [
   { key: "brand", label: "Brand", title: "Which brand is your car?" },
@@ -139,11 +140,34 @@ function validate(step: number, d: Draft): string | undefined {
   }
 }
 
+/** Answers from a prefill that the flow offers, and the first step still needing one. */
+function seedDraft(p: CarPrefill | undefined, catalog: Catalog, brandOptions: { value: string }[]): { draft: Draft; step: number } {
+  if (!p) return { draft: EMPTY, step: 0 };
+  const next: Partial<Draft> = {};
+  if (p.brand && brandOptions.some((o) => o.value === p.brand)) {
+    next.brand = p.brand;
+    const models = modelsForBrand(p.brand, catalog);
+    if (p.model && models.some((m) => m.slug === p.model)) next.modelSlug = p.model;
+    else if (p.modelName) next.modelName = p.modelName;
+  }
+  if (p.year && YEARS.includes(p.year)) next.year = p.year;
+  if (p.fuel && FUELS.includes(p.fuel)) next.fuel = p.fuel;
+  if (p.transmission) next.transmission = p.transmission;
+  if (p.km !== undefined) next.km = Math.min(200_000, Math.round(p.km / 1_000) * 1_000);
+  if (p.city && catalog.cities.some((c) => c.name === p.city)) next.city = p.city;
+  if (!Object.keys(next).length) return { draft: EMPTY, step: 0 };
+  const draft = { ...EMPTY, ...next };
+  // Kilometres always has a value, so it's never the step we jump to.
+  const open = STEPS.findIndex((st, i) => st.key !== "km" && validate(i, draft) !== undefined);
+  return { draft, step: open === -1 ? STEPS.length - 1 : open };
+}
+
 /**
  * Seven-step instant valuation for /sell-car. Tile choices auto-advance;
  * Continue validates; completed steps can be revisited from the summary.
  */
-export function SellFlow({ className }: { className?: string }) {
+/** `prefill` (e.g. from a car in the customer's garage) seeds the answers; the flow starts at the first step still open. */
+export function SellFlow({ className, prefill }: { className?: string; prefill?: CarPrefill }) {
   const { openEnquiry, toast } = useUI();
   const pathname = usePathname();
   const catalog = useCatalog();
@@ -151,9 +175,10 @@ export function SellFlow({ className }: { className?: string }) {
   const popularCities = useMemo(() => catalog.cities.filter((c) => c.popular).map((c) => c.name), [catalog.cities]);
   const otherCities = useMemo(() => catalog.cities.filter((c) => !c.popular).map((c) => ({ value: c.name, label: c.name })), [catalog.cities]);
   const brandOptions = useMemo(() => valuationBrands(catalog), [catalog]);
-  const [step, setStep] = useState(0);
+  const seed = useMemo(() => seedDraft(prefill, catalog, brandOptions), [prefill, catalog, brandOptions]);
+  const [step, setStep] = useState(seed.step);
   const [dir, setDir] = useState(1);
-  const [draft, setDraft] = useState<Draft>(EMPTY);
+  const [draft, setDraft] = useState<Draft>(seed.draft);
   const [error, setError] = useState<string | undefined>();
   const [sending, setSending] = useState(false);
   const [website, setWebsite] = useState("");

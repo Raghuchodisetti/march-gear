@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { createHash } from "node:crypto";
 import { and, count, desc, eq, gt, isNull, like, notInArray, or } from "drizzle-orm";
-import { cookies } from "next/headers";
 import { getDb } from "@/db";
 import { partnerActivity, partnerMembers, partnerNotifications, partnerTickets, sessions, users } from "@/db/schema";
 import { PARTNER_ROLE_LABEL, PARTNER_STATUS_LABEL } from "@/partner/labels";
-import { SESSION_COOKIE } from "@/server/auth";
+import { currentSessionId } from "@/server/auth";
 import { requirePartner } from "@/server/partner/context";
 import { EmptyRow, FilterForm, FilterSelect, Pagination, PortalHeader, SearchInput, Table, Td, Th, formatDateTime, formatDay, pageParam, strParam } from "@/components/portal/ui";
 import { PageTabs } from "@/components/portal/profile/kit";
@@ -55,8 +53,7 @@ export default async function SettingsPage(props: PageProps<"/dealer/settings">)
   const sp = await props.searchParams;
   const db = getDb();
   const now = new Date();
-  const token = (await cookies()).get(SESSION_COOKIE)?.value;
-  const currentId = token ? createHash("sha256").update(token).digest("hex") : null;
+  const currentId = await currentSessionId("dealer");
   const everyone = ctx.can("settings.manage") || ctx.can("staff.manage");
 
   // Activity log filters (GET form inside the Activity tab).

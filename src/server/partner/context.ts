@@ -34,7 +34,7 @@ export const PORTAL_BLOCKED: PartnerStatus[] = ["suspended", "deactivated", "rej
 
 /** The signed-in dealer's context, or null. Deduplicated per request. */
 export const getPartnerContext = cache(async (): Promise<PartnerContext | null> => {
-  const user = await getSessionUser();
+  const user = await getSessionUser("dealer");
   if (!user || user.role !== "dealer") return null;
   const [row] = await getDb()
     .select({ member: partnerMembers, partner: partners })

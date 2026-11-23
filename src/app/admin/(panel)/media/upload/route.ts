@@ -45,7 +45,7 @@ const hint = (v: FormDataEntryValue | null) => {
 };
 
 export async function POST(request: NextRequest) {
-  const user = await getSessionUser();
+  const user = await getSessionUser("staff");
   if (!user) return json({ error: "Your session has expired. Sign in again to upload." }, 401);
   if (!isStaff(user.role)) return json({ error: "Only staff can upload media." }, 403);
   if (!sameOrigin(request)) return json({ error: "Cross-site upload blocked." }, 403);

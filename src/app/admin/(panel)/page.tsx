@@ -11,7 +11,7 @@ import { ActivityFeed } from "@/components/admin/activity";
 export const metadata: Metadata = { title: "Dashboard" };
 
 export default async function DashboardPage({ searchParams }: PageProps<"/admin">) {
-  const [{ kpis, days, byType, recent, deliveries }, activity, me, sp] = await Promise.all([getDashboard(), recentActivity(8), getSessionUser(), searchParams]);
+  const [{ kpis, days, byType, recent, deliveries }, activity, me, sp] = await Promise.all([getDashboard(), recentActivity(8), getSessionUser("staff"), searchParams]);
   const max = Math.max(1, ...days.map((d) => d.n));
   const typeMax = Math.max(1, ...byType.map((t) => t.n));
   const delta = kpis.leadsWeek - kpis.leadsPrevWeek;

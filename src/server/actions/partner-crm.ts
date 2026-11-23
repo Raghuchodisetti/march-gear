@@ -15,6 +15,7 @@ import { activeMember, addLeadEvent, getLeadDetail, leadAccess, leadInScope, lea
 import { getCatalog } from "@/server/catalog";
 import { isDuplicate } from "@/server/db-errors";
 import { email, invalid, mobile, name, optionalText } from "@/server/validation";
+import { notifyCustomerOfDealerStatus } from "@/server/customer/requests";
 import { CALL_OUTCOMES, CRM_FINISHED, MANUAL_SOURCES, formatIstDateTime, fromISTInput } from "@/components/portal/crm/pipeline";
 import type { LeadDetail } from "@/components/portal/crm/types";
 
@@ -235,6 +236,8 @@ async function applyStatus(ctx: PartnerContext, lead: typeof partnerLeads.$infer
     { from: lead.status, to: status, reason: status === "lost" ? (lostReason ?? null) : null },
   );
   await trackOfferConversion(lead.offerId, lead.status, status);
+  // A customer who sent this while signed in sees the customer-visible steps in /account (never the lost reason).
+  await notifyCustomerOfDealerStatus(lead.id, lead.status, status);
   return true;
 }
 

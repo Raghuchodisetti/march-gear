@@ -125,7 +125,7 @@ function ReasonForm({ drive, outcome, onClose }: { drive: TestDriveItem; outcome
     <form onSubmit={submit} noValidate className="space-y-4 px-6 py-6 sm:px-8">
       <Select label="Reason" value={preset} onChange={(e) => setPreset(e.target.value)} options={presets.map((r) => ({ value: r, label: r }))} placeholder="Choose a reason" error={preset !== "Other" ? errors.reason : undefined} data-autofocus />
       {preset === "Other" && <Input label="Describe it" value={other} onChange={(e) => setOther(e.target.value)} maxLength={500} error={errors.reason} />}
-      <p className="text-[12px] text-muted">Logged on the enquiry&apos;s timeline. The customer isn&apos;t messaged automatically — call or WhatsApp them.</p>
+      <p className="text-[12px] text-muted">Logged on the enquiry&apos;s timeline. Customers with a MarchGear account see the update there, but no SMS or WhatsApp is sent — call or WhatsApp them.</p>
       <div className="flex justify-end gap-2">
         <Button variant="ghost" size="sm" onClick={onClose}>
           Back

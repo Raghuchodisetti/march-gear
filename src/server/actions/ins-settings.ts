@@ -1,9 +1,8 @@
 "use server";
 
-import { createHash, randomBytes } from "node:crypto";
+import { randomBytes } from "node:crypto";
 import { z } from "zod";
 import { and, count, eq, inArray, ne } from "drizzle-orm";
-import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { getDb } from "@/db";
 import { insMembers, sessions, users } from "@/db/schema";
@@ -12,7 +11,7 @@ import type { ActionResult } from "@/lib/action-result";
 import { INS_ROLE_LABEL } from "@/insurance/labels";
 import { ALL_INS_PERMISSIONS, INS_PERMISSIONS, INS_ROLE_PERMISSIONS, insPermissionsFor, type InsPermission } from "@/insurance/permissions";
 import { insurerPlans } from "@/content/blocks/insurer-plans";
-import { SESSION_COOKIE, destroyAllSessions, destroySession, hashPassword, verifyPassword } from "@/server/auth";
+import { currentSessionId as sessionIdIn, destroyAllSessions, destroySession, hashPassword, verifyPassword } from "@/server/auth";
 import { getCatalog } from "@/server/catalog";
 import { isDuplicate } from "@/server/db-errors";
 import { INS_PORTAL_BLOCKED, insurerAction, isInsurerError, vendorName, type InsurerContext } from "@/server/insurance/context";
@@ -26,11 +25,8 @@ import { email, invalid, mobile, name, password } from "@/server/validation";
 const TOO_MANY = "Too many attempts. Please wait 15 minutes and try again.";
 const CHECK = "Please check the highlighted fields.";
 
-/** The current session's id (sessions store the SHA-256 of the cookie token). */
-async function currentSessionId() {
-  const token = (await cookies()).get(SESSION_COOKIE)?.value;
-  return token ? createHash("sha256").update(token).digest("hex") : null;
-}
+/** This browser's insurance-portal session id (sessions store the SHA-256 of the cookie token). */
+const currentSessionId = () => sessionIdIn("insurer");
 
 /* ── Your account ───────────────────────────────────────────── */
 
@@ -118,7 +114,7 @@ export async function signOutInsSessionsAction(input: unknown): Promise<ActionRe
     null,
     everywhere.data.everywhere ? `Signed out everywhere (${n + 1} session${n ? "s" : ""})` : `Signed out everywhere else (${n} session${n === 1 ? "" : "s"})`,
   );
-  if (everywhere.data.everywhere) await destroySession();
+  if (everywhere.data.everywhere) await destroySession("insurer");
   else revalidatePath("/insurance-vendor/settings");
   return { ok: true, count: n };
 }

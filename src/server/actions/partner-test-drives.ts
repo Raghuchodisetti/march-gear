@@ -14,6 +14,7 @@ import { activeMember, addLeadEvent, leadAccess, leadInScope, slotConflicts, tes
 import { getCatalog } from "@/server/catalog";
 import { isDuplicate } from "@/server/db-errors";
 import { email, invalid, mobile, name, optionalText } from "@/server/validation";
+import { notifyCustomerOfTestDrive } from "@/server/customer/requests";
 import { CRM_FINISHED, PIPELINE_RANK, formatTime, formatWhen, fromISTInput } from "@/components/portal/crm/pipeline";
 
 /* ──────────────────────────────────────────────────────────────
@@ -199,6 +200,8 @@ export async function createTestDriveAction(input: unknown): Promise<ActionResul
   }
   await onLead(ctx, d.leadId ?? null, `Test drive ${ref} booked for ${when(at)} · ${car.carLabel}${d.note ? `\n${d.note}` : ""}`, { testDriveId: id, reference: ref, status: "scheduled" }, true, who.id);
   await tellAssignee(ctx, who.id, { id, reference: ref, customerName: d.customerName }, at);
+  // Booked on a website customer's enquiry: they see it in /account/test-drives.
+  if (d.leadId) await notifyCustomerOfTestDrive(id);
   await logPartnerActivity(ctx.partner.id, ctx.user.id, "create", "test_drive", id, `Booked test drive ${ref} for ${d.customerName}`);
   const warning = await conflictWarning(ctx.partner.id, who.id, at, id);
   refresh();
@@ -258,6 +261,7 @@ export async function scheduleTestDriveAction(input: unknown): Promise<Result> {
   const verb = status === "accepted" ? "accepted (time to be confirmed)" : status === "rescheduled" ? `rescheduled to ${when(at!)}` : `scheduled for ${when(at!)}`;
   await onLead(ctx, td.leadId, `Test drive ${td.reference} ${verb} · ${label}${d.note ? `\n${d.note}` : ""}`, { testDriveId: td.id, status }, Boolean(at), who.id);
   if (who.id !== td.assignedMemberId || at) await tellAssignee(ctx, who.id, td, at);
+  await notifyCustomerOfTestDrive(td.id);
   await logPartnerActivity(ctx.partner.id, ctx.user.id, status, "test_drive", td.id, `Test drive ${td.reference} ${verb}`);
   const warning = await conflictWarning(ctx.partner.id, who.id, at ?? td.scheduledAt, td.id);
   refresh();
@@ -327,6 +331,8 @@ export async function closeTestDriveAction(input: unknown): Promise<Result> {
   if (outcome === "rejected" && td.status !== "requested") return { ok: false, error: "Only new requests can be rejected — cancel the booking instead." };
   await getDb().update(partnerTestDrives).set({ status: outcome, feedback: reason }).where(eq(partnerTestDrives.id, td.id));
   await onLead(ctx, td.leadId, `Test drive ${td.reference} ${outcome === "rejected" ? "request rejected" : "cancelled"} · ${reason}`, { testDriveId: td.id, status: outcome });
+  // The customer is told it's off — never the dealer's reason.
+  await notifyCustomerOfTestDrive(td.id);
   await logPartnerActivity(ctx.partner.id, ctx.user.id, outcome, "test_drive", td.id, `Test drive ${td.reference} ${outcome}`);
   refresh();
   return { ok: true };
@@ -370,6 +376,7 @@ export async function completeTestDriveAction(input: unknown): Promise<Result> {
       ? `Test drive ${td.reference} completed${rating ? ` · rated ${rating}/5` : ""}${feedback ? `\n${feedback}` : ""}`
       : `Customer didn't turn up for test drive ${td.reference}${feedback ? `\n${feedback}` : ""}`;
   await onLead(ctx, td.leadId, body, { testDriveId: td.id, status: outcome, rating: rating ?? null });
+  if (!editingFeedback) await notifyCustomerOfTestDrive(td.id);
   if (!editingFeedback) await logPartnerActivity(ctx.partner.id, ctx.user.id, outcome, "test_drive", td.id, `Test drive ${td.reference}: ${TEST_DRIVE_STATUS_LABEL[outcome]}`);
   refresh();
   return { ok: true };

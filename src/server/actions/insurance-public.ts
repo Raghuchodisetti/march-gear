@@ -160,7 +160,7 @@ export async function submitInsuranceEnquiryAction(input: InsuranceEnquiryInput)
     return a && (a.house || a.insVendorId === p.vendorId) ? a.id : null;
   };
 
-  const user = await getSessionUser();
+  const user = await getSessionUser("customer");
   const source = d.source ?? "quotes";
   const assumptions = vehicleAssumptions(vehicle);
   const receipts: EnquiryReceipt[] = [];
@@ -387,7 +387,7 @@ export async function respondToQuoteAction(token: string, input: QuoteResponseIn
   if (row.q.validUntil < todayISO()) return { ok: false, error: "This quote has expired. Ask the insurer for a fresh one." };
 
   const now = new Date();
-  const user = await getSessionUser();
+  const user = await getSessionUser("customer");
   const updated = await db.transaction(async (tx) => {
     const [res] = await tx.update(insQuotes).set({ status: response, respondedAt: now }).where(and(eq(insQuotes.id, row.q.id), eq(insQuotes.status, "submitted")));
     if (!res.affectedRows) return false;

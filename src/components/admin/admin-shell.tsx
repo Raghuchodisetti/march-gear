@@ -52,7 +52,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { UserRole } from "@/db/enums";
-import { signOutAction } from "@/server/actions/auth";
+import { adminSignOutAction } from "@/server/actions/auth";
 
 interface NavItem {
   href: string;
@@ -219,7 +219,7 @@ export function AdminShell({
     !g.collapsible || g.items.some((i) => active(i.href)) || folded[g.title ?? ""] === false;
 
   const signOut = async () => {
-    await signOutAction();
+    await adminSignOutAction();
     router.replace("/admin/login");
     router.refresh();
   };

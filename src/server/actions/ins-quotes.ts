@@ -14,6 +14,7 @@ import { addEnquiryEvent, enquiryInScope, quoteScope, setEnquiryStatus } from "@
 import { builderProducts, insuranceSettings, pricingConfig, resolveVehicle } from "@/server/insurance/quote-builder";
 import { isDuplicate } from "@/server/db-errors";
 import { invalid, isoDate, todayISO } from "@/server/validation";
+import { notifyCustomerOfQuote } from "@/server/customer/notifications";
 import { addDays } from "@/components/portal/billing/shared";
 import { QUOTE_MOVES_FROM } from "@/components/insurance/vendor/crm/shared";
 import { MAX_COVER_LINES, priceQuote, productProblems } from "@/components/insurance/vendor/quotes/pricing";
@@ -187,7 +188,8 @@ async function submit(ctx: InsurerContext, quote: typeof insQuotes.$inferSelect)
   const products = await builderProducts(ctx.vendor.id);
   if (!quote.productId || !products.some((p) => p.id === quote.productId)) return { ok: false, error: "The product on this quote is no longer approved. Choose another product." };
 
-  await db.update(insQuotes).set({ status: "submitted", submittedAt: new Date(), shareToken: shareToken() }).where(eq(insQuotes.id, quote.id));
+  const token = shareToken();
+  await db.update(insQuotes).set({ status: "submitted", submittedAt: new Date(), shareToken: token }).where(eq(insQuotes.id, quote.id));
   await addEnquiryEvent(
     ctx,
     enquiry.id,
@@ -208,6 +210,14 @@ async function submit(ctx: InsurerContext, quote: typeof insQuotes.$inferSelect)
     await logInsurerActivity(ctx.vendor.id, ctx.user.id, "status", "renewal", r.id, `Quote ${quote.reference} sent → Quote sent`);
   }
   await logInsurerActivity(ctx.vendor.id, ctx.user.id, "submit", "quote", quote.id, `Sent ${quote.reference} to ${enquiry.name} (${rs(quote.total)})`);
+  // A signed-in customer also finds it in /account/notifications (no SMS or email is sent).
+  await notifyCustomerOfQuote({
+    userId: enquiry.userId,
+    vendorName: ctx.vendor.brandName || ctx.vendor.legalName || "Your insurer",
+    car: [enquiry.brandName, enquiry.modelName].filter(Boolean).join(" ") || null,
+    quote: { reference: quote.reference, total: quote.total, authorization: quote.authorization, insurerQuoteRef: quote.insurerQuoteRef, validUntil: quote.validUntil },
+    token,
+  });
   return { ok: true };
 }
 

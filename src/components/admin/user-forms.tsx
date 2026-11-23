@@ -6,7 +6,7 @@ import { Check, Copy, KeyRound, Loader2, LogOut, UserPlus } from "lucide-react";
 import { USER_ROLES, type UserRole } from "@/db/enums";
 import { INDIAN_STATES } from "@/data/states";
 import type { ActionResult } from "@/lib/action-result";
-import { changePasswordAction } from "@/server/actions/auth";
+import { adminChangePasswordAction } from "@/server/actions/auth";
 import { createStaffAction, resetUserPasswordAction, signOutEverywhereAction, updateUserAction } from "@/server/actions/admin";
 import { useUI } from "@/components/providers/app-provider";
 import { Button } from "@/components/ui/button";
@@ -206,7 +206,7 @@ export function ChangePasswordForm() {
       return setMismatch(true);
     }
     setMismatch(false);
-    if (await run(() => changePasswordAction({ current: v.current, next: v.next }), "Password changed. Other devices were signed out.")) setV({ current: "", next: "", confirm: "" });
+    if (await run(() => adminChangePasswordAction({ current: v.current, next: v.next }), "Password changed. Other devices were signed out.")) setV({ current: "", next: "", confirm: "" });
   };
 
   return (

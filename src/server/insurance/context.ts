@@ -28,8 +28,6 @@ export interface InsurerContext {
   approved: boolean;
 }
 
-/** Insurer sessions last a week (like dealer sessions). */
-export const INSURER_SESSION_TTL = 7 * 86_400_000;
 
 /** Statuses in which the full portal (products, enquiries, campaigns…) is open. */
 export const INS_PORTAL_OPEN: InsVendorStatus[] = ["approved"];
@@ -38,7 +36,7 @@ export const INS_PORTAL_BLOCKED: InsVendorStatus[] = ["suspended", "rejected"];
 
 /** The signed-in vendor user's context, or null. Deduplicated per request. */
 export const getInsurerContext = cache(async (): Promise<InsurerContext | null> => {
-  const user = await getSessionUser();
+  const user = await getSessionUser("insurer");
   if (!user || user.role !== "insurer") return null;
   const [row] = await getDb()
     .select({ member: insMembers, vendor: insVendors })

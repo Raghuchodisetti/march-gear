@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { readCarPrefill } from "@/components/valuation/prefill";
 import Image from "next/image";
 import { BadgeCheck, Banknote, Car, Clock, FileText, Handshake, Phone, Quote, ShieldCheck, Timer, Wrench, type LucideIcon } from "lucide-react";
 import type { SellIcon } from "@/content/blocks/sell";
@@ -33,7 +34,9 @@ const BENEFIT_ICONS: Record<SellIcon, LucideIcon> = {
   phone: Phone,
 };
 
-export default async function SellCarPage() {
+export default async function SellCarPage({ searchParams }: PageProps<"/sell-car">) {
+  // ?brand=&model=&year=&km=&fuel=&gearbox=&city= — e.g. "Sell this car" from the customer's garage.
+  const prefill = readCarPrefill(await searchParams);
   const { stats, steps, benefits, testimonials, faqs } = (await getCatalog()).content.sell;
   return (
     <>
@@ -74,7 +77,7 @@ export default async function SellCarPage() {
             </dl>
           </div>
           <div id="valuation" className="min-w-0 scroll-mt-24 lg:pt-14">
-            <SellFlow />
+            <SellFlow prefill={prefill} />
           </div>
         </div>
       </section>

@@ -6,7 +6,7 @@ import { getDb } from "@/db";
 import { insMembers, insVendors, users } from "@/db/schema";
 import type { ActionResult } from "@/lib/action-result";
 import { emptyInsurerApplication } from "@/insurance/application";
-import { INS_PORTAL_OPEN, INSURER_SESSION_TTL } from "@/server/insurance/context";
+import { INS_PORTAL_OPEN } from "@/server/insurance/context";
 import { insReference, logInsurerActivity, recordInsApproval } from "@/server/insurance/records";
 import { createSession, destroySession, hashPassword, verifyPassword } from "@/server/auth";
 import { isDuplicate } from "@/server/db-errors";
@@ -43,12 +43,12 @@ export async function insurerSignInAction(input: unknown): Promise<ActionResult<
   const valid = await verifyPassword(parsed.data.password, user?.passwordHash);
   if (!user || !valid) return { ok: false, error: "Email or password is incorrect." };
   if (user.role !== "insurer")
-    return { ok: false, error: "This isn't an insurance vendor account. Customers sign in at /login, dealer partners at /dealer/login and MarchGear staff at /admin." };
+    return { ok: false, error: "This isn't an insurance vendor account. Customers sign in at /login, dealer partners at /dealer/login and MarchGear staff at /admin/login." };
   if (!user.isActive) return { ok: false, error: "This account has been deactivated. Contact your company's owner or administrator." };
   const next = await landing(user.id);
   if (!next) return { ok: false, error: "Your access to this company has been removed. Contact its owner or administrator." };
   keys.forEach(reset);
-  await createSession(user.id, INSURER_SESSION_TTL);
+  await createSession(user.id, "insurer");
   return { ok: true, next };
 }
 
@@ -93,7 +93,7 @@ export async function insurerRegisterAccountAction(input: unknown): Promise<Acti
       await tx.insert(insMembers).values({ vendorId, userId: u.insertId, role: "owner" });
       return { vendorId, userId: u.insertId };
     });
-    await createSession(created.userId, INSURER_SESSION_TTL);
+    await createSession(created.userId, "insurer");
     await recordInsApproval({ vendorId: created.vendorId, target: "vendor", targetId: created.vendorId, action: "created", toStatus: "draft", actorUserId: created.userId, actorSide: "vendor" });
     await logInsurerActivity(created.vendorId, created.userId, "create", "application", created.vendorId, "Started the insurance vendor application");
     return { ok: true, next: "/insurance-vendor/register/contact" };
@@ -104,6 +104,6 @@ export async function insurerRegisterAccountAction(input: unknown): Promise<Acti
 }
 
 export async function insurerSignOutAction(): Promise<ActionResult> {
-  await destroySession();
+  await destroySession("insurer");
   return { ok: true };
 }

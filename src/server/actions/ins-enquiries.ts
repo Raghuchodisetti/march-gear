@@ -13,6 +13,7 @@ import { insReference, logInsurerActivity, notifyInsurer } from "@/server/insura
 import { activeMember, addEnquiryEvent, enquiryAccess, enquiryInScope, istStart, setEnquiryStatus } from "@/server/insurance/crm";
 import { isDuplicate } from "@/server/db-errors";
 import { invalid, isoDate, optionalText, todayISO } from "@/server/validation";
+import { notifyCustomerOfPolicyIssued } from "@/server/customer/notifications";
 import { formatIstDateTime, fromISTInput } from "@/components/portal/crm/pipeline";
 import { istDate } from "@/components/portal/billing/shared";
 import { CALL_OUTCOMES, INS_LEAD_FINISHED, policyExpiryFrom } from "@/components/insurance/vendor/crm/shared";
@@ -238,6 +239,9 @@ export async function markPolicyIssuedAction(input: unknown): Promise<ActionResu
   );
   if (!editing)
     await addEnquiryEvent(ctx, lead.id, "status", `${INS_LEAD_STATUS_LABEL[lead.status]} → ${INS_LEAD_STATUS_LABEL.policy_issued}`, { from: lead.status, to: "policy_issued", reason: null });
+  // The customer sees it as reported by the insurer (MarchGear verifies conversions separately).
+  if (!editing)
+    await notifyCustomerOfPolicyIssued({ userId: lead.userId, vendorName: ctx.vendor.brandName || ctx.vendor.legalName || "Your insurer", car: [lead.brandName, lead.modelName].filter(Boolean).join(" ") || null, issuedOn: d.issuedOn });
   await logInsurerActivity(ctx.vendor.id, ctx.user.id, "policy_issued", "enquiry", lead.id, `${lead.reference}: policy ${d.policyNumber} reported (₹${d.premium.toLocaleString("en-IN")})`);
   refresh();
   return { ok: true };

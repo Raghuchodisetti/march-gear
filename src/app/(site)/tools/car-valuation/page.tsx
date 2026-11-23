@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { ValuationTool } from "@/components/valuation/valuation-tool";
+import { readCarPrefill } from "@/components/valuation/prefill";
 
 export const metadata: Metadata = {
   title: "Car valuation — what is my car worth?",
@@ -31,7 +32,9 @@ const METHOD = [
   },
 ];
 
-export default function CarValuationPage() {
+export default async function CarValuationPage({ searchParams }: PageProps<"/tools/car-valuation">) {
+  // ?brand=&model=&year=&km=&fuel=&gearbox=&city= — e.g. from a car in the customer's garage.
+  const prefill = readCarPrefill(await searchParams);
   return (
     <>
       <PageHeader
@@ -46,7 +49,7 @@ export default function CarValuationPage() {
       />
 
       <section className="container-x py-14 md:py-20" aria-label="Valuation calculator">
-        <ValuationTool />
+        <ValuationTool prefill={prefill} />
       </section>
 
       <section className="border-t border-line py-14 md:py-20" aria-labelledby="method-title">

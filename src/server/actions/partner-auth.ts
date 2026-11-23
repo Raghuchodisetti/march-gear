@@ -12,9 +12,8 @@ import { logPartnerActivity, recordApproval, reference } from "@/server/partner/
 import { HOUR, MINUTE, allowFromIp, clientIp, reset, take } from "@/server/rate-limit";
 import { email, invalid, mobile, name, password } from "@/server/validation";
 
-/* Dealer portal sign-in, sign-up (registration step 1) and sign-out. */
+/* Dealer portal sign-in, sign-up (registration step 1) and sign-out — the dealer login only (its own session). */
 
-const DEALER_TTL = 7 * 86_400_000;
 const TOO_MANY = "Too many attempts. Please wait 15 minutes and try again.";
 
 /** Where a signed-in dealer should land. */
@@ -40,12 +39,12 @@ export async function dealerSignInAction(input: unknown): Promise<ActionResult<{
   const [user] = await getDb().select().from(users).where(eq(users.email, parsed.data.email));
   const valid = await verifyPassword(parsed.data.password, user?.passwordHash);
   if (!user || !valid) return { ok: false, error: "Email or password is incorrect." };
-  if (user.role !== "dealer") return { ok: false, error: "This isn't a dealer partner account. Customers sign in at /login and MarchGear staff at /admin." };
+  if (user.role !== "dealer") return { ok: false, error: "This isn't a dealer partner account. Customers sign in at /login, insurance vendors at /insurance-vendor/login and MarchGear staff at /admin/login." };
   if (!user.isActive) return { ok: false, error: "This account has been disabled. Contact your dealership's administrator." };
   const next = await landing(user.id);
   if (!next) return { ok: false, error: "Your access to this dealership has been removed. Contact its owner or administrator." };
   keys.forEach(reset);
-  await createSession(user.id, DEALER_TTL);
+  await createSession(user.id, "dealer");
   return { ok: true, next };
 }
 
@@ -89,7 +88,7 @@ export async function dealerRegisterAccountAction(input: unknown): Promise<Actio
       await tx.insert(partnerMembers).values({ partnerId: pid, userId: u.insertId, role: "owner" });
       return { partnerId: pid, userId: u.insertId };
     });
-    await createSession(created.userId, DEALER_TTL);
+    await createSession(created.userId, "dealer");
     await recordApproval({ partnerId: created.partnerId, target: "partner", action: "created", toStatus: "draft", actorUserId: created.userId, actorSide: "dealer" });
     await logPartnerActivity(created.partnerId, created.userId, "create", "application", null, "Started the dealer partner application");
     return { ok: true, next: "/dealer/register/personal-details" };
@@ -100,7 +99,7 @@ export async function dealerRegisterAccountAction(input: unknown): Promise<Actio
 }
 
 export async function dealerSignOutAction(): Promise<ActionResult> {
-  await destroySession();
+  await destroySession("dealer");
   return { ok: true };
 }
 

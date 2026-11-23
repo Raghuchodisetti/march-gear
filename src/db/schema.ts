@@ -429,6 +429,62 @@ export const sessions = mysqlTable(
   (t) => [index("sessions_user_idx").on(t.userId)],
 );
 
+/** Cars a customer owns — their garage on /account, for reminders (insurance, PUC, service) and quick actions. Private to the customer. */
+export const customerVehicles = mysqlTable(
+  "customer_vehicles",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    userId: int("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    nickname: varchar("nickname", { length: 60 }),
+    /** Catalogue slugs when the car is in the catalogue (brand/model/variant), with display names either way. */
+    brand: varchar("brand", { length: 80 }),
+    brandName: varchar("brand_name", { length: 80 }).notNull(),
+    model: varchar("model", { length: 120 }),
+    modelName: varchar("model_name", { length: 120 }).notNull(),
+    variant: varchar("variant", { length: 120 }),
+    variantName: varchar("variant_name", { length: 120 }),
+    year: int("year"),
+    fuel: varchar("fuel", { length: 16 }),
+    transmission: varchar("transmission", { length: 20 }),
+    regNumber: varchar("reg_number", { length: 16 }),
+    city: varchar("city", { length: 64 }),
+    state: varchar("state", { length: 64 }),
+    purchasedOn: date("purchased_on", { mode: "string" }),
+    odometerKm: int("odometer_km"),
+    insurer: varchar("insurer", { length: 160 }),
+    policyNumber: varchar("policy_number", { length: 60 }),
+    insuranceExpiry: date("insurance_expiry", { mode: "string" }),
+    pucExpiry: date("puc_expiry", { mode: "string" }),
+    serviceDueOn: date("service_due_on", { mode: "string" }),
+    serviceDueKm: int("service_due_km"),
+    warrantyUntil: date("warranty_until", { mode: "string" }),
+    notes: varchar("notes", { length: 500 }),
+    createdAt: created(),
+    updatedAt: updated(),
+  },
+  (t) => [index("customer_vehicles_user_idx").on(t.userId)],
+);
+
+/** What happened on a customer's requests (dealer replies, test drives, insurance quotes…), shown on /account/notifications. */
+export const customerNotifications = mysqlTable(
+  "customer_notifications",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    userId: int("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    kind: varchar("kind", { length: 40 }).notNull(),
+    title: varchar("title", { length: 200 }).notNull(),
+    body: varchar("body", { length: 500 }),
+    href: varchar("href", { length: 300 }),
+    readAt: datetime("read_at"),
+    createdAt: created(),
+  },
+  (t) => [index("customer_notifications_user_idx").on(t.userId, t.createdAt)],
+);
+
 export const wishlistItems = mysqlTable(
   "wishlist_items",
   {

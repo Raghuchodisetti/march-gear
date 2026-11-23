@@ -114,7 +114,7 @@ export async function submitLeadAction(input: LeadInput): Promise<ActionResult<{
   // Bots get a convincing success and nothing is stored.
   if (website) return { ok: true, reference: reference(lead.type) };
 
-  const user = await getSessionUser();
+  const user = await getSessionUser("customer");
   const db = getDb();
   for (let attempt = 0; attempt < 3; attempt++) {
     const ref = reference(lead.type);
@@ -190,7 +190,7 @@ export async function submitOwnerReviewAction(input: unknown): Promise<ActionRes
     .from(cars)
     .where(and(eq(cars.slug, parsed.data.carSlug), eq(cars.status, "published")));
   if (!car) return { ok: false, fieldErrors: { carSlug: "Choose your car" } };
-  const user = await getSessionUser();
+  const user = await getSessionUser("customer");
   const id = `or-${Date.now().toString(36)}${randomInt(36 ** 3).toString(36)}`;
   await db.insert(ownerReviews).values({ ...parsed.data, id, date: todayISO(), status: "pending", userId: user?.id ?? null });
   return { ok: true, id };

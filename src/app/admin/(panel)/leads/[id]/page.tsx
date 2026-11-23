@@ -15,7 +15,7 @@ export default async function LeadPage({ params }: PageProps<"/admin/leads/[id]"
   const data = /^\d+$/.test(id) ? await getLead(Number(id)) : null;
   if (!data) notFound();
   const { lead, notes, staff, account } = data;
-  const me = await getSessionUser();
+  const me = await getSessionUser("staff");
   const details = Object.entries(lead.details ?? {});
 
   const rows: [string, React.ReactNode][] = [

@@ -6,14 +6,15 @@ import { getDb } from "@/db";
 import { users } from "@/db/schema";
 import type { ActionResult, WishlistData } from "@/lib/action-result";
 import {
-  SESSION_TTL,
+  REALM_LOGIN,
   createSession,
   destroyAllSessions,
   destroySession,
   getSessionUser,
   hashPassword,
-  isStaff,
+  realmOf,
   verifyPassword,
+  type SessionRealm,
   type SessionUser,
 } from "@/server/auth";
 import { HOUR, MINUTE, allowFromIp, clientIp, reset, take } from "@/server/rate-limit";
@@ -36,8 +37,10 @@ type AuthResult = ActionResult<{ user: SessionUser; wishlist: WishlistData }>;
 
 const TOO_MANY = "Too many attempts. Please wait 15 minutes and try again.";
 
-async function signedIn(userId: number, local: Partial<WishlistData> | undefined, staff = false): Promise<AuthResult> {
-  await createSession(userId, staff ? SESSION_TTL.staff : SESSION_TTL.customer);
+/* Website (customer) sign-in. Staff, dealer and insurance vendor accounts each have their own login. */
+
+async function signedIn(userId: number, local: Partial<WishlistData> | undefined): Promise<AuthResult> {
+  await createSession(userId, "customer");
   await mergeWishlist(userId, local);
   const [u] = await getDb().select().from(users).where(eq(users.id, userId));
   return {
@@ -93,31 +96,46 @@ async function checkCredentials(input: unknown) {
   return { user, wishlist: parsed.data.wishlist };
 }
 
+/** "This is a staff account — use the staff admin sign-in." */
+const otherLogin = (realm: SessionRealm, kind: string) => `This is ${kind} account. Use ${REALM_LOGIN[realm].label} (${REALM_LOGIN[realm].href}).`;
+const ACCOUNT_KIND: Record<SessionRealm, string> = { customer: "a MarchGear website", staff: "a staff", dealer: "a dealer partner", insurer: "an insurance vendor" };
+
 export async function signInAction(input: unknown): Promise<AuthResult> {
   const checked = await checkCredentials(input);
   if (checked.result) return checked.result;
-  return signedIn(checked.user!.id, checked.wishlist, isStaff(checked.user!.role));
+  const realm = realmOf(checked.user!.role);
+  if (realm !== "customer") return { ok: false, error: otherLogin(realm, ACCOUNT_KIND[realm]) };
+  return signedIn(checked.user!.id, checked.wishlist);
 }
 
-/** Admin panel sign-in: staff accounts only. */
+/** Signs out of the website only (the admin and the portals keep their own sign-ins). */
+export async function signOutAction(): Promise<ActionResult> {
+  await destroySession("customer");
+  return { ok: true };
+}
+
+/* Staff admin sign-in: staff accounts only, with their own session. */
+
 export async function adminSignInAction(input: unknown): Promise<ActionResult> {
   const checked = await checkCredentials(input);
   if (checked.result) return checked.result;
-  if (!isStaff(checked.user!.role)) return { ok: false, error: "This account doesn't have admin access." };
-  await createSession(checked.user!.id, SESSION_TTL.staff);
+  const realm = realmOf(checked.user!.role);
+  if (realm !== "staff") return { ok: false, error: otherLogin(realm, ACCOUNT_KIND[realm]) };
+  await createSession(checked.user!.id, "staff");
   await audit(checked.user!.id, "login", "session", checked.user!.id, `${checked.user!.name} signed in to the admin panel`);
   return { ok: true };
 }
 
-export async function signOutAction(): Promise<ActionResult> {
-  await destroySession();
+/** Signs out of the staff admin only. */
+export async function adminSignOutAction(): Promise<ActionResult> {
+  await destroySession("staff");
   return { ok: true };
 }
 
 const profileSchema = z.object({ name, phone: optionalMobile, state, city });
 
 export async function updateProfileAction(input: unknown): Promise<ActionResult<{ user: SessionUser }>> {
-  const me = await getSessionUser();
+  const me = await getSessionUser("customer");
   if (!me) return { ok: false, error: "Your session has expired. Please sign in again." };
   const parsed = profileSchema.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
@@ -131,8 +149,18 @@ export async function updateProfileAction(input: unknown): Promise<ActionResult<
 
 const passwordSchema = z.object({ current: z.string().min(1, "Enter your current password"), next: password });
 
+/** Website account password change. */
 export async function changePasswordAction(input: unknown): Promise<ActionResult> {
-  const me = await getSessionUser();
+  return changePassword("customer", input);
+}
+
+/** Staff admin password change (/admin/account). */
+export async function adminChangePasswordAction(input: unknown): Promise<ActionResult> {
+  return changePassword("staff", input);
+}
+
+async function changePassword(realm: "customer" | "staff", input: unknown): Promise<ActionResult> {
+  const me = await getSessionUser(realm);
   if (!me) return { ok: false, error: "Your session has expired. Please sign in again." };
   const parsed = passwordSchema.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
@@ -144,6 +172,6 @@ export async function changePasswordAction(input: unknown): Promise<ActionResult
   reset(`password:${me.id}`);
   // Sign out other devices, keep this one signed in.
   await destroyAllSessions(me.id);
-  await createSession(me.id, isStaff(me.role) ? SESSION_TTL.staff : SESSION_TTL.customer);
+  await createSession(me.id, realm);
   return { ok: true };
 }

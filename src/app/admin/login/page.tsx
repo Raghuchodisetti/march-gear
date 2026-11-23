@@ -6,7 +6,7 @@ import { AdminLoginForm } from "@/components/admin/login-form";
 export const metadata: Metadata = { title: "Sign in" };
 
 export default async function AdminLoginPage() {
-  const user = await getSessionUser();
+  const user = await getSessionUser("staff");
   if (user && isStaff(user.role)) redirect("/admin");
 
   return (

@@ -1,9 +1,8 @@
 "use server";
 
-import { createHash, randomBytes, randomInt } from "node:crypto";
+import { randomBytes, randomInt } from "node:crypto";
 import { z } from "zod";
 import { and, eq, inArray, ne } from "drizzle-orm";
-import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { getDb } from "@/db";
 import {
@@ -28,12 +27,14 @@ import type { ActionResult } from "@/lib/action-result";
 import { LEAD_STATUS_LABEL, LEAD_TYPE_LABEL } from "@/lib/leads";
 import { DEALER_VISITS, LEAD_CHANNELS } from "@/components/admin/options";
 import { audit } from "@/server/audit";
-import { SESSION_COOKIE, STAFF_ROLES, destroyAllSessions, hashPassword, requireStaff, type SessionUser } from "@/server/auth";
+import { STAFF_ROLES, currentSessionId, destroyAllSessions, hashPassword, requireStaff, type SessionUser } from "@/server/auth";
 import { expireCatalog } from "@/server/catalog";
 import { refreshPartnerDealerRating } from "@/server/partner/public-sync";
 import { isIndianState } from "@/data/states";
 import { isDuplicate, isMissingParent } from "@/server/db-errors";
 import { email, invalid, isoDate, mobile, todayISO } from "@/server/validation";
+import { notifyCustomerOfLeadStatus } from "@/server/customer/requests";
+import { notifyCustomerOfReviewDecision } from "@/server/customer/notifications";
 
 /** A name staff type in for someone else (the shared `name` rule speaks to the person themselves). */
 const personName = (message: string) => z.string({ error: message }).trim().min(2, message).max(120, "That name is too long");
@@ -90,6 +91,8 @@ async function applyLeadChanges(me: SessionUser, rows: LeadRef[], patch: LeadPat
   await db.update(leads).set(set).where(inArray(leads.id, changed));
   await db.insert(leadNotes).values(notes);
   for (const entry of log) await audit(me.id, entry.action, "lead", entry.leadId, entry.summary);
+  // Customers who sent the request while signed in see the new status in /account (never staff notes).
+  if (patch.status) for (const lead of rows) if (lead.status !== patch.status) await notifyCustomerOfLeadStatus(lead.id, lead.status, patch.status);
   return changed.length;
 }
 
@@ -297,11 +300,14 @@ export async function setReviewStatusAction(kind: unknown, reviewKey: unknown, s
   const label = await reviewLabel(k, rid);
   if (!label) return REVIEW_GONE;
   const db = getDb();
+  const [before] = k === "owner" ? await db.select({ status: ownerReviews.status, userId: ownerReviews.userId }).from(ownerReviews).where(eq(ownerReviews.id, rid)) : [];
   if (k === "owner") await db.update(ownerReviews).set({ status: st }).where(eq(ownerReviews.id, rid));
   else {
     await db.update(dealerReviews).set({ status: st }).where(eq(dealerReviews.id, rid));
     await refreshPartnerDealerRating(await dealerOfReview(rid));
   }
+  // The owner who wrote it (if signed in at the time) hears whether it was published.
+  if (before && before.status !== st && st !== "pending") await notifyCustomerOfReviewDecision({ userId: before.userId, title: label.title, car: label.about || null, status: st });
   await audit(me.id, "status", reviewEntity(k), rid, `${STATUS_VERB[st]} ${k} review “${label.title}”${label.about ? ` on ${label.about}` : ""}`);
   expireCatalog();
   revalidatePath("/admin", "layout");
@@ -514,8 +520,7 @@ export async function signOutEverywhereAction(userId: unknown): Promise<ActionRe
   const db = getDb();
   const [user] = await db.select({ name: users.name }).from(users).where(eq(users.id, uid.data));
   if (!user) return { ok: false, error: "This account no longer exists." };
-  const token = (await cookies()).get(SESSION_COOKIE)?.value;
-  const current = token ? createHash("sha256").update(token).digest("hex") : null;
+  const current = await currentSessionId("staff");
   const self = uid.data === me.id;
   const [res] = await db.delete(sessions).where(self && current ? and(eq(sessions.userId, uid.data), ne(sessions.id, current)) : eq(sessions.userId, uid.data));
   await audit(me.id, "signout", "user", uid.data, self ? "Signed out of their other sessions" : `Signed ${user.name} out on every device`);

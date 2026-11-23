@@ -64,6 +64,13 @@
       "when": 1795166672012,
       "tag": "0008_insurance_marketplace",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1795181619279,
+      "tag": "0009_customer_portal",
+      "breakpoints": true
     }
   ]
 }

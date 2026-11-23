@@ -37,7 +37,8 @@ export default async function InsuranceRegisterLanding() {
   const ctx = await getInsurerContext();
   // Only people who can edit the application get the wizard; everyone else sees its status.
   if (ctx && (!insEditable(ctx.vendor) || !ctx.can("profile.manage"))) redirect("/insurance-vendor/application-status");
-  const other = ctx ? null : await getSessionUser();
+  // A vendor login (insurance portal session) that no longer belongs to a company. Other logins don't matter here.
+  const orphan = ctx ? null : await getSessionUser("insurer");
 
   return (
     <div className="mx-auto max-w-[1320px] px-4 py-8 md:px-8 md:py-12">
@@ -97,15 +98,10 @@ export default async function InsuranceRegisterLanding() {
             ) : (
               <>
                 <h2 className="font-display text-[28px] font-semibold tracking-[-0.02em]">Create your vendor account</h2>
-                <p className="mt-1.5 text-[14px] text-muted">You&apos;ll use this login for the insurance vendor portal. You become your company&apos;s owner account and can add your team later.</p>
-                {other && other.role !== "insurer" && (
-                  <Note tone="info" className="mt-6">
-                    You&apos;re signed in to MarchGear as {other.email}. Creating a vendor account signs you out of that account on this browser — use a different, work email.
-                  </Note>
-                )}
-                {other?.role === "insurer" && (
+                <p className="mt-1.5 text-[14px] text-muted">You&apos;ll use this login for the insurance vendor portal only — it&apos;s separate from any MarchGear website account. You become your company&apos;s owner account and can add your team later.</p>
+                {orphan && (
                   <Note tone="warn" className="mt-6">
-                    Your vendor login ({other.email}) isn&apos;t linked to an active company any more. Sign out and register with a different email, or contact your company&apos;s owner.
+                    Your vendor login ({orphan.email}) isn&apos;t linked to an active company any more. Sign out and register with a different email, or contact your company&apos;s owner.
                   </Note>
                 )}
                 <div className="mt-8">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState, type FormEvent } from "react";
+import type { CarPrefill } from "./prefill";
 import { AnimatePresence, motion } from "motion/react";
 import { Gauge, LineChart, ListChecks } from "lucide-react";
 import type { FuelType } from "@/types";
@@ -28,20 +29,29 @@ import {
 
 const OTHER = "other";
 
-export function ValuationTool() {
+/** `prefill` (e.g. from a car in the customer's garage) seeds the form; values the tool doesn't offer are ignored. */
+export function ValuationTool({ prefill = {} }: { prefill?: CarPrefill }) {
   const catalog = useCatalog();
   const { usedCars, brandName, cities } = catalog;
   const brandOptions = useMemo(() => valuationBrands(catalog), [catalog]);
-  const [brand, setBrand] = useState("hyundai");
-  const [model, setModel] = useState("hyundai-creta");
-  const [otherModel, setOtherModel] = useState("");
-  const [year, setYear] = useState(2021);
-  const [km, setKm] = useState(42_000);
-  const [fuel, setFuel] = useState<FuelType>("Petrol");
-  const [transmission, setTransmission] = useState<GearboxKind>("Manual");
+  const seed = useMemo(() => {
+    const brand = prefill.brand && brandOptions.some((o) => o.value === prefill.brand) ? prefill.brand : null;
+    const list = brand ? modelsForBrand(brand, catalog) : [];
+    const model = brand ? (prefill.model && list.some((m) => m.slug === prefill.model) ? prefill.model : prefill.modelName || prefill.model ? OTHER : (list[0]?.slug ?? OTHER)) : null;
+    return { brand, model, otherModel: brand && model === OTHER ? (prefill.modelName ?? "") : "" };
+    // The first render's values only.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const [brand, setBrand] = useState(seed.brand ?? "hyundai");
+  const [model, setModel] = useState(seed.model ?? "hyundai-creta");
+  const [otherModel, setOtherModel] = useState(seed.otherModel);
+  const [year, setYear] = useState(prefill.year && YEARS.includes(prefill.year) ? prefill.year : 2021);
+  const [km, setKm] = useState(prefill.km !== undefined ? Math.min(200_000, Math.round(prefill.km / 1_000) * 1_000) : 42_000);
+  const [fuel, setFuel] = useState<FuelType>(prefill.fuel && FUELS.includes(prefill.fuel) ? prefill.fuel : "Petrol");
+  const [transmission, setTransmission] = useState<GearboxKind>(prefill.transmission ?? "Manual");
   const [condition, setCondition] = useState<Condition>("good");
   const [owners, setOwners] = useState("1");
-  const [city, setCity] = useState("Mumbai");
+  const [city, setCity] = useState(prefill.city && cities.some((c) => c.name === prefill.city) ? prefill.city : "Mumbai");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | undefined>();
   const resultRef = useRef<HTMLDivElement>(null);

@@ -29,7 +29,7 @@ export default async function InsuranceQuotesPage(props: PageProps<"/insurance/q
   const today = todayISO();
   const thisYear = Number(today.slice(0, 4));
   const vehicle = resolveVehicle(search, catalog, config, today);
-  const user = await getSessionUser();
+  const user = await getSessionUser("customer");
   const requests = user ? await getCustomerRequests(user.id) : null;
 
   const source = /^[a-z0-9_-]{2,40}$/.test(first(sp.src)) ? first(sp.src) : "quotes";

@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import { createHash } from "node:crypto";
 import { and, count, desc, eq, gt, inArray, isNotNull, like } from "drizzle-orm";
-import { cookies } from "next/headers";
 import { History } from "lucide-react";
 import { getDb } from "@/db";
 import { insActivity, insEnquiries, insMembers, sessions, users } from "@/db/schema";
 import { insurerPlans } from "@/content/blocks/insurer-plans";
 import { INS_BUSINESS_TYPE_LABEL, INS_LEAD_OPEN, INS_ROLE_LABEL, INS_VENDOR_CATEGORY_LABEL, INS_VENDOR_STATUS_LABEL } from "@/insurance/labels";
 import { insPermissionsFor } from "@/insurance/permissions";
-import { SESSION_COOKIE } from "@/server/auth";
+import { currentSessionId } from "@/server/auth";
 import { getCatalog } from "@/server/catalog";
 import { INS_PORTAL_BLOCKED, requireInsurer, vendorName } from "@/server/insurance/context";
 import { FilterForm, FilterSelect, Pagination, PortalHeader, SearchInput, Table, Td, Th, formatDateTime, formatDay, pageParam, strParam } from "@/components/portal/ui";
@@ -60,8 +58,7 @@ export default async function InsuranceSettingsPage(props: PageProps<"/insurance
   const sp = await props.searchParams;
   const db = getDb();
   const now = new Date();
-  const token = (await cookies()).get(SESSION_COOKIE)?.value;
-  const currentId = token ? createHash("sha256").update(token).digest("hex") : null;
+  const currentId = await currentSessionId("insurer");
   const canTeam = ctx.can("team.manage");
   const everyone = canTeam || ctx.can("settings.manage");
 

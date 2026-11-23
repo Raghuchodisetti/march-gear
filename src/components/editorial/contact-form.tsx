@@ -146,8 +146,8 @@ export function ContactForm() {
         {user && (
           <p className="mt-8 text-[12px] text-muted">
             You can follow this request in{" "}
-            <Link href="/profile" className="text-ink underline underline-offset-4 hover:text-red">
-              your profile
+            <Link href="/account/enquiries" className="text-ink underline underline-offset-4 hover:text-red">
+              your enquiries
             </Link>
             .
           </p>

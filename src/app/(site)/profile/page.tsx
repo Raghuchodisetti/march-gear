@@ -1,12 +1,6 @@
-import type { Metadata } from "next";
-import { ProfileView } from "@/components/account/profile-view";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Your profile",
-  description: "Manage your March Gear account — personal details, saved cars, comparisons, enquiries and notification preferences.",
-  robots: { index: false, follow: true },
-};
-
+// The customer area moved to /account.
 export default function ProfilePage() {
-  return <ProfileView />;
+  redirect("/account");
 }

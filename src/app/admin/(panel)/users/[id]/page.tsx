@@ -57,7 +57,7 @@ export default async function UserPage({ params }: PageProps<"/admin/users/[id]"
   const data = /^\d+$/.test(id) ? await getUserDetail(Number(id)) : null;
   if (!data) notFound();
   const { user, leads, saved, sessions } = data;
-  const me = await getSessionUser();
+  const me = await getSessionUser("staff");
   const self = me?.id === user.id;
 
   return (

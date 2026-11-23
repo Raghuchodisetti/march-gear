@@ -1,6 +1,4 @@
 import "server-only";
-import { createHash } from "node:crypto";
-import { cookies } from "next/headers";
 import { and, asc, count, desc, eq, gt, inArray, like, or, type SQL } from "drizzle-orm";
 import { getDb } from "@/db";
 import {
@@ -21,7 +19,7 @@ import {
   type UserRole,
 } from "@/db/schema";
 import { LEGACY_BRANDS } from "@/lib/catalog";
-import { SESSION_COOKIE, requireStaff } from "@/server/auth";
+import { currentSessionId, requireStaff } from "@/server/auth";
 
 const term = (q: string) => `%${q.replace(/[%_\\]/g, (c) => `\\${c}`)}%`;
 
@@ -161,8 +159,8 @@ async function savedItems(userId: number): Promise<SavedItem[]> {
 
 /** Sessions that are still valid; `current` marks the browser making this request. */
 async function activeSessions(userId: number) {
-  const token = (await cookies()).get(SESSION_COOKIE)?.value;
-  const mine = token ? createHash("sha256").update(token).digest("hex") : null;
+  // Staff are looking at this list from the admin, so "this browser" is the staff session.
+  const mine = await currentSessionId("staff");
   const rows = await getDb()
     .select({ id: sessions.id, createdAt: sessions.createdAt, expiresAt: sessions.expiresAt, userAgent: sessions.userAgent, ip: sessions.ip })
     .from(sessions)

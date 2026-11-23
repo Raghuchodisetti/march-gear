@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowUpRight, ChevronDown, Heart, Loader2, LogOut, MapPin, Menu, Search, User } from "lucide-react";
+import { ArrowUpRight, Bell, CarFront, ChevronDown, Heart, Inbox, LayoutDashboard, Loader2, LogOut, MapPin, Menu, Search, User, type LucideIcon } from "lucide-react";
 import { mainNav, type NavItem } from "@/data/navigation";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
@@ -28,8 +28,33 @@ function isActive(pathname: string, item: NavItem) {
   return (roots[item.key] ?? [item.href]).some((r) => pathname === r || pathname.startsWith(`${r}/`));
 }
 
+/**
+ * Unread account notifications for the signed-in customer (from /api/auth/me). Re-read when the account
+ * menu opens and on every page inside /account, so the badge catches up once notifications are read.
+ */
+function useUnreadNotifications(signedIn: boolean, refreshKey: string) {
+  const [unread, setUnread] = useState(0);
+  useEffect(() => {
+    if (!signedIn) return;
+    let cancelled = false;
+    fetch("/api/auth/me", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d: { unreadNotifications?: number } | null) => {
+        if (!cancelled && d) setUnread(Math.max(0, Number(d.unreadNotifications) || 0));
+      })
+      .catch(() => undefined);
+    return () => {
+      cancelled = true;
+    };
+  }, [signedIn, refreshKey]);
+  return signedIn ? unread : 0;
+}
+
 export function Header() {
   const pathname = usePathname();
+  const { user, ready } = useUser();
+  const [menuOpens, setMenuOpens] = useState(0);
+  const unread = useUnreadNotifications(Boolean(ready && user), `${pathname.startsWith("/account") ? pathname : ""}|${menuOpens}`);
   const { city, } = useCity();
   const { setSearchOpen, setLocationOpen } = useUI();
   const { count } = useWishlist();
@@ -167,7 +192,7 @@ export function Header() {
               <span className="hidden whitespace-nowrap 3xl:inline">{city.name}</span>
             </button>
             <Link
-              href="/wishlist"
+              href={user ? "/account/saved" : "/wishlist"}
               aria-label={`Saved cars${count ? ` (${count})` : ""}`}
               className="relative inline-flex size-10 items-center justify-center rounded-full transition-colors duration-[250ms] hover:bg-current/5"
             >
@@ -178,9 +203,11 @@ export function Header() {
                 </span>
               )}
             </Link>
-            <ProfileMenu transparent={transparent} />
-            <HeaderIcon label="Open menu" onClick={() => setMobileOpen(true)} className="lg:hidden">
+            <ProfileMenu transparent={transparent} unread={unread} onOpen={() => setMenuOpens((n) => n + 1)} />
+            <HeaderIcon label={unread ? `Open menu (${unread} unread notification${unread === 1 ? "" : "s"})` : "Open menu"} onClick={() => setMobileOpen(true)} className="relative lg:hidden">
               <Menu className="size-5" />
+              {/* Phones don't show the account menu, so flag unread notifications here (md shows both). */}
+              {unread > 0 && <span aria-hidden className="absolute right-2 top-2 size-2 rounded-full bg-red ring-2 ring-white md:hidden" />}
             </HeaderIcon>
           </div>
         </div>
@@ -217,7 +244,7 @@ export function Header() {
         )}
       </AnimatePresence>
 
-      <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
+      <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} unread={unread} />
     </>
   );
 }
@@ -333,10 +360,21 @@ function MegaPanel({ item, onNavigate }: { item: NavItem; onNavigate: () => void
   );
 }
 
-function ProfileMenu({ transparent }: { transparent: boolean }) {
+const ACCOUNT_LINKS: { href: string; label: string; icon: LucideIcon; badge?: "saved" | "unread" }[] = [
+  { href: "/account", label: "My account", icon: LayoutDashboard },
+  { href: "/account/saved", label: "Saved cars", icon: Heart, badge: "saved" },
+  { href: "/account/garage", label: "My garage", icon: CarFront },
+  { href: "/account/enquiries", label: "Enquiries", icon: Inbox },
+  { href: "/account/notifications", label: "Notifications", icon: Bell, badge: "unread" },
+];
+
+function ProfileMenu({ transparent, unread, onOpen }: { transparent: boolean; unread: number; onOpen: () => void }) {
   // `user` is the device's cached copy (fast first paint); `ready` means the server has confirmed it.
   const { user, ready, logout } = useUser();
+  const { count } = useWishlist();
   const { toast } = useUI();
+  const router = useRouter();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -344,6 +382,9 @@ function ProfileMenu({ transparent }: { transparent: boolean }) {
     setOpen(false);
     await logout();
     toast("You've been signed out");
+    // Account pages are for signed-in customers only.
+    if (pathname.startsWith("/account")) router.push("/");
+    router.refresh();
   };
 
   useEffect(() => {
@@ -372,9 +413,12 @@ function ProfileMenu({ transparent }: { transparent: boolean }) {
         type="button"
         aria-expanded={open}
         aria-haspopup="menu"
-        aria-label={user ? `Account: ${user.name}` : "Account"}
-        onClick={() => setOpen((o) => !o)}
-        className="inline-flex size-10 items-center justify-center rounded-full transition-colors duration-[250ms] hover:bg-current/5"
+        aria-label={user ? `Account: ${user.name}${unread ? ` (${unread} unread notification${unread === 1 ? "" : "s"})` : ""}` : "Account"}
+        onClick={() => {
+          if (!open) onOpen();
+          setOpen((o) => !o);
+        }}
+        className="relative inline-flex size-10 items-center justify-center rounded-full transition-colors duration-[250ms] hover:bg-current/5"
       >
         {user ? (
           <span className={cn("inline-flex size-8 items-center justify-center rounded-full text-[11px] font-semibold", transparent ? "bg-white text-ink" : "bg-ink text-white")}>
@@ -382,6 +426,11 @@ function ProfileMenu({ transparent }: { transparent: boolean }) {
           </span>
         ) : (
           <User className="size-[19px]" aria-hidden />
+        )}
+        {user && unread > 0 && (
+          <span aria-hidden className="absolute right-0 top-0 inline-flex min-w-4 items-center justify-center rounded-full bg-red px-1 text-[10px] font-semibold leading-4 text-white num">
+            {unread > 9 ? "9+" : unread}
+          </span>
         )}
       </button>
       <AnimatePresence>
@@ -396,13 +445,25 @@ function ProfileMenu({ transparent }: { transparent: boolean }) {
           >
             {user ? (
               <>
-                <div className="border-b border-line px-3 pb-3 pt-2">
-                  <p className="font-medium">{user.name}</p>
+                <div className="mb-1 border-b border-line px-3 pb-3 pt-2">
+                  <p className="truncate font-medium">{user.name}</p>
                   <p className="truncate text-[13px] text-muted">{user.email}</p>
                 </div>
-                <MenuLink href="/profile" onClick={() => setOpen(false)}>My profile</MenuLink>
-                <MenuLink href="/wishlist" onClick={() => setOpen(false)}>Saved cars</MenuLink>
-                <MenuLink href="/compare" onClick={() => setOpen(false)}>My comparisons</MenuLink>
+                {ACCOUNT_LINKS.map(({ href, label, icon: Icon, badge }) => {
+                  const n = badge === "saved" ? count : badge === "unread" ? unread : 0;
+                  return (
+                    <MenuLink key={href} href={href} onClick={() => setOpen(false)}>
+                      <Icon aria-hidden className="size-4 shrink-0 text-ink/55" strokeWidth={1.8} />
+                      <span className="flex-1">{label}</span>
+                      {n > 0 && (
+                        <span className={cn("rounded-full px-1.5 py-0.5 text-[10.5px] font-semibold leading-none num", badge === "unread" ? "bg-red text-white" : "bg-mist text-ink")}>
+                          {n > 99 ? "99+" : n}
+                          {badge === "unread" && <span className="sr-only"> unread</span>}
+                        </span>
+                      )}
+                    </MenuLink>
+                  );
+                })}
                 <button
                   type="button"
                   role="menuitem"
@@ -439,7 +500,7 @@ function ProfileMenu({ transparent }: { transparent: boolean }) {
 
 function MenuLink({ href, children, onClick }: { href: string; children: React.ReactNode; onClick: () => void }) {
   return (
-    <Link role="menuitem" href={href} onClick={onClick} className="block px-3 py-2.5 text-[14px] transition-colors hover:bg-mist">
+    <Link role="menuitem" href={href} onClick={onClick} className="flex items-center gap-3 rounded-[3px] px-3 py-2.5 text-[14px] transition-colors hover:bg-mist">
       {children}
     </Link>
   );

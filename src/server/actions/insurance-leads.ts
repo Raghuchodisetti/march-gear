@@ -111,7 +111,7 @@ export async function submitInsuranceLeadAction(input: InsuranceLeadInput): Prom
     details = { topic: HELP_TOPIC_LABEL[d.topic], bestTimeToCall: CALL_TIME_LABEL[d.callTime], car: d.car ?? null };
   }
 
-  const user = await getSessionUser();
+  const user = await getSessionUser("customer");
   const db = getDb();
   for (let attempt = 0; attempt < 3; attempt++) {
     const ref = reference();

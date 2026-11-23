@@ -23,12 +23,12 @@ type OnSuccess = (user: SessionUser, wishlist: WishlistData) => void;
 
 /** Only same-origin paths are allowed after sign-in (rejects //evil, /\evil, etc.). */
 function safeNext(v: string | null) {
-  if (!v) return "/profile";
+  if (!v) return "/account";
   try {
     const url = new URL(v, window.location.origin);
-    return url.origin === window.location.origin ? `${url.pathname}${url.search}${url.hash}` : "/profile";
+    return url.origin === window.location.origin ? `${url.pathname}${url.search}${url.hash}` : "/account";
   } catch {
-    return "/profile";
+    return "/account";
   }
 }
 
@@ -76,7 +76,7 @@ export function AuthPanel() {
         <h1 className="type-h2 mt-5">Welcome{greetingName(welcome) ? `, ${greetingName(welcome)}` : ""}.</h1>
         <p className="mt-4 inline-flex items-center gap-2 text-[15px] text-muted">
           <Loader2 aria-hidden className="size-4 animate-spin text-red" />{" "}
-          {safeNext(params.get("next")) === "/profile" ? "Taking you to your profile…" : "Taking you back…"}
+          {safeNext(params.get("next")) === "/account" ? "Taking you to your account…" : "Taking you back…"}
         </p>
       </div>
     );
@@ -97,10 +97,10 @@ export function AuthPanel() {
           </div>
         </div>
         <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <Button href="/profile" variant="dark" arrow>
-            Go to profile
+          <Button href="/account" variant="dark" arrow>
+            Go to my account
           </Button>
-          <Button href="/wishlist" variant="outline">
+          <Button href="/account/saved" variant="outline">
             Saved cars
           </Button>
         </div>

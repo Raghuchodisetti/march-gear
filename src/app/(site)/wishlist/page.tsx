@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
+import { getSessionUser } from "@/server/auth";
 import { PageHeader } from "@/components/ui/page-header";
 import { WishlistView } from "@/components/account/wishlist-view";
 
@@ -8,7 +10,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-export default function WishlistPage() {
+export default async function WishlistPage() {
+  // Signed-in customers keep their saved cars on their account (/account/saved); guests keep a list on this device.
+  if (await getSessionUser("customer")) redirect("/account/saved");
   return (
     <>
       <PageHeader

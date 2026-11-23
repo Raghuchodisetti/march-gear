@@ -23,7 +23,7 @@ A dealer can be approved while its vehicles/offers are pending. Every submission
 - Server Actions: `const ctx = await partnerAction(perm?, { approved? }); if (isActionError(ctx)) return ctx;` then **scope every query by `ctx.partner.id`** (and for "own" leads by `ctx.member.id`).
 - Permissions: `src/partner/permissions.ts` (`ctx.can("inventory.manage")`). Owner has everything; members may have custom lists.
 - Admin pages/actions: `requireStaff()` (editors + admins); destructive account actions `requireStaff(["admin"])`.
-- Dealer users have `users.role = "dealer"` and sign in at `/dealer/login` (7-day session). They can't use `/admin`.
+- Dealer users have `users.role = "dealer"` and sign in at `/dealer/login` (7-day session, its own `mg_dealer` cookie). They can't use `/admin` or the website sign-in. Logins are separate (see README › Accounts): use `getSessionUser("dealer")` / `createSession(id, "dealer")` / `destroySession("dealer")`.
 
 ## Shared helpers
 - `src/server/partner/records.ts`: `reference("VEH")`, `notifyPartner()`, `logPartnerActivity()`, `recordApproval()`.

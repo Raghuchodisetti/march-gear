@@ -1,15 +1,13 @@
 "use server";
 
-import { createHash } from "node:crypto";
 import { z } from "zod";
 import { and, eq, inArray, ne, notInArray } from "drizzle-orm";
-import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { getDb } from "@/db";
 import { partnerTicketMessages, partnerTickets, partners, sessions, users } from "@/db/schema";
 import { DEFAULT_PREFERENCES, type ActionResult, type UserPreferences } from "@/lib/action-result";
 import { PARTNER_STATUS_LABEL } from "@/partner/labels";
-import { SESSION_COOKIE, hashPassword, verifyPassword } from "@/server/auth";
+import { currentSessionId as sessionIdIn, hashPassword, verifyPassword } from "@/server/auth";
 import { isDuplicate } from "@/server/db-errors";
 import { isActionError, partnerAction } from "@/server/partner/context";
 import { logPartnerActivity, notifyPartner, recordApproval, reference } from "@/server/partner/records";
@@ -23,11 +21,8 @@ import { ALL_CATEGORIES, UNMUTABLE, type DealerNotificationPrefs, type Notificat
 
 const TOO_MANY = "Too many attempts. Please wait 15 minutes and try again.";
 
-/** The current session's id (sessions store the SHA-256 of the cookie token). */
-async function currentSessionId() {
-  const token = (await cookies()).get(SESSION_COOKIE)?.value;
-  return token ? createHash("sha256").update(token).digest("hex") : null;
-}
+/** This browser's dealer-portal session id (sessions store the SHA-256 of the cookie token). */
+const currentSessionId = () => sessionIdIn("dealer");
 
 export async function updateAccountAction(input: unknown): Promise<ActionResult> {
   const ctx = await partnerAction(undefined, { approved: false });

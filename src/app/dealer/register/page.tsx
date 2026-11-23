@@ -28,7 +28,8 @@ export default async function RegisterLanding() {
   const ctx = await getPartnerContext();
   // Only people who can edit the application get the wizard (every step would bounce anyone else to the status page).
   if (ctx && (!isEditable(ctx.partner) || !ctx.can("profile.manage"))) redirect("/dealer/application-status");
-  const other = ctx ? null : await getSessionUser();
+  // A dealer login (dealer portal session) that no longer belongs to a dealership. Other logins don't matter here.
+  const orphan = ctx ? null : await getSessionUser("dealer");
 
   return (
     <div className="mx-auto max-w-[1320px] px-4 py-8 md:px-8 md:py-12">
@@ -93,15 +94,10 @@ export default async function RegisterLanding() {
             ) : (
               <>
                 <h2 className="font-display text-[28px] font-semibold tracking-[-0.02em]">Create your partner account</h2>
-                <p className="mt-1.5 text-[14px] text-muted">Step 1 of your application. You&apos;ll use this login for the dealer portal.</p>
-                {other && other.role !== "dealer" && (
-                  <Note tone="info" className="mt-6">
-                    You&apos;re signed in to MarchGear as {other.email}. Creating a dealer account signs you out of that account on this browser.
-                  </Note>
-                )}
-                {other?.role === "dealer" && (
+                <p className="mt-1.5 text-[14px] text-muted">Step 1 of your application. You&apos;ll use this login for the dealer portal only — it&apos;s separate from any MarchGear website account.</p>
+                {orphan && (
                   <Note tone="warn" className="mt-6">
-                    Your dealer login ({other.email}) isn&apos;t linked to a dealership any more. Sign out and register with a different email, or contact your dealership&apos;s owner.
+                    Your dealer login ({orphan.email}) isn&apos;t linked to a dealership any more. Sign out and register with a different email, or contact your dealership&apos;s owner.
                   </Note>
                 )}
                 <div className="mt-8">
