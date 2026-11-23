@@ -1,6 +1,8 @@
-import type { NextConfig } from "next";
+// Plain JavaScript (not next.config.ts) so no compiler is needed to load it: on hosts whose Linux is too old
+// for Next's native SWC binary (e.g. shared hosting), the WebAssembly fallback can't compile a TypeScript config.
 
-const nextConfig: NextConfig = {
+/** @type {import("next").NextConfig} */
+const nextConfig = {
   images: {
     // Unsplash serves resized, format-negotiated renditions from its own CDN,
     // so we hand sizing off to it instead of the built-in optimizer.
@@ -30,14 +32,6 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
-  },
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
   },
 };
 
