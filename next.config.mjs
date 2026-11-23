@@ -11,6 +11,17 @@ const nextConfig = {
     remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
     qualities: [60, 75, 85],
   },
+  async redirects() {
+    return [
+      {
+        // www.marchgear.in/… → https://marchgear.in/… (any www. host; path and query are kept). Permanent (308).
+        source: "/:path*",
+        has: [{ type: "host", value: "www\\.(?<domain>.+)" }],
+        destination: "https://:domain/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
