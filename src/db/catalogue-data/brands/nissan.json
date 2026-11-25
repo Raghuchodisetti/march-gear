@@ -1,0 +1,1275 @@
+{
+  "brand": {
+    "slug": "nissan",
+    "name": "Nissan",
+    "country": "Japan",
+    "founded": 1933,
+    "tagline": "Japanese carmaker; Nissan Motor India since 2005",
+    "description": "Japanese carmaker; Nissan Motor India was set up in 2005 and its cars are built at the Oragadam plant near Chennai, shared with Renault. Line-up covers the Magnite, Gravite and Tekton plus the imported X-Trail.",
+    "isLuxury": false,
+    "website": "https://www.nissan.in/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "nissan-magnite",
+      "name": "Magnite",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2024-10-04",
+      "engine": "999 cc",
+      "power": "72 – 100 PS",
+      "torque": "96 – 160 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Global NCAP",
+        "year": 2025
+      },
+      "bootSpaceL": 336,
+      "groundClearanceMm": 205,
+      "fuelTankL": 40,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3994,
+        "width": 1758,
+        "height": 1572,
+        "wheelbase": 2500
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Blade Silver",
+          "hex": "#B8BBBE"
+        },
+        {
+          "name": "Storm White",
+          "hex": "#F4F4F4"
+        },
+        {
+          "name": "Pearl White",
+          "hex": "#EEEDE8"
+        },
+        {
+          "name": "Onyx Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "Flare Garnet Red",
+          "hex": "#8E1C24"
+        },
+        {
+          "name": "Olive Bronze",
+          "hex": "#6B6248"
+        },
+        {
+          "name": "Metallic Grey",
+          "hex": "#5E6164"
+        },
+        {
+          "name": "Sunrise Copper Orange",
+          "hex": "#C0602E"
+        },
+        {
+          "name": "Pearl White & Onyx Black",
+          "hex": "#EEEDE8"
+        },
+        {
+          "name": "Flare Garnet Red & Onyx Black",
+          "hex": "#8E1C24"
+        },
+        {
+          "name": "Blade Silver & Onyx Black",
+          "hex": "#B8BBBE"
+        },
+        {
+          "name": "Sunrise Copper Orange & Onyx Black",
+          "hex": "#C0602E"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "VDC, TCS, hill start assist, ABS with EBD",
+            "TPMS standard",
+            "ISOFIX",
+            "360-degree around view monitor (Tekna, Tekna+)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "22.86 cm or 20.32 cm touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "ARKAMYS 3D sound (N-Connecta and above)",
+            "7-inch digital cluster (N-Connecta and above)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic AC (Acenta and above)",
+            "PlasmaCluster ionizer (Tekna, Tekna+)",
+            "Cruise control (Tekna, Tekna+)",
+            "Multi-colour ambient lighting (Tekna+)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.0-litre NA petrol, 72 PS",
+            "1.0-litre turbo petrol, 100 PS",
+            "5-speed MT, 5-speed AMT (EZ-Shift), CVT (turbo)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Six airbags standard",
+        "Global NCAP 5-star adult rating (2025)",
+        "1.0-litre turbo petrol with CVT option",
+        "205 mm ground clearance",
+        "Kuro black special edition"
+      ],
+      "variants": [
+        {
+          "name": "Visia MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 569400,
+          "efficiency": "19.4 km/l",
+          "features": [
+            "6 airbags, VDC, TCS, hill start assist",
+            "TPMS",
+            "16-inch steel wheels",
+            "Halogen headlamps",
+            "3.5-inch LCD cluster",
+            "Front and rear power windows",
+            "60:40 split rear seat",
+            "Rear parking sensor",
+            "Functional roof rails"
+          ]
+        },
+        {
+          "name": "Visia+ MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 626000,
+          "efficiency": "19.4 km/l",
+          "features": [
+            "22.86 cm touchscreen with wireless Android Auto/Apple CarPlay",
+            "Rear camera with guidelines",
+            "4 speakers",
+            "Rear wiper, washer and defogger",
+            "Shark-fin antenna",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Visia EZ-Shift",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 630000,
+          "efficiency": "19.7 km/l",
+          "features": [
+            "6 airbags, VDC, TCS, hill start assist",
+            "TPMS",
+            "16-inch steel wheels",
+            "Halogen headlamps",
+            "3.5-inch LCD cluster",
+            "Front and rear power windows",
+            "60:40 split rear seat",
+            "Rear parking sensor",
+            "Functional roof rails"
+          ]
+        },
+        {
+          "name": "Acenta MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 687000,
+          "efficiency": "19.4 km/l",
+          "features": [
+            "Automatic AC",
+            "Remote keyless entry (push start on turbo)",
+            "Height-adjustable driver seat",
+            "Steering-mounted audio controls",
+            "Electrically adjustable and folding ORVMs",
+            "Dual-tone wheel covers",
+            "22.86 cm touchscreen"
+          ]
+        },
+        {
+          "name": "Acenta EZ-Shift",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 742000,
+          "efficiency": "19.7 km/l",
+          "features": [
+            "Automatic AC",
+            "Remote keyless entry (push start on turbo)",
+            "Height-adjustable driver seat",
+            "Steering-mounted audio controls",
+            "Electrically adjustable and folding ORVMs",
+            "Dual-tone wheel covers",
+            "22.86 cm touchscreen"
+          ]
+        },
+        {
+          "name": "N-Connecta MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 750000,
+          "efficiency": "19.4 km/l",
+          "features": [
+            "16-inch diamond-cut alloy wheels",
+            "7-inch full digital cluster",
+            "ARKAMYS 3D sound (4 speakers + 2 tweeters)",
+            "Push-button start with i-Key",
+            "LED DRLs",
+            "Rear AC vents",
+            "Auto-dimming IRVM",
+            "Rear USB Type-C chargers",
+            "Front centre armrest"
+          ]
+        },
+        {
+          "name": "Kuro MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 785000,
+          "efficiency": "19.4 km/l",
+          "features": [
+            "Black package: black alloys, piano black grille, resin black skid plate",
+            "Gloss black roof rails and black door handles",
+            "Midnight black interior",
+            "Kuro badging",
+            "Wireless charger",
+            "Dashcam",
+            "Based on N-Connecta: 7-inch TFT cluster, ARKAMYS sound",
+            "LED headlamps with lightsaber turn indicators",
+            "Premium i-Key with approach unlock"
+          ]
+        },
+        {
+          "name": "N-Connecta EZ-Shift",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 805000,
+          "efficiency": "19.7 km/l",
+          "features": [
+            "16-inch diamond-cut alloy wheels",
+            "7-inch full digital cluster",
+            "ARKAMYS 3D sound (4 speakers + 2 tweeters)",
+            "Push-button start with i-Key",
+            "LED DRLs",
+            "Rear AC vents",
+            "Auto-dimming IRVM",
+            "Rear USB Type-C chargers",
+            "Front centre armrest"
+          ]
+        },
+        {
+          "name": "Kuro EZ-Shift",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 840000,
+          "efficiency": "19.7 km/l",
+          "features": [
+            "Black package: black alloys, piano black grille, resin black skid plate",
+            "Gloss black roof rails and black door handles",
+            "Midnight black interior",
+            "Kuro badging",
+            "Wireless charger",
+            "Dashcam",
+            "Based on N-Connecta: 7-inch TFT cluster, ARKAMYS sound",
+            "LED headlamps with lightsaber turn indicators",
+            "Premium i-Key with approach unlock"
+          ]
+        },
+        {
+          "name": "Tekna MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 843000,
+          "efficiency": "19.4 km/l",
+          "features": [
+            "LED bi-projector headlamps",
+            "360-degree around view monitor",
+            "Cruise control (MT/CVT)",
+            "PlasmaCluster ionizer",
+            "Auto headlamps and rain-sensing wipers",
+            "Auto-folding ORVMs",
+            "LED fog lamps",
+            "Light grey leatherette dashboard trim",
+            "Remote engine start (turbo)",
+            "Cooled glovebox"
+          ]
+        },
+        {
+          "name": "Tekna+ MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 876000,
+          "efficiency": "19.4 km/l",
+          "features": [
+            "Quilted leatherette seats with heat-guard tech",
+            "Brownish-orange leatherette dashboard and door inserts",
+            "Multi-colour ambient lighting with memory",
+            "360-degree around view monitor",
+            "LED bi-projector headlamps",
+            "Cruise control (MT/CVT)",
+            "PlasmaCluster ionizer"
+          ]
+        },
+        {
+          "name": "N-Connecta Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 881000,
+          "efficiency": "19.9 km/l",
+          "features": [
+            "16-inch diamond-cut alloy wheels",
+            "7-inch full digital cluster",
+            "ARKAMYS 3D sound (4 speakers + 2 tweeters)",
+            "Push-button start with i-Key",
+            "LED DRLs",
+            "Rear AC vents",
+            "Auto-dimming IRVM",
+            "Rear USB Type-C chargers",
+            "Front centre armrest"
+          ]
+        },
+        {
+          "name": "Tekna EZ-Shift",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 898000,
+          "efficiency": "19.7 km/l",
+          "features": [
+            "LED bi-projector headlamps",
+            "360-degree around view monitor",
+            "Cruise control (MT/CVT)",
+            "PlasmaCluster ionizer",
+            "Auto headlamps and rain-sensing wipers",
+            "Auto-folding ORVMs",
+            "LED fog lamps",
+            "Light grey leatherette dashboard trim",
+            "Remote engine start (turbo)",
+            "Cooled glovebox"
+          ]
+        },
+        {
+          "name": "Kuro Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 916000,
+          "efficiency": "19.9 km/l",
+          "features": [
+            "Black package: black alloys, piano black grille, resin black skid plate",
+            "Gloss black roof rails and black door handles",
+            "Midnight black interior",
+            "Kuro badging",
+            "Wireless charger",
+            "Dashcam",
+            "Based on N-Connecta: 7-inch TFT cluster, ARKAMYS sound",
+            "LED headlamps with lightsaber turn indicators",
+            "Premium i-Key with approach unlock"
+          ]
+        },
+        {
+          "name": "Acenta Turbo CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "X-Tronic CVT",
+          "price": 930000,
+          "efficiency": "17.9 km/l",
+          "features": [
+            "Automatic AC",
+            "Remote keyless entry (push start on turbo)",
+            "Height-adjustable driver seat",
+            "Steering-mounted audio controls",
+            "Electrically adjustable and folding ORVMs",
+            "Dual-tone wheel covers",
+            "22.86 cm touchscreen"
+          ]
+        },
+        {
+          "name": "Tekna+ EZ-Shift",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 931000,
+          "efficiency": "19.7 km/l",
+          "features": [
+            "Quilted leatherette seats with heat-guard tech",
+            "Brownish-orange leatherette dashboard and door inserts",
+            "Multi-colour ambient lighting with memory",
+            "360-degree around view monitor",
+            "LED bi-projector headlamps",
+            "Cruise control (MT/CVT)",
+            "PlasmaCluster ionizer"
+          ]
+        },
+        {
+          "name": "Tekna Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 961000,
+          "efficiency": "19.9 km/l",
+          "features": [
+            "LED bi-projector headlamps",
+            "360-degree around view monitor",
+            "Cruise control (MT/CVT)",
+            "PlasmaCluster ionizer",
+            "Auto headlamps and rain-sensing wipers",
+            "Auto-folding ORVMs",
+            "LED fog lamps",
+            "Light grey leatherette dashboard trim",
+            "Remote engine start (turbo)",
+            "Cooled glovebox"
+          ]
+        },
+        {
+          "name": "N-Connecta Turbo CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "X-Tronic CVT",
+          "price": 974000,
+          "efficiency": "17.9 km/l",
+          "features": [
+            "16-inch diamond-cut alloy wheels",
+            "7-inch full digital cluster",
+            "ARKAMYS 3D sound (4 speakers + 2 tweeters)",
+            "Push-button start with i-Key",
+            "LED DRLs",
+            "Rear AC vents",
+            "Auto-dimming IRVM",
+            "Rear USB Type-C chargers",
+            "Front centre armrest"
+          ]
+        },
+        {
+          "name": "Tekna+ Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 995000,
+          "efficiency": "19.9 km/l",
+          "features": [
+            "Quilted leatherette seats with heat-guard tech",
+            "Brownish-orange leatherette dashboard and door inserts",
+            "Multi-colour ambient lighting with memory",
+            "360-degree around view monitor",
+            "LED bi-projector headlamps",
+            "Cruise control (MT/CVT)",
+            "PlasmaCluster ionizer"
+          ]
+        },
+        {
+          "name": "Kuro Turbo CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "X-Tronic CVT",
+          "price": 999400,
+          "efficiency": "17.9 km/l",
+          "features": [
+            "Black package: black alloys, piano black grille, resin black skid plate",
+            "Gloss black roof rails and black door handles",
+            "Midnight black interior",
+            "Kuro badging",
+            "Wireless charger",
+            "Dashcam",
+            "Based on N-Connecta: 7-inch TFT cluster, ARKAMYS sound",
+            "LED headlamps with lightsaber turn indicators",
+            "Premium i-Key with approach unlock"
+          ]
+        },
+        {
+          "name": "Tekna Turbo CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "X-Tronic CVT",
+          "price": 1069000,
+          "efficiency": "17.9 km/l",
+          "features": [
+            "LED bi-projector headlamps",
+            "360-degree around view monitor",
+            "Cruise control (MT/CVT)",
+            "PlasmaCluster ionizer",
+            "Auto headlamps and rain-sensing wipers",
+            "Auto-folding ORVMs",
+            "LED fog lamps",
+            "Light grey leatherette dashboard trim",
+            "Remote engine start (turbo)",
+            "Cooled glovebox"
+          ]
+        },
+        {
+          "name": "Tekna+ Turbo CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "X-Tronic CVT",
+          "price": 1099000,
+          "efficiency": "17.9 km/l",
+          "features": [
+            "Quilted leatherette seats with heat-guard tech",
+            "Brownish-orange leatherette dashboard and door inserts",
+            "Multi-colour ambient lighting with memory",
+            "360-degree around view monitor",
+            "LED bi-projector headlamps",
+            "Cruise control (MT/CVT)",
+            "PlasmaCluster ionizer"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.nissan.in/vehicles/new/nissan-magnite.html",
+        "https://www.nissan.in/prices-list.html",
+        "https://www-asia.nissan-cdn.net/content/dam/Nissan/in/brochures/2026/New-Nissan-Magnite-Main-Brochure.pdf",
+        "https://www-asia.nissan-cdn.net/content/dam/Nissan/in/brochures/38050825_Nissan%20Magnite_Kuro-Launch-Brochure-WEB.pdf"
+      ],
+      "notes": "Nissan's price list gives one ex-showroom price with no city named. Global NCAP 2025: 5 stars adult, 3 stars child (brochure footnote). A government-approved third-party CNG kit is a dealer-fitted option at Rs 74,999 on top of the price; not a separate variant. Torque is 152 Nm with the CVT."
+    },
+    {
+      "slug": "nissan-gravite",
+      "name": "Gravite",
+      "bodyType": "MUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "999 cc",
+      "power": "72 PS",
+      "torque": "96 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 625,
+      "groundClearanceMm": 182,
+      "fuelTankL": 40,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3987,
+        "width": 1734,
+        "height": 1643,
+        "wheelbase": 2636
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Blade Silver",
+          "hex": "#B8BBBE"
+        },
+        {
+          "name": "Storm White",
+          "hex": "#F4F4F4"
+        },
+        {
+          "name": "Onyx Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "Metallic Grey",
+          "hex": "#5E6164"
+        },
+        {
+          "name": "Forest Green",
+          "hex": "#2F4A3A"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "ESP, TCS, hill start assist",
+            "TPMS standard",
+            "ISOFIX",
+            "Front parking sensors (Tekna)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "20.32 cm floating touchscreen (Acenta and above)",
+            "Wireless Android Auto and Apple CarPlay",
+            "7-inch digital cluster (Tekna)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Independent rear AC with 2nd and 3rd row vents",
+            "Removable 3rd row seats",
+            "Cooled storage compartments",
+            "Sliding and reclining 2nd row"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.0-litre NA petrol, 72 PS and 96 Nm",
+            "5-speed MT or 5-speed AMT (EZ Shift)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Sub-4-metre seven-seat MPV",
+        "Six airbags standard",
+        "Removable 3rd row seats",
+        "625-litre boot with the 3rd row removed",
+        "Claimed 19.6 km/l (AMT)"
+      ],
+      "variants": [
+        {
+          "name": "Visia MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 573400,
+          "efficiency": "19.3 km/l",
+          "features": [
+            "6 airbags, ESP, TCS, hill start assist",
+            "TPMS",
+            "Projector headlamps",
+            "14-inch steel wheels",
+            "3.5-inch LED digital cluster",
+            "2nd row 60:40 split with slide and recline",
+            "Removable 3rd row seats",
+            "Rear parking sensors"
+          ]
+        },
+        {
+          "name": "Acenta MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 668400,
+          "efficiency": "19.3 km/l",
+          "features": [
+            "20.32 cm floating touchscreen with wireless Android Auto/Apple CarPlay",
+            "Independent rear AC with 2nd and 3rd row vents",
+            "Steering-mounted audio controls",
+            "Remote central locking",
+            "Wheel covers",
+            "Rear room lamps"
+          ]
+        },
+        {
+          "name": "N-Connecta MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 738400,
+          "efficiency": "19.3 km/l",
+          "features": [
+            "Rear camera with guidelines",
+            "Functional roof rails (50 kg)",
+            "Dual-tone suede and fabric seats",
+            "Cooled lower glovebox and centre console",
+            "Electrically adjustable ORVMs",
+            "Rear power windows",
+            "Rear wiper, washer and defogger",
+            "4 speakers",
+            "PM2.5 filter"
+          ]
+        },
+        {
+          "name": "N-Connecta EZ Shift",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 795000,
+          "efficiency": "19.6 km/l",
+          "features": [
+            "Rear camera with guidelines",
+            "Functional roof rails (50 kg)",
+            "Dual-tone suede and fabric seats",
+            "Cooled lower glovebox and centre console",
+            "Electrically adjustable ORVMs",
+            "Rear power windows",
+            "Rear wiper, washer and defogger",
+            "4 speakers",
+            "PM2.5 filter"
+          ]
+        },
+        {
+          "name": "Tekna MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 808000,
+          "efficiency": "19.3 km/l",
+          "features": [
+            "LED headlamps with integrated DRLs",
+            "15-inch dual-tone flex wheels",
+            "7-inch full digital cluster",
+            "Push-button start with i-Key",
+            "Suede and leatherette seats",
+            "Front LED fog lamps",
+            "Front parking sensors",
+            "Rain-sensing wipers and auto headlamps",
+            "Cruise control (MT only)",
+            "Driver seat height adjust"
+          ]
+        },
+        {
+          "name": "Tekna Launch Edition MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 852500,
+          "efficiency": "19.3 km/l",
+          "features": [
+            "Launch Edition accessory pack: JBL speakers, dual dashcam, air purifier",
+            "Wireless charger and ambient mood light",
+            "C-shaped aero accents and wheel arch inserts",
+            "Chrome belt-line and door visors",
+            "All Tekna features"
+          ]
+        },
+        {
+          "name": "Tekna EZ Shift",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 864000,
+          "efficiency": "19.6 km/l",
+          "features": [
+            "LED headlamps with integrated DRLs",
+            "15-inch dual-tone flex wheels",
+            "7-inch full digital cluster",
+            "Push-button start with i-Key",
+            "Suede and leatherette seats",
+            "Front LED fog lamps",
+            "Front parking sensors",
+            "Rain-sensing wipers and auto headlamps",
+            "Cruise control (MT only)",
+            "Driver seat height adjust"
+          ]
+        },
+        {
+          "name": "Tekna Launch Edition EZ Shift",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 908500,
+          "efficiency": "19.6 km/l",
+          "features": [
+            "Launch Edition accessory pack: JBL speakers, dual dashcam, air purifier",
+            "Wireless charger and ambient mood light",
+            "C-shaped aero accents and wheel arch inserts",
+            "Chrome belt-line and door visors",
+            "All Tekna features"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.nissan.in/vehicles/new/nissan-gravite.html",
+        "https://www.nissan.in/prices-list.html",
+        "https://www-asia.nissan-cdn.net/content/dam/Nissan/in/brochures/2026/Nissan-Gravite-Brochure-final.pdf"
+      ],
+      "notes": "Nissan's price list gives one ex-showroom price with no city named. Revealed February 2026; exact on-sale date not confirmed. A third-party CNG retrofit pack costs Rs 85,999 extra (not a separate variant). Boot is 625 L in 5-seat mode with the 3rd row removed. Launch Edition adds dealer-fitted accessories."
+    },
+    {
+      "slug": "nissan-tekton",
+      "name": "Tekton",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-07-09",
+      "engine": "999 – 1333 cc",
+      "power": "100 – 163 PS",
+      "torque": "166 – 280 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2026
+      },
+      "bootSpaceL": 518,
+      "groundClearanceMm": 212,
+      "fuelTankL": 50,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 9.51 s",
+      "dimensions": {
+        "length": 4349,
+        "width": 1815,
+        "height": 1674,
+        "wheelbase": 2657
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Onyx Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "Blade Silver",
+          "hex": "#B8BBBE"
+        },
+        {
+          "name": "Pearl White",
+          "hex": "#EEEDE8"
+        },
+        {
+          "name": "Flare Garnet Red",
+          "hex": "#8E1C24"
+        },
+        {
+          "name": "Indigo Blue",
+          "hex": "#2B3A67"
+        },
+        {
+          "name": "Moonbow Gray",
+          "hex": "#8A8D90"
+        },
+        {
+          "name": "Blade Silver & Onyx Black",
+          "hex": "#B8BBBE"
+        },
+        {
+          "name": "Pearl White & Onyx Black",
+          "hex": "#EEEDE8"
+        },
+        {
+          "name": "Flare Garnet Red & Onyx Black",
+          "hex": "#8E1C24"
+        },
+        {
+          "name": "Indigo Blue & Onyx Black",
+          "hex": "#2B3A67"
+        },
+        {
+          "name": "Moonbow Gray & Onyx Black",
+          "hex": "#8A8D90"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "ESC, TCS, hill start assist, 40+ standard safety features",
+            "ADAS with up to 17 features (Tekna, Tekna+)",
+            "3D around view monitor (Tekna+)",
+            "Hill descent control (DCT)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "22.86 cm or 25.65 cm touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "Google built-in (Tekna+)",
+            "ARKAMYS 6-speaker sound",
+            "MyNISSAN connected app"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Electric panoramic sunroof (N-Connecta and above)",
+            "Dual-zone climate control",
+            "Ventilated front seats (Tekna, Tekna+)",
+            "Powered tailgate (Tekna+)",
+            "Rear AC vents"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.0-litre turbo (T160), 100 PS and 166 Nm",
+            "1.3-litre turbo GDi (T280), 163 PS and 280 Nm",
+            "6-speed MT or 6-speed wet-clutch DCT"
+          ]
+        }
+      ],
+      "highlights": [
+        "Bharat NCAP five-star rating (shared with the Renault Duster test)",
+        "1.3-litre turbo with 163 PS and 280 Nm",
+        "518 litres of boot to the parcel shelf",
+        "Google built-in on Tekna+",
+        "212 mm ground clearance"
+      ],
+      "variants": [
+        {
+          "name": "Visia T160 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1049000,
+          "efficiency": "19.4 km/l",
+          "features": [
+            "1.0-litre turbo petrol (T160), 6-speed MT",
+            "6 airbags, ESC, TCS, hill start assist",
+            "Matrix Vision LED headlamps and C-shaped LED DRLs",
+            "17-inch steel wheels",
+            "7-inch digital driver display",
+            "Rear AC vents",
+            "Rear parking sensors",
+            "Tilt and telescopic steering",
+            "Driver seat height adjust"
+          ]
+        },
+        {
+          "name": "Visia+ T160 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1114000,
+          "efficiency": "19.4 km/l",
+          "features": [
+            "22.86 cm floating touchscreen with wireless Android Auto/Apple CarPlay",
+            "Rear view camera",
+            "Automatic headlamps",
+            "TPMS",
+            "Steering-mounted controls",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Acenta T160 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1179000,
+          "efficiency": "19.4 km/l",
+          "features": [
+            "25.65 cm Tek-Link HD touchscreen",
+            "Hands-free smart card key with push start",
+            "Walk-away lock and approach unlock",
+            "17-inch dual-tone wheel covers",
+            "Rear wiper, washer and defogger",
+            "Cruise control, EPB and paddle shifters (DCT)",
+            "Rear centre armrest"
+          ]
+        },
+        {
+          "name": "N-Connecta T160 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1369000,
+          "efficiency": "19.4 km/l",
+          "features": [
+            "Electric panoramic sunroof",
+            "18-inch gunmetal alloy wheels",
+            "Dual-zone automatic climate control",
+            "26.03 cm digital cockpit display",
+            "ARKAMYS 6-speaker sound",
+            "LED fog lamps",
+            "Auto-folding ORVMs and auto-dimming IRVM",
+            "Cruise control",
+            "Semi-leatherette seats",
+            "Wireless charger (DCT)"
+          ]
+        },
+        {
+          "name": "N-Connecta T280 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1499000,
+          "efficiency": "17.8 km/l",
+          "features": [
+            "Electric panoramic sunroof",
+            "18-inch gunmetal alloy wheels",
+            "Dual-zone automatic climate control",
+            "26.03 cm digital cockpit display",
+            "ARKAMYS 6-speaker sound",
+            "LED fog lamps",
+            "Auto-folding ORVMs and auto-dimming IRVM",
+            "Cruise control",
+            "Semi-leatherette seats",
+            "Wireless charger (DCT)"
+          ]
+        },
+        {
+          "name": "Acenta T280 DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "6-speed wet-clutch DCT",
+          "price": 1499000,
+          "efficiency": "18.5 km/l",
+          "features": [
+            "25.65 cm Tek-Link HD touchscreen",
+            "Hands-free smart card key with push start",
+            "Walk-away lock and approach unlock",
+            "17-inch dual-tone wheel covers",
+            "Rear wiper, washer and defogger",
+            "Cruise control, EPB and paddle shifters (DCT)",
+            "Rear centre armrest"
+          ]
+        },
+        {
+          "name": "Tekna T160 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1539000,
+          "efficiency": "19.4 km/l",
+          "features": [
+            "ADAS with 15 features: AEB, lane keep assist, blind spot warning",
+            "Adaptive cruise with stop and go (DCT)",
+            "Ventilated front seats",
+            "6-way power driver seat",
+            "18-inch diamond-cut alloy wheels",
+            "Rear disc brakes",
+            "Air purifier with PlasmaCluster",
+            "Rain-sensing wipers",
+            "Multi-colour mood lighting",
+            "Panoramic sunroof"
+          ]
+        },
+        {
+          "name": "Tekna T280 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1639000,
+          "efficiency": "17.8 km/l",
+          "features": [
+            "ADAS with 15 features: AEB, lane keep assist, blind spot warning",
+            "Adaptive cruise with stop and go (DCT)",
+            "Ventilated front seats",
+            "6-way power driver seat",
+            "18-inch diamond-cut alloy wheels",
+            "Rear disc brakes",
+            "Air purifier with PlasmaCluster",
+            "Rain-sensing wipers",
+            "Multi-colour mood lighting",
+            "Panoramic sunroof"
+          ]
+        },
+        {
+          "name": "Tekna+ T160 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1649000,
+          "efficiency": "19.4 km/l",
+          "features": [
+            "Google built-in with Google Maps, Assistant and Play",
+            "3D around view monitor (17 ADAS features)",
+            "Powered tailgate",
+            "6-way power front seats",
+            "Tri-tone burgundy, beige and rose gold interior",
+            "OTA updates",
+            "Ventilated front seats",
+            "Panoramic sunroof",
+            "Dual-tone paint options"
+          ]
+        },
+        {
+          "name": "N-Connecta T280 DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "6-speed wet-clutch DCT",
+          "price": 1649000,
+          "efficiency": "18.5 km/l",
+          "features": [
+            "Electric panoramic sunroof",
+            "18-inch gunmetal alloy wheels",
+            "Dual-zone automatic climate control",
+            "26.03 cm digital cockpit display",
+            "ARKAMYS 6-speaker sound",
+            "LED fog lamps",
+            "Auto-folding ORVMs and auto-dimming IRVM",
+            "Cruise control",
+            "Semi-leatherette seats",
+            "Wireless charger (DCT)"
+          ]
+        },
+        {
+          "name": "Tekna T280 DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "6-speed wet-clutch DCT",
+          "price": 1779000,
+          "efficiency": "18.5 km/l",
+          "features": [
+            "ADAS with 15 features: AEB, lane keep assist, blind spot warning",
+            "Adaptive cruise with stop and go (DCT)",
+            "Ventilated front seats",
+            "6-way power driver seat",
+            "18-inch diamond-cut alloy wheels",
+            "Rear disc brakes",
+            "Air purifier with PlasmaCluster",
+            "Rain-sensing wipers",
+            "Multi-colour mood lighting",
+            "Panoramic sunroof"
+          ]
+        },
+        {
+          "name": "Tekna+ T280 DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "6-speed wet-clutch DCT",
+          "price": 1859000,
+          "efficiency": "18.5 km/l",
+          "features": [
+            "Google built-in with Google Maps, Assistant and Play",
+            "3D around view monitor (17 ADAS features)",
+            "Powered tailgate",
+            "6-way power front seats",
+            "Tri-tone burgundy, beige and rose gold interior",
+            "OTA updates",
+            "Ventilated front seats",
+            "Panoramic sunroof",
+            "Dual-tone paint options"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.nissan.in/cf/vehicles/new/tekton",
+        "https://www.nissan.in/prices-list.html",
+        "https://www-asia.nissan-cdn.net/content/dam/Nissan/in/brochures/2026/FINAL-TEKTON-BROCHURE.pdf"
+      ],
+      "notes": "Nissan's price list gives one ex-showroom price with no city named. Prices described at launch as introductory. The Bharat NCAP rating is carried over from the Renault Duster test (March 2026) per media reports; the brochure states 5-star Bharat NCAP. Height 1674 mm includes roof rails. Boot is 518 L to the parcel shelf (700 L to the roof). Acceleration is for T280 MT."
+    },
+    {
+      "slug": "nissan-x-trail",
+      "name": "X-Trail",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2024-08-01",
+      "engine": "1498 cc",
+      "power": "163 PS",
+      "torque": "300 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": 7,
+      "safety": null,
+      "bootSpaceL": 177,
+      "groundClearanceMm": 210,
+      "fuelTankL": 55,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4680,
+        "width": 1840,
+        "height": 1725,
+        "wheelbase": 2705
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Diamond Black",
+          "hex": "#141518"
+        },
+        {
+          "name": "Pearl White",
+          "hex": "#EEEDE8"
+        },
+        {
+          "name": "Champagne Silver",
+          "hex": "#C7C1B3"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "7 airbags including front far-side airbag",
+            "VDC, TCS, hill start assist with auto hold",
+            "Around view monitor with moving object detection",
+            "All-wheel disc brakes",
+            "TPMS"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "20.32 cm touchscreen",
+            "Apple CarPlay and Android Auto",
+            "31.2 cm full TFT instrument cluster"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic electric sunroof",
+            "Dual-zone automatic climate control",
+            "40:20:40 sliding and reclining 2nd row",
+            "Wireless charger",
+            "Paddle shifters"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.5-litre VC-Turbo petrol with 12V mild hybrid",
+            "Xtronic CVT, front-wheel drive",
+            "Normal, Eco and Sport drive modes"
+          ]
+        }
+      ],
+      "highlights": [
+        "Imported (CBU) seven-seat SUV, single variant",
+        "1.5-litre variable compression turbo petrol",
+        "Seven airbags",
+        "20-inch alloy wheels",
+        "Panoramic sunroof"
+      ],
+      "variants": [
+        {
+          "name": "2WD CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "Xtronic CVT",
+          "price": 4992000,
+          "efficiency": null,
+          "features": [
+            "1.5-litre VC-Turbo mild hybrid, 163 PS",
+            "7 seats with 40:20:40 2nd row",
+            "7 airbags",
+            "Around view monitor",
+            "Panoramic sunroof",
+            "20-inch alloy wheels",
+            "Dual-zone climate control",
+            "31.2 cm digital cluster",
+            "Wireless charger",
+            "Electronic parking brake"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.nissan.in/vehicles/new/x-trail.html",
+        "https://www-asia.nissan-cdn.net/content/dam/Nissan/in/brochures/Nissan-X-Trail-Launch-Brochure.pdf",
+        "https://www.autocarindia.com/car-news/nissan-x-trail-launched-at-rs-4992-lakh-432379"
+      ],
+      "notes": "Price not published by the brand (X-Trail is absent from Nissan's price list); from autocarindia.com launch report (Rs 49.92 lakh ex-showroom Delhi, Aug 2024). Still listed on nissan.in but sales are very low; confirm it is still on sale and current price. Claimed 13.7 km/l is EU-WVTA, not ARAI, so efficiency left null. Boot 177 L behind 3rd row (585 L behind 2nd)."
+    }
+  ]
+}

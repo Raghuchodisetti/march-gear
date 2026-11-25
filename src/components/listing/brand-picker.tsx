@@ -2,15 +2,15 @@
 
 import { useEffect, useRef } from "react";
 import { ArrowLeft, ArrowUpRight, LayoutGrid } from "lucide-react";
-import type { Brand, CarModel } from "@/types";
+import type { Brand, CarLite } from "@/types";
 import { formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { RevealGroup, RevealItem } from "@/components/ui/reveal";
 import { BrandMonogram } from "@/components/ui/page-header";
-import { BrandLogo, logoFit } from "@/components/ui/brand-logo";
+import { BrandMark } from "@/components/ui/brand-logo";
 import { useCatalog } from "@/components/providers/catalog-provider";
 
-function brandStats(brand: Brand, carsByBrand: (brand: string) => CarModel[]) {
+function brandStats(brand: Brand, carsByBrand: (brand: string) => CarLite[]) {
   const models = carsByBrand(brand.slug);
   return {
     count: models.length,
@@ -48,12 +48,11 @@ export function BrandPicker({ onSelect, onShowAll }: { onSelect: (slug: string) 
                     className="group/brand flex h-full w-full flex-col border border-line bg-white text-left transition-[border-color] duration-[400ms] ease-[var(--ease-premium)] hover:border-ink"
                   >
                     <span className="relative flex h-32 items-center justify-center bg-mist transition-[background-color] duration-[400ms] ease-[var(--ease-premium)] group-hover/brand:bg-white md:h-36">
-                      <BrandLogo
+                      <BrandMark
                         slug={brand.slug}
-                        className={cn(
-                          "transition-transform duration-[600ms] ease-[var(--ease-premium)] group-hover/brand:scale-110",
-                          logoFit(brand.slug),
-                        )}
+                        name={brand.name}
+                        logoClassName="transition-transform duration-[600ms] ease-[var(--ease-premium)] group-hover/brand:scale-110"
+                        className="bg-white transition-transform duration-[600ms] ease-[var(--ease-premium)] group-hover/brand:scale-110"
                       />
                       <span aria-hidden className="absolute left-3 top-3 text-[11px] font-medium text-muted num">
                         {s.count} {s.count === 1 ? "model" : "models"}

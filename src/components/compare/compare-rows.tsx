@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 import { Check, Minus } from "lucide-react";
 import type { CarModel, FeatureGroup } from "@/types";
-import { isElectric, type Catalog } from "@/lib/catalog";
+import { isElectric, type ClientCatalog } from "@/lib/catalog";
+import { accelSeconds, accelText, hasExpertScore, hasOwnerRating, known, powerBhp, torqueNm } from "@/lib/specs";
 import { calculateEmi } from "@/lib/finance";
 import { formatINR, formatNumber, formatPrice, formatPriceRange } from "@/lib/format";
 import { RatingInline, ScoreBar, Stars } from "@/components/ui/rating";
@@ -30,44 +31,65 @@ export interface SpecGroup {
 
 const LOAN = { share: 0.8, rate: 9.5, months: 60 };
 
-const nums = (s: string) => (s.match(/\d+(?:\.\d+)?/g) ?? []).map(Number);
-const maxOf = (s: string) => {
-  const n = nums(s);
-  return n.length ? Math.max(...n) : undefined;
-};
-
+/** A spec cell; 0 and "" mean "not published" in the catalogue and show as a dash. */
 const text = (value: string | number | undefined, unit = ""): Cell =>
-  value === undefined || value === "" ? { display: <span className="text-muted">—</span>, key: "—" } : { display: `${value}${unit}`, key: `${value}${unit}` };
+  value === undefined || value === "" || value === 0 ? { display: <span className="text-muted">—</span>, key: "—" } : { display: `${value}${unit}`, key: `${value}${unit}` };
+const mm = (n: number) => ({ ...text(known(n) && formatNumber(n), " mm"), num: known(n) });
+const dcMinutesOf = (s: string) => {
+  const m = s.match(/(\d+)\s*min/);
+  return m ? Number(m[1]) : undefined;
+};
 
 function row(id: string, label: string, cars: CarModel[], fn: (car: CarModel) => Cell, opts: { hint?: string; best?: "max" | "min" } = {}): SpecRow {
   return { id, label, cells: cars.map(fn), ...opts };
 }
 
 /** Builds every comparison group for the selected cars, in display order. */
-export function buildGroups(cars: CarModel[], city: { slug: string; name: string }, onRoadPrice: Catalog["onRoadPrice"]): SpecGroup[] {
+export function buildGroups(cars: CarModel[], city: { slug: string; name: string }, onRoadPrice: ClientCatalog["onRoadPrice"]): SpecGroup[] {
   const allEv = cars.every(isElectric);
   const noneEv = cars.every((c) => !isElectric(c));
   const sameEfficiencyKind = allEv || noneEv;
+  // Facts-only models have no road-test score or owner rating: those rows appear only when a car has one.
+  const anyScore = cars.some(hasExpertScore);
+  const anyRating = cars.some(hasOwnerRating);
 
   const groups: SpecGroup[] = [
     {
       id: "overview",
-      title: "Verdict",
+      title: anyScore || anyRating ? "Verdict" : "Overview",
       rows: [
-        row(
-          "expert",
-          "Expert score",
-          cars,
-          (c) => ({
-            display: <ScoreBar label={c.expertScore >= 8.5 ? "Outstanding" : c.expertScore >= 8 ? "Excellent" : c.expertScore >= 7.5 ? "Very good" : "Good"} value={c.expertScore} />,
-            key: String(c.expertScore),
-            num: c.expertScore,
-          }),
-          { best: "max", hint: "March Gear road test, out of 10" },
-        ),
-        row("rating", "Owner rating", cars, (c) => ({ display: <RatingInline value={c.rating} count={c.reviewCount} />, key: String(c.rating), num: c.rating }), {
-          best: "max",
-        }),
+        ...(anyScore
+          ? [
+              row(
+                "expert",
+                "Expert score",
+                cars,
+                (c) =>
+                  hasExpertScore(c)
+                    ? {
+                        display: <ScoreBar label={c.expertScore >= 8.5 ? "Outstanding" : c.expertScore >= 8 ? "Excellent" : c.expertScore >= 7.5 ? "Very good" : "Good"} value={c.expertScore} />,
+                        key: String(c.expertScore),
+                        num: c.expertScore,
+                      }
+                    : { display: <span className="text-muted">Not reviewed yet</span>, key: "—" },
+                { best: "max", hint: "March Gear road test, out of 10" },
+              ),
+            ]
+          : []),
+        ...(anyRating
+          ? [
+              row(
+                "rating",
+                "Owner rating",
+                cars,
+                (c) =>
+                  hasOwnerRating(c)
+                    ? { display: <RatingInline value={c.rating} count={c.reviewCount} />, key: String(c.rating), num: c.rating }
+                    : { display: <span className="text-muted">No reviews yet</span>, key: "—" },
+                { best: "max" },
+              ),
+            ]
+          : []),
         row("body", "Body type", cars, (c) => text(c.bodyType)),
       ],
     },
@@ -108,11 +130,12 @@ export function buildGroups(cars: CarModel[], city: { slug: string; name: string
       rows: [
         row("fuel", "Fuel", cars, (c) => text(c.fuelTypes.join(", "))),
         row("engine", "Engine / motor", cars, (c) => text(c.engine)),
-        row("power", "Power", cars, (c) => ({ ...text(c.power), num: maxOf(c.power) }), { best: "max" }),
-        row("torque", "Torque", cars, (c) => ({ ...text(c.torque), num: maxOf(c.torque) }), { best: "max" }),
+        // Compared in bhp / Nm whatever unit the maker publishes.
+        row("power", "Power", cars, (c) => ({ ...text(c.power), num: powerBhp(c.power) }), { best: "max" }),
+        row("torque", "Torque", cars, (c) => ({ ...text(c.torque), num: torqueNm(c.torque) }), { best: "max" }),
         row("transmission", "Transmission", cars, (c) => text(c.transmissions.join(" / "))),
-        row("acceleration", "0 – 100 km/h", cars, (c) => ({ ...text(c.acceleration), num: maxOf(c.acceleration) }), { best: "min" }),
-        row("top-speed", "Top speed", cars, (c) => ({ ...text(c.topSpeed, " km/h"), num: c.topSpeed }), { best: "max" }),
+        row("acceleration", "0 – 100 km/h", cars, (c) => ({ ...text(accelText(c.acceleration)), num: accelSeconds(c.acceleration) }), { best: "min" }),
+        row("top-speed", "Top speed", cars, (c) => ({ ...text(c.topSpeed, " km/h"), num: known(c.topSpeed) }), { best: "max" }),
       ],
     },
     {
@@ -123,13 +146,16 @@ export function buildGroups(cars: CarModel[], city: { slug: string; name: string
           "efficiency",
           allEv ? "Claimed range" : noneEv ? "Claimed mileage" : "Claimed mileage / range",
           cars,
-          (c) => ({ ...text(c.efficiency), num: sameEfficiencyKind ? c.efficiencyValue : undefined }),
-          { best: "max", hint: allEv ? "MIDC cycle" : "ARAI, best variant" },
+          (c) => ({
+            ...text(c.efficiency && c.ev?.rangeStandard ? `${c.efficiency} (${c.ev.rangeStandard})` : c.efficiency),
+            num: sameEfficiencyKind ? known(c.efficiencyValue) : undefined,
+          }),
+          { best: "max", hint: allEv ? "Claimed, on the test cycle shown" : "ARAI, best variant" },
         ),
         ...(cars.some(isElectric)
           ? [
               row("battery", "Battery", cars, (c) => (c.ev ? { ...text(c.ev.batteryKwh, " kWh"), num: c.ev.batteryKwh } : text(undefined)), { best: "max" }),
-              row("dc", "DC fast charge", cars, (c) => (c.ev ? { ...text(c.ev.dcCharge), num: maxOf(c.ev.dcCharge.split("(")[0]) } : text(undefined)), {
+              row("dc", "DC fast charge", cars, (c) => (c.ev ? { ...text(c.ev.dcCharge), num: dcMinutesOf(c.ev.dcCharge) } : text(undefined)), {
                 best: "min",
               }),
               row("ac", "AC charge", cars, (c) => (c.ev ? text(c.ev.acCharge) : text(undefined))),
@@ -142,12 +168,12 @@ export function buildGroups(cars: CarModel[], city: { slug: string; name: string
       id: "dimensions",
       title: "Dimensions & capacity",
       rows: [
-        row("length", "Length", cars, (c) => ({ ...text(formatNumber(c.dimensions.length), " mm"), num: c.dimensions.length }), { best: "max" }),
-        row("width", "Width", cars, (c) => ({ ...text(formatNumber(c.dimensions.width), " mm"), num: c.dimensions.width }), { best: "max" }),
-        row("height", "Height", cars, (c) => text(formatNumber(c.dimensions.height), " mm")),
-        row("wheelbase", "Wheelbase", cars, (c) => ({ ...text(formatNumber(c.dimensions.wheelbase), " mm"), num: c.dimensions.wheelbase }), { best: "max" }),
-        row("boot", "Boot space", cars, (c) => ({ ...text(c.bootSpace, " L"), num: c.bootSpace }), { best: "max" }),
-        row("clearance", "Ground clearance", cars, (c) => ({ ...text(c.groundClearance, " mm"), num: c.groundClearance }), { best: "max" }),
+        row("length", "Length", cars, (c) => mm(c.dimensions.length), { best: "max" }),
+        row("width", "Width", cars, (c) => mm(c.dimensions.width), { best: "max" }),
+        row("height", "Height", cars, (c) => ({ ...mm(c.dimensions.height), num: undefined })),
+        row("wheelbase", "Wheelbase", cars, (c) => mm(c.dimensions.wheelbase), { best: "max" }),
+        row("boot", "Boot space", cars, (c) => ({ ...text(c.bootSpace, " L"), num: known(c.bootSpace) }), { best: "max" }),
+        row("clearance", "Ground clearance", cars, (c) => ({ ...text(c.groundClearance, " mm"), num: known(c.groundClearance) }), { best: "max" }),
         row("seats", "Seats", cars, (c) => ({ ...text(c.seats.join(" / ")), num: Math.max(...c.seats) }), { best: "max" }),
       ],
     },
@@ -175,7 +201,7 @@ export function buildGroups(cars: CarModel[], city: { slug: string; name: string
           { best: "max" },
         ),
         row("agency", "Tested by", cars, (c) => text(c.safetyAgency)),
-        row("airbags", "Airbags", cars, (c) => ({ ...text(c.airbags), num: c.airbags }), { best: "max" }),
+        row("airbags", "Airbags", cars, (c) => ({ ...text(c.airbags), num: known(c.airbags) }), { best: "max" }),
       ],
     },
   ];

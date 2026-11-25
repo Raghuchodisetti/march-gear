@@ -17,7 +17,8 @@ export function MileageCalculator() {
   const { cars, brandName, content } = useCatalog();
   const { iceCars, carOptions } = useMemo(() => {
     const ice = cars
-      .filter((c) => !isElectric(c))
+      // Only models with a published claimed figure can be compared against.
+      .filter((c) => !isElectric(c) && c.efficiencyValue > 0)
       .sort((a, b) => `${brandName(a.brand)} ${a.name}`.localeCompare(`${brandName(b.brand)} ${b.name}`));
     return {
       iceCars: ice,

@@ -7,13 +7,15 @@ import { useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight, CornerDownLeft, Search, X } from "lucide-react";
-import type { Catalog } from "@/lib/catalog";
+import type { ClientCatalog as Catalog } from "@/lib/catalog";
 import { formatPrice, formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { useDialogBehaviour, useIsClient } from "@/components/ui/overlay";
 import { useUI } from "@/components/providers/app-provider";
 import { useCatalog } from "@/components/providers/catalog-provider";
+import { CarImage, CarSilhouette } from "@/components/vehicle/car-image";
+import type { BodyType } from "@/types";
 
 interface Result {
   id: string;
@@ -22,6 +24,8 @@ interface Result {
   meta: string;
   href: string;
   image?: string;
+  /** New cars without photos yet show their body-type silhouette. */
+  bodyType?: BodyType;
 }
 
 const POPULAR = [
@@ -49,6 +53,7 @@ function search(query: string, { cars, usedCars, brands, articles, brandName }: 
       meta: `${c.bodyType} · ${formatPriceRange(c.priceMin, c.priceMax)}`,
       href: `/cars/${c.slug}`,
       image: c.images[0],
+      bodyType: c.bodyType,
     }));
 
   const used: Result[] = usedCars
@@ -198,7 +203,7 @@ export function SearchOverlay() {
                           <li key={c.slug}>
                             <Link href={`/cars/${c.slug}`} onClick={close} className="group flex items-center gap-3 p-2 transition-colors hover:bg-mist">
                               <span className="relative size-12 shrink-0 overflow-hidden bg-mist">
-                                <Image src={c.images[0]} alt="" fill sizes="48px" className="object-cover" />
+                                <CarImage car={c} alt="" sizes="48px" className="object-cover" />
                               </span>
                               <span className="min-w-0">
                                 <span className="block truncate text-[14px] font-medium">
@@ -247,6 +252,10 @@ export function SearchOverlay() {
                                 {r.image ? (
                                   <span className="relative size-12 shrink-0 overflow-hidden bg-mist">
                                     <Image src={r.image} alt="" fill sizes="48px" className="object-cover" />
+                                  </span>
+                                ) : r.bodyType ? (
+                                  <span className="flex size-12 shrink-0 items-center justify-center bg-mist px-1.5">
+                                    <CarSilhouette bodyType={r.bodyType} className="w-full text-ink/35" />
                                   </span>
                                 ) : (
                                   <span className="flex size-12 shrink-0 items-center justify-center bg-mist font-display text-sm font-semibold">{r.title.slice(0, 2)}</span>

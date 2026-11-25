@@ -1,0 +1,853 @@
+{
+  "brand": {
+    "slug": "skoda",
+    "name": "Škoda",
+    "country": "Czech Republic",
+    "founded": 1895,
+    "tagline": "Czech carmaker, part of the Volkswagen Group; in India since 2001",
+    "description": "Czech carmaker founded in 1895 and part of the Volkswagen Group since 1991. In India since 2001; the Kylaq, Kushaq and Slavia are built by Škoda Auto Volkswagen India at Chakan, Pune, and the Kodiaq is assembled at Chhatrapati Sambhajinagar.",
+    "isLuxury": false,
+    "website": "https://www.skoda-auto.co.in/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "skoda-kylaq",
+      "name": "Kylaq",
+      "bodyType": "SUV",
+      "bodyStyle": "Compact SUV",
+      "isLuxury": false,
+      "launchedOn": "2024-12-02",
+      "engine": "999 cc",
+      "power": "85 kW (115 PS)",
+      "torque": "178 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2025
+      },
+      "bootSpaceL": 446,
+      "groundClearanceMm": 189,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3995,
+        "width": 1783,
+        "height": 1619,
+        "wheelbase": 2566
+      },
+      "ev": null,
+      "colors": [],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "1.0 TSI, 85 kW (115 PS) / 178 Nm",
+            "6-speed manual or 6-speed torque-converter automatic"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Electronic stability control",
+            "Tyre pressure monitoring",
+            "Cruise control"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Boot 446 L to the roof, 1,265 L with rear seats folded"
+          ]
+        }
+      ],
+      "highlights": [
+        "Sub-4-metre SUV made in India on the MQB A0 IN platform",
+        "Bharat NCAP 5 stars",
+        "6 airbags on every variant",
+        "1.0 TSI turbo-petrol with manual or automatic"
+      ],
+      "variants": [
+        {
+          "name": "Classic 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 759000,
+          "efficiency": "19.68 kmpl",
+          "features": [
+            "1.0 TSI, 85 kW (115 PS) / 178 Nm",
+            "6 airbags",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Classic+ 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 829000,
+          "efficiency": "19.68 kmpl",
+          "features": [
+            "Classic+ trim",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Classic+ 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 929000,
+          "efficiency": "19.05 kmpl",
+          "features": [
+            "Classic+ trim",
+            "6-speed automatic"
+          ]
+        },
+        {
+          "name": "Signature 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 949000,
+          "efficiency": "19.68 kmpl",
+          "features": [
+            "Signature trim",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Signature 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1049000,
+          "efficiency": "19.05 kmpl",
+          "features": [
+            "Signature trim",
+            "6-speed automatic"
+          ]
+        },
+        {
+          "name": "Signature+ 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1079000,
+          "efficiency": "19.68 kmpl",
+          "features": [
+            "Signature+ trim",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Signature+ 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1179000,
+          "efficiency": "19.05 kmpl",
+          "features": [
+            "Signature+ trim",
+            "6-speed automatic"
+          ]
+        },
+        {
+          "name": "Sportline 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1135000,
+          "efficiency": "19.68 kmpl",
+          "features": [
+            "Sportline styling",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Sportline 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1235000,
+          "efficiency": "19.05 kmpl",
+          "features": [
+            "Sportline styling",
+            "6-speed automatic"
+          ]
+        },
+        {
+          "name": "Prestige 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1185000,
+          "efficiency": "19.68 kmpl",
+          "features": [
+            "Prestige trim",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Prestige 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1285000,
+          "efficiency": "19.05 kmpl",
+          "features": [
+            "Prestige trim",
+            "6-speed automatic"
+          ]
+        },
+        {
+          "name": "Prestige+ 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1209000,
+          "efficiency": "19.68 kmpl",
+          "features": [
+            "Prestige+ (top) trim",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Prestige+ 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1309000,
+          "efficiency": "19.05 kmpl",
+          "features": [
+            "Prestige+ (top) trim",
+            "6-speed automatic"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.skoda-auto.co.in/models/kylaq/kylaq",
+        "https://www.skoda-auto.co.in/aid/checkprice",
+        "https://skodapeaceofmind.co.in/Skoda_TCD/checkprice/checkprice.aspx",
+        "https://www.autocarindia.com/cars/skoda/kylaq/specifications"
+      ],
+      "notes": "Prices from Škoda India's official Check Price tool on 2026-11-25 (one ex-showroom price; no city named). Engine, boot and safety from skoda-auto.co.in; dimensions, ground clearance, tank and ARAI figures (19.68 MT / 19.05 AT) from Autocar India (one Autocar section gives a 2,560 mm wheelbase). Per-trim equipment wasn't available in readable form, so variant feature lists are minimal. Bharat NCAP year (2025) should be confirmed. Colour names not captured."
+    },
+    {
+      "slug": "skoda-kushaq",
+      "name": "Kushaq",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2021-06-28",
+      "engine": "999 – 1498 cc",
+      "power": "85 – 110 kW (115 – 150 PS)",
+      "torque": "178 – 250 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Global NCAP",
+        "year": 2022
+      },
+      "bootSpaceL": 385,
+      "groundClearanceMm": 188,
+      "fuelTankL": 50,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4229,
+        "width": 1760,
+        "height": 1612,
+        "wheelbase": 2651
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Brilliant Silver",
+          "hex": "#b8babc"
+        },
+        {
+          "name": "Lava Blue",
+          "hex": "#1f3d6b"
+        },
+        {
+          "name": "Cappuccino Beige",
+          "hex": "#b9a58c"
+        },
+        {
+          "name": "Carbon Steel",
+          "hex": "#55595c"
+        },
+        {
+          "name": "Deep Black",
+          "hex": "#121213"
+        },
+        {
+          "name": "Shimla Green",
+          "hex": "#3f5a4a"
+        },
+        {
+          "name": "Steel Grey",
+          "hex": "#6e7275"
+        },
+        {
+          "name": "Candy White",
+          "hex": "#f4f4f2"
+        },
+        {
+          "name": "Cherry Red",
+          "hex": "#8e1a24"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "1.0 TSI, 115 PS / 178 Nm, 6-speed MT or 8-speed torque-converter automatic",
+            "1.5 TSI, 150 PS / 250 Nm, 7-speed DSG"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "25 standard active and passive safety features (40+ on top variants)",
+            "Rear wiper and defogger"
+          ]
+        }
+      ],
+      "highlights": [
+        "Made in India on the MQB A0 IN platform",
+        "Updated in March 2026 with an 8-speed automatic for the 1.0 TSI",
+        "Global NCAP 5 stars (2022)",
+        "6 airbags on every variant"
+      ],
+      "variants": [
+        {
+          "name": "Classic+ 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1069000,
+          "efficiency": "19.66 kmpl",
+          "features": [
+            "1.0 TSI, 85 kW (115 PS) / 178 Nm",
+            "6 airbags standard",
+            "Rear wiper and defogger"
+          ]
+        },
+        {
+          "name": "Classic+ 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 1304000,
+          "efficiency": "19.09 kmpl",
+          "features": [
+            "1.0 TSI, 85 kW (115 PS) / 178 Nm",
+            "6 airbags standard",
+            "Rear wiper and defogger",
+            "8-speed automatic"
+          ]
+        },
+        {
+          "name": "Signature 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1469000,
+          "efficiency": "19.66 kmpl",
+          "features": [
+            "Signature trim",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Signature 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 1569000,
+          "efficiency": "19.09 kmpl",
+          "features": [
+            "Signature trim",
+            "8-speed automatic"
+          ]
+        },
+        {
+          "name": "Sportline 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1489000,
+          "efficiency": "19.66 kmpl",
+          "features": [
+            "Sportline styling",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Sportline 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 1589000,
+          "efficiency": "19.09 kmpl",
+          "features": [
+            "Sportline styling",
+            "8-speed automatic"
+          ]
+        },
+        {
+          "name": "Prestige 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1694000,
+          "efficiency": "19.66 kmpl",
+          "features": [
+            "Prestige trim",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Prestige 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 1779000,
+          "efficiency": "19.09 kmpl",
+          "features": [
+            "Prestige trim",
+            "8-speed automatic"
+          ]
+        },
+        {
+          "name": "Monte Carlo 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 1809000,
+          "efficiency": "19.09 kmpl",
+          "features": [
+            "Monte Carlo styling",
+            "8-speed automatic"
+          ]
+        },
+        {
+          "name": "Prestige 1.5 TSI DSG",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 1899000,
+          "efficiency": "18.72 kmpl",
+          "features": [
+            "1.5 TSI 150 PS",
+            "7-speed DSG",
+            "Prestige trim"
+          ]
+        },
+        {
+          "name": "Monte Carlo 1.5 TSI DSG",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 1919000,
+          "efficiency": "18.72 kmpl",
+          "features": [
+            "1.5 TSI 150 PS",
+            "7-speed DSG",
+            "Monte Carlo styling"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.skoda-auto.co.in/models/kushaq/kushaq",
+        "https://www.cardekho.com/skoda/kushaq",
+        "https://www.autocarindia.com/cars/skoda/kushaq/specifications"
+      ],
+      "notes": "Price not published by the brand per variant (Škoda's Check Price tool returns no Kushaq data; the site shows 'from ₹10.69 lakh', which matches); variant prices and ARAI figures from CarDekho (New Delhi). Facelift launched 21 March 2026. Dimensions, clearance and tank from Autocar India; boot 385 L per CarDekho (Autocar quotes 491 L measured to the roof). Global NCAP 5 stars (2022) was for the pre-facelift car of the same generation. Colour names from CarDekho. Per-trim equipment not captured in detail."
+    },
+    {
+      "slug": "skoda-slavia",
+      "name": "Slavia",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-02-28",
+      "engine": "999 – 1498 cc",
+      "power": "85 – 110 kW (115 – 150 PS)",
+      "torque": "178 – 250 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Global NCAP",
+        "year": 2023
+      },
+      "bootSpaceL": 521,
+      "groundClearanceMm": 179,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4552,
+        "width": 1752,
+        "height": 1507,
+        "wheelbase": 2651
+      },
+      "ev": null,
+      "colors": [],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "1.0 TSI, 115 PS / 178 Nm, 6-speed MT or new 8-speed torque-converter automatic",
+            "1.5 TSI, 150 PS / 250 Nm, 7-speed DSG"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags",
+            "360-degree camera (new for the update)",
+            "Electronic stability control"
+          ]
+        }
+      ],
+      "highlights": [
+        "Made in India on the MQB A0 IN platform",
+        "Global NCAP 5 stars for adult and child occupants (2023)",
+        "521-litre boot",
+        "Updated Slavia adds an 8-speed automatic for the 1.0 TSI"
+      ],
+      "variants": [
+        {
+          "name": "Classic 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 999900,
+          "efficiency": null,
+          "features": [
+            "1.0 TSI, 85 kW (115 PS) / 178 Nm",
+            "6 airbags",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Signature 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1344000,
+          "efficiency": null,
+          "features": [
+            "Signature trim",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Signature 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 1444000,
+          "efficiency": null,
+          "features": [
+            "Signature trim",
+            "8-speed automatic"
+          ]
+        },
+        {
+          "name": "Sportline 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1374000,
+          "efficiency": null,
+          "features": [
+            "Sportline styling",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Sportline 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 1474000,
+          "efficiency": null,
+          "features": [
+            "Sportline styling",
+            "8-speed automatic"
+          ]
+        },
+        {
+          "name": "Prestige 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1544000,
+          "efficiency": null,
+          "features": [
+            "Prestige trim",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Prestige 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 1654000,
+          "efficiency": null,
+          "features": [
+            "Prestige trim",
+            "8-speed automatic"
+          ]
+        },
+        {
+          "name": "Monte Carlo 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 1679000,
+          "efficiency": null,
+          "features": [
+            "Monte Carlo styling",
+            "8-speed automatic"
+          ]
+        },
+        {
+          "name": "Prestige 1.5 TSI DSG",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 1804000,
+          "efficiency": null,
+          "features": [
+            "1.5 TSI 150 PS",
+            "7-speed DSG",
+            "Prestige trim"
+          ]
+        },
+        {
+          "name": "Monte Carlo 1.5 TSI DSG",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 1829000,
+          "efficiency": null,
+          "features": [
+            "1.5 TSI 150 PS",
+            "7-speed DSG",
+            "Monte Carlo styling"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.skoda-auto.co.in/models/slavia/slavia",
+        "https://www.skoda-auto.co.in/aid/checkprice",
+        "https://skodapeaceofmind.co.in/Skoda_TCD/checkprice/checkprice.aspx",
+        "https://www.autocarindia.com/cars/skoda/slavia/specifications"
+      ],
+      "notes": "Prices from Škoda India's official Check Price tool on 2026-11-25 (one ex-showroom price; no city named). The site sells the updated ('new') Slavia from ₹9,99,900, which matches the Check Price list; the site also mentions a Classic+ MT that the price tool doesn't list. Per-variant ARAI figures not confirmed (Autocar gives 18.79–19.76 kmpl across the range), so efficiency is null. Length: Autocar shows 4,552 mm in its spec table and 4,541 mm in text — check. Clearance 179 mm, boot and tank from Autocar. Global NCAP rating (2023) is for the pre-update car of the same generation. Colour names not captured."
+    },
+    {
+      "slug": "skoda-kodiaq",
+      "name": "Kodiaq",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2025-04-17",
+      "engine": "1984 cc",
+      "power": "150 kW (204 PS)",
+      "torque": "320 Nm",
+      "seats": [
+        5,
+        7
+      ],
+      "airbags": 9,
+      "safety": null,
+      "bootSpaceL": 281,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4758,
+        "width": 1864,
+        "height": 1679,
+        "wheelbase": 2791
+      },
+      "ev": null,
+      "colors": [],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "2.0 TSI, 150 kW / 320 Nm",
+            "7-speed DSG",
+            "All-wheel drive"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Up to 9 airbags",
+            "ADAS including lane assist and proximity alert"
+          ]
+        }
+      ],
+      "highlights": [
+        "Second-generation Kodiaq assembled in India",
+        "2.0 TSI with 7-speed DSG and AWD",
+        "Lounge seats five; Sportline and Selection L&K seat seven",
+        "ADAS added to the range"
+      ],
+      "variants": [
+        {
+          "name": "Lounge 2.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 3699000,
+          "efficiency": "14.86 kmpl",
+          "features": [
+            "Five seats",
+            "2.0 TSI 150 kW",
+            "7-speed DSG, AWD"
+          ]
+        },
+        {
+          "name": "Sportline 2.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 4499000,
+          "efficiency": "14.86 kmpl",
+          "features": [
+            "Seven seats",
+            "Sportline styling",
+            "ADAS"
+          ]
+        },
+        {
+          "name": "Selection L&K 2.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 4699000,
+          "efficiency": "14.86 kmpl",
+          "features": [
+            "Seven seats",
+            "Laurin & Klement trim",
+            "ADAS",
+            "9 airbags"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.skoda-auto.co.in/models/kodiaq/kodiaq",
+        "https://www.skoda-auto.co.in/aid/checkprice",
+        "https://skodapeaceofmind.co.in/Skoda_TCD/checkprice/checkprice.aspx",
+        "https://www.autocarindia.com/cars/skoda/kodiaq/specifications"
+      ],
+      "notes": "Prices from Škoda India's official Check Price tool on 2026-11-25 (one ex-showroom price; no city named). Lounge is a newer entry trim. Dimensions from Autocar's dimensions section (its spec table says 4,761/1,682/2,789 mm). Ground clearance (194 vs 155 mm) and tank (58 vs 62 L) conflict on Autocar, so left null. Boot 281 L with all three rows up (786 L / 1,976 L folded). 14.86 kmpl is Autocar's 'official' figure. Euro NCAP rated this generation 5 stars, but the India car is locally assembled, so safety is null. Colour names not captured."
+    },
+    {
+      "slug": "skoda-octavia-rs",
+      "name": "Octavia RS",
+      "bodyType": "Sedan",
+      "bodyStyle": "Liftback",
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "1984 cc",
+      "power": "195 kW (265 PS)",
+      "torque": "370 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 10,
+      "safety": {
+        "rating": 5,
+        "agency": "Euro NCAP",
+        "year": 2019
+      },
+      "bootSpaceL": 600,
+      "groundClearanceMm": 128,
+      "fuelTankL": 50,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 6.4 s",
+      "dimensions": {
+        "length": 4709,
+        "width": 1829,
+        "height": 1457,
+        "wheelbase": 2677
+      },
+      "ev": null,
+      "colors": [],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "2.0 TSI, 195 kW / 370 Nm",
+            "7-speed DSG",
+            "Top speed electronically limited to 250 km/h"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "10 airbags",
+            "Adaptive cruise control",
+            "Front Assist and Lane Assist",
+            "Blind-spot detection"
+          ]
+        }
+      ],
+      "highlights": [
+        "Imported as a completely built unit",
+        "265 PS 2.0 TSI with 7-speed DSG",
+        "Claimed 0–100 km/h in 6.4 s",
+        "10 airbags"
+      ],
+      "variants": [
+        {
+          "name": "Octavia RS 2.0 TSI DSG",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 5669000,
+          "efficiency": null,
+          "features": [
+            "265 PS / 370 Nm",
+            "7-speed DSG",
+            "10 airbags",
+            "Adaptive cruise control",
+            "Blind-spot detection"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.skoda-auto.co.in/models/octavia-rs/octavia-rs",
+        "https://www.autocarindia.com/cars/skoda/octavia-rs/specifications"
+      ],
+      "notes": "₹56,69,000 is the 'from' price on skoda-auto.co.in (single variant; not in the Check Price tool's data). Performance, airbags and top speed from the official page; dimensions, clearance, boot and tank from Autocar India. Euro NCAP 5 stars (2019) is the current-generation Octavia rating; the RS is a CBU. Launch date not confirmed. Colour names not captured."
+    }
+  ]
+}

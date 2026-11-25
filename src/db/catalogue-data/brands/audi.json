@@ -1,0 +1,1133 @@
+{
+  "brand": {
+    "slug": "audi",
+    "name": "Audi",
+    "country": "Germany",
+    "founded": 1909,
+    "tagline": "German luxury carmaker, in India since 2007",
+    "description": "German luxury carmaker. Audi India, a division of Skoda Auto Volkswagen India, has sold cars in India since 2007 and assembles several models at the group's plant in Chhatrapati Sambhajinagar (Aurangabad).",
+    "isLuxury": true,
+    "website": "https://www.audi.in"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "audi-a4",
+      "name": "A4",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1984 cc",
+      "power": "150 kW (204 hp)",
+      "torque": "320 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 54,
+      "topSpeedKmh": 241,
+      "acceleration": "0–100 km/h in 7.1 s",
+      "dimensions": {
+        "length": 4762,
+        "width": 1847,
+        "height": 1433,
+        "wheelbase": 2826
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Glacier White Metallic",
+          "hex": "#f2f3f3"
+        },
+        {
+          "name": "Progressive Red Metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "Mythos Black Metallic",
+          "hex": "#111111"
+        },
+        {
+          "name": "Navarra Blue Metallic",
+          "hex": "#2a3d6b"
+        },
+        {
+          "name": "Manhattan Grey Metallic",
+          "hex": "#7a7d80"
+        }
+      ],
+      "features": [
+        {
+          "group": "Infotainment",
+          "items": [
+            "MMI touch infotainment",
+            "Audi virtual cockpit plus",
+            "Bang & Olufsen 3D sound system",
+            "Wireless phone charging"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Gesture-controlled boot lid opening",
+            "Comfort key",
+            "Panoramic sunroof",
+            "Ambient lighting"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Park assist",
+            "360-degree camera"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.0-litre TFSI four-cylinder petrol engine",
+            "7-speed S tronic",
+            "Front-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "2.0-litre TFSI four-cylinder petrol engine, 150 kW (204 hp) and 320 Nm",
+        "7-speed S tronic dual-clutch transmission, front-wheel drive",
+        "Premium, Premium Plus and Technology trims",
+        "54-litre fuel tank"
+      ],
+      "variants": [
+        {
+          "name": "Premium",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed S tronic",
+          "price": 4688000,
+          "efficiency": null,
+          "features": [
+            "150 kW (204 hp), 320 Nm",
+            "17-inch alloy wheels"
+          ]
+        },
+        {
+          "name": "Premium Plus C7R",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed S tronic",
+          "price": 5184999,
+          "efficiency": null,
+          "features": [
+            "150 kW (204 hp), 320 Nm"
+          ]
+        },
+        {
+          "name": "Technology C7R",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed S tronic",
+          "price": 5583000,
+          "efficiency": null,
+          "features": [
+            "150 kW (204 hp), 320 Nm"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.audi.in/en/models/a4/a4-sedan/",
+        "https://myaudi.in/en/vehicleSales/models/31/configure?uid=a4&year=2025",
+        "https://myaudi.in/en/vehiclePrices",
+        "https://delivery-p123727-e1214567.adobeaemcloud.com/adobe/assets/urn:aaid:aem:4731018d-8fc4-4f8c-a792-7f0e6a5e6986/original/as/AudiA4DigitalBrochure2025HighRes.pdf"
+      ],
+      "notes": "Prices from the official Audi India price list (myAudi 'Vehicle prices' / price reckoner), ex-showroom, one all-India price. Variant names as shown on the Audi price list ('C7R' suffix included). Model year 2025. Specs from the official brochure; some brochure features are limited to Premium Plus/Technology, and trim-by-trim equipment is not published in a parseable form. ARAI mileage not published."
+    },
+    {
+      "slug": "audi-a6",
+      "name": "A6",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1984 cc",
+      "power": "195 kW (265 hp)",
+      "torque": "370 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 73,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 6.7 s",
+      "dimensions": {
+        "length": 4939,
+        "width": 1886,
+        "height": 1470,
+        "wheelbase": 2930
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Glacier White Metallic",
+          "hex": "#f2f3f3"
+        },
+        {
+          "name": "Mythos Black Metallic",
+          "hex": "#111111"
+        },
+        {
+          "name": "Firmament Blue Metallic",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Chronos Grey Metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Manhattan Grey Metallic",
+          "hex": "#7a7d80"
+        }
+      ],
+      "features": [
+        {
+          "group": "Infotainment",
+          "items": [
+            "MMI touch infotainment"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "4-zone climate control",
+            "Ambient lighting"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Park assist",
+            "360-degree camera"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Matrix LED headlights"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Pearl Beige or Okapi Brown upholstery",
+            "Brown Olive wood inlay (Technology)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "A6 45 TFSI 2.0-litre four-cylinder petrol engine",
+            "7-speed S tronic",
+            "Front-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "A6 45 TFSI with a 2.0-litre four-cylinder petrol engine, 195 kW (265 hp) and 370 Nm",
+        "7-speed S tronic dual-clutch transmission, front-wheel drive",
+        "Premium Plus and Technology trims",
+        "73-litre fuel tank"
+      ],
+      "variants": [
+        {
+          "name": "Premium Plus",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed S tronic",
+          "price": 6481000,
+          "efficiency": null,
+          "features": [
+            "195 kW (265 hp), 370 Nm"
+          ]
+        },
+        {
+          "name": "Technology",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed S tronic",
+          "price": 7166000,
+          "efficiency": null,
+          "features": [
+            "195 kW (265 hp), 370 Nm"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.audi.in/en/models/a6/a6/",
+        "https://myaudi.in/en/vehicleSales/models/35/configure?uid=a6&year=2025",
+        "https://myaudi.in/en/vehiclePrices",
+        "https://delivery-p123727-e1214567.adobeaemcloud.com/adobe/assets/urn:aaid:aem:c0e9cbbc-aa14-47db-9a21-d737ee2b036f/original/as/AudiA6SedanBrochurerevisedcompressedNew.pdf"
+      ],
+      "notes": "Prices from the official Audi India price list (myAudi 'Vehicle prices' / price reckoner), ex-showroom, one all-India price. Model year 2025. Specs from the official brochure; dimensions read from the brochure's dimension drawing. ARAI mileage not published."
+    },
+    {
+      "slug": "audi-q3",
+      "name": "Q3",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2026-10-16",
+      "engine": "1984 cc",
+      "power": "140 – 150 kW",
+      "torque": "320 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 9,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 229,
+      "acceleration": "0–100 km/h in 7.1–7.3 s",
+      "dimensions": null,
+      "ev": null,
+      "colors": [
+        {
+          "name": "Sage Green",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Mythos Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "Navarra Blue",
+          "hex": "#2a3d6b"
+        },
+        {
+          "name": "Glacier White",
+          "hex": "#f2f3f3"
+        },
+        {
+          "name": "Tambora Grey",
+          "hex": "#7a7d80"
+        }
+      ],
+      "features": [
+        {
+          "group": "Infotainment",
+          "items": [
+            "Curved panoramic display",
+            "Audi virtual cockpit",
+            "MMI infotainment",
+            "SONOS premium sound system, 12 speakers, 420 W (Zenith)",
+            "Apple CarPlay and Android Auto"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sunroof",
+            "3-zone climate control",
+            "Sliding rear seat bench",
+            "Electrically operated tailgate",
+            "Ambient lighting"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Up to 9 airbags (9 on Zenith)",
+            "Park assist",
+            "Adaptive cruise control",
+            "Lane assist"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Digital Matrix LED headlights with micro-LED technology (Zenith)",
+            "Digital daytime running lights with four light signatures"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Tamarind Brown or Pergament Beige interior"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.0-litre TFSI petrol engine",
+            "7-speed S tronic",
+            "quattro all-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Third-generation Q3 launched in October 2026 in Nova and Zenith trims",
+        "2.0-litre TFSI petrol engine, 150 kW and 320 Nm, with quattro all-wheel drive",
+        "Up to 9 airbags (Zenith)",
+        "Previous-generation Q3 (Premium, Premium Plus, Technology) still on the official price list"
+      ],
+      "variants": [
+        {
+          "name": "Premium (previous generation)",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed S tronic",
+          "price": 4367000,
+          "efficiency": null,
+          "features": [
+            "140 kW (190 PS), 320 Nm",
+            "quattro all-wheel drive",
+            "Model year 2025"
+          ]
+        },
+        {
+          "name": "Premium Plus (previous generation)",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed S tronic",
+          "price": 4819000,
+          "efficiency": null,
+          "features": [
+            "140 kW (190 PS), 320 Nm",
+            "quattro all-wheel drive",
+            "Model year 2025"
+          ]
+        },
+        {
+          "name": "Nova",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed S tronic",
+          "price": 5199000,
+          "efficiency": null,
+          "features": [
+            "150 kW, 320 Nm",
+            "quattro all-wheel drive",
+            "Multi-spoke alloy wheels"
+          ]
+        },
+        {
+          "name": "Technology (previous generation)",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed S tronic",
+          "price": 5299999,
+          "efficiency": null,
+          "features": [
+            "140 kW (190 PS), 320 Nm",
+            "quattro all-wheel drive",
+            "Model year 2025"
+          ]
+        },
+        {
+          "name": "Zenith",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed S tronic",
+          "price": 5599000,
+          "efficiency": null,
+          "features": [
+            "150 kW, 320 Nm",
+            "quattro all-wheel drive",
+            "Digital Matrix LED headlights",
+            "SONOS premium sound system",
+            "Aero alloy wheels"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.audi.in/en/models/q3/q3-suv/",
+        "https://myaudi.in/en/vehicleSales/models/39/configure?uid=q3&year=2026",
+        "https://myaudi.in/en/vehicleSales/models/32/configure?uid=q3&year=2025",
+        "https://myaudi.in/en/vehiclePrices",
+        "https://delivery-p123727-e1214567.adobeaemcloud.com/adobe/assets/urn:aaid:aem:7a1ff989-43de-4fc1-90be-11da2fcb4369/original/as/AllnewAudiQ3Brochure.pdf",
+        "https://www.autocarindia.com/car-news/2026-audi-q3-launched-in-india-at-rs-5199-lakh-441067"
+      ],
+      "notes": "Prices from the official Audi India price list (myAudi 'Vehicle prices' / price reckoner), ex-showroom, one all-India price. The official price list carries both the new (third-generation, MY2026) Q3 — Nova Rs 51.99 lakh, introductory — and the previous-generation MY2025 Q3. The Zenith price is not shown on the official configurator; Rs 55.99 lakh is from Autocar India (price not published by the brand). Specs for the new Q3 from its brochure (wheelbase 2,681 mm); previous-generation figures (140 kW, 0–100 in 7.3 s) from the configurator. Transmission for the new Q3 per launch coverage. ARAI mileage not published."
+    },
+    {
+      "slug": "audi-q3-sportback",
+      "name": "Q3 Sportback",
+      "bodyType": "SUV",
+      "bodyStyle": "Coupé SUV",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1984 cc",
+      "power": "140 kW (190 PS)",
+      "torque": "320 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 7.3 s",
+      "dimensions": null,
+      "ev": null,
+      "colors": [],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "2.0-litre TFSI petrol engine",
+            "quattro all-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Coupé-style version of the previous-generation Q3",
+        "2.0-litre TFSI petrol engine, 140 kW (190 PS) and 320 Nm",
+        "Sold in Technology trim"
+      ],
+      "variants": [
+        {
+          "name": "Technology",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed S tronic",
+          "price": 5425001,
+          "efficiency": null,
+          "features": [
+            "140 kW (190 PS), 320 Nm",
+            "quattro all-wheel drive",
+            "Model year 2025"
+          ]
+        }
+      ],
+      "sources": [
+        "https://myaudi.in/en/vehicleSales/models/34/configure?uid=q3Sportback&year=2025",
+        "https://myaudi.in/en/vehiclePrices"
+      ],
+      "notes": "Prices from the official Audi India price list (myAudi 'Vehicle prices' / price reckoner), ex-showroom, one all-India price. Model year 2025 (previous-generation Q3 platform); not listed among the models on audi.in but still on the official price list, so likely run-out stock. Transmission and drive taken from the previous-generation Q3 40 TFSI quattro; other specs not published. Colours not published."
+    },
+    {
+      "slug": "audi-q5",
+      "name": "Q5",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1984 cc",
+      "power": "195 kW (265 hp)",
+      "torque": "370 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 8,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 240,
+      "acceleration": "0–100 km/h in 6.1 s",
+      "dimensions": {
+        "length": 4682,
+        "width": 1893,
+        "height": 1655,
+        "wheelbase": 2827
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Navarra Blue Metallic",
+          "hex": "#2a3d6b"
+        },
+        {
+          "name": "Glacier White Metallic",
+          "hex": "#f2f3f3"
+        },
+        {
+          "name": "Mythos Black Metallic",
+          "hex": "#111111"
+        },
+        {
+          "name": "Manhattan Grey Metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "District Green Metallic",
+          "hex": "#2f5a44"
+        }
+      ],
+      "features": [
+        {
+          "group": "Infotainment",
+          "items": [
+            "MMI touch infotainment",
+            "Audi virtual cockpit",
+            "Bang & Olufsen sound system",
+            "Wireless phone charging"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sunroof",
+            "3-zone climate control",
+            "Power front seats",
+            "Gesture-controlled boot lid (Technology)",
+            "Contour ambient lighting"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "8 airbags",
+            "Park assist",
+            "360-degree camera"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "45 TFSI 2.0-litre petrol engine",
+            "quattro all-wheel drive",
+            "Six drive modes"
+          ]
+        }
+      ],
+      "highlights": [
+        "2.0-litre TFSI petrol engine, 195 kW (265 hp) and 370 Nm",
+        "quattro all-wheel drive",
+        "8 airbags",
+        "Premium Plus and Technology trims"
+      ],
+      "variants": [
+        {
+          "name": "Premium Plus",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed S tronic",
+          "price": 6555000,
+          "efficiency": null,
+          "features": [
+            "195 kW (265 hp), 370 Nm",
+            "quattro all-wheel drive"
+          ]
+        },
+        {
+          "name": "Technology",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed S tronic",
+          "price": 7073001,
+          "efficiency": null,
+          "features": [
+            "195 kW (265 hp), 370 Nm",
+            "quattro all-wheel drive",
+            "Gesture-controlled boot lid opening"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.audi.in/en/models/q5/q5/",
+        "https://myaudi.in/en/vehicleSales/models/33/configure?uid=q5&year=2025",
+        "https://myaudi.in/en/vehiclePrices",
+        "https://delivery-p123727-e1214567.adobeaemcloud.com/adobe/assets/urn:aaid:aem:1c06a3e6-5dd1-487d-b739-ad21e340afd9/original/as/AudiQ5DigitalBrochureFinal.pdf"
+      ],
+      "notes": "Prices from the official Audi India price list (myAudi 'Vehicle prices' / price reckoner), ex-showroom, one all-India price. Model year 2025. Specs from the official brochure. Transmission (7-speed S tronic) is not stated in the brochure's data table — check. ARAI mileage not published."
+    },
+    {
+      "slug": "audi-q7",
+      "name": "Q7",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2995 cc",
+      "power": "250 kW (340 PS)",
+      "torque": "500 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 5.6 s",
+      "dimensions": {
+        "length": 5072,
+        "width": 1970,
+        "height": 1705,
+        "wheelbase": 3000
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Glacier White",
+          "hex": "#f2f3f3"
+        },
+        {
+          "name": "Mythos Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "Sakhir Gold",
+          "hex": "#b08d57"
+        },
+        {
+          "name": "Waitomo Blue",
+          "hex": "#24427a"
+        }
+      ],
+      "features": [
+        {
+          "group": "Infotainment",
+          "items": [
+            "MMI touch infotainment",
+            "Audi virtual cockpit",
+            "Bang & Olufsen sound system",
+            "Wireless phone charging"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Seven seats with third row",
+            "Up to 1,908 litres of storage with rows two and three folded",
+            "Panoramic sunroof",
+            "4-zone climate control",
+            "Adaptive air suspension"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Park assist",
+            "360-degree camera",
+            "Lane assist"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Matrix LED headlights"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "3.0-litre V6 TFSI petrol engine",
+            "8-speed tiptronic",
+            "quattro all-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Seven-seat SUV",
+        "3.0-litre V6 TFSI petrol engine, 250 kW (340 PS) and 500 Nm",
+        "8-speed tiptronic, quattro all-wheel drive",
+        "Premium Plus and Technology trims"
+      ],
+      "variants": [
+        {
+          "name": "Premium Plus",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed tiptronic",
+          "price": 8716999,
+          "efficiency": null,
+          "features": [
+            "250 kW (340 PS), 500 Nm",
+            "quattro all-wheel drive"
+          ]
+        },
+        {
+          "name": "Technology",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed tiptronic",
+          "price": 9615000,
+          "efficiency": null,
+          "features": [
+            "250 kW (340 PS), 500 Nm",
+            "quattro all-wheel drive"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.audi.in/en/models/q7/q7-suv2025/",
+        "https://myaudi.in/en/vehicleSales/models/29/configure?uid=q7&year=2025",
+        "https://myaudi.in/en/vehiclePrices",
+        "https://delivery-p123727-e1214567.adobeaemcloud.com/adobe/assets/urn:aaid:aem:ce651e24-40fa-4379-ad6c-5864a1a4a7cf/original/as/AudinewQ7BROCHUREFinalPrint.pdf"
+      ],
+      "notes": "Prices from the official Audi India price list (myAudi 'Vehicle prices' / price reckoner), ex-showroom, one all-India price. Model year 2025. Specs from the official brochure; colour list is partial (names readable in the brochure). ARAI mileage not published."
+    },
+    {
+      "slug": "audi-q8",
+      "name": "Q8",
+      "bodyType": "SUV",
+      "bodyStyle": "Coupé SUV",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2995 cc",
+      "power": "250 kW",
+      "torque": "500 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 5.6 s",
+      "dimensions": null,
+      "ev": null,
+      "colors": [
+        {
+          "name": "Sakhir Gold Metallic",
+          "hex": "#b08d57"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Three-part sliding rear seat",
+            "Up to 1,755 litres of luggage space"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "55 TFSI 3.0-litre V6 petrol engine",
+            "8-speed tiptronic",
+            "quattro all-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "55 TFSI quattro with a 3.0-litre petrol engine, 250 kW and 500 Nm",
+        "8-speed tiptronic, quattro all-wheel drive",
+        "Up to 1,755 litres of luggage space"
+      ],
+      "variants": [
+        {
+          "name": "55 TFSI quattro tiptronic (MY2025)",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed tiptronic",
+          "price": 10966001,
+          "efficiency": null,
+          "features": [
+            "250 kW, 500 Nm",
+            "quattro all-wheel drive",
+            "Model year 2025"
+          ]
+        },
+        {
+          "name": "55 TFSI quattro tiptronic (MY2026)",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed tiptronic",
+          "price": 11310000,
+          "efficiency": null,
+          "features": [
+            "250 kW, 500 Nm",
+            "quattro all-wheel drive",
+            "Model year 2026"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.audi.in/en/models/q8/q8-suv/",
+        "https://myaudi.in/en/vehicleSales/models/28/configure?uid=q8&year=2025",
+        "https://myaudi.in/en/vehicleSales/models/37/configure?uid=q8&year=2026",
+        "https://myaudi.in/en/vehiclePrices"
+      ],
+      "notes": "Prices from the official Audi India price list (myAudi 'Vehicle prices' / price reckoner), ex-showroom, one all-India price. The price list shows MY2025 and MY2026 versions of the same 55 TFSI quattro at different prices; both are listed. Specs from the configurator (the brochure PDF could not be read). Only Sakhir Gold is named on the model page; other colours not captured. ARAI mileage not published."
+    },
+    {
+      "slug": "audi-sq8",
+      "name": "SQ8",
+      "bodyType": "SUV",
+      "bodyStyle": "Coupé SUV",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "3996 cc",
+      "power": "373 kW",
+      "torque": "770 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 8,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 4.1 s",
+      "dimensions": null,
+      "ev": null,
+      "colors": [
+        {
+          "name": "Mythos Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "Daytona Grey",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Glacier White",
+          "hex": "#f2f3f3"
+        },
+        {
+          "name": "Ascari Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Chili Red",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "Sakhir Gold",
+          "hex": "#b08d57"
+        },
+        {
+          "name": "Satellite Silver",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "Waitomo Blue",
+          "hex": "#24427a"
+        }
+      ],
+      "features": [
+        {
+          "group": "Infotainment",
+          "items": [
+            "MMI touch infotainment",
+            "Audi virtual cockpit",
+            "Bang & Olufsen sound system",
+            "Head-up display"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Sport seats plus with ventilation and massage",
+            "Three-part sliding rear seat bench plus",
+            "Panoramic sunroof",
+            "Adaptive air suspension"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "8 airbags",
+            "Park assist",
+            "Lane assist"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "HD Matrix LED headlights"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Valcona leather with S embossing"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "4.0-litre V8 TFSI petrol engine",
+            "quattro permanent all-wheel drive",
+            "All-wheel steering"
+          ]
+        }
+      ],
+      "highlights": [
+        "4.0-litre V8 petrol engine, 373 kW and 770 Nm",
+        "quattro permanent all-wheel drive",
+        "0–100 km/h in 4.1 s; top speed 250 km/h",
+        "8 airbags"
+      ],
+      "variants": [
+        {
+          "name": "SQ8",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed tiptronic",
+          "price": 18123000,
+          "efficiency": null,
+          "features": [
+            "373 kW, 770 Nm",
+            "quattro permanent all-wheel drive",
+            "Model year 2026"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.audi.in/en/models/q8/sq8-suv/",
+        "https://myaudi.in/en/vehicleSales/models/38/configure?uid=sq8&year=2026",
+        "https://myaudi.in/en/vehiclePrices",
+        "https://delivery-p123727-e1214567.adobeaemcloud.com/adobe/assets/urn:aaid:aem:a23c3007-cfff-4040-b099-739359c1b325/original/as/AudiSQ8Brochure.pdf"
+      ],
+      "notes": "Prices from the official Audi India price list (myAudi 'Vehicle prices' / price reckoner), ex-showroom, one all-India price. Specs from the official brochure; wheelbase 3,000 mm. Some features are optional (marked chargeable in the brochure). ARAI mileage not published."
+    },
+    {
+      "slug": "audi-rs-q8",
+      "name": "RS Q8 Performance",
+      "bodyType": "SUV",
+      "bodyStyle": "Coupé SUV",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "3996 cc",
+      "power": "471 kW (640 hp)",
+      "torque": "850 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 3.6 s",
+      "dimensions": null,
+      "ev": null,
+      "colors": [
+        {
+          "name": "Mythos Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "Daytona Grey",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Glacier White",
+          "hex": "#f2f3f3"
+        },
+        {
+          "name": "Ascari Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Chili Red",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "Sakhir Gold",
+          "hex": "#b08d57"
+        },
+        {
+          "name": "Satellite Silver",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "Waitomo Blue",
+          "hex": "#24427a"
+        }
+      ],
+      "features": [
+        {
+          "group": "Infotainment",
+          "items": [
+            "Audi virtual cockpit plus with RS layout",
+            "Bang & Olufsen 3D Advanced Sound System, 23 speakers",
+            "Head-up display"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Sport seats plus in perforated Valcona leather",
+            "4-zone climate control",
+            "Adaptive air suspension"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Park assist",
+            "360-degree camera",
+            "Lane assist"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "HD Matrix LED headlights",
+            "RS performance entry-light projection"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "4.0-litre V8 petrol engine",
+            "Ceramic brakes",
+            "quattro with sport differential",
+            "All-wheel steering",
+            "Top speed 305 km/h optional"
+          ]
+        }
+      ],
+      "highlights": [
+        "4.0-litre V8 petrol engine, 471 kW (640 hp) and 850 Nm",
+        "0–100 km/h in 3.6 s; top speed 250 km/h (305 km/h optional)",
+        "quattro all-wheel drive with sport differential",
+        "Ceramic brakes as standard"
+      ],
+      "variants": [
+        {
+          "name": "RS Q8 Performance (MY2025)",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed tiptronic",
+          "price": 23240001,
+          "efficiency": null,
+          "features": [
+            "471 kW (640 hp), 850 Nm",
+            "Model year 2025"
+          ]
+        },
+        {
+          "name": "RS Q8 Performance (MY2026)",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed tiptronic",
+          "price": 23383000,
+          "efficiency": null,
+          "features": [
+            "471 kW (640 hp), 850 Nm",
+            "Model year 2026"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.audi.in/en/models/q8/rs-q8-suv-performance/",
+        "https://myaudi.in/en/vehicleSales/models/27/configure?uid=rsq8&year=2025",
+        "https://myaudi.in/en/vehicleSales/models/36/configure?uid=rsq8&year=2026",
+        "https://myaudi.in/en/vehiclePrices",
+        "https://delivery-p123727-e1214567.adobeaemcloud.com/adobe/assets/urn:aaid:aem:71c2dcf7-8af0-4ca0-a84e-a52b44597b3c/original/as/AudiRSQ8BrochureperformanceFinalNEW.pdf"
+      ],
+      "notes": "Prices from the official Audi India price list (myAudi 'Vehicle prices' / price reckoner), ex-showroom, one all-India price. The price list shows MY2025 and MY2026 versions at different prices; both are listed. Power/torque/acceleration from the official model page and brochure (471 kW, 850 Nm, 3.6 s); the myAudi configurator shows older figures (441 kW, 800 Nm, 3.8 s) — check. Wheelbase 2,995 mm. Transmission type assumed 8-speed tiptronic as on the Q8 — check. ARAI mileage not published."
+    }
+  ]
+}

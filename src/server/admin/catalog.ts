@@ -1,5 +1,5 @@
 import "server-only";
-import { and, asc, count, desc, eq, like, or, type SQL } from "drizzle-orm";
+import { and, asc, count, desc, eq, like, ne, or, type SQL } from "drizzle-orm";
 import { getDb } from "@/db";
 import { USED_STATUS, articles, authors, brands, cars, dealers, upcomingCars, usedCars, variants, type UsedStatus } from "@/db/schema";
 import type { SiteContent } from "@/content/registry";
@@ -65,12 +65,16 @@ export async function listBrands() {
   return rows.map((b) => ({ ...b, models: byBrand.get(b.slug) ?? 0 }));
 }
 
-export async function listCars(q?: string, brand?: string) {
+/** Admin car list. `photos`: "missing" = models with no photos yet (researched facts-only models), "has" = with photos. */
+export async function listCars(q?: string, brand?: string, photos?: string) {
   await requireStaff();
   const db = getDb();
   const conds: SQL[] = [];
   if (q) conds.push(or(like(cars.name, term(q)), like(cars.slug, term(q)))!);
   if (brand) conds.push(eq(cars.brand, brand));
+  // Images are a JSON array stored as text: "[]" when there are none.
+  if (photos === "missing") conds.push(eq(cars.images, []));
+  if (photos === "has") conds.push(ne(cars.images, []));
   const [rows, variantCounts] = await Promise.all([
     db
       .select({
@@ -84,6 +88,8 @@ export async function listCars(q?: string, brand?: string) {
         status: cars.status,
         trending: cars.trending,
         images: cars.images,
+        overview: cars.overview,
+        dataAsOf: cars.dataAsOf,
       })
       .from(cars)
       .innerJoin(brands, eq(brands.slug, cars.brand))
@@ -92,7 +98,7 @@ export async function listCars(q?: string, brand?: string) {
     db.select({ carId: variants.carId, n: count() }).from(variants).groupBy(variants.carId),
   ]);
   const vc = new Map(variantCounts.map((v) => [v.carId, v.n]));
-  return rows.map(({ images, ...r }) => ({ ...r, image: images[0], variants: vc.get(r.id) ?? 0 }));
+  return rows.map(({ images, overview, ...r }) => ({ ...r, image: images[0], photos: images.length, factsOnly: !overview.trim(), variants: vc.get(r.id) ?? 0 }));
 }
 
 export async function listUpcoming() {

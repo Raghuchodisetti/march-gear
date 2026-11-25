@@ -1,0 +1,1061 @@
+{
+  "brand": {
+    "slug": "citroen",
+    "name": "Citroën",
+    "country": "France",
+    "founded": 1919,
+    "tagline": "French carmaker, part of Stellantis; in India since 2021",
+    "description": "French carmaker founded by André Citroën in 1919, now part of Stellantis. Entered India in 2021 with the C5 Aircross; the C3X, e-C3X, BasaltX and AircrossX are built at Stellantis plants in Tamil Nadu.",
+    "isLuxury": false,
+    "website": "https://www.citroen.in/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "citroen-c3",
+      "name": "C3X",
+      "bodyType": "Hatchback",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-07-20",
+      "engine": "1199 cc",
+      "power": "82 – 110 PS",
+      "torque": "115 – 205 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 315,
+      "groundClearanceMm": 180,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3981,
+        "width": 1733,
+        "height": 1604,
+        "wheelbase": 2540
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Polar White",
+          "hex": "#f2f2ef"
+        },
+        {
+          "name": "Perla Nera Black",
+          "hex": "#141414"
+        },
+        {
+          "name": "Steel Grey",
+          "hex": "#6b6e70"
+        },
+        {
+          "name": "Garnet Red",
+          "hex": "#8c1c24"
+        },
+        {
+          "name": "Cosmo Blue",
+          "hex": "#2c4f7c"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "1.2 PureTech 82 naturally aspirated petrol, 82 PS / 115 Nm, 5-speed MT",
+            "1.2 PureTech 110 turbo-petrol, 110 PS / 190 Nm (MT) or 205 Nm (6-speed AT)"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "2 airbags on Live and Feel; 6 airbags from Feel (O)",
+            "ESP and hill hold on turbo and Shine",
+            "360-degree camera on Shine",
+            "ISOFIX from Feel (O)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "25 cm touchscreen (Live (O))",
+            "26 cm Citroën Connect touchscreen with wireless Android Auto/Apple CarPlay (Feel (O), Shine)",
+            "17.78 cm colour TFT cluster (turbo, Shine)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic AC (Shine)",
+            "Passive entry and push-button start (Shine)",
+            "Cruise control with speed limiter (AT)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "LED projector headlamps and diamond-cut alloys (Shine)",
+            "Dual-tone roof options"
+          ]
+        }
+      ],
+      "highlights": [
+        "Made in India by Stellantis",
+        "1.2 naturally aspirated or 1.2 turbo-petrol",
+        "Turbo-petrol available with a 6-speed automatic",
+        "Claimed 19.3 km/l (MT) and 18.3 km/l (AT)"
+      ],
+      "variants": [
+        {
+          "name": "Live 1.2 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 499000,
+          "efficiency": "19.3 kmpl",
+          "features": [
+            "1.2 PureTech 82, 5-speed MT",
+            "Halogen headlamps, R15 steel wheels",
+            "Front airbags, ABS with EBD",
+            "Reverse parking sensors",
+            "Digital cluster with gear-shift indicator"
+          ]
+        },
+        {
+          "name": "Live (O) 1.2 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 569000,
+          "efficiency": "19.3 kmpl",
+          "features": [
+            "25 cm Android touchscreen with Android Auto and Apple CarPlay",
+            "Rear-view camera",
+            "Front fog lamps",
+            "Wheel arch cladding",
+            "Rear power windows"
+          ]
+        },
+        {
+          "name": "Feel 1.2 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 600000,
+          "efficiency": "19.3 kmpl",
+          "features": [
+            "Glossy black roof rails",
+            "Electrically adjustable ORVMs",
+            "Engine auto stop/start"
+          ]
+        },
+        {
+          "name": "Feel (O) 1.2 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 703000,
+          "efficiency": "19.3 kmpl",
+          "features": [
+            "6 airbags",
+            "26 cm Citroën Connect touchscreen, wireless Android Auto/Apple CarPlay",
+            "Signature LED DRLs",
+            "Height-adjustable driver seat",
+            "ISOFIX"
+          ]
+        },
+        {
+          "name": "Feel 1.2 Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 758000,
+          "efficiency": "19.3 kmpl",
+          "features": [
+            "1.2 PureTech 110 turbo, 6-speed MT",
+            "17.78 cm colour TFT cluster",
+            "ESP and hill hold",
+            "Tyre pressure monitoring",
+            "Tilt steering"
+          ]
+        },
+        {
+          "name": "Shine 1.2 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 786000,
+          "efficiency": "19.3 kmpl",
+          "features": [
+            "LED projector headlamps",
+            "R15 diamond-cut alloys",
+            "Automatic AC",
+            "Passive entry and push-button start",
+            "Auto-dimming IRVM",
+            "360-degree camera",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Shine 1.2 MT Dual Tone",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 793000,
+          "efficiency": "19.3 kmpl",
+          "features": [
+            "Shine with contrast roof"
+          ]
+        },
+        {
+          "name": "Shine 1.2 Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 897000,
+          "efficiency": "19.3 kmpl",
+          "features": [
+            "LED projector headlamps",
+            "R15 diamond-cut alloys",
+            "Automatic AC",
+            "Passive entry and push-button start",
+            "Auto-dimming IRVM",
+            "360-degree camera",
+            "6 airbags",
+            "110 PS turbo-petrol"
+          ]
+        },
+        {
+          "name": "Shine 1.2 Turbo AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 968000,
+          "efficiency": "18.3 kmpl",
+          "features": [
+            "LED projector headlamps",
+            "R15 diamond-cut alloys",
+            "Automatic AC",
+            "Passive entry and push-button start",
+            "Auto-dimming IRVM",
+            "360-degree camera",
+            "6 airbags",
+            "6-speed automatic",
+            "Cruise control with speed limiter"
+          ]
+        },
+        {
+          "name": "Shine 1.2 Turbo AT Dual Tone",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1015000,
+          "efficiency": "18.3 kmpl",
+          "features": [
+            "Shine Turbo AT with contrast roof"
+          ]
+        },
+        {
+          "name": "Shine 1.2 Turbo AT Sport Edition",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1021000,
+          "efficiency": "18.3 kmpl",
+          "features": [
+            "Shine Turbo AT with Sport Edition styling"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.citroen.in/models/c3.html",
+        "https://www.cardekho.com/citroen/c3",
+        "https://www.autocarindia.com/cars/citroen/c3",
+        "https://www.autocarindia.com/cars/citroen/c3/specifications"
+      ],
+      "notes": "Price not published by the brand (citroen.in shows only 'starting from' figures); variant prices from CarDekho (New Delhi ex-showroom), cross-checked with Autocar India. Sold as 'C3X' since the 2025 update; slug kept as citroen-c3. Engine outputs, fuel efficiency and tank are from citroen.in; dimensions, clearance and boot from Autocar India (height 1,604 mm with roof rails). Dealer-fitted CNG versions are listed by CarDekho (₹5.73–8.45 lakh) but their prices are inconsistent, so they are left out. Sport Edition and dual-tone entries are as listed by CarDekho. Colour names from CarDekho. Not crash-tested for India."
+    },
+    {
+      "slug": "citroen-ec3",
+      "name": "e-C3X",
+      "bodyType": "Hatchback",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2023-02-28",
+      "engine": "Electric motor",
+      "power": "57 PS",
+      "torque": "143 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 315,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 107,
+      "acceleration": "0–60 km/h in 6.8 s",
+      "dimensions": null,
+      "ev": {
+        "rangeKm": 330,
+        "rangeStandard": "ARAI",
+        "batteryKwh": 29.2,
+        "dcCharge": "57 min (10–80%)",
+        "acCharge": "10.5 h (10–100%, 15 A socket)",
+        "motorKw": 42
+      },
+      "colors": [],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "29.2 kWh LFP battery",
+            "Front motor, 57 PS / 143 Nm",
+            "Single-speed automatic"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "2 airbags on Live and Live (O)",
+            "6 airbags and ISOFIX on Shine"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "26 cm Citroën Connect touchscreen with wireless Android Auto/Apple CarPlay (Shine)",
+            "17.78 cm colour TFT cluster (Shine)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "LED projector headlamps and R15 diamond-cut alloys (Shine)",
+            "Glossy black roof rails (Shine)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Electric hatchback built in India",
+        "ARAI-certified range of up to 330 km",
+        "Battery-as-a-Service purchase option offered",
+        "DC fast charging 10–80% in about 57 minutes"
+      ],
+      "variants": [
+        {
+          "name": "Live",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1209000,
+          "efficiency": "330 km",
+          "features": [
+            "29.2 kWh battery",
+            "2 airbags",
+            "Halogen headlamps"
+          ]
+        },
+        {
+          "name": "Live (O)",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1245000,
+          "efficiency": "330 km",
+          "features": [
+            "Touchscreen infotainment",
+            "Rear parking camera"
+          ]
+        },
+        {
+          "name": "Shine",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1336000,
+          "efficiency": "330 km",
+          "features": [
+            "6 airbags",
+            "LED projector headlamps",
+            "R15 diamond-cut alloys",
+            "26 cm touchscreen with wireless Android Auto/Apple CarPlay",
+            "17.78 cm TFT cluster"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.citroen.in/models/new-e-c3.html",
+        "https://www.autocarindia.com/cars/citroen/ec3",
+        "https://www.autocarindia.com/car-news/citroen-aircross-x-basalt-x-updated-with-wider-variant-lineup-440683"
+      ],
+      "notes": "Price not published by the brand; from Autocar India's model page (updated 22 Nov 2026: ₹12.09–13.36 lakh). Autocar's September 2026 article gave ₹11.99/12.35/13.26 lakh, so prices appear to have risen ₹10,000. Under BaaS the car starts at about ₹6.99 lakh plus a per-km battery charge (not included). Range rose from 320–325 km to 330 km (ARAI) in September 2026. Motor 57 PS shown as 42 kW. Live (O) features are not fully confirmed. Dimensions and colours not captured from an official source."
+    },
+    {
+      "slug": "citroen-basalt",
+      "name": "BasaltX",
+      "bodyType": "SUV",
+      "bodyStyle": "Coupe SUV",
+      "isLuxury": false,
+      "launchedOn": "2024-08-09",
+      "engine": "1199 cc",
+      "power": "82 – 110 PS",
+      "torque": "115 – 205 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 4,
+        "agency": "Bharat NCAP",
+        "year": 2024
+      },
+      "bootSpaceL": 470,
+      "groundClearanceMm": 180,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4352,
+        "width": 1765,
+        "height": 1593,
+        "wheelbase": 2651
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Polar White",
+          "hex": "#f2f2ef"
+        },
+        {
+          "name": "Perla Nera Black",
+          "hex": "#141414"
+        },
+        {
+          "name": "Steel Grey",
+          "hex": "#6b6e70"
+        },
+        {
+          "name": "Garnet Red",
+          "hex": "#8c1c24"
+        },
+        {
+          "name": "Galaxy Blue",
+          "hex": "#24406b"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "1.2 PureTech 82 petrol, 82 PS / 115 Nm, 5-speed MT",
+            "1.2 PureTech 110 turbo-petrol, 110 PS / 190 Nm (MT) or 205 Nm (6-speed AT)"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "ESP and hill hold standard",
+            "Tyre pressure monitoring (Plus and above)",
+            "360-degree camera (Max)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "26 cm floating touchscreen with wireless Android Auto/Apple CarPlay (Plus and above)",
+            "MyCitroën Connect and CARA AI assistant (Max AT)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Ventilated front seats (Max)",
+            "Automatic AC (Plus and above)",
+            "Wireless charger (Max)",
+            "Cruise control with speed limiter (AT)"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Brown leatherette upholstery with gold accents (Max)",
+            "Ambient lighting (Plus and above)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Coupe-SUV made in India by Stellantis",
+        "6 airbags and ESP on every variant",
+        "Bharat NCAP 4 stars (October 2024)",
+        "470-litre boot"
+      ],
+      "variants": [
+        {
+          "name": "You 1.2 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 855000,
+          "efficiency": "18 kmpl",
+          "features": [
+            "1.2 PureTech 82, 5-speed MT",
+            "6 airbags, ESP, hill hold",
+            "R16 steel wheels",
+            "Digital cluster",
+            "Electrically adjustable ORVMs",
+            "Reverse parking sensors"
+          ]
+        },
+        {
+          "name": "You 1.2 MT Comfort Edition",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 875000,
+          "efficiency": "18 kmpl",
+          "features": [
+            "You trim plus Comfort Edition pack",
+            "10.25-inch touchscreen",
+            "Ambient lighting",
+            "Beige leatherette upholstery"
+          ]
+        },
+        {
+          "name": "You 1.2 Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 999000,
+          "efficiency": "19.5 kmpl",
+          "features": [
+            "6 airbags, ESP, hill hold",
+            "R16 steel wheels",
+            "Digital cluster",
+            "Electrically adjustable ORVMs",
+            "Reverse parking sensors",
+            "110 PS turbo-petrol, 6-speed MT"
+          ]
+        },
+        {
+          "name": "Plus 1.2 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 999000,
+          "efficiency": "18 kmpl",
+          "features": [
+            "LED projector headlamps",
+            "26 cm floating touchscreen with wireless Android Auto/Apple CarPlay",
+            "17.78 cm digital TFT cluster",
+            "Automatic AC",
+            "Passive entry and push-button start",
+            "Tyre pressure monitoring"
+          ]
+        },
+        {
+          "name": "Plus 1.2 Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1157000,
+          "efficiency": "19.5 kmpl",
+          "features": [
+            "LED projector headlamps",
+            "26 cm floating touchscreen with wireless Android Auto/Apple CarPlay",
+            "17.78 cm digital TFT cluster",
+            "Automatic AC",
+            "Passive entry and push-button start",
+            "Tyre pressure monitoring",
+            "LED fog lamps",
+            "Front and rear skid plates"
+          ]
+        },
+        {
+          "name": "Plus 1.2 Turbo AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1282000,
+          "efficiency": "18.7 kmpl",
+          "features": [
+            "LED projector headlamps",
+            "26 cm floating touchscreen with wireless Android Auto/Apple CarPlay",
+            "17.78 cm digital TFT cluster",
+            "Automatic AC",
+            "Passive entry and push-button start",
+            "Tyre pressure monitoring",
+            "6-speed automatic",
+            "Cruise control with speed limiter"
+          ]
+        },
+        {
+          "name": "Max 1.2 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1134000,
+          "efficiency": "18 kmpl",
+          "features": [
+            "R16 diamond-cut alloys",
+            "Brown leatherette upholstery",
+            "Ventilated front seats",
+            "Wireless charger",
+            "Auto-dimming IRVM",
+            "360-degree camera"
+          ]
+        },
+        {
+          "name": "Max 1.2 Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1262000,
+          "efficiency": "19.5 kmpl",
+          "features": [
+            "R16 diamond-cut alloys",
+            "Brown leatherette upholstery",
+            "Ventilated front seats",
+            "Wireless charger",
+            "Auto-dimming IRVM",
+            "360-degree camera",
+            "110 PS turbo-petrol"
+          ]
+        },
+        {
+          "name": "Max 1.2 Turbo MT Dual Tone",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1284000,
+          "efficiency": "19.5 kmpl",
+          "features": [
+            "Max Turbo MT with contrast roof"
+          ]
+        },
+        {
+          "name": "Max 1.2 Turbo AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1389000,
+          "efficiency": "18.7 kmpl",
+          "features": [
+            "R16 diamond-cut alloys",
+            "Brown leatherette upholstery",
+            "Ventilated front seats",
+            "Wireless charger",
+            "Auto-dimming IRVM",
+            "360-degree camera",
+            "6-speed automatic",
+            "CARA AI assistant",
+            "MyCitroën Connect"
+          ]
+        },
+        {
+          "name": "Max 1.2 Turbo AT Dual Tone",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1411000,
+          "efficiency": "18.7 kmpl",
+          "features": [
+            "Max Turbo AT with contrast roof"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.citroen.in/models/basalt.html",
+        "https://www.cardekho.com/citroen/basalt",
+        "https://www.autocarindia.com/cars/citroen/basalt",
+        "https://www.autocarindia.com/car-news/citroen-aircross-x-basalt-x-updated-with-wider-variant-lineup-440683",
+        "https://www.autocarindia.com/car-news/citroen-basalt-scores-4-star-bharat-ncap-rating-433201"
+      ],
+      "notes": "Price not published by the brand (citroen.in shows only 'starting from' figures); variant prices from CarDekho (New Delhi ex-showroom), cross-checked with Autocar India. Sold as 'BasaltX' since September 2025; slug citroen-basalt. Turbo You and Max NA added 7 Sep 2026; Comfort Edition (₹20,000 over You) added Jul 2026. CarDekho also lists Comfort Edition versions of Plus at the same price as the standard Plus; left out as unconfirmed. Engine outputs, efficiency and tank from citroen.in; dimensions, clearance and boot from Autocar India. Bharat NCAP 4 stars applies to all variants. Colour names from CarDekho (dual-tone combinations also offered)."
+    },
+    {
+      "slug": "citroen-aircross",
+      "name": "AircrossX",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2023-09-15",
+      "engine": "1199 cc",
+      "power": "82 – 110 PS",
+      "torque": "115 – 205 Nm",
+      "seats": [
+        5,
+        7
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2025
+      },
+      "bootSpaceL": 444,
+      "groundClearanceMm": 200,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4323,
+        "width": 1796,
+        "height": 1665,
+        "wheelbase": 2671
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Polar White",
+          "hex": "#f2f2ef"
+        },
+        {
+          "name": "Perla Nera Black",
+          "hex": "#141414"
+        },
+        {
+          "name": "Steel Grey",
+          "hex": "#6b6e70"
+        },
+        {
+          "name": "Garnet Red",
+          "hex": "#8c1c24"
+        },
+        {
+          "name": "Galaxy Blue",
+          "hex": "#24406b"
+        },
+        {
+          "name": "Deep Forest Green",
+          "hex": "#2c4034"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "1.2 PureTech 82 petrol, 82 PS / 115 Nm, 5-speed MT",
+            "1.2 PureTech 110 turbo-petrol, 110 PS / 190 Nm (MT) or 205 Nm (6-speed AT)"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "ESP and hill hold standard",
+            "Tyre pressure monitoring (Plus and above)",
+            "3-point seat belts on all seats"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "5-seat or 5+2 seat layouts with removable third row",
+            "Ventilated front seats (Max)",
+            "Automatic AC (Plus and above)",
+            "Cruise control with speed limiter (AT)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "26 cm floating touchscreen with wireless Android Auto/Apple CarPlay (Plus and above)",
+            "MyCitroën Connect and CARA AI assistant (Max AT)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "200 mm ground clearance",
+            "R17 diamond-cut alloys (Max)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Five- or seven-seat SUV made in India by Stellantis",
+        "Bharat NCAP 5 stars (5-seater, 2025)",
+        "6 airbags and ESP on every variant",
+        "200 mm ground clearance"
+      ],
+      "variants": [
+        {
+          "name": "You 1.2 MT 5-Seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 889000,
+          "efficiency": "17.5 kmpl",
+          "features": [
+            "1.2 PureTech 82, 5-speed MT",
+            "6 airbags, ESP, hill hold",
+            "R16 steel wheels with covers",
+            "All four power windows",
+            "Electrically adjustable ORVMs"
+          ]
+        },
+        {
+          "name": "You 1.2 MT 5-Seater Comfort Edition",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 909000,
+          "efficiency": "17.5 kmpl",
+          "features": [
+            "You trim plus Comfort Edition pack",
+            "10.25-inch touchscreen",
+            "Ambient lighting",
+            "Beige leatherette upholstery"
+          ]
+        },
+        {
+          "name": "You 1.2 Turbo MT 7-Seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1049000,
+          "efficiency": "18.5 kmpl",
+          "features": [
+            "6 airbags, ESP, hill hold",
+            "R16 steel wheels with covers",
+            "All four power windows",
+            "Electrically adjustable ORVMs",
+            "110 PS turbo-petrol, 6-speed MT",
+            "Seven seats"
+          ]
+        },
+        {
+          "name": "Plus 1.2 MT 5-Seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 999000,
+          "efficiency": "17.5 kmpl",
+          "features": [
+            "Roof rails and skid plates",
+            "26 cm floating touchscreen with wireless Android Auto/Apple CarPlay",
+            "17.78 cm digital TFT cluster",
+            "Automatic AC",
+            "Passive entry and push-button start",
+            "Tyre pressure monitoring",
+            "Reverse parking sensors"
+          ]
+        },
+        {
+          "name": "Plus 1.2 Turbo MT 7-Seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1199000,
+          "efficiency": "18.5 kmpl",
+          "features": [
+            "Roof rails and skid plates",
+            "26 cm floating touchscreen with wireless Android Auto/Apple CarPlay",
+            "17.78 cm digital TFT cluster",
+            "Automatic AC",
+            "Passive entry and push-button start",
+            "Tyre pressure monitoring",
+            "Reverse parking sensors",
+            "LED projector headlamps",
+            "Seven seats"
+          ]
+        },
+        {
+          "name": "Max 1.2 MT 5-Seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1162000,
+          "efficiency": "17.5 kmpl",
+          "features": [
+            "R17 diamond-cut alloys",
+            "Deep Brown leatherette upholstery",
+            "Ventilated front seats",
+            "Wireless charger",
+            "Auto-dimming IRVM",
+            "Rear wiper and washer",
+            "LED fog lamps"
+          ]
+        },
+        {
+          "name": "Max 1.2 Turbo MT 5-Seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1242000,
+          "efficiency": "18.5 kmpl",
+          "features": [
+            "R17 diamond-cut alloys",
+            "Deep Brown leatherette upholstery",
+            "Ventilated front seats",
+            "Wireless charger",
+            "Auto-dimming IRVM",
+            "Rear wiper and washer",
+            "LED fog lamps",
+            "110 PS turbo-petrol"
+          ]
+        },
+        {
+          "name": "Max 1.2 Turbo MT 7-Seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1335000,
+          "efficiency": "18.5 kmpl",
+          "features": [
+            "R17 diamond-cut alloys",
+            "Deep Brown leatherette upholstery",
+            "Ventilated front seats",
+            "Wireless charger",
+            "Auto-dimming IRVM",
+            "Rear wiper and washer",
+            "LED fog lamps",
+            "Seven seats"
+          ]
+        },
+        {
+          "name": "Max 1.2 Turbo MT 7-Seater Dual Tone",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1355000,
+          "efficiency": "18.5 kmpl",
+          "features": [
+            "Max Turbo 7-seater with contrast roof"
+          ]
+        },
+        {
+          "name": "Max 1.2 Turbo AT 5-Seater",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1414000,
+          "efficiency": "17.6 kmpl",
+          "features": [
+            "R17 diamond-cut alloys",
+            "Deep Brown leatherette upholstery",
+            "Ventilated front seats",
+            "Wireless charger",
+            "Auto-dimming IRVM",
+            "Rear wiper and washer",
+            "LED fog lamps",
+            "6-speed automatic",
+            "CARA AI assistant"
+          ]
+        },
+        {
+          "name": "Max 1.2 Turbo AT 7-Seater",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1452000,
+          "efficiency": "17.6 kmpl",
+          "features": [
+            "R17 diamond-cut alloys",
+            "Deep Brown leatherette upholstery",
+            "Ventilated front seats",
+            "Wireless charger",
+            "Auto-dimming IRVM",
+            "Rear wiper and washer",
+            "LED fog lamps",
+            "6-speed automatic",
+            "Seven seats"
+          ]
+        },
+        {
+          "name": "Max 1.2 Turbo AT 7-Seater Dual Tone",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1472000,
+          "efficiency": "17.6 kmpl",
+          "features": [
+            "Max Turbo AT 7-seater with contrast roof"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.citroen.in/models/aircross.html",
+        "https://www.cardekho.com/citroen/aircross",
+        "https://www.autocarindia.com/cars/citroen/c3-aircross",
+        "https://www.autocarindia.com/cars/citroen/c3-aircross/specifications",
+        "https://www.autocarindia.com/car-news/citroen-aircross-x-basalt-x-updated-with-wider-variant-lineup-440683",
+        "https://www.autocarindia.com/car-news/citroen-aircross-secures-5-star-bharat-ncap-safety-rating-437493"
+      ],
+      "notes": "Price not published by the brand (citroen.in shows only 'starting from' figures); variant prices from CarDekho (New Delhi ex-showroom), cross-checked with Autocar India. Formerly C3 Aircross; sold as 'AircrossX' since 2025. Max Turbo MT 5-seater: Autocar ₹12.42 lakh vs CarDekho ₹12.97 lakh; Autocar figure used — check. CarDekho also lists Comfort Edition versions of Plus and Turbo Plus at the same price as standard; left out. Engine outputs, efficiency and tank from citroen.in; dimensions from Autocar (height 1,669 mm for the 7-seater with roof rails). Boot 444 L (5-seat); up to 839 L in the 7-seater with the third row removed. Bharat NCAP 5 stars was for the 5-seater (results released September 2025). CNG is offered as a dealer option but not priced officially."
+    },
+    {
+      "slug": "citroen-c5-aircross",
+      "name": "C5 Aircross",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-09-29",
+      "engine": "1997 cc",
+      "power": "177 PS (130 kW)",
+      "torque": "400 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 580,
+      "groundClearanceMm": null,
+      "fuelTankL": 52,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4500,
+        "width": 1969,
+        "height": 1710,
+        "wheelbase": 2730
+      },
+      "ev": null,
+      "colors": [],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "2.0-litre DW10 turbo-diesel, 177 PS / 400 Nm",
+            "8-speed automatic"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags"
+          ]
+        }
+      ],
+      "highlights": [
+        "Imported diesel SUV, single variant",
+        "2.0-litre diesel with 8-speed automatic",
+        "Claimed 17.5 km/l"
+      ],
+      "variants": [
+        {
+          "name": "Shine Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 3999000,
+          "efficiency": "17.5 kmpl",
+          "features": [
+            "2.0 diesel, 177 PS",
+            "8-speed automatic",
+            "6 airbags"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.citroen.in/models/c5-aircross.html",
+        "https://www.autocarindia.com/cars/citroen/c5-aircross"
+      ],
+      "notes": "₹39.99 lakh is the price shown on citroen.in's C5 Aircross page; Autocar India still lists ₹37.32 lakh. Engine, efficiency and 52.5 L tank (rounded to 52 for the schema) from citroen.in; dimensions and boot from Autocar India. A new-generation C5 Aircross was revealed globally in 2025 but has not been launched in India. Colour names not captured."
+    }
+  ]
+}

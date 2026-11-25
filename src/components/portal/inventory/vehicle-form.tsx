@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useId, useState, type ReactNode } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AlertTriangle, ArrowUpRight, Check, Circle, CirclePause, Eye, History, Library, Loader2, Rocket, Save, Send } from "lucide-react";
@@ -15,6 +14,8 @@ import { Segmented } from "@/components/ui/field";
 import { formatDateTime } from "@/components/portal/ui";
 import { DocumentUploader, ImageUploader } from "@/components/portal/uploader";
 import { useCatalog } from "@/components/providers/catalog-provider";
+import { useCarDetails } from "@/components/providers/car-details";
+import { CarImage } from "@/components/vehicle/car-image";
 import { useUI } from "@/components/providers/app-provider";
 import { saveVehicleAction } from "@/server/actions/partner-inventory";
 import { ConfirmDialog, HistoryDrawer, PreviewModal, RemarksCallout, StatusBadge } from "./dialogs";
@@ -62,6 +63,8 @@ export interface VehicleFormProps {
     listedAs: string | null;
   };
   initial: VehicleFormValue;
+  /** The listing's catalogue model in full, from the server (others load when picked). */
+  initialCar?: CarModel;
   showrooms: { id: number; name: string; city: string; address: string; isPrimary: boolean }[];
   /** Approved brand authorisations and the line-up ticked on /dealer/models. */
   lineups: { brand: string; models: string[]; variants: string[] }[];
@@ -203,7 +206,7 @@ function CatalogueCard({ car, variantSlug, brandName, isUsed }: { car: CarModel;
   return (
     <div className="mt-5 grid grid-cols-1 overflow-hidden border border-line sm:grid-cols-[200px_minmax(0,1fr)]">
       <div className="relative aspect-[16/10] bg-mist sm:aspect-auto sm:min-h-[150px]">
-        {car.images[0] && <Image src={car.images[0]} alt={`${brandName} ${car.name}`} fill sizes="(min-width: 640px) 200px, 100vw" className="object-cover" style={car.focus ? { objectPosition: car.focus } : undefined} />}
+        <CarImage car={car} alt={`${brandName} ${car.name}`} sizes="(min-width: 640px) 200px, 100vw" className="object-cover" style={car.focus ? { objectPosition: car.focus } : undefined} />
       </div>
       <div className="min-w-0 p-4 sm:p-5">
         <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted">From the MarchGear catalogue</p>
@@ -281,7 +284,7 @@ function ColourPicker({ car, value, onChange, error, id }: { car: CarModel; valu
 
 /* ── The form ───────────────────────────────────────────────── */
 
-export function VehicleForm({ vehicle, initial, showrooms, lineups, partnerId, dealer }: VehicleFormProps) {
+export function VehicleForm({ vehicle, initial, initialCar, showrooms, lineups, partnerId, dealer }: VehicleFormProps) {
   const router = useRouter();
   const { toast } = useUI();
   const cat = useCatalog();
@@ -294,7 +297,7 @@ export function VehicleForm({ vehicle, initial, showrooms, lineups, partnerId, d
   });
   // A used car's colour may be one the model no longer comes in.
   const [customColour, setCustomColour] = useState(() => {
-    const car = initial.modelSlug ? cat.getCar(initial.modelSlug) : undefined;
+    const car = initialCar && initialCar.slug === initial.modelSlug ? initialCar : undefined;
     return initial.kind === "used" && Boolean(initial.colour) && !car?.colors.some((c) => c.name === initial.colour);
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -312,7 +315,11 @@ export function VehicleForm({ vehicle, initial, showrooms, lineups, partnerId, d
   const hiddenLegacy = Boolean(vehicle?.listedAs);
   const staffPaused = !isUsed && status === "unpublished" && Boolean(vehicle?.adminRemarks);
   const found = v.modelSlug ? cat.getCar(v.modelSlug) : undefined;
-  const car = found && found.brand === v.brand ? found : undefined;
+  // The browser's catalogue is light; colours and specs of the chosen model load on demand (the initial one comes from the server).
+  const chosen = found && found.brand === v.brand ? found : undefined;
+  const details = useCarDetails(chosen ? [chosen.slug] : [], initialCar ? [initialCar] : undefined);
+  const car = chosen ? details.get(chosen.slug) : undefined;
+  const loadingCar = Boolean(chosen && !car);
   const variant = car?.variants.find((x) => x.slug === v.variantSlug);
   const year = currentYear();
 
@@ -386,7 +393,8 @@ export function VehicleForm({ vehicle, initial, showrooms, lineups, partnerId, d
   };
   const onModel = (slug: string) => {
     const c = cat.getCar(slug);
-    const keepColour = !!c && (customColour || c.colors.some((x) => x.name === v.colour));
+    const colours = c ? details.get(c.slug)?.colors : undefined;
+    const keepColour = !!c && (customColour || Boolean(colours?.some((x) => x.name === v.colour)));
     patch({ modelSlug: c ? c.slug : "", variantSlug: "", colour: keepColour ? v.colour : "" });
     if (!keepColour) setCustomColour(false);
   };
@@ -644,12 +652,13 @@ export function VehicleForm({ vehicle, initial, showrooms, lineups, partnerId, d
                 </div>
                 {v.brand && modelOptions.length === 0 && <p className="mt-3 text-[13px] text-muted">No {brandName} models in your line-up yet.</p>}
                 {car && <CatalogueCard car={car} variantSlug={v.variantSlug} brandName={brandName} isUsed={isUsed} />}
+                {loadingCar && <div className="mt-5 h-[150px] animate-shimmer border border-line bg-[linear-gradient(90deg,var(--color-mist)_0%,#fafafa_50%,var(--color-mist)_100%)] bg-[length:200%_100%]" aria-busy="true" aria-label="Loading the catalogue details" />}
               </>
             )}
           </Section>
 
           {!isUsed && !noBrands && (
-            <Section index={idx("colour")} title="Colour" description={car ? (car.colors.length ? `${car.colors.length} factory colours for the ${car.name}.` : undefined) : "Choose the model first."}>
+            <Section index={idx("colour")} title="Colour" description={car ? (car.colors.length ? `${car.colors.length} factory colours for the ${car.name}.` : undefined) : loadingCar ? "Loading the factory colours…" : "Choose the model first."}>
               <div data-field="colour">
                 <p id={fid("colour")} className="sr-only">
                   Colour

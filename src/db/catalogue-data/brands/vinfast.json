@@ -1,0 +1,277 @@
+{
+  "brand": {
+    "slug": "vinfast",
+    "name": "VinFast",
+    "country": "Vietnam",
+    "founded": 2017,
+    "tagline": "Vietnamese electric-car maker, in India since 2025",
+    "description": "Vietnamese carmaker founded in 2017 as part of Vingroup, building only electric vehicles. Launched in India in September 2025 with the VF 6 and VF 7, assembled at its plant in Thoothukudi, Tamil Nadu; sells through dealers.",
+    "isLuxury": false,
+    "website": "https://vinfastauto.in/en"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "vinfast-vf6",
+      "name": "VF 6",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2025-09-06",
+      "engine": "Electric motor",
+      "power": "130 – 150 kW",
+      "torque": "250 – 310 Nm",
+      "seats": [5],
+      "airbags": 7,
+      "safety": { "rating": 5, "agency": "Bharat NCAP", "year": 2026 },
+      "bootSpaceL": 423,
+      "groundClearanceMm": 190,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 8.9 s",
+      "dimensions": { "length": 4241, "width": 1834, "height": 1615, "wheelbase": 2730 },
+      "ev": {
+        "rangeKm": 468,
+        "rangeStandard": "MIDC P1+P2",
+        "batteryKwh": 59.6,
+        "dcCharge": "25 min (10–70%, 100 kW)",
+        "acCharge": "Up to 7.2 kW",
+        "motorKw": 150
+      },
+      "colors": [
+        { "name": "Infinity Blanc", "hex": "#f3f3f0" },
+        { "name": "Jet Black", "hex": "#111111" },
+        { "name": "Zenith Grey", "hex": "#5b5e62" },
+        { "name": "Solar Ruby", "hex": "#9b1b2a" },
+        { "name": "Desat Silver", "hex": "#b3b6b8" },
+        { "name": "Moonlit Ocean", "hex": "#1f3550" },
+        { "name": "Ivy Green", "hex": "#2f4a3a" }
+      ],
+      "features": [
+        { "group": "Infotainment", "items": ["32.76 cm (12.9-inch) infotainment screen", "Wireless Android Auto and Apple CarPlay", "Connected-car app with remote control", "Firmware over-the-air updates", "6 or 8 speakers by variant"] },
+        { "group": "Comfort", "items": ["Automatic climate control (dual-zone from Wind)", "Rear AC vents", "Ventilated front seats (Wind and above)", "Head-up display (Wind and above)", "Wireless charger (Wind and above)", "Air ionizer (Wind and above)"] },
+        { "group": "Safety", "items": ["7 airbags including driver knee", "360-degree surround-view monitor", "ABS, EBD, ESC, TCS, hill-start assist", "Tyre pressure monitoring", "Level 2 ADAS on Wind and above", "Rear ISOFIX"] },
+        { "group": "Exterior", "items": ["LED projector headlamps with auto levelling", "Front and rear signature V light", "Flush door handles", "Edge-to-edge panoramic glass roof (Wind Infinity)"] },
+        { "group": "Interior", "items": ["Fabric (Earth) or vegan leather upholstery", "6-way (Earth) or 8-way power driver seat", "60:40 split rear seat"] },
+        { "group": "Performance", "items": ["Front-wheel drive", "Eco / Normal / Sport drive modes", "Four regeneration levels"] }
+      ],
+      "highlights": [
+        "Assembled at VinFast's Thoothukudi plant in Tamil Nadu",
+        "59.6 kWh usable battery on every variant",
+        "Claimed 468 km range (MIDC Part 1 + Part 2) on Earth",
+        "5-star Bharat NCAP rating announced January 2026",
+        "7 airbags as standard"
+      ],
+      "variants": [
+        {
+          "name": "Earth",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1819000,
+          "efficiency": "468 km",
+          "features": ["130 kW / 250 Nm motor", "Automatic single-zone climate control", "Fabric upholstery", "6-way power driver seat", "6 speakers", "Silver-finish alloy wheels", "7 airbags"]
+        },
+        {
+          "name": "Wind",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1959000,
+          "efficiency": "463 km",
+          "features": ["150 kW / 310 Nm motor", "Level 2 ADAS", "Head-up display", "Ventilated front seats", "Dual-zone climate control", "Vegan leather upholstery", "8-way power driver seat", "8 speakers", "Wireless charger", "Machine-cut alloy wheels"]
+        },
+        {
+          "name": "Wind Infinity",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2009000,
+          "efficiency": "463 km",
+          "features": ["Everything in Wind", "Edge-to-edge panoramic glass roof", "Roof rails"]
+        }
+      ],
+      "sources": [
+        "https://vinfastauto.in/en/vf6",
+        "https://shop.vinfastauto.in/reservation?model=VF6",
+        "https://static-cms-prod.vinfastauto.in/statics/Brochure_VF6_A4_website.pdf",
+        "https://vinfastauto.in/en/mpv7"
+      ],
+      "notes": "Prices are the ex-showroom figures shown in VinFast India's online booking tool on 2026-11-25 (one national price; no city named). They are higher than the January 2026 list (₹17.29–19.19 lakh). Desat Silver, Moonlit Ocean and Ivy Green cost ₹9,429 extra in the booking tool. Brochure (June 2026) gives 0–100 km/h as 10.4 s (Earth) and 8.9 s (Wind); the model web page shows 9.12 s and 8.5 s. Bharat NCAP 5-star result was announced by VinFast on 21 January 2026. Interior: black, or dual-tone/beige by variant."
+    },
+    {
+      "slug": "vinfast-vf7",
+      "name": "VF 7",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2025-09-06",
+      "engine": "Electric motor (single or dual motor)",
+      "power": "130 – 260 kW",
+      "torque": "250 – 500 Nm",
+      "seats": [5],
+      "airbags": 7,
+      "safety": { "rating": 5, "agency": "Bharat NCAP", "year": 2026 },
+      "bootSpaceL": 537,
+      "groundClearanceMm": 190,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 5.8 s",
+      "dimensions": { "length": 4550, "width": 1893, "height": 1596, "wheelbase": 2840 },
+      "ev": {
+        "rangeKm": 532,
+        "rangeStandard": "MIDC P1+P2",
+        "batteryKwh": 70,
+        "dcCharge": "28 min (10–70%, 110 kW)",
+        "acCharge": "Up to 7.2 kW",
+        "motorKw": 260
+      },
+      "colors": [
+        { "name": "Infinity Blanc", "hex": "#f3f3f0" },
+        { "name": "Jet Black", "hex": "#111111" },
+        { "name": "Zenith Grey", "hex": "#5b5e62" },
+        { "name": "Solar Ruby", "hex": "#9b1b2a" },
+        { "name": "Desat Silver", "hex": "#b3b6b8" },
+        { "name": "Moonlit Ocean", "hex": "#1f3550" },
+        { "name": "Ivy Green", "hex": "#2f4a3a" }
+      ],
+      "features": [
+        { "group": "Infotainment", "items": ["32.76 cm (12.9-inch) infotainment screen", "Wireless Android Auto and Apple CarPlay", "Connected-car app with remote control (Wind and above)", "Firmware over-the-air updates (Wind and above)", "6 or 8 speakers by variant"] },
+        { "group": "Comfort", "items": ["Automatic dual-zone climate control", "Head-up display", "Ventilated front seats", "Rear AC vents", "Wireless charger (Wind and above)", "Powered tailgate (Wind and above)"] },
+        { "group": "Safety", "items": ["7 airbags including driver knee", "360-degree surround-view monitor", "Level 2 ADAS with adaptive cruise control (Wind and above)", "Driver distraction warning with DMS camera (Wind and above)", "ABS, EBD, ESC, TCS, roll-over mitigation", "Tyre pressure monitoring"] },
+        { "group": "Exterior", "items": ["LED projector headlamps with auto levelling", "Front and rear signature V light", "245/50 R19 wheels", "Edge-to-edge panoramic glass roof (Infinity variants)"] },
+        { "group": "Interior", "items": ["Vegan leather upholstery and steering wrap", "6-way (Earth) or 8-way power driver seat", "60:40 split, 2-step reclining rear seat"] },
+        { "group": "Performance", "items": ["Front-wheel drive or dual-motor all-wheel drive (Sky)", "Eco / Normal / Sport drive modes", "Four regeneration levels"] }
+      ],
+      "highlights": [
+        "Assembled at VinFast's Thoothukudi plant in Tamil Nadu",
+        "59.6 kWh (Earth) or 70 kWh usable battery",
+        "Dual-motor AWD Sky variants with 260 kW and 500 Nm",
+        "Claimed up to 532 km range (MIDC Part 1 + Part 2)",
+        "5-star Bharat NCAP rating announced January 2026"
+      ],
+      "variants": [
+        {
+          "name": "Earth",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2299000,
+          "efficiency": "438 km",
+          "features": ["59.6 kWh battery", "130 kW / 250 Nm, FWD", "100 kW DC charging", "6 speakers", "6-way power driver seat", "Silver-finish alloy wheels", "Electric tailgate release"]
+        },
+        {
+          "name": "Wind",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2589000,
+          "efficiency": "532 km",
+          "features": ["70 kWh battery", "150 kW / 310 Nm, FWD", "110 kW DC charging", "Level 2 ADAS with adaptive cruise", "8 speakers", "8-way power driver seat with memory ORVMs", "Wireless charger", "Powered tailgate", "Black alloy wheels", "Roof rails"]
+        },
+        {
+          "name": "Wind Infinity",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2639000,
+          "efficiency": "532 km",
+          "features": ["Everything in Wind", "Edge-to-edge panoramic glass roof"]
+        },
+        {
+          "name": "Sky",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2749000,
+          "efficiency": "510 km",
+          "features": ["70 kWh battery", "Dual-motor AWD, 260 kW / 500 Nm", "Claimed 0–100 km/h in 5.8 s", "Level 2 ADAS", "8 speakers", "Powered tailgate"]
+        },
+        {
+          "name": "Sky Infinity",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2809000,
+          "efficiency": "510 km",
+          "features": ["Everything in Sky", "Edge-to-edge panoramic glass roof"]
+        }
+      ],
+      "sources": [
+        "https://vinfastauto.in/en/vf7",
+        "https://shop.vinfastauto.in/reservation?model=VF7",
+        "https://static-cms-prod.vinfastauto.in/statics/Brochure_VF7_A4_Web.pdf"
+      ],
+      "notes": "Prices are the ex-showroom figures shown in VinFast India's online booking tool on 2026-11-25 (one national price; no city named). They are higher than the January 2026 list (₹21.89–26.79 lakh). Sky variants are AWD. Desat Silver, Moonlit Ocean and Ivy Green cost ₹9,429 extra in the booking tool. The brochure feature table is dense; variant feature splits (ADAS, speakers, glass roof) should be spot-checked against the brochure. Bharat NCAP 5-star result was announced by VinFast on 21 January 2026."
+    },
+    {
+      "slug": "vinfast-vf-mpv-7",
+      "name": "VF MPV 7",
+      "bodyType": "MUV",
+      "bodyStyle": "MPV",
+      "isLuxury": false,
+      "launchedOn": "2026-04-15",
+      "engine": "Electric motor",
+      "power": "150 kW",
+      "torque": "280 Nm",
+      "seats": [7],
+      "airbags": 4,
+      "safety": null,
+      "bootSpaceL": 126,
+      "groundClearanceMm": 185,
+      "fuelTankL": null,
+      "topSpeedKmh": 140,
+      "acceleration": "0–100 km/h in under 9 s",
+      "dimensions": { "length": 4740, "width": 1872, "height": 1734, "wheelbase": 2840 },
+      "ev": {
+        "rangeKm": 517,
+        "rangeStandard": "MIDC P1+P2",
+        "batteryKwh": 60.13,
+        "dcCharge": "30 min (10–70%, 80 kW)",
+        "acCharge": "Up to 6.9 kW",
+        "motorKw": 150
+      },
+      "colors": [
+        { "name": "Infinity Blanc", "hex": "#f3f3f0" },
+        { "name": "Jet Black", "hex": "#111111" },
+        { "name": "Zenith Grey", "hex": "#5b5e62" },
+        { "name": "Solar Ruby", "hex": "#9b1b2a" },
+        { "name": "Moonlit Ocean", "hex": "#1f3550" },
+        { "name": "Introspective Brown", "hex": "#5a4636" }
+      ],
+      "features": [
+        { "group": "Infotainment", "items": ["25.65 cm (10.1-inch) infotainment screen", "Wired Android Auto and Apple CarPlay", "4 speakers", "Connected-car app and ViVi virtual assistant", "Firmware over-the-air updates"] },
+        { "group": "Comfort", "items": ["Automatic climate control", "Second- and third-row AC vents", "Dedicated third-row AC control", "Sliding and reclining second row with one-touch tumble", "Reclining 50:50 split third row", "Cruise control"] },
+        { "group": "Safety", "items": ["4 airbags", "ABS, EBD, BA, ESC, TCS, hill-start assist", "Roll-over mitigation", "Rear parking camera and sensors", "Second-row ISOFIX"] },
+        { "group": "Exterior", "items": ["LED projector headlamps", "Front and rear signature V light", "235/50 R19 black alloy wheels", "Power-folding ORVMs"] },
+        { "group": "Interior", "items": ["Leatherette upholstery", "6-way adjustable driver seat", "Black or dual-tone brown interior"] }
+      ],
+      "highlights": [
+        "Seven-seat electric MPV",
+        "60.13 kWh usable battery",
+        "Claimed 517 km range (MIDC Part 1 + Part 2)",
+        "Single variant",
+        "Price cut by ₹4.10 lakh in November 2026"
+      ],
+      "variants": [
+        {
+          "name": "VF MPV 7",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2039000,
+          "efficiency": "517 km",
+          "features": ["150 kW / 280 Nm, FWD", "Seven seats", "Third-row AC control", "4 airbags", "19-inch alloy wheels", "Wired Android Auto / Apple CarPlay"]
+        }
+      ],
+      "sources": [
+        "https://vinfastauto.in/en/mpv7",
+        "https://shop.vinfastauto.in/reservation?model=MPV7",
+        "https://static-cms-prod.vinfastauto.in/statics/email/vf-mpv7-brochure-05052026.pdf",
+        "https://www.autocarindia.com/car-news/vinfast-vf-mpv7-prices-slashed-by-over-rs-4-lakhs-441235"
+      ],
+      "notes": "Launched 15 April 2026 at ₹24.49 lakh; cut to ₹20.39 lakh ex-showroom in early November 2026 (official site and booking tool both show ₹20,39,000; one national price). Boot: 126 L with all seats up, 606 L with third row folded, 1,240 L with all rear seats folded. Moonlit Ocean and Introspective Brown cost ₹9,429 extra in the booking tool. The related Limo Green is a fleet/taxi version (enquiry only, no published price) and is not included."
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import { revalidateTag, unstable_cache } from "next/cache";
 import { asc, desc, eq } from "drizzle-orm";
 import { getDb } from "@/db";
 import * as s from "@/db/schema";
-import { createCatalog, type CatalogData, type DealerProfile, type DealerReview } from "@/lib/catalog";
+import { createCatalog, encodeClientCatalog, toClientCatalog, type CatalogData, type ClientCatalogWire, type DealerProfile, type DealerReview } from "@/lib/catalog";
 import { todayISO } from "@/server/validation";
 import { BLOCKS, BLOCK_KEYS, type SiteContent } from "@/content/registry";
 import type { Article, ArticleCategory, CarModel, OwnerReview, UsedCar } from "@/types";
@@ -96,6 +96,8 @@ async function loadCatalogData(): Promise<CachedCatalog> {
       competitors: c.competitors,
       trending: c.trending,
       launchedOn: opt(c.launchedOn),
+      dataAsOf: opt(c.dataAsOf),
+      priceCity: opt(c.priceCity),
     }));
   const carSlugs = new Set(cars.map((c) => c.slug));
   // Rivals may point at a car that was deleted or unpublished since.
@@ -258,7 +260,7 @@ function loadContent(rows: { key: string; data: unknown }[]): SiteContent {
  * deployment's commit, it keys the cache — `unstable_cache` entries outlive deployments,
  * and an entry in an old shape would otherwise crash every page after an upgrade.
  */
-const CATALOG_SHAPE_VERSION = 3;
+const CATALOG_SHAPE_VERSION = 4;
 const CACHE_KEY = ["catalog-data", `v${CATALOG_SHAPE_VERSION}`, BLOCK_KEYS.join(","), process.env.VERCEL_GIT_COMMIT_SHA ?? "local"];
 
 /** Raw catalogue data, cached across requests until an admin edit expires it. */
@@ -278,6 +280,12 @@ export const getCatalogData = cache(async (): Promise<CatalogData> => {
 
 /** The catalogue with lookup helpers — deduplicated per request. */
 export const getCatalog = cache(async () => createCatalog(await getCatalogData()));
+
+/**
+ * The catalogue for <CatalogProvider>: every model as CarLite in the compact wire format, so pages don't ship the
+ * full catalogue to the browser (≈1.5 MB → ≈0.4 MB with the researched catalogue).
+ */
+export const getClientCatalogData = cache(async (): Promise<ClientCatalogWire> => encodeClientCatalog(toClientCatalog(await getCatalogData())));
 
 /** Call after any admin change to catalogue or editorial data. */
 export function expireCatalog() {

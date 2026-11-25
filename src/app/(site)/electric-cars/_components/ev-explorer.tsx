@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { BatteryLow, CarFront, Mountain, RotateCcw, Users } from "lucide-react";
-import type { CarModel } from "@/types";
+import type { CarLite } from "@/types";
 import { BUDGETS, inBudget } from "@/lib/catalog";
 import { EASE } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
@@ -45,14 +45,14 @@ function read(params: URLSearchParams, bodyTypes: string[]): EvFilters {
   };
 }
 
-function matches(car: CarModel, f: EvFilters, skip?: Facet) {
+function matches(car: CarLite, f: EvFilters, skip?: Facet) {
   if (skip !== "budget" && f.budget.length && !f.budget.some((b) => inBudget(car, b))) return false;
   if (skip !== "body" && f.body.length && !f.body.includes(car.bodyType.toLowerCase())) return false;
   if (skip !== "range" && f.range && (car.ev?.rangeKm ?? 0) < f.range) return false;
   return true;
 }
 
-function sortEvs(list: CarModel[], sort: string) {
+function sortEvs(list: CarLite[], sort: string) {
   const out = [...list];
   switch (sort) {
     case "range":
@@ -68,6 +68,8 @@ function sortEvs(list: CarModel[], sort: string) {
   }
 }
 
+const PAGE_SIZE = 18;
+
 export function EvExplorer() {
   const { params, update } = useQueryState();
   const { electricCars } = useCatalog();
@@ -81,7 +83,11 @@ export function EvExplorer() {
   }, [electricCars]);
   const f = useMemo(() => read(params, bodyTypes), [params, bodyTypes]);
   const results = useMemo(() => sortEvs(evs.filter((c) => matches(c, f)), f.sort), [evs, f]);
-  const count = (skip: Facet, test: (c: CarModel) => boolean) => evs.filter((c) => matches(c, f, skip) && test(c)).length;
+  // A page of cards at a time; filters start over from the first page.
+  const pageKey = params.toString();
+  const [paging, setPaging] = useState({ key: pageKey, shown: PAGE_SIZE });
+  const shown = paging.key === pageKey ? paging.shown : PAGE_SIZE;
+  const count = (skip: Facet, test: (c: CarLite) => boolean) => evs.filter((c) => matches(c, f, skip) && test(c)).length;
 
   const toggle = (key: "budget" | "body", value: string) => update((p) => writeList(p, key, toggleValue(f[key], value)));
   const setRange = (value: number) => update((p) => (value ? p.set("range", String(value)) : p.delete("range")));
@@ -171,7 +177,7 @@ export function EvExplorer() {
       ) : (
         <div className="relative grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4">
           <AnimatePresence mode="popLayout" initial={false}>
-            {results.map((car) => (
+            {results.slice(0, shown).map((car) => (
               <motion.div
                 key={car.slug}
                 layout
@@ -184,6 +190,16 @@ export function EvExplorer() {
               </motion.div>
             ))}
           </AnimatePresence>
+        </div>
+      )}
+      {results.length > shown && (
+        <div className="mt-12 flex flex-col items-center gap-3">
+          <Button variant="outline" onClick={() => setPaging({ key: pageKey, shown: shown + PAGE_SIZE })}>
+            Show {Math.min(PAGE_SIZE, results.length - shown)} more
+          </Button>
+          <p className="text-[12.5px] text-muted num">
+            Showing {shown} of {results.length}
+          </p>
         </div>
       )}
     </FilterBar>

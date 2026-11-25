@@ -178,16 +178,18 @@ export default async function ArticlePage(props: PageProps<"/news/[slug]">) {
                 <div>
                   <h2 className="type-eyebrow text-muted">In this story</h2>
                   <CarCard car={car} className="mt-4" sizes="(min-width: 1280px) 22vw, (min-width: 1024px) 30vw, 100vw" />
-                  <Link
-                    href={`/cars/${car.slug}#reviews`}
-                    className="group/score mt-3 flex items-center gap-4 border border-line p-4 transition-colors duration-[400ms] hover:border-ink/25"
-                  >
-                    <ScoreDial score={car.expertScore} size={52} showMax={false} />
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-[12px] text-muted">March Gear expert score</span>
-                      <span className="mt-0.5 block text-[14px] font-medium">Read the {carTitle} review</span>
-                    </span>
-                  </Link>
+                  {car.expertScore > 0 && (
+                    <Link
+                      href={`/cars/${car.slug}#reviews`}
+                      className="group/score mt-3 flex items-center gap-4 border border-line p-4 transition-colors duration-[400ms] hover:border-ink/25"
+                    >
+                      <ScoreDial score={car.expertScore} size={52} showMax={false} />
+                      <span className="min-w-0 flex-1">
+                        <span className="block text-[12px] text-muted">March Gear expert score</span>
+                        <span className="mt-0.5 block text-[14px] font-medium">Read the {carTitle} review</span>
+                      </span>
+                    </Link>
+                  )}
                 </div>
               )}
               <ShareButtons title={article.title} className="hidden lg:block" />

@@ -1,0 +1,362 @@
+{
+  "brand": {
+    "slug": "byd",
+    "name": "BYD",
+    "country": "China",
+    "founded": 1995,
+    "tagline": "Chinese electric-vehicle and battery maker, selling cars in India since 2021",
+    "description": "Chinese company founded in 1995 as a battery maker; builds Blade batteries and electric cars. BYD India began passenger-car sales with the e6 in 2021 and the Atto 3 in 2022, assembles some models near Chennai and imports others; its Indian line-up is all-electric.",
+    "isLuxury": false,
+    "website": "https://bydautoindia.com/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "byd-atto-3",
+      "name": "Atto 3",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-10-11",
+      "engine": "Electric motor",
+      "power": "150 kW",
+      "torque": "310 Nm",
+      "seats": [5],
+      "airbags": 7,
+      "safety": null,
+      "bootSpaceL": 440,
+      "groundClearanceMm": 175,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 7.3 s",
+      "dimensions": { "length": 4455, "width": 1875, "height": 1615, "wheelbase": 2720 },
+      "ev": {
+        "rangeKm": 521,
+        "rangeStandard": "ARAI",
+        "batteryKwh": 60.48,
+        "dcCharge": null,
+        "acCharge": null,
+        "motorKw": 150
+      },
+      "colors": [
+        { "name": "Ski White", "hex": "#f2f2f0" },
+        { "name": "Cosmos Black", "hex": "#121314" },
+        { "name": "Surf Blue", "hex": "#4a7ea6" },
+        { "name": "Harbour Grey", "hex": "#7d8287" }
+      ],
+      "features": [
+        { "group": "Infotainment", "items": ["Rotating central touchscreen", "Connected-car features"] },
+        { "group": "Comfort", "items": ["Ventilated front seats", "Powered tailgate", "Panoramic sunroof"] },
+        { "group": "Safety", "items": ["7 airbags", "360-degree camera", "Level 2 ADAS on top variant"] },
+        { "group": "Performance", "items": ["Front-wheel drive, single motor", "Blade (LFP) battery: 49.92 kWh or 60.48 kWh"] }
+      ],
+      "highlights": [
+        "Built on BYD's e-Platform 3.0",
+        "Two Blade battery sizes: 49.92 kWh and 60.48 kWh",
+        "Claimed 521 km (ARAI) with the 60.48 kWh battery",
+        "Claimed 0–100 km/h in 7.3 s (60.48 kWh)"
+      ],
+      "variants": [
+        {
+          "name": "Dynamic",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2499000,
+          "efficiency": "468 km",
+          "features": ["49.92 kWh Blade battery", "7 airbags"]
+        },
+        {
+          "name": "Premium",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 3035000,
+          "efficiency": "521 km",
+          "features": ["60.48 kWh Blade battery", "Claimed 0–100 km/h in 7.3 s"]
+        },
+        {
+          "name": "Superior",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 3449000,
+          "efficiency": "521 km",
+          "features": ["60.48 kWh Blade battery", "Level 2 ADAS"]
+        }
+      ],
+      "sources": [
+        "https://bydautoindia.com/bydatto3",
+        "https://www.autocarindia.com/cars/byd/atto-3",
+        "https://www.cardekho.com/byd/atto-3",
+        "https://www.autocarindia.com/car-news/byd-emax-7-base-trim-now-called-comfort-prices-start-at-rs-2790-lakh-440111"
+      ],
+      "notes": "Price not published by the brand per variant (bydautoindia.com shows only 'from ₹24.99 lakh'); variant prices from Autocar India / CarDekho, reflecting the 1 July 2026 revision (Premium and Superior +₹50,000). Power, battery and range figures as reported by publications. Euro NCAP awarded 5 stars in 2022, but the India car is locally assembled, so safety is left null. Colour names from CarDekho; check against BYD India. Feature list is deliberately short: per-variant equipment was not available from an official source."
+    },
+    {
+      "slug": "byd-seal",
+      "name": "Seal",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2024-03-05",
+      "engine": "Electric motor (single or dual motor)",
+      "power": "150 – 390 kW",
+      "torque": "310 – 670 Nm",
+      "seats": [5],
+      "airbags": 9,
+      "safety": { "rating": 5, "agency": "Euro NCAP", "year": 2022 },
+      "bootSpaceL": 400,
+      "groundClearanceMm": 145,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 3.8 s",
+      "dimensions": { "length": 4800, "width": 1875, "height": 1460, "wheelbase": 2920 },
+      "ev": {
+        "rangeKm": 650,
+        "rangeStandard": "NEDC",
+        "batteryKwh": 82.56,
+        "dcCharge": "Up to 150 kW",
+        "acCharge": "7 kW",
+        "motorKw": 390
+      },
+      "colors": [
+        { "name": "Aurora White", "hex": "#f1f1ee" },
+        { "name": "Atlantis Grey", "hex": "#6b7378" },
+        { "name": "Arctic Blue", "hex": "#9bb7c9" },
+        { "name": "Cosmos Black", "hex": "#121314" }
+      ],
+      "features": [
+        { "group": "Safety", "items": ["9 airbags", "Level 2 ADAS", "360-degree camera"] },
+        { "group": "Performance", "items": ["Rear-wheel drive (Dynamic, Premium) or dual-motor AWD (Performance)", "Cell-to-body Blade battery"] },
+        { "group": "Exterior", "items": ["Front boot (53 L) in addition to 400 L rear boot"] }
+      ],
+      "highlights": [
+        "Imported as a completely built unit",
+        "61.44 kWh or 82.56 kWh Blade battery",
+        "Claimed 650 km (NEDC) on the Premium",
+        "Dual-motor AWD Performance variant with 390 kW and 670 Nm",
+        "Euro NCAP 5 stars (2022)"
+      ],
+      "variants": [
+        {
+          "name": "Dynamic",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 4150000,
+          "efficiency": "510 km",
+          "features": ["61.44 kWh battery", "150 kW / 310 Nm, RWD", "Claimed 0–100 km/h in 7.5 s"]
+        },
+        {
+          "name": "Premium",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 4620000,
+          "efficiency": "650 km",
+          "features": ["82.56 kWh battery", "230 kW / 360 Nm, RWD", "Claimed 0–100 km/h in 5.9 s"]
+        },
+        {
+          "name": "Performance",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 5365000,
+          "efficiency": "580 km",
+          "features": ["82.56 kWh battery", "Dual-motor AWD, 390 kW / 670 Nm", "Claimed 0–100 km/h in 3.8 s"]
+        }
+      ],
+      "sources": [
+        "https://bydautoindia.com/bydseal",
+        "https://www.autocarindia.com/cars/byd/seal",
+        "https://www.cardekho.com/byd/seal",
+        "https://www.autocarindia.com/car-news/byd-emax-7-base-trim-now-called-comfort-prices-start-at-rs-2790-lakh-440111"
+      ],
+      "notes": "Price not published by the brand per variant; from Autocar India / CarDekho, after the 1 July 2026 revision (+₹50,000 on all variants). Ranges are as reported (NEDC per CarDekho; Autocar labels them ARAI). Power for Premium (313 PS) is shown as 230 kW. Autocar's spec summary lists 370 Nm in one place and 670 Nm for the Performance in another; 670 Nm used. The current Seal includes the 2025 suspension updates on the top two trims. A January 2026 battery recall was reported by Autocar India."
+    },
+    {
+      "slug": "byd-sealion-7",
+      "name": "Sealion 7",
+      "bodyType": "SUV",
+      "bodyStyle": "Coupe SUV",
+      "isLuxury": false,
+      "launchedOn": "2025-02-17",
+      "engine": "Electric motor (single or dual motor)",
+      "power": "170 – 390 kW",
+      "torque": "380 – 690 Nm",
+      "seats": [5],
+      "airbags": 11,
+      "safety": { "rating": 5, "agency": "Euro NCAP", "year": 2025 },
+      "bootSpaceL": 500,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 4.5 s",
+      "dimensions": { "length": 4830, "width": 1925, "height": 1620, "wheelbase": 2930 },
+      "ev": {
+        "rangeKm": 567,
+        "rangeStandard": "NEDC",
+        "batteryKwh": 82.56,
+        "dcCharge": "Up to 150 kW; 10–80% in about 45 min",
+        "acCharge": "11 kW",
+        "motorKw": 390
+      },
+      "colors": [
+        { "name": "Aurora White", "hex": "#f1f1ee" },
+        { "name": "Atlantis Grey", "hex": "#6b7378" },
+        { "name": "Cosmos Black", "hex": "#121314" }
+      ],
+      "features": [
+        { "group": "Safety", "items": ["11 airbags", "Level 2 ADAS", "360-degree camera"] },
+        { "group": "Comfort", "items": ["Panoramic glass roof"] },
+        { "group": "Performance", "items": ["Rear-wheel drive (Dynamic, Premium) or dual-motor AWD (Performance)"] },
+        { "group": "Exterior", "items": ["58 L front boot in addition to 500 L rear boot"] }
+      ],
+      "highlights": [
+        "Imported as a completely built unit",
+        "71.8 kWh (Dynamic) or 82.56 kWh Blade battery",
+        "Claimed 0–100 km/h in 4.5 s for the AWD Performance",
+        "Euro NCAP 5 stars (2025)",
+        "Dynamic entry variant added in August 2026"
+      ],
+      "variants": [
+        {
+          "name": "Dynamic",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 4190000,
+          "efficiency": "520 km",
+          "features": ["71.8 kWh Blade battery", "Single motor, RWD", "Claimed 0–100 km/h in 7.3 s", "11 airbags", "Level 2 ADAS", "360-degree camera"]
+        },
+        {
+          "name": "Premium",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 4990000,
+          "efficiency": "567 km",
+          "features": ["82.56 kWh Blade battery", "230 kW / 380 Nm, RWD", "Claimed 0–100 km/h in 6.7 s"]
+        },
+        {
+          "name": "Premium Festive Edition",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 5060000,
+          "efficiency": "567 km",
+          "features": ["Based on Premium", "Tan and black interior", "Limited to 150 units"]
+        },
+        {
+          "name": "Performance",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 5590000,
+          "efficiency": "542 km",
+          "features": ["82.56 kWh Blade battery", "Dual-motor AWD, 390 kW / 690 Nm", "Claimed 0–100 km/h in 4.5 s"]
+        }
+      ],
+      "sources": [
+        "https://bydautoindia.com/bydsealion7",
+        "https://www.autocarindia.com/cars/byd/sealion-7",
+        "https://www.cardekho.com/byd/sealion-7",
+        "https://www.autocarpro.in/news/byd-india-launches-sealion-7-dynamic-variant-at-rs-4190-lakh-134205",
+        "https://www.autocarpro.in/news/byd-india-launches-limited-edition-sealion-7-at-rs-5060-lakh-135180"
+      ],
+      "notes": "Price not published by the brand per variant (site banner shows 'from ₹41.90 lakh'); from Autocar India / CarDekho / Autocar Professional. Dynamic (added 20 Aug 2026) is an introductory price. Festive Edition (12 Oct 2026) is a 150-unit limited run based on the Premium and may sell out. Dynamic power (228 bhp ≈ 170 kW) from CarDekho. Ground clearance not published by BYD India (Autocar lists 170 mm). Colours: three confirmed names; a fourth grey shade is offered. Airbags: Autocar's text says 11, its spec table 8; 11 used."
+    },
+    {
+      "slug": "byd-emax-7",
+      "name": "eMAX 7",
+      "bodyType": "MUV",
+      "bodyStyle": "MPV",
+      "isLuxury": false,
+      "launchedOn": "2024-10-08",
+      "engine": "Electric motor",
+      "power": "120 – 150 kW",
+      "torque": "310 Nm",
+      "seats": [6, 7],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 180,
+      "groundClearanceMm": 170,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 8.6 s",
+      "dimensions": { "length": 4710, "width": 1810, "height": 1690, "wheelbase": 2800 },
+      "ev": {
+        "rangeKm": 530,
+        "rangeStandard": "NEDC",
+        "batteryKwh": 71.8,
+        "dcCharge": "Up to 115 kW",
+        "acCharge": "7 kW",
+        "motorKw": 150
+      },
+      "colors": [
+        { "name": "Crystal White", "hex": "#f2f2f0" },
+        { "name": "Harbour Grey", "hex": "#7d8287" },
+        { "name": "Quartz Blue", "hex": "#3d5f80" },
+        { "name": "Cosmos Black", "hex": "#121314" }
+      ],
+      "features": [
+        { "group": "Safety", "items": ["6 airbags", "ESC", "Tyre pressure monitoring", "360-degree camera", "Level 2 ADAS (Superior)"] },
+        { "group": "Comfort", "items": ["Six-seat (captain chairs) or seven-seat layouts"] },
+        { "group": "Performance", "items": ["Front-wheel drive, single motor", "71.8 kWh Blade battery on all variants"] }
+      ],
+      "highlights": [
+        "Six- or seven-seat electric MPV",
+        "71.8 kWh Blade battery on every variant since July 2026",
+        "Claimed up to 530 km (NEDC) on the Superior",
+        "Boot: 180 L with all rows up, 580 L with third row folded"
+      ],
+      "variants": [
+        {
+          "name": "Comfort 6-Seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2790000,
+          "efficiency": "485 km",
+          "features": ["120 kW (163 PS) / 310 Nm", "71.8 kWh battery", "Six seats with second-row captain chairs"]
+        },
+        {
+          "name": "Comfort 7-Seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2830000,
+          "efficiency": "485 km",
+          "features": ["120 kW (163 PS) / 310 Nm", "71.8 kWh battery", "Seven seats"]
+        },
+        {
+          "name": "Superior 6-Seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2930000,
+          "efficiency": "530 km",
+          "features": ["150 kW (204 PS) / 310 Nm", "Level 2 ADAS", "Six seats with second-row captain chairs"]
+        },
+        {
+          "name": "Superior 7-Seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2990000,
+          "efficiency": "530 km",
+          "features": ["150 kW (204 PS) / 310 Nm", "Level 2 ADAS", "Seven seats"]
+        }
+      ],
+      "sources": [
+        "https://bydautoindia.com/bydemax7",
+        "https://www.autocarindia.com/cars/byd/emax-7",
+        "https://www.autocarindia.com/car-news/byd-emax-7-base-trim-now-called-comfort-prices-start-at-rs-2790-lakh-440111",
+        "https://www.cardekho.com/byd/emax-7"
+      ],
+      "notes": "Price not published by the brand per variant; from Autocar India (2 July 2026: Premium renamed Comfort with the 71.8 kWh battery, ₹27.90 lakh 6-seat / ₹28.30 lakh 7-seat) and CarDekho. Some aggregators still list the old 55.4 kWh Premium at ₹26.90–27.50 lakh; treated as replaced. Comfort range is 485 km per Autocar's mileage page (91wheels shows 530 km) — check. Ground clearance 170 mm from CarDekho. No crash-test rating."
+    }
+  ]
+}

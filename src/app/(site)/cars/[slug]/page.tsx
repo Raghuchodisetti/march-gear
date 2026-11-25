@@ -28,7 +28,8 @@ import { ExpertReview } from "@/components/car-detail/expert-review";
 import { OwnerReviews } from "@/components/car-detail/owner-reviews";
 import { CompareRivals } from "@/components/car-detail/compare";
 import { CarEmi } from "@/components/car-detail/emi";
-import { BOTTOM_BAR_PADDING, competitorsOf, isEv, maxOf, similarCars } from "@/components/car-detail/utils";
+import { BOTTOM_BAR_PADDING, competitorsOf, hasDesignContent, hasEfficiency, isEv, similarCars } from "@/components/car-detail/utils";
+import { accelText, isFactsOnly, known, topFigure } from "@/lib/specs";
 import { DealerStock } from "@/components/car-detail/dealer-stock";
 import { getModelStock } from "@/server/partner/inventory";
 import { CarOffersPanel } from "@/components/offers/page-sections";
@@ -46,11 +47,13 @@ export async function generateMetadata(props: PageProps<"/cars/[slug]">): Promis
   if (!car) return { title: "Car not found" };
   const brand = brandName(car.brand);
   const name = `${brand} ${car.name}`;
+  // Facts-only models have no review yet, so the title and description don't promise one.
+  const factsOnly = isFactsOnly(car);
   return pageMetadata({
-    title: fitTitle([`${name} Price, Specs & Review`, `${name} Price & Specs`, `${name} Price in India`, name]),
+    title: fitTitle([factsOnly ? `${name} Price, Specs & Variants` : `${name} Price, Specs & Review`, `${name} Price & Specs`, `${name} Price in India`, name]),
     description: fitDescription(
-      `${name} price in India starts at ${formatPrice(car.priceMin)} (indicative ex-showroom).`,
-      `Compare ${car.variants.length} ${car.variants.length === 1 ? "variant" : "variants"}, specs, ${isEv(car) ? "range" : "mileage"}, safety and reviews.`,
+      `${name} price in India starts at ${formatPrice(car.priceMin)} (${car.priceCity ? `ex-showroom ${car.priceCity}` : "indicative ex-showroom"}).`,
+      `Compare ${car.variants.length} ${car.variants.length === 1 ? "variant" : "variants"}, specs, ${isEv(car) ? "range" : "mileage"}, safety${factsOnly ? " and features" : " and reviews"}.`,
       car.tagline,
     ),
     path: `/cars/${car.slug}`,
@@ -77,17 +80,40 @@ export default async function CarPage(props: PageProps<"/cars/[slug]">) {
   // Partner dealers' published stock of this model (dealer portal).
   const stock = await getModelStock(car.slug);
 
+  // Sections appear only when there's something to show: facts-only models may have no photos, published
+  // mileage or performance figures yet, and no expert review.
+  const show = {
+    features: car.features.some((g) => g.items.length > 0),
+    efficiency: ev ? Boolean(car.ev) : hasEfficiency(car),
+    design: hasDesignContent(car),
+    gallery: car.images.length > 0,
+    videos: videos.length > 0,
+  };
+  const power = topFigure(car.power);
+  const torque = topFigure(car.torque, ["Nm", "kgm"]);
+  const accel = accelText(car.acceleration);
+  const adas = car.features.some((g) => g.items.some((i) => /ADAS/i.test(i)));
+  const safetyKit = [
+    car.features.some((g) => g.items.some((i) => /stability|\bESC\b|\bESP\b|\bVSM\b|\bVDC\b/i.test(i))) && "electronic stability control",
+    car.features.some((g) => g.items.some((i) => /ISOFIX/i.test(i))) && "ISOFIX mounts",
+  ].filter((x): x is string => Boolean(x));
+  const safetyDescription = [
+    known(car.airbags) ? `Up to ${car.airbags} airbags` : "",
+    safetyKit.length ? (known(car.airbags) ? `, ${safetyKit.join(" and ")}` : `${safetyKit.join(" and ")[0].toUpperCase()}${safetyKit.join(" and ").slice(1)}`) : "",
+    adas ? `${known(car.airbags) || safetyKit.length ? ", with " : "Available with "}${isFactsOnly(car) ? "ADAS driver assistance" : "Level 2 ADAS on higher variants"}` : "",
+  ].join("");
+
   const sections: NavSection[] = [
     { id: "overview", label: "Overview" },
     { id: "variants", label: "Variants & prices" },
     { id: "specifications", label: "Specifications" },
-    { id: "features", label: "Features" },
+    ...(show.features ? [{ id: "features", label: "Features" }] : []),
     { id: "safety", label: "Safety" },
-    ev ? { id: "range", label: "Range" } : { id: "mileage", label: "Mileage" },
+    ...(show.efficiency ? [ev ? { id: "range", label: "Range" } : { id: "mileage", label: "Mileage" }] : []),
     { id: "performance", label: "Engine & performance" },
-    { id: "design", label: "Interior & exterior" },
-    { id: "gallery", label: "Gallery" },
-    { id: "videos", label: "Videos" },
+    ...(show.design ? [{ id: "design", label: "Interior & exterior" }] : []),
+    ...(show.gallery ? [{ id: "gallery", label: "Gallery" }] : []),
+    ...(show.videos ? [{ id: "videos", label: "Videos" }] : []),
     { id: "reviews", label: "Reviews" },
     { id: "similar", label: "Similar cars" },
     ...(rivals.length ? [{ id: "compare", label: "Compare" }] : []),
@@ -112,7 +138,7 @@ export default async function CarPage(props: PageProps<"/cars/[slug]">) {
         <CarHero expertScore={review?.score ?? car.expertScore} />
         <SectionNav sections={sections} />
 
-        <CarOverview car={car} index={n("overview")} />
+        <CarOverview car={car} index={n("overview")} brand={brand} />
         <CarOffersPanel car={car} carName={car.name} />
 
         <DetailSection
@@ -138,6 +164,7 @@ export default async function CarPage(props: PageProps<"/cars/[slug]">) {
           <SpecComparison car={car} />
         </DetailSection>
 
+        {show.features && (
         <DetailSection
           id="features"
           index={n("features")}
@@ -152,6 +179,7 @@ export default async function CarPage(props: PageProps<"/cars/[slug]">) {
         >
           <FeatureTabs />
         </DetailSection>
+        )}
 
         <DetailSection
           id="safety"
@@ -159,12 +187,12 @@ export default async function CarPage(props: PageProps<"/cars/[slug]">) {
           eyebrow="Safety"
           divider={false}
           title={tested ? `${car.safetyRating}-star ${car.safetyAgency} rating.` : "Safety, by specification."}
-          description={`Up to ${car.airbags} airbags, electronic stability control and ISOFIX mounts${car.features.some((g) => g.items.some((i) => /ADAS/i.test(i))) ? ", with Level 2 ADAS on higher variants" : ""}.`}
+          description={safetyDescription ? `${safetyDescription}.` : undefined}
         >
           <CarSafety car={car} />
         </DetailSection>
 
-        {ev ? (
+        {!show.efficiency ? null : ev ? (
           <DetailSection
             id="range"
             index={n("range")}
@@ -193,12 +221,18 @@ export default async function CarPage(props: PageProps<"/cars/[slug]">) {
           tone="dark"
           divider={false}
           size="large"
-          title={`Up to ${maxOf(car.power)} bhp and ${maxOf(car.torque)} Nm.`}
-          description={`${car.engine} · ${car.transmissions.join(", ")}. 0–100 km/h in ${car.acceleration} and a top speed of ${car.topSpeed} km/h.`}
+          title={power && torque ? `Up to ${power.text} and ${torque.text}.` : power ? `Up to ${power.text}.` : torque ? `Up to ${torque.text}.` : `${car.engine}.`}
+          description={[
+            `${car.engine} · ${car.transmissions.join(", ")}.`,
+            accel && known(car.topSpeed) ? `0–100 km/h in ${accel} and a top speed of ${car.topSpeed} km/h.` : accel ? `0–100 km/h in ${accel}.` : known(car.topSpeed) ? `Top speed ${car.topSpeed} km/h.` : "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
         >
           <CarPerformance car={car} />
         </DetailSection>
 
+        {show.design && (
         <DetailSection
           id="design"
           index={n("design")}
@@ -213,11 +247,15 @@ export default async function CarPage(props: PageProps<"/cars/[slug]">) {
         >
           <CarDesign />
         </DetailSection>
+        )}
 
+        {show.gallery && (
         <DetailSection id="gallery" index={n("gallery")} eyebrow="Gallery" title="In pictures." description="Select any photograph to view it full screen.">
           <GalleryGrid />
         </DetailSection>
+        )}
 
+        {show.videos && (
         <DetailSection
           id="videos"
           index={n("videos")}
@@ -229,17 +267,22 @@ export default async function CarPage(props: PageProps<"/cars/[slug]">) {
         >
           <CarVideos videos={videos} />
         </DetailSection>
+        )}
 
         <DetailSection
           id="reviews"
           index={n("reviews")}
           eyebrow="Reviews"
           divider={false}
-          title="What experts and owners say."
-          description="An independent road test verdict, followed by ratings and reviews from people who live with the car."
+          title={review && author ? "What experts and owners say." : "What owners say."}
+          description={
+            review && author
+              ? "An independent road test verdict, followed by ratings and reviews from people who live with the car."
+              : `Ratings and reviews from people who own the ${car.name}, checked by MarchGear before they're published. We haven't road-tested it yet.`
+          }
         >
           {review && author && <ExpertReview car={car} review={review} author={author} />}
-          <OwnerReviews initial={owners} />
+          <OwnerReviews initial={owners} standalone={!(review && author)} />
         </DetailSection>
 
         <DetailSection

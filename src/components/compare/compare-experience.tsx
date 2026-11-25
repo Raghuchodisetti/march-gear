@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown, Link2, MapPin, MoveHorizontal, Plus, X } from "lucide-react";
-import type { CarModel } from "@/types";
+import type { CarLite, CarModel } from "@/types";
 import { formatPrice, formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
@@ -15,6 +14,8 @@ import { useIsClient } from "@/components/ui/overlay";
 import { Eyebrow, SectionHeading } from "@/components/ui/section-heading";
 import { MAX_COMPARE, useCity, useCompare, useUI } from "@/components/providers/app-provider";
 import { useCatalog } from "@/components/providers/catalog-provider";
+import { useCarDetails } from "@/components/providers/car-details";
+import { CarImage } from "@/components/vehicle/car-image";
 import { carHref } from "@/components/vehicle/card-utils";
 import { useQueryState } from "@/components/listing/use-query-state";
 import { bestCells, buildGroups, rowDiffers, type SpecGroup, type SpecRow } from "./compare-rows";
@@ -29,11 +30,12 @@ const GRID =
 const MIN_W = "min-w-[calc(var(--m)*150px)] md:min-w-[808px] lg:min-w-0";
 const HEADER_H = 73;
 
-function sanitize(list: readonly string[], getCar: (slug: string) => CarModel | undefined) {
+function sanitize(list: readonly string[], getCar: (slug: string) => CarLite | undefined) {
   return Array.from(new Set(list.map((s) => s.trim()).filter((s) => getCar(s) !== undefined))).slice(0, MAX_COMPARE);
 }
 
-export function CompareExperience() {
+/** `initial`: full models for the cars in the page's ?cars= (from the server), so a shared link needs no extra request. */
+export function CompareExperience({ initial }: { initial?: CarModel[] }) {
   const isClient = useIsClient();
   const { params, update } = useQueryState();
   const { slugs, set } = useCompare();
@@ -45,8 +47,13 @@ export function CompareExperience() {
   const urlRaw = params.get("cars");
   const urlSlugs = useMemo(() => (urlRaw === null ? null : sanitize(urlRaw.split(","), getCar)), [urlRaw, getCar]);
   const active = useMemo(() => urlSlugs ?? sanitize(slugs, getCar), [urlSlugs, slugs, getCar]);
-  const selected = useMemo(() => active.map((s) => getCar(s)).filter((c): c is CarModel => c !== undefined), [active, getCar]);
+  const selected = useMemo(() => active.map((s) => getCar(s)).filter((c): c is CarLite => c !== undefined), [active, getCar]);
   const filled = selected.length;
+  // The browser's catalogue is light (CarLite); the spec table needs each picked model in full.
+  const details = useCarDetails(active, initial);
+  const full = selected.map((c) => details.get(c.slug));
+  const ready = full.every((c): c is CarModel => c !== undefined);
+  const fullKey = ready ? full.map((c) => c.slug).join(",") : "";
 
   // URL → store: whenever the query string changes (first load, shared links, popular comparisons).
   const lastUrl = useRef<string | null | undefined>(undefined);
@@ -80,12 +87,17 @@ export function CompareExperience() {
   const [collapsed, setCollapsed] = useState<string[]>([]);
   const [showBar, setShowBar] = useState(false);
 
-  const groups = useMemo(() => buildGroups(selected, { slug: city.slug, name: city.name }, onRoadPrice), [selected, city.slug, city.name, onRoadPrice]);
+  const groups = useMemo(
+    () => (ready ? buildGroups(full, { slug: city.slug, name: city.name }, onRoadPrice) : []),
+    // `full` is rebuilt every render; fullKey says when its models change.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [fullKey, city.slug, city.name, onRoadPrice],
+  );
   const comparable = filled >= 2;
   const allRows = groups.flatMap((g) => g.rows);
   const diffCount = comparable ? allRows.filter(rowDiffers).length : 0;
 
-  const slots: (CarModel | null)[] = Array.from({ length: MAX_COMPARE }, (_, i) => selected[i] ?? null);
+  const slots: (CarLite | null)[] = Array.from({ length: MAX_COMPARE }, (_, i) => selected[i] ?? null);
   const layoutKey = slots.map((s) => s?.slug ?? "_").join("|");
   const vars = { "--m": Math.max(1, Math.min(MAX_COMPARE, filled + (filled < MAX_COMPARE ? 1 : 0))) } as CSSProperties;
 
@@ -128,11 +140,11 @@ export function CompareExperience() {
     commit([...active, slug]);
     setPickerOpen(false);
   };
-  const remove = (car: CarModel) => {
+  const remove = (car: CarLite) => {
     commit(active.filter((s) => s !== car.slug));
     toast(`${car.name} removed from comparison`);
   };
-  const testDrive = (car: CarModel) => openEnquiry({ kind: "test-drive", subject: `${brandName(car.brand)} ${car.name}`, detail: `From ${formatPrice(car.priceMin)} · ex-showroom`, carSlug: car.slug });
+  const testDrive = (car: CarLite) => openEnquiry({ kind: "test-drive", subject: `${brandName(car.brand)} ${car.name}`, detail: `From ${formatPrice(car.priceMin)} · ex-showroom`, carSlug: car.slug });
   const share = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
@@ -143,7 +155,8 @@ export function CompareExperience() {
   };
   const toggleGroup = (id: string) => setCollapsed((list) => (list.includes(id) ? list.filter((x) => x !== id) : [...list, id]));
 
-  const picker = <CarPicker open={pickerOpen} onClose={() => setPickerOpen(false)} selected={active} onPick={add} max={MAX_COMPARE} />;
+  const rivals = ready ? full.flatMap((c) => c.competitors) : [];
+  const picker = <CarPicker open={pickerOpen} onClose={() => setPickerOpen(false)} selected={active} rivals={rivals} onPick={add} max={MAX_COMPARE} />;
 
   if (!isClient) return <CompareSkeleton />;
 
@@ -280,6 +293,13 @@ export function CompareExperience() {
             </div>
 
             {/* Spec groups */}
+            {!ready && (
+              <div className="mt-10 space-y-3 md:mt-14" aria-busy="true" aria-label="Loading specifications">
+                {Array.from({ length: 6 }, (_, i) => (
+                  <div key={i} className="h-11 animate-shimmer bg-[linear-gradient(90deg,var(--color-mist)_0%,#fafafa_50%,var(--color-mist)_100%)] bg-[length:200%_100%]" />
+                ))}
+              </div>
+            )}
             {groups.map((group) => (
               <GroupView
                 key={group.id}
@@ -328,7 +348,7 @@ export function CompareExperience() {
                     car ? (
                       <div key={car.slug} className="flex min-w-0 items-center gap-3 border-l border-line px-3 py-3 md:px-5">
                         <span className="relative hidden h-9 w-12 shrink-0 overflow-hidden bg-mist sm:block">
-                          <Image src={car.images[0]} alt="" fill sizes="48px" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
+                          <CarImage car={car} alt="" sizes="48px" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
                         </span>
                         <span className="min-w-0 flex-1">
                           <span className="block truncate text-[13px] font-semibold">{car.name}</span>
@@ -365,16 +385,15 @@ export function CompareExperience() {
 
 /* ── Pieces ──────────────────────────────────────────────────── */
 
-function SlotCard({ car, onRemove, onTestDrive }: { car: CarModel; onRemove: () => void; onTestDrive: () => void }) {
+function SlotCard({ car, onRemove, onTestDrive }: { car: CarLite; onRemove: () => void; onTestDrive: () => void }) {
   const { brandName } = useCatalog();
   const title = `${brandName(car.brand)} ${car.name}`;
   return (
     <div>
       <div className="relative aspect-[4/3] overflow-hidden bg-mist">
-        <Image
-          src={car.images[0]}
-          alt={cardPhotoAlt(car.images[0], title)}
-          fill
+        <CarImage
+          car={car}
+          alt={car.images[0] ? cardPhotoAlt(car.images[0], title) : ""}
           sizes="(min-width: 1024px) 20vw, (min-width: 768px) 22vw, 45vw"
           className="object-cover"
           style={{ objectPosition: car.focus ?? "50% 55%" }}
@@ -416,7 +435,7 @@ function GroupView({
   onToggle,
 }: {
   group: SpecGroup;
-  slots: (CarModel | null)[];
+  slots: (CarLite | null)[];
   filled: number;
   layoutKey: string;
   comparable: boolean;
@@ -472,7 +491,7 @@ function RowView({
   highlight,
 }: {
   row: SpecRow;
-  slots: (CarModel | null)[];
+  slots: (CarLite | null)[];
   filled: number;
   layoutKey: string;
   comparable: boolean;

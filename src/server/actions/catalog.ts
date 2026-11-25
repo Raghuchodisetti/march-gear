@@ -43,6 +43,8 @@ const url = z
   .min(1, "Enter an image URL")
   .max(500)
   .refine((v) => IMAGE_URL.test(v), "Use a full https:// URL or a /path on this site");
+/** Optional text that stays a string ("" when empty) — for NOT NULL columns where "" means "not published". */
+const blankText = (max = 200) => z.string().trim().max(max, "That's too long").default("");
 const lines = z
   .array(z.string())
   .default([])
@@ -56,8 +58,11 @@ const images = z
       .max(500, "That URL is too long")
       .refine((v) => !v || IMAGE_URL.test(v), "Use a full https:// URL or a /path on this site"),
   )
-  .transform((a) => a.filter(Boolean))
-  .refine((a) => a.length > 0, "Add at least one photo");
+  .transform((a) => a.filter(Boolean));
+/** New-car models may be published without photos (the site shows a placeholder) until staff upload licensed ones. */
+const optionalImages = images;
+/** Used-car listings need at least one photo. */
+const requiredImages = images.refine((a) => a.length > 0, "Add at least one photo");
 const date = z.string({ error: "Choose a date" }).regex(/^\d{4}-\d{2}-\d{2}$/, "Choose a date");
 const optDate = z
   .string()
@@ -98,10 +103,17 @@ const brandSchema = z.object({
   name: text("name", 80),
   slug,
   country: text("country", 60),
-  founded: int("founding year", 1800, 2100),
+  // 0 = not known (researched brands without a published founding year).
+  founded: z.union([z.literal(0), int("founding year", 1800, 2100)], { error: "Enter a year between 1800 and 2100, or 0 if unknown" }),
   tagline: text("tagline", 160),
   description: text("description", 4000),
-  heroImage: url,
+  // Optional: brands without a licensed hero photo show a plain graphite hero.
+  heroImage: z
+    .string()
+    .trim()
+    .max(500)
+    .refine((v) => !v || IMAGE_URL.test(v), "Use a full https:// URL or a /path on this site")
+    .default(""),
   isLuxury: bool,
   isActive: bool,
   sortOrder: int("sort order", -100000, 100000),
@@ -168,7 +180,8 @@ const variantSchema = z.object({
   fuel,
   transmission,
   price: int("price", 1),
-  efficiency: text("efficiency", 40),
+  // "" when the maker doesn't publish a figure for the variant.
+  efficiency: blankText(40),
   features: lines,
 });
 
@@ -181,7 +194,8 @@ const carSchema = z
     status: publish,
     launchedOn: optDate,
     tagline: text("tagline"),
-    overview: text("overview", 8000),
+    // Empty for facts-only models (researched data, no editorial copy yet): the site then hides the editorial sections.
+    overview: blankText(8000),
     isLuxury: bool,
     trending: bool,
     sortOrder: int("sort order", -100000, 100000),
@@ -189,37 +203,49 @@ const carSchema = z
     priceMax: int("top price", 1),
     fuelTypes: z.array(fuel).min(1, "Pick at least one fuel type"),
     transmissions: z.array(transmission).min(1, "Pick at least one transmission"),
-    efficiency: text("efficiency", 60),
+    efficiency: blankText(60),
     efficiencyValue: num("efficiency figure", 0, 5000),
     engine: text("engine", 160),
-    power: text("power", 80),
-    torque: text("torque", 80),
+    // Specs the maker doesn't publish are "" / 0 and show as "—" on the site.
+    power: blankText(80),
+    torque: blankText(80),
     seats: z.array(z.coerce.number().int().min(1).max(12)).min(1, "Pick the seating"),
     safetyRating: int("star rating", 0, 5),
     safetyAgency: z.enum(["Bharat NCAP", "Global NCAP", "Euro NCAP", "ASEAN NCAP", "Not tested"]),
-    airbags: int("airbag count", 0, 12),
+    airbags: int("airbag count", 0, 16),
     bootSpace: int("boot space", 0, 5000),
     groundClearance: int("ground clearance", 0, 1000),
     fuelTank: optInt(0, 500),
     topSpeed: int("top speed", 0, 500),
-    acceleration: text("0–100 time", 40),
-    dimensions: z.object({
-      length: int("length", 1000, 8000),
-      width: int("width", 1000, 3000),
-      height: int("height", 800, 3000),
-      wheelbase: int("wheelbase", 1000, 5000),
-    }),
+    acceleration: blankText(40),
+    // All four 0 = dimensions not published.
+    dimensions: z
+      .object({
+        length: int("length", 0, 8000),
+        width: int("width", 0, 3000),
+        height: int("height", 0, 3000),
+        wheelbase: int("wheelbase", 0, 5000),
+      })
+      .refine((d) => [d.length, d.width, d.height, d.wheelbase].every((n) => n === 0) || (d.length >= 1000 && d.width >= 1000 && d.height >= 800 && d.wheelbase >= 1000), {
+        message: "Enter all four dimensions in mm, or leave all four at 0 if they aren't published",
+      }),
     // Same key order as EvSpec, so re-saving unchanged specs stores identical JSON.
     ev: z
       .object({
         rangeKm: int("range", 1, 2000),
         batteryKwh: num("battery size", 1, 300),
-        dcCharge: text("DC charge time", 60),
-        acCharge: text("AC charge time", 60),
-        motorKw: int("motor output", 1, 2000),
+        dcCharge: blankText(60),
+        acCharge: blankText(60),
+        motorKw: int("motor output", 0, 2000),
+        rangeStandard: z
+          .string()
+          .trim()
+          .max(30)
+          .nullish()
+          .transform((v) => v || undefined),
       })
       .nullable(),
-    images,
+    images: optionalImages,
     focus: optText(40),
     colors: z.array(z.object({ name: text("colour name", 60), hex: z.string().regex(/^#[0-9a-fA-F]{6}$/, "Use a hex colour like #1A2B3C") })),
     variants: z.array(variantSchema).min(1, "Add at least one variant"),
@@ -228,7 +254,7 @@ const carSchema = z
     pros: lines,
     cons: lines,
     expertScore: num("expert score", 0, 10),
-    expertVerdict: text("expert verdict", 8000),
+    expertVerdict: blankText(8000),
     rating: num("owner rating", 0, 5),
     reviewCount: int("review count", 0),
     competitors: z.array(z.string().max(120)).default([]),
@@ -384,7 +410,7 @@ const usedSchema = z.object({
   registration: text("registration", 40),
   insurance: text("insurance", 80),
   highlights: lines,
-  images,
+  images: requiredImages,
   focus: optText(40),
   sellerType: z.enum(["Dealer", "Individual"]),
   sellerName: text("seller name", 120),

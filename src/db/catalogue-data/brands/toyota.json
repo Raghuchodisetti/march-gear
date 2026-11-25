@@ -1,0 +1,2917 @@
+{
+  "brand": {
+    "slug": "toyota",
+    "name": "Toyota",
+    "country": "Japan",
+    "founded": 1937,
+    "tagline": "Japanese carmaker; in India through Toyota Kirloskar Motor since 1997",
+    "description": "Japanese carmaker; sells in India through Toyota Kirloskar Motor, a joint venture formed in 1997. Cars are built at Bidadi near Bengaluru, and several models are shared with Maruti Suzuki.",
+    "isLuxury": false,
+    "website": "https://www.toyotabharat.com/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "toyota-glanza",
+      "name": "Glanza",
+      "bodyType": "Hatchback",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-10-14",
+      "engine": "1197 cc",
+      "power": "51.3 – 61 kW",
+      "torque": "101.8 – 112.4 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 37,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3990,
+        "width": 1745,
+        "height": 1530,
+        "wheelbase": 2520
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Sportin Red",
+          "hex": "#B22222"
+        },
+        {
+          "name": "Café White",
+          "hex": "#F4F4F2"
+        },
+        {
+          "name": "Bluish Black",
+          "hex": "#16181D"
+        },
+        {
+          "name": "Digital Teal Green",
+          "hex": "#1F6F6B"
+        },
+        {
+          "name": "Gaming Grey",
+          "hex": "#6E7073"
+        },
+        {
+          "name": "Insta Blue",
+          "hex": "#1E2A6E"
+        },
+        {
+          "name": "Enticing Silver",
+          "hex": "#C0C2C4"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "ESP and hill hold control",
+            "ISOFIX anchorages",
+            "Level 2 ADAS on V(O)",
+            "360-degree camera on V and V(O)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "17.78 cm SmartPlay Pro (S)",
+            "22.86 cm SmartPlay Pro+ (G and above)",
+            "Wireless Android Auto and Apple CarPlay",
+            "Toyota i-Connect connected features",
+            "Clarion premium sound (V, V(O))"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic climate control (G and above)",
+            "Ventilated front seats (V, V(O))",
+            "Head-up display (V, V(O))",
+            "Wireless charger with active cooling",
+            "Rear AC vents"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.2-litre Z-Series 3-cylinder petrol",
+            "Factory-fitted CNG option (S, G)",
+            "5-speed MT or AMT",
+            "Idle start/stop on all variants"
+          ]
+        }
+      ],
+      "highlights": [
+        "New 1.2-litre Z-Series 3-cylinder engine",
+        "Six airbags standard",
+        "Level 2 ADAS on the V(O) variant",
+        "CNG available with MT and AMT",
+        "Claimed 24.77 km/l (AMT) and 34.47 km/kg (CNG AMT)"
+      ],
+      "variants": [
+        {
+          "name": "E MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 699000,
+          "efficiency": "23.80 km/l",
+          "features": [
+            "Halogen projector headlamps, LED tail lamps",
+            "185/65 R15 steel wheels with full covers",
+            "6 airbags, ESP, hill hold",
+            "Digital manual AC",
+            "Monochrome TFT cluster",
+            "Rear parking sensors"
+          ]
+        },
+        {
+          "name": "S MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 771000,
+          "efficiency": "23.80 km/l",
+          "features": [
+            "17.78 cm SmartPlay Pro touchscreen, wireless Android Auto/Apple CarPlay",
+            "Steering-mounted audio and calling controls",
+            "Electrically adjustable and retractable ORVMs",
+            "Rear AC vents",
+            "Front sliding armrest",
+            "Rear USB Type-A and Type-C fast charging"
+          ]
+        },
+        {
+          "name": "S AMT",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 831000,
+          "efficiency": "24.77 km/l",
+          "features": [
+            "17.78 cm SmartPlay Pro touchscreen, wireless Android Auto/Apple CarPlay",
+            "Steering-mounted audio and calling controls",
+            "Electrically adjustable and retractable ORVMs",
+            "Rear AC vents",
+            "Front sliding armrest",
+            "Rear USB Type-A and Type-C fast charging"
+          ]
+        },
+        {
+          "name": "G MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 873000,
+          "efficiency": "23.80 km/l",
+          "features": [
+            "LED projector headlamps and LED DRLs",
+            "16-inch alloy wheels",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "Automatic climate control",
+            "Rear view camera",
+            "Keyless push-button start",
+            "Wireless charger",
+            "Toyota i-Connect connected car features",
+            "Tilt and telescopic steering",
+            "Driver seat height adjust"
+          ]
+        },
+        {
+          "name": "S MT CNG",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 876000,
+          "efficiency": "33.61 km/kg",
+          "features": [
+            "17.78 cm SmartPlay Pro touchscreen, wireless Android Auto/Apple CarPlay",
+            "Steering-mounted audio and calling controls",
+            "Electrically adjustable and retractable ORVMs",
+            "Rear AC vents",
+            "Front sliding armrest",
+            "Rear USB Type-A and Type-C fast charging"
+          ]
+        },
+        {
+          "name": "S AMT CNG",
+          "fuel": "CNG",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 931000,
+          "efficiency": "34.47 km/kg",
+          "features": [
+            "17.78 cm SmartPlay Pro touchscreen, wireless Android Auto/Apple CarPlay",
+            "Steering-mounted audio and calling controls",
+            "Electrically adjustable and retractable ORVMs",
+            "Rear AC vents",
+            "Front sliding armrest",
+            "Rear USB Type-A and Type-C fast charging"
+          ]
+        },
+        {
+          "name": "G AMT",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 933000,
+          "efficiency": "24.77 km/l",
+          "features": [
+            "LED projector headlamps and LED DRLs",
+            "16-inch alloy wheels",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "Automatic climate control",
+            "Rear view camera",
+            "Keyless push-button start",
+            "Wireless charger",
+            "Toyota i-Connect connected car features",
+            "Tilt and telescopic steering",
+            "Driver seat height adjust"
+          ]
+        },
+        {
+          "name": "G MT CNG",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 968000,
+          "efficiency": "33.61 km/kg",
+          "features": [
+            "LED projector headlamps and LED DRLs",
+            "16-inch alloy wheels",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "Automatic climate control",
+            "Rear view camera",
+            "Keyless push-button start",
+            "Wireless charger",
+            "Toyota i-Connect connected car features",
+            "Tilt and telescopic steering",
+            "Driver seat height adjust"
+          ]
+        },
+        {
+          "name": "V MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 999000,
+          "efficiency": "23.80 km/l",
+          "features": [
+            "Head-up display",
+            "360-degree camera",
+            "Ventilated front seats",
+            "Leatherette upholstery, leather-wrapped steering wheel",
+            "Clarion premium sound system",
+            "LED fog lamps",
+            "Cruise control",
+            "Auto-dimming IRVM",
+            "UV-protect glass",
+            "Auto-folding ORVMs"
+          ]
+        },
+        {
+          "name": "G AMT CNG",
+          "fuel": "CNG",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 1023000,
+          "efficiency": "34.47 km/kg",
+          "features": [
+            "LED projector headlamps and LED DRLs",
+            "16-inch alloy wheels",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "Automatic climate control",
+            "Rear view camera",
+            "Keyless push-button start",
+            "Wireless charger",
+            "Toyota i-Connect connected car features",
+            "Tilt and telescopic steering",
+            "Driver seat height adjust"
+          ]
+        },
+        {
+          "name": "V(O) MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1049000,
+          "efficiency": "23.80 km/l",
+          "features": [
+            "Level 2 ADAS: adaptive cruise control, lane keeping assist, AEB",
+            "Lane departure warning and prevention",
+            "High beam assist",
+            "Head-up display and 360-degree camera",
+            "Ventilated front seats",
+            "Clarion premium sound system",
+            "Leatherette upholstery"
+          ]
+        },
+        {
+          "name": "V AMT",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 1059000,
+          "efficiency": "24.77 km/l",
+          "features": [
+            "Head-up display",
+            "360-degree camera",
+            "Ventilated front seats",
+            "Leatherette upholstery, leather-wrapped steering wheel",
+            "Clarion premium sound system",
+            "LED fog lamps",
+            "Cruise control",
+            "Auto-dimming IRVM",
+            "UV-protect glass",
+            "Auto-folding ORVMs"
+          ]
+        },
+        {
+          "name": "V(O) AMT",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 1098000,
+          "efficiency": "24.77 km/l",
+          "features": [
+            "Level 2 ADAS: adaptive cruise control, lane keeping assist, AEB",
+            "Lane departure warning and prevention",
+            "High beam assist",
+            "Head-up display and 360-degree camera",
+            "Ventilated front seats",
+            "Clarion premium sound system",
+            "Leatherette upholstery"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.toyotabharat.com/showroom/glanza/",
+        "https://www.toyotabharat.com/pricelist/",
+        "https://www.toyotabharat.com/documents/brochures/e-brochure-glanza.pdf"
+      ],
+      "notes": "Facelift launched 14 Oct 2026. Power/torque range covers petrol (61 kW/112.4 Nm) and CNG mode (51.3 kW/101.8 Nm). Boot space and ground clearance not published on the model page."
+    },
+    {
+      "slug": "toyota-urban-cruiser-taisor",
+      "name": "Urban Cruiser Taisor",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2024-04-03",
+      "engine": "998 – 1197 cc",
+      "power": "57 – 73.6 kW",
+      "torque": "98.5 – 147.6 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 308,
+      "groundClearanceMm": null,
+      "fuelTankL": 37,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3995,
+        "width": 1765,
+        "height": 1550,
+        "wheelbase": 2520
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Lucent Orange",
+          "hex": "#D8692A"
+        },
+        {
+          "name": "Café White",
+          "hex": "#F4F4F2"
+        },
+        {
+          "name": "Enticing Silver",
+          "hex": "#C0C2C4"
+        },
+        {
+          "name": "Gaming Grey",
+          "hex": "#6E7073"
+        },
+        {
+          "name": "Sportin Red",
+          "hex": "#B22222"
+        },
+        {
+          "name": "Bluish Black",
+          "hex": "#16181D"
+        },
+        {
+          "name": "Sportin Red x Midnight Black",
+          "hex": "#9E1F22"
+        },
+        {
+          "name": "Enticing Silver x Midnight Black",
+          "hex": "#B5B7B9"
+        },
+        {
+          "name": "Café White x Midnight Black",
+          "hex": "#EDEDEA"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "ESP and hill hold assist",
+            "ISOFIX child seat mounts",
+            "Rear view camera (turbo variants)",
+            "360-degree camera (V)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "17.78 cm SmartPlay Cast touchscreen (S and above)",
+            "22.86 cm touchscreen with ARKAMYS tuning (V)",
+            "Wireless Android Auto and Apple CarPlay",
+            "Toyota i-Connect (turbo variants)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic climate control standard",
+            "Head-up display (V)",
+            "Wireless charger (turbo variants)",
+            "Paddle shifters (turbo AT)",
+            "Cruise control (V)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.2-litre K-Series Dual Jet petrol",
+            "1.0-litre K-Series turbo petrol with regenerative braking",
+            "Factory CNG (E)",
+            "5-speed MT, 5-speed AMT, 6-speed AT"
+          ]
+        }
+      ],
+      "highlights": [
+        "Choice of 1.2-litre petrol, 1.0-litre turbo petrol and CNG",
+        "Six airbags standard",
+        "Head-up display and 360-degree camera on V",
+        "Claimed boot space of 308 litres",
+        "Dual-tone paint on V turbo variants"
+      ],
+      "variants": [
+        {
+          "name": "E MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 743000,
+          "efficiency": "21.71 km/l",
+          "features": [
+            "Halogen projector headlamps",
+            "Steel wheels with covers",
+            "6 airbags, ESP, hill hold assist",
+            "Automatic climate control",
+            "Keyless entry",
+            "Rear parking sensors",
+            "60:40 split rear seat"
+          ]
+        },
+        {
+          "name": "S MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 833000,
+          "efficiency": "21.71 km/l",
+          "features": [
+            "17.78 cm SmartPlay Cast touchscreen",
+            "Wireless Android Auto/Apple CarPlay",
+            "Steering-mounted controls",
+            "Electrically adjustable and foldable ORVMs",
+            "OTA updates",
+            "Anti-theft security system"
+          ]
+        },
+        {
+          "name": "E MT (CNG)",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 845000,
+          "efficiency": "28.51 km/kg",
+          "features": [
+            "Halogen projector headlamps",
+            "Steel wheels with covers",
+            "6 airbags, ESP, hill hold assist",
+            "Automatic climate control",
+            "Keyless entry",
+            "Rear parking sensors",
+            "60:40 split rear seat"
+          ]
+        },
+        {
+          "name": "S+ MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 868000,
+          "efficiency": "21.71 km/l",
+          "features": [
+            "LED multi-reflector headlamps with twin LED DRLs",
+            "Automatic headlamps",
+            "Painted alloy wheels",
+            "17.78 cm SmartPlay Cast touchscreen",
+            "Wireless Android Auto/Apple CarPlay",
+            "Steering-mounted controls"
+          ]
+        },
+        {
+          "name": "S AMT",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 894000,
+          "efficiency": "22.79 km/l",
+          "features": [
+            "17.78 cm SmartPlay Cast touchscreen",
+            "Wireless Android Auto/Apple CarPlay",
+            "Steering-mounted controls",
+            "Electrically adjustable and foldable ORVMs",
+            "OTA updates",
+            "Anti-theft security system"
+          ]
+        },
+        {
+          "name": "S+ AMT",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AMT",
+          "price": 929000,
+          "efficiency": "22.79 km/l",
+          "features": [
+            "LED multi-reflector headlamps with twin LED DRLs",
+            "Automatic headlamps",
+            "Painted alloy wheels",
+            "17.78 cm SmartPlay Cast touchscreen",
+            "Wireless Android Auto/Apple CarPlay",
+            "Steering-mounted controls"
+          ]
+        },
+        {
+          "name": "G 1.0L Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1045000,
+          "efficiency": "21.18 km/l",
+          "features": [
+            "1.0-litre turbo petrol",
+            "LED headlamps with twin LED DRLs",
+            "Rear view camera",
+            "Wireless charger",
+            "Push-button start with smart key",
+            "Colour TFT MID",
+            "Rear AC vents",
+            "Toyota i-Connect",
+            "Tilt and telescopic steering",
+            "Rear wiper and washer"
+          ]
+        },
+        {
+          "name": "V 1.0L Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1136000,
+          "efficiency": "21.18 km/l",
+          "features": [
+            "Head-up display",
+            "360-degree camera",
+            "22.86 cm SmartPlay Cast touchscreen with ARKAMYS tuning",
+            "Machined alloy wheels",
+            "Cruise control",
+            "Leather-wrapped steering wheel",
+            "Auto-dimming IRVM",
+            "UV-cut glass",
+            "Dual-tone exterior option"
+          ]
+        },
+        {
+          "name": "G 1.0L Turbo AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1186000,
+          "efficiency": "19.86 km/l",
+          "features": [
+            "1.0-litre turbo petrol",
+            "LED headlamps with twin LED DRLs",
+            "Rear view camera",
+            "Wireless charger",
+            "Push-button start with smart key",
+            "Colour TFT MID",
+            "Rear AC vents",
+            "Toyota i-Connect",
+            "Tilt and telescopic steering",
+            "Rear wiper and washer"
+          ]
+        },
+        {
+          "name": "V 1.0L Turbo AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1278000,
+          "efficiency": "19.86 km/l",
+          "features": [
+            "Head-up display",
+            "360-degree camera",
+            "22.86 cm SmartPlay Cast touchscreen with ARKAMYS tuning",
+            "Machined alloy wheels",
+            "Cruise control",
+            "Leather-wrapped steering wheel",
+            "Auto-dimming IRVM",
+            "UV-cut glass",
+            "Dual-tone exterior option"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.toyotabharat.com/showroom/urbancruiser-taisor/",
+        "https://www.toyotabharat.com/pricelist/",
+        "https://www.toyotabharat.com/documents/brochures/urban-cruiser-taisor/e-brochure-uc-taisor.pdf"
+      ],
+      "notes": "Dual-tone paint on V turbo variants costs Rs 16,000 extra (priced as colour options, not separate variants). Ground clearance not published. Mileage figures from the official brochure."
+    },
+    {
+      "slug": "toyota-rumion",
+      "name": "Rumion",
+      "bodyType": "MUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2023-08-10",
+      "engine": "1462 cc",
+      "power": "64.6 – 75.8 kW",
+      "torque": "121.5 – 139 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4460,
+        "width": 1735,
+        "height": 1690,
+        "wheelbase": 2740
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Spunky Blue",
+          "hex": "#2F4F7F"
+        },
+        {
+          "name": "Rustic Brown",
+          "hex": "#6B4A35"
+        },
+        {
+          "name": "Iconic Grey",
+          "hex": "#5E6063"
+        },
+        {
+          "name": "Cafe White",
+          "hex": "#F4F4F2"
+        },
+        {
+          "name": "Enticing Silver",
+          "hex": "#C0C2C4"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard (front, side, curtain)",
+            "ESP, hill hold, ABS with EBD and brake assist",
+            "ISOFIX on 2nd row",
+            "Rear parking camera (G and V)",
+            "TPMS (V)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "17.78 cm SmartPlay Cast touchscreen (G and V)",
+            "Wireless Android Auto and Apple CarPlay",
+            "Toyota i-Connect connected features (G and V)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "2nd row 60:40 split with one-touch recline and slide",
+            "3rd row 50:50 split with recline",
+            "2nd row AC vents",
+            "Paddle shifters (AT)",
+            "Cruise control (V)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.5-litre K-Series petrol with Neo Drive (ISG)",
+            "Factory CNG on S MT",
+            "5-speed MT or 6-speed AT"
+          ]
+        }
+      ],
+      "highlights": [
+        "Seven-seat MPV with 1.5-litre petrol",
+        "Six airbags standard",
+        "Factory-fitted CNG option",
+        "6-speed automatic with paddle shifters",
+        "Claimed 20.51 km/l (MT) and 26.11 km/kg (CNG)"
+      ],
+      "variants": [
+        {
+          "name": "E MT NeoDrive",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 979000,
+          "efficiency": "20.51 km/l",
+          "features": [
+            "Halogen projector headlamps",
+            "Steel wheels with full caps",
+            "6 airbags, ESP, hill hold",
+            "Manual AC",
+            "Colour TFT MID",
+            "Rear parking sensors",
+            "2nd row 60:40 split with slide and recline"
+          ]
+        },
+        {
+          "name": "S MT NeoDrive",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1077000,
+          "efficiency": "20.51 km/l",
+          "features": [
+            "Audio with touch buttons, Bluetooth and USB",
+            "Steering-mounted audio and calling controls",
+            "Remote keyless entry",
+            "2nd row roof/console AC vents",
+            "Electrically adjustable and foldable ORVMs",
+            "Security alarm",
+            "Front sliding armrest with storage"
+          ]
+        },
+        {
+          "name": "S MT CNG",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1169000,
+          "efficiency": "26.11 km/kg",
+          "features": [
+            "Audio with touch buttons, Bluetooth and USB",
+            "Steering-mounted audio and calling controls",
+            "Remote keyless entry",
+            "2nd row roof/console AC vents",
+            "Electrically adjustable and foldable ORVMs",
+            "Security alarm",
+            "Front sliding armrest with storage"
+          ]
+        },
+        {
+          "name": "G MT NeoDrive",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1193000,
+          "efficiency": "20.51 km/l",
+          "features": [
+            "17.78 cm SmartPlay Cast touchscreen with ARKAMYS",
+            "Wireless Android Auto/Apple CarPlay",
+            "Two-tone machined alloy wheels",
+            "Auto AC",
+            "Push-button start with smart key",
+            "Rear parking camera",
+            "Front fog lamps",
+            "Rear wiper, washer and defogger",
+            "Driver seat height adjust",
+            "Toyota i-Connect"
+          ]
+        },
+        {
+          "name": "S AT NeoDrive",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1235000,
+          "efficiency": "20.30 km/l",
+          "features": [
+            "Audio with touch buttons, Bluetooth and USB",
+            "Steering-mounted audio and calling controls",
+            "Remote keyless entry",
+            "2nd row roof/console AC vents",
+            "Electrically adjustable and foldable ORVMs",
+            "Security alarm",
+            "Front sliding armrest with storage",
+            "Paddle shifters"
+          ]
+        },
+        {
+          "name": "V MT NeoDrive",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1270000,
+          "efficiency": "20.51 km/l",
+          "features": [
+            "Cruise control",
+            "TPMS",
+            "Auto headlamps with follow-me-home",
+            "Leather-wrapped steering with teak wood finish",
+            "PM2.5 filter",
+            "Key-operated retractable ORVMs",
+            "17.78 cm SmartPlay Cast touchscreen",
+            "Rear parking camera",
+            "Auto AC"
+          ]
+        },
+        {
+          "name": "G AT NeoDrive",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1344000,
+          "efficiency": "20.30 km/l",
+          "features": [
+            "17.78 cm SmartPlay Cast touchscreen with ARKAMYS",
+            "Wireless Android Auto/Apple CarPlay",
+            "Two-tone machined alloy wheels",
+            "Auto AC",
+            "Push-button start with smart key",
+            "Rear parking camera",
+            "Front fog lamps",
+            "Rear wiper, washer and defogger",
+            "Driver seat height adjust",
+            "Toyota i-Connect"
+          ]
+        },
+        {
+          "name": "V AT NeoDrive",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1421000,
+          "efficiency": "20.30 km/l",
+          "features": [
+            "Cruise control",
+            "TPMS",
+            "Auto headlamps with follow-me-home",
+            "Leather-wrapped steering with teak wood finish",
+            "PM2.5 filter",
+            "Key-operated retractable ORVMs",
+            "17.78 cm SmartPlay Cast touchscreen",
+            "Rear parking camera",
+            "Auto AC",
+            "Paddle shifters"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.toyotabharat.com/showroom/rumion/",
+        "https://www.toyotabharat.com/pricelist/",
+        "https://toyotabharat.com/documents/brochures/e-brochure-rumion.pdf"
+      ],
+      "notes": "AT mileage: the spec table says 20.30 km/l, while the model page text says 20.11 km/l; spec-table figure used. Pearl white and dual-tone paint carry an extra premium. Boot space and ground clearance not published."
+    },
+    {
+      "slug": "toyota-hyryder",
+      "name": "Urban Cruiser Hyryder",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "1462 – 1490 cc",
+      "power": "64.6 – 85 kW",
+      "torque": "121.5 – 141 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4365,
+        "width": 1795,
+        "height": 1645,
+        "wheelbase": 2600
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Cafe White",
+          "hex": "#F4F4F2"
+        },
+        {
+          "name": "Enticing Silver",
+          "hex": "#C0C2C4"
+        },
+        {
+          "name": "Gaming Grey",
+          "hex": "#6E7073"
+        },
+        {
+          "name": "Sportin Red",
+          "hex": "#B22222"
+        },
+        {
+          "name": "Midnight Black",
+          "hex": "#121212"
+        },
+        {
+          "name": "Cave Black",
+          "hex": "#1C1B1A"
+        },
+        {
+          "name": "Speedy Blue",
+          "hex": "#2A5DA8"
+        },
+        {
+          "name": "Cafe White x Midnight Black",
+          "hex": "#EDEDEA"
+        },
+        {
+          "name": "Sportin Red x Midnight Black",
+          "hex": "#9E1F22"
+        },
+        {
+          "name": "Enticing Silver x Midnight Black",
+          "hex": "#B5B7B9"
+        },
+        {
+          "name": "Speedy Blue x Midnight Black",
+          "hex": "#2A5DA8"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Vehicle stability control and hill hold",
+            "ISOFIX",
+            "360-degree camera (V)",
+            "TPMS (V)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "17.78 cm or 22.86 cm SmartPlay Cast touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "Toyota i-Connect connected features",
+            "ARKAMYS sound tuning"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sunroof (V)",
+            "Ventilated front seats (V)",
+            "Head-up display (V)",
+            "Reclining rear seat",
+            "Rear AC vents",
+            "Wireless charger"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.5-litre K-Series petrol with Neo Drive (ISG)",
+            "1.5-litre strong hybrid with e-Drive",
+            "Factory CNG (S, G)",
+            "5-speed MT, 6-speed AT, e-Drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Mild-hybrid petrol, strong hybrid and CNG powertrains",
+        "Strong hybrid claims 27.97 km/l",
+        "Six airbags standard",
+        "Panoramic sunroof and head-up display on V",
+        "System output of 85 kW on the strong hybrid"
+      ],
+      "variants": [
+        {
+          "name": "S MT 2WD NeoDrive",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1282000,
+          "efficiency": "21.11 km/l",
+          "features": [
+            "Halogen projector headlamps with twin LED DRLs",
+            "17-inch steel wheels with full caps",
+            "6 airbags, VSC, hill hold",
+            "17.78 cm SmartPlay Cast touchscreen",
+            "Wireless Android Auto/Apple CarPlay",
+            "Auto AC",
+            "Rear AC vents",
+            "Push-button start"
+          ]
+        },
+        {
+          "name": "S MT 2WD CNG",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1371000,
+          "efficiency": "26.6 km/kg",
+          "features": [
+            "Halogen projector headlamps with twin LED DRLs",
+            "17-inch steel wheels with full caps",
+            "6 airbags, VSC, hill hold",
+            "17.78 cm SmartPlay Cast touchscreen",
+            "Wireless Android Auto/Apple CarPlay",
+            "Auto AC",
+            "Rear AC vents",
+            "Push-button start"
+          ]
+        },
+        {
+          "name": "S AT 2WD NeoDrive",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1417000,
+          "efficiency": "20.58 km/l",
+          "features": [
+            "Halogen projector headlamps with twin LED DRLs",
+            "17-inch steel wheels with full caps",
+            "6 airbags, VSC, hill hold",
+            "17.78 cm SmartPlay Cast touchscreen",
+            "Wireless Android Auto/Apple CarPlay",
+            "Auto AC",
+            "Rear AC vents",
+            "Push-button start"
+          ]
+        },
+        {
+          "name": "G(O) MT 2WD NeoDrive",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1487000,
+          "efficiency": "21.11 km/l",
+          "features": [
+            "LED projector headlamps",
+            "17-inch alloy wheels",
+            "22.86 cm SmartPlay Cast touchscreen with ARKAMYS",
+            "Rear view camera",
+            "Wireless charger",
+            "Leatherette upholstery",
+            "Cruise control",
+            "Toyota i-Connect",
+            "Rear wiper and washer"
+          ]
+        },
+        {
+          "name": "G MT 2WD CNG",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1572000,
+          "efficiency": "26.6 km/kg",
+          "features": [
+            "LED projector headlamps",
+            "17-inch alloy wheels",
+            "22.86 cm SmartPlay Cast touchscreen with ARKAMYS",
+            "Rear view camera",
+            "Wireless charger",
+            "Leatherette upholstery",
+            "Cruise control",
+            "Toyota i-Connect",
+            "Rear wiper and washer"
+          ]
+        },
+        {
+          "name": "G(O) AT 2WD NeoDrive",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1618000,
+          "efficiency": "20.58 km/l",
+          "features": [
+            "LED projector headlamps",
+            "17-inch alloy wheels",
+            "22.86 cm SmartPlay Cast touchscreen with ARKAMYS",
+            "Rear view camera",
+            "Wireless charger",
+            "Leatherette upholstery",
+            "Cruise control",
+            "Toyota i-Connect",
+            "Rear wiper and washer",
+            "Paddle shifters"
+          ]
+        },
+        {
+          "name": "V MT 2WD NeoDrive",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1642000,
+          "efficiency": "21.11 km/l",
+          "features": [
+            "360-degree camera",
+            "Head-up display",
+            "Panoramic sunroof",
+            "Ventilated front seats",
+            "Machined alloy wheels",
+            "Ambient lighting",
+            "Auto-dimming IRVM",
+            "TPMS",
+            "Dual-tone exterior option",
+            "Paddle shifters (AT)"
+          ]
+        },
+        {
+          "name": "S e-Drive 2WD Hybrid",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-Drive",
+          "price": 1718000,
+          "efficiency": "27.97 km/l",
+          "features": [
+            "1.5-litre strong hybrid with e-Drive",
+            "EV mode and drive mode switch",
+            "17.78 cm TFT MID",
+            "6 airbags, VSC, hill hold",
+            "Rear disc brakes",
+            "Auto AC with rear vents",
+            "17-inch steel wheels"
+          ]
+        },
+        {
+          "name": "V AT 2WD NeoDrive",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1767000,
+          "efficiency": "20.58 km/l",
+          "features": [
+            "360-degree camera",
+            "Head-up display",
+            "Panoramic sunroof",
+            "Ventilated front seats",
+            "Machined alloy wheels",
+            "Ambient lighting",
+            "Auto-dimming IRVM",
+            "TPMS",
+            "Dual-tone exterior option",
+            "Paddle shifters (AT)"
+          ]
+        },
+        {
+          "name": "G(O) e-Drive 2WD Hybrid",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-Drive",
+          "price": 1924000,
+          "efficiency": "27.97 km/l",
+          "features": [
+            "1.5-litre strong hybrid with e-Drive",
+            "LED projector headlamps",
+            "17-inch alloy wheels",
+            "22.86 cm touchscreen",
+            "Wireless charger",
+            "Rear view camera",
+            "Cruise control",
+            "Toyota i-Connect"
+          ]
+        },
+        {
+          "name": "V e-Drive 2WD Hybrid",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-Drive",
+          "price": 1999000,
+          "efficiency": "27.97 km/l",
+          "features": [
+            "1.5-litre strong hybrid with e-Drive",
+            "Panoramic sunroof",
+            "Head-up display",
+            "360-degree camera",
+            "Ventilated leatherette front seats",
+            "Machined alloy wheels",
+            "Ambient lighting",
+            "TPMS",
+            "PM2.5 filter",
+            "Dual-tone exterior option"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.toyotabharat.com/showroom/urbancruiser-hyryder/",
+        "https://www.toyotabharat.com/pricelist/",
+        "https://www.toyotabharat.com/documents/brochures/e-brochure-urbancruiser-hyryder-spec.pdf"
+      ],
+      "notes": "Toyota's Delhi price list shows only these 11 variants; media list an E NeoDrive MT (about Rs 11.31 lakh) and AWD/Aero Black Edition that are not on the official list, so they are omitted. Dual-tone paint costs Rs 20,000 extra. The model page still shows AWD mileage. Boot space and ground clearance not published."
+    },
+    {
+      "slug": "toyota-urban-cruiser-ebella",
+      "name": "Urban Cruiser Ebella",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-05-29",
+      "engine": "Electric motor",
+      "power": "128 kW",
+      "torque": "193 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 7,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4285,
+        "width": 1800,
+        "height": 1640,
+        "wheelbase": 2700
+      },
+      "ev": {
+        "rangeKm": 543,
+        "rangeStandard": "ARAI",
+        "batteryKwh": 61,
+        "dcCharge": "45 min (10–80%)",
+        "acCharge": "7.2 kW wallbox compatible",
+        "motorKw": 128
+      },
+      "colors": [
+        {
+          "name": "Cafe White",
+          "hex": "#F4F4F2"
+        },
+        {
+          "name": "Bluish Black",
+          "hex": "#16181D"
+        },
+        {
+          "name": "Gaming Grey",
+          "hex": "#6E7073"
+        },
+        {
+          "name": "Enticing Silver",
+          "hex": "#C0C2C4"
+        },
+        {
+          "name": "Sportin Red",
+          "hex": "#B22222"
+        },
+        {
+          "name": "Cafe White Dual Tone",
+          "hex": "#EDEDEA"
+        },
+        {
+          "name": "Sportin Red Dual Tone",
+          "hex": "#9E1F22"
+        },
+        {
+          "name": "Land Breeze Green Dual Tone",
+          "hex": "#7E9C8A"
+        },
+        {
+          "name": "Enticing Silver Dual Tone",
+          "hex": "#B5B7B9"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "7 airbags including driver knee",
+            "Level 2 ADAS: adaptive cruise, lane keep assist, blind spot monitor, rear cross traffic alert",
+            "360-degree camera",
+            "Front and rear parking sensors",
+            "TPMS"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "10.1-inch multimedia screen",
+            "Wireless Android Auto and Apple CarPlay",
+            "JBL premium audio with subwoofer",
+            "10.25-inch TFT instrument cluster",
+            "Connected car features with SOS call"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic fixed glass roof",
+            "Ventilated front seats",
+            "Power driver seat",
+            "Sliding and reclining 40:20:40 rear seats",
+            "Wireless charger",
+            "Auto climate control with rear vents"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "61 kWh LFP battery",
+            "128 kW front motor",
+            "CCS2 DC fast charging"
+          ]
+        }
+      ],
+      "highlights": [
+        "Claimed range of 543 km (ARAI) from a 61 kWh LFP battery",
+        "DC charging 10–80% in 45 minutes",
+        "Seven airbags standard",
+        "Level 2 ADAS",
+        "Battery warranty of 8 years or 2,00,000 km"
+      ],
+      "variants": [
+        {
+          "name": "E3",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 2360000,
+          "efficiency": "543 km",
+          "features": [
+            "61 kWh LFP battery, 543 km claimed range",
+            "Level 2 ADAS",
+            "7 airbags",
+            "Panoramic glass roof",
+            "Ventilated front seats",
+            "JBL premium audio",
+            "360-degree camera",
+            "18-inch machine-cut alloy wheels",
+            "Power driver seat",
+            "Dual-tone exterior option"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.toyotabharat.com/showroom/urbancruiser-ebella/",
+        "https://www.toyotabharat.com/pricelist/",
+        "https://www.toyotabharat.com/documents/brochures/e-brochure-urbancruiser-ebella.pdf",
+        "https://www.toyotabharat.com/news/2026/tkm-announces-the-price-of-the-all-electric-urban-cruiser-ebella.html"
+      ],
+      "notes": "Only the E3 (61 kWh) is priced on the official list; smaller-battery variants are not priced. Toyota's footnote calls 543 km an in-house certified AIS 040 figure pending Rule 124 certification. Dual-tone costs Rs 20,000 extra. A battery-as-a-service scheme is offered separately."
+    },
+    {
+      "slug": "toyota-innova-crysta",
+      "name": "Innova Crysta",
+      "bodyType": "MUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "2393 cc",
+      "power": "110 kW",
+      "torque": "343 Nm",
+      "seats": [
+        7,
+        8
+      ],
+      "airbags": 7,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": null,
+      "ev": null,
+      "colors": [
+        {
+          "name": "Avant-Garde Bronze Metallic",
+          "hex": "#6E5A45"
+        },
+        {
+          "name": "Platinum White Pearl",
+          "hex": "#EEEDE8"
+        },
+        {
+          "name": "Super White",
+          "hex": "#FFFFFF"
+        },
+        {
+          "name": "Attitude Black Mica",
+          "hex": "#101010"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "3 airbags (GX, GX+), 7 airbags (VX, ZX)",
+            "ABS with EBD and brake assist",
+            "Vehicle stability control",
+            "Hill-start assist",
+            "Seat belt warning on all three rows"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Display audio with Android Auto and Apple CarPlay",
+            "TFT multi-information display (VX, ZX)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic climate control (VX, ZX)",
+            "Smart entry with push start (VX, ZX)",
+            "Cruise control (VX, ZX)",
+            "One-touch tumble 2nd row seat",
+            "Tilt and telescopic steering"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.4-litre GD diesel",
+            "5-speed manual",
+            "Eco and Power drive modes"
+          ]
+        }
+      ],
+      "highlights": [
+        "2.4-litre diesel with 343 Nm",
+        "Diesel manual only",
+        "Seven airbags on VX and ZX",
+        "Seven- and eight-seat layouts"
+      ],
+      "variants": [
+        {
+          "name": "GX (7S)",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1995000,
+          "efficiency": null,
+          "features": [
+            "2.4-litre GD diesel, 5-speed MT",
+            "3 airbags (driver, passenger, driver knee)",
+            "Display audio touchscreen with Android Auto/Apple CarPlay",
+            "Manual AC",
+            "Driver seat height adjust",
+            "205/65 R16 alloy wheels",
+            "VSC and hill-start assist"
+          ]
+        },
+        {
+          "name": "GX FLT (7S)",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1995000,
+          "efficiency": null,
+          "features": [
+            "2.4-litre GD diesel, 5-speed MT",
+            "3 airbags (driver, passenger, driver knee)",
+            "Display audio touchscreen with Android Auto/Apple CarPlay",
+            "Manual AC",
+            "Driver seat height adjust",
+            "205/65 R16 alloy wheels",
+            "VSC and hill-start assist"
+          ]
+        },
+        {
+          "name": "GX (8S)",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1999000,
+          "efficiency": null,
+          "features": [
+            "2.4-litre GD diesel, 5-speed MT",
+            "3 airbags (driver, passenger, driver knee)",
+            "Display audio touchscreen with Android Auto/Apple CarPlay",
+            "Manual AC",
+            "Driver seat height adjust",
+            "205/65 R16 alloy wheels",
+            "VSC and hill-start assist"
+          ]
+        },
+        {
+          "name": "GX FLT (8S)",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1999000,
+          "efficiency": null,
+          "features": [
+            "2.4-litre GD diesel, 5-speed MT",
+            "3 airbags (driver, passenger, driver knee)",
+            "Display audio touchscreen with Android Auto/Apple CarPlay",
+            "Manual AC",
+            "Driver seat height adjust",
+            "205/65 R16 alloy wheels",
+            "VSC and hill-start assist"
+          ]
+        },
+        {
+          "name": "GX+ (7S)",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 2141000,
+          "efficiency": null,
+          "features": [
+            "Back monitor with DVR",
+            "Chrome side moulding and door handles",
+            "Wood-finish door garnish",
+            "Premium black fabric seats",
+            "Electric adjust and retract ORVMs with welcome lights",
+            "Leather-wrapped gear knob",
+            "3 airbags"
+          ]
+        },
+        {
+          "name": "GX+ (8S)",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 2147000,
+          "efficiency": null,
+          "features": [
+            "Back monitor with DVR",
+            "Chrome side moulding and door handles",
+            "Wood-finish door garnish",
+            "Premium black fabric seats",
+            "Electric adjust and retract ORVMs with welcome lights",
+            "Leather-wrapped gear knob",
+            "3 airbags"
+          ]
+        },
+        {
+          "name": "VX (7S)",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 2524000,
+          "efficiency": null,
+          "features": [
+            "7 airbags",
+            "Automatic LED projector headlamps",
+            "Automatic climate control",
+            "Smart entry and push start",
+            "Cruise control",
+            "Wireless charger",
+            "Front clearance sonar",
+            "Ambient illumination",
+            "Leather-wrapped steering"
+          ]
+        },
+        {
+          "name": "VX (8S)",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 2529000,
+          "efficiency": null,
+          "features": [
+            "7 airbags",
+            "Automatic LED projector headlamps",
+            "Automatic climate control",
+            "Smart entry and push start",
+            "Cruise control",
+            "Wireless charger",
+            "Front clearance sonar",
+            "Ambient illumination",
+            "Leather-wrapped steering"
+          ]
+        },
+        {
+          "name": "ZX (7S)",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 2696000,
+          "efficiency": null,
+          "features": [
+            "7 airbags",
+            "Dual-tone black and hazel brown leather seats",
+            "8-way power driver seat",
+            "215/55 R17 alloy wheels",
+            "TPMS",
+            "Back door easy closer",
+            "Chrome ORVMs",
+            "Cruise control",
+            "Wireless charger"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.toyotabharat.com/showroom/innova-crysta/",
+        "https://www.toyotabharat.com/pricelist/",
+        "https://www.toyotabharat.com/documents/brochures/innova-mmc/e-brochure-innova-crysta.pdf"
+      ],
+      "notes": "G (7S/8S) appears on the official price list with no price (Rs 0), so it is omitted. GX FLT is listed at the same price as GX; its exact differences are not published. Mileage, dimensions and fuel tank not published on the model page or brochure. Pearl white costs extra (about Rs 14,000)."
+    },
+    {
+      "slug": "toyota-innova-hycross",
+      "name": "Innova Hycross",
+      "bodyType": "MUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "1987 cc",
+      "power": "126 – 139 kW",
+      "torque": "204 Nm (petrol); 191 Nm engine + 206 Nm motor (hybrid)",
+      "seats": [
+        7,
+        8
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2025
+      },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 52,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4755,
+        "width": 1850,
+        "height": 1790,
+        "wheelbase": 2850
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Blackish Ageha Glass Flake",
+          "hex": "#2B2F3A"
+        },
+        {
+          "name": "Super White",
+          "hex": "#FFFFFF"
+        },
+        {
+          "name": "Platinum White Pearl",
+          "hex": "#EEEDE8"
+        },
+        {
+          "name": "Attitude Black Mica",
+          "hex": "#101010"
+        },
+        {
+          "name": "Avant Garde Bronze Metallic",
+          "hex": "#6E5A45"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "VSC and hill-start assist",
+            "EPB with auto hold",
+            "Toyota Safety Sense ADAS (ZX(O))",
+            "Panoramic view monitor (GX(O) and above)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "20.32 cm or 25.65 cm touchscreen",
+            "Android Auto and Apple CarPlay",
+            "JBL 9-speaker system (ZX, ZX(O))",
+            "Telematics with SOS e-call"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Powered ottoman 2nd row seats (ZX, ZX(O))",
+            "Panoramic sunroof (VX(O) and above)",
+            "Ventilated front seats",
+            "Powered back door (ZX, ZX(O))",
+            "Rear retractable sunshade"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.0-litre TNGA petrol with Direct Shift CVT",
+            "2.0-litre 5th-gen self-charging hybrid with e-Drive",
+            "EV mode on hybrids",
+            "Front and rear disc brakes"
+          ]
+        }
+      ],
+      "highlights": [
+        "Bharat NCAP five-star rating (2025)",
+        "2.0-litre petrol or strong hybrid",
+        "Hybrid claims 22.16 km/l (brochure)",
+        "Powered ottoman seats on ZX and ZX(O)",
+        "Toyota Safety Sense ADAS on ZX(O)"
+      ],
+      "variants": [
+        {
+          "name": "G-FLT [7S]",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "Direct Shift CVT",
+          "price": 1870000,
+          "efficiency": "16.13 km/l",
+          "features": [
+            "2.0-litre TNGA petrol with CVT",
+            "Dual LED headlamps",
+            "16-inch steel wheels",
+            "6 airbags",
+            "EPB with auto hold",
+            "Front and reverse parking sensors",
+            "Manual AC with rear blower",
+            "Speed limiter (80 km/h)"
+          ]
+        },
+        {
+          "name": "G-FLT [8S]",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "Direct Shift CVT",
+          "price": 1875000,
+          "efficiency": "16.13 km/l",
+          "features": [
+            "2.0-litre TNGA petrol with CVT",
+            "Dual LED headlamps",
+            "16-inch steel wheels",
+            "6 airbags",
+            "EPB with auto hold",
+            "Front and reverse parking sensors",
+            "Manual AC with rear blower",
+            "Speed limiter (80 km/h)"
+          ]
+        },
+        {
+          "name": "GX [7S]",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "Direct Shift CVT",
+          "price": 1953000,
+          "efficiency": "16.13 km/l",
+          "features": [
+            "16-inch alloy wheels",
+            "20.32 cm touchscreen with Android Auto/Apple CarPlay",
+            "Smart entry with push start",
+            "Reverse parking camera",
+            "Telematics and SOS e-call",
+            "Gun-metal finish grille",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "GX [8S]",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "Direct Shift CVT",
+          "price": 1958000,
+          "efficiency": "16.13 km/l",
+          "features": [
+            "16-inch alloy wheels",
+            "20.32 cm touchscreen with Android Auto/Apple CarPlay",
+            "Smart entry with push start",
+            "Reverse parking camera",
+            "Telematics and SOS e-call",
+            "Gun-metal finish grille",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "GX(O) [8S]",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "Direct Shift CVT",
+          "price": 2084000,
+          "efficiency": "16.13 km/l",
+          "features": [
+            "25.65 cm touchscreen (7-seater)",
+            "Panoramic view monitor",
+            "Automatic climate control",
+            "Dual-tone chestnut and black fabric",
+            "LED fog lamps",
+            "Rear retractable sunshade",
+            "Soft-touch dashboard",
+            "Rear demister"
+          ]
+        },
+        {
+          "name": "GX(O) [7S]",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "Direct Shift CVT",
+          "price": 2097000,
+          "efficiency": "16.13 km/l",
+          "features": [
+            "25.65 cm touchscreen (7-seater)",
+            "Panoramic view monitor",
+            "Automatic climate control",
+            "Dual-tone chestnut and black fabric",
+            "LED fog lamps",
+            "Rear retractable sunshade",
+            "Soft-touch dashboard",
+            "Rear demister"
+          ]
+        },
+        {
+          "name": "Hybrid VX [7S]",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-Drive",
+          "price": 2676000,
+          "efficiency": "22.16 km/l",
+          "features": [
+            "2.0-litre strong hybrid with e-Drive",
+            "Tri-eye LED headlamps",
+            "17-inch alloy wheels",
+            "Paddle shifters and TPMS",
+            "Cruise control",
+            "Auto-dimming IRVM",
+            "17.8 cm colour MID",
+            "Drive modes Eco/Normal/Power",
+            "Ambient lighting"
+          ]
+        },
+        {
+          "name": "Hybrid VX [8S]",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-Drive",
+          "price": 2681000,
+          "efficiency": "22.16 km/l",
+          "features": [
+            "2.0-litre strong hybrid with e-Drive",
+            "Tri-eye LED headlamps",
+            "17-inch alloy wheels",
+            "Paddle shifters and TPMS",
+            "Cruise control",
+            "Auto-dimming IRVM",
+            "17.8 cm colour MID",
+            "Drive modes Eco/Normal/Power",
+            "Ambient lighting"
+          ]
+        },
+        {
+          "name": "Hybrid VX(O) [7S]",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-Drive",
+          "price": 2877000,
+          "efficiency": "22.16 km/l",
+          "features": [
+            "Panoramic sunroof",
+            "Ventilated front seats",
+            "LED fog lamps",
+            "25.65 cm touchscreen",
+            "Wireless Apple CarPlay",
+            "6-speaker audio",
+            "Acoustic and IR-cut windshield"
+          ]
+        },
+        {
+          "name": "Hybrid VX(O) [8S]",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-Drive",
+          "price": 2882000,
+          "efficiency": "22.16 km/l",
+          "features": [
+            "Panoramic sunroof",
+            "Ventilated front seats",
+            "LED fog lamps",
+            "25.65 cm touchscreen",
+            "Wireless Apple CarPlay",
+            "6-speaker audio",
+            "Acoustic and IR-cut windshield"
+          ]
+        },
+        {
+          "name": "Hybrid ZX",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-Drive",
+          "price": 3120000,
+          "efficiency": "22.16 km/l",
+          "features": [
+            "Powered ottoman 2nd row captain seats",
+            "8-way power driver seat with memory",
+            "JBL 9-speaker audio",
+            "Powered back door",
+            "18-inch alloy wheels",
+            "Quilted leather upholstery",
+            "Two-zone rear climate control",
+            "Panoramic sunroof",
+            "Wheel arch cladding"
+          ]
+        },
+        {
+          "name": "Hybrid ZX(O)",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-Drive",
+          "price": 3184000,
+          "efficiency": "22.16 km/l",
+          "features": [
+            "Toyota Safety Sense: adaptive radar cruise, lane trace assist, pre-collision system",
+            "Blind spot monitor and rear cross traffic alert",
+            "Auto high beam",
+            "Powered ottoman seats",
+            "JBL 9-speaker audio",
+            "Powered back door",
+            "18-inch alloy wheels"
+          ]
+        },
+        {
+          "name": "Hybrid ZX(O) [LE]",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-Drive",
+          "price": 3295000,
+          "efficiency": "22.16 km/l",
+          "features": [
+            "Toyota Safety Sense: adaptive radar cruise, lane trace assist, pre-collision system",
+            "Blind spot monitor and rear cross traffic alert",
+            "Auto high beam",
+            "Powered ottoman seats",
+            "JBL 9-speaker audio",
+            "Powered back door",
+            "18-inch alloy wheels"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.toyotabharat.com/showroom/innova/",
+        "https://www.toyotabharat.com/showroom/innova/features-specs.html",
+        "https://www.toyotabharat.com/pricelist/",
+        "https://www.toyotabharat.com/documents/brochures/e-brochure-hycross.pdf",
+        "https://www.toyotabharat.com/news/2025/toyota-innova-hycross-secures-5-star-safety-rating-under-bharat-ncap.html"
+      ],
+      "notes": "Spec page calls the base grade G-SLF; price list calls it G-FLT. ZX(O) [LE] is a separately priced edition whose contents are not detailed on the spec page. Hybrid mileage is 22.16 km/l per brochure. Width/height vary by grade (1845–1850 mm / 1785–1795 mm); ZX shown. Pearl white is Rs 15,000 extra."
+    },
+    {
+      "slug": "toyota-fortuner",
+      "name": "Fortuner",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2021-01-06",
+      "engine": "2694 – 2755 cc",
+      "power": "122 – 150 kW",
+      "torque": "245 – 500 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": 7,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 80,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4795,
+        "width": 1855,
+        "height": 1835,
+        "wheelbase": 2745
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Platinum White Pearl",
+          "hex": "#EEEDE8"
+        },
+        {
+          "name": "Sparkling Black Crystal Shine",
+          "hex": "#1A1A1E"
+        },
+        {
+          "name": "Super White",
+          "hex": "#FFFFFF"
+        },
+        {
+          "name": "Attitude Black",
+          "hex": "#101010"
+        },
+        {
+          "name": "Avant-Garde Bronze",
+          "hex": "#6E5A45"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "7 airbags",
+            "VSC with brake assist, hill assist, traction control",
+            "ISOFIX on 2nd row",
+            "Front and rear parking sensors with back monitor"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "8-inch touchscreen with Android Auto and Apple CarPlay",
+            "JBL 11-speaker audio (4WD)",
+            "Connected car features with SOS"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Dual-zone automatic climate control",
+            "Ventilated leather front seats (diesel)",
+            "Power back door with height memory",
+            "Power-adjust front seats",
+            "Cruise control"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.7-litre petrol",
+            "2.8-litre turbo diesel, 500 Nm (AT)",
+            "48V mild-hybrid Neo Drive (4x4 AT)",
+            "4WD with low range, diff lock"
+          ]
+        }
+      ],
+      "highlights": [
+        "2.8-litre diesel with up to 500 Nm",
+        "Neo Drive 48V mild hybrid on the 4x4 AT",
+        "4WD with low range and locking differential",
+        "Seven airbags",
+        "GR-S variant with sports-tuned suspension"
+      ],
+      "variants": [
+        {
+          "name": "(2.7L) 4x2 AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3511000,
+          "efficiency": null,
+          "features": [
+            "2.7-litre petrol, 6-speed AT",
+            "2WD",
+            "7 airbags",
+            "Machine-finish 17-inch alloys",
+            "LED headlamps and split LED tail lamps",
+            "Power back door with height memory",
+            "Dual-zone auto climate control",
+            "8-inch touchscreen with Android Auto/Apple CarPlay",
+            "Eco/Power drive modes"
+          ]
+        },
+        {
+          "name": "(2.8L) 4x2 MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT with iMT",
+          "price": 3575000,
+          "efficiency": null,
+          "features": [
+            "2.8-litre diesel",
+            "2WD",
+            "7 airbags",
+            "Leather seats with ventilated front seats",
+            "Power-adjust front seats",
+            "Dual-zone auto climate control",
+            "Power back door",
+            "Eco/Normal/Sport drive modes",
+            "Power steering with VFC"
+          ]
+        },
+        {
+          "name": "(2.8L) 4x2 AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3799000,
+          "efficiency": null,
+          "features": [
+            "2.8-litre diesel",
+            "2WD",
+            "7 airbags",
+            "Leather seats with ventilated front seats",
+            "Power-adjust front seats",
+            "Dual-zone auto climate control",
+            "Power back door",
+            "Eco/Normal/Sport drive modes",
+            "Power steering with VFC",
+            "Paddle shifters"
+          ]
+        },
+        {
+          "name": "(2.8L) 4x4 MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT with iMT",
+          "price": 3974000,
+          "efficiency": null,
+          "features": [
+            "2.8-litre diesel, 6-speed MT with iMT",
+            "4WD with high and low range",
+            "Downhill assist control",
+            "Electronic diff lock",
+            "18-inch super chrome alloys",
+            "JBL 11-speaker audio",
+            "Ventilated leather front seats",
+            "7 airbags"
+          ]
+        },
+        {
+          "name": "4X4 AT Neo Drive 48V",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 4355000,
+          "efficiency": null,
+          "features": [
+            "2.8-litre diesel with Neo Drive 48V mild hybrid (8.5 kW motor)",
+            "4WD with high and low range",
+            "Idle start/stop",
+            "Downhill assist control and diff lock",
+            "JBL 11-speaker audio",
+            "18-inch super chrome alloys",
+            "Ventilated leather front seats",
+            "6-speed AT with paddle shift"
+          ]
+        },
+        {
+          "name": "GR-S (2.8L) 4x4 AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 5097000,
+          "efficiency": null,
+          "features": [
+            "GR sports-tuned suspension with monotube dampers",
+            "Red brake calipers with GR emblem",
+            "GR seats in suede and leather",
+            "Bi-tone black radiator grille",
+            "GR combination meter and start button",
+            "4WD with high and low range",
+            "6-speed AT with paddle shift",
+            "7 airbags"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.toyotabharat.com/showroom/fortuner/index-fortuner.html",
+        "https://www.toyotabharat.com/pricelist/",
+        "https://www.toyotabharat.com/documents/brochures/fortuner-mmc/combined-brochure-mobile.pdf",
+        "https://www.toyotabharat.com/documents/brochures/fortuner-mmc/gr_mobile-brochure_360x640pix.pdf"
+      ],
+      "notes": "Pearl white costs Rs 20,000 extra. Leader Edition is not priced on the list (dealer contact only) so it is omitted. No petrol MT on the current Delhi price list. Mileage, boot and ground clearance not published. launchedOn is the current facelift."
+    },
+    {
+      "slug": "toyota-fortuner-legender",
+      "name": "Fortuner Legender",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2021-01-06",
+      "engine": "2755 cc",
+      "power": "150 kW",
+      "torque": "420 – 500 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": 7,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 80,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4795,
+        "width": 1855,
+        "height": 1835,
+        "wheelbase": 2745
+      },
+      "ev": null,
+      "colors": [],
+      "features": [
+        {
+          "group": "Exterior",
+          "items": [
+            "Split quad-LED headlamps",
+            "Dual-tone black roof",
+            "18-inch machine-cut alloy wheels",
+            "Front and rear sequential turn indicators"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Black and maroon upholstery with maroon stitching",
+            "Ambient illumination",
+            "Black dial combimeter with white illumination"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Ventilated front seats",
+            "Wireless charger",
+            "Kick-sensor power back door",
+            "Dual-zone automatic climate control",
+            "Rear USB port"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.8-litre turbo diesel",
+            "6-speed AT or 6-speed MT with iMT",
+            "4WD with low range on 4x4 variants",
+            "Neo Drive 48V mild hybrid on 4x4 AT"
+          ]
+        }
+      ],
+      "highlights": [
+        "Styling-led version of the Fortuner",
+        "2.8-litre diesel only",
+        "Neo Drive 48V mild hybrid on 4x4 AT",
+        "Dual-tone black roof as standard"
+      ],
+      "variants": [
+        {
+          "name": "(2.8L) 4x2 AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 4335000,
+          "efficiency": null,
+          "features": [
+            "Split quad-LED headlamps with waterfall LED line guide",
+            "Dual-tone black roof",
+            "18-inch multi-layer machine-cut alloys",
+            "Sequential turn indicators",
+            "Black and maroon leather upholstery with ventilated front seats",
+            "Kick sensor power back door",
+            "Wireless charger",
+            "Ambient illumination",
+            "7 airbags"
+          ]
+        },
+        {
+          "name": "(2.8L) 4x4 MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT with iMT",
+          "price": 4553000,
+          "efficiency": null,
+          "features": [
+            "Split quad-LED headlamps with waterfall LED line guide",
+            "Dual-tone black roof",
+            "18-inch multi-layer machine-cut alloys",
+            "Sequential turn indicators",
+            "Black and maroon leather upholstery with ventilated front seats",
+            "Kick sensor power back door",
+            "4WD with high and low range",
+            "Downhill assist and diff lock"
+          ]
+        },
+        {
+          "name": "4X4 AT Neo Drive 48V",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 4877000,
+          "efficiency": null,
+          "features": [
+            "Split quad-LED headlamps with waterfall LED line guide",
+            "Dual-tone black roof",
+            "18-inch multi-layer machine-cut alloys",
+            "Sequential turn indicators",
+            "Black and maroon leather upholstery with ventilated front seats",
+            "Kick sensor power back door",
+            "Neo Drive 48V mild hybrid",
+            "4WD with high and low range",
+            "JBL 11-speaker audio"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.toyotabharat.com/showroom/fortuner/index-legender.html",
+        "https://www.toyotabharat.com/pricelist/",
+        "https://www.toyotabharat.com/documents/brochures/fortuner-mmc/legender-spec-brochure.pdf"
+      ],
+      "notes": "Listed separately as 'Legender' on Toyota's price list. Exterior colour names are not published on the Legender page, so colours are left empty. Pearl white premium applies. Mileage not published."
+    },
+    {
+      "slug": "toyota-hilux",
+      "name": "Hilux",
+      "bodyType": "SUV",
+      "bodyStyle": "Pickup",
+      "isLuxury": false,
+      "launchedOn": "2026-07-28",
+      "engine": "2755 cc",
+      "power": "150 kW",
+      "torque": "500 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 7,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 80,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 5320,
+        "width": 1855,
+        "height": 1815,
+        "wheelbase": 3085
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Sulphur Metallic",
+          "hex": "#DDB614"
+        },
+        {
+          "name": "Emotional Red",
+          "hex": "#952025"
+        },
+        {
+          "name": "Platinum Pearl White Metallic",
+          "hex": "#DDDDDA"
+        },
+        {
+          "name": "Ash",
+          "hex": "#97989A"
+        },
+        {
+          "name": "Super White",
+          "hex": "#FFFFFF"
+        },
+        {
+          "name": "Attitude Black",
+          "hex": "#101010"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "7 airbags",
+            "VSC with brake assist",
+            "ISOFIX on 2nd row",
+            "Panoramic view monitor (VX)",
+            "TPMS (VX)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "8-inch or 12.3-inch touchscreen",
+            "Wireless Android Auto and Apple CarPlay (VX)",
+            "Toyota i-Connect (VX)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Smart entry with push start (VX)",
+            "Wireless charger (VX)",
+            "Tilt and telescopic steering",
+            "220V power outlet (VX)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.8-litre diesel, 150 kW and 500 Nm",
+            "6-speed automatic",
+            "4WD with high/low range and diff lock",
+            "Multi-terrain select (VX)"
+          ]
+        }
+      ],
+      "highlights": [
+        "All-new ninth-generation Hilux",
+        "2.8-litre diesel with 500 Nm, automatic only",
+        "4x2 and 4x4 options",
+        "Seven airbags standard",
+        "80-litre fuel tank"
+      ],
+      "variants": [
+        {
+          "name": "4x2 GX AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3199000,
+          "efficiency": null,
+          "features": [
+            "2.8-litre diesel, 6-speed AT",
+            "4x2",
+            "7 airbags",
+            "8-inch touchscreen with wired Android Auto/Apple CarPlay",
+            "Back camera",
+            "LED headlamps",
+            "Manual AC",
+            "Tailgate assist with lock",
+            "Hexagonal grip side steps",
+            "265/65 R17 alloys"
+          ]
+        },
+        {
+          "name": "4x4 GX AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3369000,
+          "efficiency": null,
+          "features": [
+            "4WD with high and low range",
+            "Electronic differential lock",
+            "Electronic 2WD/4WD control",
+            "12.3-inch touchscreen",
+            "7 airbags",
+            "Back camera",
+            "LED headlamps",
+            "Tailgate assist"
+          ]
+        },
+        {
+          "name": "4x4 VX AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3669000,
+          "efficiency": null,
+          "features": [
+            "12.3-inch touchscreen with wireless Android Auto/Apple CarPlay",
+            "8 speakers",
+            "Panoramic view monitor",
+            "Multi-terrain select and downhill assist",
+            "Cruise control and drive modes",
+            "Smart entry with push start",
+            "Wireless charger",
+            "LED DRLs, fog lamps and tail lamps",
+            "TPMS",
+            "Toyota i-Connect"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.toyotabharat.com/showroom/hilux/",
+        "https://www.toyotabharat.com/pricelist/",
+        "https://www.toyotabharat.com/documents/brochures/e-brochure-hilux.pdf",
+        "https://www.toyotabharat.com/news/2026/tkm-launches-the-all-new-hilux-in-india.html"
+      ],
+      "notes": "Double-cab pickup. Sulphur Metallic and Attitude Black are VX-only. Pearl white costs Rs 20,000 extra. The spec table lists the 8-inch screen for GX 4x2 and GX 4x4, while launch reports give the 12.3-inch screen to GX 4x4; check. Mileage not published."
+    },
+    {
+      "slug": "toyota-camry",
+      "name": "Camry",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2024-12-11",
+      "engine": "2487 cc",
+      "power": "169 kW (system)",
+      "torque": "221 Nm engine; 208 Nm motor",
+      "seats": [
+        5
+      ],
+      "airbags": 9,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 50,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4920,
+        "width": 1840,
+        "height": 1455,
+        "wheelbase": 2825
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Cement Grey",
+          "hex": "#7D7F7C"
+        },
+        {
+          "name": "Attitude Black",
+          "hex": "#101010"
+        },
+        {
+          "name": "Dark Blue",
+          "hex": "#1E2B48"
+        },
+        {
+          "name": "Emotional Red",
+          "hex": "#952025"
+        },
+        {
+          "name": "Platinum White Pearl",
+          "hex": "#EEEDE8"
+        },
+        {
+          "name": "Precious Metal",
+          "hex": "#8A8B8D"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "9 airbags including rear side and driver knee",
+            "Toyota Safety Sense ADAS",
+            "360-degree panoramic monitor",
+            "EPB with brake hold",
+            "TPMS"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "31.24 cm multimedia touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "JBL 9-speaker audio",
+            "31.24 cm digital instrument cluster",
+            "Toyota i-Connect"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "3-zone climate control",
+            "10-way power front seats with lumbar; driver memory",
+            "Ventilated front seats",
+            "Rear power recline and power sunshade",
+            "Head-up display",
+            "Tilt and slide moonroof"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.5-litre Dynamic Force engine with 5th-gen hybrid",
+            "Lithium-ion hybrid battery",
+            "e-CVT with Sport, Eco and Normal modes"
+          ]
+        }
+      ],
+      "highlights": [
+        "2.5-litre strong hybrid, 169 kW system output",
+        "Claimed 25.49 km/l",
+        "Nine airbags",
+        "Toyota Safety Sense ADAS",
+        "Sprint Edition with matte-black bonnet, roof and boot"
+      ],
+      "variants": [
+        {
+          "name": "Elegant",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 4869000,
+          "efficiency": "25.49 km/l",
+          "features": [
+            "2.5-litre hybrid, 169 kW system output, e-CVT",
+            "Toyota Safety Sense: lane tracing assist, pre-collision, radar cruise control, auto high beam",
+            "9 airbags",
+            "31.24 cm touchscreen with wireless Android Auto/Apple CarPlay",
+            "JBL 9-speaker audio",
+            "Head-up display",
+            "Tilt and slide moonroof",
+            "Ventilated front seats",
+            "Rear power recline and sunshade",
+            "360-degree camera"
+          ]
+        },
+        {
+          "name": "Sprint Edition",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 4869000,
+          "efficiency": "25.49 km/l",
+          "features": [
+            "Matte-black bonnet, roof and boot lid",
+            "Sports kit with bumper garnish and rear spoiler",
+            "Matte-black 18-inch alloy wheels",
+            "2.5-litre hybrid, 169 kW system output, e-CVT",
+            "Toyota Safety Sense: lane tracing assist, pre-collision, radar cruise control, auto high beam",
+            "9 airbags",
+            "31.24 cm touchscreen with wireless Android Auto/Apple CarPlay",
+            "JBL 9-speaker audio",
+            "Head-up display",
+            "Tilt and slide moonroof"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.toyotabharat.com/showroom/camry/",
+        "https://www.toyotabharat.com/pricelist/",
+        "https://www.toyotabharat.com/documents/brochures/e-brochure-camry-hybrid.pdf",
+        "https://www.toyotabharat.com/news/2025/tkm-launches-camry-hybrid-electric-vehicle-sprint-edition.html"
+      ],
+      "notes": "Pearl white costs Rs 20,000 extra. Sprint Edition contents taken from launch coverage of Toyota's Aug 2025 release; confirm details. Boot space and ground clearance not published."
+    },
+    {
+      "slug": "toyota-vellfire",
+      "name": "Vellfire",
+      "bodyType": "MUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2023-08-03",
+      "engine": "2487 cc",
+      "power": "142 kW",
+      "torque": "240 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": null,
+      "ev": null,
+      "colors": [
+        {
+          "name": "Platinum Pearl White",
+          "hex": "#EEEDE8"
+        },
+        {
+          "name": "Jet Black",
+          "hex": "#0B0B0C"
+        },
+        {
+          "name": "Precious Metal",
+          "hex": "#8A8B8D"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags",
+            "Adaptive cruise control",
+            "Lane trace assist",
+            "Pre-collision safety system",
+            "Adaptive high beam LED headlamps"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "14-inch infotainment screen",
+            "JBL 15-speaker audio",
+            "Apple CarPlay and Android Auto",
+            "14-inch rear seat entertainment (VIP Executive Lounge)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Dual sunroof",
+            "Tri-zone AC",
+            "Genuine leather seats with memory foam",
+            "Powered ottoman 2nd row seats (VIP Executive Lounge)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.5-litre four-cylinder self-charging strong hybrid",
+            "Claimed 19.28 km/l"
+          ]
+        }
+      ],
+      "highlights": [
+        "2.5-litre self-charging strong hybrid",
+        "Claimed 19.28 km/l",
+        "Powered ottoman seats on VIP Executive Lounge",
+        "JBL 15-speaker audio"
+      ],
+      "variants": [
+        {
+          "name": "Hi",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": null,
+          "price": 11999000,
+          "efficiency": "19.28 km/l",
+          "features": [
+            "2.5-litre strong hybrid",
+            "Black interior",
+            "14-inch infotainment",
+            "JBL 15-speaker audio",
+            "Dual sunroof",
+            "19-inch dual-tone alloys",
+            "6 airbags",
+            "Adaptive cruise control and lane trace assist"
+          ]
+        },
+        {
+          "name": "VIP – Executive Lounge",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": null,
+          "price": 12999000,
+          "efficiency": "19.28 km/l",
+          "features": [
+            "Powered extra-large ottoman 2nd row seats",
+            "Detachable smartphone-like rear controls",
+            "Multi-function table",
+            "14-inch rear seat entertainment",
+            "Adaptive damping shock absorbers",
+            "Interior in Sunset Brown, Black or Beige"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.toyotabharat.com/showroom/vellfire/",
+        "https://www.toyotabharat.com/pricelist/",
+        "https://www.toyotabharat.com/news/2023/tkm-unveils-the-all-new-vellfire-in-india.html"
+      ],
+      "notes": "VIP Executive Lounge is listed in three interior colours (Sunset Brown, Black, Beige) at the same price. Toyota India does not publish seating per grade, dimensions, tank or gearbox; seats=7 needs checking (some media report 4 seats on VIP). Pearl white premium applies."
+    },
+    {
+      "slug": "toyota-land-cruiser-300",
+      "name": "Land Cruiser 300",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "3346 cc",
+      "power": "227 kW",
+      "torque": "700 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 10,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": 230,
+      "fuelTankL": 80,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4985,
+        "width": 1980,
+        "height": 1955,
+        "wheelbase": 2850
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Attitude Black",
+          "hex": "#101010"
+        },
+        {
+          "name": "Precious White Pearl",
+          "hex": "#EEEDE8"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "10 airbags",
+            "Toyota Safety Sense 3.0: PCS, LTA, radar cruise, adaptive high beam",
+            "Blind spot monitor",
+            "360-degree panoramic view monitor",
+            "Multi-terrain monitor"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "31.24 cm display audio",
+            "JBL 14-speaker audio",
+            "Apple CarPlay and Android Auto",
+            "Headrest-mounted rear entertainment screens"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "4-zone automatic climate control",
+            "Heated and ventilated front and rear seats",
+            "Head-up display",
+            "Power back door with kick sensor",
+            "Cool box"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "3.3-litre V6 twin-turbo diesel, 227 kW and 700 Nm",
+            "10-speed automatic",
+            "Full-time 4WD with crawl control and multi-terrain select",
+            "Adaptive variable suspension"
+          ]
+        }
+      ],
+      "highlights": [
+        "3.3-litre V6 diesel with 700 Nm",
+        "10-speed automatic with full-time 4WD",
+        "Ten airbags",
+        "Toyota Safety Sense 3.0",
+        "Ground clearance of 230 mm"
+      ],
+      "variants": [
+        {
+          "name": "ZX",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "10-speed AT",
+          "price": 21775000,
+          "efficiency": null,
+          "features": [
+            "3.3-litre V6 twin-turbo diesel, 10-speed AT",
+            "20-inch alloy wheels",
+            "Chrome window mouldings and premium grille",
+            "Sunroof and roof rails",
+            "Front and rear heated and ventilated seats",
+            "4-zone climate control",
+            "JBL 14-speaker audio with 31.24 cm display",
+            "Toyota Safety Sense 3.0",
+            "10 airbags",
+            "Interior in Black or Brown"
+          ]
+        },
+        {
+          "name": "GR-S",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "10-speed AT",
+          "price": 22493300,
+          "efficiency": null,
+          "features": [
+            "GR Sport styling with black mouldings and GR badges",
+            "Front and rear differential locks",
+            "18-inch alloy wheels",
+            "GR logo steering wheel and start button",
+            "Adaptive variable suspension",
+            "Toyota Safety Sense 3.0",
+            "10 airbags",
+            "Interior in Black or Black and Dark Red"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.toyotabharat.com/showroom/lc300/",
+        "https://www.toyotabharat.com/pricelist/",
+        "https://www.toyotabharat.com/documents/brochures/e-brochure-lc-300.pdf"
+      ],
+      "notes": "Each grade is listed with interior colour options (ZX: Black/Brown; GR-S: Black/Black and Dark Red) at the same price. GR-S dimensions are 4965 x 1990 x 1955 mm; ZX shown. Mileage not published."
+    }
+  ]
+}

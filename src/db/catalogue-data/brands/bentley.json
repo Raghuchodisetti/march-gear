@@ -1,0 +1,91 @@
+{
+  "brand": {
+    "slug": "bentley",
+    "name": "Bentley",
+    "country": "United Kingdom",
+    "founded": 1919,
+    "tagline": "British luxury carmaker, founded 1919, part of the Volkswagen Group",
+    "description": "British luxury carmaker founded in 1919 by W.O. Bentley and based in Crewe, England; part of the Volkswagen Group. Since July 2025 Bentley India has been a division of Škoda Auto Volkswagen India, the official importer, with showrooms in Mumbai, Bengaluru and New Delhi.",
+    "isLuxury": true,
+    "website": "https://www.bentleymotors.com/in/en.html"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "bentley-bentayga",
+      "name": "Bentayga",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2023-01-20",
+      "engine": "3996 cc twin-turbo V8",
+      "power": "550 PS (542 bhp)",
+      "torque": "770 Nm",
+      "seats": [4, 5],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 380,
+      "groundClearanceMm": null,
+      "fuelTankL": 85,
+      "topSpeedKmh": 290,
+      "acceleration": "0–100 km/h in 4.6 s",
+      "dimensions": { "length": 5305, "width": 2222, "height": 1774, "wheelbase": 3175 },
+      "ev": null,
+      "colors": [
+        { "name": "Beluga", "hex": "#0D0D0F" },
+        { "name": "Onyx", "hex": "#2A2A2C" },
+        { "name": "Glacier White", "hex": "#F3F4F1" },
+        { "name": "Snow Quartz", "hex": "#ECEAE4" },
+        { "name": "White Sand", "hex": "#E4DCCB" },
+        { "name": "Moonbeam", "hex": "#B9BBB8" },
+        { "name": "Granite", "hex": "#4E5155" },
+        { "name": "Storm Grey Satin", "hex": "#5E6266" },
+        { "name": "Pale Brodgar", "hex": "#A8A596" },
+        { "name": "Dark Sapphire", "hex": "#1D2740" },
+        { "name": "Sequin Blue", "hex": "#2C4F8C" },
+        { "name": "Light Windsor Blue", "hex": "#9EB3C8" },
+        { "name": "Kingfisher", "hex": "#1F6E8C" },
+        { "name": "Verdant", "hex": "#3B5E3A" },
+        { "name": "Cricket Ball", "hex": "#6E1A1E" },
+        { "name": "Havana", "hex": "#4A3428" }
+      ],
+      "features": [
+        { "group": "Performance", "items": ["4.0-litre twin-turbo V8 petrol with cylinder deactivation", "ZF eight-speed automatic gearbox", "Permanent all-wheel drive with Torsen centre differential", "48V Bentley Dynamic Ride active anti-roll system", "All-wheel steering (11.8 m turning circle)", "Air suspension with four ride heights", "Towing capacity 3.5 tonnes"] },
+        { "group": "Comfort", "items": ["180 mm longer wheelbase than the standard Bentayga", "Front Seat Comfort Specification: 20-way heated, ventilated massage seats with memory", "Postural Adjust and Seat Auto Climate", "Airline Seat Specification option with 40° rear-seat recline and footrest", "Powered closing rear doors", "4+1 seating configuration"] },
+        { "group": "Infotainment", "items": ["10.9-inch touchscreen", "Wireless Apple CarPlay and Android Auto", "Rear Touch Screen Remote", "Bentley Signature Audio, 580 W, 12 speakers", "Naim for Bentley audio (1,720 W, 20 speakers) optional"] },
+        { "group": "Safety", "items": ["Front, side-curtain and front/rear thorax airbags", "Touring Specification: head-up display, night vision, adaptive cruise control", "Remote Park Assist", "Traffic sign recognition"] },
+        { "group": "Exterior", "items": ["Matrix LED headlamps", "Vertical-vane radiator grille", "21- or 22-inch wheels"] },
+        { "group": "Interior", "items": ["Fluted leather seats in a choice of 15 hide colours", "Two-tone colour splits available", "Bentley Diamond Illumination option"] }
+      ],
+      "highlights": [
+        "Sold in India as the Bentayga EWB with a 4.0-litre twin-turbo V8",
+        "Wheelbase 180 mm longer than the standard Bentayga",
+        "550 PS and 770 Nm; claimed top speed 290 km/h",
+        "Optional Airline Seat Specification with 40° rear-seat recline",
+        "All-wheel steering with an 11.8 m turning circle"
+      ],
+      "variants": [
+        {
+          "name": "Bentayga EWB V8",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 42000000,
+          "efficiency": null,
+          "features": ["3996 cc twin-turbo V8, 550 PS / 770 Nm", "0–100 km/h in 4.6 s", "Extended wheelbase (3,175 mm)", "4+1 seating", "Powered closing rear doors", "All-wheel steering", "Front Seat Comfort Specification", "Unladen weight 2,520 kg"]
+        }
+      ],
+      "sources": [
+        "https://www.autocarindia.com/cars/bentley/bentayga/price-in-delhi",
+        "https://www.autocarindia.com/car-news/bentley-taking-bentayga-orders-at-reduced-prices-after-india-uk-fta-440321",
+        "https://www.autocarindia.com/car-news/bentley-bentayga-ewb-launched-at-rs-6-crore-427068",
+        "https://www.bentleymotors.com/en/models/bentayga/bentayga-ewb.html",
+        "https://web.archive.org/web/20260914102004/https://www.bentleymotors.com/in/en.html",
+        "https://www.bentleymedia.com/en/newsitem/1744",
+        "https://www.bentleymedia.com/en/newsitem/1804-bentley-expands-its-footprint-in-india-with-a-new-showroom-in-delhi"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (Delhi ex-showroom page, updated 17 Nov 2026). Autocar's 28 Jul 2026 article calls ₹4.20 crore a dealer-sourced post-India-UK FTA estimate and says Bentley India has not confirmed it (last recorded pre-FTA price ₹5.90 crore), so double-check with a dealer. Not included for lack of a reliable price: standard-wheelbase Bentayga (Autocar estimate ₹3.75 crore, not listed as a variant), Bentayga Speed and the Azure/Mulliner trims. Specs are from Bentley's EWB page (read via Wayback copies; live site blocks fetches): width is across mirrors; boot 380 L in the 4+1 layout. Airbag count not published. Colours are representative; Bentley offers 7 standard and 56 extended paints for the EWB."
+    }
+  ]
+}

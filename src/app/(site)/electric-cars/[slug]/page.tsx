@@ -22,6 +22,8 @@ import { EvRangeJourneys } from "@/components/car-detail/ev-range";
 import { EvChargingTimeline } from "@/components/car-detail/ev-charging";
 import { EvCostCalculator } from "@/components/car-detail/ev-cost";
 import { fitDescription, fitTitle, pageMetadata } from "@/components/seo/metadata";
+import { CarPlaceholder } from "@/components/vehicle/car-image";
+import { NOT_PUBLISHED, isFactsOnly, known, specText, accelText } from "@/lib/specs";
 import {
   BOTTOM_BAR_PADDING,
   REAL_WORLD_FACTOR,
@@ -49,7 +51,9 @@ export async function generateMetadata(props: PageProps<"/electric-cars/[slug]">
   return pageMetadata({
     title: fitTitle([`${name} Range, Battery & Charging`, `${name} Range & Charging`, `${car.name} Range & Charging`, `${name} EV`]),
     description: fitDescription(
-      `${name}: up to ${car.ev.rangeKm} km claimed range, a ${car.ev.batteryKwh} kWh battery and DC fast charging in ${car.ev.dcCharge}.`,
+      car.ev.dcCharge
+        ? `${name}: up to ${car.ev.rangeKm} km claimed range, a ${car.ev.batteryKwh} kWh battery and DC fast charging in ${car.ev.dcCharge}.`
+        : `${name}: up to ${car.ev.rangeKm} km claimed range and a ${car.ev.batteryKwh} kWh battery.`,
       "Real-world range, charging times, running costs and variants.",
     ),
     path: `/electric-cars/${car.slug}`,
@@ -72,33 +76,49 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
   const ac = parseAc(ev.acCharge);
   const variants = sortedVariants(car);
   const base = variants[0];
-  const maxRange = Math.max(...variants.map((v) => efficiencyOf(v).value));
+  const maxRange = Math.max(ev.rangeKm, ...variants.map((v) => efficiencyOf(v).value));
   const rivals = competitorsOf(car, cat, 3);
   const compareHref = `/compare?cars=${[car.slug, ...rivals.map((r) => r.slug)].join(",")}`;
   const faqs = carFaqs(car, cat);
   const evTech = Array.from(new Set([...(car.features.find((g) => g.group === "Performance")?.items ?? []), ...car.highlights])).slice(0, 7);
   const techImage = car.images[1] ?? car.images[0];
+  const factsOnly = isFactsOnly(car);
+  // Charging times as published; the timeline needs both a DC and an AC time to draw.
+  const timeline = dc.minutes > 0 && ac.hours > 0;
+  const showTech = evTech.length > 0 || Boolean(techImage);
+  const order = ["range", "charging", "running-costs", ...(showTech ? ["ev-technology"] : []), "variants", "faqs"];
+  const idx = (id: string) => pad2(order.indexOf(id) + 1);
 
-  const heroStats = [
-    { label: "Claimed range", value: ev.rangeKm, decimals: 0, suffix: " km", note: `≈ ${realWorld} km real-world` },
-    { label: "Battery", value: ev.batteryKwh, decimals: ev.batteryKwh % 1 ? 1 : 0, suffix: " kWh", note: `${ev.motorKw} kW motor` },
-    { label: "DC fast charge", value: dc.minutes, decimals: 0, suffix: " min", note: dc.window },
-    { label: "AC home charge", value: ac.hours, decimals: ac.hours % 1 ? 1 : 0, suffix: " h", note: `${ac.power} wallbox` },
+  // A figure the maker doesn't publish reads as a dash (with the published wording, if any, underneath).
+  const heroStats: { label: string; value?: number; decimals?: number; suffix?: string; note: string }[] = [
+    { label: "Claimed range", value: ev.rangeKm, decimals: 0, suffix: " km", note: ev.rangeStandard ? `${ev.rangeStandard} · ≈ ${realWorld} km real-world` : `≈ ${realWorld} km real-world` },
+    { label: "Battery", value: ev.batteryKwh, decimals: ev.batteryKwh % 1 ? 1 : 0, suffix: " kWh", note: known(ev.motorKw) ? `${ev.motorKw} kW motor` : "Motor output not published" },
+    dc.minutes > 0 ? { label: "DC fast charge", value: dc.minutes, decimals: 0, suffix: " min", note: dc.window } : { label: "DC fast charge", note: ev.dcCharge || "Not published" },
+    ac.hours > 0
+      ? { label: "AC home charge", value: ac.hours, decimals: ac.hours % 1 ? 1 : 0, suffix: " h", note: ac.power ? `${ac.power} wallbox` : "Home wallbox" }
+      : { label: "AC home charge", note: ev.acCharge || "Not published" },
   ];
 
   return (
     <div className={cn("bg-ink text-white", BOTTOM_BAR_PADDING)}>
       {/* Cinematic hero */}
       <section aria-labelledby="ev-title" className="relative isolate flex min-h-[88svh] flex-col overflow-hidden">
-        <Image
-          src={car.images[0]}
-          alt={carPhotoAlt(car.images[0], title)}
-          fill
-          preload
-          sizes="100vw"
-          className="-z-10 animate-kenburns object-cover opacity-60"
-          style={{ objectPosition: car.focus ?? "50% 55%" }}
-        />
+        {car.images[0] ? (
+          <Image
+            src={car.images[0]}
+            alt={carPhotoAlt(car.images[0], title)}
+            fill
+            preload
+            sizes="100vw"
+            className="-z-10 animate-kenburns object-cover opacity-60"
+            style={{ objectPosition: car.focus ?? "50% 55%" }}
+          />
+        ) : (
+          <div className="absolute inset-0 -z-10">
+            {/* No photo yet: the silhouette sits above the title; the label would collide with it, so it's left out here. */}
+            <CarPlaceholder bodyType={car.bodyType} tone="dark" label={null} className="hidden justify-start pt-[11svh] opacity-80 md:flex" />
+          </div>
+        )}
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/55 to-ink/30" />
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/70 via-transparent to-transparent" />
 
@@ -132,7 +152,7 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
               </div>
             </div>
             <p className="text-[13px] text-white/55">
-              From <span className="font-semibold text-white num">{formatPrice(car.priceMin)}</span> · ex-showroom, indicative
+              From <span className="font-semibold text-white num">{formatPrice(car.priceMin)}</span> · {car.priceCity ? `ex-showroom ${car.priceCity}` : "ex-showroom, indicative"}
             </p>
           </div>
 
@@ -149,12 +169,16 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
               >
                 <dt className="type-eyebrow text-white/50">{s.label}</dt>
                 <dd className="mt-4">
-                  <Counter
-                    to={s.value}
-                    decimals={s.decimals}
-                    suffix={s.suffix}
-                    className="font-display text-[clamp(1.75rem,1.3rem+1.8vw,3rem)] font-semibold leading-none tracking-[-0.03em] num"
-                  />
+                  {s.value !== undefined ? (
+                    <Counter
+                      to={s.value}
+                      decimals={s.decimals}
+                      suffix={s.suffix}
+                      className="font-display text-[clamp(1.75rem,1.3rem+1.8vw,3rem)] font-semibold leading-none tracking-[-0.03em] num"
+                    />
+                  ) : (
+                    <span className="font-display text-[clamp(1.75rem,1.3rem+1.8vw,3rem)] font-semibold leading-none tracking-[-0.03em] text-white/40">{NOT_PUBLISHED}</span>
+                  )}
                   <span className="mt-2 block text-[12.5px] text-white/50">{s.note}</span>
                 </dd>
               </div>
@@ -165,7 +189,7 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
 
       <DetailSection
         id="range"
-        index="01"
+        index={idx("range")}
         eyebrow="Range"
         tone="dark"
         title={
@@ -180,18 +204,40 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
 
       <DetailSection
         id="charging"
-        index="02"
+        index={idx("charging")}
         eyebrow="Charging"
         tone="dark"
-        title="Top up over coffee. Fill up overnight."
-        description={`DC fast charging takes ${ev.dcCharge}; a full charge on a home wallbox takes ${ev.acCharge}.`}
+        title={timeline ? "Top up over coffee. Fill up overnight." : "Charging, as published."}
+        description={
+          ev.dcCharge && ev.acCharge
+            ? `DC fast charging takes ${ev.dcCharge}; a full charge on a home wallbox takes ${ev.acCharge}.`
+            : ev.dcCharge
+              ? `DC fast charging: ${ev.dcCharge}. The maker doesn't publish an AC charging time.`
+              : ev.acCharge
+                ? `AC charging: ${ev.acCharge}. The maker doesn't publish a DC fast-charging time.`
+                : "The maker hasn't published charging times for this model yet."
+        }
       >
-        <EvChargingTimeline ev={ev} />
+        {timeline ? (
+          <EvChargingTimeline ev={ev} />
+        ) : (
+          <dl className="grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2">
+            {[
+              ["DC fast charge", ev.dcCharge],
+              ["AC charge", ev.acCharge],
+            ].map(([label, value]) => (
+              <div key={label} className="bg-ink-2 p-6">
+                <dt className="type-eyebrow text-white/50">{label}</dt>
+                <dd className="mt-3 text-[16px] font-medium">{value || "Not published"}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
       </DetailSection>
 
       <DetailSection
         id="running-costs"
-        index="03"
+        index={idx("running-costs")}
         eyebrow="Running costs"
         tone="dark"
         title="What it costs to run, charged at home."
@@ -200,17 +246,20 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
         <EvCostCalculator batteryKwh={ev.batteryKwh} rangeKm={ev.rangeKm} name={car.name} />
       </DetailSection>
 
-      <DetailSection id="ev-technology" index="04" eyebrow="EV technology" tone="dark" title="Engineered electric, end to end.">
+      {showTech && (
+      <DetailSection id="ev-technology" index={idx("ev-technology")} eyebrow="EV technology" tone="dark" title={factsOnly ? "The electric drivetrain." : "Engineered electric, end to end."}>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12">
           <Reveal className="lg:col-span-5">
-            <div className="relative aspect-[4/5] overflow-hidden bg-ink-2 max-lg:aspect-[4/3]">
-              <Image src={techImage} alt={carPhotoAlt(techImage, title, "charging and technology detail")} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover opacity-90" />
-            </div>
+            {techImage && (
+              <div className="relative aspect-[4/5] overflow-hidden bg-ink-2 max-lg:aspect-[4/3]">
+                <Image src={techImage} alt={carPhotoAlt(techImage, title, "charging and technology detail")} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover opacity-90" />
+              </div>
+            )}
             <dl className="mt-px grid grid-cols-3 gap-px bg-white/10">
               {[
-                ["Power", car.power],
-                ["Torque", car.torque],
-                ["0–100", car.acceleration],
+                ["Power", specText(car.power)],
+                ["Torque", specText(car.torque)],
+                ["0–100", specText(accelText(car.acceleration))],
               ].map(([label, value]) => (
                 <div key={label} className="bg-ink-2 p-4">
                   <dt className="text-[11.5px] text-white/50">{label}</dt>
@@ -228,14 +277,15 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
                 </li>
               ))}
             </ol>
-            <p className="mt-6 max-w-lg text-[14px] leading-relaxed text-white/55">{car.overview}</p>
+            {car.overview.trim() && <p className="mt-6 max-w-lg text-[14px] leading-relaxed text-white/55">{car.overview}</p>}
           </Reveal>
         </div>
       </DetailSection>
+      )}
 
       <DetailSection
         id="variants"
-        index="05"
+        index={idx("variants")}
         eyebrow="Variants"
         tone="dark"
         title="Choose your range."
@@ -252,11 +302,11 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
                 >
                   <span className="min-w-0">
                     <span className="block text-[16px] font-medium">{v.name}</span>
-                    <span className="mt-0.5 block text-[12.5px] text-white/50">{v.features.join(" · ")}</span>
+                    {v.features.length > 0 && <span className="mt-0.5 block text-[12.5px] text-white/50">{v.features.join(" · ")}</span>}
                   </span>
                   <span className="flex items-center gap-4">
                     <Bar value={range} max={maxRange} delay={i * 0.08} trackClassName="bg-white/10" barClassName={range === maxRange ? "bg-red" : "bg-white"} />
-                    <span className="w-16 shrink-0 text-right text-[15px] font-semibold num">{range} km</span>
+                    <span className="w-16 shrink-0 text-right text-[15px] font-semibold num">{range > 0 ? `${range} km` : NOT_PUBLISHED}</span>
                   </span>
                   <span className="flex items-center justify-between md:block md:text-right">
                     <span className="text-[12px] text-white/50 md:hidden">Ex-showroom</span>
@@ -273,22 +323,26 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
       {/* Onward journeys */}
       <section aria-label={`More on the ${title}`} className="container-x pb-14 md:pb-20">
         <div className="grid grid-cols-1 gap-px bg-white/10 md:grid-cols-2">
-          <Link href={`/cars/${car.slug}`} className="group relative isolate flex min-h-[300px] flex-col justify-end overflow-hidden p-6 md:min-h-[380px] md:p-10">
-            <Image
-              src={car.images[0]}
-              alt=""
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="-z-10 object-cover opacity-45 transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover:scale-[1.04]"
-              style={{ objectPosition: car.focus ?? "50% 55%" }}
-            />
+          <Link href={`/cars/${car.slug}`} className="group relative isolate flex min-h-[300px] flex-col justify-end overflow-hidden bg-ink-2 p-6 md:min-h-[380px] md:p-10">
+            {car.images[0] && (
+              <Image
+                src={car.images[0]}
+                alt=""
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="-z-10 object-cover opacity-45 transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover:scale-[1.04]"
+                style={{ objectPosition: car.focus ?? "50% 55%" }}
+              />
+            )}
             <span aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
             <span className="type-eyebrow text-white/60">Full model page</span>
             <span className="type-h2 mt-4 flex items-end justify-between gap-6">
               The complete {car.name} story
               <ArrowUpRight aria-hidden className="size-7 shrink-0 text-red transition-transform duration-[250ms] group-hover:-translate-y-1 group-hover:translate-x-1" />
             </span>
-            <span className="mt-3 max-w-md text-[14px] text-white/60">Specifications, safety, features, gallery, expert and owner reviews.</span>
+            <span className="mt-3 max-w-md text-[14px] text-white/60">
+              {factsOnly ? "Specifications, safety, features, every variant and owner reviews." : "Specifications, safety, features, gallery, expert and owner reviews."}
+            </span>
           </Link>
           <Link href={compareHref} className="group flex min-h-[300px] flex-col justify-between bg-ink-2 p-6 transition-colors duration-[400ms] hover:bg-ink-3 md:min-h-[380px] md:p-10">
             <span className="type-eyebrow text-white/60">Compare</span>
@@ -303,7 +357,7 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
                     <span className="truncate">
                       {brandName(r.brand)} {r.name}
                     </span>
-                    <span className="shrink-0 text-white/50 num">{r.efficiency}</span>
+                    <span className="shrink-0 text-white/50 num">{r.efficiency || NOT_PUBLISHED}</span>
                   </span>
                 ))}
               </span>
@@ -312,7 +366,7 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
         </div>
       </section>
 
-      <DetailSection id="faqs" index="06" eyebrow="FAQs" tone="dark" title="Questions, answered.">
+      <DetailSection id="faqs" index={idx("faqs")} eyebrow="FAQs" tone="dark" title="Questions, answered.">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
           <p className="max-w-xs text-[15px] leading-relaxed text-white/55 lg:col-span-4">
             Charging, range and ownership answers for the {title}, generated from our specification data.

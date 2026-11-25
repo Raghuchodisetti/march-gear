@@ -1,0 +1,1196 @@
+{
+  "brand": {
+    "slug": "renault",
+    "name": "Renault",
+    "country": "France",
+    "founded": 1899,
+    "tagline": "French carmaker; Renault India since 2005",
+    "description": "French carmaker; Renault India was set up in 2005 and builds cars at its Oragadam plant near Chennai. Line-up covers the Kwid, Kiger, Triber and Duster.",
+    "isLuxury": false,
+    "website": "https://www.renault.co.in/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "renault-kwid",
+      "name": "Kwid",
+      "bodyType": "Hatchback",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "999 cc",
+      "power": "69 PS",
+      "torque": "92.5 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 279,
+      "groundClearanceMm": 184,
+      "fuelTankL": 28,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": null,
+      "ev": null,
+      "colors": [
+        {
+          "name": "Fiery Red",
+          "hex": "#B3202A"
+        },
+        {
+          "name": "Zanskar Blue",
+          "hex": "#2F5D8A"
+        },
+        {
+          "name": "Outback Bronze",
+          "hex": "#7A5C3E"
+        },
+        {
+          "name": "Moonlight Silver",
+          "hex": "#B9BBBD"
+        },
+        {
+          "name": "Ice Cool White",
+          "hex": "#F2F3F3"
+        },
+        {
+          "name": "Fiery Red with Mystery Black Roof",
+          "hex": "#B3202A"
+        },
+        {
+          "name": "Zanskar Blue with Mystery Black Roof",
+          "hex": "#2F5D8A"
+        },
+        {
+          "name": "Ice Cool White with Mystery Black Roof",
+          "hex": "#F2F3F3"
+        },
+        {
+          "name": "Moonlight Silver with Mystery Black Roof",
+          "hex": "#B9BBBD"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "Dual front airbags standard; 6 airbags on Climber",
+            "ESP and traction control",
+            "ABS with EBD and brake assist",
+            "3-point seat belts for all seats",
+            "Hill start assist (AMT)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "20.32 cm touchscreen",
+            "Android Auto and Apple CarPlay",
+            "LED digital instrument cluster"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Manual AC with heater",
+            "Remote keyless entry",
+            "Front power windows; rear power windows on Climber",
+            "Traffic assistance mode (AMT)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.0-litre SCe 3-cylinder petrol, 69 PS and 92.5 Nm",
+            "5-speed MT or Easy-R AMT"
+          ]
+        }
+      ],
+      "highlights": [
+        "Entry hatchback with 184 mm ground clearance",
+        "Six airbags on the Climber",
+        "279-litre boot",
+        "20.32 cm touchscreen with smartphone mirroring"
+      ],
+      "variants": [
+        {
+          "name": "Evolution",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 452900,
+          "efficiency": null,
+          "features": [
+            "1.0-litre SCe petrol, 69 PS",
+            "Dual front airbags, ESP, traction control",
+            "20.32 cm touchscreen with Android Auto/Apple CarPlay",
+            "LED digital instrument cluster",
+            "Silver streak LED DRLs",
+            "Manual AC with heater",
+            "Remote keyless entry with central locking",
+            "Reverse parking sensors",
+            "Front power windows"
+          ]
+        },
+        {
+          "name": "Evolution AMT",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "Easy-R AMT",
+          "price": 489900,
+          "efficiency": null,
+          "features": [
+            "1.0-litre SCe petrol, 69 PS",
+            "Dual front airbags, ESP, traction control",
+            "20.32 cm touchscreen with Android Auto/Apple CarPlay",
+            "LED digital instrument cluster",
+            "Silver streak LED DRLs",
+            "Manual AC with heater",
+            "Remote keyless entry with central locking",
+            "Reverse parking sensors",
+            "Front power windows"
+          ]
+        },
+        {
+          "name": "Climber",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 514900,
+          "efficiency": null,
+          "features": [
+            "6 airbags (adds side and curtain)",
+            "Reverse parking camera",
+            "Dual-tone exterior with mystery black roof",
+            "Arching roof rails and SUV-style skid plates with white inserts",
+            "Steering-mounted audio controls",
+            "Rear power windows",
+            "Electrically adjustable ORVMs",
+            "Mustard and white upholstery",
+            "20.32 cm touchscreen"
+          ]
+        },
+        {
+          "name": "Climber AMT",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "Easy-R AMT",
+          "price": 560900,
+          "efficiency": null,
+          "features": [
+            "6 airbags (adds side and curtain)",
+            "Reverse parking camera",
+            "Dual-tone exterior with mystery black roof",
+            "Arching roof rails and SUV-style skid plates with white inserts",
+            "Steering-mounted audio controls",
+            "Rear power windows",
+            "Electrically adjustable ORVMs",
+            "Mustard and white upholstery",
+            "20.32 cm touchscreen"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.renault.co.in/cars/renault-kwid.html",
+        "https://www.renault.co.in/cars/renault-kwid/kwid-price.html",
+        "https://cdn.group.renault.com/ren/in/kwid-my26/docs/Kwid_Brochure_Revised_03072026.pdf.asset.pdf/1783076039383.pdf"
+      ],
+      "notes": "Renault's version prices are national ex-showroom (no city named); launch releases quote them as ex-showroom Delhi. Mileage not published by Renault. Brochure gives 3731 x 1579 x 1474 mm (1490 mm with roof rails) but no wheelbase, so dimensions left null. A dealer-fitted government-approved CNG kit is offered on MT variants (not separately priced). Older Global NCAP tests (2016) used earlier-spec cars; not recorded."
+    },
+    {
+      "slug": "renault-kiger",
+      "name": "Kiger",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2025-08-24",
+      "engine": "999 cc",
+      "power": "72 – 100 PS",
+      "torque": "96 – 160 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 4,
+        "agency": "Global NCAP",
+        "year": 2022
+      },
+      "bootSpaceL": 405,
+      "groundClearanceMm": 205,
+      "fuelTankL": 40,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 11 s",
+      "dimensions": null,
+      "ev": null,
+      "colors": [
+        {
+          "name": "Oasis Yellow",
+          "hex": "#D9A92B"
+        },
+        {
+          "name": "Shadow Grey",
+          "hex": "#55585C"
+        },
+        {
+          "name": "Caspian Blue",
+          "hex": "#2D4F7C"
+        },
+        {
+          "name": "Ice Cool White",
+          "hex": "#F2F3F3"
+        },
+        {
+          "name": "Moonlight Silver",
+          "hex": "#B9BBBD"
+        },
+        {
+          "name": "Stealth Black",
+          "hex": "#121212"
+        },
+        {
+          "name": "Oasis Yellow with Mystery Black Roof",
+          "hex": "#D9A92B"
+        },
+        {
+          "name": "Shadow Grey with Mystery Black Roof",
+          "hex": "#55585C"
+        },
+        {
+          "name": "Ice Cool White with Mystery Black Roof",
+          "hex": "#F2F3F3"
+        },
+        {
+          "name": "Radiant Red with Mystery Black Roof",
+          "hex": "#A51E24"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "TPMS",
+            "ISOFIX",
+            "Rear view camera (Evolution and above)",
+            "Multi-view camera (Emotion)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "20.32 cm floating touchscreen",
+            "Wireless Android Auto and Apple CarPlay (Evolution+ and above)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic AC (Evolution+ and above)",
+            "Ventilated front seats (Emotion)",
+            "Smart access card with push start",
+            "Rear AC vents"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.0-litre energy petrol, 72 PS and 96 Nm",
+            "1.0-litre turbo petrol, 100 PS and 160 Nm (152 Nm CVT)",
+            "5-speed MT, Easy-R AMT, X-Tronic CVT"
+          ]
+        }
+      ],
+      "highlights": [
+        "Six airbags standard",
+        "1.0-litre turbo with CVT option",
+        "Ventilated front seats on Emotion",
+        "405-litre boot",
+        "205 mm ground clearance"
+      ],
+      "variants": [
+        {
+          "name": "Authentic",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 581000,
+          "efficiency": null,
+          "features": [
+            "1.0-litre energy petrol, 72 PS",
+            "6 airbags",
+            "LED DRLs and tail lamps",
+            "Remote keyless entry",
+            "All power windows",
+            "16-inch steel wheels with covers",
+            "TPMS",
+            "ISOFIX"
+          ]
+        },
+        {
+          "name": "Evolution",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 659000,
+          "efficiency": null,
+          "features": [
+            "20.32 cm floating touchscreen",
+            "Android Auto and Apple CarPlay",
+            "Rear view camera",
+            "Rear AC vents",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Evolution AMT",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "Easy-R AMT",
+          "price": 703000,
+          "efficiency": null,
+          "features": [
+            "20.32 cm floating touchscreen",
+            "Android Auto and Apple CarPlay",
+            "Rear view camera",
+            "Rear AC vents",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Evolution+",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 703000,
+          "efficiency": null,
+          "features": [
+            "Automatic AC",
+            "Smart access card with push start/stop",
+            "Wireless Android Auto and Apple CarPlay",
+            "Light embossed fabric upholstery",
+            "20.32 cm touchscreen",
+            "Rear view camera"
+          ]
+        },
+        {
+          "name": "Evolution+ AMT",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "Easy-R AMT",
+          "price": 749000,
+          "efficiency": null,
+          "features": [
+            "Automatic AC",
+            "Smart access card with push start/stop",
+            "Wireless Android Auto and Apple CarPlay",
+            "Light embossed fabric upholstery",
+            "20.32 cm touchscreen",
+            "Rear view camera"
+          ]
+        },
+        {
+          "name": "Techno",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 760000,
+          "efficiency": null,
+          "features": [
+            "Tri-octa LED pure vision headlamps",
+            "Roof bars (50 kg)",
+            "Power-fold ORVMs",
+            "Rear wiper and washer",
+            "16-inch flex wheels",
+            "Automatic AC",
+            "Push-button start"
+          ]
+        },
+        {
+          "name": "Evolution+ Turbo",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 793000,
+          "efficiency": null,
+          "features": [
+            "1.0-litre turbo petrol, 100 PS",
+            "Automatic AC",
+            "Smart access card with push start/stop",
+            "Wireless Android Auto and Apple CarPlay",
+            "Light embossed fabric upholstery",
+            "20.32 cm touchscreen",
+            "Rear view camera"
+          ]
+        },
+        {
+          "name": "Techno AMT",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "Easy-R AMT",
+          "price": 810000,
+          "efficiency": null,
+          "features": [
+            "Tri-octa LED pure vision headlamps",
+            "Roof bars (50 kg)",
+            "Power-fold ORVMs",
+            "Rear wiper and washer",
+            "16-inch flex wheels",
+            "Automatic AC",
+            "Push-button start"
+          ]
+        },
+        {
+          "name": "Emotion",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 850000,
+          "efficiency": null,
+          "features": [
+            "Ventilated leatherette front seats",
+            "Multi-view camera",
+            "Auto headlamps and rain-sensing wipers",
+            "16-inch diamond-cut alloy wheels",
+            "Drive modes",
+            "Tri-octa LED headlamps",
+            "Dual-tone roof option"
+          ]
+        },
+        {
+          "name": "Techno Turbo",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 850000,
+          "efficiency": null,
+          "features": [
+            "1.0-litre turbo petrol, 100 PS",
+            "Tri-octa LED pure vision headlamps",
+            "Roof bars (50 kg)",
+            "Power-fold ORVMs",
+            "Rear wiper and washer",
+            "16-inch flex wheels",
+            "Automatic AC",
+            "Push-button start"
+          ]
+        },
+        {
+          "name": "Emotion Turbo",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 940000,
+          "efficiency": null,
+          "features": [
+            "1.0-litre turbo petrol, 100 PS",
+            "Ventilated leatherette front seats",
+            "Multi-view camera",
+            "Auto headlamps and rain-sensing wipers",
+            "16-inch diamond-cut alloy wheels",
+            "Drive modes",
+            "Tri-octa LED headlamps",
+            "Dual-tone roof option"
+          ]
+        },
+        {
+          "name": "Techno Turbo CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "X-Tronic CVT",
+          "price": 940000,
+          "efficiency": null,
+          "features": [
+            "1.0-litre turbo petrol with CVT",
+            "Tri-octa LED pure vision headlamps",
+            "Roof bars (50 kg)",
+            "Power-fold ORVMs",
+            "Rear wiper and washer",
+            "16-inch flex wheels",
+            "Automatic AC",
+            "Push-button start"
+          ]
+        },
+        {
+          "name": "Emotion Turbo CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "X-Tronic CVT",
+          "price": 1040000,
+          "efficiency": null,
+          "features": [
+            "1.0-litre turbo petrol with CVT",
+            "Ventilated leatherette front seats",
+            "Multi-view camera",
+            "Auto headlamps and rain-sensing wipers",
+            "16-inch diamond-cut alloy wheels",
+            "Drive modes",
+            "Tri-octa LED headlamps",
+            "Dual-tone roof option"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.renault.co.in/cars/renault-kiger.html",
+        "https://www.renault.co.in/cars/renault-kiger/kiger-price.html",
+        "https://www.renault.co.in/cars/renault-kiger/engine.html",
+        "https://cdn.group.renault.com/ren/in/kiger-my26/kiger-my26-product-brochure.pdf.asset.pdf/1782290205071.pdf"
+      ],
+      "notes": "Renault's version prices are national ex-showroom (no city named); launch releases quote them as ex-showroom Delhi. Mileage not published by Renault. Brochure gives length 3990 mm, height 1605 mm, wheelbase 2500 mm but no clear body width (1912 mm incl. mirrors), so dimensions left null. Global NCAP 4-star (2022) was for a 2-airbag India car; a Nov 2026 Africa-spec retest also gave 4 stars. Acceleration is for the turbo."
+    },
+    {
+      "slug": "renault-triber",
+      "name": "Triber",
+      "bodyType": "MUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2025-07-23",
+      "engine": "999 cc",
+      "power": "72 – 100 PS",
+      "torque": "96 – 180 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 4,
+        "agency": "Global NCAP",
+        "year": 2021
+      },
+      "bootSpaceL": 625,
+      "groundClearanceMm": 182,
+      "fuelTankL": 40,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3985,
+        "width": 1734,
+        "height": 1643,
+        "wheelbase": 2636
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Amber Terracotta",
+          "hex": "#A4583A"
+        },
+        {
+          "name": "Shadow Grey",
+          "hex": "#55585C"
+        },
+        {
+          "name": "Zanskar Blue",
+          "hex": "#2F5D8A"
+        },
+        {
+          "name": "Ice Cool White",
+          "hex": "#F2F3F3"
+        },
+        {
+          "name": "Moonlight Silver",
+          "hex": "#B9BBBD"
+        },
+        {
+          "name": "Stealth Black",
+          "hex": "#121212"
+        },
+        {
+          "name": "Amber Terracotta with Mystery Black Roof",
+          "hex": "#A4583A"
+        },
+        {
+          "name": "Shadow Grey with Mystery Black Roof",
+          "hex": "#55585C"
+        },
+        {
+          "name": "Ice Cool White with Mystery Black Roof",
+          "hex": "#F2F3F3"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "TPMS",
+            "ISOFIX",
+            "Rear view camera (Evolution and above)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "20.32 cm floating touchscreen (Evolution and above)",
+            "Steering-mounted controls"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Independent rear AC with 2nd and 3rd row vents",
+            "Removable 3rd row EasyFix seats",
+            "Sliding and reclining 2nd row",
+            "Cruise control and auto AC (Emotion)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.0-litre energy petrol, 72 PS",
+            "1.0-litre TCe 100 turbo petrol, 100 PS",
+            "5-speed MT or Easy-R AMT (energy engine)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Sub-4-metre seven-seater with removable 3rd row",
+        "TCe 100 turbo option claims 21 km/l",
+        "Six airbags standard",
+        "625-litre boot (brochure figure)",
+        "Global NCAP 4-star adult rating (2021)"
+      ],
+      "variants": [
+        {
+          "name": "Authentic",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 580875,
+          "efficiency": null,
+          "features": [
+            "1.0-litre energy petrol, 72 PS",
+            "6 airbags",
+            "2nd row slide, recline and full flat fold",
+            "One-touch fold and tumble 2nd row",
+            "Removable 3rd row EasyFix seats",
+            "Front and rear power windows",
+            "TPMS",
+            "14-inch steel wheels"
+          ]
+        },
+        {
+          "name": "Evolution",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 673605,
+          "efficiency": null,
+          "features": [
+            "20.32 cm floating touchscreen",
+            "Rear view camera",
+            "Independent rear AC with 2nd and 3rd row vents",
+            "4 speakers with steering-mounted controls",
+            "6 airbags",
+            "Removable 3rd row seats"
+          ]
+        },
+        {
+          "name": "Techno",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 744120,
+          "efficiency": null,
+          "features": [
+            "LED signature tail lamps",
+            "Roof rails (50 kg)",
+            "Electrically adjustable and foldable ORVMs",
+            "Driver armrest and seat height adjuster",
+            "15-inch flex wheels",
+            "20.32 cm touchscreen",
+            "Rear view camera"
+          ]
+        },
+        {
+          "name": "Evolution Turbo",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 784900,
+          "efficiency": "21 km/l",
+          "features": [
+            "TCe 100 turbo petrol, 100 PS",
+            "20.32 cm floating touchscreen",
+            "Rear view camera",
+            "Independent rear AC with 2nd and 3rd row vents",
+            "4 speakers with steering-mounted controls",
+            "6 airbags",
+            "Removable 3rd row seats"
+          ]
+        },
+        {
+          "name": "Emotion",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 805350,
+          "efficiency": null,
+          "features": [
+            "LED headlamps, DRLs and fog lamps",
+            "Auto headlamps and rain-sensing wipers",
+            "Cruise control",
+            "Automatic AC",
+            "Dual-tone roof option",
+            "15-inch dual-tone flex wheel covers",
+            "Roof rails"
+          ]
+        },
+        {
+          "name": "Emotion AMT",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "Easy-R AMT",
+          "price": 852950,
+          "efficiency": null,
+          "features": [
+            "LED headlamps, DRLs and fog lamps",
+            "Auto headlamps and rain-sensing wipers",
+            "Cruise control",
+            "Automatic AC",
+            "Dual-tone roof option",
+            "15-inch dual-tone flex wheel covers",
+            "Roof rails"
+          ]
+        },
+        {
+          "name": "Techno Turbo",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 853900,
+          "efficiency": "21 km/l",
+          "features": [
+            "TCe 100 turbo petrol, 100 PS",
+            "LED signature tail lamps",
+            "Roof rails (50 kg)",
+            "Electrically adjustable and foldable ORVMs",
+            "Driver armrest and seat height adjuster",
+            "15-inch flex wheels",
+            "20.32 cm touchscreen",
+            "Rear view camera"
+          ]
+        },
+        {
+          "name": "Emotion Turbo",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 899900,
+          "efficiency": "21 km/l",
+          "features": [
+            "TCe 100 turbo petrol, 100 PS",
+            "LED headlamps, DRLs and fog lamps",
+            "Auto headlamps and rain-sensing wipers",
+            "Cruise control",
+            "Automatic AC",
+            "Dual-tone roof option",
+            "15-inch dual-tone flex wheel covers",
+            "Roof rails"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.renault.co.in/cars/renault-triber.html",
+        "https://www.renault.co.in/cars/renault-triber/prices-offers.html",
+        "https://www.renault.co.in/cars/renault-triber/engine.html",
+        "https://cdn.group.renault.com/ren/in/triber2026/triber-turbo/triber-turbo-product-brochure.pdf.asset.pdf/1790590061553.pdf"
+      ],
+      "notes": "Renault's version prices are national ex-showroom (no city named); launch releases quote them as ex-showroom Delhi. The 21 km/l claim is for the TCe 100 turbo; the 72 PS engine's mileage is not published. Brochure lists turbo torque as 180 Nm. Width 1734 mm per brochure diagram (1525 mm track on Techno/Emotion). Global NCAP 4-star adult / 3-star child (2021, 2-airbag car)."
+    },
+    {
+      "slug": "renault-duster",
+      "name": "Duster",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-03-17",
+      "engine": "999 – 1789 cc",
+      "power": "100 – 163 PS",
+      "torque": "166 – 280 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2026
+      },
+      "bootSpaceL": 700,
+      "groundClearanceMm": 212,
+      "fuelTankL": 50,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4346,
+        "width": 1815,
+        "height": 1701,
+        "wheelbase": 2657
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Mountain Jade Green",
+          "hex": "#4E6B5A"
+        },
+        {
+          "name": "Pearl White",
+          "hex": "#EEEDE8"
+        },
+        {
+          "name": "Moonlight Silver",
+          "hex": "#B9BBBD"
+        },
+        {
+          "name": "Stealth Black",
+          "hex": "#121212"
+        },
+        {
+          "name": "Sunset Red",
+          "hex": "#A3262A"
+        },
+        {
+          "name": "River Blue",
+          "hex": "#2D5577"
+        },
+        {
+          "name": "Mountain Jade Green with Stealth Black",
+          "hex": "#4E6B5A"
+        },
+        {
+          "name": "Pearl White with Stealth Black",
+          "hex": "#EEEDE8"
+        },
+        {
+          "name": "Sunset Red with Stealth Black",
+          "hex": "#A3262A"
+        },
+        {
+          "name": "River Blue with Stealth Black",
+          "hex": "#2D5577"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "ESP, traction and cornering stability control",
+            "TPMS",
+            "17 ADAS features (Iconic)",
+            "360-degree 3D camera (Iconic)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "25.65 cm openR link touchscreen (Evolution and above)",
+            "Google built-in (Iconic)",
+            "Wireless smartphone replication",
+            "My Renault connected services"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Dual-zone AC with clean-air display",
+            "Electric panoramic sunroof (Adventure and above)",
+            "Ventilated powered front seats (Iconic, Emotion)",
+            "Powered tailgate",
+            "48-colour ambient lighting"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "TCe 100 turbo, 100 PS and 166 Nm, 6-speed MT",
+            "TCe 160 turbo, 163 PS and 280 Nm, 6-speed MT or DCT",
+            "E-Tech 160 strong hybrid with 1.8-litre petrol and 1.4 kWh battery",
+            "212 mm ground clearance"
+          ]
+        }
+      ],
+      "highlights": [
+        "Bharat NCAP five-star rating (2026)",
+        "TCe 160 turbo with 163 PS and 280 Nm",
+        "E-Tech 160 strong hybrid claims 29 km/l",
+        "212 mm ground clearance",
+        "Up to 700 litres of boot (to the roof)"
+      ],
+      "variants": [
+        {
+          "name": "Authentic TCe 100 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1049000,
+          "efficiency": null,
+          "features": [
+            "1.0-litre TCe 100 turbo petrol, 6-speed MT",
+            "6 airbags, ESP, TPMS",
+            "Eco LED headlamps with LED DRLs",
+            "17.78 cm TFT driver display",
+            "17-inch steel wheels",
+            "All power windows auto up/down",
+            "Rear parking assist"
+          ]
+        },
+        {
+          "name": "Evolution TCe 100 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1169000,
+          "efficiency": null,
+          "features": [
+            "25.65 cm openR link touchscreen",
+            "Rear view camera with dynamic guidelines",
+            "Cruise control",
+            "17-inch alloy wheels",
+            "LED rear light bar"
+          ]
+        },
+        {
+          "name": "Evolution TCe 160 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1299000,
+          "efficiency": null,
+          "features": [
+            "TCe 160 turbo, 163 PS",
+            "25.65 cm openR link touchscreen",
+            "Rear view camera with dynamic guidelines",
+            "Cruise control",
+            "17-inch alloy wheels",
+            "LED rear light bar"
+          ]
+        },
+        {
+          "name": "Adventure TCe 100 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1299000,
+          "efficiency": null,
+          "features": [
+            "Full LED headlamps",
+            "Electric panoramic sunroof",
+            "Electric powered tailgate",
+            "Connected car services with My Renault app",
+            "Brown embossed upholstery",
+            "17-inch alloy wheels"
+          ]
+        },
+        {
+          "name": "Adventure TCe 160 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1399000,
+          "efficiency": null,
+          "features": [
+            "TCe 160 turbo, 163 PS",
+            "Full LED headlamps",
+            "Electric panoramic sunroof",
+            "Electric powered tailgate",
+            "Connected car services with My Renault app",
+            "Brown embossed upholstery",
+            "17-inch alloy wheels"
+          ]
+        },
+        {
+          "name": "Evolution TCe 160 DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "6-speed DCT",
+          "price": 1449000,
+          "efficiency": null,
+          "features": [
+            "TCe 160 turbo with 6-speed DCT",
+            "25.65 cm openR link touchscreen",
+            "Rear view camera with dynamic guidelines",
+            "Cruise control",
+            "17-inch alloy wheels",
+            "LED rear light bar"
+          ]
+        },
+        {
+          "name": "Techno+ TCe 160 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1529000,
+          "efficiency": null,
+          "features": [
+            "26.03 cm TFT driver display",
+            "Blind spot warning",
+            "Front and side parking assist",
+            "18-inch diamond-cut alloy wheels",
+            "Panoramic sunroof",
+            "Powered tailgate"
+          ]
+        },
+        {
+          "name": "Adventure TCe 160 DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "6-speed DCT",
+          "price": 1539000,
+          "efficiency": null,
+          "features": [
+            "TCe 160 turbo with 6-speed DCT",
+            "Full LED headlamps",
+            "Electric panoramic sunroof",
+            "Electric powered tailgate",
+            "Connected car services with My Renault app",
+            "Brown embossed upholstery",
+            "17-inch alloy wheels"
+          ]
+        },
+        {
+          "name": "Techno+ TCe 160 DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "6-speed DCT",
+          "price": 1669000,
+          "efficiency": null,
+          "features": [
+            "TCe 160 turbo with 6-speed DCT",
+            "26.03 cm TFT driver display",
+            "Blind spot warning",
+            "Front and side parking assist",
+            "18-inch diamond-cut alloy wheels",
+            "Panoramic sunroof",
+            "Powered tailgate"
+          ]
+        },
+        {
+          "name": "Iconic TCe 160 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1699000,
+          "efficiency": null,
+          "features": [
+            "17 ADAS features",
+            "openR link with Google built-in",
+            "6-way powered front seats with lumbar",
+            "Ventilated front seats",
+            "Mountain jade leatherette upholstery",
+            "Hill descent control (DCT)",
+            "18-inch diamond-cut alloys",
+            "360-degree 3D camera"
+          ]
+        },
+        {
+          "name": "Evolution E-Tech 160",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "Multi-mode automatic",
+          "price": 1699000,
+          "efficiency": "29 km/l",
+          "features": [
+            "1.8-litre E-Tech strong hybrid, 160 PS system output",
+            "Multi-mode automatic (2 electric + 4 petrol gears)",
+            "1.4 kWh battery; claimed 29 km/l",
+            "25.65 cm openR link touchscreen",
+            "Cruise control",
+            "18-inch flex wheels",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Iconic Launch Edition TCe 160 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1719000,
+          "efficiency": null,
+          "features": [
+            "Himalayan-inspired side embellisher",
+            "Iconic yellow decals and accents",
+            "18-inch black alloy wheels",
+            "All Iconic features: ADAS, Google built-in, ventilated seats"
+          ]
+        },
+        {
+          "name": "Iconic TCe 160 DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "6-speed DCT",
+          "price": 1849000,
+          "efficiency": null,
+          "features": [
+            "TCe 160 turbo with 6-speed DCT",
+            "17 ADAS features",
+            "openR link with Google built-in",
+            "6-way powered front seats with lumbar",
+            "Ventilated front seats",
+            "Mountain jade leatherette upholstery",
+            "Hill descent control (DCT)",
+            "18-inch diamond-cut alloys",
+            "360-degree 3D camera"
+          ]
+        },
+        {
+          "name": "Iconic Launch Edition TCe 160 DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "6-speed DCT",
+          "price": 1869000,
+          "efficiency": null,
+          "features": [
+            "Himalayan-inspired side embellisher",
+            "Iconic yellow decals and accents",
+            "18-inch black alloy wheels",
+            "All Iconic features: ADAS, Google built-in, ventilated seats",
+            "6-speed DCT"
+          ]
+        },
+        {
+          "name": "Techno E-Tech 160",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "Multi-mode automatic",
+          "price": 1899000,
+          "efficiency": "29 km/l",
+          "features": [
+            "Electric panoramic sunroof",
+            "Hands-free access card with push start",
+            "Full LED headlamps",
+            "Desert beige semi-leatherette upholstery",
+            "1.8-litre E-Tech strong hybrid",
+            "Claimed 29 km/l"
+          ]
+        },
+        {
+          "name": "Emotion E-Tech 160",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "Multi-mode automatic",
+          "price": 1949000,
+          "efficiency": "29 km/l",
+          "features": [
+            "26.03 cm TFT driver display",
+            "Electric powered tailgate",
+            "Ventilated 6-way electric front seats",
+            "Dune brown leatherette upholstery",
+            "18-inch diamond-cut alloys",
+            "1.8-litre E-Tech strong hybrid"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.renault.co.in/cars/renault-duster.html",
+        "https://www.renault.co.in/cars/duster-strong-hybrid-e-tech.html",
+        "https://www.renault.co.in/cars/renault-duster/duster-price.html",
+        "https://cdn.group.renault.com/ren/in/duster-adventure/brochures/duster-product-brochure-adv.pdf.asset.pdf/1784045170007.pdf",
+        "https://cdn.group.renault.com/ren/in/duster2026/Duster-HEV-BROCHURE_3-NOV.pdf.asset.pdf/1794396868132.pdf"
+      ],
+      "notes": "Renault's version prices are national ex-showroom (no city named); launch releases quote them as ex-showroom Delhi. E-Tech hybrid prices are introductory (deliveries until 31 Dec 2026). Petrol mileage not published. Boot 700 L is to the roof (hybrid: ~372 L to parcel shelf, ~544 L to roof). Hybrid height 1694 mm; 1701 mm shown is the petrol diagram. Tank 50 L is from the hybrid brochure. Hybrid engine 110 PS/175 Nm, motor 208 Nm."
+    }
+  ]
+}

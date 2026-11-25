@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { CarImage } from "@/components/vehicle/car-image";
 import { useMemo, useState } from "react";
 import { formatINR, formatPrice, formatPriceShort } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -79,7 +79,7 @@ export function EmiPlanner() {
           {car && carName && (
             <div className="mt-6 flex items-center gap-4 border-t border-line pt-6">
               <div className="relative h-12 w-16 shrink-0 overflow-hidden bg-mist">
-                <Image src={car.images[0]} alt="" fill sizes="64px" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
+                <CarImage car={car} alt="" sizes="64px" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
               </div>
               <p className="min-w-0 flex-1 text-[14px] text-muted">
                 Pre-filled with the <span className="font-medium text-ink">{carName}</span> from{" "}

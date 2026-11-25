@@ -1,0 +1,1457 @@
+{
+  "brand": {
+    "slug": "mg",
+    "name": "MG",
+    "country": "United Kingdom",
+    "founded": 1924,
+    "tagline": "British-origin brand owned by SAIC; JSW MG Motor India since 2024",
+    "description": "Car brand founded in the UK in 1924, now owned by China's SAIC Motor. Sold in India since 2019 by MG Motor India, a JSW Group joint venture since 2024, with a plant at Halol, Gujarat; premium models are sold through MG Select.",
+    "isLuxury": false,
+    "website": "https://www.mgmotor.co.in/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "mg-comet-ev",
+      "name": "Comet EV",
+      "bodyType": "Hatchback",
+      "bodyStyle": "Micro EV",
+      "isLuxury": false,
+      "launchedOn": "2023-04-26",
+      "engine": "Electric motor",
+      "power": "42 PS",
+      "torque": "110 Nm",
+      "seats": [
+        4
+      ],
+      "airbags": 2,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 2974,
+        "width": 1505,
+        "height": 1640,
+        "wheelbase": 2010
+      },
+      "ev": {
+        "rangeKm": 230,
+        "rangeStandard": "ARAI",
+        "batteryKwh": 17.4,
+        "dcCharge": null,
+        "acCharge": "3.3 kW: 0–100% in 7 h",
+        "motorKw": 31
+      },
+      "colors": [],
+      "features": [
+        {
+          "group": "Infotainment",
+          "items": [
+            "Floating twin 26.04 cm displays (Excite and above)",
+            "Wireless Android Auto and Apple CarPlay (Excite and above)",
+            "i-Smart with 55+ connected features"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Dual airbags",
+            "ABS with EBD, ESC, hill hold",
+            "Rear parking sensors",
+            "Rear parking camera (Exclusive)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Smart start and Bluetooth digital key (Exclusive)",
+            "AC fast charging on FC variants"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "17.4 kWh battery",
+            "Rear permanent-magnet motor, 42 PS / 110 Nm"
+          ]
+        }
+      ],
+      "highlights": [
+        "Four-seat two-door city EV",
+        "17.4 kWh battery with ARAI-certified 230 km range",
+        "2,974 mm long with a 4.2 m turning radius",
+        "Battery-as-a-Service purchase option offered"
+      ],
+      "variants": [
+        {
+          "name": "Executive",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 789800,
+          "efficiency": "230 km",
+          "features": [
+            "Starlight Black interior",
+            "Full digital cluster with 17.78 cm screen",
+            "Power-adjustable ORVMs",
+            "Rear parking sensors"
+          ]
+        },
+        {
+          "name": "Excite",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 899800,
+          "efficiency": "230 km",
+          "features": [
+            "Space Grey interior",
+            "Twin 26.04 cm displays",
+            "Wireless Android Auto/Apple CarPlay",
+            "i-Smart connected features"
+          ]
+        },
+        {
+          "name": "Excite FC",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 926800,
+          "efficiency": "230 km",
+          "features": [
+            "Excite with AC fast-charging capability"
+          ]
+        },
+        {
+          "name": "Exclusive",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 989800,
+          "efficiency": "230 km",
+          "features": [
+            "Smart start system",
+            "Bluetooth digital key",
+            "Reverse parking camera"
+          ]
+        },
+        {
+          "name": "Exclusive FC",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1016800,
+          "efficiency": "230 km",
+          "features": [
+            "Exclusive with AC fast-charging capability"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mgmotor.co.in/vehicles/comet-ev-electric-car-in-india",
+        "https://www.mgmotor.co.in/vehicles/comet-ev-electric-car-in-india/specifications",
+        "https://s7ap1.scene7.com/is/content/mgmotor/mgmotor/documents/MG%20Comet%20EV%20-%20Brochure.pdf"
+      ],
+      "notes": "Prices are the ex-showroom 'starts from' figures on each variant card of mgmotor.co.in on 2026-11-25 (one national price; the site notes prices may vary in the southern region). BaaS (battery rental) prices are also offered and are not included. Specs from the official spec section (42 PS shown as 31 kW). Range is the ARAI-certified figure per MG's FAQ. FC variants support faster AC charging; their charge time was not captured. Colour names not captured."
+    },
+    {
+      "slug": "mg-windsor-ev",
+      "name": "Windsor EV",
+      "bodyType": "SUV",
+      "bodyStyle": "Crossover",
+      "isLuxury": false,
+      "launchedOn": "2024-09-11",
+      "engine": "Electric motor",
+      "power": "136 PS",
+      "torque": "200 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 604,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4295,
+        "width": 1850,
+        "height": 1677,
+        "wheelbase": 2700
+      },
+      "ev": {
+        "rangeKm": 449,
+        "rangeStandard": "MIDC P1+P2",
+        "batteryKwh": 52.9,
+        "dcCharge": null,
+        "acCharge": null,
+        "motorKw": 100
+      },
+      "colors": [],
+      "features": [
+        {
+          "group": "Infotainment",
+          "items": [
+            "25.6 cm (10.1-inch) touchscreen (Excite)",
+            "39.6 cm (15.6-inch) GrandView touchscreen (Exclusive and above)",
+            "9-speaker Infinity audio (Essence, Pro)",
+            "80+ i-Smart connected features"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Electronic stability programme and electric parking brake",
+            "360-degree camera (Exclusive and above)",
+            "Level 2 ADAS (Essence Pro)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Aero-lounge rear seats with 135° recline",
+            "Ventilated front seats (Essence)",
+            "Infinity View glass roof (Essence)",
+            "Powered tailgate (Essence Pro)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "38 kWh battery (Excite, Exclusive, Essence)",
+            "52.9 kWh battery with 449 km range (Pro variants)",
+            "Vehicle-to-load and vehicle-to-vehicle charging (Essence Pro)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "R18 diamond-cut or dual-tone machined alloys",
+            "Smart flush door handles"
+          ]
+        }
+      ],
+      "highlights": [
+        "38 kWh or 52.9 kWh battery",
+        "Pro variants: 449 km certified range (MIDC P1+P2)",
+        "604-litre boot",
+        "Battery-as-a-Service purchase option offered"
+      ],
+      "variants": [
+        {
+          "name": "Excite",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1484800,
+          "efficiency": "332 km",
+          "features": [
+            "136 PS / 200 Nm front motor",
+            "6 airbags",
+            "Aero-lounge rear seats with 135° recline",
+            "38 kWh battery",
+            "25.6 cm touchscreen",
+            "Wireless Android Auto/Apple CarPlay"
+          ]
+        },
+        {
+          "name": "Exclusive",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1614800,
+          "efficiency": "332 km",
+          "features": [
+            "38 kWh battery",
+            "39.6 cm GrandView touchscreen",
+            "R18 diamond-cut alloys",
+            "6-way power driver seat",
+            "360-degree camera",
+            "Smart flush door handles"
+          ]
+        },
+        {
+          "name": "Essence",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1714800,
+          "efficiency": "332 km",
+          "features": [
+            "38 kWh battery",
+            "Infinity View glass roof",
+            "9-speaker Infinity audio",
+            "256-colour ambient lighting",
+            "Ventilated front seats"
+          ]
+        },
+        {
+          "name": "Indulge Edition",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1788900,
+          "efficiency": "332 km",
+          "features": [
+            "Based on the 38 kWh Windsor",
+            "Shadow Gold paint with black roof",
+            "Urban Tan and black upholstery",
+            "Rear-seat screen"
+          ]
+        },
+        {
+          "name": "Exclusive Pro",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1804800,
+          "efficiency": "449 km",
+          "features": [
+            "52.9 kWh battery",
+            "Dual-tone ivory interior",
+            "9-speaker Infinity audio",
+            "R18 dual-tone machined alloys"
+          ]
+        },
+        {
+          "name": "Essence Pro",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1914800,
+          "efficiency": "449 km",
+          "features": [
+            "52.9 kWh battery",
+            "Level 2 ADAS",
+            "Vehicle-to-load and vehicle-to-vehicle",
+            "Powered tailgate",
+            "Dual-tone ivory interior"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mgmotor.co.in/vehicles/windsor-ev-electric-car-in-india",
+        "https://www.mgmotor.co.in/vehicles/windsor-ev-electric-car-in-india/indulge-edition",
+        "https://s7ap1.scene7.com/is/content/mgmotor/mgmotor/documents/MG%20Windsor%20EV%20-%20Brochure.pdf",
+        "https://autocarindia.com/car-news/mg-windsor-ev-indulge-edition-launched-at-rs-1789-lakh-441021"
+      ],
+      "notes": "Prices are the ex-showroom 'starts from' figures on each variant card of mgmotor.co.in on 2026-11-25 (one national price; the site notes prices may vary in the southern region). BaaS (battery rental) prices are also offered and are not included. Indulge Edition (Oct 2026) price ₹17,88,900 is from launch reports (Autocar India); the official Indulge page did not show a price. The ev block shows the 52.9 kWh Pro battery; the 38 kWh versions are rated 332 km (MIDC) per launch reports. Motor 136 PS shown as 100 kW. Boot 604 L per MG. Colour names not captured."
+    },
+    {
+      "slug": "mg-zs-ev",
+      "name": "ZS EV",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-03-07",
+      "engine": "Electric motor",
+      "power": "176.75 PS",
+      "torque": "280 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4323,
+        "width": 1809,
+        "height": 1649,
+        "wheelbase": 2585
+      },
+      "ev": {
+        "rangeKm": 461,
+        "rangeStandard": null,
+        "batteryKwh": 50.3,
+        "dcCharge": "60 min to 80% (50 kW CCS)",
+        "acCharge": "8.5–9 h (7.4 kW)",
+        "motorKw": 130
+      },
+      "colors": [],
+      "features": [
+        {
+          "group": "Infotainment",
+          "items": [
+            "25.7 cm HD touchscreen",
+            "i-Smart 2.0 with 75+ connected features",
+            "Wireless Android Auto/Apple CarPlay (Excite Pro and above)"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags",
+            "360-degree camera (Exclusive Plus and above)",
+            "Blind-spot detection, rear cross-traffic alert and lane-change assist (Exclusive Plus and above)",
+            "Level 2 ADAS with adaptive cruise and AEB (Essence)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Dual-pane panoramic sunroof (Excite Pro and above)",
+            "Leather seats and 6-way power driver seat (Exclusive Plus and above)",
+            "Wireless phone charging"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "50.3 kWh prismatic-cell battery",
+            "176.75 PS / 280 Nm"
+          ]
+        }
+      ],
+      "highlights": [
+        "50.3 kWh battery with a claimed 461 km range",
+        "176.75 PS / 280 Nm motor",
+        "6 airbags",
+        "Battery-as-a-Service purchase option offered"
+      ],
+      "variants": [
+        {
+          "name": "Executive",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1799000,
+          "efficiency": "461 km",
+          "features": [
+            "25.7 cm touchscreen",
+            "17-inch alloys",
+            "Full LED Hawkeye headlamps",
+            "Digital Bluetooth key"
+          ]
+        },
+        {
+          "name": "Excite Pro",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1874600,
+          "efficiency": "461 km",
+          "features": [
+            "Dual-pane panoramic sunroof",
+            "Wireless Android Auto/Apple CarPlay",
+            "Push-button start with smart entry",
+            "Cruise control"
+          ]
+        },
+        {
+          "name": "Exclusive Plus",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1999600,
+          "efficiency": "461 km",
+          "features": [
+            "360-degree camera",
+            "Blind-spot detection and rear cross-traffic alert",
+            "Leather seats",
+            "6-way power driver seat",
+            "Wireless charging"
+          ]
+        },
+        {
+          "name": "Essence",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2074600,
+          "efficiency": "461 km",
+          "features": [
+            "Level 2 ADAS",
+            "Adaptive cruise control",
+            "Automatic emergency braking",
+            "Lane keep assist"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mgmotor.co.in/vehicles/mgzsev-electric-car-in-india",
+        "https://s7ap1.scene7.com/is/content/mgmotor/mgmotor/documents/MG%20ZSEV%20-%20Brochure.pdf"
+      ],
+      "notes": "Prices are the ex-showroom 'starts from' figures on each variant card of mgmotor.co.in on 2026-11-25 (one national price; the site notes prices may vary in the southern region). BaaS (battery rental) prices are also offered and are not included. Exclusive Plus and Essence are each offered with Dark Grey or Iconic Ivory interiors at the same price (listed once). Range is MG's 'range in single charge' figure; the test standard isn't named on the spec section. Motor 176.75 PS shown as 130 kW. Colour names not captured."
+    },
+    {
+      "slug": "mg-astor",
+      "name": "Astor",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2021-10-11",
+      "engine": "1498 cc",
+      "power": "110 PS",
+      "torque": "144 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 48,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4323,
+        "width": 1809,
+        "height": 1650,
+        "wheelbase": 2585
+      },
+      "ev": null,
+      "colors": [],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "1.5 VTi-TECH petrol, 110 PS / 144 Nm",
+            "5-speed MT or 8-step CVT"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "25.7 cm touchscreen",
+            "Wireless Android Auto/Apple CarPlay (Select and above)",
+            "i-Smart 2.0 with 80+ connected features"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "ABS, EBD, brake assist, hill hold and hill descent",
+            "6 airbags (Sharp Pro and above)",
+            "Level 2 ADAS with 14 functions (Savvy Pro)",
+            "ISOFIX"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sunroof (Select and above)",
+            "Ventilated seats (Sharp Pro and above)",
+            "Electric parking brake with auto hold (CVT)",
+            "Wireless charger (CVT)"
+          ]
+        }
+      ],
+      "highlights": [
+        "1.5-litre petrol with manual or CVT",
+        "Panoramic sunroof from the Select trim",
+        "Level 2 ADAS on the top Savvy Pro",
+        "Personal AI assistant on the dashboard"
+      ],
+      "variants": [
+        {
+          "name": "Sprint 1.5 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 979100,
+          "efficiency": null,
+          "features": [
+            "25.7 cm infotainment",
+            "3 steering modes",
+            "ABS with EBD and brake assist",
+            "Hill hold and descent control",
+            "ISOFIX",
+            "Steel wheels"
+          ]
+        },
+        {
+          "name": "Shine 1.5 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1134100,
+          "efficiency": null,
+          "features": [
+            "Push-button start",
+            "Silver roof rails",
+            "R17 alloy wheels"
+          ]
+        },
+        {
+          "name": "Select 1.5 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1240100,
+          "efficiency": null,
+          "features": [
+            "Panoramic sunroof",
+            "Heated ORVMs",
+            "Wireless Android Auto/Apple CarPlay",
+            "Digital Bluetooth key with sharing"
+          ]
+        },
+        {
+          "name": "Select 1.5 CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "8-step CVT",
+          "price": 1356100,
+          "efficiency": null,
+          "features": [
+            "Panoramic sunroof",
+            "Wireless charger",
+            "Electric parking brake with auto hold"
+          ]
+        },
+        {
+          "name": "Sharp Pro 1.5 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1337100,
+          "efficiency": null,
+          "features": [
+            "Ventilated seats",
+            "6 airbags",
+            "Auto-dimming IRVM",
+            "6-way power driver seat",
+            "Dual-tone Sangria Red interior"
+          ]
+        },
+        {
+          "name": "Sharp Pro 1.5 CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "8-step CVT",
+          "price": 1452100,
+          "efficiency": null,
+          "features": [
+            "Ventilated seats",
+            "6 airbags",
+            "Wireless charger",
+            "Electric parking brake with auto hold"
+          ]
+        },
+        {
+          "name": "Savvy Pro 1.5 CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "8-step CVT",
+          "price": 1530100,
+          "efficiency": null,
+          "features": [
+            "Level 2 ADAS with 14 functions",
+            "49 safety features",
+            "Ventilated seats",
+            "Ivory or Sangria Red interior"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mgmotor.co.in/vehicles/mgastor",
+        "https://www.mgmotor.co.in/vehicles/mgastor-5-seater-ai-car/specifications",
+        "https://s7ap1.scene7.com/is/content/mgmotor/brand/mgmotor/homepage/tools/brochures/MG%20Astor%20-%20Brochure.pdf"
+      ],
+      "notes": "Prices are the ex-showroom 'starts from' figures on each variant card of mgmotor.co.in on 2026-11-25 (one national price; the site notes prices may vary in the southern region). Only the 1.5 VTi-TECH petrol is listed (no turbo-petrol). Savvy Pro is offered with Ivory or Sangria Red interior at the same price (listed once). Airbags: the cards show 6 airbags from Sharp Pro; lower trims' airbag count wasn't stated. ARAI mileage not captured. Colour names not captured."
+    },
+    {
+      "slug": "mg-hector",
+      "name": "Hector",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2019-06-27",
+      "engine": "1.5-litre turbo-petrol",
+      "power": "143 PS",
+      "torque": "250 Nm",
+      "seats": [
+        5,
+        7
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 60,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4699,
+        "width": 1835,
+        "height": 1760,
+        "wheelbase": 2750
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Aurora Silver",
+          "hex": "#b8babc"
+        },
+        {
+          "name": "Starry Black",
+          "hex": "#111214"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "1.5-litre turbo-petrol, 143 PS / 250 Nm",
+            "6-speed MT or CVT"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "35.56 cm (14-inch) HD portrait touchscreen (Select Pro and above)",
+            "i-SWIPE touch gesture controls",
+            "Wireless Android Auto/Apple CarPlay",
+            "Full digital cluster"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Level 2 ADAS (Savvy Pro)",
+            "360-degree camera with wheel view",
+            "Tyre pressure monitoring",
+            "Rear parking sensors and camera"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Dual-pane panoramic sunroof (Select Pro and above)",
+            "Front ventilated seats (Savvy Pro, 7-seaters)",
+            "Powered tailgate",
+            "Second-row recline with 60:40 split"
+          ]
+        }
+      ],
+      "highlights": [
+        "Five- or seven-seat SUV (seven-seat replaces the Hector Plus)",
+        "Petrol-only: 1.5 turbo with manual or CVT",
+        "35.56 cm (14-inch) portrait touchscreen",
+        "Level 2 ADAS on Savvy Pro",
+        "6 airbags standard"
+      ],
+      "variants": [
+        {
+          "name": "Style 1.5T MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1214000,
+          "efficiency": "13.94 kmpl",
+          "features": [
+            "6 airbags",
+            "Tilt steering",
+            "Second-row recline with 60:40 split",
+            "LED DRLs",
+            "Rear parking sensors",
+            "Hill hold control"
+          ]
+        },
+        {
+          "name": "Select Pro 1.5T MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1494800,
+          "efficiency": "13.94 kmpl",
+          "features": [
+            "14-inch HD touchscreen with i-SWIPE",
+            "Wireless Android Auto/Apple CarPlay",
+            "Dual-pane panoramic sunroof",
+            "Reverse camera",
+            "Full LED tail lamps",
+            "Full digital cluster"
+          ]
+        },
+        {
+          "name": "Smart Pro 1.5T MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1594800,
+          "efficiency": "13.94 kmpl",
+          "features": [
+            "14-inch touchscreen",
+            "Dual-pane panoramic sunroof",
+            "Aura Hex grille"
+          ]
+        },
+        {
+          "name": "Smart Pro 1.5T CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 1714800,
+          "efficiency": "12.4 kmpl",
+          "features": [
+            "Smart Pro equipment with CVT"
+          ]
+        },
+        {
+          "name": "Sharp Pro 1.5T MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1764800,
+          "efficiency": "13.94 kmpl",
+          "features": [
+            "Sharp Pro trim",
+            "Dual-pane panoramic sunroof"
+          ]
+        },
+        {
+          "name": "Sharp Pro 1.5T CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 1874800,
+          "efficiency": "12.4 kmpl",
+          "features": [
+            "Sharp Pro trim with CVT"
+          ]
+        },
+        {
+          "name": "Savvy Pro 1.5T CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 1964800,
+          "efficiency": "12.4 kmpl",
+          "features": [
+            "Level 2 ADAS",
+            "Front ventilated seats",
+            "CVT"
+          ]
+        },
+        {
+          "name": "Sharp Pro 1.5T MT 7-Seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1799800,
+          "efficiency": "13.94 kmpl",
+          "features": [
+            "Seven seats",
+            "Front ventilated seats",
+            "Dual-tone Urban Tan interior"
+          ]
+        },
+        {
+          "name": "Sharp Pro 1.5T CVT 7-Seater",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 2014800,
+          "efficiency": "12.4 kmpl",
+          "features": [
+            "Seven seats",
+            "Front ventilated seats",
+            "Dual-tone Urban Tan interior",
+            "CVT"
+          ]
+        },
+        {
+          "name": "Savvy Pro 1.5T CVT 7-Seater",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 2014800,
+          "efficiency": "12.4 kmpl",
+          "features": [
+            "Seven seats",
+            "Level 2 ADAS",
+            "Front ventilated seats",
+            "Dual-tone Urban Tan interior"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mgmotor.co.in/vehicles/mghector",
+        "https://s7ap1.scene7.com/is/content/mgmotor/mgmotor/documents/MG%20Hector%20-%20Brochure.pdf"
+      ],
+      "notes": "Prices are the ex-showroom 'starts from' figures on each variant card of mgmotor.co.in on 2026-11-25 (one national price; the site notes prices may vary in the southern region). The current Hector is petrol-only; the former Hector Plus is now the Hector 7-seater (separate Hector Plus pages redirect). Length is 4,699 mm from Select Pro up (4,655 mm on Style); the 7-seater length wasn't captured. MG's FAQ gives ARAI 12.40–13.94 kmpl by gearbox; mapped as 13.94 (MT) and 12.40 (CVT) — check. Sharp Pro CVT 7-seater and Savvy Pro 7-seater show the same price on the site. Engine cc not stated on the page."
+    },
+    {
+      "slug": "mg-hector-tomahawk-ev",
+      "name": "Hector Tomahawk EV",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-08-26",
+      "engine": "Electric motor",
+      "power": "204 hp",
+      "torque": "310 Nm",
+      "seats": [
+        5,
+        7
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 610,
+      "groundClearanceMm": 230,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 8.2 s",
+      "dimensions": {
+        "length": 4745,
+        "width": 1850,
+        "height": 1770,
+        "wheelbase": 2810
+      },
+      "ev": {
+        "rangeKm": 517,
+        "rangeStandard": "MIDC",
+        "batteryKwh": 69.2,
+        "dcCharge": "35 min (30–80%, 90 kW)",
+        "acCharge": "12.5 h (10–100%, 7.4 kW)",
+        "motorKw": 150
+      },
+      "colors": [
+        {
+          "name": "Khaki Green",
+          "hex": "#6b6b4f"
+        },
+        {
+          "name": "Aurora Silver",
+          "hex": "#b8babc"
+        },
+        {
+          "name": "Starry Black",
+          "hex": "#111214"
+        },
+        {
+          "name": "Celadon Blue",
+          "hex": "#9fb8b5"
+        },
+        {
+          "name": "Pearl White",
+          "hex": "#f2f2ef"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "69.2 kWh LFP battery",
+            "Front motor, 204 hp / 310 Nm",
+            "Vehicle-to-load and vehicle-to-vehicle charging"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "15.6-inch touchscreen",
+            "8.8-inch digital driver display",
+            "Wireless Android Auto/Apple CarPlay",
+            "10-speaker Infinity audio"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Level 2 ADAS with 11 functions",
+            "360-degree camera with transparent-chassis view"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Ventilated front seats",
+            "Panoramic sunroof",
+            "Roof-mounted rear AC vents",
+            "Driver seat memory",
+            "Powered tailgate"
+          ]
+        }
+      ],
+      "highlights": [
+        "69.2 kWh battery with claimed 517 km (MIDC)",
+        "Five- or seven-seat layouts",
+        "230 mm ground clearance",
+        "Battery-as-a-Service option from ₹13.99 lakh plus ₹4.90/km"
+      ],
+      "variants": [
+        {
+          "name": "Excite 7-Seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 1949000,
+          "efficiency": "517 km",
+          "features": [
+            "Seven seats",
+            "69.2 kWh battery",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Exclusive 7-Seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2199000,
+          "efficiency": "517 km",
+          "features": [
+            "Seven seats",
+            "Exclusive trim"
+          ]
+        },
+        {
+          "name": "Essence 5-Seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2299000,
+          "efficiency": "517 km",
+          "features": [
+            "Five seats",
+            "610 L boot",
+            "Essence (top) trim"
+          ]
+        },
+        {
+          "name": "Essence 7-Seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 2349000,
+          "efficiency": "517 km",
+          "features": [
+            "Seven seats",
+            "Essence (top) trim"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mgmotor.co.in/vehicles/hector-tomahawk/ev",
+        "https://s7ap1.scene7.com/is/content/mgmotor/mgmotor/documents/MG%20Hector%20Tomahawk%20EV%20-%20Brochure.pdf",
+        "https://www.autocarindia.com/car-news/mg-hector-tomahawk-ev-launched-at-rs-1949-lakh-440578"
+      ],
+      "notes": "Price not published by the brand per variant (mgmotor.co.in shows only the BaaS starting price); outright ex-showroom prices from Autocar India's launch report (26 Aug 2026), described as introductory and for limited units. Range, battery and 0–100 time also confirmed on MG's FAQ. Boot: 610 L five-seat; seven-seat 192 L with all rows up. Per-variant equipment split not published in the sources used. 204 hp shown as 150 kW."
+    },
+    {
+      "slug": "mg-hector-tomahawk-phev",
+      "name": "Hector Tomahawk PHEV",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-08-26",
+      "engine": "1.5-litre petrol + electric motor (plug-in hybrid)",
+      "power": "198 hp (combined)",
+      "torque": "230 Nm (combined)",
+      "seats": [
+        7
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4745,
+        "width": 1850,
+        "height": 1770,
+        "wheelbase": 2810
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Starry Black",
+          "hex": "#111214"
+        },
+        {
+          "name": "Aurora Silver",
+          "hex": "#b8babc"
+        },
+        {
+          "name": "Shadow Gold",
+          "hex": "#9c8456"
+        },
+        {
+          "name": "Pearl White",
+          "hex": "#f2f2ef"
+        },
+        {
+          "name": "Turquoise Green",
+          "hex": "#3f8a83"
+        },
+        {
+          "name": "Celadon Blue",
+          "hex": "#9fb8b5"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "1.5-litre Atkinson-cycle petrol (102 hp) with 201 hp motor; 198 hp / 230 Nm combined",
+            "20.5 kWh battery",
+            "Dedicated hybrid transmission with e-clutch",
+            "Over 115 km electric-only range (claimed)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "15.6-inch touchscreen",
+            "8.8-inch digital driver display",
+            "10-speaker Infinity audio"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Level 2 ADAS",
+            "360-degree camera"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Ventilated powered front seats",
+            "Panoramic sunroof",
+            "Powered tailgate",
+            "Rear window sunshades"
+          ]
+        }
+      ],
+      "highlights": [
+        "Plug-in hybrid, seven seats only",
+        "Claimed over 115 km electric range and over 1,100 km total range",
+        "20.5 kWh battery with 25 kW DC charging",
+        "Battery-as-a-Service option offered"
+      ],
+      "variants": [
+        {
+          "name": "Exclusive 7-Seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "Dedicated hybrid transmission",
+          "price": 2570000,
+          "efficiency": null,
+          "features": [
+            "Plug-in hybrid",
+            "Seven seats",
+            "6 airbags",
+            "Level 2 ADAS"
+          ]
+        },
+        {
+          "name": "Essence 7-Seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "Dedicated hybrid transmission",
+          "price": 2780000,
+          "efficiency": null,
+          "features": [
+            "Plug-in hybrid",
+            "Seven seats",
+            "Essence (top) trim"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mgmotor.co.in/vehicles/hector-tomahawk/phev",
+        "https://www.autocarindia.com/car-news/mg-hector-tomahawk-phev-launched-at-440580"
+      ],
+      "notes": "Price not published by the brand per variant (site shows only the BaaS start of ₹21.79 lakh + ₹3.20/km); outright prices from Autocar India's launch report: ₹25.70 / ₹27.80 lakh (Autocar Professional and Business Today quote ₹25.69 / ₹27.79 lakh), introductory for limited bookings. Deliveries from November 2026. MG claims 40+ kmpl combined; no ARAI figure captured, so efficiency is null. AC 3.3 kW (10–100% in 7.5 h), DC 25 kW (30–80% in 35 min). Turquoise Green and Celadon Blue also offered with a white roof."
+    },
+    {
+      "slug": "mg-majestor",
+      "name": "Majestor",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-05-27",
+      "engine": "2.0-litre twin-turbo diesel",
+      "power": "215.5 PS",
+      "torque": "478.5 Nm",
+      "seats": [
+        6,
+        7
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 343,
+      "groundClearanceMm": 219,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 5046,
+        "width": 2016,
+        "height": 1870,
+        "wheelbase": 2950
+      },
+      "ev": null,
+      "colors": [],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "2.0-litre twin-turbo diesel, 215.5 PS / 478.5 Nm",
+            "8-speed automatic",
+            "4x4 with rear differential lock, M-Crawl and off-road modes (4x4)",
+            "810 mm water-wading capacity"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Dual 12.3-inch screens",
+            "12-speaker JBL audio",
+            "Connected-car technology"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags",
+            "Level 2 ADAS",
+            "360-degree camera",
+            "Electronic parking brake"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sunroof",
+            "64-colour ambient lighting",
+            "Two wireless charging pads",
+            "Six-seat captain-chair or seven-seat layouts"
+          ]
+        }
+      ],
+      "highlights": [
+        "Ladder-frame SUV that replaced the Gloster",
+        "5,046 mm long with a 2,950 mm wheelbase",
+        "2.0 twin-turbo diesel with 8-speed automatic",
+        "219 mm ground clearance"
+      ],
+      "variants": [
+        {
+          "name": "Savvy 4x2 AT 6-Seater",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 4349000,
+          "efficiency": null,
+          "features": [
+            "Rear-wheel drive",
+            "Second-row captain chairs",
+            "Level 2 ADAS",
+            "360-degree camera"
+          ]
+        },
+        {
+          "name": "Savvy 4x2 AT 7-Seater",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 4349000,
+          "efficiency": null,
+          "features": [
+            "Rear-wheel drive",
+            "Second-row bench",
+            "Level 2 ADAS",
+            "360-degree camera"
+          ]
+        },
+        {
+          "name": "Savvy 4x4 AT 7-Seater",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 4599000,
+          "efficiency": null,
+          "features": [
+            "Four-wheel drive with off-road modes",
+            "Rear differential lock",
+            "Seven seats",
+            "All-terrain tyres on 19-inch alloys"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mgmotor.co.in/vehicles/mg-majestor-biggest-suv-india",
+        "https://s7ap1.scene7.com/is/content/mgmotor/mgmotor/documents/MG%20Majestor%20-%20Brochure.pdf",
+        "https://www.autocarindia.com/car-news/mg-majestor-launched-at-rs-4099-lakh-439622",
+        "https://www.v3cars.com/news/nov-2026-mg-majestor-price-change"
+      ],
+      "notes": "mgmotor.co.in shows 'starting at ₹43.49 lakh' (the 4x2) and lists the three Savvy variants; the 4x4 price (₹45.99 lakh) is from V3Cars' November 2026 price-change report, which also says the 4x2 6-/7-seat are both ₹43.49 lakh — check. Launch prices (May 2026) were ₹40.99 / ₹44.99 lakh. A Sharp trim was announced but not priced. Specs from MG's FAQ; boot from Autocar India. The Gloster's URL now redirects to the Majestor, so the Gloster is treated as discontinued."
+    },
+    {
+      "slug": "mg-cyberster",
+      "name": "Cyberster",
+      "bodyType": "Coupe",
+      "bodyStyle": "Convertible roadster",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor (dual motor)",
+      "power": "510 PS",
+      "torque": "725 Nm",
+      "seats": [
+        2
+      ],
+      "airbags": 4,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 3.2 s",
+      "dimensions": null,
+      "ev": {
+        "rangeKm": 580,
+        "rangeStandard": "MIDC",
+        "batteryKwh": 77,
+        "dcCharge": null,
+        "acCharge": null,
+        "motorKw": null
+      },
+      "colors": [],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "77 kWh battery",
+            "510 PS / 725 Nm",
+            "Claimed 0–100 km/h in 3.2 s"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "4 airbags"
+          ]
+        }
+      ],
+      "highlights": [
+        "Two-seat electric roadster sold through MG Select",
+        "77 kWh battery with claimed 580 km (MIDC)",
+        "Claimed 0–100 km/h in 3.2 s"
+      ],
+      "variants": [
+        {
+          "name": "Cyberster",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 8249800,
+          "efficiency": "580 km",
+          "features": [
+            "510 PS / 725 Nm",
+            "77 kWh battery",
+            "4 airbags"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mgselect.co.in/cyberster",
+        "https://www.mgselect.co.in/"
+      ],
+      "notes": "Price is the ex-showroom figure on mgselect.co.in (₹82,49,800). A Couture Edition can be booked but no price is shown, so it is not listed. Dimensions not captured. Seat count is two (roadster). Sold only through MG Select dealerships."
+    },
+    {
+      "slug": "mg-m9",
+      "name": "M9",
+      "bodyType": "MUV",
+      "bodyStyle": "MPV",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor",
+      "power": "245 PS",
+      "torque": "350 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": 7,
+      "safety": {
+        "rating": 5,
+        "agency": "Euro NCAP",
+        "year": 2024
+      },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": null,
+      "ev": {
+        "rangeKm": 548,
+        "rangeStandard": "MIDC",
+        "batteryKwh": 90,
+        "dcCharge": "Up to 160 kW",
+        "acCharge": "11 kW",
+        "motorKw": null
+      },
+      "colors": [],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Second-row seats with massage, heating, ventilation and lateral shift",
+            "Seven seats"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "7 airbags",
+            "ADAS with lane, front and side collision alerts"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "90 kWh NMC battery",
+            "Front motor, 245 PS / 350 Nm"
+          ]
+        }
+      ],
+      "highlights": [
+        "Electric luxury MPV sold through MG Select",
+        "90 kWh battery with a claimed 548 km",
+        "7 airbags",
+        "Euro NCAP 5 stars (as stated by MG)"
+      ],
+      "variants": [
+        {
+          "name": "Presidential Limo",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 7994800,
+          "efficiency": "548 km",
+          "features": [
+            "90 kWh battery",
+            "Massaging, ventilated second-row seats",
+            "7 airbags"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mgselect.co.in/m9",
+        "https://www.mgselect.co.in/",
+        "https://www.autocarindia.com/car-news/mg-m9-price-starts-at-rs-6990-lakh-436269"
+      ],
+      "notes": "Price is the ex-showroom figure on mgselect.co.in (₹79,94,800; launched at ₹69.90 lakh in 2025). Battery, range and output are as reported by Autocar India / CarWale (MG Select's page didn't show them in text). Euro NCAP 5 stars is stated on MG's page; the year (2024) is for the Maxus Mifa 9 on which it is based — check. A Couture Edition is bookable but unpriced on the official site (Spinny quotes ₹84.94 lakh), so it is not listed."
+    }
+  ]
+}

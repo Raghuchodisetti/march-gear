@@ -1,4 +1,4 @@
-import type { Catalog } from "@/lib/catalog";
+import type { ClientCatalog as Catalog } from "@/lib/catalog";
 import { parseEngineCc } from "@/insurance/estimator";
 import { FUELS } from "@/insurance/search";
 import type { FuelName } from "@/insurance/types";

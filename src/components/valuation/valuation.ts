@@ -1,5 +1,5 @@
-import type { CarModel, FuelType } from "@/types";
-import type { Catalog } from "@/lib/catalog";
+import type { CarLite, FuelType } from "@/types";
+import type { ClientCatalog as Catalog } from "@/lib/catalog";
 import { clamp } from "@/lib/utils";
 
 /**
@@ -94,12 +94,12 @@ const KM_PER_YEAR = 11_000;
 
 /** Brands offered in the valuation flows: the catalogue plus legacy marques. */
 export const valuationBrands = (cat: Catalog) =>
-  [...cat.brands.map((b) => b.slug), "volkswagen", "ford", "nissan", "fiat", "jaguar"].map((slug) => ({
+  [...new Set([...cat.brands.map((b) => b.slug), "volkswagen", "ford", "nissan", "fiat", "jaguar"])].map((slug) => ({
     value: slug,
     label: cat.brandName(slug),
   }));
 
-export const modelsForBrand = (brand: string, cat: Catalog): CarModel[] => cat.carsByBrand(brand);
+export const modelsForBrand = (brand: string, cat: Catalog): CarLite[] => cat.carsByBrand(brand);
 
 export interface ValuationInput {
   brand: string;

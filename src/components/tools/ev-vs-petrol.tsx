@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import { CarImage } from "@/components/vehicle/car-image";
 import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { useMemo, useState, type ReactNode } from "react";
 import { ArrowUpRight, Zap } from "lucide-react";
-import type { CarModel } from "@/types";
+import type { CarLite } from "@/types";
 import { carTitle, isElectric } from "@/lib/catalog";
 import { formatINR, formatNumber, formatPrice, formatPriceShort } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -19,8 +19,9 @@ export function EvVsPetrol() {
   const { cars, electricCars, brandName, content } = useCatalog();
   const rates = useMemo(() => calcRates(content.toolRates), [content.toolRates]);
   const { evs, ices } = useMemo(() => {
-    const byName = (a: CarModel, b: CarModel) => carTitle(a, brandName).localeCompare(carTitle(b, brandName));
-    return { evs: electricCars().sort(byName), ices: cars.filter((c) => !isElectric(c)).sort(byName) };
+    const byName = (a: CarLite, b: CarLite) => carTitle(a, brandName).localeCompare(carTitle(b, brandName));
+    // Running costs need a claimed figure: models whose mileage isn't published are left out.
+    return { evs: electricCars().filter((c) => c.ev && c.ev.rangeKm > 0).sort(byName), ices: cars.filter((c) => !isElectric(c) && c.efficiencyValue > 0).sort(byName) };
   }, [cars, electricCars, brandName]);
   const [evSlug, setEvSlug] = useState("tata-nexon-ev");
   const [iceSlug, setIceSlug] = useState("hyundai-creta");
@@ -202,24 +203,23 @@ function Contender({
   onChange,
   facts,
 }: {
-  car: CarModel;
+  car: CarLite;
   eyebrow: ReactNode;
   label: string;
-  options: CarModel[];
+  options: CarLite[];
   onChange: (slug: string) => void;
   facts: string[];
 }) {
   const { brandName } = useCatalog();
-  const title = (c: CarModel) => carTitle(c, brandName);
+  const title = (c: CarLite) => carTitle(c, brandName);
   return (
     <div className="min-w-0">
       <div className="relative aspect-[2/1] overflow-hidden bg-mist md:aspect-[16/9]">
-        <Image
+        <CarImage
           key={car.slug}
-          src={car.images[0]}
-          alt={cardPhotoAlt(car.images[0], title(car))}
-          fill
-          loading="eager"
+          car={car}
+          alt={car.images[0] ? cardPhotoAlt(car.images[0], title(car)) : ""}
+          preload
           sizes="(min-width: 768px) 45vw, 100vw"
           className="object-cover"
           style={{ objectPosition: car.focus ?? "50% 55%" }}

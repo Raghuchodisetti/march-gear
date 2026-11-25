@@ -1,0 +1,334 @@
+{
+  "brand": {
+    "slug": "rolls-royce",
+    "name": "Rolls-Royce",
+    "country": "United Kingdom",
+    "founded": 1904,
+    "tagline": "British ultra-luxury carmaker, part of the BMW Group since 2003",
+    "description": "British maker of ultra-luxury cars, built at Goodwood, England, and a wholly owned BMW Group subsidiary since 2003. Cars are imported to India as completely built units and sold through dealer showrooms in New Delhi and Chennai. The current Indian range is the Ghost, Cullinan, Phantom and the all-electric Spectre.",
+    "isLuxury": true,
+    "website": "https://www.rolls-roycemotorcars.com/newdelhi/en_GB/showroom.html"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "rolls-royce-ghost",
+      "name": "Ghost",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2025-02-05",
+      "engine": "6.75-litre twin-turbo V12 (6749 cc)",
+      "power": "571 – 600 PS",
+      "torque": "850 – 900 Nm",
+      "seats": [4, 5],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 507,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": null,
+      "ev": null,
+      "colors": [
+        { "name": "Arctic White", "hex": "#F4F5F2" },
+        { "name": "English White", "hex": "#EDEAE0" },
+        { "name": "Black Diamond", "hex": "#1C1D21" },
+        { "name": "Diamond Black", "hex": "#0E0F12" },
+        { "name": "Jubilee Silver", "hex": "#B9BBBD" },
+        { "name": "Darkest Tungsten", "hex": "#4A4D52" },
+        { "name": "Salamanca Blue", "hex": "#1F2C4D" },
+        { "name": "Midnight Sapphire", "hex": "#1B2238" },
+        { "name": "Belladonna Purple", "hex": "#3A2340" },
+        { "name": "Mustique Blue", "hex": "#4B8FB8" },
+        { "name": "Tucana Purple", "hex": "#5B2B6E" },
+        { "name": "Duck Egg Blue", "hex": "#A9C6C2" }
+      ],
+      "features": [
+        { "group": "Performance", "items": ["6.75-litre twin-turbocharged V12 petrol engine", "Eight-speed automatic gearbox with Satellite Aided Transmission (GPS-based gear selection)", "All-wheel drive and all-wheel steering", "Peak torque from 1,600 rpm"] },
+        { "group": "Comfort", "items": ["Planar Suspension System with Upper Wishbone Damper and self-levelling air struts", "Flagbearer camera system that reads the road ahead and prepares the suspension", "Five-link rear axle with self-levelling air suspension", "Micro-Environment Purification System (cabin air filtration)", "Self-closing rear coach doors with power assist"] },
+        { "group": "Infotainment", "items": ["SPIRIT operating system with pillar-to-pillar glass fascia", "Whispers private members app connectivity", "18-speaker Bespoke Audio with 1,400 W amplifier", "Rear-seat entertainment supporting two streaming devices", "Wi-Fi hotspot and USB-C ports"] },
+        { "group": "Safety", "items": ["Four-camera system with panoramic and helicopter views", "Active cruise control", "Collision, cross-traffic, lane departure and lane change warnings", "Head-up display", "Self-park system"] },
+        { "group": "Exterior", "items": ["Illuminated Pantheon grille", "22-inch nine-spoke wheels, fully or part-polished", "LED and laser headlights", "Vertical light-panel tail lamps"] },
+        { "group": "Interior", "items": ["Illuminated Fascia with celestial graphic", "Spirit of Ecstasy Clock Cabinet", "Duality Twill bamboo-rayon seat fabric option", "Grey Stained Ash open-pore wood veneer", "Starlight Headliner option", "Bespoke Instrument Dial colours"] }
+      ],
+      "highlights": [
+        "Sold in India as Ghost Series II, Ghost Extended Series II and Black Badge Ghost Series II",
+        "6.75-litre twin-turbo V12 with all-wheel drive and all-wheel steering",
+        "Ghost Extended adds 170 mm of rear legroom via longer rear doors",
+        "Black Badge Ghost has 29 PS and 50 Nm more than the standard Ghost",
+        "SPIRIT operating system with Whispers app connectivity"
+      ],
+      "variants": [
+        {
+          "name": "Ghost Series II",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 89500000,
+          "efficiency": null,
+          "features": ["571 PS (563 bhp) / 850 Nm V12", "Standard wheelbase", "22-inch nine-spoke wheels", "Illuminated Pantheon grille", "Rear-seat entertainment"]
+        },
+        {
+          "name": "Ghost Extended Series II",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 101900000,
+          "efficiency": null,
+          "features": ["Extended wheelbase with 170 mm more rear legroom", "Longer rear doors and apertures", "Optional reclining Serenity Seating", "Rear champagne cooler with 6°C and 11°C modes", "571 PS (563 bhp) / 850 Nm V12"]
+        },
+        {
+          "name": "Black Badge Ghost Series II",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 105200000,
+          "efficiency": null,
+          "features": ["High-power V12: 600 PS / 900 Nm (29 PS and 50 Nm more than Ghost)", "Lower-set Illuminated Grille with darkened chrome", "Darkened brightwork and black Spirit of Ecstasy", "Black Badge instrument dial colourways", "Technical Carbon interior trim option"]
+        }
+      ],
+      "sources": [
+        "https://www.autocarindia.com/cars/rolls-royce/ghost/price-in-delhi",
+        "https://www.autocarpro.in/news/rolls-royce-launches-ghost-series-ii-in-india-starting-at-rs-895-crore-124794",
+        "https://newsroom.rolls-roycemotorcars.com/ghost-series-ii-the-most-advanced-driver-focused-v12-rolls-royce-ever-created",
+        "https://newsroom.rolls-roycemotorcars.com/rolls-royce-ghost-a-symbol-of-endless-pure-expression/",
+        "https://web.archive.org/web/20261023185426/https://www.rolls-roycemotorcars.com/en_GB/showroom/ghost-in-detail.html",
+        "https://web.archive.org/web/20261027142109/https://www.rolls-roycemotorcars.com/en_GB/showroom/black-badge-ghost.html"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (Delhi ex-showroom page, updated 24 Nov 2026; before options). Power: Ghost 563 bhp/850 Nm per Rolls-Royce newsroom; Black Badge +29 PS/+50 Nm per the Ghost Series II press release. Boot 507 L from Rolls-Royce's Ghost (current generation) material. Top speed, 0-100, dimensions and fuel tank not found on reachable official pages (rolls-roycemotorcars.com timed out; used archived copies), so left null. Seats 4 or 5 depending on rear-seat configuration (check). India launch: Autocar Pro/Business Today report 5 Feb 2025; Autocar India's model page says 27 Dec 2024. Colours are a representative set; Bespoke paint is available. FTA: Rolls-Royce had not announced post-India-UK FTA price cuts at the time of checking."
+    },
+    {
+      "slug": "rolls-royce-cullinan",
+      "name": "Cullinan",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2024-09-27",
+      "engine": "6.75-litre twin-turbo V12 (6749 cc)",
+      "power": "571 – 600 PS",
+      "torque": "850 – 900 Nm",
+      "seats": [4, 5],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": null,
+      "ev": null,
+      "colors": [
+        { "name": "Arctic White", "hex": "#F4F5F2" },
+        { "name": "English White", "hex": "#EDEAE0" },
+        { "name": "Black Diamond", "hex": "#1C1D21" },
+        { "name": "Diamond Black", "hex": "#0E0F12" },
+        { "name": "Jubilee Silver", "hex": "#B9BBBD" },
+        { "name": "Darkest Tungsten", "hex": "#4A4D52" },
+        { "name": "Salamanca Blue", "hex": "#1F2C4D" },
+        { "name": "Tempest Grey", "hex": "#6E7175" },
+        { "name": "Emperador Truffle", "hex": "#5A4335" },
+        { "name": "Twilight Purple", "hex": "#3D2B4F" },
+        { "name": "Olivin", "hex": "#4E5A3C" },
+        { "name": "St. James Red", "hex": "#7A1E22" }
+      ],
+      "features": [
+        { "group": "Performance", "items": ["6.75-litre twin-turbocharged V12 petrol engine", "ZF eight-speed automatic gearbox", "All-wheel drive with front and rear steering", "Black Badge 'Low' mode: full 900 Nm from 1,700 rpm and 50% faster shifts at 90% throttle"] },
+        { "group": "Comfort", "items": ["Self-levelling air suspension ('Magic Carpet Ride')", "Rear screens supporting up to two streaming devices", "Bluetooth headphone pairing for rear passengers"] },
+        { "group": "Infotainment", "items": ["SPIRIT operating system (first used in Spectre)", "Permanently visible Central Information Display", "Whispers private members app (send destinations, track location, remote locking)", "18-speaker Bespoke Audio with 18-channel, 1,400 W amplifier", "Wi-Fi hotspot"] },
+        { "group": "Exterior", "items": ["Illuminated Pantheon grille", "Tall daytime running lights and new air intakes", "23-inch seven-spoke wheels milled from aluminium billet (first for Cullinan)", "High-gloss black lower valances", "Mirror-finish stainless steel exhaust surrounds"] },
+        { "group": "Interior", "items": ["Pillar-to-pillar glass fascia", "Spirit of Ecstasy Clock Cabinet", "Illuminated Fascia with Cityscape graphic", "Grey Stained Ash wood veneer", "Duality Twill bamboo-rayon upholstery option", "Placed Perforation leather with up to 107,000 perforations"] }
+      ],
+      "highlights": [
+        "Rolls-Royce's only SUV, sold in India as Cullinan Series II and Black Badge Cullinan Series II",
+        "6.75-litre twin-turbo V12 with all-wheel drive",
+        "23-inch wheels offered on Cullinan for the first time",
+        "SPIRIT operating system with pillar-to-pillar glass fascia",
+        "Black Badge version rated at 600 PS and 900 Nm"
+      ],
+      "variants": [
+        {
+          "name": "Cullinan Series II",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 103300000,
+          "efficiency": null,
+          "features": ["571 PS / 850 Nm V12", "Illuminated Pantheon grille", "Chrome exterior brightwork", "Illuminated Fascia with Cityscape graphic", "23-inch wheel option"]
+        },
+        {
+          "name": "Black Badge Cullinan Series II",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 119200000,
+          "efficiency": null,
+          "features": ["600 PS / 900 Nm V12", "'Low' button: Black Badge exhaust note, faster shifts, shorter brake pedal travel", "Black grille, Spirit of Ecstasy, window surrounds and door handles", "Mirror-black chrome tailgate, bumper accents and exhausts", "Technical Carbon interior trim", "Five Black Badge instrument dial colourways", "Brake callipers in Red, Black, Turchese, Mandarin or Forge Yellow"]
+        }
+      ],
+      "sources": [
+        "https://www.autocarindia.com/cars/rolls-royce/cullinan/price-in-delhi",
+        "https://www.business-standard.com/industry/auto/rolls-royce-launches-cullinan-series-ii-starting-from-rs-10-5-crore-124092701274_1.html",
+        "https://newsroom.rolls-roycemotorcars.com/rolls-royce-presents-cullinan-series-ii-a-bold-evolution-of-the-worlds-pre-eminent-super-luxury-suv/",
+        "https://newsroom.rolls-roycemotorcars.com/rolls-royce-black-badge-cullinan-series-ii-the-alter-ego-evolved/"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (Delhi ex-showroom page, updated 17 Nov 2026; before options). India launch prices in Sept 2024 were ₹10.50 crore and ₹12.25 crore, so Autocar's lower current figures should be confirmed with a dealer. Black Badge 600 PS/900 Nm per Rolls-Royce newsroom; the standard 571 PS/850 Nm figure comes from Rolls-Royce's original Cullinan launch material (Series II keeps the same V12) — check. Dimensions, boot, fuel tank, top speed and 0-100 not found on reachable official pages, so left null. Seats 4 or 5 (Individual or Lounge seating). Colours are a representative set; Bespoke paint is available."
+    },
+    {
+      "slug": "rolls-royce-phantom",
+      "name": "Phantom",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2018-02-23",
+      "engine": "6.75-litre twin-turbo V12 (6749 cc)",
+      "power": "563 bhp (420 kW)",
+      "torque": "900 Nm",
+      "seats": [4, 5],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": null,
+      "ev": null,
+      "colors": [
+        { "name": "Arctic White", "hex": "#F4F5F2" },
+        { "name": "English White", "hex": "#EDEAE0" },
+        { "name": "Andalusian White", "hex": "#F1EFE8" },
+        { "name": "Black Diamond", "hex": "#1C1D21" },
+        { "name": "Diamond Black", "hex": "#0E0F12" },
+        { "name": "Jubilee Silver", "hex": "#B9BBBD" },
+        { "name": "Darkest Tungsten", "hex": "#4A4D52" },
+        { "name": "Salamanca Blue", "hex": "#1F2C4D" },
+        { "name": "Midnight Sapphire", "hex": "#1B2238" },
+        { "name": "Belladonna Purple", "hex": "#3A2340" }
+      ],
+      "features": [
+        { "group": "Performance", "items": ["6.75-litre twin-turbocharged V12 petrol engine", "900 Nm from 1,700 rpm", "ZF eight-speed automatic gearbox"] },
+        { "group": "Exterior", "items": ["Illuminated Pantheon grille", "Polished horizontal line between the daytime running lights", "Laser-cut starlight bezels in the headlights", "3D-milled stainless steel wheel, fully or part-polished", "Disc wheel in polished stainless steel or black lacquer", "Optional black finish for grille surround, bonnet reins and windscreen surround"] },
+        { "group": "Interior", "items": ["The Gallery glass-fronted dashboard display space", "Thicker steering wheel rim", "Starlight Headliner option"] },
+        { "group": "Infotainment", "items": ["Rolls-Royce Connected with Whispers app (send destinations, view location, security status and vehicle health)"] }
+      ],
+      "highlights": [
+        "Rolls-Royce flagship saloon, sold in India in standard and Extended wheelbase forms",
+        "6.75-litre twin-turbo V12 with 900 Nm",
+        "Illuminated Pantheon grille introduced with Series II",
+        "Rolls-Royce Connected with Whispers app"
+      ],
+      "variants": [
+        {
+          "name": "Phantom Series II",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 128700000,
+          "efficiency": null,
+          "features": ["Standard wheelbase", "563 bhp / 900 Nm V12", "Illuminated Pantheon grille", "The Gallery dashboard display space"]
+        },
+        {
+          "name": "Phantom Extended Series II",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 150700000,
+          "efficiency": null,
+          "features": ["Extended wheelbase for more rear legroom", "Chauffeur-focused rear cabin", "563 bhp / 900 Nm V12", "Illuminated Pantheon grille"]
+        }
+      ],
+      "sources": [
+        "https://www.autocarindia.com/cars/rolls-royce/phantom/price-in-delhi",
+        "https://www.autocarindia.com/cars/rolls-royce/phantom",
+        "https://newsroom.rolls-roycemotorcars.com/rolls-royce-phantom-a-new-expression",
+        "https://www.hrowen.co.uk/?p=22330"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (Delhi ex-showroom price page, updated 24 Nov 2026: SWB ₹12.87 crore, EWB ₹15.07 crore; Business Today (July 2026) also put the Phantom at ₹12.87 crore). Autocar's Phantom overview text and CarDekho still say ₹8.99 crore (the 2022 launch price), so please double-check. Power/torque from Phantom VIII launch material as reproduced by authorised dealer H.R. Owen (Rolls-Royce site unreachable). launchedOn is the India launch of the current eighth generation (23 Feb 2018, per CarWale); the Series II update date in India not confirmed. Dimensions, boot, fuel tank, top speed and 0-100 not found on reachable official pages, so left null. Colours are a representative set; Bespoke paint is available."
+    },
+    {
+      "slug": "rolls-royce-spectre",
+      "name": "Spectre",
+      "bodyType": "Coupe",
+      "bodyStyle": "Fastback coupe",
+      "isLuxury": true,
+      "launchedOn": "2024-01-19",
+      "engine": "Electric motor",
+      "power": "430 – 485 kW",
+      "torque": "900 – 1075 Nm",
+      "seats": [4],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 4.5 s",
+      "dimensions": { "length": 5453, "width": 2080, "height": 1559, "wheelbase": 3210 },
+      "ev": {
+        "rangeKm": 530,
+        "rangeStandard": "WLTP",
+        "batteryKwh": 102,
+        "dcCharge": "34 min (10–80%, up to 195 kW)",
+        "acCharge": "Up to 22 kW AC",
+        "motorKw": 430
+      },
+      "colors": [
+        { "name": "Arctic White", "hex": "#F4F5F2" },
+        { "name": "Black Diamond", "hex": "#1C1D21" },
+        { "name": "Diamond Black", "hex": "#0E0F12" },
+        { "name": "Jubilee Silver", "hex": "#B9BBBD" },
+        { "name": "Darkest Tungsten", "hex": "#4A4D52" },
+        { "name": "Salamanca Blue", "hex": "#1F2C4D" },
+        { "name": "Tempest Grey", "hex": "#6E7175" },
+        { "name": "Vapour Violet", "hex": "#5E4A7D" }
+      ],
+      "features": [
+        { "group": "Performance", "items": ["Dual electric motors, all-wheel drive", "102 kWh lithium-ion battery", "DC charging up to 195 kW; AC charging up to 22 kW", "Four-wheel steering", "B Mode for increased brake recuperation"] },
+        { "group": "Comfort", "items": ["Planar suspension with decoupled anti-roll bars", "Rolls-Royce Wallbox installed before delivery"] },
+        { "group": "Infotainment", "items": ["SPIRIT software architecture integrated with the Whispers app", "Bespoke Audio", "Bespoke instrument dial colours"] },
+        { "group": "Exterior", "items": ["Two-door fastback body with coach doors", "Pantheon grille illuminated by 22 LEDs", "23-inch wheels", "Drag coefficient 0.25 Cd"] },
+        { "group": "Interior", "items": ["Starlight Doors with 4,796 illuminated stars", "Illuminated Fascia with over 5,500 stars", "Starlight Headliner", "Canadel Panelling wood option for the doors"] }
+      ],
+      "highlights": [
+        "Rolls-Royce's first all-electric car",
+        "102 kWh battery with WLTP range of up to 530 km",
+        "DC charging up to 195 kW: 10–80% in 34 minutes",
+        "Starlight Doors with 4,796 illuminated stars",
+        "Black Badge Spectre: 485 kW and 1,075 Nm, the highest outputs of any Rolls-Royce"
+      ],
+      "variants": [
+        {
+          "name": "Spectre",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 76200000,
+          "efficiency": "530 km (WLTP)",
+          "features": ["430 kW / 900 Nm dual-motor drive", "0–100 km/h in 4.5 s", "23-inch wheels", "Illuminated grille", "Starlight Doors"]
+        },
+        {
+          "name": "Black Badge Spectre",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 95000000,
+          "efficiency": "493 – 530 km (WLTP)",
+          "features": ["485 kW (659 PS) in Infinity Mode", "1,075 Nm in Spirited Mode; 0–60 mph in 4.1 s", "Heavier steering, retuned roll stabilisation and dampers", "23-inch five-spoke forged wheels, part-polished or black", "Illuminated grille with coloured backplate", "Dark-finish grille surround and badges", "Technical Fibre interior finish", "Illuminated Black Badge treadplates"]
+        }
+      ],
+      "sources": [
+        "https://www.autocarindia.com/cars/rolls-royce/spectre/price-in-delhi",
+        "https://www.carwale.com/news/rolls-royce-spectre-launched-in-india-at-rs-750-crore/",
+        "https://www.autocarindia.com/car-news/rolls-royce-spectre-black-badge-launched-at-rs-95-crore-435832",
+        "https://newsroom.rolls-roycemotorcars.com/rolls-royce-spectre-unveiled-the-marques-first-fully-electric-motor-car",
+        "https://newsroom.rolls-roycemotorcars.com/rolls-royce-announces-black-badge-spectre-the-alter-ego-amplified_20260727074944689",
+        "https://www.press.rolls-roycemotorcars.com/rolls-royce-motor-cars-pressclub/article/attachment/T0422818EN/650549",
+        "https://web.archive.org/web/20251023144330/https://www.rolls-roycemotorcars.com/en_GB/ownership/charging.html"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (Delhi ex-showroom page, updated 17 Nov 2026; before options). Spectre launched in India 19 Jan 2024 at ₹7.50 crore; Black Badge Spectre in June 2025 at ₹9.50 crore. Spectre Series II was revealed globally in June 2026 (WLTP up to 628 km, 1,015 Nm); Autocar India lists it as upcoming for India, so this entry is the original Spectre — update when Series II launches. Dimensions, 0-100 and 430 kW/900 Nm are Rolls-Royce's preliminary figures from the 2022 unveiling. Range 530 km WLTP is the top of the official Black Badge Spectre range (493–530 km); the 2022 preliminary figure for Spectre was 520 km — check. India-UK FTA duty cuts exclude EVs for the first five years."
+    }
+  ]
+}

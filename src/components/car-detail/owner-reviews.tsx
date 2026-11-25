@@ -19,12 +19,15 @@ import { Honeypot } from "@/components/forms/honeypot";
 import { useUI, useUser } from "@/components/providers/app-provider";
 import { useCarDetail } from "./context";
 import { ratingDistribution } from "./utils";
+import { hasOwnerRating } from "@/lib/specs";
 
 type Sort = "helpful" | "recent";
 
 /** Owner rating summary, the approved review list and a "write a review" flow (new reviews are moderated first). */
-export function OwnerReviews({ initial }: { initial: OwnerReview[] }) {
+export function OwnerReviews({ initial, standalone = false }: { initial: OwnerReview[]; standalone?: boolean }) {
   const { car, title } = useCarDetail();
+  // No owner ratings yet (e.g. a facts-only model): no score, stars or distribution — just the invitation to review.
+  const rated = hasOwnerRating(car);
   const { toast } = useUI();
   const [reviews, setReviews] = useState<OwnerReview[]>(initial);
   const [sort, setSort] = useState<Sort>("helpful");
@@ -46,12 +49,20 @@ export function OwnerReviews({ initial }: { initial: OwnerReview[] }) {
   };
 
   return (
-    <div className="mt-16 grid grid-cols-1 gap-12 md:mt-20 lg:grid-cols-12 lg:gap-10">
+    <div className={cn("grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10", !standalone && "mt-16 md:mt-20")}>
       <aside className="lg:col-span-4" aria-labelledby="owner-summary-title">
         <div className="lg:sticky lg:top-[152px]">
           <h3 id="owner-summary-title" className="type-eyebrow text-muted">
             Owner reviews
           </h3>
+          {!rated && (
+            <>
+              <p className="type-h3 mt-5">No owner ratings yet.</p>
+              <p className="mt-2 max-w-xs text-[13.5px] leading-relaxed text-muted">Ratings appear here once owners of the {car.name} review it. Reviews are checked by MarchGear before they&rsquo;re published.</p>
+            </>
+          )}
+          {rated && (
+            <>
           <p className="mt-5 flex items-baseline gap-2">
             <span className="font-display text-[clamp(3rem,2.4rem+2vw,4.25rem)] font-semibold leading-none tracking-[-0.035em] num">
               {car.rating.toFixed(1)}
@@ -86,6 +97,8 @@ export function OwnerReviews({ initial }: { initial: OwnerReview[] }) {
               <ScoreBar key={s.label} label={s.label} value={s.value} max={5} />
             ))}
           </div>
+            </>
+          )}
 
           <div className="mt-8 flex flex-col gap-4">
             <Button variant="dark" icon={<PenLine aria-hidden className="size-4" />} onClick={() => setWriting(true)} className="w-full sm:w-auto lg:w-full">

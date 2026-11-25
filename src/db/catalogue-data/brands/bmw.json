@@ -1,0 +1,3326 @@
+{
+  "brand": {
+    "slug": "bmw",
+    "name": "BMW",
+    "country": "Germany",
+    "founded": 1916,
+    "tagline": "German luxury carmaker, in India since 2006",
+    "description": "German luxury carmaker; BMW India was set up in 2006 and assembles cars at its plant in Chennai. The Indian line-up includes BMW sedans, X-series SUVs, BMW M performance models and BMW i electric cars.",
+    "isLuxury": true,
+    "website": "https://www.bmw.in"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "bmw-2-series-gran-coupe",
+      "name": "2 Series Gran Coupé",
+      "bodyType": "Sedan",
+      "bodyStyle": "Four-door coupé",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1499 cc",
+      "power": "115 kW (156 hp)",
+      "torque": "230 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 325,
+      "groundClearanceMm": 145,
+      "fuelTankL": 49,
+      "topSpeedKmh": 230,
+      "acceleration": "0–100 km/h in 8.6 s",
+      "dimensions": {
+        "length": 4546,
+        "width": 1800,
+        "height": 1445,
+        "wheelbase": 2670
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "BMW Individual Frozen Portimao Blue metallic",
+          "hex": "#1c4f9c"
+        },
+        {
+          "name": "Cape York Green metallic",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Fire Red metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "BMW Individual Frozen Pure Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Skyscraper Grey metallic",
+          "hex": "#8d8f8f"
+        },
+        {
+          "name": "Thundernight metallic",
+          "hex": "#808080"
+        },
+        {
+          "name": "M Brooklyn Grey metallic",
+          "hex": "#7f8487"
+        },
+        {
+          "name": "Black Sapphire metallic",
+          "hex": "#141619"
+        },
+        {
+          "name": "BMW Individual Tanzanite Blue",
+          "hex": "#1c2236"
+        },
+        {
+          "name": "BMW Individual Storm Bay metallic",
+          "hex": "#808080"
+        },
+        {
+          "name": "M Portimao Blue metallic",
+          "hex": "#1c4f9c"
+        },
+        {
+          "name": "Black solid",
+          "hex": "#111111"
+        },
+        {
+          "name": "Alpine White",
+          "hex": "#f3f3f1"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panorama glass roof",
+            "Seat adjustment, electric, with memory",
+            "Sport Seats for Driver & Front Passenger",
+            "Automatic air conditioning",
+            "M leather steering wheel",
+            "M headliner anthracite",
+            "Comfort access system",
+            "Del. Contactless Actuation Tailgate"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Interior camera",
+            "HiFi Loudspeaker System Harman Kardon",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Wireless charging tray",
+            "Personal eSIM",
+            "BMW Live Cockpit Plus",
+            "Head-Up Display",
+            "BMW Live Cockpit Professional"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "High-beam assistant",
+            "Driving Assistant",
+            "Parking Assistant",
+            "Tyre pressure monitoring system",
+            "Interior and exterior mirror package",
+            "Interior rear-view mirror with automatic anti-dazzle function",
+            "Adaptive LED headlights",
+            "Active pedestrians safety",
+            "Parking Assistant Plus"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "M Sport Package",
+            "Equipment package",
+            "18“ M light alloy wheels Y-spoke style 975 M Bicolour",
+            "M high-gloss Shadowline",
+            "Equipment package Professional",
+            "BMW kidney Iconic Glow",
+            "BMW Individual High-Gloss Shadow Line with Exterior Contents"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Veganza perforated | Mocha",
+            "Veganza perforated | Coral Red/Black",
+            "Econeer | Bicolour Blue",
+            "Cloth 'Arktur' | Anthracite",
+            "Veganza perforated | Oyster",
+            "Veganza perforated | Black",
+            "M Alcantara/Veganza combination | Black/contrast stitching Blue"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Standard Suspension",
+            "Performance Control",
+            "Steptronic transmission with gearshift paddles"
+          ]
+        }
+      ],
+      "highlights": [
+        "218 M Sport and 218 M Sport Pro versions",
+        "1.5-litre three-cylinder petrol engine, 115 kW (156 hp) and 230 Nm",
+        "7-speed Steptronic transmission, front-wheel drive",
+        "Head-Up Display on the M Sport Pro"
+      ],
+      "variants": [
+        {
+          "name": "218 M Sport",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "7-speed Steptronic",
+          "price": 4580000,
+          "efficiency": null,
+          "features": [
+            "115 kW (156 hp), 230 Nm",
+            "Front-wheel drive",
+            "M Sport Package",
+            "Equipment package",
+            "18“ M light alloy wheels Y-spoke style 975 M Bicolour",
+            "Interior camera",
+            "HiFi Loudspeaker System Harman Kardon",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Wireless charging tray"
+          ]
+        },
+        {
+          "name": "218 M Sport Pro",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "7-speed Steptronic",
+          "price": 4890000,
+          "efficiency": null,
+          "features": [
+            "115 kW (156 hp), 230 Nm",
+            "Front-wheel drive",
+            "M Sport Package",
+            "Equipment package Professional",
+            "18“ M light alloy wheels Y-spoke style 975 M Bicolour",
+            "Interior camera",
+            "Head-Up Display",
+            "HiFi Loudspeaker System Harman Kardon",
+            "Intelligent Emergency Call",
+            "Teleservices"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/2-series/2-series-gran-coupe/bmw-2-series-gran-coupe.html",
+        "https://configure.bmw.in/en_IN/configure/F74/17GGZK9N",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Prices from the BMW India configurator (ex-showroom, one all-India price). ARAI mileage not published by BMW India."
+    },
+    {
+      "slug": "bmw-3-series-lwb",
+      "name": "3 Series Long Wheelbase",
+      "bodyType": "Sedan",
+      "bodyStyle": "Long-wheelbase sedan",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1995 – 1998 cc",
+      "power": "140 – 190 kW (190 – 258 hp)",
+      "torque": "400 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 480,
+      "groundClearanceMm": 130,
+      "fuelTankL": 59,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 6.2–7.6 s",
+      "dimensions": {
+        "length": 4823,
+        "width": 1827,
+        "height": 1441,
+        "wheelbase": 2961
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "M Carbon Black metallic",
+          "hex": "#1c1f26"
+        },
+        {
+          "name": "Skyscraper Grey metallic",
+          "hex": "#8d8f8f"
+        },
+        {
+          "name": "Mineral White Metallic",
+          "hex": "#e9e9e4"
+        },
+        {
+          "name": "M Brooklyn Grey metallic",
+          "hex": "#7f8487"
+        },
+        {
+          "name": "Snapper Rocks Blue metallic",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Arctic Race Blue Metallic",
+          "hex": "#3e7fbf"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panorama glass roof",
+            "Seat adjustment, electric, with memory",
+            "Glass Application 'Crafted Clarity' for Interiors",
+            "Luxury instrument panel",
+            "Galvanic embellisher for controls",
+            "Ambient light",
+            "Automatic air conditioning",
+            "M leather steering wheel",
+            "Automatic operation of tailgate",
+            "Comfort access system",
+            "Storage compartment package"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Harman Kardon surround sound system",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Connected Drive Services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Wireless charging tray",
+            "BMW Live Cockpit Plus",
+            "Widescreen display"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Park Distance Control (pdc)",
+            "Cruise control with braking function",
+            "High-beam assistant",
+            "Driving Assistant",
+            "Parking Assistant Plus",
+            "Tyre pressure monitoring system",
+            "Interior and exterior mirror package",
+            "Interior rear-view mirror with automatic anti-dazzle function",
+            "Adaptive LED headlights",
+            "Active pedestrians safety"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "18\" Light Alloy Wheels 848 M Double Spoke",
+            "Exterior Line Satin Aluminium",
+            "M aerodynamics package"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Leather Vernasca Cognac Decor Stitching",
+            "Leather 'Vernasca' | Oyster decor stitching",
+            "LEATHER VERNASCA MOCHA DECOR STITCHING | BLACK",
+            "Sensatec perforated | Tacora Red decor stitching",
+            "Sensatec perforated | Black/contrast stitching Blue",
+            "Sensatec perforated | Tacora Red/Black decor stitching",
+            "Sensatec perforated | Mocha decor stitching"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "8-Speed Steptronic Automatic Transmission",
+            "Larger-capacity fuel tank"
+          ]
+        }
+      ],
+      "highlights": [
+        "330Li petrol and 320Ld diesel versions, both in M Sport trim",
+        "2,961 mm wheelbase",
+        "8-speed Steptronic automatic, rear-wheel drive",
+        "Harman Kardon surround sound system"
+      ],
+      "variants": [
+        {
+          "name": "330Li M Sport",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 6370000,
+          "efficiency": null,
+          "features": [
+            "190 kW (258 hp), 400 Nm",
+            "Rear-wheel drive",
+            "18\" Light Alloy Wheels 848 M Double Spoke",
+            "Harman Kardon surround sound system",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Connected Drive Services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Wireless charging tray"
+          ]
+        },
+        {
+          "name": "320Ld M Sport",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 6520000,
+          "efficiency": null,
+          "features": [
+            "140 kW (190 hp), 400 Nm",
+            "Rear-wheel drive",
+            "18\" Light Alloy Wheels 848 M Double Spoke",
+            "Harman Kardon surround sound system",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Connected Drive Services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Wireless charging tray"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/3-series/bmw-3-series-long-wheelbase.html",
+        "https://configure.bmw.in/en_IN/configure/G28/27FHZJG7",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Prices from the BMW India configurator (ex-showroom, one all-India price). ARAI mileage not published by BMW India."
+    },
+    {
+      "slug": "bmw-3-series",
+      "name": "3 Series (M340i xDrive)",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2998 cc",
+      "power": "275 kW (374 hp)",
+      "torque": null,
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 4.4 s",
+      "dimensions": null,
+      "ev": null,
+      "colors": [],
+      "features": [],
+      "highlights": [
+        "M340i xDrive with a six-cylinder petrol engine",
+        "275 kW (374 hp)",
+        "0–100 km/h in 4.4 s",
+        "xDrive all-wheel drive with M Sport differential"
+      ],
+      "variants": [
+        {
+          "name": "M340i xDrive",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 7780000,
+          "efficiency": null,
+          "features": [
+            "275 kW (374 hp)",
+            "xDrive all-wheel drive"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/3-series/sedan/2022/bmw-3-series-sedan-overview.html",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Price is the 'starting at' figure on the official 3 Series page (Rs 77.80 lakh), which matches the last BMW India configurator price (valid to 31 Oct 2026); the configurator currently has no live price for the M340i, so check it is still on sale. Engine size is the BMW figure for the same B58 engine in other models. Other specs not published on the page."
+    },
+    {
+      "slug": "bmw-5-series",
+      "name": "5 Series Long Wheelbase",
+      "bodyType": "Sedan",
+      "bodyStyle": "Long-wheelbase sedan",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1998 cc",
+      "power": "190 kW (258 hp)",
+      "torque": "400 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 500,
+      "groundClearanceMm": 152,
+      "fuelTankL": 60,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 6.5 s",
+      "dimensions": {
+        "length": 5175,
+        "width": 1900,
+        "height": 1520,
+        "wheelbase": 3105
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "M Carbon Black metallic",
+          "hex": "#1c1f26"
+        },
+        {
+          "name": "BMW Individual Frozen Pure Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Aventurine Red metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "Sparkling Copper Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Mineral White Metallic",
+          "hex": "#e9e9e4"
+        },
+        {
+          "name": "Oxide Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Black Sapphire metallic",
+          "hex": "#141619"
+        },
+        {
+          "name": "Phytonic Blue metallic",
+          "hex": "#1c2f4d"
+        },
+        {
+          "name": "BMW Individual Aventurine Red Metallic",
+          "hex": "#9b1b24"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panorama glass roof Sky Lounge",
+            "Active seat ventilation for driver and front passenger",
+            "Comfort Seating for Driver and Front Passenger",
+            "Seat adjustment, electric, for driver and front passenger, with memory function for driver",
+            "Glass Application 'Crafted Clarity' for Interiors",
+            "Automatic Air Conditioning with 4-Zone Control",
+            "Ambient light",
+            "M leather steering wheel",
+            "Automatic operation of tailgate",
+            "Comfort access system",
+            "Travel & Comfort system",
+            "Electric Seat Adjustment in Front with Memory Function for Driver",
+            "Del. Contactless Actuation Tailgate"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Interior camera",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Connected Drive Services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Bowers & Wilkins surround sound system",
+            "Wireless charging tray",
+            "Personal eSIM",
+            "BMW Live Cockpit Plus",
+            "Bowers & Wilkins Surround Sound S."
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Driving Assistant",
+            "Driving Assistant Plus",
+            "Parking Assistant Professional",
+            "Tyre pressure monitoring system",
+            "Expanded Exterior Mirror Package",
+            "Adaptive LED headlights",
+            "Active Protection",
+            "Active protection for pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "M Sport exterior",
+            "19\" M light alloy wheels Double-spoke style 935 M Bicolour Black Grey",
+            "Welcome Light Carpet",
+            "BMW kidney Iconic Glow",
+            "Exterior Line Titanium Bronze",
+            "19\" M Alloy Wheels 935 W/dual-Spoke Bi-Colour Black Grey",
+            "Exterior Line Aluminium Satinated"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Veganza perforated and quilted | Copper Brown/Atlas Grey",
+            "Veganza perforated and quilted | Black/Burgundy",
+            "Veganza perforated and quilted | Maritime/Black",
+            "Veganza perforated | Copper Brown",
+            "Veganza perforated | Espresso Brown",
+            "Veganza Perforated/quilting Copper Brown/atlas Grey",
+            "VEGANZA PERFORATED/QUILTING MARITIME/BLACK"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Steptronic automatic transmission with gearshift paddles",
+            "Automatic Transmission with Gearshift"
+          ]
+        }
+      ],
+      "highlights": [
+        "530Li M Sport with a 2.0-litre four-cylinder petrol engine, 190 kW (258 hp)",
+        "3,105 mm wheelbase",
+        "Bowers & Wilkins surround sound system",
+        "Offered with Titanium Bronze or Aluminium Satinated exterior line"
+      ],
+      "variants": [
+        {
+          "name": "530Li M Sport Titanium Bronze",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 7660000,
+          "efficiency": null,
+          "features": [
+            "190 kW (258 hp), 400 Nm",
+            "Rear-wheel drive",
+            "M Sport exterior",
+            "19\" M light alloy wheels Double-spoke style 935 M Bicolour Black Grey",
+            "Interior camera",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Connected Drive Services",
+            "Connected package Professional",
+            "Smartphone Integration"
+          ]
+        },
+        {
+          "name": "530Li M Sport Aluminium Satinated",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 7700000,
+          "efficiency": null,
+          "features": [
+            "190 kW (258 hp), 400 Nm",
+            "Rear-wheel drive",
+            "M Sport Exterior",
+            "19\" M Alloy Wheels 935 W/dual-Spoke Bi-Colour Black Grey",
+            "Interior camera",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Connected Drive Services",
+            "Connected package Professional",
+            "Smartphone Integration"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/5-series/sedan/bmw-5-series-sedan-g68.html",
+        "https://configure.bmw.in/en_IN/configure/G68/27FMZK8N",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Prices from the BMW India configurator (ex-showroom, one all-India price). ARAI mileage not published by BMW India."
+    },
+    {
+      "slug": "bmw-i5-lwb",
+      "name": "i5 Long Wheelbase",
+      "bodyType": "Sedan",
+      "bodyStyle": "Long-wheelbase sedan",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor",
+      "power": "200 kW (272 hp)",
+      "torque": "410 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 460,
+      "groundClearanceMm": 164,
+      "fuelTankL": null,
+      "topSpeedKmh": 195,
+      "acceleration": "0–100 km/h in 6.7 s",
+      "dimensions": {
+        "length": 5175,
+        "width": 1900,
+        "height": 1535,
+        "wheelbase": 3105
+      },
+      "ev": {
+        "rangeKm": 669,
+        "rangeStandard": "MIDC P1+P2",
+        "batteryKwh": 76.3,
+        "dcCharge": "33 min (10–80%, up to 160 kW)",
+        "acCharge": "8 h 15 min (0–100%, 11 kW)",
+        "motorKw": 200
+      },
+      "colors": [
+        {
+          "name": "M Carbon Black metallic",
+          "hex": "#1c1f26"
+        },
+        {
+          "name": "BMW Individual Frozen Pure Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Aventurine Red metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "Sparkling Copper Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Mineral White metallic",
+          "hex": "#e9e9e4"
+        },
+        {
+          "name": "Oxide Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Black Sapphire metallic",
+          "hex": "#141619"
+        },
+        {
+          "name": "Phytonic Blue metallic",
+          "hex": "#1c2f4d"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panorama glass roof Sky Lounge",
+            "Active seat ventilation for driver and front passenger",
+            "Comfort seats for driver and front passenger, electrically adjustable",
+            "Seat adjustment, electric, for driver and front passenger, with memory function for driver",
+            "Glass application 'CraftedClarity' for interior elements",
+            "Automatic air conditioning with 4-zone control",
+            "Ambient light",
+            "M leather steering wheel",
+            "Automatic operation of tailgate",
+            "Comfort access system",
+            "Travel & Comfort system"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Interior camera",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Bowers & Wilkins surround sound system",
+            "Wireless charging tray",
+            "Personal eSIM",
+            "BMW Live Cockpit Plus"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Driving Assistant",
+            "Driving Assistant Plus",
+            "Parking Assistant Professional",
+            "Tyre pressure monitoring system",
+            "Expanded exterior mirror package",
+            "Acoustic protection for pedestrians",
+            "Adaptive LED headlights",
+            "Active Protection",
+            "Active protection for pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "M Sport exterior",
+            "20\" M aerodynamic wheels 939 M Bicolour Black Grey with mixed tyres",
+            "Welcome Light Carpet",
+            "BMW kidney Iconic Glow",
+            "Exterior Line Satin Aluminium"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Veganza perforated and quilted | Copper Brown/Atlas Grey",
+            "Veganza perforated and quilted | Black/Burgundy",
+            "Veganza perforated and quilted | Maritime/Black",
+            "Veganza perforated | Copper Brown",
+            "Veganza perforated | Espresso Brown",
+            "BMW Individual leather 'Merino' | Copper Brown/Atlas Grey",
+            "BMW Individual leather 'Merino' | Black/Atlas Grey"
+          ]
+        }
+      ],
+      "highlights": [
+        "Long-wheelbase electric sedan assembled in India",
+        "200 kW (272 hp) rear-mounted motor",
+        "76.3 kWh battery (net) with DC charging at up to 160 kW",
+        "Claimed range up to 669 km (MIDC)"
+      ],
+      "variants": [
+        {
+          "name": "i5 eDrive35L M Sport Aluminium Satinated",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 7960000,
+          "efficiency": "669 km",
+          "features": [
+            "200 kW (272 hp), 410 Nm",
+            "Rear-wheel drive",
+            "M Sport exterior",
+            "20\" M aerodynamic wheels 939 M Bicolour Black Grey with mixed tyres",
+            "Interior camera",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration"
+          ]
+        },
+        {
+          "name": "i5 eDrive35L M Sport Titanium Bronze",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 7960000,
+          "efficiency": "669 km",
+          "features": [
+            "200 kW (272 hp), 410 Nm",
+            "Rear-wheel drive",
+            "M Sport exterior",
+            "20\" M aerodynamic wheels 939 M Bicolour Black Grey with mixed tyres",
+            "Interior camera",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/bmw-i-series/i5/bmw-i5-overview.html",
+        "https://configure.bmw.in/en_IN/configure/G68/77FMZLI1",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Prices from the BMW India configurator (ex-showroom, one all-India price). Range from the official i5 LWB page (MIDC Part 1 + Part 2)."
+    },
+    {
+      "slug": "bmw-i5",
+      "name": "i5 M60 xDrive",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor",
+      "power": "601 hp",
+      "torque": "795 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 230,
+      "acceleration": "0–100 km/h in 3.8 s",
+      "dimensions": null,
+      "ev": {
+        "rangeKm": 516,
+        "rangeStandard": "WLTP",
+        "batteryKwh": 81.2,
+        "dcCharge": null,
+        "acCharge": "Up to 11 kW AC (22 kW optional)",
+        "motorKw": null
+      },
+      "colors": [],
+      "features": [],
+      "highlights": [
+        "Imported as a fully built unit (CBU)",
+        "601 hp and 795 Nm, xDrive all-wheel drive",
+        "81.2 kWh battery (usable); claimed range up to 516 km (WLTP)",
+        "0–100 km/h in 3.8 s"
+      ],
+      "variants": [
+        {
+          "name": "i5 M60 xDrive",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 11950000,
+          "efficiency": "516 km",
+          "features": [
+            "601 hp, 795 Nm",
+            "xDrive all-wheel drive"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/m-series/bmw-i5-m60/bmw-i5-m60xdrive-overview.html",
+        "https://www.press.bmwgroup.com/india/article/detail/T0441441EN/a-higher-power-the-first-ever-all-electric-bmw-i5-m60-xdrive-launched-in-india",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Price Rs 1,19,50,000 is from the BMW India launch press release and was the last BMW India configurator price; the configurator currently has no live price for the i5 M60, although it is still listed on bmw.in, so check it is still on sale. Specs from the press release and official page."
+    },
+    {
+      "slug": "bmw-7-series",
+      "name": "7 Series",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2998 cc",
+      "power": "294 kW (400 hp)",
+      "torque": "580 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 540,
+      "groundClearanceMm": 152,
+      "fuelTankL": 74,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 5.4 s",
+      "dimensions": {
+        "length": 5395,
+        "width": 1950,
+        "height": 1550,
+        "wheelbase": 3215
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "BMW Individual Frozen Deep Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Aventurine Red metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "M Brooklyn Grey metallic",
+          "hex": "#7f8487"
+        },
+        {
+          "name": "Oxide Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Black Sapphire metallic",
+          "hex": "#141619"
+        },
+        {
+          "name": "BMW Individual Tanzanite Blue metallic",
+          "hex": "#1c2236"
+        },
+        {
+          "name": "BMW Individual Dravit Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "BMW Individual Frozen Tanzanite Blue metallic",
+          "hex": "#1c2236"
+        },
+        {
+          "name": "M Carbon Black metallic",
+          "hex": "#1c1f26"
+        },
+        {
+          "name": "Mineral White metallic",
+          "hex": "#e9e9e4"
+        },
+        {
+          "name": "Alpine White solid",
+          "hex": "#f3f3f1"
+        },
+        {
+          "name": "Vancouver Green",
+          "hex": "#2f5a44"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Steering wheel heating",
+            "Comfort glazing",
+            "Panorama glass roof Sky Lounge",
+            "Roller sunblinds",
+            "Active seat ventilation for driver and front passenger",
+            "Active seat ventilation for rear-seat passengers",
+            "Seat adjustment, electric, for driver and front passenger, with memory function for driver",
+            "Multifunctional seats for rear-seat passengers",
+            "Seat heating for driver and front passenger",
+            "Glass application 'CraftedClarity' for interior elements",
+            "Executive Lounge Seating",
+            "Executive Lounge rear console",
+            "Multifunctional seats for driver and front passenger",
+            "Seat heating front and rear",
+            "Automatic air conditioning with 4-zone control",
+            "Massage function for rear-seat passengers",
+            "Massage function for driver and front passenger",
+            "Ambient light",
+            "M leather steering wheel",
+            "M headliner anthracite",
+            "Automatic operation of tailgate",
+            "Comfort access system",
+            "Soft-Close function for doors",
+            "Automatic Doors",
+            "Through-loading system",
+            "Travel & Comfort system"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Bowers & Wilkins Diamond surround sound system",
+            "Rear-seat entertainment Experience"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "High-beam assistant",
+            "Driving Assistant Plus",
+            "Parking Assistant Professional",
+            "Tyre pressure monitoring system",
+            "Expanded exterior mirror package",
+            "Adaptive LED headlights",
+            "Active Protection",
+            "Active protection for pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "M Sport exterior",
+            "20\" light alloy wheels Star-spoke style 905 Bicolour with mixed tyres",
+            "BMW crystal headlights Iconic Glow",
+            "BMW kidney Iconic Glow",
+            "Exterior Line Satin Aluminium"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "BMW Individual leather 'Merino' | Tartufo",
+            "BMW Individual leather 'Merino' with exclusive contents | Mocha",
+            "BMW Individual leather 'Merino' / wool/Cashmere combination with exclusive contents | Black/Grey",
+            "BMW Individual leather 'Merino' | Mocha",
+            "Veganza | Mocha",
+            "BMW Individual leather 'Merino' with exclusive contents | Black",
+            "BMW Individual leather 'Merino' with exclusive contents | Tartufo",
+            "BMW Individual leather 'Merino' with exclusive elements | Caramel/Atlas Grey",
+            "BMW Individual leather 'Merino' | Black",
+            "BMW Individual leather 'Merino' with exclusive contents | Smoke White",
+            "BMW Individual leather 'Merino' / wool/Cashmere combination with exclusive contents | Smoke White/Light Grey",
+            "BMW Individual leather 'Merino' | Smoke White",
+            "Veganza | Black",
+            "Veganza | Cognac",
+            "BMW Individual leather 'Merino' | Black/Atlas Grey"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Integral Active Steering",
+            "M Sport brake, dark blue metallic",
+            "Steptronic Sport automatic transmission"
+          ]
+        }
+      ],
+      "highlights": [
+        "740 M Sport with a 3.0-litre six-cylinder petrol engine, 294 kW (400 hp)",
+        "Executive Lounge seating and rear-seat entertainment",
+        "Bowers & Wilkins Diamond surround sound system",
+        "Integral Active Steering"
+      ],
+      "variants": [
+        {
+          "name": "740 M Sport",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 19500000,
+          "efficiency": null,
+          "features": [
+            "294 kW (400 hp), 580 Nm",
+            "Rear-wheel drive",
+            "M Sport exterior",
+            "20\" light alloy wheels Star-spoke style 905 Bicolour with mixed tyres",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Bowers & Wilkins Diamond surround sound system",
+            "Rear-seat entertainment Experience",
+            "High-beam assistant",
+            "Driving Assistant Plus"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/7-series/sedan/bmw-7-series-sedan.html",
+        "https://configure.bmw.in/en_IN/configure/G70/57HZZLLS",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Prices from the BMW India configurator (ex-showroom, one all-India price). ARAI mileage not published by BMW India."
+    },
+    {
+      "slug": "bmw-i7",
+      "name": "i7",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor",
+      "power": "335 – 500 kW (455 – 680 hp)",
+      "torque": "660 – 1015 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 500,
+      "groundClearanceMm": 145,
+      "fuelTankL": null,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 3.8–5.5 s",
+      "dimensions": {
+        "length": 5395,
+        "width": 1950,
+        "height": 1558,
+        "wheelbase": 3215
+      },
+      "ev": {
+        "rangeKm": 728,
+        "rangeStandard": "WLTP",
+        "batteryKwh": 111.4,
+        "dcCharge": "28 min (10–80%, up to 250 kW)",
+        "acCharge": "5 h 45 min (0–100%, 22 kW)",
+        "motorKw": 500
+      },
+      "colors": [
+        {
+          "name": "BMW Individual Frozen Deep Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Aventurine Red metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "M Brooklyn Grey metallic",
+          "hex": "#7f8487"
+        },
+        {
+          "name": "Oxide Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Black Sapphire metallic",
+          "hex": "#141619"
+        },
+        {
+          "name": "BMW Individual Tanzanite Blue metallic",
+          "hex": "#1c2236"
+        },
+        {
+          "name": "BMW Individual Dravit Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "BMW Individual Frozen Tanzanite Blue metallic",
+          "hex": "#1c2236"
+        },
+        {
+          "name": "M Carbon Black metallic",
+          "hex": "#1c1f26"
+        },
+        {
+          "name": "Mineral White metallic",
+          "hex": "#e9e9e4"
+        },
+        {
+          "name": "Alpine White solid",
+          "hex": "#f3f3f1"
+        },
+        {
+          "name": "Vancouver Green",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "BMW Individual Dual-Finish Frozen Tanzanite Blue III",
+          "hex": "#1c2236"
+        },
+        {
+          "name": "BMW Individual Two-Tone Dravit Grey with Oxide Grey II",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "BMW Individual Two-Tone Sapphire Black Metallic with Oxide",
+          "hex": "#141619"
+        },
+        {
+          "name": "BMW Individual Two-Tone Dravit Grey metallic with Sapphire",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "BMW Individual Two-Tone Tanzanite Blue II Metallic with",
+          "hex": "#1c2236"
+        },
+        {
+          "name": "BMW Individual Two-Tone Aventurine Red III Metallic with",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "BMW Individual Two-Tone Vancouver Green metallic with",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "BMW Individual Two-Tone Oxide Grey II Metallic with",
+          "hex": "#7a7d80"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Steering wheel heating",
+            "Comfort glazing",
+            "Panorama glass roof Sky Lounge",
+            "Roller sunblinds",
+            "Active seat ventilation for driver and front passenger",
+            "Active seat ventilation for rear-seat passengers",
+            "Seat adjustment, electric, for driver and front passenger, with memory function for driver",
+            "Multifunctional seats for rear-seat passengers",
+            "Seat heating for driver and front passenger",
+            "Glass application 'CraftedClarity' for interior elements",
+            "Executive Lounge Seating",
+            "Executive Lounge rear console",
+            "Multifunctional seats for driver and front passenger",
+            "Seat heating front and rear",
+            "Automatic air conditioning with 4-zone control",
+            "Massage function for rear-seat passengers",
+            "Massage function for driver and front passenger",
+            "Ambient light",
+            "M leather steering wheel",
+            "M headliner anthracite",
+            "Automatic operation of tailgate",
+            "Comfort access system",
+            "Soft-Close function for doors",
+            "Automatic Doors",
+            "Through-loading system",
+            "Travel & Comfort system",
+            "Heat Comfort package"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Bowers & Wilkins Diamond surround sound system",
+            "Rear-seat entertainment Experience"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "High-beam assistant",
+            "Driving Assistant Plus",
+            "Parking Assistant Professional",
+            "Tyre pressure monitoring system",
+            "Expanded exterior mirror package",
+            "Acoustic protection for pedestrians",
+            "Adaptive LED headlights",
+            "Active Protection",
+            "Active protection for pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "M Sport exterior",
+            "20\" light alloy wheels Star-spoke style 905 Bicolour with mixed tyres",
+            "BMW crystal headlights Iconic Glow",
+            "BMW kidney Iconic Glow",
+            "Exterior Line Satin Aluminium",
+            "21\" BMW Individual light alloy wheels Multi-spoke style 1055 I Bicolour with mixed tyres",
+            "M lights Shadowline",
+            "M rear spoiler",
+            "M high-gloss Shadowline",
+            "M high-gloss Shadowline with extended contents"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "BMW Individual leather 'Merino' | Tartufo",
+            "BMW Individual leather 'Merino' with exclusive contents | Mocha",
+            "BMW Individual leather 'Merino' / wool/Cashmere combination with exclusive contents | Black/Grey",
+            "BMW Individual leather 'Merino' | Mocha",
+            "Veganza | Mocha",
+            "BMW Individual leather 'Merino' with exclusive contents | Black",
+            "BMW Individual leather 'Merino' with exclusive contents | Tartufo",
+            "BMW Individual leather 'Merino' with exclusive elements | Caramel/Atlas Grey",
+            "BMW Individual leather 'Merino' | Black",
+            "BMW Individual leather 'Merino' with exclusive contents | Smoke White",
+            "BMW Individual leather 'Merino' / wool/Cashmere combination with exclusive contents | Smoke White/Light Grey",
+            "BMW Individual leather 'Merino' | Smoke White",
+            "Veganza | Black",
+            "Veganza | Cognac",
+            "BMW Individual leather 'Merino' | Black/Atlas Grey"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Integral Active Steering",
+            "M Sport brake, dark blue metallic",
+            "BMW IconicSounds Electric",
+            "AC charging Professional",
+            "M Sport brake, black high-gloss"
+          ]
+        }
+      ],
+      "highlights": [
+        "i7 50 xDrive (335 kW) and i7 M70 xDrive (500 kW) versions",
+        "111.4 kWh battery (net) with DC charging at up to 250 kW",
+        "Claimed range up to 728 km (WLTP)",
+        "Executive Lounge seating and rear-seat entertainment"
+      ],
+      "variants": [
+        {
+          "name": "i7 50 xDrive M Sport",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 19500000,
+          "efficiency": null,
+          "features": [
+            "335 kW (455 hp), 660 Nm",
+            "xDrive all-wheel drive",
+            "M Sport exterior",
+            "20\" light alloy wheels Star-spoke style 905 Bicolour with mixed tyres",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Bowers & Wilkins Diamond surround sound system",
+            "Rear-seat entertainment Experience",
+            "High-beam assistant",
+            "Driving Assistant Plus"
+          ]
+        },
+        {
+          "name": "i7 M70 xDrive",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 26500000,
+          "efficiency": null,
+          "features": [
+            "500 kW (680 hp), 1015 Nm",
+            "xDrive all-wheel drive",
+            "21\" BMW Individual light alloy wheels Multi-spoke style 1055 I Bicolour with mixed tyres",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Bowers & Wilkins Diamond surround sound system",
+            "Rear-seat entertainment Experience",
+            "High-beam assistant",
+            "Driving Assistant Plus",
+            "Parking Assistant Professional"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/7-series/sedan/bmw-i7-sedan.html",
+        "https://configure.bmw.in/en_IN/configure/G70/67HYZLLV",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Prices from the BMW India configurator (ex-showroom, one all-India price). The official page quotes up to 728 km (WLTP) without naming the variant, so per-variant range is left blank."
+    },
+    {
+      "slug": "bmw-m5",
+      "name": "M5",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "4395 cc + electric motor",
+      "power": "535 kW (727 hp)",
+      "torque": "1000 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 466,
+      "groundClearanceMm": 115,
+      "fuelTankL": 60,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 3.5 s",
+      "dimensions": {
+        "length": 5096,
+        "width": 1970,
+        "height": 1510,
+        "wheelbase": 3006
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Fire Red metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "BMW Individual Frozen Deep Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "M Brooklyn Grey metallic",
+          "hex": "#7f8487"
+        },
+        {
+          "name": "M Isle of Man Green metallic",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Black Sapphire",
+          "hex": "#141619"
+        },
+        {
+          "name": "BMW Individual Storm Bay metallic",
+          "hex": "#808080"
+        },
+        {
+          "name": "M Carbon Black metallic",
+          "hex": "#1c1f26"
+        },
+        {
+          "name": "Sophisto Grey brilliant effect metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "M Marina Bay Blue metallic",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Alpine White solid",
+          "hex": "#f3f3f1"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Active seat ventilation for driver and front passenger",
+            "Electric Seat Adjustment in Front with Memory Function for Driver",
+            "Lumbar Support for Driver & Front Passenger",
+            "Seat Heating for Driver & Front Passenger",
+            "M seat belts",
+            "M multifunctional seats for driver and front passenger",
+            "Automatic Air Conditioning with 4-Zone Control",
+            "Ambient light",
+            "M headliner anthracite",
+            "Automatic operation of tailgate",
+            "Comfort access system",
+            "Travel & Comfort system"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Interior camera",
+            "Teleservices",
+            "Legal emergency call",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Bowers & Wilkins surround sound system",
+            "Wireless charging tray",
+            "Personal eSIM",
+            "BMW Live Cockpit Professional"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Driving Assistant",
+            "Parking Assistant Plus",
+            "Tyre pressure monitoring system",
+            "Acoustic protection for pedestrians",
+            "Adaptive LED headlights",
+            "Active protection for pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "20\"/21\" M light alloy wheels Double-spoke style 951 M Bicolour Midnight Grey with mixed tyres",
+            "BMW Iconic Glow exterior package",
+            "M lights Shadowline",
+            "M carbon exterior package",
+            "M high-gloss Shadowline",
+            "M High-Gloss Shadow Line with Exterior Contents"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Leather 'Merino' | Red/Black",
+            "LEATHER ‘MERINO’ WITH EXTENDED CONTENTS BLACK | BLACK",
+            "BMW Individual leather 'Merino' | Black/Dark Violet",
+            "BMW Individual leather 'Merino' | Taupe Grey/Deep Lagoon",
+            "LEATHER 'MERINO' WITH EXTENDED CONTENTS KYALAMI ORANGE | BLACK",
+            "LEATHER 'MERINO' WITH EXTENDED CONTENTS SILVERSTONE | BLACK"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Adaptive suspension",
+            "M Sport differential",
+            "M compound brake, red high-gloss",
+            "BMW IconicSounds Electric",
+            "AC charging Plus",
+            "Steptronic Sport automatic transmission"
+          ]
+        }
+      ],
+      "highlights": [
+        "Plug-in hybrid with a 4.4-litre V8 petrol engine and an electric motor",
+        "System output 535 kW (727 hp) and 1,000 Nm",
+        "0–100 km/h in 3.5 s",
+        "Imported as a fully built unit (CBU)"
+      ],
+      "variants": [
+        {
+          "name": "M5",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 21150000,
+          "efficiency": null,
+          "features": [
+            "535 kW (727 hp), 1000 Nm",
+            "xDrive all-wheel drive",
+            "20\"/21\" M light alloy wheels Double-spoke style 951 M Bicolour Midnight Grey with mixed tyres",
+            "Interior camera",
+            "Teleservices",
+            "Legal emergency call",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Bowers & Wilkins surround sound system"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/m-series/m5-series/2024/bmw-m5-sedan.html",
+        "https://configure.bmw.in/en_IN/configure/G90/82FK",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Prices from the BMW India configurator (ex-showroom, one all-India price). ARAI mileage not published by BMW India."
+    },
+    {
+      "slug": "bmw-m2",
+      "name": "M2 Coupé",
+      "bodyType": "Coupe",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2993 cc",
+      "power": "353 kW (480 hp)",
+      "torque": "600 Nm",
+      "seats": [
+        4
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 390,
+      "groundClearanceMm": 123,
+      "fuelTankL": 52,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 4 s",
+      "dimensions": {
+        "length": 4580,
+        "width": 1887,
+        "height": 1403,
+        "wheelbase": 2747
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "BMW Individual Frozen Portimao Blue metallic",
+          "hex": "#1c4f9c"
+        },
+        {
+          "name": "M Zandvoort Blue solid",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Fire Red metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "BMW Individual Frozen Pure Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Skyscraper Grey metallic",
+          "hex": "#8d8f8f"
+        },
+        {
+          "name": "M Brooklyn Grey metallic",
+          "hex": "#7f8487"
+        },
+        {
+          "name": "M Sao Paulo Yellow solid",
+          "hex": "#e2b51b"
+        },
+        {
+          "name": "Black Sapphire",
+          "hex": "#141619"
+        },
+        {
+          "name": "M Portimao Blue metallic",
+          "hex": "#1c4f9c"
+        },
+        {
+          "name": "Alpine White solid",
+          "hex": "#f3f3f1"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "M highlighters, illuminated",
+            "Electric Seat Adjustment in Front with Memory Function for Driver",
+            "Lumbar Support for Driver & Front Passenger",
+            "M seat belts",
+            "Ambient light",
+            "Automatic air conditioning",
+            "M Sport seats",
+            "M headliner anthracite",
+            "Comfort access system",
+            "Through-loading system",
+            "Storage compartment package"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Harman Kardon surround sound system",
+            "Teleservices",
+            "Legal emergency call",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Wireless charging tray",
+            "BMW Live Cockpit Professional"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Cruise control with braking function",
+            "High-Beam Assistance",
+            "Parking Assistant",
+            "Tyre pressure monitoring system",
+            "Interior and Exterior Mirror Package",
+            "Interior Rear-View Mirror with Automatic Anti-Dazzle Function",
+            "Adaptive LED headlights",
+            "Active Guard Plus",
+            "Active protection for pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "19\"/ 20\" M light alloy wheels Double-spoke style 930 M Jet Black with mixed tyres",
+            "M high-gloss Shadowline"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Leather 'Vernasca' | Black/Red highlight",
+            "LEATHER 'VERNASCA' BLACK/CONTRAST STITCHING BLUE",
+            "LEATHER 'VERNASCA' BLACK/EXCLUSIVE HIGHLIGHT",
+            "Alcantara/Sensatec combination | Black/contrast stitching Blue",
+            "Full leather 'Merino' | Black/exclusive highlight"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "M Drive Professional",
+            "M Drive",
+            "M Sport differential",
+            "Adaptive M Suspension",
+            "Steptronic Sport automatic transmission"
+          ]
+        }
+      ],
+      "highlights": [
+        "3.0-litre six-cylinder petrol engine, 353 kW (480 hp) and 600 Nm",
+        "8-speed automatic, rear-wheel drive",
+        "Imported as a fully built unit (CBU)"
+      ],
+      "variants": [
+        {
+          "name": "M2 Coupé",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 10650000,
+          "efficiency": null,
+          "features": [
+            "353 kW (480 hp), 600 Nm",
+            "Rear-wheel drive",
+            "19\"/ 20\" M light alloy wheels Double-spoke style 930 M Jet Black with mixed tyres",
+            "Harman Kardon surround sound system",
+            "Teleservices",
+            "Legal emergency call",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Wireless charging tray"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/m-series/bmw-2-series-m-models/bmw-m2-coupe.html",
+        "https://configure.bmw.in/en_IN/configure/G87/22DM",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Prices from the BMW India configurator (ex-showroom, one all-India price). ARAI mileage not published by BMW India."
+    },
+    {
+      "slug": "bmw-m4",
+      "name": "M4 Coupé",
+      "bodyType": "Coupe",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2993 cc",
+      "power": "390 – 405 kW (530 – 550 hp)",
+      "torque": "650 Nm",
+      "seats": [
+        4
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 440,
+      "groundClearanceMm": 121,
+      "fuelTankL": 59,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 3.5 s",
+      "dimensions": {
+        "length": 4801,
+        "width": 1887,
+        "height": 1398,
+        "wheelbase": 2857
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Skyscraper Grey metallic",
+          "hex": "#8d8f8f"
+        },
+        {
+          "name": "Aventurine Red Metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "M Brooklyn Grey metallic",
+          "hex": "#7f8487"
+        },
+        {
+          "name": "M Isle of Man Green metallic",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "M Sao Paulo Yellow solid",
+          "hex": "#e2b51b"
+        },
+        {
+          "name": "Black Sapphire",
+          "hex": "#141619"
+        },
+        {
+          "name": "BMW Individual Tanzanite Blue Metallic",
+          "hex": "#1c2236"
+        },
+        {
+          "name": "M Toronto Red metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "BMW Individual Paintwork Dravit Grey Metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "M Portimao Blue metallic",
+          "hex": "#1c4f9c"
+        },
+        {
+          "name": "BMW Individual Frozen Portimao Blue metallic",
+          "hex": "#1c4f9c"
+        },
+        {
+          "name": "Frozen Brilliant White metallic",
+          "hex": "#f2f2f0"
+        },
+        {
+          "name": "Alpine White solid",
+          "hex": "#f3f3f1"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Electric Seat Adjustment in Front with Memory Function for Driver",
+            "Lumbar Support for Driver & Front Passenger",
+            "Seat Heating for Driver & Front Passenger",
+            "M seat belts",
+            "Ambient light",
+            "Automatic air conditioning",
+            "M Sport seats",
+            "M headliner anthracite",
+            "Comfort access system",
+            "Through-loading system",
+            "Storage compartment package"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Harman Kardon surround sound system",
+            "Teleservices",
+            "Legal emergency call",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Wireless charging tray",
+            "Personal eSIM",
+            "BMW Live Cockpit Professional"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Cruise Control with Braking Function",
+            "High-Beam Assistance",
+            "Parking Assistant",
+            "Tyre pressure monitoring system",
+            "Interior and Exterior Mirror Package",
+            "Interior Rear-View Mirror with Automatic Anti-Dazzle Function",
+            "Adaptive LED headlights",
+            "Active Protection",
+            "Active Guard",
+            "Active protection for pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "19\"/20\" M forged wheels Double-spoke style 826 M Bicolour Black with mixed tyres",
+            "M high-gloss Shadowline",
+            "M High-Gloss Shadow Line with Exterior Contents"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Leather 'Merino' with Extended Contents Yas Marina Blue | Black",
+            "BMW INDIVIDUAL FULL LEATHER TRIM 'MERINO' | FIONA RED/BLACK",
+            "FULL LEATHER 'MERINO' | YAS MARINA BLUE/BLACK",
+            "BMW INDIVIDUAL EXTENDED LEATHER TRIM 'MERINO' | FIONA RED/BLACK",
+            "FULL LEATHER 'MERINO' | SILVERSTONE/BLACK",
+            "LEATHER ‘MERINO’ WITH EXTENDED CONTENTS BLACK | BLACK",
+            "FULL LEATHER 'MERINO' | KYALAMI ORANGE/BLACK",
+            "BMW INDIVIDUAL FULL-LEATHER TRIM 'MERINO' | IVORY WHITE",
+            "BMW INDIVIDUAL FULL-LEATHER TRIM 'MERINO' | FJORD BLUE/BLACK",
+            "BMW INDIVIDUAL EXTENDED LEATHER TRIM 'MERINO' | IVORY WHITE",
+            "BMW INDIVIDUAL FULL LEATHER TRIM 'MERINO' | TARTUFO",
+            "BMW INDIVIDUAL EXTENDED LEATHER TRIM 'MERINO' | FJORD BLUE/BLACK",
+            "LEATHER 'MERINO' WITH EXTENDED CONTENTS KYALAMI ORANGE | BLACK",
+            "BMW INDIVIDUAL EXTENDED LEATHER TRIM 'MERINO' | TARTUFO",
+            "FULL LEATHER 'MERINO' BLACK | BLACK",
+            "LEATHER 'MERINO' WITH EXTENDED CONTENTS SILVERSTONE | BLACK"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "M Drive",
+            "M Sport differential",
+            "Adaptive M Suspension",
+            "Steptronic Sport automatic transmission"
+          ]
+        }
+      ],
+      "highlights": [
+        "M4 Competition M xDrive: 390 kW (530 hp) and 650 Nm",
+        "M4 CS M xDrive: 405 kW (550 hp)",
+        "Inline six-cylinder petrol engine",
+        "M xDrive all-wheel drive"
+      ],
+      "variants": [
+        {
+          "name": "M4 Competition M xDrive",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 16290000,
+          "efficiency": null,
+          "features": [
+            "390 kW (530 hp), 650 Nm",
+            "xDrive all-wheel drive",
+            "19\"/20\" M forged wheels Double-spoke style 826 M Bicolour Black with mixed tyres",
+            "Harman Kardon surround sound system",
+            "Teleservices",
+            "Legal emergency call",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Wireless charging tray"
+          ]
+        },
+        {
+          "name": "M4 CS M xDrive",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 18900000,
+          "efficiency": null,
+          "features": [
+            "405 kW (550 hp)",
+            "High-performance inline six-cylinder petrol engine",
+            "M xDrive all-wheel drive"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/m-series/bmw-4-series-m-models/bmw-m4-coupe.html",
+        "https://configure.bmw.in/en_IN/configure/G82/32HKZITZ",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "M4 Competition price, specs and equipment from the BMW India configurator. The M4 CS price (Rs 1.89 crore) and output are from the official M4 page; it is not in the configurator, so its other specs are not filled."
+    },
+    {
+      "slug": "bmw-4-series-convertible",
+      "name": "M440i xDrive Convertible",
+      "bodyType": "Coupe",
+      "bodyStyle": "Convertible",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2998 cc",
+      "power": "288 kW (392 hp)",
+      "torque": "540 Nm",
+      "seats": [
+        4
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 385,
+      "groundClearanceMm": 126,
+      "fuelTankL": 59,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 4.8 s",
+      "dimensions": {
+        "length": 4770,
+        "width": 1852,
+        "height": 1394,
+        "wheelbase": 2851
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "BMW Individual Tanzanite Blue metallic",
+          "hex": "#1c2236"
+        },
+        {
+          "name": "BMW Individual Dravit Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "BMW Individual Frozen Portimao Blue metallic",
+          "hex": "#1c4f9c"
+        },
+        {
+          "name": "Alpine White solid",
+          "hex": "#f3f3f1"
+        },
+        {
+          "name": "Cape York Green metallic",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Fire Red metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "M Brooklyn Grey metallic",
+          "hex": "#7f8487"
+        },
+        {
+          "name": "Arctic Race Blue metallic",
+          "hex": "#3e7fbf"
+        },
+        {
+          "name": "Black Sapphire metallic",
+          "hex": "#141619"
+        },
+        {
+          "name": "M Portimao Blue metallic",
+          "hex": "#1c4f9c"
+        },
+        {
+          "name": "Mineral White metallic",
+          "hex": "#e9e9e4"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Wind deflector",
+            "Seat adjustment, electric, for driver and front passenger, with memory function for driver",
+            "Lumbar support for driver and front passenger",
+            "M seat belts",
+            "Luxury instrument panel",
+            "Galvanic embellisher for controls",
+            "Ambient light",
+            "Automatic air conditioning",
+            "Comfort access system",
+            "Through-loading system",
+            "Storage compartment package"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Harman Kardon surround sound system",
+            "Teleservices",
+            "Legal emergency call",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Wireless charging tray",
+            "BMW Live Cockpit Plus",
+            "Widescreen display"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Cruise control with braking function",
+            "High-beam assistant",
+            "Driving Assistant",
+            "Parking Assistant Plus",
+            "Tyre pressure monitoring system",
+            "Interior and exterior mirror package",
+            "Interior rear-view mirror with automatic anti-dazzle function",
+            "Adaptive LED headlights",
+            "Active Guard Plus",
+            "Active protection for pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "M Sport package Pro",
+            "19\" M light alloy wheels Double-spoke style 995 M Bicolour with mixed tyres",
+            "M lights Shadowline",
+            "M aerodynamics package",
+            "M high-gloss Shadowline"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Sensatec perforated | Tacora Red",
+            "Leather 'Vernasca' | Oyster decor stitching",
+            "Leather 'Vernasca' | Black/contrast stitching Blue",
+            "Leather 'Vernasca' | Mocha decor stitching",
+            "Leather 'Vernasca' | Black/Red highlight",
+            "BMW Individual full-leather trim 'Merino' | Black",
+            "BMW Individual extended leather trim 'Merino' | Black",
+            "Leather 'Vernasca' | Black decor stitching",
+            "BMW Individual full leather trim 'Merino' | Tartufo",
+            "BMW Individual full leather trim 'Merino' | Ivory White",
+            "BMW Individual extended leather trim 'Merino' | Tartufo",
+            "BMW Individual extended leather trim 'Merino' | Ivory White",
+            "Sensatec perforated | Black",
+            "Sensatec perforated | Cognac"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "M Sport brake",
+            "M Sport differential",
+            "Steptronic Sport automatic transmission",
+            "Adaptive M suspension",
+            "Variable sport steering"
+          ]
+        }
+      ],
+      "highlights": [
+        "Four-seat convertible",
+        "3.0-litre six-cylinder petrol engine; 288 kW (392 hp) and 540 Nm system output",
+        "xDrive all-wheel drive",
+        "Imported as a fully built unit (CBU)"
+      ],
+      "variants": [
+        {
+          "name": "M440i xDrive Convertible",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 11065000,
+          "efficiency": null,
+          "features": [
+            "288 kW (392 hp), 540 Nm",
+            "xDrive all-wheel drive",
+            "M Sport package Pro",
+            "19\" M light alloy wheels Double-spoke style 995 M Bicolour with mixed tyres",
+            "Harman Kardon surround sound system",
+            "Teleservices",
+            "Legal emergency call",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/m-series/bmw-m4-converitable.html",
+        "https://configure.bmw.in/en_IN/configure/G23/72DBZK7Y",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Prices from the BMW India configurator (ex-showroom, one all-India price). ARAI mileage not published by BMW India."
+    },
+    {
+      "slug": "bmw-x1-lwb",
+      "name": "X1 Long Wheelbase",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1499 cc",
+      "power": "115 kW (156 hp)",
+      "torque": "230 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 540,
+      "groundClearanceMm": 205,
+      "fuelTankL": 54,
+      "topSpeedKmh": 206,
+      "acceleration": "0–100 km/h in 9.3 s",
+      "dimensions": {
+        "length": 4616,
+        "width": 1845,
+        "height": 1641,
+        "wheelbase": 2802
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "M Carbon Black metallic",
+          "hex": "#1c1f26"
+        },
+        {
+          "name": "Fire Red metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "Skyscraper Grey metallic",
+          "hex": "#8d8f8f"
+        },
+        {
+          "name": "Mineral White metallic",
+          "hex": "#e9e9e4"
+        },
+        {
+          "name": "M Brooklyn Grey metallic",
+          "hex": "#7f8487"
+        },
+        {
+          "name": "Night Dusk Blue",
+          "hex": "#24427a"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Seat adjustment, electric, for driver and front passenger, with memory function for driver",
+            "Sport seats for driver and front passenger",
+            "Luxury instrument panel",
+            "Automatic air conditioning",
+            "M leather steering wheel",
+            "Remote Engine Start",
+            "Automatic operation of tailgate",
+            "Comfort access system"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "HiFi loudspeaker system Harman Kardon",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Wireless charging tray",
+            "Personal eSIM",
+            "BMW Live Cockpit Plus"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "High-beam assistant",
+            "Driving Assistant",
+            "Parking Assistant Plus",
+            "Tyre pressure monitoring system",
+            "Exterior mirror package",
+            "Interior and exterior mirror package",
+            "Adaptive LED headlights",
+            "Active protection for pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "18\" M light alloy wheels Double-spoke style 838 M Bicolour",
+            "Roof rails Aluminium satinated",
+            "Exterior Line Satin Aluminium"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Veganza perforated | Castanea",
+            "Veganza perforated | Coral Red/Black",
+            "Veganza perforated | Atlas Grey/Smoke White"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Larger-capacity fuel tank",
+            "Performance Control",
+            "Steptronic automatic transmission with double clutch"
+          ]
+        }
+      ],
+      "highlights": [
+        "Long-wheelbase X1 assembled in India",
+        "1.5-litre three-cylinder petrol engine, 115 kW (156 hp)",
+        "7-speed Steptronic transmission, front-wheel drive",
+        "205 mm ground clearance"
+      ],
+      "variants": [
+        {
+          "name": "X1 sDrive18Li M Sport",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed Steptronic dual-clutch",
+          "price": 5040000,
+          "efficiency": null,
+          "features": [
+            "115 kW (156 hp), 230 Nm",
+            "Front-wheel drive",
+            "18\" M light alloy wheels Double-spoke style 838 M Bicolour",
+            "HiFi loudspeaker system Harman Kardon",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Wireless charging tray",
+            "Personal eSIM",
+            "BMW Live Cockpit Plus",
+            "High-beam assistant"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/x-series/X1/bmw-x1-highlights.html",
+        "https://configure.bmw.in/en_IN/configure/U12/37HNZLI4",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Prices from the BMW India configurator (ex-showroom, one all-India price). ARAI mileage not published by BMW India."
+    },
+    {
+      "slug": "bmw-x1",
+      "name": "X1",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1995 cc",
+      "power": "110 kW (148 hp)",
+      "torque": null,
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 8.9 s",
+      "dimensions": null,
+      "ev": null,
+      "colors": [
+        {
+          "name": "Cape York Green metallic",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Space Silver metallic",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "Utah Orange metallic",
+          "hex": "#d9692b"
+        },
+        {
+          "name": "BMW Individual Blue Bay Lagoon metallic",
+          "hex": "#24427a"
+        },
+        {
+          "name": "BMW Individual Frozen Pure Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Sanremo Green metallic",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Black Sapphire metallic",
+          "hex": "#141619"
+        },
+        {
+          "name": "BMW Individual Storm Bay metallic",
+          "hex": "#808080"
+        },
+        {
+          "name": "M Portimao Blue metallic",
+          "hex": "#1c4f9c"
+        },
+        {
+          "name": "Mineral White Metallic",
+          "hex": "#e9e9e4"
+        },
+        {
+          "name": "Phytonic Blue metallic",
+          "hex": "#1c2f4d"
+        },
+        {
+          "name": "Black solid",
+          "hex": "#111111"
+        },
+        {
+          "name": "Alpine White solid",
+          "hex": "#f3f3f1"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panorama glass roof",
+            "Electric Seat Adjustment in Front with Memory Function for Driver",
+            "Sport Seats for Driver & Front Passenger",
+            "Seat adjustment, rear seats",
+            "Luxury instrument panel",
+            "Automatic Air Conditioning",
+            "M leather steering wheel",
+            "M headliner anthracite",
+            "Automatic operation of tailgate",
+            "Comfort access system"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "HiFi Loudspeaker System Harman Kardon",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Connected Drive Services",
+            "Wireless charging tray",
+            "BMW Live Cockpit Plus"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "High-Beam Assistance",
+            "Parking Assistant",
+            "Tyre pressure monitoring system",
+            "Interior and Exterior Mirror Package",
+            "Interior Rear View Mirror Auto-Dimming",
+            "Adaptive LED headlights",
+            "Active Protection for Pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Equipment package",
+            "18\" M Light Alloy Wheels Double-Spoke 838 M Bicolour",
+            "M Roof rails high-gloss Shadowline",
+            "M high-gloss Shadowline"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Veganza perforated | Mocha",
+            "Veganza perforated | Coral Red/Black",
+            "Leather 'Vernasca' | Mocha",
+            "Cloth 'Arktur' | Anthracite",
+            "Veganza perforated | Oyster",
+            "Veganza perforated | Black",
+            "Leather 'Vernasca' | Oyster",
+            "Leather 'Vernasca' | Black",
+            "M Alcantara/Veganza combination | Black/contrast stitching Blue"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Standard suspension",
+            "Performance Control",
+            "Steptronic transmission with double clutch"
+          ]
+        }
+      ],
+      "highlights": [
+        "X1 sDrive18d M Sport diesel",
+        "Up to 110 kW (148 hp)",
+        "Front-wheel drive"
+      ],
+      "variants": [
+        {
+          "name": "X1 sDrive18d M Sport",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "Steptronic dual-clutch",
+          "price": 5290000,
+          "efficiency": null,
+          "features": [
+            "110 kW (148 hp)",
+            "Front-wheel drive",
+            "Equipment package",
+            "18\" M Light Alloy Wheels Double-Spoke 838 M Bicolour",
+            "HiFi Loudspeaker System Harman Kardon",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Connected Drive Services",
+            "Wireless charging tray",
+            "BMW Live Cockpit Plus"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/x-series/X1/bmw-x1-overview.html",
+        "https://configure.bmw.in/en_IN/configure/U11/17EGZGSH",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Price Rs 52.90 lakh is the 'starting at' figure on the official X1 page and the BMW India configurator price for the BS VI version; the configurator listing for this model is valid until 30 Nov 2026, which may indicate run-out. Engine size is the BMW figure for the same B47 diesel in other models; other specs not published on the page."
+    },
+    {
+      "slug": "bmw-ix1",
+      "name": "iX1 Long Wheelbase",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor",
+      "power": "204 hp",
+      "torque": null,
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 490,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": null,
+      "ev": {
+        "rangeKm": 546,
+        "rangeStandard": "MIDC P1+P2",
+        "batteryKwh": 66.4,
+        "dcCharge": null,
+        "acCharge": "11 kW AC (BMW Wallbox)",
+        "motorKw": null
+      },
+      "colors": [],
+      "features": [],
+      "highlights": [
+        "Long-wheelbase electric SUV",
+        "66.4 kWh battery; claimed range up to 546 km (MIDC)",
+        "204 hp front-mounted motor",
+        "490-litre boot, up to 1,600 litres with rear seats folded"
+      ],
+      "variants": [
+        {
+          "name": "iX1 eDrive20L M Sport",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 5470000,
+          "efficiency": "546 km",
+          "features": [
+            "204 hp",
+            "Front-wheel drive"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/bmw-i/iX1/2025/bmw-ix1-highlights.html",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Price Rs 54.70 lakh is the 'starting at' figure on the official iX1 LWB page (also the last configurator price, valid to 30 Apr 2026); the configurator currently has no live price. Specs from the official page; other figures not published there."
+    },
+    {
+      "slug": "bmw-x3",
+      "name": "X3",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1995 – 1998 cc",
+      "power": "145 – 190 kW (197 – 258 hp)",
+      "torque": "400 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 570,
+      "groundClearanceMm": 216,
+      "fuelTankL": 65,
+      "topSpeedKmh": 215,
+      "acceleration": "0–100 km/h in 6.3–7.7 s",
+      "dimensions": {
+        "length": 4755,
+        "width": 1920,
+        "height": 1660,
+        "wheelbase": 2865
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Fire Red metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "BMW Individual Frozen Deep Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "BMW Individual Frozen Pure Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Skyscraper Grey metallic",
+          "hex": "#8d8f8f"
+        },
+        {
+          "name": "M Brooklyn Grey metallic",
+          "hex": "#7f8487"
+        },
+        {
+          "name": "Arctic Race Blue metallic",
+          "hex": "#3e7fbf"
+        },
+        {
+          "name": "Black Sapphire metallic",
+          "hex": "#141619"
+        },
+        {
+          "name": "BMW Individual Tanzanite Blue metallic",
+          "hex": "#1c2236"
+        },
+        {
+          "name": "Dune Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Mineral White metallic",
+          "hex": "#e9e9e4"
+        },
+        {
+          "name": "Sophisto Grey brilliant effect metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Alpine White solid",
+          "hex": "#f3f3f1"
+        },
+        {
+          "name": "Brooklyn Grey Metallic",
+          "hex": "#7f8487"
+        },
+        {
+          "name": "BMW Individual Tanzanite Blue",
+          "hex": "#1c2236"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panorama glass roof",
+            "Roller sunblinds, rear side windows",
+            "Active seat ventilation for driver and front passenger",
+            "Seat adjustment, electric, for driver and front passenger, with memory function for driver",
+            "Sport seats for driver and front passenger",
+            "Lumbar support for driver and front passenger",
+            "M seat belts",
+            "Ambient light",
+            "Automatic air conditioning",
+            "M leather steering wheel",
+            "M headliner anthracite",
+            "Comfort access system",
+            "Through-loading system",
+            "Travel & Comfort system",
+            "Electric Seat Adjustment in Front with Memory Function for Driver",
+            "Sport Seats for Driver & Front Passenger",
+            "Instrument Panel Luxury"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Interior camera",
+            "Harman Kardon surround sound system",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Wireless charging tray",
+            "Personal eSIM",
+            "BMW Live Cockpit Professional",
+            "Connected+ Unlimited"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Driving Assistant Plus",
+            "Parking Assistant Plus",
+            "Tyre pressure monitoring system",
+            "Expanded exterior mirror package",
+            "Adaptive LED headlights"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "M Sport package",
+            "M Sport package Pro",
+            "Equipment package Professional",
+            "20\" M light alloy wheels Double-spoke style 1036 M Bicolour",
+            "BMW Iconic Glow exterior package",
+            "M lights Shadowline",
+            "M high-gloss Shadowline",
+            "M high-gloss Shadowline with extended contents",
+            "19\" M Law Y-Sp. 1035 M Bic"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Veganza perforated and quilted | Espresso Brown",
+            "BMW Individual leather 'Merino' | Amber/Atlas Grey",
+            "Veganza perforated and quilted | Calm Beige",
+            "Econeer | Vivid Grey",
+            "Veganza perforated and quilted | Black",
+            "M Alcantara/Veganza combination | Black",
+            "BMW Individual leather 'Merino' | Black/Atlas Grey",
+            "Veganza Perf./quilted Espresso Br.",
+            "VEGANZA PERF./QUILTED CALM BEIGE"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Adaptive suspension",
+            "Variable sport steering",
+            "M Sport brake, red high-gloss",
+            "Steptronic automatic transmission with gearshift paddles",
+            "Automatic Transmission with Gearshift"
+          ]
+        }
+      ],
+      "highlights": [
+        "X3 xDrive20 M Sport and X3 30 xDrive M Sport Pro petrol; X3 xDrive20d M Sport Pro diesel",
+        "xDrive all-wheel drive",
+        "8-speed Steptronic automatic",
+        "216 mm ground clearance"
+      ],
+      "variants": [
+        {
+          "name": "X3 xDrive20 M Sport",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 6990000,
+          "efficiency": null,
+          "features": [
+            "xDrive all-wheel drive"
+          ]
+        },
+        {
+          "name": "X3 30 xDrive M Sport Pro",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 7690000,
+          "efficiency": null,
+          "features": [
+            "190 kW (258 hp), 400 Nm",
+            "xDrive all-wheel drive",
+            "M Sport package",
+            "M Sport package Pro",
+            "Equipment package Professional",
+            "20\" M light alloy wheels Double-spoke style 1036 M Bicolour",
+            "Interior camera",
+            "Harman Kardon surround sound system",
+            "Intelligent Emergency Call",
+            "Teleservices"
+          ]
+        },
+        {
+          "name": "X3 xDrive20d M Sport Pro",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 7820000,
+          "efficiency": null,
+          "features": [
+            "145 kW (197 hp), 400 Nm",
+            "xDrive all-wheel drive",
+            "M Sport package",
+            "Equipment package Professional",
+            "19\" M Law Y-Sp. 1035 M Bic",
+            "Interior camera",
+            "Harman Kardon surround sound system",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Connected+ Unlimited"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/x-series/x3/2025/bmw-x3.html",
+        "https://www.bmw.in/en/all-models/x-series/x3/X3-30.html",
+        "https://configure.bmw.in/en_IN/configure/G45/47JAZJUI",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "X3 30 xDrive and xDrive20d prices, specs and equipment from the BMW India configurator. The X3 xDrive20 M Sport price (Rs 69.90 lakh) is the 'starting at' figure on the official X3 page and its last configurator price (valid to 31 Aug 2026); the configurator currently has no live price for it, so check it is still on sale. ARAI mileage not published."
+    },
+    {
+      "slug": "bmw-x5",
+      "name": "X5",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2993 – 2998 cc",
+      "power": null,
+      "torque": null,
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": null,
+      "ev": null,
+      "colors": [],
+      "features": [],
+      "highlights": [
+        "xDrive40i petrol and xDrive30d diesel versions, each also offered as M Sport Pro",
+        "Six-cylinder engines (B58 petrol, B57 diesel)",
+        "xDrive all-wheel drive"
+      ],
+      "variants": [
+        {
+          "name": "X5 xDrive40i",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 9690000,
+          "efficiency": null,
+          "features": [
+            "xDrive all-wheel drive"
+          ]
+        },
+        {
+          "name": "X5 xDrive30d",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 9890000,
+          "efficiency": null,
+          "features": [
+            "xDrive all-wheel drive"
+          ]
+        },
+        {
+          "name": "X5 xDrive40i M Sport Pro",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 11140000,
+          "efficiency": null,
+          "features": [
+            "xDrive all-wheel drive"
+          ]
+        },
+        {
+          "name": "X5 xDrive30d M Sport Pro",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 11340000,
+          "efficiency": null,
+          "features": [
+            "xDrive all-wheel drive"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/x-series/x5/x5-2025-g05.html",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Prices are from the last BMW India configurator price period (valid to 31 Jul 2026); the X5 is still listed on bmw.in with 'Price starting at Rs 96,90,000', which matches, but the configurator has no live X5 configuration, so check current prices and availability. Specs and equipment were not available from the configurator; engine sizes are the BMW figures for the same engines in the X7."
+    },
+    {
+      "slug": "bmw-x6",
+      "name": "X6 M60i xDrive",
+      "bodyType": "SUV",
+      "bodyStyle": "Coupé SUV",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "4395 cc",
+      "power": "390 kW (530 hp)",
+      "torque": "750 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 580,
+      "groundClearanceMm": 216,
+      "fuelTankL": 83,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 4.3 s",
+      "dimensions": {
+        "length": 4960,
+        "width": 2004,
+        "height": 1700,
+        "wheelbase": 2975
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "BMW Individual Frozen Pure Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Skyscraper Grey metallic",
+          "hex": "#8d8f8f"
+        },
+        {
+          "name": "Aventurine Red metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "M Brooklyn Grey metallic",
+          "hex": "#7f8487"
+        },
+        {
+          "name": "M Isle of Man Green metallic",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Black Sapphire metallic",
+          "hex": "#141619"
+        },
+        {
+          "name": "BMW Individual Tanzanite Blue metallic",
+          "hex": "#1c2236"
+        },
+        {
+          "name": "Manhattan metallic",
+          "hex": "#808080"
+        },
+        {
+          "name": "BMW Individual Dravit Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "M Carbon Black metallic",
+          "hex": "#1c1f26"
+        },
+        {
+          "name": "Mineral White metallic",
+          "hex": "#e9e9e4"
+        },
+        {
+          "name": "Alpine White solid",
+          "hex": "#f3f3f1"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panorama glass roof",
+            "Roller sunblinds, rear side windows",
+            "Active seat ventilation for driver and front passenger",
+            "Comfort seats for driver and front passenger, electrically adjustable",
+            "Seat heating for driver and front passenger",
+            "M seat belts",
+            "Ambient light",
+            "M leather steering wheel",
+            "M headliner anthracite",
+            "Comfort access system",
+            "Soft-Close function for doors"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Harman Kardon surround sound system",
+            "Teleservices",
+            "Legal emergency call",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Wireless charging tray",
+            "Personal eSIM",
+            "BMW Live Cockpit Professional"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "High-beam assistant",
+            "Driving Assistant",
+            "Parking Assistant Professional",
+            "Tyre pressure monitoring system",
+            "Expanded exterior mirror package",
+            "Adaptive LED headlights",
+            "Active Protection"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "M Sport package Pro",
+            "M lights Shadowline",
+            "M aerodynamics package",
+            "M high-gloss Shadowline",
+            "M high-gloss Shadowline with extended contents"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Sensafin with decor stitching | Black",
+            "Sensafin with decor stitching | Cognac",
+            "Sensafin with decor stitching | Silverstone",
+            "BMW Individual full-leather trim 'Merino' | Black",
+            "BMW Individual full-leather trim 'Merino' | Tartufo",
+            "Sensafin with decor stitching | Coffee",
+            "BMW Individual full-leather trim 'Merino' | Ivory White/Atlas Grey",
+            "BMW Individual extended leather trim 'Merino' | Coffee",
+            "Sensafin with decor stitching | Tacora Red/Black",
+            "BMW Individual extended leather trim 'Merino' | Black",
+            "BMW Individual extended leather trim 'Merino' | Tartufo",
+            "BMW Individual extended leather trim 'Merino' | Ivory White"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "M Sport exhaust system",
+            "M Sport differential",
+            "Adaptive M suspension",
+            "Integral Active Steering",
+            "M Sport brake, red high-gloss",
+            "Steptronic Sport automatic transmission"
+          ]
+        }
+      ],
+      "highlights": [
+        "4.4-litre V8 petrol engine, 390 kW (530 hp) and 750 Nm",
+        "Coupé-style SUV with xDrive all-wheel drive",
+        "Imported as a fully built unit (CBU)"
+      ],
+      "variants": [
+        {
+          "name": "X6 M60i xDrive",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 17790000,
+          "efficiency": null,
+          "features": [
+            "390 kW (530 hp), 750 Nm",
+            "xDrive all-wheel drive",
+            "M Sport package Pro",
+            "Harman Kardon surround sound system",
+            "Teleservices",
+            "Legal emergency call",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Wireless charging tray"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/x-series/x6/x6-m60i.html",
+        "https://configure.bmw.in/en_IN/configure/G06/42EXZKYM",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Prices from the BMW India configurator (ex-showroom, one all-India price). ARAI mileage not published by BMW India."
+    },
+    {
+      "slug": "bmw-x7",
+      "name": "X7",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2993 – 2998 cc",
+      "power": "259 – 280 kW (352 – 381 hp)",
+      "torque": "540 – 720 Nm",
+      "seats": [
+        6,
+        7
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 750,
+      "groundClearanceMm": 221,
+      "fuelTankL": 80,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 5.8–5.9 s",
+      "dimensions": {
+        "length": 5181,
+        "width": 2000,
+        "height": 1835,
+        "wheelbase": 3105
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "BMW Individual Frozen Pure Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Skyscraper Grey metallic",
+          "hex": "#8d8f8f"
+        },
+        {
+          "name": "BMW Individual Aventurine Red Metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "Sparkling Copper Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "M Brooklyn Grey metallic",
+          "hex": "#7f8487"
+        },
+        {
+          "name": "Black Sapphire metallic",
+          "hex": "#141619"
+        },
+        {
+          "name": "BMW Individual Tanzanite Blue",
+          "hex": "#1c2236"
+        },
+        {
+          "name": "Manhattan metallic",
+          "hex": "#808080"
+        },
+        {
+          "name": "BMW Individual Dravit Grey metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Blue Ridge Mountain metallic",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Ametrin metallic",
+          "hex": "#808080"
+        },
+        {
+          "name": "M Carbon Black metallic",
+          "hex": "#1c1f26"
+        },
+        {
+          "name": "Mineral White Metallic",
+          "hex": "#e9e9e4"
+        },
+        {
+          "name": "Alpine White solid",
+          "hex": "#f3f3f1"
+        },
+        {
+          "name": "Aventurine Red metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "BMW Individual Tanzanite Blue metallic",
+          "hex": "#1c2236"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Sport leather steering wheel",
+            "Acoustic glazing",
+            "Panorama glass roof Sky Lounge",
+            "Roller sunblinds, rear side windows",
+            "Active seat ventilation for driver and front passenger",
+            "Comfort Seating for Driver and Front Passenger",
+            "Electric Seat Adjustment in Front with Memory Function for Driver",
+            "Seat Heating for Driver and Front Passenger",
+            "Glass Application 'Crafted Clarity' for Interiors",
+            "Automatic Air Conditioning with 5-Zone Control",
+            "Seat Extension 5+2",
+            "Ambient light",
+            "Comfort access system",
+            "Soft-Close Function for Doors",
+            "Luggage-compartment package",
+            "Travel & Comfort system",
+            "Comfort seats for driver and front passenger, electrically adjustable",
+            "Seat adjustment, electric, for driver and front passenger, with memory function for driver",
+            "Glass application 'CraftedClarity' for interior elements",
+            "6-seater",
+            "3rd row seats",
+            "M leather steering wheel",
+            "M headliner Alcantara anthracite",
+            "Remote Engine Start"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Harman Kardon surround sound system",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Connected Drive Services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Wireless charging tray",
+            "Personal eSIM",
+            "BMW Live Cockpit Plus",
+            "BMW Gesture Control",
+            "Bowers & Wilkins Diamond surround sound system",
+            "BMW Live Cockpit Professional"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "High-Beam Assistance",
+            "Driving Assistant",
+            "Parking Assistant Professional",
+            "Tyre pressure monitoring system",
+            "Expanded Exterior Mirror Package",
+            "Adaptive LED headlights",
+            "Active Protection",
+            "High-beam assistant"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "21\" Dpe Light Alloy Wheels Y-Spoke Style 753 Bicolour",
+            "Aluminium running board",
+            "Roof rails Aluminium satinated",
+            "BMW crystal headlights Iconic Glow",
+            "BMW kidney Iconic Glow",
+            "Exterior Line Satin Aluminium",
+            "M Sport package",
+            "M Roof rails high-gloss Shadowline",
+            "M aerodynamics package",
+            "M high-gloss Shadowline"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "BMW Individual Leather 'Merino' Black",
+            "BMW Individual extended leather trim 'Merino' | Coffee",
+            "Sensafin with decor stitching | Black",
+            "Sensafin with decor stitching | Cognac",
+            "BMW Individual full-leather trim 'Merino' | Tartufo",
+            "Sensafin with decor stitching | Coffee",
+            "BMW Individual full-leather trim 'Merino' | Ivory White/Atlas Grey",
+            "BWM INDIVIDUAL LEATHER 'MERINO' TARTUFO",
+            "BMW INDIVIDUAL LEATHER 'MERINO' IVORY WHITE",
+            "BMW Individual extended leather trim 'Merino' | Tartufo",
+            "Sensafin with decor stitching | Silverstone",
+            "BMW Individual full-leather trim 'Merino' | Black",
+            "BMW Individual extended leather trim 'Merino' | Black",
+            "BMW Individual extended leather trim 'Merino' | Ivory White"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2-Axle Air Suspension",
+            "8-Speed Steptronic Automatic Transmission",
+            "M Sport brake",
+            "Adaptive 2-axle air suspension",
+            "Steptronic Sport automatic transmission"
+          ]
+        }
+      ],
+      "highlights": [
+        "xDrive40i petrol and xDrive40d diesel versions",
+        "Six- and seven-seat layouts",
+        "3.0-litre six-cylinder engines",
+        "221 mm ground clearance"
+      ],
+      "variants": [
+        {
+          "name": "X7 xDrive40d Design Pure Excellence 7 Seater",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 13220000,
+          "efficiency": null,
+          "features": [
+            "259 kW (352 hp), 720 Nm",
+            "xDrive all-wheel drive",
+            "21\" Dpe Light Alloy Wheels Y-Spoke Style 753 Bicolour",
+            "Harman Kardon surround sound system",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "Connected Drive Services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Wireless charging tray"
+          ]
+        },
+        {
+          "name": "X7 xDrive40i",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 13490000,
+          "efficiency": null,
+          "features": [
+            "280 kW (381 hp), 540 Nm",
+            "xDrive all-wheel drive",
+            "M Sport package",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Bowers & Wilkins Diamond surround sound system",
+            "Wireless charging tray"
+          ]
+        },
+        {
+          "name": "X7 xDrive40d",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Steptronic",
+          "price": 13860000,
+          "efficiency": null,
+          "features": [
+            "259 kW (352 hp), 720 Nm",
+            "xDrive all-wheel drive",
+            "M Sport package",
+            "Intelligent Emergency Call",
+            "Teleservices",
+            "ConnectedDrive services",
+            "Connected package Professional",
+            "Smartphone Integration",
+            "Bowers & Wilkins Diamond surround sound system",
+            "Wireless charging tray"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.bmw.in/en/all-models/x-series/x7/bmw-x7-overview.html",
+        "https://configure.bmw.in/en_IN/configure/G07/27EMZKMH",
+        "https://www.bmw.in/en/all-models.html"
+      ],
+      "notes": "Prices from the BMW India configurator (ex-showroom, one all-India price). ARAI mileage not published by BMW India."
+    }
+  ]
+}

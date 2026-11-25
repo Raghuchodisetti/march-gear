@@ -67,7 +67,11 @@ export function SmartFinder() {
   }, [usedCars, budget, body, fuel, transmission, brand]);
 
   const matches = mode === "new" ? newMatches : usedMatches;
-  const previews = matches.slice(0, 4).map((m) => m.images[0]);
+  // Photo previews only — models without photos yet are counted but not pictured.
+  const previews = matches
+    .map((m) => m.images[0])
+    .filter((src): src is string => Boolean(src))
+    .slice(0, 4);
 
   const submit = () => {
     const params = new URLSearchParams();

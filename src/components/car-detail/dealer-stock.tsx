@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { CarPlaceholder, asBodyType } from "@/components/vehicle/car-image";
 import Link from "next/link";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { formatPrice } from "@/lib/format";
@@ -36,7 +37,11 @@ export function DealerStock({ items, dealers, carName, carSlug }: { items: Publi
               <article className="group/st flex h-full flex-col border border-line bg-white transition-[border-color] duration-[400ms] ease-[var(--ease-premium)] hover:border-ink/25">
                 <div className="flex gap-4 p-4">
                   <div className="relative aspect-[4/3] w-28 shrink-0 overflow-hidden bg-mist">
-                    {v.images[0] && <Image src={v.images[0]} alt="" fill sizes="112px" className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/st:scale-[1.05]" />}
+                    {v.images[0] ? (
+                      <Image src={v.images[0]} alt="" fill sizes="112px" className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/st:scale-[1.05]" />
+                    ) : (
+                      <CarPlaceholder bodyType={asBodyType(v.bodyType)} />
+                    )}
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-[14.5px] font-semibold">{v.dealer.name}</p>

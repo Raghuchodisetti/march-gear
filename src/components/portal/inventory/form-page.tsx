@@ -1,4 +1,4 @@
-import { getCatalogData } from "@/server/catalog";
+import { getCatalog, getClientCatalogData } from "@/server/catalog";
 import type { PartnerContext } from "@/server/partner/context";
 import { brandLineups, listShowroomOptions } from "@/server/partner/inventory";
 import { CatalogProvider } from "@/components/providers/catalog-provider";
@@ -10,8 +10,10 @@ import type { VehicleFormValue } from "./shared";
  * doesn't need editorial data), the dealership's showrooms and its approved brand line-ups.
  */
 export async function VehicleFormPage({ ctx, initial, vehicle }: { ctx: PartnerContext; initial: VehicleFormValue; vehicle?: VehicleFormProps["vehicle"] }) {
-  const [data, showrooms, lineups] = await Promise.all([getCatalogData(), listShowroomOptions(ctx.partner.id), brandLineups(ctx.partner.id)]);
+  const [data, full, showrooms, lineups] = await Promise.all([getClientCatalogData(), getCatalog(), listShowroomOptions(ctx.partner.id), brandLineups(ctx.partner.id)]);
   const catalog = { ...data, upcoming: [], dealers: [], dealerProfiles: {}, dealerReviews: [], usedCars: [], authors: [], articles: [], ownerReviews: [] };
+  // The listing's own model in full (colours, specs); others load when the dealer picks them.
+  const initialCar = initial.modelSlug ? full.getCar(initial.modelSlug) : undefined;
   const p = ctx.partner;
   const primary = showrooms.find((s) => s.isPrimary) ?? showrooms[0];
   return (
@@ -19,6 +21,7 @@ export async function VehicleFormPage({ ctx, initial, vehicle }: { ctx: PartnerC
       <VehicleForm
         vehicle={vehicle}
         initial={initial}
+        initialCar={initialCar}
         showrooms={showrooms}
         lineups={lineups}
         partnerId={p.id}

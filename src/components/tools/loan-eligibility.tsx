@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import { CarImage } from "@/components/vehicle/car-image";
 import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowRight, CircleAlert } from "lucide-react";
-import type { CarModel } from "@/types";
+import type { CarLite } from "@/types";
 import { BUDGETS, isElectric } from "@/lib/catalog";
 import type { Employment } from "@/data/tools-assumptions";
 import { calculateEmi } from "@/lib/finance";
@@ -30,7 +30,7 @@ const FILTERS: { value: BodyFilter; label: string }[] = [
   { value: "MUV", label: "MUV" },
   { value: "electric", label: "Electric" },
 ];
-const matches = (car: CarModel, f: BodyFilter) => (f === "all" ? true : f === "electric" ? isElectric(car) : car.bodyType === f);
+const matches = (car: CarLite, f: BodyFilter) => (f === "all" ? true : f === "electric" ? isElectric(car) : car.bodyType === f);
 
 export function LoanEligibility() {
   const { openEnquiry } = useUI();
@@ -277,7 +277,7 @@ export function LoanEligibility() {
   );
 }
 
-function AffordRow({ car, budget, emi, ltv, years }: { car: CarModel; budget: number; emi: number; ltv: number; years: number }) {
+function AffordRow({ car, budget, emi, ltv, years }: { car: CarLite; budget: number; emi: number; ltv: number; years: number }) {
   const { brandName } = useCatalog();
   const title = `${brandName(car.brand)} ${car.name}`;
   const share = Math.min(1, car.priceMin / Math.max(1, budget));
@@ -288,10 +288,9 @@ function AffordRow({ car, budget, emi, ltv, years }: { car: CarModel; budget: nu
         className="group/row grid grid-cols-[80px_1fr_auto] items-center gap-4 py-4 transition-colors duration-[400ms] hover:bg-mist/60 md:grid-cols-[112px_1.5fr_1fr_1fr_1.3fr_24px] md:gap-6 md:py-5"
       >
         <div className="relative aspect-[4/3] overflow-hidden bg-mist">
-          <Image
-            src={car.images[0]}
-            alt={cardPhotoAlt(car.images[0], title)}
-            fill
+          <CarImage
+            car={car}
+            alt={car.images[0] ? cardPhotoAlt(car.images[0], title) : ""}
             sizes="112px"
             className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/row:scale-[1.05]"
             style={{ objectPosition: car.focus ?? "50% 55%" }}

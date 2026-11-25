@@ -1,0 +1,5499 @@
+{
+  "brand": {
+    "slug": "mahindra",
+    "name": "Mahindra",
+    "country": "India",
+    "founded": 1945,
+    "tagline": "Indian SUV maker; electric SUVs sold under the BE and XEV names",
+    "description": "Indian automaker founded in 1945, building utility vehicles and SUVs, with SUV plants in Chakan and Nashik, Maharashtra. Born-electric SUVs on the INGLO platform are sold under the BE and XEV names through mahindraelectricsuv.com.",
+    "isLuxury": false,
+    "website": "https://auto.mahindra.com/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Pan-India",
+  "models": [
+    {
+      "slug": "mahindra-bolero",
+      "name": "Bolero",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "1.5 L diesel (mHawk75)",
+      "power": "55.9 kW",
+      "torque": "210 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": 2,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 60,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3995,
+        "width": 1745,
+        "height": 1880,
+        "wheelbase": 2680
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Stealth Black",
+          "hex": "#060505"
+        },
+        {
+          "name": "Diamond White",
+          "hex": "#E3DFD0"
+        },
+        {
+          "name": "DSat Silver",
+          "hex": "#4E4E51"
+        },
+        {
+          "name": "Rockey Beige",
+          "hex": "#B9A98B"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Engine Start/Stop Button",
+            "Parking Sensors",
+            "Power Windows-Rear",
+            "Rear Reading Lamp",
+            "Rear Seat Centre Arm Rest"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "4 speakers",
+            "Touch Screen size: 6.9\""
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "2 airbags",
+            "Tyre Pressure Monitor"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Alloy Wheels",
+            "Tyres: 215/75 R15",
+            "Fog Lights",
+            "Rear Window Wiper",
+            "Tyre Type: Radial Tubeless"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Digital Cluster",
+            "Leatherette upholstery",
+            "Digital Odometer"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.5 L mHawk75 3-cylinder turbo diesel: 55.9 kW @ 3600 r/min, 210 Nm @ 1600–2200 r/min",
+            "5-speed manual, rear-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Body-on-frame 7-seat SUV with a 1.5 L mHawk75 diesel",
+        "Four variants: B4, B6, B6 (O), B8",
+        "5-speed manual only",
+        "Dual airbags"
+      ],
+      "variants": [
+        {
+          "name": "B4 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 857000,
+          "efficiency": null,
+          "features": [
+            "2 airbags",
+            "Digital Cluster",
+            "Tyres: 215/75 R15",
+            "Vinyl upholstery",
+            "Engine Start/Stop Button",
+            "Parking Sensors",
+            "Rear Reading Lamp",
+            "Rear Seat Centre Arm Rest",
+            "Tyre Type: Radial Tubeless",
+            "Digital Odometer"
+          ]
+        },
+        {
+          "name": "B6 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 937000,
+          "efficiency": null,
+          "features": [
+            "4 speakers",
+            "Fabric upholstery",
+            "Tyre Pressure Monitor",
+            "Power Windows-Rear",
+            "Touch Screen size: 6.9\""
+          ]
+        },
+        {
+          "name": "B6 (O) Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 969000,
+          "efficiency": null,
+          "features": [
+            "4 speakers",
+            "Fabric upholstery",
+            "Tyre Pressure Monitor",
+            "Fog Lights",
+            "Rear Window Wiper",
+            "Power Windows-Rear",
+            "Touch Screen size: 6.9\""
+          ]
+        },
+        {
+          "name": "B8 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 999000,
+          "efficiency": null,
+          "features": [
+            "4 speakers",
+            "Alloy Wheels",
+            "Leatherette upholstery",
+            "Tyre Pressure Monitor",
+            "Fog Lights",
+            "Rear Window Wiper",
+            "Power Windows-Rear",
+            "Touch Screen size: 6.9\""
+          ]
+        }
+      ],
+      "sources": [
+        "https://auto.mahindra.com/suv/bolero/BOL.html",
+        "https://auto.mahindra.com/own-online/variant-selection?pid=BOL",
+        "https://auto.mahindra.com/suv/bolero-b4-diesel/BOLM081917943925.html"
+      ],
+      "notes": "Prices are Mahindra's ex-showroom prices from the auto.mahindra.com configurator, which shows one national price with no city. The Bolero nameplate dates from 2000; the launch date of the current version is not published, so launchedOn is null. Displacement, boot space and ground clearance are not given on the spec page. ARAI fuel efficiency is not published by Mahindra, so null."
+    },
+    {
+      "slug": "mahindra-bolero-neo",
+      "name": "Bolero Neo",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2021-07-15",
+      "engine": "1493 cc",
+      "power": "73.5 kW",
+      "torque": "260 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": 2,
+      "safety": null,
+      "bootSpaceL": 384,
+      "groundClearanceMm": null,
+      "fuelTankL": 50,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3995,
+        "width": 1795,
+        "height": 1817,
+        "wheelbase": 2680
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Jeans Blue Dual Tone",
+          "hex": "#060505"
+        },
+        {
+          "name": "Stealth Black",
+          "hex": "#060505"
+        },
+        {
+          "name": "Everest White Dual Tone",
+          "hex": "#BAB9B9"
+        },
+        {
+          "name": "Jeans Blue",
+          "hex": "#071F35"
+        },
+        {
+          "name": "Everest White",
+          "hex": "#BAB9B9"
+        },
+        {
+          "name": "Diamond White",
+          "hex": "#E3DFD0"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Cruise Control",
+            "Engine Start/Stop Button",
+            "KeyLess Entry",
+            "Parking Sensors",
+            "Power Windows-Rear",
+            "Rear Reading Lamp",
+            "Rear Seat Centre Arm Rest",
+            "Central Console Armrest",
+            "Follow Me Home Headlamps"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "4 speakers",
+            "Touch Screen size: 22.8 cm"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "2 airbags",
+            "Tyre Pressure Monitor",
+            "Rear View Camera",
+            "ISOFIX Child Seat Mounts"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Alloy Wheels",
+            "Tyres: 215/75 R15",
+            "Fog Lights",
+            "Rear Window Wiper",
+            "LED DRLs",
+            "Adjustable Headlights",
+            "Power Adjustable Exterior Rear View Mirror",
+            "Rear Spoiler",
+            "Cornering Headlamps",
+            "Tyre Type: Radial Tubeless"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Leatherette upholstery"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.5 L mHawk100 3-cylinder turbo diesel: 73.5 kW @ 3750 r/min, 260 Nm @ 1750–2250 r/min",
+            "5-speed manual, rear-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Sub-4-metre 7-seat body-on-frame SUV",
+        "1.5 L mHawk100 diesel with 5-speed manual",
+        "Dual airbags",
+        "Five variants from N4 to N11"
+      ],
+      "variants": [
+        {
+          "name": "N4 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 906000,
+          "efficiency": null,
+          "features": [
+            "2 airbags",
+            "Tyres: 215/75 R15",
+            "Vinyl upholstery",
+            "Engine Start/Stop Button",
+            "Parking Sensors",
+            "Power Windows-Rear",
+            "Adjustable Headlights",
+            "Tyre Type: Radial Tubeless"
+          ]
+        },
+        {
+          "name": "N8 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 969000,
+          "efficiency": null,
+          "features": [
+            "4 speakers",
+            "Fabric upholstery",
+            "Tyre Pressure Monitor",
+            "Rear Window Wiper"
+          ]
+        },
+        {
+          "name": "N10 (R) Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 999899,
+          "efficiency": null,
+          "features": [
+            "4 speakers",
+            "Alloy Wheels",
+            "Fabric upholstery",
+            "Cruise Control",
+            "KeyLess Entry",
+            "Tyre Pressure Monitor",
+            "Rear View Camera",
+            "Fog Lights",
+            "Rear Window Wiper",
+            "LED DRLs"
+          ]
+        },
+        {
+          "name": "N11 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1039000,
+          "efficiency": null,
+          "features": [
+            "4 speakers",
+            "Alloy Wheels",
+            "Tyres: 215/70 R16",
+            "Leatherette upholstery",
+            "Cruise Control",
+            "KeyLess Entry",
+            "Tyre Pressure Monitor",
+            "Rear View Camera",
+            "Fog Lights",
+            "Rear Window Wiper"
+          ]
+        },
+        {
+          "name": "N10 (O) Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1085000,
+          "efficiency": null,
+          "features": [
+            "4 speakers",
+            "Alloy Wheels",
+            "Leatherette upholstery",
+            "Cruise Control",
+            "KeyLess Entry",
+            "Tyre Pressure Monitor",
+            "Rear View Camera",
+            "Fog Lights",
+            "Rear Window Wiper",
+            "LED DRLs"
+          ]
+        }
+      ],
+      "sources": [
+        "https://auto.mahindra.com/suv/bolero-neo/NEO.html",
+        "https://auto.mahindra.com/own-online/variant-selection?pid=NEO",
+        "https://auto.mahindra.com/suv/bolero-neo-n11-diesel/NEOM086817943931.html"
+      ],
+      "notes": "Configurator shows N10 (R) at Rs 9,99,899 in two colours and Rs 9,99,900 in Everest White; the lower figure is used. Prices are a single national ex-showroom figure (no city shown). ARAI fuel efficiency not published, so null. Dual-tone colours are not priced separately."
+    },
+    {
+      "slug": "mahindra-bolero-neo-plus",
+      "name": "Bolero Neo Plus",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "2184 cc",
+      "power": "88.26 kW",
+      "torque": "280 Nm",
+      "seats": [
+        9
+      ],
+      "airbags": 2,
+      "safety": null,
+      "bootSpaceL": 696,
+      "groundClearanceMm": null,
+      "fuelTankL": 60,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4400,
+        "width": 1795,
+        "height": 1812,
+        "wheelbase": 2680
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Diamond White",
+          "hex": "#E3DFD0"
+        },
+        {
+          "name": "Napoli Black",
+          "hex": "#242424"
+        },
+        {
+          "name": "DSat Silver",
+          "hex": "#4E4E51"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Parking Sensors",
+            "Power Windows-Rear",
+            "Rear Reading Lamp",
+            "Rear Seat Centre Arm Rest",
+            "Follow Me Home Headlamps"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "4 speakers",
+            "Touch Screen size: 22.8 cm"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "2 airbags",
+            "Tyre Pressure Monitor"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Alloy Wheels",
+            "Tyres: 215/70 R16",
+            "Fog Lights",
+            "Rear Window Wiper",
+            "Adjustable Headlights",
+            "Power Adjustable Exterior Rear View Mirror",
+            "Tyre Type: Radial Tubeless"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Vinyl upholstery"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.2 L mHawk120 4-cylinder turbo diesel: 88.26 kW @ 4000 r/min, 280 Nm @ 1800–2800 r/min",
+            "6-speed manual"
+          ]
+        }
+      ],
+      "highlights": [
+        "9-seat version of the Bolero Neo, 4400 mm long",
+        "2.2 L mHawk120 diesel with 6-speed manual",
+        "696-litre boot",
+        "Dual airbags"
+      ],
+      "variants": [
+        {
+          "name": "P4 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1146000,
+          "efficiency": null,
+          "features": [
+            "2 airbags",
+            "Tyres: 215/70 R16",
+            "Fabric upholstery",
+            "Tyre Pressure Monitor",
+            "Parking Sensors",
+            "Power Windows-Rear",
+            "Rear Reading Lamp",
+            "Adjustable Headlights",
+            "Tyre Type: Radial Tubeless"
+          ]
+        },
+        {
+          "name": "P10 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1256000,
+          "efficiency": null,
+          "features": [
+            "4 speakers",
+            "Alloy Wheels",
+            "Vinyl upholstery",
+            "Fog Lights",
+            "Rear Window Wiper",
+            "Rear Seat Centre Arm Rest",
+            "Follow Me Home Headlamps",
+            "Touch Screen size: 22.8 cm",
+            "Power Adjustable Exterior Rear View Mirror"
+          ]
+        }
+      ],
+      "sources": [
+        "https://auto.mahindra.com/suv/bolero-neo-plus/NEOP.html",
+        "https://auto.mahindra.com/own-online/variant-selection?pid=NEOP",
+        "https://auto.mahindra.com/suv/bolero-neo-plus-p10-diesel/NEOPM073217834781.html"
+      ],
+      "notes": "The configurator also lists a P4-based Ambulance at Rs 13,56,000; it is a special-purpose vehicle and is left out. Launch date of the Neo Plus is not shown on the site, so launchedOn is null. Prices are national ex-showroom (no city shown). ARAI efficiency not published, so null."
+    },
+    {
+      "slug": "mahindra-scorpio-classic",
+      "name": "Scorpio Classic",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-08-12",
+      "engine": "2184 cc",
+      "power": "97 kW",
+      "torque": "300 Nm",
+      "seats": [
+        7,
+        9
+      ],
+      "airbags": 2,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 60,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4456,
+        "width": 1820,
+        "height": 1995,
+        "wheelbase": 2680
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Galaxy Grey",
+          "hex": "#575A63"
+        },
+        {
+          "name": "Stealth Black",
+          "hex": "#060505"
+        },
+        {
+          "name": "Everest White",
+          "hex": "#CFCDCD"
+        },
+        {
+          "name": "Diamond White",
+          "hex": "#FFFFFF"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic Climate Control",
+            "Cruise Control",
+            "Rear AC Vents",
+            "Parking Sensors",
+            "Power Windows-Rear",
+            "Rear Reading Lamp",
+            "Rear Seat Centre Arm Rest",
+            "Central Console Armrest",
+            "Follow Me Home Headlamps"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Navigation with Live Traffic",
+            "Touch Screen size: 22.86 cm"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Electronic Stability Control"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Alloy Wheels",
+            "Tyres: 235/65 R17",
+            "LED Headlights",
+            "Fog Lights",
+            "Rear Window Wiper",
+            "Roof Rail",
+            "LED DRLs",
+            "LED Taillights",
+            "Adjustable Headlights",
+            "Power Adjustable Exterior Rear View Mirror",
+            "Rear Spoiler",
+            "Tyre Type: Radial Tubeless"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Fabric upholstery",
+            "Leather Steering Wheel",
+            "Leather wrap gear-shift selector"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.2 L Gen-2 mHawk turbo diesel: 97 kW @ 3750 r/min, 300 Nm @ 1600–2800 r/min",
+            "6-speed manual, rear-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Body-on-frame SUV with 2.2 L mHawk diesel and 6-speed manual",
+        "Seating for 7 (side-facing or captain seats) or 9",
+        "Two trims: S and S11",
+        "Dual airbags"
+      ],
+      "variants": [
+        {
+          "name": "S 7-Seater (side-facing third row) 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1343200,
+          "efficiency": null,
+          "features": [
+            "Tyres: 235/65 R17",
+            "Vinyl upholstery",
+            "Rear AC Vents",
+            "Parking Sensors",
+            "LED Taillights",
+            "Electronic Stability Control",
+            "Power Windows-Rear",
+            "Rear Reading Lamp",
+            "Adjustable Headlights",
+            "Tyre Type: Radial Tubeless"
+          ]
+        },
+        {
+          "name": "S 9-Seater 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1390900,
+          "efficiency": null,
+          "features": [
+            "Tyres: 235/65 R17",
+            "Vinyl upholstery",
+            "Rear AC Vents",
+            "Parking Sensors",
+            "LED Taillights",
+            "Electronic Stability Control",
+            "Power Windows-Rear",
+            "Rear Reading Lamp",
+            "Adjustable Headlights",
+            "Tyre Type: Radial Tubeless"
+          ]
+        },
+        {
+          "name": "S11 7-Seater (captain seats) 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1748400,
+          "efficiency": null,
+          "features": [
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Fabric upholstery",
+            "Cruise Control",
+            "Navigation with Live Traffic",
+            "Fog Lights",
+            "Leather Steering Wheel",
+            "Rear Window Wiper",
+            "Roof Rail"
+          ]
+        },
+        {
+          "name": "S11 7-Seater (side-facing third row) 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1748400,
+          "efficiency": null,
+          "features": [
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Fabric upholstery",
+            "Cruise Control",
+            "Navigation with Live Traffic",
+            "Fog Lights",
+            "Leather Steering Wheel",
+            "Rear Window Wiper",
+            "Roof Rail"
+          ]
+        }
+      ],
+      "sources": [
+        "https://auto.mahindra.com/suv/scorpio-classic/SCRC.html",
+        "https://auto.mahindra.com/own-online/variant-selection?pid=SCRC",
+        "https://auto.mahindra.com/suv/scorpio-classic-classic-s-diesel/SCRCM088617973485.html"
+      ],
+      "notes": "Seating layouts are priced separately and listed as variants: 7-seater with side-facing third row (7SF), 7-seater with captain seats (7CC) and 9-seater. Prices are national ex-showroom (no city shown). Boot space and ARAI efficiency not published, so null."
+    },
+    {
+      "slug": "mahindra-scorpio-n",
+      "name": "Scorpio-N",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-06-27",
+      "engine": "2.0 L turbo petrol / 2.2 L diesel",
+      "power": "97 – 149.14 kW",
+      "torque": "300 – 400 Nm",
+      "seats": [
+        6,
+        7
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Global NCAP",
+        "year": 2022
+      },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 57,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4662,
+        "width": 1917,
+        "height": 1857,
+        "wheelbase": 2750
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Oceanic",
+          "hex": "#062943"
+        },
+        {
+          "name": "Deep Forest",
+          "hex": "#282D22"
+        },
+        {
+          "name": "Everest White",
+          "hex": "#BAB9B9"
+        },
+        {
+          "name": "Stealth Black",
+          "hex": "#060505"
+        },
+        {
+          "name": "Galaxy Grey",
+          "hex": "#575A63"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic Climate Control",
+            "Electric Adjustable Seats",
+            "Seat Lumbar Support",
+            "Cruise Control",
+            "Rear AC Vents",
+            "Engine Start/Stop Button",
+            "KeyLess Entry",
+            "Parking Sensors",
+            "Power Windows-Rear",
+            "Rear Reading Lamp",
+            "Rear Seat Centre Arm Rest",
+            "Central Console Armrest",
+            "Automatic Headlamps",
+            "Follow Me Home Headlamps",
+            "Adjustable Steering - Tilt"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Wireless Phone Charging",
+            "12 speakers",
+            "Navigation with Live Traffic",
+            "E-Call & I-Call",
+            "Android Auto",
+            "Apple CarPlay",
+            "RSA",
+            "SOS Button",
+            "Valet Mode",
+            "Alexa Connectivity",
+            "Touch Screen size: 12.3 inch 31.2 cm"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "6 airbags",
+            "Tyre Pressure Monitor",
+            "Hill Assist",
+            "Electronic Stability Control",
+            "ISOFIX Child Seat Mounts",
+            "Traffic Sign Recognition",
+            "Lane Departure Warning",
+            "High Beam Assist",
+            "Driver Drowsiness Detection (DDD)",
+            "Side Airbag Co-driver",
+            "Side Airbag Driver",
+            "Smart Pilot Assist",
+            "Front Vehicle Start Alert",
+            "Speed Limit Assist",
+            "Auto Emergency Braking (Vehicle, Pedestrians, Bicyclists)",
+            "540 View Camera"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Alloy Wheels",
+            "Tyres: 255/60 R18",
+            "LED Headlights",
+            "Fog Lights",
+            "Rain Sensing Wiper",
+            "Rear Window Wiper",
+            "Roof Rail",
+            "LED DRLs",
+            "LED Taillights",
+            "Adjustable Headlights",
+            "Power Adjustable Exterior Rear View Mirror",
+            "Rear Spoiler",
+            "Skyroof"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Digital Cluster",
+            "Leather upholstery",
+            "Leather Steering Wheel",
+            "Leather wrap gear-shift selector",
+            "Digital Odometer",
+            "Cluster Size: 26.03 cm"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.0 L mStallion TGDi turbo petrol: 149.14 kW @ 5000 r/min, 370 Nm (MT) / 380 Nm (AT)",
+            "2.2 L mHawk diesel: 128.6 kW @ 3500 r/min, 370 Nm (MT) / 400 Nm (AT); 97 kW / 300 Nm on Z2 and Z4 (E) manuals",
+            "6-speed MT or 6-speed AT",
+            "4WD available on Z4 and Z8 diesel variants"
+          ]
+        }
+      ],
+      "highlights": [
+        "Petrol (2.0 TGDi) and diesel (2.2 mHawk) engines, manual or automatic",
+        "4WD offered on diesel variants",
+        "Global NCAP 5-star adult occupant rating (2022)",
+        "6-seat (captain seats) option on Z8L",
+        "Level 2 ADAS on top variants"
+      ],
+      "variants": [
+        {
+          "name": "Z2 (E) 2.0 TGDi Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1369000,
+          "efficiency": null,
+          "features": [
+            "2 airbags",
+            "4 speakers",
+            "Tyres: 245/65 R17",
+            "Fabric upholstery",
+            "Rear AC Vents",
+            "Parking Sensors",
+            "LED Taillights",
+            "Hill Assist",
+            "Electronic Stability Control",
+            "ISOFIX Child Seat Mounts"
+          ]
+        },
+        {
+          "name": "Z2 (E) 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1419000,
+          "efficiency": null,
+          "features": [
+            "2 airbags",
+            "4 speakers",
+            "Tyres: 245/65 R17",
+            "Fabric upholstery",
+            "Rear AC Vents",
+            "Parking Sensors",
+            "LED Taillights",
+            "Hill Assist",
+            "Electronic Stability Control",
+            "ISOFIX Child Seat Mounts"
+          ]
+        },
+        {
+          "name": "Z4 (E) 2.0 TGDi Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1556693,
+          "efficiency": null,
+          "features": [
+            "10.66 cm digital instrument cluster",
+            "Seat Lumbar Support",
+            "Cruise Control",
+            "Rear Window Wiper",
+            "Roof Rail",
+            "Android Auto",
+            "Apple CarPlay",
+            "Follow Me Home Headlamps",
+            "Touch Screen size: 8 inch 20.3 cm",
+            "Power Adjustable Exterior Rear View Mirror"
+          ]
+        },
+        {
+          "name": "Z4 (E) 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1611785,
+          "efficiency": null,
+          "features": [
+            "10.66 cm digital instrument cluster",
+            "Seat Lumbar Support",
+            "Cruise Control",
+            "Rear Window Wiper",
+            "Roof Rail",
+            "Android Auto",
+            "Apple CarPlay",
+            "Follow Me Home Headlamps",
+            "Touch Screen size: 8 inch 20.3 cm",
+            "Power Adjustable Exterior Rear View Mirror"
+          ]
+        },
+        {
+          "name": "Z4 2.0 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1715693,
+          "efficiency": null,
+          "features": [
+            "10.66 cm digital instrument cluster",
+            "Seat Lumbar Support",
+            "Cruise Control",
+            "Rear Window Wiper",
+            "Roof Rail",
+            "Android Auto",
+            "Apple CarPlay",
+            "Follow Me Home Headlamps",
+            "Touch Screen size: 8 inch 20.3 cm",
+            "Power Adjustable Exterior Rear View Mirror"
+          ]
+        },
+        {
+          "name": "Z6 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1717214,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "6 speakers",
+            "Seat Lumbar Support",
+            "Cruise Control",
+            "Rear Window Wiper",
+            "Roof Rail",
+            "Android Auto",
+            "Apple CarPlay",
+            "Drive Modes",
+            "Follow Me Home Headlamps"
+          ]
+        },
+        {
+          "name": "Z4 2.2 Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1768437,
+          "efficiency": null,
+          "features": [
+            "10.66 cm digital instrument cluster",
+            "Seat Lumbar Support",
+            "Cruise Control",
+            "Rear Window Wiper",
+            "Roof Rail",
+            "Android Auto",
+            "Apple CarPlay",
+            "Follow Me Home Headlamps",
+            "Touch Screen size: 8 inch 20.3 cm",
+            "Power Adjustable Exterior Rear View Mirror"
+          ]
+        },
+        {
+          "name": "Z8S 2.0 TGDi Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1778834,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "6 airbags",
+            "Digital Cluster",
+            "6 speakers",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Leather upholstery",
+            "Seat Lumbar Support",
+            "Cruise Control",
+            "Navigation with Live Traffic"
+          ]
+        },
+        {
+          "name": "Z4 (E) 2.2 Diesel MT 4WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1802500,
+          "efficiency": null,
+          "features": [
+            "10.66 cm digital instrument cluster",
+            "Seat Lumbar Support",
+            "Cruise Control",
+            "Rear Window Wiper",
+            "Roof Rail",
+            "Android Auto",
+            "Apple CarPlay",
+            "Follow Me Home Headlamps",
+            "Touch Screen size: 8 inch 20.3 cm",
+            "Power Adjustable Exterior Rear View Mirror"
+          ]
+        },
+        {
+          "name": "Z6 2.2 Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1882348,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "6 speakers",
+            "Seat Lumbar Support",
+            "Cruise Control",
+            "Rear Window Wiper",
+            "Roof Rail",
+            "Android Auto",
+            "Apple CarPlay",
+            "Drive Modes",
+            "Follow Me Home Headlamps"
+          ]
+        },
+        {
+          "name": "Z8S 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1889161,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "6 airbags",
+            "Digital Cluster",
+            "6 speakers",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Leather upholstery",
+            "Seat Lumbar Support",
+            "Cruise Control",
+            "Navigation with Live Traffic"
+          ]
+        },
+        {
+          "name": "Z8S 2.0 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1926433,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "6 airbags",
+            "Digital Cluster",
+            "6 speakers",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Leather upholstery",
+            "Seat Lumbar Support",
+            "Cruise Control",
+            "Navigation with Live Traffic"
+          ]
+        },
+        {
+          "name": "Z8 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1986062,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "6 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Leather upholstery",
+            "Seat Lumbar Support"
+          ]
+        },
+        {
+          "name": "Z8S 2.2 Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1998997,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "6 airbags",
+            "Digital Cluster",
+            "6 speakers",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Leather upholstery",
+            "Seat Lumbar Support",
+            "Cruise Control",
+            "Navigation with Live Traffic"
+          ]
+        },
+        {
+          "name": "Z8T 2.0 TGDi Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2037848,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18",
+            "LED Headlights",
+            "Leather upholstery"
+          ]
+        },
+        {
+          "name": "Z8T 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2065000,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18",
+            "LED Headlights",
+            "Leather upholstery"
+          ]
+        },
+        {
+          "name": "Z8L 2.0 TGDi Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2131387,
+          "efficiency": null,
+          "features": [
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18",
+            "LED Headlights"
+          ]
+        },
+        {
+          "name": "Z8 2.2 Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2140837,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "6 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Leather upholstery",
+            "Seat Lumbar Support"
+          ]
+        },
+        {
+          "name": "Z8L 6-Seater 2.0 TGDi Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2168699,
+          "efficiency": null,
+          "features": [
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18",
+            "LED Headlights"
+          ]
+        },
+        {
+          "name": "Z8T 2.0 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2184819,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18",
+            "LED Headlights",
+            "Leather upholstery"
+          ]
+        },
+        {
+          "name": "Z8L 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2199000,
+          "efficiency": null,
+          "features": [
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18",
+            "LED Headlights"
+          ]
+        },
+        {
+          "name": "Z8T 2.2 Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2235147,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18",
+            "LED Headlights",
+            "Leather upholstery"
+          ]
+        },
+        {
+          "name": "Z8L 6-Seater 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2246795,
+          "efficiency": null,
+          "features": [
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18",
+            "LED Headlights"
+          ]
+        },
+        {
+          "name": "Z8T 2.2 Diesel MT 4WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2286250,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18",
+            "LED Headlights",
+            "Leather upholstery"
+          ]
+        },
+        {
+          "name": "Z8L 2.0 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2287187,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18"
+          ]
+        },
+        {
+          "name": "Z8L 6-Seater 2.0 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2305400,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18"
+          ]
+        },
+        {
+          "name": "Z8L 2.2 Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2359000,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18"
+          ]
+        },
+        {
+          "name": "Z8L 6-Seater 2.2 Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2399500,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18"
+          ]
+        },
+        {
+          "name": "Z8L 2.2 Diesel MT 4WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2425145,
+          "efficiency": null,
+          "features": [
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18",
+            "LED Headlights"
+          ]
+        },
+        {
+          "name": "Z8T 2.2 Diesel AT 4WD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2439250,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18",
+            "LED Headlights",
+            "Leather upholstery"
+          ]
+        },
+        {
+          "name": "Z8L 2.2 Diesel AT 4WD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2549000,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "6 airbags",
+            "Wireless Phone Charging",
+            "Digital Cluster",
+            "12 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 255/60 R18"
+          ]
+        }
+      ],
+      "sources": [
+        "https://auto.mahindra.com/suv/scorpio-n/SCN.html",
+        "https://auto.mahindra.com/own-online/variant-selection?pid=SCN",
+        "https://auto.mahindra.com/suv/scorpio-n-z2-diesel/SCNM075617892610.html",
+        "https://www.mahindra.com/news-room/press-release/en/mahindra-all-new-scorpio-n-becomes-the-first-body-on-frame-suv-to-secure-5-star-global-ncap-rating"
+      ],
+      "notes": "Global NCAP 2022: 5 stars adult, 3 stars child. Height is 1857 mm (1849 mm on R17 wheels). Several prices are odd figures (e.g. Rs 15,56,693) exactly as listed in the configurator. '(E)' variants are as Mahindra labels them. Prices are national ex-showroom (no city shown). Boot space and ARAI efficiency not published, so null."
+    },
+    {
+      "slug": "mahindra-thar-og",
+      "name": "Thar OG",
+      "bodyType": "SUV",
+      "bodyStyle": "3-door off-roader",
+      "isLuxury": false,
+      "launchedOn": "2026-09-22",
+      "engine": "1497 – 2184 cc",
+      "power": "87.2 – 119 kW",
+      "torque": "300 – 330 Nm",
+      "seats": [
+        4
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": 232,
+      "fuelTankL": 55,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3995,
+        "width": 1870,
+        "height": 1855,
+        "wheelbase": 2450
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Artemis Silver",
+          "hex": "#30363F"
+        },
+        {
+          "name": "Jeans Blue",
+          "hex": "#071F35"
+        },
+        {
+          "name": "Tango Red",
+          "hex": "#970211"
+        },
+        {
+          "name": "Galaxy Grey",
+          "hex": "#575A63"
+        },
+        {
+          "name": "Battleship Grey",
+          "hex": "#768390"
+        },
+        {
+          "name": "Everest White",
+          "hex": "#CFCDCD"
+        },
+        {
+          "name": "Stealth Black",
+          "hex": "#060505"
+        },
+        {
+          "name": "Deep Forest",
+          "hex": "#282D22"
+        }
+      ],
+      "features": [
+        {
+          "group": "Exterior",
+          "items": [
+            "Hard top",
+            "Tailgate-mounted spare wheel",
+            "Dual-tone bumpers (LXT, ZXT)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.5 L D117 CRDe diesel: 87.2 kW @ 3500 r/min, 300 Nm (RWD manual)",
+            "2.2 L mHawk diesel: 111.9 kW @ 3750 r/min, 330 Nm",
+            "2.0 L mStallion TGDi petrol: 119 kW @ 5000 r/min, 330 Nm",
+            "6-speed MT or 6-speed torque-converter AT",
+            "Manual-shift part-time 4WD with low range on 4WD variants",
+            "650 mm water wading; 40° approach and 36° departure angles"
+          ]
+        }
+      ],
+      "highlights": [
+        "Updated three-door Thar launched as the Thar OG on 22 September 2026",
+        "Three engines: 1.5 diesel, 2.2 diesel and 2.0 turbo petrol",
+        "4WD with electronic locking differential on 4WD variants",
+        "232 mm ground clearance and 650 mm water wading",
+        "Disc brakes on all four wheels"
+      ],
+      "variants": [
+        {
+          "name": "AXT 1.5 Diesel MT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1032000,
+          "efficiency": null,
+          "features": [
+            "R18 steel wheels",
+            "Vinyl seats",
+            "Halogen headlamps",
+            "Dual airbags",
+            "ESP with roll-over mitigation",
+            "Hill hold and hill descent control",
+            "Rear parking sensors",
+            "Hard top"
+          ]
+        },
+        {
+          "name": "LXT 1.5 Diesel MT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1299000,
+          "efficiency": null,
+          "features": [
+            "R18 alloy wheels",
+            "26.03 cm HD touchscreen with Android Auto (wired/wireless) and Apple CarPlay (wired)",
+            "4 speakers + 2 tweeters",
+            "Cruise control",
+            "Embossed fabric seats",
+            "Electrically adjustable ORVMs",
+            "Rear wiper and washer",
+            "Dual airbags"
+          ]
+        },
+        {
+          "name": "ZXT 1.5 Diesel MT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1399000,
+          "efficiency": null,
+          "features": [
+            "R19 alloy wheels",
+            "LED headlamps with DRLs and LED front fog lamps",
+            "6 airbags (4 HPTS side airbags)",
+            "Leatherette seats and leatherette-wrapped steering",
+            "Wireless charger",
+            "Tyre pressure monitoring",
+            "Front parking sensors and rear camera",
+            "26.03 cm HD touchscreen"
+          ]
+        },
+        {
+          "name": "LXT 2.0 Turbo Petrol AT 2WD",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1476500,
+          "efficiency": null,
+          "features": [
+            "R18 alloy wheels",
+            "26.03 cm HD touchscreen with Android Auto (wired/wireless) and Apple CarPlay (wired)",
+            "4 speakers + 2 tweeters",
+            "Cruise control",
+            "Embossed fabric seats",
+            "Electrically adjustable ORVMs",
+            "Rear wiper and washer",
+            "Dual airbags"
+          ]
+        },
+        {
+          "name": "LXT 2.0 Turbo Petrol MT 4WD",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1559500,
+          "efficiency": null,
+          "features": [
+            "R18 alloy wheels",
+            "26.03 cm HD touchscreen with Android Auto (wired/wireless) and Apple CarPlay (wired)",
+            "4 speakers + 2 tweeters",
+            "Cruise control",
+            "Embossed fabric seats",
+            "Electrically adjustable ORVMs",
+            "Rear wiper and washer",
+            "Dual airbags",
+            "Part-time 4WD with low range and electronic locking differential",
+            "Terrain modes"
+          ]
+        },
+        {
+          "name": "ZXT 2.0 Turbo Petrol AT 2WD",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1609000,
+          "efficiency": null,
+          "features": [
+            "R19 alloy wheels",
+            "LED headlamps with DRLs and LED front fog lamps",
+            "6 airbags (4 HPTS side airbags)",
+            "Leatherette seats and leatherette-wrapped steering",
+            "Wireless charger",
+            "Tyre pressure monitoring",
+            "Front parking sensors and rear camera",
+            "26.03 cm HD touchscreen"
+          ]
+        },
+        {
+          "name": "LXT 2.2 Diesel MT 4WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1642500,
+          "efficiency": null,
+          "features": [
+            "R18 alloy wheels",
+            "26.03 cm HD touchscreen with Android Auto (wired/wireless) and Apple CarPlay (wired)",
+            "4 speakers + 2 tweeters",
+            "Cruise control",
+            "Embossed fabric seats",
+            "Electrically adjustable ORVMs",
+            "Rear wiper and washer",
+            "Dual airbags",
+            "Part-time 4WD with low range and electronic locking differential",
+            "Terrain modes"
+          ]
+        },
+        {
+          "name": "LXT 2.2 Diesel AT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1649000,
+          "efficiency": null,
+          "features": [
+            "R18 alloy wheels",
+            "26.03 cm HD touchscreen with Android Auto (wired/wireless) and Apple CarPlay (wired)",
+            "4 speakers + 2 tweeters",
+            "Cruise control",
+            "Embossed fabric seats",
+            "Electrically adjustable ORVMs",
+            "Rear wiper and washer",
+            "Dual airbags"
+          ]
+        },
+        {
+          "name": "ZXT 2.0 Turbo Petrol MT 4WD",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1660000,
+          "efficiency": null,
+          "features": [
+            "R19 alloy wheels",
+            "LED headlamps with DRLs and LED front fog lamps",
+            "6 airbags (4 HPTS side airbags)",
+            "Leatherette seats and leatherette-wrapped steering",
+            "Wireless charger",
+            "Tyre pressure monitoring",
+            "Front parking sensors and rear camera",
+            "26.03 cm HD touchscreen",
+            "Part-time 4WD with low range and electronic locking differential",
+            "Terrain modes"
+          ]
+        },
+        {
+          "name": "LXT 2.0 Turbo Petrol AT 4WD",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1722500,
+          "efficiency": null,
+          "features": [
+            "R18 alloy wheels",
+            "26.03 cm HD touchscreen with Android Auto (wired/wireless) and Apple CarPlay (wired)",
+            "4 speakers + 2 tweeters",
+            "Cruise control",
+            "Embossed fabric seats",
+            "Electrically adjustable ORVMs",
+            "Rear wiper and washer",
+            "Dual airbags",
+            "Part-time 4WD with low range and electronic locking differential",
+            "Terrain modes"
+          ]
+        },
+        {
+          "name": "ZXT 2.2 Diesel AT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1749000,
+          "efficiency": null,
+          "features": [
+            "R19 alloy wheels",
+            "LED headlamps with DRLs and LED front fog lamps",
+            "6 airbags (4 HPTS side airbags)",
+            "Leatherette seats and leatherette-wrapped steering",
+            "Wireless charger",
+            "Tyre pressure monitoring",
+            "Front parking sensors and rear camera",
+            "26.03 cm HD touchscreen"
+          ]
+        },
+        {
+          "name": "ZXT 2.2 Diesel MT 4WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1749000,
+          "efficiency": null,
+          "features": [
+            "R19 alloy wheels",
+            "LED headlamps with DRLs and LED front fog lamps",
+            "6 airbags (4 HPTS side airbags)",
+            "Leatherette seats and leatherette-wrapped steering",
+            "Wireless charger",
+            "Tyre pressure monitoring",
+            "Front parking sensors and rear camera",
+            "26.03 cm HD touchscreen",
+            "Part-time 4WD with low range and electronic locking differential",
+            "Terrain modes"
+          ]
+        },
+        {
+          "name": "ZXT 2.0 Turbo Petrol AT 4WD",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1775000,
+          "efficiency": null,
+          "features": [
+            "R19 alloy wheels",
+            "LED headlamps with DRLs and LED front fog lamps",
+            "6 airbags (4 HPTS side airbags)",
+            "Leatherette seats and leatherette-wrapped steering",
+            "Wireless charger",
+            "Tyre pressure monitoring",
+            "Front parking sensors and rear camera",
+            "26.03 cm HD touchscreen",
+            "Part-time 4WD with low range and electronic locking differential",
+            "Terrain modes"
+          ]
+        },
+        {
+          "name": "LXT 2.2 Diesel AT 4WD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1799500,
+          "efficiency": null,
+          "features": [
+            "R18 alloy wheels",
+            "26.03 cm HD touchscreen with Android Auto (wired/wireless) and Apple CarPlay (wired)",
+            "4 speakers + 2 tweeters",
+            "Cruise control",
+            "Embossed fabric seats",
+            "Electrically adjustable ORVMs",
+            "Rear wiper and washer",
+            "Dual airbags",
+            "Part-time 4WD with low range and electronic locking differential",
+            "Terrain modes"
+          ]
+        },
+        {
+          "name": "ZXT 2.2 Diesel AT 4WD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1899000,
+          "efficiency": null,
+          "features": [
+            "R19 alloy wheels",
+            "LED headlamps with DRLs and LED front fog lamps",
+            "6 airbags (4 HPTS side airbags)",
+            "Leatherette seats and leatherette-wrapped steering",
+            "Wireless charger",
+            "Tyre pressure monitoring",
+            "Front parking sensors and rear camera",
+            "26.03 cm HD touchscreen",
+            "Part-time 4WD with low range and electronic locking differential",
+            "Terrain modes"
+          ]
+        }
+      ],
+      "sources": [
+        "https://auto.mahindra.com/suv/thar/THRN.html",
+        "https://auto.mahindra.com/own-online/variant-selection?pid=THRN",
+        "https://auto.mahindra.com/suv/thar-og-axt-diesel/THRNM111518121678.html",
+        "https://www.mahindra.com/news-room/press-release/en/mahindra-launches-thar-og-built-on-legacy-engineered-for-a-new-era-introductory-price-starting-at-rupees-10.32-lakh"
+      ],
+      "notes": "Launch prices are introductory (Mahindra said valid for deliveries until 30 Nov 2026). Engine per variant inferred from the spec sheet's variant matrix: 2WD diesel manuals use the 1.5 D117, other diesels the 2.2 mHawk, petrols the 2.0 mStallion. Fuel tank: 55 L diesel, 50 L petrol. 6 airbags on ZXT only (dual on AXT/LXT). No crash-test result for the Thar OG yet; Global NCAP's 2020 rating was for the earlier Thar. Prices are national ex-showroom."
+    },
+    {
+      "slug": "mahindra-thar-roxx",
+      "name": "Thar Roxx",
+      "bodyType": "SUV",
+      "bodyStyle": "5-door off-roader",
+      "isLuxury": false,
+      "launchedOn": "2024-08-14",
+      "engine": "2.0 L turbo petrol / 2.2 L diesel",
+      "power": "111.9 – 130 kW",
+      "torque": "330 – 400 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2024
+      },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 57,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4428,
+        "width": 1870,
+        "height": 1923,
+        "wheelbase": 2850
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Deep Forest",
+          "hex": "#282D22"
+        },
+        {
+          "name": "Burnt Sienna",
+          "hex": "#45241A"
+        },
+        {
+          "name": "Nebula Blue",
+          "hex": "#07132A"
+        },
+        {
+          "name": "Battleship Grey",
+          "hex": "#768390"
+        },
+        {
+          "name": "Tango Red",
+          "hex": "#C20D0E"
+        },
+        {
+          "name": "Stealth Black",
+          "hex": "#060505"
+        },
+        {
+          "name": "Everest White",
+          "hex": "#CFCDCD"
+        },
+        {
+          "name": "Citrine Yellow",
+          "hex": "#BAA21B"
+        }
+      ],
+      "features": [
+        {
+          "group": "Exterior",
+          "items": [
+            "Largest panoramic sunroof in segment per Mahindra: 1450 x 900 mm"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.0 L mStallion TGDi petrol: 119 kW / 330 Nm (MT), 130 kW / 380 Nm (AT); rear-wheel drive",
+            "2.2 L mHawk diesel: 111.9 kW / 330 Nm, or 128.6 kW / 400 Nm (AX5L/AX7L/Star Edition AT)",
+            "6-speed MT or 6-speed torque-converter AT",
+            "Manual-shift part-time 4x4 with low range on diesel 4WD variants",
+            "650 mm water wading; 41.7° approach, 36.1° departure"
+          ]
+        }
+      ],
+      "highlights": [
+        "Five-door Thar with 2.0 turbo petrol and 2.2 diesel engines",
+        "Bharat NCAP 5-star rating (2024)",
+        "6 airbags standard",
+        "Level 2 ADAS on AX3L, AX5L and AX7L",
+        "4x4 with electronic locking differential on diesel 4WD variants"
+      ],
+      "variants": [
+        {
+          "name": "MX1 2.0 Turbo Petrol MT 2WD",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1252000,
+          "efficiency": null,
+          "features": [
+            "R18 steel wheels",
+            "6 airbags",
+            "26.03 cm touchscreen infotainment",
+            "4 speakers",
+            "Rear parking sensors",
+            "ESC with roll-over mitigation",
+            "Hill hold and hill descent control"
+          ]
+        },
+        {
+          "name": "MX1 2.2 Diesel MT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1423000,
+          "efficiency": null,
+          "features": [
+            "R18 steel wheels",
+            "6 airbags",
+            "26.03 cm touchscreen infotainment",
+            "4 speakers",
+            "Rear parking sensors",
+            "ESC with roll-over mitigation",
+            "Hill hold and hill descent control"
+          ]
+        },
+        {
+          "name": "MX3 2.0 Turbo Petrol AT 2WD",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1539000,
+          "efficiency": null,
+          "features": [
+            "26.03 cm HD touchscreen with Android Auto (wired/wireless) and Apple CarPlay (wired)",
+            "Rear camera",
+            "R18 steel wheels",
+            "Adventure statistics (Gen II)"
+          ]
+        },
+        {
+          "name": "MX3 2.2 Diesel MT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1639000,
+          "efficiency": null,
+          "features": [
+            "26.03 cm HD touchscreen with Android Auto (wired/wireless) and Apple CarPlay (wired)",
+            "Rear camera",
+            "R18 steel wheels",
+            "Adventure statistics (Gen II)"
+          ]
+        },
+        {
+          "name": "MX5 2.0 Turbo Petrol MT 2WD",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1664000,
+          "efficiency": null,
+          "features": [
+            "R18 diamond-cut alloy wheels",
+            "Tyre pressure monitoring",
+            "Front and rear parking sensors",
+            "Passive keyless entry",
+            "4 speakers + 2 tweeters",
+            "Rear camera"
+          ]
+        },
+        {
+          "name": "MX5 2.2 Diesel MT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1707000,
+          "efficiency": null,
+          "features": [
+            "R18 diamond-cut alloy wheels",
+            "Tyre pressure monitoring",
+            "Front and rear parking sensors",
+            "Passive keyless entry",
+            "4 speakers + 2 tweeters",
+            "Rear camera"
+          ]
+        },
+        {
+          "name": "AX3L 2.2 Diesel MT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1740000,
+          "efficiency": null,
+          "features": [
+            "Level 2 ADAS (autonomous emergency braking, lane keep assist, high beam assist)",
+            "26.03 cm HD digital cluster",
+            "Electric parking brake with auto hold",
+            "AdrenoX connected car with Alexa",
+            "E-call and SOS",
+            "R18 steel wheels"
+          ]
+        },
+        {
+          "name": "MX3 2.2 Diesel AT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1794000,
+          "efficiency": null,
+          "features": [
+            "26.03 cm HD touchscreen with Android Auto (wired/wireless) and Apple CarPlay (wired)",
+            "Rear camera",
+            "R18 steel wheels",
+            "Adventure statistics (Gen II)"
+          ]
+        },
+        {
+          "name": "Star Edition 2.2 Diesel MT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1797000,
+          "efficiency": null,
+          "features": [
+            "R19 piano-black alloy wheels",
+            "Harman Kardon audio (6 speakers, 2 tweeters, subwoofer)",
+            "Surround view camera",
+            "Wireless charging",
+            "Auto-dimming IRVM",
+            "Front and rear parking sensors"
+          ]
+        },
+        {
+          "name": "MX5 2.0 Turbo Petrol AT 2WD",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1815000,
+          "efficiency": null,
+          "features": [
+            "R18 diamond-cut alloy wheels",
+            "Tyre pressure monitoring",
+            "Front and rear parking sensors",
+            "Passive keyless entry",
+            "4 speakers + 2 tweeters",
+            "Rear camera"
+          ]
+        },
+        {
+          "name": "MX5 2.2 Diesel AT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1865000,
+          "efficiency": null,
+          "features": [
+            "R18 diamond-cut alloy wheels",
+            "Tyre pressure monitoring",
+            "Front and rear parking sensors",
+            "Passive keyless entry",
+            "4 speakers + 2 tweeters",
+            "Rear camera"
+          ]
+        },
+        {
+          "name": "Star Edition 2.0 Turbo Petrol AT 2WD",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1898000,
+          "efficiency": null,
+          "features": [
+            "R19 piano-black alloy wheels",
+            "Harman Kardon audio (6 speakers, 2 tweeters, subwoofer)",
+            "Surround view camera",
+            "Wireless charging",
+            "Auto-dimming IRVM",
+            "Front and rear parking sensors"
+          ]
+        },
+        {
+          "name": "AX5L 2.2 Diesel AT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1941000,
+          "efficiency": null,
+          "features": [
+            "Level 2 ADAS with adaptive cruise control (stop & go)",
+            "R18 diamond-cut alloy wheels",
+            "Wireless charging",
+            "26.03 cm HD digital cluster",
+            "Electric parking brake with auto hold",
+            "AdrenoX connected car with Alexa"
+          ]
+        },
+        {
+          "name": "Star Edition 2.2 Diesel AT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1948000,
+          "efficiency": null,
+          "features": [
+            "R19 piano-black alloy wheels",
+            "Harman Kardon audio (6 speakers, 2 tweeters, subwoofer)",
+            "Surround view camera",
+            "Wireless charging",
+            "Auto-dimming IRVM",
+            "Front and rear parking sensors"
+          ]
+        },
+        {
+          "name": "MX5 2.2 Diesel MT 4WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1956000,
+          "efficiency": null,
+          "features": [
+            "R18 diamond-cut alloy wheels",
+            "Tyre pressure monitoring",
+            "Front and rear parking sensors",
+            "Passive keyless entry",
+            "4 speakers + 2 tweeters",
+            "Rear camera",
+            "Part-time 4x4 with low range and electronic locking differential"
+          ]
+        },
+        {
+          "name": "AX7L 2.2 Diesel MT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1957000,
+          "efficiency": null,
+          "features": [
+            "R19 diamond-cut alloy wheels",
+            "Harman Kardon audio with Dolby Atmos",
+            "Surround view camera",
+            "Level 2 ADAS (adaptive cruise and Smart Pilot Assist on AT)",
+            "Wireless charging",
+            "Electric parking brake with auto hold"
+          ]
+        },
+        {
+          "name": "AX7L 2.0 Turbo Petrol AT 2WD",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1999500,
+          "efficiency": null,
+          "features": [
+            "R19 diamond-cut alloy wheels",
+            "Harman Kardon audio with Dolby Atmos",
+            "Surround view camera",
+            "Level 2 ADAS (adaptive cruise and Smart Pilot Assist on AT)",
+            "Wireless charging",
+            "Electric parking brake with auto hold"
+          ]
+        },
+        {
+          "name": "AX7L 2.2 Diesel AT 2WD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2083000,
+          "efficiency": null,
+          "features": [
+            "R19 diamond-cut alloy wheels",
+            "Harman Kardon audio with Dolby Atmos",
+            "Surround view camera",
+            "Level 2 ADAS (adaptive cruise and Smart Pilot Assist on AT)",
+            "Wireless charging",
+            "Electric parking brake with auto hold"
+          ]
+        },
+        {
+          "name": "AX5L 2.2 Diesel AT 4WD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2167000,
+          "efficiency": null,
+          "features": [
+            "Level 2 ADAS with adaptive cruise control (stop & go)",
+            "R18 diamond-cut alloy wheels",
+            "Wireless charging",
+            "26.03 cm HD digital cluster",
+            "Electric parking brake with auto hold",
+            "AdrenoX connected car with Alexa",
+            "Part-time 4x4 with low range and electronic locking differential"
+          ]
+        },
+        {
+          "name": "AX7L 2.2 Diesel MT 4WD",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2212000,
+          "efficiency": null,
+          "features": [
+            "R19 diamond-cut alloy wheels",
+            "Harman Kardon audio with Dolby Atmos",
+            "Surround view camera",
+            "Level 2 ADAS (adaptive cruise and Smart Pilot Assist on AT)",
+            "Wireless charging",
+            "Electric parking brake with auto hold",
+            "Part-time 4x4 with low range and electronic locking differential"
+          ]
+        },
+        {
+          "name": "AX7L 2.2 Diesel AT 4WD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2352500,
+          "efficiency": null,
+          "features": [
+            "R19 diamond-cut alloy wheels",
+            "Harman Kardon audio with Dolby Atmos",
+            "Surround view camera",
+            "Level 2 ADAS (adaptive cruise and Smart Pilot Assist on AT)",
+            "Wireless charging",
+            "Electric parking brake with auto hold",
+            "Part-time 4x4 with low range and electronic locking differential"
+          ]
+        }
+      ],
+      "sources": [
+        "https://auto.mahindra.com/suv/thar-roxx/TH5D.html",
+        "https://auto.mahindra.com/own-online/variant-selection?pid=TH5D",
+        "https://auto.mahindra.com/suv/thar-roxx-mx1-diesel/TH5DM070817794031.html",
+        "https://www.autocarindia.com/auto-features-amp/every-car-suv-tested-by-bharat-ncap-so-far-431936"
+      ],
+      "notes": "Mocha interior versions of MX5 4WD, AX5L and AX7L are listed as separate codes at the same price as the standard interior, so they are not separate variants here. 'Largest panoramic sunroof' is Mahindra's claim. Ground clearance and boot space are not on the spec sheet. Prices are national ex-showroom (no city shown). ARAI efficiency not published, so null."
+    },
+    {
+      "slug": "mahindra-xuv-3xo",
+      "name": "XUV 3XO",
+      "bodyType": "SUV",
+      "bodyStyle": "Compact SUV",
+      "isLuxury": false,
+      "launchedOn": "2024-04-29",
+      "engine": "1197 – 1497 cc",
+      "power": "82 – 96 kW",
+      "torque": "200 – 300 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2026
+      },
+      "bootSpaceL": 364,
+      "groundClearanceMm": null,
+      "fuelTankL": 42,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3990,
+        "width": 1821,
+        "height": 1647,
+        "wheelbase": 2600
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Dune Beige",
+          "hex": "#907B61"
+        },
+        {
+          "name": "Deep Forest",
+          "hex": "#282D22"
+        },
+        {
+          "name": "Citrine Yellow",
+          "hex": "#BAA21B"
+        },
+        {
+          "name": "Galaxy Grey",
+          "hex": "#575A63"
+        },
+        {
+          "name": "Nebula Blue",
+          "hex": "#07132A"
+        },
+        {
+          "name": "Tango Red",
+          "hex": "#970211"
+        },
+        {
+          "name": "Everest White",
+          "hex": "#CFCDCD"
+        },
+        {
+          "name": "Stealth Black",
+          "hex": "#060505"
+        },
+        {
+          "name": "Deep Forest with Grey roof",
+          "hex": "#282D22"
+        },
+        {
+          "name": "Dune Beige with Black roof",
+          "hex": "#907B61"
+        },
+        {
+          "name": "Citrine Yellow with Black roof",
+          "hex": "#BAA21B"
+        },
+        {
+          "name": "Galaxy Grey with Black roof",
+          "hex": "#575A63"
+        },
+        {
+          "name": "Stealth Black with Grey roof",
+          "hex": "#060505"
+        },
+        {
+          "name": "Tango Red with Black roof",
+          "hex": "#970211"
+        },
+        {
+          "name": "Nebula Blue with Grey roof",
+          "hex": "#07132A"
+        },
+        {
+          "name": "Everest White with Black roof",
+          "hex": "#CFCDCD"
+        },
+        {
+          "name": "Jeans Blue with Black roof",
+          "hex": "#071F35"
+        },
+        {
+          "name": "Jeans Blue",
+          "hex": "#071F35"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Voice-assisted sunroof",
+            "Automatic Climate Control",
+            "Cruise Control",
+            "Rear AC Vents",
+            "Engine Start/Stop Button",
+            "KeyLess Entry",
+            "Parking Sensors",
+            "Power Windows-Rear",
+            "Rear Seat Centre Arm Rest",
+            "Central Console Armrest",
+            "Drive Modes",
+            "Automatic Headlamps",
+            "Follow Me Home Headlamps"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Wireless Phone Charging",
+            "7 speakers",
+            "Google / Alexa connectivity",
+            "Navigation with Live Traffic",
+            "E-Call & I-Call",
+            "Android Auto",
+            "Apple CarPlay",
+            "RSA",
+            "SOS Button",
+            "Valet Mode"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Driver Attention Warning",
+            "360 View Camera",
+            "6 airbags",
+            "Tyre Pressure Monitor",
+            "Rear View Camera",
+            "Hill Assist",
+            "Electronic Stability Control",
+            "ISOFIX Child Seat Mounts",
+            "Adaptive High Beam Assist",
+            "Traffic Sign Recognition",
+            "Lane Departure Warning"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Panoramic Sunroof",
+            "Alloy Wheels",
+            "Tyres: 215/55 R17",
+            "LED Headlights",
+            "Fog Lights",
+            "Rain Sensing Wiper",
+            "Electrically foldable ORVM",
+            "Rear Window Wiper",
+            "Roof Rail",
+            "LED DRLs",
+            "LED Taillights",
+            "Adjustable Headlights",
+            "Power Adjustable Exterior Rear View Mirror",
+            "Rear Spoiler"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "10.25-inch digital instrument cluster",
+            "Leatherette upholstery",
+            "Leather Steering Wheel",
+            "Leather wrap gear-shift selector"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.2 L TCMPFi turbo petrol: 82 kW @ 5000 r/min, 200 Nm",
+            "1.2 L TGDi turbo petrol: 96 kW @ 5000 r/min, 230 Nm",
+            "1.5 L turbo diesel: 85.8 kW @ 3750 r/min, 300 Nm",
+            "1.2 turbo petrol with factory CNG: 270 L boot (ISO V215)",
+            "6-speed MT, 6-speed AT (petrol), 6-speed AutoSHIFT+ AMT (diesel)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Petrol, TGDi turbo-petrol, diesel and CNG versions",
+        "6 airbags standard",
+        "Bharat NCAP 5-star rating",
+        "Level 2 ADAS and 360-degree camera on top variants",
+        "REVX sub-series variants with black leatherette interiors"
+      ],
+      "variants": [
+        {
+          "name": "MX1 1.2 Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 779000,
+          "efficiency": null,
+          "features": [
+            "Driver Attention Warning",
+            "6 airbags",
+            "Tyres: 205/65 R16",
+            "Fabric upholstery",
+            "Rear AC Vents",
+            "Parking Sensors",
+            "LED Taillights",
+            "Hill Assist",
+            "Electronic Stability Control",
+            "ISOFIX Child Seat Mounts"
+          ]
+        },
+        {
+          "name": "REVX M 1.2 Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 859400,
+          "efficiency": null,
+          "features": [
+            "4 speakers",
+            "Leatherette upholstery",
+            "KeyLess Entry",
+            "Follow Me Home Headlamps"
+          ]
+        },
+        {
+          "name": "REVX M (O) 1.2 Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 909000,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "4 speakers",
+            "Leatherette upholstery",
+            "KeyLess Entry",
+            "Follow Me Home Headlamps"
+          ]
+        },
+        {
+          "name": "MX2 1.5 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 936000,
+          "efficiency": null,
+          "features": [
+            "4 speakers",
+            "KeyLess Entry",
+            "Follow Me Home Headlamps"
+          ]
+        },
+        {
+          "name": "REVX Edge 1.2 Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 939000,
+          "efficiency": null,
+          "features": [
+            "4 speakers",
+            "Leatherette upholstery",
+            "Cruise Control",
+            "KeyLess Entry",
+            "Rear View Camera",
+            "Android Auto",
+            "Apple CarPlay",
+            "Follow Me Home Headlamps"
+          ]
+        },
+        {
+          "name": "REVX Edge (O) 1.2 Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 989000,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "4 speakers",
+            "Leatherette upholstery",
+            "Cruise Control",
+            "Engine Start/Stop Button",
+            "KeyLess Entry",
+            "Rear View Camera",
+            "Rain Sensing Wiper",
+            "Electrically foldable ORVM",
+            "Roof Rail"
+          ]
+        },
+        {
+          "name": "MX Edge 1.2 Turbo CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 999000,
+          "efficiency": null,
+          "features": [
+            "4 speakers",
+            "Cruise Control",
+            "KeyLess Entry",
+            "Rear View Camera",
+            "Android Auto",
+            "Apple CarPlay",
+            "Follow Me Home Headlamps"
+          ]
+        },
+        {
+          "name": "REVX M (O) 1.2 Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 999000,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "4 speakers",
+            "Leatherette upholstery",
+            "KeyLess Entry",
+            "Automatic Headlamps",
+            "Follow Me Home Headlamps"
+          ]
+        },
+        {
+          "name": "AX5 1.2 Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 999900,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "10.25-inch digital instrument cluster",
+            "6 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Cruise Control",
+            "Engine Start/Stop Button",
+            "KeyLess Entry",
+            "Google / Alexa connectivity"
+          ]
+        },
+        {
+          "name": "REVX Edge 1.2 Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1059000,
+          "efficiency": null,
+          "features": [
+            "4 speakers",
+            "Leatherette upholstery",
+            "Cruise Control",
+            "KeyLess Entry",
+            "Rear View Camera",
+            "Android Auto",
+            "Apple CarPlay",
+            "Follow Me Home Headlamps"
+          ]
+        },
+        {
+          "name": "REVX Edge 1.5 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1059000,
+          "efficiency": null,
+          "features": [
+            "4 speakers",
+            "Leatherette upholstery",
+            "Cruise Control",
+            "KeyLess Entry",
+            "Rear View Camera",
+            "Android Auto",
+            "Apple CarPlay",
+            "Follow Me Home Headlamps"
+          ]
+        },
+        {
+          "name": "REVX Edge (O) 1.2 Turbo CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1079000,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "4 speakers",
+            "Leatherette upholstery",
+            "Cruise Control",
+            "Engine Start/Stop Button",
+            "KeyLess Entry",
+            "Rear View Camera",
+            "Rain Sensing Wiper",
+            "Electrically foldable ORVM",
+            "Roof Rail"
+          ]
+        },
+        {
+          "name": "REVX Edge (O) 1.2 Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1109000,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "4 speakers",
+            "Leatherette upholstery",
+            "Cruise Control",
+            "Engine Start/Stop Button",
+            "KeyLess Entry",
+            "Rear View Camera",
+            "Rain Sensing Wiper",
+            "Electrically foldable ORVM",
+            "Roof Rail"
+          ]
+        },
+        {
+          "name": "REVX Edge (O) 1.5 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1109000,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "4 speakers",
+            "Leatherette upholstery",
+            "Cruise Control",
+            "Engine Start/Stop Button",
+            "KeyLess Entry",
+            "Rear View Camera",
+            "Rain Sensing Wiper",
+            "Electrically foldable ORVM",
+            "Roof Rail"
+          ]
+        },
+        {
+          "name": "AX5 1.2 Turbo CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1119000,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "10.25-inch digital instrument cluster",
+            "6 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Cruise Control",
+            "Engine Start/Stop Button",
+            "KeyLess Entry",
+            "Google / Alexa connectivity"
+          ]
+        },
+        {
+          "name": "REVX A 1.2 TGDi Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1127500,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "Voice-assisted sunroof",
+            "10.25-inch digital instrument cluster",
+            "6 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Leatherette upholstery",
+            "Cruise Control",
+            "Engine Start/Stop Button"
+          ]
+        },
+        {
+          "name": "AX5 1.5 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1139500,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "10.25-inch digital instrument cluster",
+            "6 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Cruise Control",
+            "Engine Start/Stop Button",
+            "KeyLess Entry",
+            "Google / Alexa connectivity"
+          ]
+        },
+        {
+          "name": "AX5 1.2 Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1188000,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "10.25-inch digital instrument cluster",
+            "6 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Cruise Control",
+            "Engine Start/Stop Button",
+            "KeyLess Entry",
+            "Google / Alexa connectivity"
+          ]
+        },
+        {
+          "name": "REVX Edge (O) 1.5 Diesel AMT",
+          "fuel": "Diesel",
+          "transmission": "AMT",
+          "transmissionDetail": "6-speed AMT (AutoSHIFT+)",
+          "price": 1191000,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "4 speakers",
+            "Leatherette upholstery",
+            "Cruise Control",
+            "Engine Start/Stop Button",
+            "KeyLess Entry",
+            "Rear View Camera",
+            "Rain Sensing Wiper",
+            "Electrically foldable ORVM",
+            "Roof Rail"
+          ]
+        },
+        {
+          "name": "AX5 L 1.2 TGDi Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1202500,
+          "efficiency": null,
+          "features": [
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Sunroof",
+            "360 View Camera",
+            "Wireless Phone Charging",
+            "10.25-inch digital instrument cluster",
+            "6 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels"
+          ]
+        },
+        {
+          "name": "AX5 1.5 Diesel AMT",
+          "fuel": "Diesel",
+          "transmission": "AMT",
+          "transmissionDetail": "6-speed AMT (AutoSHIFT+)",
+          "price": 1219500,
+          "efficiency": null,
+          "features": [
+            "Sunroof",
+            "10.25-inch digital instrument cluster",
+            "6 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Cruise Control",
+            "Engine Start/Stop Button",
+            "KeyLess Entry",
+            "Google / Alexa connectivity"
+          ]
+        },
+        {
+          "name": "AX7 1.2 TGDi Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1219500,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "Voice-assisted sunroof",
+            "Wireless Phone Charging",
+            "10.25-inch digital instrument cluster",
+            "7 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 215/55 R17",
+            "LED Headlights",
+            "Leatherette upholstery"
+          ]
+        },
+        {
+          "name": "REVX A 1.2 Turbo CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1227000,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "Voice-assisted sunroof",
+            "10.25-inch digital instrument cluster",
+            "6 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Leatherette upholstery",
+            "Cruise Control",
+            "Engine Start/Stop Button"
+          ]
+        },
+        {
+          "name": "REVX A 1.2 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1239500,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "Voice-assisted sunroof",
+            "10.25-inch digital instrument cluster",
+            "6 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "LED Headlights",
+            "Leatherette upholstery",
+            "Cruise Control",
+            "Engine Start/Stop Button"
+          ]
+        },
+        {
+          "name": "AX7 1.5 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1303500,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "Voice-assisted sunroof",
+            "Wireless Phone Charging",
+            "10.25-inch digital instrument cluster",
+            "7 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 215/55 R17",
+            "LED Headlights",
+            "Leatherette upholstery"
+          ]
+        },
+        {
+          "name": "AX5 L 1.2 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1327500,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Sunroof",
+            "360 View Camera",
+            "Wireless Phone Charging",
+            "10.25-inch digital instrument cluster",
+            "6 speakers",
+            "Automatic Climate Control"
+          ]
+        },
+        {
+          "name": "AX7 L 1.2 TGDi Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1332500,
+          "efficiency": null,
+          "features": [
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "Voice-assisted sunroof",
+            "360 View Camera",
+            "Wireless Phone Charging",
+            "10.25-inch digital instrument cluster",
+            "7 speakers",
+            "Automatic Climate Control"
+          ]
+        },
+        {
+          "name": "AX7 1.2 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1334000,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "Voice-assisted sunroof",
+            "Wireless Phone Charging",
+            "10.25-inch digital instrument cluster",
+            "7 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 215/55 R17",
+            "LED Headlights",
+            "Leatherette upholstery"
+          ]
+        },
+        {
+          "name": "AX7 1.5 Diesel AMT",
+          "fuel": "Diesel",
+          "transmission": "AMT",
+          "transmissionDetail": "6-speed AMT (AutoSHIFT+)",
+          "price": 1379500,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "Voice-assisted sunroof",
+            "Wireless Phone Charging",
+            "10.25-inch digital instrument cluster",
+            "7 speakers",
+            "Automatic Climate Control",
+            "Alloy Wheels",
+            "Tyres: 215/55 R17",
+            "LED Headlights",
+            "Leatherette upholstery"
+          ]
+        },
+        {
+          "name": "AX7 L 1.5 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1407500,
+          "efficiency": null,
+          "features": [
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "Voice-assisted sunroof",
+            "360 View Camera",
+            "Wireless Phone Charging",
+            "10.25-inch digital instrument cluster",
+            "7 speakers",
+            "Automatic Climate Control"
+          ]
+        },
+        {
+          "name": "AX7 L 1.2 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1503500,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "Voice-assisted sunroof",
+            "360 View Camera",
+            "Wireless Phone Charging",
+            "10.25-inch digital instrument cluster",
+            "7 speakers"
+          ]
+        }
+      ],
+      "sources": [
+        "https://auto.mahindra.com/suv/xuv3xo/X3XO.html",
+        "https://auto.mahindra.com/suv/xuv3xo/REVX.html",
+        "https://auto.mahindra.com/own-online/variant-selection?pid=X3XO",
+        "https://auto.mahindra.com/suv/xuv3xo-ax5-diesel/X3XOM102118095753.html",
+        "https://www.autocarindia.com/auto-features-amp/every-car-suv-tested-by-bharat-ncap-so-far-431936"
+      ],
+      "notes": "Bharat NCAP: 5 stars in Nov 2024, retested Nov 2026 (5 stars). Height 1647 mm is with roof rails/ski rack. Boot 364 L (270 L for CNG). Diesel automatic is Mahindra's AutoSHIFT+ AMT. REVX variants are part of the XUV 3XO line-up on the price list. The model page's SEO data shows a single 18.89 km/l figure with no variant, so efficiency is left null. Prices are national ex-showroom (no city shown)."
+    },
+    {
+      "slug": "mahindra-xuv-7xo",
+      "name": "XUV 7XO",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-01-05",
+      "engine": "1997 – 2184 cc",
+      "power": "137 – 149.2 kW",
+      "torque": "380 – 450 Nm",
+      "seats": [
+        6,
+        7
+      ],
+      "airbags": 7,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2026
+      },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 60,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4695,
+        "width": 1890,
+        "height": 1755,
+        "wheelbase": 2750
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Galaxy Grey with Stealth Black roof",
+          "hex": "#575A63"
+        },
+        {
+          "name": "Desert Myst with Stealth Black roof",
+          "hex": "#DED6CE"
+        },
+        {
+          "name": "Midnight Black with Stealth Black roof",
+          "hex": "#171F3C"
+        },
+        {
+          "name": "Everest White with Stealth Black roof",
+          "hex": "#BAB9B9"
+        },
+        {
+          "name": "Everest White",
+          "hex": "#BAB9B9"
+        },
+        {
+          "name": "Nebula Blue",
+          "hex": "#0A161F"
+        },
+        {
+          "name": "Midnight Black",
+          "hex": "#171F3C"
+        },
+        {
+          "name": "Desert Myst",
+          "hex": "#DED6CE"
+        },
+        {
+          "name": "Galaxy Grey",
+          "hex": "#575A63"
+        },
+        {
+          "name": "Ruby Velvet",
+          "hex": "#2D0406"
+        },
+        {
+          "name": "Stealth Black",
+          "hex": "#060505"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Seat Lumbar Support",
+            "Rear AC Vents",
+            "Rear Parking Sensors",
+            "Power Windows-Rear",
+            "Drive Modes",
+            "Automatic Headlamps",
+            "Follow Me Home Headlamps",
+            "Dual Zone Fully Automatic Air Conditioner",
+            "Tilt Adjustable Steering",
+            "Telescopic Adjustable Steering",
+            "Co-Driver Seat Adjustment: 6-Way Electric",
+            "Boss Mode",
+            "Memory for Driver Seat",
+            "Welcome Retract",
+            "2nd Row Reading Lamp",
+            "2nd & 3rd Row Adjustable Headrest",
+            "Push Button Start / Stop",
+            "Ventilated Seats Front",
+            "Ventilated Seats Rear",
+            "One Touch Driver Door Power Window: Up & Down",
+            "Intelli Control",
+            "Smart Watch Connectivity",
+            "Electronic Parking Brake",
+            "Rear Wireless Charger"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Wireless Phone Charging",
+            "16 speakers",
+            "Google / Alexa connectivity",
+            "Navigation with Live Traffic",
+            "E-Call & I-Call",
+            "Wireless Android Auto",
+            "Wireless Apple CarPlay",
+            "SOS Button",
+            "RSA",
+            "Alexa with Chat GPT",
+            "Valet Mode",
+            "Touch Screen size: 31.24cm",
+            "Coast to Coast Triple Screen",
+            "Dolby Atmos"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "7 airbags",
+            "Knee Airbags",
+            "Tyre Pressure Monitor",
+            "Hill Assist",
+            "Electronic Stability Control",
+            "ISOFIX Child Seat Mounts",
+            "Traffic Sign Recognition",
+            "Lane Departure Warning",
+            "Autonomous Emergency Braking (AEB)",
+            "Smart Pilot",
+            "Front Vehicle Start Alert",
+            "Intelligent Speed Limit Assist with Traffic Sign",
+            "Dynamic Visualisation (Driver Screen)",
+            "Rear Demister",
+            "Inside Rear View Mirror: Frameless Auto Dimming",
+            "Height Adjustable Driver & Co-Driver Seat Belts",
+            "540 View Camera"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Panoramic Sunroof",
+            "Tyres: 235/55 R19",
+            "Fog Lights",
+            "Rain Sensing Wiper",
+            "Rear Window Wiper",
+            "LED Taillights",
+            "Adjustable Headlights",
+            "Rear Spoiler",
+            "LED Headlamps with DRLs",
+            "Cornering Lamps",
+            "Door Handles: Flush Type - Powered",
+            "Power Adjustable Outside Rear View Mirror",
+            "Auto Fold Outside Rear View Mirror"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "31.24cm digital instrument cluster",
+            "Leather Steering Wheel",
+            "Leather wrap gear-shift selector",
+            "Digital Tachometer",
+            "Soft Touch IP",
+            "Ambient Lights",
+            "Rear Seat Sunblind",
+            "BYOD",
+            "Leatherette Door Trims"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.0 L mStallion TGDi petrol: 149.2 kW @ 5000 r/min (147 kW on AX7L), 380 Nm",
+            "2.2 L mHawk diesel: 137 kW @ 3500 r/min, 420 Nm (MT) / 450 Nm (AT)",
+            "6-speed MT or 6-speed AT",
+            "AWD on AX7T and AX7L diesel automatics"
+          ]
+        }
+      ],
+      "highlights": [
+        "Replaced the XUV700; revealed 5 January 2026",
+        "2.0 TGDi petrol and 2.2 diesel, manual or automatic, with AWD on top diesels",
+        "Bharat NCAP 5-star rating (2026)",
+        "6- and 7-seat layouts",
+        "Dual-tone (Stealth Black roof) paint priced Rs 15,000 extra on AX7 and above"
+      ],
+      "variants": [
+        {
+          "name": "AX 2.0 TGDi Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1399000,
+          "efficiency": null,
+          "features": [
+            "6 airbags",
+            "31.24cm digital instrument cluster",
+            "6 speakers",
+            "Tyres: 235/65 R17",
+            "Cruise Control",
+            "Rear AC Vents",
+            "Google / Alexa connectivity",
+            "Navigation with Live Traffic",
+            "E-Call & I-Call",
+            "Rear Parking Sensors"
+          ]
+        },
+        {
+          "name": "AX 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1536499,
+          "efficiency": null,
+          "features": [
+            "6 airbags",
+            "31.24cm digital instrument cluster",
+            "6 speakers",
+            "Tyres: 235/65 R17",
+            "Cruise Control",
+            "Rear AC Vents",
+            "Google / Alexa connectivity",
+            "Navigation with Live Traffic",
+            "E-Call & I-Call",
+            "Rear Parking Sensors"
+          ]
+        },
+        {
+          "name": "AX3 2.0 TGDi Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1637000,
+          "efficiency": null,
+          "features": [
+            "Rear Window Wiper",
+            "Auto Fold Outside Rear View Mirror",
+            "Rear Demister",
+            "Reverse Camera with Dynamic Guidelines"
+          ]
+        },
+        {
+          "name": "AX3 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1687499,
+          "efficiency": null,
+          "features": [
+            "Rear Window Wiper",
+            "Drive Modes",
+            "Auto Fold Outside Rear View Mirror",
+            "Rear Demister",
+            "Reverse Camera with Dynamic Guidelines"
+          ]
+        },
+        {
+          "name": "AX3 2.0 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1788000,
+          "efficiency": null,
+          "features": [
+            "Rear Window Wiper",
+            "Auto Fold Outside Rear View Mirror",
+            "Rear Demister",
+            "Reverse Camera with Dynamic Guidelines"
+          ]
+        },
+        {
+          "name": "AX5 2.0 TGDi Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1788000,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "Front Parking Sensors",
+            "Rear Window Wiper",
+            "Hill Assist",
+            "Telescopic Adjustable Steering",
+            "Auto Fold Outside Rear View Mirror",
+            "Versa Wheels",
+            "Rear Demister",
+            "Reverse Camera with Dynamic Guidelines"
+          ]
+        },
+        {
+          "name": "AX3 2.2 Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1838000,
+          "efficiency": null,
+          "features": [
+            "Rear Window Wiper",
+            "Drive Modes",
+            "Auto Fold Outside Rear View Mirror",
+            "Rear Demister",
+            "Reverse Camera with Dynamic Guidelines"
+          ]
+        },
+        {
+          "name": "AX5 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1838000,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "Front Parking Sensors",
+            "Rear Window Wiper",
+            "Hill Assist",
+            "Drive Modes",
+            "Telescopic Adjustable Steering",
+            "Auto Fold Outside Rear View Mirror",
+            "Versa Wheels",
+            "Rear Demister",
+            "Reverse Camera with Dynamic Guidelines"
+          ]
+        },
+        {
+          "name": "AX7 2.0 TGDi Turbo Petrol MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1926000,
+          "efficiency": null,
+          "features": [
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "Tyres: 235/60 R18",
+            "Seat Lumbar Support",
+            "Tyre Pressure Monitor",
+            "Rain Sensing Wiper",
+            "Leather Steering Wheel",
+            "Rear Window Wiper",
+            "Hill Assist",
+            "Automatic Headlamps"
+          ]
+        },
+        {
+          "name": "AX5 2.0 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1938499,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "Front Parking Sensors",
+            "Rear Window Wiper",
+            "Hill Assist",
+            "Telescopic Adjustable Steering",
+            "Auto Fold Outside Rear View Mirror",
+            "Versa Wheels",
+            "Rear Demister",
+            "Reverse Camera with Dynamic Guidelines"
+          ]
+        },
+        {
+          "name": "AX7 2.0 TGDi Turbo Petrol MT Dual Tone",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1941000,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "Tyres: 235/60 R18",
+            "Seat Lumbar Support",
+            "Tyre Pressure Monitor",
+            "Rain Sensing Wiper",
+            "Leather Steering Wheel",
+            "Rear Window Wiper",
+            "Hill Assist"
+          ]
+        },
+        {
+          "name": "AX7 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1980000,
+          "efficiency": null,
+          "features": [
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "Tyres: 235/60 R18",
+            "Seat Lumbar Support",
+            "Tyre Pressure Monitor",
+            "Rain Sensing Wiper",
+            "Leather Steering Wheel",
+            "Rear Window Wiper",
+            "Hill Assist",
+            "Drive Modes"
+          ]
+        },
+        {
+          "name": "AX5 2.2 Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1989000,
+          "efficiency": null,
+          "features": [
+            "Panoramic Sunroof",
+            "Front Parking Sensors",
+            "Rear Window Wiper",
+            "Hill Assist",
+            "Drive Modes",
+            "Telescopic Adjustable Steering",
+            "Auto Fold Outside Rear View Mirror",
+            "Versa Wheels",
+            "Rear Demister",
+            "Reverse Camera with Dynamic Guidelines"
+          ]
+        },
+        {
+          "name": "AX7 2.2 Diesel MT Dual Tone",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1995000,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "Tyres: 235/60 R18",
+            "Seat Lumbar Support",
+            "Tyre Pressure Monitor",
+            "Rain Sensing Wiper",
+            "Leather Steering Wheel",
+            "Rear Window Wiper",
+            "Hill Assist"
+          ]
+        },
+        {
+          "name": "AX7 2.0 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2068499,
+          "efficiency": null,
+          "features": [
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "Tyres: 235/60 R18",
+            "Seat Lumbar Support",
+            "Tyre Pressure Monitor",
+            "Rain Sensing Wiper",
+            "Leather Steering Wheel",
+            "Rear Window Wiper",
+            "Hill Assist",
+            "Automatic Headlamps"
+          ]
+        },
+        {
+          "name": "AX7 2.0 TGDi Turbo Petrol AT Dual Tone",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2083499,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "Tyres: 235/60 R18",
+            "Seat Lumbar Support",
+            "Tyre Pressure Monitor",
+            "Rain Sensing Wiper",
+            "Leather Steering Wheel",
+            "Rear Window Wiper",
+            "Hill Assist"
+          ]
+        },
+        {
+          "name": "AX7 2.2 Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2115500,
+          "efficiency": null,
+          "features": [
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "Tyres: 235/60 R18",
+            "Seat Lumbar Support",
+            "Tyre Pressure Monitor",
+            "Rain Sensing Wiper",
+            "Leather Steering Wheel",
+            "Rear Window Wiper",
+            "Hill Assist",
+            "Drive Modes"
+          ]
+        },
+        {
+          "name": "AX7 2.2 Diesel AT Dual Tone",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2130500,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "Tyres: 235/60 R18",
+            "Seat Lumbar Support",
+            "Tyre Pressure Monitor",
+            "Rain Sensing Wiper",
+            "Leather Steering Wheel",
+            "Rear Window Wiper",
+            "Hill Assist"
+          ]
+        },
+        {
+          "name": "AX7T 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2179000,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers",
+            "Tyres: 235/60 R18"
+          ]
+        },
+        {
+          "name": "AX7T 2.2 Diesel MT Dual Tone",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2194000,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers"
+          ]
+        },
+        {
+          "name": "AX7T 6-Seater 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2199000,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers",
+            "Tyres: 235/60 R18"
+          ]
+        },
+        {
+          "name": "AX7T 6-Seater 2.2 Diesel MT Dual Tone",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2214000,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers"
+          ]
+        },
+        {
+          "name": "AX7T 2.0 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2276000,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers",
+            "Tyres: 235/60 R18"
+          ]
+        },
+        {
+          "name": "AX7T 2.0 TGDi Turbo Petrol AT Dual Tone",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2291000,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers"
+          ]
+        },
+        {
+          "name": "AX7T 6-Seater 2.0 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2296000,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers",
+            "Tyres: 235/60 R18"
+          ]
+        },
+        {
+          "name": "AX7T 6-Seater 2.0 TGDi Turbo Petrol AT Dual Tone",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2311000,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers"
+          ]
+        },
+        {
+          "name": "AX7T 2.2 Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2325000,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers",
+            "Tyres: 235/60 R18"
+          ]
+        },
+        {
+          "name": "AX7T 2.2 Diesel AT Dual Tone",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2340000,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers"
+          ]
+        },
+        {
+          "name": "AX7L 2.2 Diesel MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2340500,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers",
+            "Tyres: 235/55 R19"
+          ]
+        },
+        {
+          "name": "AX7T 6-Seater 2.2 Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2345000,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers",
+            "Tyres: 235/60 R18"
+          ]
+        },
+        {
+          "name": "AX7L 2.2 Diesel MT Dual Tone",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2355499,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers"
+          ]
+        },
+        {
+          "name": "AX7T 6-Seater 2.2 Diesel AT Dual Tone",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2360000,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers"
+          ]
+        },
+        {
+          "name": "AX7T 2.2 Diesel AT AWD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2399000,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers",
+            "Tyres: 235/60 R18"
+          ]
+        },
+        {
+          "name": "AX7T 2.2 Diesel AT AWD Dual Tone",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2414000,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers"
+          ]
+        },
+        {
+          "name": "AX7L 2.0 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2429000,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers",
+            "Tyres: 235/55 R19"
+          ]
+        },
+        {
+          "name": "AX7L 2.0 TGDi Turbo Petrol AT Dual Tone",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2444000,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers"
+          ]
+        },
+        {
+          "name": "AX7L 6-Seater 2.0 TGDi Turbo Petrol AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2464000,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers",
+            "Tyres: 235/55 R19"
+          ]
+        },
+        {
+          "name": "AX7L 6-Seater 2.0 TGDi Turbo Petrol AT Dual Tone",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2479000,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers"
+          ]
+        },
+        {
+          "name": "AX7L 2.2 Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2496000,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers",
+            "Tyres: 235/55 R19"
+          ]
+        },
+        {
+          "name": "AX7L 2.2 Diesel AT Dual Tone",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2511000,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers"
+          ]
+        },
+        {
+          "name": "AX7L 6-Seater 2.2 Diesel AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2516000,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers",
+            "Tyres: 235/55 R19"
+          ]
+        },
+        {
+          "name": "AX7L 6-Seater 2.2 Diesel AT Dual Tone",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2531000,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers"
+          ]
+        },
+        {
+          "name": "AX7L 2.2 Diesel AT AWD",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2579000,
+          "efficiency": null,
+          "features": [
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers",
+            "Tyres: 235/55 R19"
+          ]
+        },
+        {
+          "name": "AX7L 2.2 Diesel AT AWD Dual Tone",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2594000,
+          "efficiency": null,
+          "features": [
+            "Dual-tone paint with Stealth Black roof",
+            "Adaptive Cruise Control",
+            "Lane Keep Assist",
+            "Forward Collision Warning",
+            "Blind Spot Monitor",
+            "Panoramic Sunroof",
+            "7 airbags",
+            "Knee Airbags",
+            "Wireless Phone Charging",
+            "16 speakers"
+          ]
+        }
+      ],
+      "sources": [
+        "https://auto.mahindra.com/suv/xuv-7xo.html",
+        "https://auto.mahindra.com/own-online/variant-selection?pid=X7XO",
+        "https://auto.mahindra.com/suv/xuv-7xo-ax-diesel/X7XOM093518044814.html",
+        "https://www.autocarindia.com/auto-features-amp/every-car-suv-tested-by-bharat-ncap-so-far-431936"
+      ],
+      "notes": "The configurator prices dual-tone colours (Stealth Black roof) Rs 15,000 above single-tone on AX7, AX7T and AX7L, so dual-tone versions are listed as separate variants. AX7L petrol is listed at 147 kW, other petrols at 149.2 kW, as published. 7 airbags on AX7T/AX7L, 6 on lower trims. Prices are national ex-showroom (no city shown). Boot space and ARAI efficiency not published, so null."
+    },
+    {
+      "slug": "mahindra-xuv-3xo-ev",
+      "name": "XUV 3XO EV",
+      "bodyType": "SUV",
+      "bodyStyle": "Compact SUV",
+      "isLuxury": false,
+      "launchedOn": "2026-01-06",
+      "engine": "Electric motor",
+      "power": "110 kW",
+      "torque": "310 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 364,
+      "groundClearanceMm": 190,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 8.3 s",
+      "dimensions": null,
+      "ev": {
+        "rangeKm": 456,
+        "rangeStandard": null,
+        "batteryKwh": 39.4,
+        "dcCharge": "50 min (0–80%, 50 kW)",
+        "acCharge": "6.5 h (0–100%, 7.2 kW)",
+        "motorKw": 110
+      },
+      "colors": [
+        {
+          "name": "Deep Forest",
+          "hex": "#282D22"
+        },
+        {
+          "name": "Galaxy Grey",
+          "hex": "#575A63"
+        },
+        {
+          "name": "Nebula Blue",
+          "hex": "#07132A"
+        },
+        {
+          "name": "Tango Red",
+          "hex": "#970211"
+        },
+        {
+          "name": "Everest White",
+          "hex": "#CFCDCD"
+        },
+        {
+          "name": "Stealth Black",
+          "hex": "#060505"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Dual-zone climate control",
+            "Passive keyless entry and push-button start",
+            "Electric parking brake with auto hold",
+            "Rear AC vents",
+            "Wireless charger",
+            "60:40 split rear seat"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "7-speaker Harman Kardon audio with Dolby Atmos"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags with passenger airbag deactivation switch",
+            "Level 2 ADAS (top variant)",
+            "360-degree camera (top variant)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "R17 diamond-cut alloy wheels",
+            "LED projector headlamps"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "110 kW motor, 310 Nm, front-wheel drive",
+            "39.4 kWh battery",
+            "Fun, Fast and Fearless drive modes"
+          ]
+        }
+      ],
+      "highlights": [
+        "Electric version of the XUV 3XO, launched 6 January 2026",
+        "39.4 kWh battery, 456 km claimed range",
+        "DC fast charging 0–80% in 50 minutes (50 kW)",
+        "6 airbags standard"
+      ],
+      "variants": [
+        {
+          "name": "AX5 39.4 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 1389000,
+          "efficiency": "456 km",
+          "features": [
+            "39.4 kWh battery, 110 kW motor",
+            "6 airbags",
+            "Sold without a wall charger"
+          ]
+        },
+        {
+          "name": "AX7L 39.4 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 1496000,
+          "efficiency": "456 km",
+          "features": [
+            "39.4 kWh battery, 110 kW motor",
+            "Level 2 ADAS",
+            "360-degree camera",
+            "Sunroof",
+            "7-speaker Harman Kardon audio with Dolby Atmos",
+            "Dual-zone climate control",
+            "Electric parking brake with auto hold",
+            "Wireless charger",
+            "Sold without a wall charger"
+          ]
+        }
+      ],
+      "sources": [
+        "https://auto.mahindra.com/suv/xuv3xo-ev.html",
+        "https://auto.mahindra.com/own-online/variant-selection?pid=X3XE",
+        "https://www.mahindra.com/news-room/press-release/en/mahindra-introduces-electric-powertrain-to-xuv-3xo-starting-at-13-89-lakh"
+      ],
+      "notes": "The 456 km range comes from the model page data, and the page does not name the test standard. The same page quotes 270–300 km real-world range. Both variants are priced without a wall charger ('No Charger'). Dimensions other than the 2600 mm wheelbase are not published for the EV, so dimensions is null. Which trim gets ADAS/360 camera/sunroof is inferred from the page (top trim); a human should check. No separate crash-test result."
+    },
+    {
+      "slug": "mahindra-xuv400",
+      "name": "XUV400",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2023-01-16",
+      "engine": "Electric motor",
+      "power": "110 kW",
+      "torque": "310 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2024
+      },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 8.3 s",
+      "dimensions": null,
+      "ev": {
+        "rangeKm": 456,
+        "rangeStandard": "MIDC",
+        "batteryKwh": 39.4,
+        "dcCharge": null,
+        "acCharge": null,
+        "motorKw": 110
+      },
+      "colors": [
+        {
+          "name": "Galaxy Grey",
+          "hex": "#575A63"
+        },
+        {
+          "name": "Nebula Blue",
+          "hex": "#07132A"
+        },
+        {
+          "name": "Everest White",
+          "hex": "#CFCDCD"
+        },
+        {
+          "name": "Stealth Black",
+          "hex": "#060505"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "110 kW motor, 310 Nm",
+            "39.4 kWh lithium-ion battery",
+            "Fun, Fast and Fearless drive modes",
+            "0–100 km/h in 8.3 s (Mahindra claim)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Only the EL Pro 39.4 kWh is on the current price list",
+        "456 km MIDC range",
+        "Bharat NCAP 5-star rating (2024)",
+        "6 airbags"
+      ],
+      "variants": [
+        {
+          "name": "EL Pro 39.4 kWh with 7.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 1749000,
+          "efficiency": "456 km",
+          "features": [
+            "39.4 kWh battery, 456 km (MIDC)",
+            "7.2 kW AC fast charger included",
+            "6 airbags",
+            "Electric sunroof",
+            "4 speakers + 2 tweeters"
+          ]
+        }
+      ],
+      "sources": [
+        "https://auto.mahindra.com/suv/xuv400/X400.html",
+        "https://auto.mahindra.com/own-online/variant-selection?pid=X400",
+        "https://www.autocarindia.com/car-news/mahindra-xuv400-secures-5-star-bharat-ncap-safety-rating-433531"
+      ],
+      "notes": "Only one variant remains on the configurator; the 34.5 kWh EC Pro is no longer listed. Length 4200 mm and wheelbase 2600 mm are on the page but width/height are not, so dimensions is null. Charging times are not stated on the current page. Prices are national ex-showroom (no city shown)."
+    },
+    {
+      "slug": "mahindra-be-6",
+      "name": "BE 6 Sporteq",
+      "bodyType": "SUV",
+      "bodyStyle": "Coupe SUV",
+      "isLuxury": false,
+      "launchedOn": "2024-11-26",
+      "engine": "Electric motor",
+      "power": "170 – 210 kW",
+      "torque": "380 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 7,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2025
+      },
+      "bootSpaceL": 455,
+      "groundClearanceMm": 207,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 6.7 s",
+      "dimensions": {
+        "length": 4371,
+        "width": 1907,
+        "height": 1627,
+        "wheelbase": 2775
+      },
+      "ev": {
+        "rangeKm": 708,
+        "rangeStandard": "MIDC P1+P2",
+        "batteryKwh": 79,
+        "dcCharge": "20 min (20–80%, 180 kW)",
+        "acCharge": "8 h (0–100%, 11.2 kW)",
+        "motorKw": 210
+      },
+      "colors": [
+        {
+          "name": "Stealth Black",
+          "hex": "#060505"
+        },
+        {
+          "name": "Desert Myst",
+          "hex": "#C0BEB7"
+        },
+        {
+          "name": "Deep Forest",
+          "hex": "#282D22"
+        },
+        {
+          "name": "Tango Red",
+          "hex": "#970211"
+        },
+        {
+          "name": "Everest White",
+          "hex": "#CFCDCD"
+        },
+        {
+          "name": "Firestorm Orange",
+          "hex": "#F2745E"
+        },
+        {
+          "name": "Ruby Velvet",
+          "hex": "#2D0406"
+        },
+        {
+          "name": "Everest White Satin",
+          "hex": "#CFCDCD"
+        },
+        {
+          "name": "Stealth Black Satin",
+          "hex": "#060505"
+        },
+        {
+          "name": "Rosso Impulso",
+          "hex": "#970211"
+        },
+        {
+          "name": "Firestorm Orange Satin",
+          "hex": "#F2745E"
+        },
+        {
+          "name": "Graphite Storm",
+          "hex": "#4E535D"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Ventilated and electrically adjustable front seats",
+            "Automatic climate control",
+            "Rear AC vents",
+            "Keyless entry and push-button start",
+            "45-litre frunk"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Triple HD screens",
+            "16-speaker, 1400 W Harman Kardon audio with Dolby Atmos",
+            "Wireless Android Auto and Apple CarPlay",
+            "5G connectivity and OTA updates"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags (7 with knee airbag on Four, FE Four, Launch Edition)",
+            "540-degree camera",
+            "Electronic parking brake",
+            "Hill hold and hill descent control",
+            "Tyre pressure monitoring"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "59 kWh: 170 kW; 70 kWh: 180 kW; 79 kWh: 210 kW; 380 Nm; rear-wheel drive",
+            "0–100 km/h in 6.7 s",
+            "Drive modes: Default, Range, Everyday, Race, Custom and Snow",
+            "Regeneration levels L0–L3, plus Auto from Three"
+          ]
+        }
+      ],
+      "highlights": [
+        "Renamed BE 6 Sporteq from 15 August 2026, adding a 70 kWh battery",
+        "59, 70 and 79 kWh batteries: 573, 651 and 708 km (MIDC P1+P2)",
+        "Bharat NCAP 5-star rating (2025)",
+        "DC fast charging 20–80% in about 20 minutes",
+        "Variants with 11.2 kW AC charger priced separately"
+      ],
+      "variants": [
+        {
+          "name": "One 59 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 1945000,
+          "efficiency": "573 km",
+          "features": [
+            "59 kWh battery, 170 kW motor",
+            "R18 wheels with aero covers"
+          ]
+        },
+        {
+          "name": "One 59 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2020000,
+          "efficiency": "573 km",
+          "features": [
+            "59 kWh battery, 170 kW motor",
+            "11.2 kW AC wall charger included",
+            "R18 wheels with aero covers"
+          ]
+        },
+        {
+          "name": "Two 59 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2095000,
+          "efficiency": "573 km",
+          "features": [
+            "59 kWh battery, 170 kW motor",
+            "R19 wheels"
+          ]
+        },
+        {
+          "name": "Two 59 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2170000,
+          "efficiency": "573 km",
+          "features": [
+            "59 kWh battery, 170 kW motor",
+            "11.2 kW AC wall charger included",
+            "R19 wheels"
+          ]
+        },
+        {
+          "name": "Three 59 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2195000,
+          "efficiency": "573 km",
+          "features": [
+            "59 kWh battery, 170 kW motor",
+            "R19 wheels",
+            "Auto regeneration mode"
+          ]
+        },
+        {
+          "name": "Three 59 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2270000,
+          "efficiency": "573 km",
+          "features": [
+            "59 kWh battery, 170 kW motor",
+            "11.2 kW AC wall charger included",
+            "R19 wheels",
+            "Auto regeneration mode"
+          ]
+        },
+        {
+          "name": "Three 70 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2295000,
+          "efficiency": "651 km",
+          "features": [
+            "70 kWh battery, 180 kW motor",
+            "R19 wheels",
+            "Auto regeneration mode"
+          ]
+        },
+        {
+          "name": "Three 70 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2370000,
+          "efficiency": "651 km",
+          "features": [
+            "70 kWh battery, 180 kW motor",
+            "11.2 kW AC wall charger included",
+            "R19 wheels",
+            "Auto regeneration mode"
+          ]
+        },
+        {
+          "name": "Three+ 70 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2395000,
+          "efficiency": "651 km",
+          "features": [
+            "70 kWh battery, 180 kW motor",
+            "R19 wheels",
+            "Auto regeneration mode"
+          ]
+        },
+        {
+          "name": "FE 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2445000,
+          "efficiency": "708 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "Formula E Freedom Edition",
+            "R20 alloy wheels"
+          ]
+        },
+        {
+          "name": "Three+ 70 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2470000,
+          "efficiency": "651 km",
+          "features": [
+            "70 kWh battery, 180 kW motor",
+            "11.2 kW AC wall charger included",
+            "R19 wheels",
+            "Auto regeneration mode"
+          ]
+        },
+        {
+          "name": "Three+ 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2495000,
+          "efficiency": "708 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "R19 wheels",
+            "Auto regeneration mode"
+          ]
+        },
+        {
+          "name": "FE 79 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2520000,
+          "efficiency": "708 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "11.2 kW AC wall charger included",
+            "Formula E Freedom Edition",
+            "R20 alloy wheels"
+          ]
+        },
+        {
+          "name": "Three+ 79 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2570000,
+          "efficiency": "708 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "11.2 kW AC wall charger included",
+            "R19 wheels",
+            "Auto regeneration mode"
+          ]
+        },
+        {
+          "name": "FE Four 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2695000,
+          "efficiency": "708 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "Formula E Freedom Edition",
+            "R20 alloy wheels",
+            "Auto regeneration mode",
+            "7 airbags including driver knee airbag"
+          ]
+        },
+        {
+          "name": "Four 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2695000,
+          "efficiency": "708 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "R19 wheels",
+            "Auto regeneration mode",
+            "7 airbags including driver knee airbag"
+          ]
+        },
+        {
+          "name": "Launch Edition 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2695000,
+          "efficiency": "708 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "R19 wheels",
+            "Auto regeneration mode",
+            "7 airbags including driver knee airbag"
+          ]
+        },
+        {
+          "name": "FE Four 79 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2770000,
+          "efficiency": "708 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "11.2 kW AC wall charger included",
+            "Formula E Freedom Edition",
+            "R20 alloy wheels",
+            "Auto regeneration mode",
+            "7 airbags including driver knee airbag"
+          ]
+        },
+        {
+          "name": "Four 79 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2770000,
+          "efficiency": "708 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "11.2 kW AC wall charger included",
+            "R19 wheels",
+            "Auto regeneration mode",
+            "7 airbags including driver knee airbag"
+          ]
+        },
+        {
+          "name": "Launch Edition 79 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2770000,
+          "efficiency": "708 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "11.2 kW AC wall charger included",
+            "R19 wheels",
+            "Auto regeneration mode",
+            "7 airbags including driver knee airbag"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mahindraelectricsuv.com/esuv/MBE6.html",
+        "https://www.mahindraelectricsuv.com/own-online/variant-selection?pid=MBE6",
+        "https://www.mahindra.com/news-room/press-release/en/mahindra-introduces-the-be-6-sporteq-a-bold-new-expression-of-sport-technology-and-electric-performance",
+        "https://www.autocarindia.com/auto-features-amp/every-car-suv-tested-by-bharat-ncap-so-far-431936"
+      ],
+      "notes": "Slug kept as mahindra-be-6; the model is now sold as BE 6 Sporteq (launchedOn is the original BE 6 launch, 26 Nov 2024). Prices are the full-ownership prices; a battery-as-a-service option with a lower vehicle price exists and is not listed. Specs are from the model page. DC times: 140 kW charger for 59 kWh, 160 kW for 70 kWh, 180 kW for 79 kWh. Satin paints are offered on FE/Launch Edition versions. Prices are national ex-showroom (no city shown)."
+    },
+    {
+      "slug": "mahindra-xev-9e",
+      "name": "XEV 9e",
+      "bodyType": "SUV",
+      "bodyStyle": "Coupe SUV",
+      "isLuxury": false,
+      "launchedOn": "2024-11-26",
+      "engine": "Electric motor",
+      "power": "170 – 210 kW",
+      "torque": "380 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 7,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2025
+      },
+      "bootSpaceL": 663,
+      "groundClearanceMm": 207,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 6.8 s",
+      "dimensions": {
+        "length": 4789,
+        "width": 1907,
+        "height": 1694,
+        "wheelbase": 2775
+      },
+      "ev": {
+        "rangeKm": 656,
+        "rangeStandard": "MIDC P1+P2",
+        "batteryKwh": 79,
+        "dcCharge": "20 min (20–80%)",
+        "acCharge": "8 h (0–100%, 11.2 kW)",
+        "motorKw": 210
+      },
+      "colors": [
+        {
+          "name": "Tango Red",
+          "hex": "#970211"
+        },
+        {
+          "name": "Deep Forest",
+          "hex": "#282D22"
+        },
+        {
+          "name": "Nebula Blue",
+          "hex": "#07132A"
+        },
+        {
+          "name": "Ruby Velvet",
+          "hex": "#2D0406"
+        },
+        {
+          "name": "Desert Myst",
+          "hex": "#C0BEB7"
+        },
+        {
+          "name": "Everest White",
+          "hex": "#CFCDCD"
+        },
+        {
+          "name": "Stealth Black",
+          "hex": "#060505"
+        },
+        {
+          "name": "Satin Desert Myst",
+          "hex": "#C0BEB7"
+        },
+        {
+          "name": "Satin Black",
+          "hex": "#060505"
+        },
+        {
+          "name": "Satin White",
+          "hex": "#CFCDCD"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "150-litre frunk",
+            "Gesture-controlled powered tailgate"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Triple-screen digital cockpit",
+            "16-speaker Harman Kardon audio with Dolby Atmos",
+            "VisionX augmented-reality head-up display"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "7 airbags",
+            "Level 2+ ADAS",
+            "360-degree surround view camera",
+            "Auto park and remote park assist"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "170 kW (59 kWh) or 210 kW (79 kWh) rear motor, 380 Nm",
+            "0–100 km/h in 6.8 s",
+            "Drive modes: Default, Range, Everyday, Race and Snow",
+            "Regeneration levels L0–L3 and Auto; single-pedal drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Electric coupe-SUV on Mahindra's INGLO platform",
+        "59 kWh (522 km) or 79 kWh (656 km) battery, MIDC P1+P2",
+        "Bharat NCAP 5-star rating (2025)",
+        "7 airbags standard",
+        "663-litre boot (VDA) plus 150-litre frunk"
+      ],
+      "variants": [
+        {
+          "name": "One 59 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2190000,
+          "efficiency": "522 km",
+          "features": [
+            "59 kWh battery, 170 kW motor",
+            "245/55 R19 stylised wheels",
+            "Passive suspension with FDD and MTV-CL dampers"
+          ]
+        },
+        {
+          "name": "Two 59 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2490000,
+          "efficiency": "522 km",
+          "features": [
+            "59 kWh battery, 170 kW motor",
+            "245/55 R19 alloy wheels",
+            "Passive suspension with FDD and MTV-CL dampers"
+          ]
+        },
+        {
+          "name": "Two 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2650000,
+          "efficiency": "656 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "245/55 R19 alloy wheels",
+            "Passive suspension with FDD and MTV-CL dampers"
+          ]
+        },
+        {
+          "name": "Three Select 59 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2790000,
+          "efficiency": "522 km",
+          "features": [
+            "59 kWh battery, 170 kW motor",
+            "245/55 R19 alloy wheels",
+            "Intelligent adaptive suspension"
+          ]
+        },
+        {
+          "name": "Cineluxe 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2935000,
+          "efficiency": "656 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "Cineluxe edition",
+            "Satin paint finishes (Satin Black, Satin White, Satin Desert Myst)"
+          ]
+        },
+        {
+          "name": "Three 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 3050000,
+          "efficiency": "656 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "245/55 R19 alloy wheels",
+            "Intelligent adaptive suspension"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mahindraelectricsuv.com/esuv/xev-9e/MXV9.html",
+        "https://www.mahindraelectricsuv.com/own-online/variant-selection?pid=MXV9",
+        "https://www.mahindraelectricsuv.com/on/demandware.static/-/Library-Sites-eSUVSharedLibrary/default/MXV9/XEV9e_BROCHURE_R1_20260428.pdf",
+        "https://www.mahindraelectricsuv.com/xev-9e/CINE-LUXE.html",
+        "https://www.autocarindia.com/auto-features-amp/every-car-suv-tested-by-bharat-ncap-so-far-431936"
+      ],
+      "notes": "Only six versions are on the configurator now, all priced without a wall charger. Cineluxe is a 79 kWh edition sold on its own page. DC charging is 20 min (20–80%) with a 140 kW charger on 59 kWh; the 79 kWh charger rating is not legible in the brochure. Prices are national ex-showroom (no city shown)."
+    },
+    {
+      "slug": "mahindra-xev-9s",
+      "name": "XEV 9S",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2025-11-27",
+      "engine": "Electric motor",
+      "power": "170 – 210 kW",
+      "torque": "380 Nm",
+      "seats": [
+        6,
+        7
+      ],
+      "airbags": 7,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2026
+      },
+      "bootSpaceL": 527,
+      "groundClearanceMm": 205,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4737,
+        "width": 1900,
+        "height": 1747,
+        "wheelbase": 2762
+      },
+      "ev": {
+        "rangeKm": 679,
+        "rangeStandard": "MIDC P1+P2",
+        "batteryKwh": 79,
+        "dcCharge": "20 min (20–80%, 180 kW)",
+        "acCharge": "8 h (0–100%, 11.2 kW)",
+        "motorKw": 210
+      },
+      "colors": [
+        {
+          "name": "Desert Myst",
+          "hex": "#C0BEB7"
+        },
+        {
+          "name": "Nebula Blue",
+          "hex": "#07132A"
+        },
+        {
+          "name": "Ruby Velvet",
+          "hex": "#2D0406"
+        },
+        {
+          "name": "Everest White",
+          "hex": "#CFCDCD"
+        },
+        {
+          "name": "Midnight Black",
+          "hex": "#171F3C"
+        },
+        {
+          "name": "Stealth Black",
+          "hex": "#060505"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Three rows: 7 seats, or 6 with second-row captain seats",
+            "150-litre frunk"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Up to 7 airbags",
+            "Level 2+ ADAS"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "170 kW (59 kWh), 180 kW (70 kWh) or 210 kW (79 kWh) rear motor, 380 Nm",
+            "Drive modes: Default, Range, Everyday, Race and Snow",
+            "Regeneration levels L0–L3 and Auto; single-pedal drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Three-row electric SUV launched 27 November 2025",
+        "59, 70 or 79 kWh battery: 521, 600 or 679 km (MIDC P1+P2)",
+        "Bharat NCAP 5-star rating (2026)",
+        "6- and 7-seat layouts",
+        "DC fast charging 20–80% in about 20 minutes"
+      ],
+      "variants": [
+        {
+          "name": "One Above 59 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2065000,
+          "efficiency": "521 km",
+          "features": [
+            "59 kWh battery, 170 kW motor",
+            "235/60 R18 stylised wheels",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "One Above 59 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2140000,
+          "efficiency": "521 km",
+          "features": [
+            "59 kWh battery, 170 kW motor",
+            "11.2 kW AC wall charger included",
+            "235/60 R18 stylised wheels",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "One Above 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2265000,
+          "efficiency": "679 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "235/60 R18 stylised wheels",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "One Above 79 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2340000,
+          "efficiency": "679 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "11.2 kW AC wall charger included",
+            "235/60 R18 stylised wheels",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Two Above 70 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2505000,
+          "efficiency": "600 km",
+          "features": [
+            "70 kWh battery, 180 kW motor",
+            "235/60 R18 alloy wheels",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Two Above 6-Seater 70 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2525000,
+          "efficiency": "600 km",
+          "features": [
+            "70 kWh battery, 180 kW motor",
+            "6-seat layout with second-row captain seats",
+            "235/60 R18 alloy wheels",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Two Above 70 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2580000,
+          "efficiency": "600 km",
+          "features": [
+            "70 kWh battery, 180 kW motor",
+            "11.2 kW AC wall charger included",
+            "235/60 R18 alloy wheels",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Two Above 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2595000,
+          "efficiency": "679 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "235/60 R18 alloy wheels",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Two Above 6-Seater 70 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2600000,
+          "efficiency": "600 km",
+          "features": [
+            "70 kWh battery, 180 kW motor",
+            "11.2 kW AC wall charger included",
+            "6-seat layout with second-row captain seats",
+            "235/60 R18 alloy wheels",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Two Above 6-Seater 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2615000,
+          "efficiency": "679 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "6-seat layout with second-row captain seats",
+            "235/60 R18 alloy wheels",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Two Above 79 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2670000,
+          "efficiency": "679 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "11.2 kW AC wall charger included",
+            "235/60 R18 alloy wheels",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Two Above 6-Seater 79 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2690000,
+          "efficiency": "679 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "11.2 kW AC wall charger included",
+            "6-seat layout with second-row captain seats",
+            "235/60 R18 alloy wheels",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Three 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2785000,
+          "efficiency": "679 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "235/60 R18 alloy wheels",
+            "7 airbags"
+          ]
+        },
+        {
+          "name": "Three 6-Seater 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2805000,
+          "efficiency": "679 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "6-seat layout with second-row captain seats",
+            "235/60 R18 alloy wheels",
+            "7 airbags"
+          ]
+        },
+        {
+          "name": "Three 79 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2860000,
+          "efficiency": "679 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "11.2 kW AC wall charger included",
+            "235/60 R18 alloy wheels",
+            "7 airbags"
+          ]
+        },
+        {
+          "name": "Three 6-Seater 79 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2880000,
+          "efficiency": "679 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "11.2 kW AC wall charger included",
+            "6-seat layout with second-row captain seats",
+            "235/60 R18 alloy wheels",
+            "7 airbags"
+          ]
+        },
+        {
+          "name": "Three Above 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 2995000,
+          "efficiency": "679 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "235/60 R18 alloy wheels",
+            "7 airbags"
+          ]
+        },
+        {
+          "name": "Three Above 6-Seater 79 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 3015000,
+          "efficiency": "679 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "6-seat layout with second-row captain seats",
+            "235/60 R18 alloy wheels",
+            "7 airbags"
+          ]
+        },
+        {
+          "name": "Three Above 79 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 3070000,
+          "efficiency": "679 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "11.2 kW AC wall charger included",
+            "235/60 R18 alloy wheels",
+            "7 airbags"
+          ]
+        },
+        {
+          "name": "Three Above 6-Seater 79 kWh with 11.2 kW AC Charger",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 3090000,
+          "efficiency": "679 km",
+          "features": [
+            "79 kWh battery, 210 kW motor",
+            "11.2 kW AC wall charger included",
+            "6-seat layout with second-row captain seats",
+            "235/60 R18 alloy wheels",
+            "7 airbags"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mahindraelectricsuv.com/esuv/xev-9s/XEV9.html",
+        "https://www.mahindraelectricsuv.com/own-online/variant-selection?pid=XEV9",
+        "https://www.mahindraelectricsuv.com/on/demandware.static/-/Library-Sites-eSUVSharedLibrary/default/XEV-9s/PDFs/XEV9S_BROCHURE.pdf",
+        "https://www.autocarindia.com/auto-features-amp/every-car-suv-tested-by-bharat-ncap-so-far-431936"
+      ],
+      "notes": "Boot volume 527 L is with the third row folded (VDA, ISO V211). Ground clearance is 205 mm (222 mm at battery). DC time: 20 min with 140 kW (59), 160 kW (70) or 180 kW (79) chargers. 0–100 km/h is not in the brochure, so acceleration is null. Variants with the 11.2 kW wall charger are priced separately. Prices are national ex-showroom (no city shown)."
+    }
+  ]
+}

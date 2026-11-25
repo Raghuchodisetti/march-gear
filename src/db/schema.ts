@@ -184,6 +184,12 @@ export const cars = mysqlTable(
     competitors: json<string[]>("competitors").notNull(),
     trending: boolean("trending").notNull().default(false),
     launchedOn: date("launched_on", { mode: "string" }),
+    /** Researched catalogue facts (npm run db:import-catalogue): the official pages the data came from… */
+    sources: json<string[] | null>("sources"),
+    /** …the date prices and specs were checked… */
+    dataAsOf: date("data_as_of", { mode: "string" }),
+    /** …and the city of the ex-showroom prices, e.g. "Delhi". */
+    priceCity: varchar("price_city", { length: 40 }),
     status: mysqlEnum("status", PUBLISH_STATUS).notNull().default("published"),
     sortOrder: int("sort_order").notNull().default(0),
     createdAt: created(),

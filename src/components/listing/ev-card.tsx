@@ -1,46 +1,51 @@
 "use client";
 
-import Image from "next/image";
 import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRight, BatteryCharging, PlugZap, Zap } from "lucide-react";
-import type { CarModel } from "@/types";
+import type { CarLite } from "@/types";
 import { formatPrice } from "@/lib/format";
 import { EASE } from "@/lib/motion";
 import { Badge } from "@/components/ui/badge";
 import { CompareToggle, WishlistButton } from "@/components/vehicle/toggles";
 import { useCatalog } from "@/components/providers/catalog-provider";
+import { CarImage } from "@/components/vehicle/car-image";
 import { evHref } from "./ev-utils";
 
 /**
  * EV-first card: the claimed range is the headline, drawn against a thin bar
  * scaled to the longest-range EV on sale; battery and DC charge sit beneath.
  */
-export function EvCard({ car, maxRange, priority = false }: { car: CarModel; maxRange: number; priority?: boolean }) {
+export function EvCard({ car, maxRange, priority = false }: { car: CarLite; maxRange: number; priority?: boolean }) {
   const { brandName } = useCatalog();
   const ev = car.ev;
   const title = `${brandName(car.brand)} ${car.name}`;
   if (!ev) return null;
   const share = Math.min(1, ev.rangeKm / maxRange);
-  const [dcTime, dcWindow] = ev.dcCharge.split(" (");
+  const [dcTime, dcWindow] = ev.dcCharge ? ev.dcCharge.split(" (") : ["—"];
 
   return (
     <article className="group/ev relative flex h-full flex-col border border-line bg-white transition-[border-color] duration-[400ms] ease-[var(--ease-premium)] hover:border-ink/25">
       <div className="relative aspect-[16/10] overflow-hidden bg-mist">
-        <Image
-          src={car.images[0]}
-          alt={cardPhotoAlt(car.images[0], title)}
-          fill
+        <CarImage
+          car={car}
+          alt={car.images[0] ? cardPhotoAlt(car.images[0], title) : ""}
           preload={priority}
           sizes="(min-width: 1280px) 30vw, (min-width: 640px) 45vw, 92vw"
           className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/ev:scale-[1.04]"
           style={{ objectPosition: car.focus ?? "50% 55%" }}
         />
         <div className="absolute inset-x-3 top-3 flex items-start justify-between">
-          <Badge tone="glass-dark">
-            <Zap aria-hidden className="size-3" /> {ev.motorKw} kW
-          </Badge>
+          {ev.motorKw > 0 ? (
+            <Badge tone="glass-dark">
+              <Zap aria-hidden className="size-3" /> {ev.motorKw} kW
+            </Badge>
+          ) : (
+            <Badge tone="glass-dark">
+              <Zap aria-hidden className="size-3" /> EV
+            </Badge>
+          )}
           <WishlistButton id={car.slug} label={title} />
         </div>
       </div>

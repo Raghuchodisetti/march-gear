@@ -2,6 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 import Image from "next/image";
+import { CarPlaceholder, asBodyType } from "@/components/vehicle/car-image";
 import { Check, MapPin, ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { formatDate, formatINR, formatKm, formatPrice } from "@/lib/format";
@@ -25,7 +26,9 @@ export function availabilityText(v: Pick<PublicVehicle, "kind" | "stock" | "avai
 
 export const stockTitle = (v: Pick<PublicVehicle, "year" | "model">, brandName: string) => [v.year > 0 ? v.year : null, brandName, v.model].filter(Boolean).join(" ");
 
-export function StockGallery({ images, alt, className }: { images: string[]; alt: string; className?: string }) {
+
+/** Listing photos; a new car whose catalogue model has no photos yet shows the body-type placeholder. */
+export function StockGallery({ images, alt, className, bodyType }: { images: string[]; alt: string; className?: string; bodyType?: string }) {
   const [active, setActive] = useState(0);
   const list = images.length ? images : [];
   const current = list[Math.min(active, list.length - 1)];
@@ -35,7 +38,11 @@ export function StockGallery({ images, alt, className }: { images: string[]; alt
         {current ? (
           <Image key={current} src={current} alt={alt} fill sizes="(min-width: 1024px) 640px, 100vw" className="object-cover" />
         ) : (
-          <div className="flex size-full items-center justify-center text-[13px] text-muted">No photos yet</div>
+          bodyType ? (
+            <CarPlaceholder bodyType={asBodyType(bodyType)} />
+          ) : (
+            <div className="flex size-full items-center justify-center text-[13px] text-muted">No photos yet</div>
+          )
         )}
         {list.length > 1 && (
           <span className="absolute bottom-3 right-3 rounded-full bg-ink/70 px-2.5 py-1 text-[11.5px] font-medium text-white backdrop-blur-sm num">
@@ -114,7 +121,7 @@ export function StockVehicleDetail({ vehicle: v, brandName, actions, className }
   return (
     <article className={cn("grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:gap-10", className)}>
       <div className="min-w-0">
-        <StockGallery images={v.images} alt={title} />
+        <StockGallery images={v.images} alt={title} bodyType={v.bodyType} />
         {v.kind === "new" && v.images.length > 0 && <p className="mt-2 text-[11.5px] text-muted">Photos from the MarchGear catalogue — colours and equipment may differ by variant.</p>}
         {v.description && (
           <section className="mt-8">

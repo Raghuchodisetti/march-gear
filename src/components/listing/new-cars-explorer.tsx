@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Cog, Droplet, Fuel, Gauge, LayoutGrid, Leaf, List, RotateCcw, Search, Users, Wind, X, Zap } from "lucide-react";
-import type { CarModel, CategorySlug, FuelType } from "@/types";
+import type { CarLite, CategorySlug, FuelType } from "@/types";
 import { BUDGETS, carCategories, inBudget } from "@/lib/catalog";
 import { EASE } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
@@ -35,6 +35,8 @@ const FUEL_MAP: Record<(typeof FUEL_SLUGS)[number], FuelType> = {
 };
 
 const FUEL_ICON = { petrol: Fuel, diesel: Droplet, cng: Wind, hybrid: Leaf, electric: Zap } as const;
+
+const PAGE_SIZE = 24;
 
 const SORTS = [
   { value: "popular", label: "Popularity" },
@@ -77,7 +79,7 @@ function readFilters(params: URLSearchParams, brandSlugs: string[]): Filters {
   };
 }
 
-function matches(car: CarModel, f: Filters, brandName: (slug: string) => string, skip?: FacetKey) {
+function matches(car: CarLite, f: Filters, brandName: (slug: string) => string, skip?: FacetKey) {
   if (f.q) {
     const hay = `${brandName(car.brand)} ${car.name} ${car.bodyType} ${car.fuelTypes.join(" ")}`.toLowerCase();
     if (!f.q.toLowerCase().split(/\s+/).every((t) => hay.includes(t))) return false;
@@ -95,7 +97,7 @@ function matches(car: CarModel, f: Filters, brandName: (slug: string) => string,
   return true;
 }
 
-function sortCars(list: CarModel[], sort: string) {
+function sortCars(list: CarLite[], sort: string) {
   const out = [...list];
   switch (sort) {
     case "price-asc":
@@ -105,7 +107,8 @@ function sortCars(list: CarModel[], sort: string) {
     case "latest":
       return out.sort((a, b) => (b.launchedOn ?? "").localeCompare(a.launchedOn ?? "") || b.rating - a.rating);
     case "efficiency":
-      return out.sort((a, b) => b.efficiencyValue - a.efficiencyValue);
+      // Only models with a published claimed figure can be ranked; the rest are left out of this sort (see the note).
+      return out.filter((c) => c.efficiencyValue > 0).sort((a, b) => b.efficiencyValue - a.efficiencyValue);
     default:
       return out.sort((a, b) => Number(Boolean(b.trending)) - Number(Boolean(a.trending)) || b.rating - a.rating);
   }
@@ -162,8 +165,16 @@ export function NewCarsExplorer() {
   const f = useMemo(() => readFilters(params, brandSlugs), [params, brandSlugs]);
   const [view, setView] = useState<"grid" | "list">("grid");
 
-  const results = useMemo(() => sortCars(cars.filter((c) => matches(c, f, brandName)), f.sort), [cars, f, brandName]);
-  const count = (skip: FacetKey, test: (c: CarModel) => boolean) => cars.filter((c) => matches(c, f, brandName, skip) && test(c)).length;
+  const matching = useMemo(() => cars.filter((c) => matches(c, f, brandName)), [cars, f, brandName]);
+  const results = useMemo(() => sortCars(matching, f.sort), [matching, f.sort]);
+  // Sorting by mileage leaves out models whose maker publishes no claimed figure.
+  const unranked = f.sort === "efficiency" ? matching.length - results.length : 0;
+  // The catalogue has hundreds of models: show a page at a time, starting over whenever the filters change.
+  const pageKey = params.toString();
+  const [paging, setPaging] = useState({ key: pageKey, shown: PAGE_SIZE });
+  const shown = paging.key === pageKey ? paging.shown : PAGE_SIZE;
+  const visible = results.slice(0, shown);
+  const count = (skip: FacetKey, test: (c: CarLite) => boolean) => cars.filter((c) => matches(c, f, brandName, skip) && test(c)).length;
 
   const setList = (key: string, list: string[]) => update((p) => writeList(p, key, list));
   const toggle = (key: "body" | "budget" | "fuel" | "transmission" | "brand", value: string) => setList(key, toggleValue(f[key], value));
@@ -391,7 +402,7 @@ export function NewCarsExplorer() {
         ) : view === "grid" ? (
           <div className="relative grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4">
             <AnimatePresence mode="popLayout" initial={false}>
-              {results.flatMap((car, i) => {
+              {visible.flatMap((car, i) => {
                 const card = (
                   <motion.div key={car.slug} layout {...itemMotion}>
                     <CarCard car={car} priority={i < 2} />
@@ -411,13 +422,28 @@ export function NewCarsExplorer() {
         ) : (
           <div className="relative border-t border-line md:border-t-0">
             <AnimatePresence mode="popLayout" initial={false}>
-              {results.map((car) => (
+              {visible.map((car) => (
                 <motion.div key={car.slug} layout {...itemMotion}>
                   <CarRow car={car} />
                 </motion.div>
               ))}
             </AnimatePresence>
           </div>
+        )}
+        {results.length > shown && (
+          <div className="mt-12 flex flex-col items-center gap-3">
+            <Button variant="outline" onClick={() => setPaging({ key: pageKey, shown: shown + PAGE_SIZE })}>
+              Show {Math.min(PAGE_SIZE, results.length - shown)} more
+            </Button>
+            <p className="text-[12.5px] text-muted num">
+              Showing {shown} of {results.length}
+            </p>
+          </div>
+        )}
+        {unranked > 0 && (
+          <p className="mt-8 text-[13px] text-muted num">
+            {unranked} {unranked === 1 ? "model isn't" : "models aren't"} ranked here: {unranked === 1 ? "its maker doesn't" : "their makers don't"} publish a claimed mileage or range.
+          </p>
         )}
       </FilterBar>
     </>

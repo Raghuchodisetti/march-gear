@@ -1,0 +1,537 @@
+{
+  "brand": {
+    "slug": "volvo",
+    "name": "Volvo",
+    "country": "Sweden",
+    "founded": 1927,
+    "tagline": "Swedish carmaker, in India since 2007",
+    "description": "Swedish carmaker. Volvo Car India has sold cars in India since 2007 and assembles models at its plant in Hoskote, near Bengaluru. The current line-up is SUVs: mild-hybrid petrol XC60 and XC90 and electric EX30, EC40 and EX90.",
+    "isLuxury": true,
+    "website": "https://www.volvocars.com/in/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "volvo-ex30",
+      "name": "EX30",
+      "bodyType": "SUV",
+      "bodyStyle": "Compact SUV",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor",
+      "power": "200 kW (272 hp)",
+      "torque": "343 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 318,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 180,
+      "acceleration": "0–100 km/h in 5.3 s",
+      "dimensions": {
+        "length": 4233,
+        "width": 1838,
+        "height": 1550,
+        "wheelbase": 2650
+      },
+      "ev": {
+        "rangeKm": 475,
+        "rangeStandard": null,
+        "batteryKwh": 69,
+        "dcCharge": "27 min (10–80%, 175 kW)",
+        "acCharge": "8 h (0–100%, 3-phase 16 A)",
+        "motorKw": 200
+      },
+      "colors": [
+        {
+          "name": "Crystal White",
+          "hex": "#f1f1ee"
+        },
+        {
+          "name": "Cloud Blue",
+          "hex": "#24427a"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Fixed panoramic roof"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Park Pilot Assist",
+            "360° camera with 3D view"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Google built-in"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "P5 Long Range single rear motor",
+            "11 kW on-board charger",
+            "Bi-directional charging",
+            "5 m charging station cable (22 kW)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Single rear-mounted motor, 200 kW (272 hp) and 343 Nm",
+        "69 kWh battery (nominal); claimed range up to 475 km",
+        "DC charging 10–80% in 27 minutes at 175 kW",
+        "Sold in Ultra trim"
+      ],
+      "variants": [
+        {
+          "name": "P5 Long Range Ultra",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 4100000,
+          "efficiency": "475 km",
+          "features": [
+            "200 kW (272 hp), 343 Nm",
+            "Rear-wheel drive",
+            "Fixed panoramic roof",
+            "Park Pilot Assist",
+            "360° camera with 3D view",
+            "Bi-directional charging"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.volvocars.com/in/cars/ex30-electric/",
+        "https://www.volvocars.com/in/cars/ex30-electric/specifications/",
+        "https://www.volvocars.com/in/"
+      ],
+      "notes": "Price is the official 'from' price on volvocars.com/in (single version listed; ex-showroom, one all-India price). Specs from the official specifications page. Range test standard is not stated on the page (it lists NEDC energy consumption). Colour list shows only the swatches named on the model page."
+    },
+    {
+      "slug": "volvo-ec40",
+      "name": "EC40",
+      "bodyType": "SUV",
+      "bodyStyle": "Coupé SUV",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor",
+      "power": "300 kW (408 hp)",
+      "torque": "670 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 404,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 180,
+      "acceleration": "0–100 km/h in 4.7 s",
+      "dimensions": {
+        "length": 4440,
+        "width": 1873,
+        "height": 1591,
+        "wheelbase": 2702
+      },
+      "ev": {
+        "rangeKm": 551,
+        "rangeStandard": null,
+        "batteryKwh": 82,
+        "dcCharge": "28 min (10–80%, 200 kW)",
+        "acCharge": "8 h (0–100%, 3-phase 16 A)",
+        "motorKw": 300
+      },
+      "colors": [
+        {
+          "name": "Vapour Grey",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Crystal White",
+          "hex": "#f1f1ee"
+        },
+        {
+          "name": "Onyx Black",
+          "hex": "#111111"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Fixed panoramic roof"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Harman Kardon Premium Sound",
+            "Google built-in"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "360° camera"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Leather-free interior"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Twin Motor all-wheel drive",
+            "31-litre front storage"
+          ]
+        }
+      ],
+      "highlights": [
+        "Twin Motor all-wheel drive, 300 kW (408 hp) and 670 Nm",
+        "82 kWh battery (nominal); claimed range up to 551 km",
+        "DC charging 10–80% in 28 minutes at 200 kW",
+        "Leather-free interior"
+      ],
+      "variants": [
+        {
+          "name": "Twin Motor",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 5900000,
+          "efficiency": "551 km",
+          "features": [
+            "300 kW (408 hp), 670 Nm",
+            "All-wheel drive",
+            "Fixed panoramic roof",
+            "Harman Kardon Premium Sound",
+            "360° camera"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.volvocars.com/in/cars/ec40-electric/",
+        "https://www.volvocars.com/in/cars/ec40-electric/specifications/",
+        "https://www.volvocars.com/in/"
+      ],
+      "notes": "Price is the official 'from' price on volvocars.com/in (single version listed; ex-showroom, one all-India price). Specs from the official specifications page. Range test standard is not stated on the page. Colour list shows only the swatches named on the model page."
+    },
+    {
+      "slug": "volvo-xc60",
+      "name": "XC60",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Petrol mild hybrid (B5)",
+      "power": "184 kW (250 hp)",
+      "torque": "360 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 483,
+      "groundClearanceMm": null,
+      "fuelTankL": 71,
+      "topSpeedKmh": 180,
+      "acceleration": "0–100 km/h in 6.9 s",
+      "dimensions": {
+        "length": 4708,
+        "width": 1902,
+        "height": 1655,
+        "wheelbase": 2865
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Crystal White",
+          "hex": "#f1f1ee"
+        },
+        {
+          "name": "Onyx Black",
+          "hex": "#111111"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic roof",
+            "Four-zone climate system",
+            "Air purifier with remote cabin pre-cleaning",
+            "Afterrun parking climate"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Bowers & Wilkins High Fidelity audio system",
+            "Google built-in"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "High-level interior illumination"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "B5 petrol mild hybrid",
+            "All-wheel drive",
+            "Automatic transmission"
+          ]
+        }
+      ],
+      "highlights": [
+        "B5 petrol mild hybrid, 184 kW (250 hp) and 360 Nm",
+        "All-wheel drive",
+        "Bowers & Wilkins audio system",
+        "Four-zone climate system"
+      ],
+      "variants": [
+        {
+          "name": "B5 AWD Mild hybrid Ultra",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 7090000,
+          "efficiency": null,
+          "features": [
+            "184 kW (250 hp), 360 Nm",
+            "All-wheel drive",
+            "Panoramic roof",
+            "Bowers & Wilkins audio system",
+            "Four-zone climate system"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.volvocars.com/in/cars/xc60/",
+        "https://www.volvocars.com/in/cars/xc60/specifications/",
+        "https://www.volvocars.com/in/"
+      ],
+      "notes": "Price is the official 'from' price on volvocars.com/in (single version listed; ex-showroom, one all-India price). Specs from the official specifications page. Volvo lists combined fuel consumption of 7.75 l/100 km (not an ARAI kmpl figure), so mileage is left blank. Engine displacement not stated on the page. India gets the bright-theme XC60. Colour list shows only the swatches named on the model page."
+    },
+    {
+      "slug": "volvo-xc90",
+      "name": "XC90",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Petrol mild hybrid (B5)",
+      "power": "184 kW (250 hp)",
+      "torque": "360 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 302,
+      "groundClearanceMm": null,
+      "fuelTankL": 71,
+      "topSpeedKmh": 180,
+      "acceleration": "0–100 km/h in 7.7 s",
+      "dimensions": {
+        "length": 4953,
+        "width": 1931,
+        "height": 1771,
+        "wheelbase": 2984
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Crystal White",
+          "hex": "#f1f1ee"
+        },
+        {
+          "name": "Onyx Black",
+          "hex": "#111111"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Seven seats",
+            "Panoramic roof",
+            "Four-zone climate system",
+            "Third-row air conditioning",
+            "Rear door sun curtains",
+            "Air purifier with remote cabin pre-cleaning"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Google built-in"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Pilot Assist"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "B5 petrol mild hybrid",
+            "All-wheel drive",
+            "Automatic transmission"
+          ]
+        }
+      ],
+      "highlights": [
+        "Seven-seat SUV",
+        "B5 petrol mild hybrid, 184 kW (250 hp) and 360 Nm, all-wheel drive",
+        "Pilot Assist driver assistance",
+        "Third-row air conditioning"
+      ],
+      "variants": [
+        {
+          "name": "B5 AWD Mild hybrid Ultra",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 9880000,
+          "efficiency": null,
+          "features": [
+            "184 kW (250 hp), 360 Nm",
+            "All-wheel drive",
+            "Seven seats",
+            "Panoramic roof",
+            "Pilot Assist",
+            "Third-row air conditioning"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.volvocars.com/in/cars/xc90/",
+        "https://www.volvocars.com/in/cars/xc90/specifications/",
+        "https://www.volvocars.com/in/"
+      ],
+      "notes": "Price is the official 'from' price on volvocars.com/in (single version listed; ex-showroom, one all-India price). Specs from the official specifications page. Boot figure is with the third row up (680 L with the third row folded, 1,856 L max). Combined fuel consumption 8.072 l/100 km is not an ARAI kmpl figure, so mileage is left blank. Colour list shows only the swatches named on the model page."
+    },
+    {
+      "slug": "volvo-ex90",
+      "name": "EX90",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor",
+      "power": "335 kW (456 hp)",
+      "torque": "670 Nm",
+      "seats": [
+        6
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 324,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 180,
+      "acceleration": "0–100 km/h in 5.5 s",
+      "dimensions": {
+        "length": 5037,
+        "width": 1964,
+        "height": 1744,
+        "wheelbase": 2985
+      },
+      "ev": {
+        "rangeKm": 625,
+        "rangeStandard": null,
+        "batteryKwh": 106,
+        "dcCharge": "22 min (10–80%, 350 kW)",
+        "acCharge": "10 h (0–100%, 3-phase 16 A)",
+        "motorKw": 335
+      },
+      "colors": [
+        {
+          "name": "Vapour Grey",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Crystal White",
+          "hex": "#f1f1ee"
+        },
+        {
+          "name": "Onyx Black",
+          "hex": "#111111"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Six seats with second-row captain seats",
+            "Electrochromic panoramic roof",
+            "Ventilated seats",
+            "Front seat massage"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Google built-in"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Twin Motor all-wheel drive",
+            "800 V electrical system",
+            "11 kW on-board charger"
+          ]
+        }
+      ],
+      "highlights": [
+        "Six-seat electric SUV with second-row captain seats",
+        "Twin Motor all-wheel drive, 335 kW (456 hp) and 670 Nm",
+        "106 kWh battery (nominal); claimed range up to 625 km",
+        "800 V system with DC charging 10–80% in 22 minutes at 350 kW"
+      ],
+      "variants": [
+        {
+          "name": "Twin Motor",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 12600000,
+          "efficiency": "625 km",
+          "features": [
+            "335 kW (456 hp), 670 Nm",
+            "All-wheel drive",
+            "Electrochromic panoramic roof",
+            "Ventilated seats",
+            "Front seat massage",
+            "Six seats"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.volvocars.com/in/cars/ex90-electric/",
+        "https://www.volvocars.com/in/cars/ex90-electric/specifications/",
+        "https://www.volvocars.com/in/"
+      ],
+      "notes": "Price is the official 'from' price on volvocars.com/in (single version listed; ex-showroom, one all-India price). Specs from the official specifications page. Boot figure is with the third row up (690 L with it folded, 2,082 L max). Range test standard is not stated on the page. Colour list shows only the swatches named on the model page."
+    }
+  ]
+}

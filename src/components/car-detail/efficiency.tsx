@@ -7,7 +7,9 @@ import { Bar, RangeRing } from "./meters";
 import { REAL_WORLD_FACTOR, efficiencyOf, parseAc, parseDc, sortedVariants } from "./utils";
 
 
-function VariantBars({ variants, unit }: { variants: Variant[]; unit: string }) {
+function VariantBars({ variants: all, unit }: { variants: Variant[]; unit: string }) {
+  // Variants without a published figure are left out of the bars.
+  const variants = all.filter((v) => efficiencyOf(v).value > 0);
   const max = Math.max(...variants.map((v) => efficiencyOf(v).value));
   return (
     <ul className="space-y-6">
@@ -46,7 +48,8 @@ export async function CarMileage({ car }: { car: CarModel }) {
     Diesel: { price: fuelPrices.diesel, unit: "L" },
     CNG: { price: fuelPrices.cng, unit: "kg" },
   };
-  const variants = sortedVariants(car);
+  const variants = sortedVariants(car).filter((v) => efficiencyOf(v).value > 0);
+  if (variants.length === 0) return null;
   const groups = Array.from(new Set(variants.map((v) => efficiencyOf(v).unit))).map((unit) => ({
     unit,
     variants: variants.filter((v) => efficiencyOf(v).unit === unit),
@@ -106,6 +109,7 @@ export function CarRange({ car }: { car: CarModel }) {
   const realWorld = Math.round(car.ev.rangeKm * REAL_WORLD_FACTOR);
   const dc = parseDc(car.ev.dcCharge);
   const ac = parseAc(car.ev.acCharge);
+  const hasVariantRanges = variants.some((v) => efficiencyOf(v).value > 0);
 
   return (
     <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
@@ -128,17 +132,33 @@ export function CarRange({ car }: { car: CarModel }) {
           </div>
           <div className="bg-white p-5">
             <dt className="text-[12px] text-muted">DC fast charge</dt>
-            <dd className="mt-2 text-[22px] font-semibold num">{dc.minutes} min</dd>
-            <dd className="text-[12px] text-muted">{dc.window}</dd>
+            {dc.minutes > 0 ? (
+              <>
+                <dd className="mt-2 text-[22px] font-semibold num">{dc.minutes} min</dd>
+                <dd className="text-[12px] text-muted">{dc.window}</dd>
+              </>
+            ) : (
+              <dd className="mt-2 text-[14px] font-medium">{car.ev.dcCharge || "Not published"}</dd>
+            )}
           </div>
           <div className="bg-white p-5">
             <dt className="text-[12px] text-muted">AC home charge</dt>
-            <dd className="mt-2 text-[22px] font-semibold num">{ac.hours} h</dd>
-            <dd className="text-[12px] text-muted">{ac.power} wallbox</dd>
+            {ac.hours > 0 ? (
+              <>
+                <dd className="mt-2 text-[22px] font-semibold num">{ac.hours} h</dd>
+                {ac.power && <dd className="text-[12px] text-muted">{ac.power} wallbox</dd>}
+              </>
+            ) : (
+              <dd className="mt-2 text-[14px] font-medium">{car.ev.acCharge || "Not published"}</dd>
+            )}
           </div>
         </dl>
-        <h3 className="type-eyebrow mb-6 mt-10 text-muted">Claimed range by variant</h3>
-        <VariantBars variants={variants} unit="km" />
+        {hasVariantRanges && (
+          <>
+            <h3 className="type-eyebrow mb-6 mt-10 text-muted">Claimed range by variant</h3>
+            <VariantBars variants={variants} unit="km" />
+          </>
+        )}
         <div className="mt-10">
           <TextLink href={`/electric-cars/${car.slug}`}>Explore charging, range and running costs</TextLink>
         </div>

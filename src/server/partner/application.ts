@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { and, desc, eq, gt, gte, inArray, isNull } from "drizzle-orm";
 import { getDb, type Database } from "@/db";
 import { media, partnerBrands, partnerFiles, partnerOffers, partnerOtps, partnerShowrooms, partnerTestDrives, partnerVehicles } from "@/db/schema";
-import type { CatalogData } from "@/lib/catalog";
+import type { ClientCatalogWire } from "@/lib/catalog";
 import { WIZARD_STEPS, emptyApplication, type WizardSlug } from "@/partner/application";
 import { PARTNER_EDITABLE, PARTNER_STATUS_LABEL } from "@/partner/labels";
 import {
@@ -25,7 +25,7 @@ import {
 } from "@/partner/schemas";
 import { PATTERNS } from "@/partner/application";
 import type { FileRef, PartnerApplication } from "@/partner/types";
-import { getCatalog, getCatalogData } from "@/server/catalog";
+import { getCatalog, getClientCatalogData } from "@/server/catalog";
 import { requirePartner, type PartnerRow } from "./context";
 import { encryptField, maskAccount } from "./crypto";
 
@@ -239,8 +239,8 @@ export async function catalogLite(): Promise<CatalogLite> {
 }
 
 /** The catalogue without the editorial and listings data the wizard doesn't use — for <CatalogProvider>. */
-export async function wizardCatalogData(): Promise<CatalogData> {
-  const d = await getCatalogData();
+export async function wizardCatalogData(): Promise<ClientCatalogWire> {
+  const d = await getClientCatalogData();
   return { ...d, upcoming: [], dealers: [], dealerProfiles: {}, dealerReviews: [], usedCars: [], authors: d.authors.slice(0, 1), articles: [], ownerReviews: [] };
 }
 

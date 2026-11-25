@@ -28,10 +28,14 @@ export interface Variant {
 export interface EvSpec {
   rangeKm: number;
   batteryKwh: number;
-  /** e.g. "20 min (20–80%)" */
+  /** e.g. "20 min (20–80%)" — "" when not published */
   dcCharge: string;
+  /** "" when not published */
   acCharge: string;
+  /** 0 when not published */
   motorKw: number;
+  /** Test cycle of the claimed range as published: "ARAI", "MIDC", "WLTP"… */
+  rangeStandard?: string;
 }
 
 export interface Dimensions {
@@ -98,7 +102,54 @@ export interface CarModel {
   trending?: boolean;
   /** ISO date when recently launched */
   launchedOn?: string;
+  /** Researched facts: when prices/specs were checked and the city of the ex-showroom prices. */
+  dataAsOf?: string;
+  priceCity?: string;
 }
+
+/* ── Client catalogue ───────────────────────────────────────────
+   The browser gets every model in this lighter shape (via
+   <CatalogProvider>), enough for cards, rows, pickers, filters and
+   search. A full CarModel is assignable to it, so components typed
+   on CarLite take either. Full details (features, colours, copy,
+   specs) load server-side on the pages that show them.
+   `images` holds at most the primary photo here. */
+
+export type VariantLite = Pick<Variant, "slug" | "name" | "fuel" | "transmission" | "price">;
+
+export type CarLite = Pick<
+  CarModel,
+  | "slug"
+  | "brand"
+  | "name"
+  | "bodyType"
+  | "isLuxury"
+  | "priceMin"
+  | "priceMax"
+  | "fuelTypes"
+  | "transmissions"
+  | "efficiency"
+  | "efficiencyValue"
+  | "engine"
+  | "seats"
+  | "images"
+  | "focus"
+  | "rating"
+  | "reviewCount"
+  | "safetyRating"
+  | "safetyAgency"
+  | "trending"
+  | "launchedOn"
+  | "tagline"
+  | "bootSpace"
+  | "groundClearance"
+  | "topSpeed"
+  | "acceleration"
+  | "expertScore"
+> & {
+  variants: VariantLite[];
+  ev?: Pick<EvSpec, "rangeKm" | "batteryKwh" | "dcCharge" | "motorKw">;
+};
 
 export interface UsedCar {
   id: string;

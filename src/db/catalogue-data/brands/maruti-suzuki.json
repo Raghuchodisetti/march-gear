@@ -1,0 +1,5168 @@
+{
+  "brand": {
+    "slug": "maruti-suzuki",
+    "name": "Maruti Suzuki",
+    "country": "India",
+    "founded": 1981,
+    "tagline": "Indian carmaker, majority-owned by Suzuki Motor Corporation, selling cars since 1983",
+    "description": "Founded in 1981 as Maruti Udyog Limited, a Government of India company; Suzuki Motor Corporation became a partner in 1982 and is now the majority shareholder. Production began in 1983 with the Maruti 800. Plants are in Gurugram, Manesar and Kharkhoda (Haryana) and Hansalpur (Gujarat). Cars are sold through two retail channels, Arena and NEXA.",
+    "isLuxury": false,
+    "website": "https://www.marutisuzuki.com/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "maruti-alto-k10",
+      "name": "Alto K10",
+      "bodyType": "Hatchback",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-08-18",
+      "engine": "998 cc",
+      "power": "41.7 – 50.4 kW",
+      "torque": "82.1 – 91.1 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 2,
+        "agency": "Global NCAP",
+        "year": 2023
+      },
+      "bootSpaceL": 214,
+      "groundClearanceMm": null,
+      "fuelTankL": 27,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3530,
+        "width": 1490,
+        "height": 1520,
+        "wheelbase": 2380
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Metallic Sizzling Red",
+          "hex": "#A10000"
+        },
+        {
+          "name": "Metallic Silky Silver",
+          "hex": "#737373"
+        },
+        {
+          "name": "Metallic Granite Grey",
+          "hex": "#222526"
+        },
+        {
+          "name": "Premium Earth Gold",
+          "hex": "#976C2D"
+        },
+        {
+          "name": "Metallic Speedy Blue",
+          "hex": "#1F47C2"
+        },
+        {
+          "name": "Solid White",
+          "hex": "#F2F2F0"
+        },
+        {
+          "name": "Pearl Bluish Black",
+          "hex": "#141414"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags (front, side and curtain) standard",
+            "ABS with EBD",
+            "Electronic Stability Program (ESP) with Hill Hold Control",
+            "Reverse parking sensors",
+            "Seat belt reminder for front and rear seats",
+            "High-speed alert system",
+            "Child-proof rear door locks",
+            "Engine immobilizer"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Digital speedometer",
+            "SmartPlay Dock audio with Bluetooth and USB (VXi (O))",
+            "17.78 cm SmartPlay Studio touchscreen (VXi+ (O))",
+            "Android Auto and Apple CarPlay (VXi+ (O))",
+            "Steering-mounted audio and calling controls (VXi+ (O))"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Air conditioner (LXi (O) upwards)",
+            "Front and rear power windows (VXi (O) upwards)",
+            "Central locking (VXi (O) upwards)",
+            "Remote keyless entry (VXi+ (O))",
+            "Power steering"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "145/80 R13 tyres on steel wheels with centre cap",
+            "Body-coloured bumpers",
+            "Body-coloured door handles (VXi (O) upwards)"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Rear parcel tray (VXi+ (O))",
+            "Silver accent on steering wheel (VXi+ (O))",
+            "Co-driver sun visor with vanity mirror"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.0-litre K10C Dual Jet, Dual VVT petrol, 50.4 kW and 91.1 Nm",
+            "5-speed manual or 5-speed AGS (AMT)",
+            "Factory-fitted S-CNG: 41.7 kW and 82.1 Nm in CNG mode"
+          ]
+        }
+      ],
+      "highlights": [
+        "6 airbags standard across all variants",
+        "1.0-litre K10C petrol engine with 5-speed manual or AGS automated manual",
+        "Factory-fitted S-CNG on LXi (O) and VXi (O)",
+        "Claimed 24.90 kmpl (AGS) and 33.40 km/kg (S-CNG)",
+        "17.78 cm SmartPlay Studio touchscreen with Android Auto and Apple CarPlay on VXi+ (O)"
+      ],
+      "variants": [
+        {
+          "name": "Std (O) MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 369900,
+          "efficiency": "24.39 kmpl",
+          "features": [
+            "6 airbags",
+            "ESP with Hill Hold Control",
+            "ABS with EBD",
+            "Reverse parking sensors",
+            "Digital speedometer",
+            "Seat belt reminder (front and rear)"
+          ]
+        },
+        {
+          "name": "LXi (O) MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 399900,
+          "efficiency": "24.39 kmpl",
+          "features": [
+            "Air conditioner",
+            "Body-coloured bumpers"
+          ]
+        },
+        {
+          "name": "VXi (O) MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 452400,
+          "efficiency": "24.39 kmpl",
+          "features": [
+            "SmartPlay Dock audio with Bluetooth and USB",
+            "Central locking",
+            "Front and rear power windows",
+            "Internally adjustable ORVMs",
+            "Body-coloured door handles",
+            "Speed-sensing auto door lock",
+            "Impact-sensing auto door unlock",
+            "Accessory socket"
+          ]
+        },
+        {
+          "name": "LXi (O) S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 484400,
+          "efficiency": "33.40 km/kg",
+          "features": [
+            "Factory-fitted S-CNG (55 L water-equivalent cylinder)",
+            "Air conditioner",
+            "Body-coloured bumpers"
+          ]
+        },
+        {
+          "name": "VXi (O) AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 497400,
+          "efficiency": "24.90 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "SmartPlay Dock audio with Bluetooth and USB",
+            "Central locking",
+            "Front and rear power windows",
+            "Body-coloured door handles"
+          ]
+        },
+        {
+          "name": "VXi+ (O) MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 499900,
+          "efficiency": "24.39 kmpl",
+          "features": [
+            "17.78 cm SmartPlay Studio touchscreen",
+            "Android Auto and Apple CarPlay",
+            "Steering-mounted audio and calling controls",
+            "Remote keyless entry",
+            "Rear parcel tray",
+            "Silver accent on steering wheel"
+          ]
+        },
+        {
+          "name": "VXi (O) S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 534400,
+          "efficiency": "33.40 km/kg",
+          "features": [
+            "Factory-fitted S-CNG",
+            "SmartPlay Dock audio with Bluetooth and USB",
+            "Central locking",
+            "Front and rear power windows"
+          ]
+        },
+        {
+          "name": "VXi+ (O) AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 544900,
+          "efficiency": "24.90 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "17.78 cm SmartPlay Studio touchscreen",
+            "Android Auto and Apple CarPlay",
+            "Steering-mounted audio and calling controls",
+            "Remote keyless entry"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.marutisuzuki.com/arena/alto-k10",
+        "https://www.marutisuzuki.com/alto-k10/price-in-delhi",
+        "https://www.marutisuzuki.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=NRM,NRC&variantInfoRequired=true"
+      ],
+      "notes": "Prices are the official Delhi ex-showroom figures from the Arena pricing API; metallic and non-metallic paints are priced the same. Tour H1 taxi variants (commercial channel) are not included. The Global NCAP 2-star adult rating (0-star child) is from the 2023 test of this generation in its earlier 2-airbag specification. The spec sheet lists 33.85 km/kg for the VXi (O) S-CNG but the model data and FAQ give 33.40 km/kg, which is used for both CNG variants. Ground clearance and top speed are not published."
+    },
+    {
+      "slug": "maruti-s-presso",
+      "name": "S-Presso",
+      "bodyType": "Hatchback",
+      "bodyStyle": "Crossover",
+      "isLuxury": false,
+      "launchedOn": "2019-09-30",
+      "engine": "998 cc",
+      "power": "41.7 – 49 kW",
+      "torque": "82.1 – 89 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 2,
+      "safety": {
+        "rating": 1,
+        "agency": "Global NCAP",
+        "year": 2022
+      },
+      "bootSpaceL": 239,
+      "groundClearanceMm": null,
+      "fuelTankL": 27,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3565,
+        "width": 1520,
+        "height": 1567,
+        "wheelbase": 2380
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Pearl Starry Blue",
+          "hex": "#114887"
+        },
+        {
+          "name": "Solid Sizzle Orange",
+          "hex": "#A83C0F"
+        },
+        {
+          "name": "Solid White",
+          "hex": "#F2F2F0"
+        },
+        {
+          "name": "Solid Fire Red",
+          "hex": "#8E0D0F"
+        },
+        {
+          "name": "Metallic Granite Grey",
+          "hex": "#222526"
+        },
+        {
+          "name": "Metallic Silky Silver",
+          "hex": "#737373"
+        },
+        {
+          "name": "Bluish Black",
+          "hex": "#141414"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "Dual front airbags",
+            "ABS with EBD",
+            "Electronic Stability Program (ESP)",
+            "Hill Hold Assist",
+            "Reverse parking sensors",
+            "Front ventilated disc brakes",
+            "Seat belt reminder for front and rear seats",
+            "High-speed alert system",
+            "HEARTECT platform"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Centrally positioned digital instrument cluster",
+            "Audio with Bluetooth and USB (VXi (O))",
+            "17.78 cm SmartPlay Studio touchscreen (VXi+ (O))",
+            "Android Auto and Apple CarPlay (VXi+ (O))",
+            "Steering-mounted audio and voice controls (VXi+ (O))"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Air conditioner (LXi (O) upwards)",
+            "Power windows with centrally located switches (VXi (O) upwards)",
+            "Central locking and remote keyless entry (VXi (O) upwards)",
+            "Idle start-stop (petrol)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Twin-chamber headlamps",
+            "C-shaped tail lamps",
+            "Body-coloured bumpers (VXi (O) upwards)",
+            "165/70 R14 tyres with full wheel covers (VXi (O) upwards)"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Front and rear utility spaces",
+            "Co-driver sun visor with vanity mirror"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.0-litre K10C Dual Jet, Dual VVT petrol, 49 kW and 89 Nm",
+            "5-speed manual or 5-speed AGS (AMT)",
+            "Factory-fitted S-CNG: 41.7 kW and 82.1 Nm in CNG mode"
+          ]
+        }
+      ],
+      "highlights": [
+        "1.0-litre K10C petrol engine with 5-speed manual or AGS",
+        "Factory-fitted S-CNG on LXi (O) and VXi (O), claimed 32.73 km/kg",
+        "Claimed 25.30 kmpl with AGS",
+        "239 L boot",
+        "17.78 cm SmartPlay Studio touchscreen on VXi+ (O)"
+      ],
+      "variants": [
+        {
+          "name": "Std (O) MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 349900,
+          "efficiency": "24.12 kmpl",
+          "features": [
+            "Dual front airbags",
+            "ABS with EBD",
+            "Reverse parking sensors",
+            "Front ventilated disc brakes",
+            "Idle start-stop",
+            "145/80 R13 tyres"
+          ]
+        },
+        {
+          "name": "LXi (O) MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 387400,
+          "efficiency": "24.12 kmpl",
+          "features": [
+            "Air conditioner"
+          ]
+        },
+        {
+          "name": "VXi (O) MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 437400,
+          "efficiency": "24.76 kmpl",
+          "features": [
+            "Audio with Bluetooth and USB",
+            "Power windows",
+            "Central locking",
+            "Remote keyless entry",
+            "Body-coloured bumpers",
+            "165/70 R14 tyres with full wheel covers",
+            "Speed-sensitive auto door lock",
+            "Accessory socket"
+          ]
+        },
+        {
+          "name": "LXi (O) S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 469400,
+          "efficiency": "32.73 km/kg",
+          "features": [
+            "Factory-fitted S-CNG (55 L water-equivalent cylinder)",
+            "Air conditioner"
+          ]
+        },
+        {
+          "name": "VXi (O) AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 482400,
+          "efficiency": "25.30 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "ESP with Hill Hold Control",
+            "Audio with Bluetooth and USB",
+            "Power windows",
+            "Remote keyless entry"
+          ]
+        },
+        {
+          "name": "VXi+ (O) MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 487400,
+          "efficiency": "24.76 kmpl",
+          "features": [
+            "17.78 cm SmartPlay Studio touchscreen",
+            "Android Auto and Apple CarPlay",
+            "Steering-mounted audio and voice controls",
+            "Body-coloured door handles"
+          ]
+        },
+        {
+          "name": "VXi (O) S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 519400,
+          "efficiency": "32.73 km/kg",
+          "features": [
+            "Factory-fitted S-CNG",
+            "Audio with Bluetooth and USB",
+            "Power windows",
+            "Remote keyless entry"
+          ]
+        },
+        {
+          "name": "VXi+ (O) AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 532400,
+          "efficiency": "25.30 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "ESP with Hill Hold Control",
+            "17.78 cm SmartPlay Studio touchscreen",
+            "Android Auto and Apple CarPlay",
+            "Steering-mounted audio and voice controls"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.marutisuzuki.com/arena/s-presso",
+        "https://www.marutisuzuki.com/s-presso/price-in-delhi",
+        "https://www.marutisuzuki.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=NRM,NRC&variantInfoRequired=true"
+      ],
+      "notes": "Official Delhi ex-showroom prices; metallic and non-metallic paints are priced the same. The model page lists dual airbags. The Global NCAP 1-star adult rating is from the December 2022 test of this generation. The spec sheet shows ESP with Hill Hold Control only on AGS variants, while the model page lists ESP and Hill Hold Assist among safety features without a variant split. Height is 1567 mm (1553 mm on Std and LXi with R13 tyres). The FAQ quotes a 240 L boot; the feature section says 239 L. Ground clearance and top speed are not published."
+    },
+    {
+      "slug": "maruti-celerio",
+      "name": "Celerio",
+      "bodyType": "Hatchback",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2021-11-10",
+      "engine": "998 cc",
+      "power": "41.7 – 50.4 kW",
+      "torque": "82.1 – 91.1 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 3,
+        "agency": "Global NCAP",
+        "year": 2025
+      },
+      "bootSpaceL": 292,
+      "groundClearanceMm": null,
+      "fuelTankL": 32,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3695,
+        "width": 1655,
+        "height": 1555,
+        "wheelbase": 2435
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Metallic Speedy Blue",
+          "hex": "#1F47C2"
+        },
+        {
+          "name": "Metallic Glistening Grey",
+          "hex": "#4A4A4A"
+        },
+        {
+          "name": "Pearl Arctic White",
+          "hex": "#F3F3F3"
+        },
+        {
+          "name": "Metallic Silky Silver",
+          "hex": "#737373"
+        },
+        {
+          "name": "Solid Fire Red",
+          "hex": "#8E0D0F"
+        },
+        {
+          "name": "Pearl Caffeine Brown",
+          "hex": "#28201D"
+        },
+        {
+          "name": "Pearl Bluish Black",
+          "hex": "#141414"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "ABS with EBD",
+            "Electronic Stability Program (ESP)",
+            "Hill Hold Assist (AGS)",
+            "Reverse parking sensors",
+            "3-point ELR seat belts for all seats",
+            "Front seat belt pretensioners with force limiters",
+            "Headlamp levelling",
+            "Front ventilated disc brakes"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "17.78 cm SmartPlay Studio touchscreen (ZXi+)",
+            "Android Auto and Apple CarPlay (ZXi+)",
+            "Audio with Bluetooth, USB and 4 speakers (ZXi)",
+            "Steering-mounted audio and calling controls (ZXi upwards)",
+            "Tachometer (ZXi upwards)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Air conditioner",
+            "Engine push start/stop with smart key (ZXi+)",
+            "Remote keyless entry (ZXi upwards)",
+            "Front and rear power windows (VXi upwards)",
+            "Electrically adjustable ORVMs; electrically foldable on ZXi+",
+            "Idle start-stop",
+            "Rear defogger (ZXi upwards)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "R15 black alloy wheels with 175/60 R15 tyres (ZXi+)",
+            "Front fog lamps (ZXi+)",
+            "Rear wiper and washer (ZXi upwards)",
+            "ORVMs with turn indicators (ZXi upwards)",
+            "Chrome accent on front grille"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "60:40 split rear seat (VXi upwards)",
+            "Height-adjustable driver seat (ZXi+)",
+            "Tilt steering (ZXi upwards)",
+            "Rear parcel tray (VXi upwards)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.0-litre K10C Dual Jet, Dual VVT petrol, 50.4 kW and 91.1 Nm",
+            "5-speed manual or 5-speed AGS (AMT)",
+            "Factory-fitted S-CNG: 41.7 kW and 82.1 Nm in CNG mode"
+          ]
+        }
+      ],
+      "highlights": [
+        "6 airbags standard across all variants",
+        "Claimed 26.00 kmpl (AGS) and 34.43 km/kg (S-CNG)",
+        "1.0-litre K10C petrol with 5-speed manual or AGS",
+        "292 L boot",
+        "Engine push start/stop and 17.78 cm touchscreen on ZXi+"
+      ],
+      "variants": [
+        {
+          "name": "LXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 469900,
+          "efficiency": "25.24 kmpl",
+          "features": [
+            "6 airbags",
+            "ESP",
+            "ABS with EBD",
+            "Reverse parking sensors",
+            "Air conditioner",
+            "Idle start-stop",
+            "Headlamp levelling",
+            "165/70 R14 tyres"
+          ]
+        },
+        {
+          "name": "VXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 518400,
+          "efficiency": "24.97 kmpl",
+          "features": [
+            "Central locking",
+            "Front and rear power windows",
+            "Electrically adjustable ORVMs",
+            "Body-coloured ORVMs and door handles",
+            "Full wheel covers",
+            "60:40 split rear seat",
+            "Rear parcel tray",
+            "Speed-sensing auto door lock"
+          ]
+        },
+        {
+          "name": "VXi AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 563400,
+          "efficiency": "26.00 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "Hill Hold Assist",
+            "Front and rear power windows",
+            "60:40 split rear seat",
+            "Tachometer"
+          ]
+        },
+        {
+          "name": "ZXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 573400,
+          "efficiency": "24.97 kmpl",
+          "features": [
+            "Audio with Bluetooth, USB and 4 speakers",
+            "Steering-mounted audio and calling controls",
+            "Remote keyless entry",
+            "Security alarm",
+            "Rear defogger",
+            "Rear wiper and washer",
+            "ORVMs with turn indicators",
+            "Tilt steering",
+            "Tachometer"
+          ]
+        },
+        {
+          "name": "VXi S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 597900,
+          "efficiency": "34.43 km/kg",
+          "features": [
+            "Factory-fitted S-CNG (60 L water-equivalent cylinder)",
+            "Front and rear power windows",
+            "60:40 split rear seat",
+            "Central locking"
+          ]
+        },
+        {
+          "name": "ZXi AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 618400,
+          "efficiency": "26.00 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "Hill Hold Assist",
+            "Audio with Bluetooth and 4 speakers",
+            "Steering-mounted controls",
+            "Remote keyless entry",
+            "Rear wiper and washer"
+          ]
+        },
+        {
+          "name": "ZXi+ MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 630400,
+          "efficiency": "24.97 kmpl",
+          "features": [
+            "17.78 cm SmartPlay Studio touchscreen",
+            "Android Auto and Apple CarPlay",
+            "Engine push start/stop with smart key",
+            "Electrically foldable ORVMs",
+            "R15 black alloy wheels",
+            "Front fog lamps",
+            "Height-adjustable driver seat",
+            "PM 2.5 cabin air filter"
+          ]
+        },
+        {
+          "name": "ZXi+ AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 675400,
+          "efficiency": "26.00 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "Hill Hold Assist",
+            "17.78 cm SmartPlay Studio touchscreen",
+            "Android Auto and Apple CarPlay",
+            "Engine push start/stop with smart key",
+            "R15 black alloy wheels",
+            "Front fog lamps"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.marutisuzuki.com/arena/celerio",
+        "https://www.marutisuzuki.com/celerio/price-in-delhi",
+        "https://www.marutisuzuki.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=NRM,NRC&variantInfoRequired=true"
+      ],
+      "notes": "Official Delhi ex-showroom prices; metallic and non-metallic paints are priced the same. Safety: Global NCAP 2025 tested the Celerio in 6-airbag form (3 stars adult, 2 stars child; the 2-airbag version scored 2 stars adult). The rating was reported by Indian auto media (CarDekho); check globalncap.org. Ground clearance and top speed are not published."
+    },
+    {
+      "slug": "maruti-wagon-r",
+      "name": "Wagon R",
+      "bodyType": "Hatchback",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2019-01-23",
+      "engine": "998 – 1197 cc",
+      "power": "41.7 – 66.9 kW",
+      "torque": "82.1 – 113.7 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 1,
+        "agency": "Global NCAP",
+        "year": 2023
+      },
+      "bootSpaceL": 341,
+      "groundClearanceMm": 165,
+      "fuelTankL": 32,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3655,
+        "width": 1620,
+        "height": 1675,
+        "wheelbase": 2435
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Solid White",
+          "hex": "#F2F2F0"
+        },
+        {
+          "name": "Metallic Silky Silver",
+          "hex": "#737373"
+        },
+        {
+          "name": "Metallic Magma Grey",
+          "hex": "#2B2C31"
+        },
+        {
+          "name": "Pearl Metallic Gallant Red",
+          "hex": "#D2232B"
+        },
+        {
+          "name": "Pearl Metallic Nutmeg Brown",
+          "hex": "#54473C"
+        },
+        {
+          "name": "Pearl Metallic Poolside Blue",
+          "hex": "#1188C5"
+        },
+        {
+          "name": "Pearl Bluish Black",
+          "hex": "#141414"
+        },
+        {
+          "name": "Pearl Metallic Gallant Red + Pearl Bluish Black",
+          "hex": "#D2232B"
+        },
+        {
+          "name": "Pearl Bluish Black + Pearl Magma Grey",
+          "hex": "#141414"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "ABS with EBD",
+            "Electronic Stability Program (ESP) with Hill Hold Control",
+            "Reverse parking sensors",
+            "Seat belt reminder for front and rear seats",
+            "Speed-sensitive auto door lock (VXi upwards)",
+            "High-speed alert system"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "17.78 cm SmartPlay Studio touchscreen with smartphone navigation (ZXi+)",
+            "Android Auto and Apple CarPlay (ZXi+)",
+            "4 speakers (ZXi+); 2 speakers on VXi and ZXi",
+            "Audio with Bluetooth and USB (VXi upwards)",
+            "Steering-mounted audio and calling controls (ZXi upwards)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Air conditioner with heater",
+            "Remote keyless entry (VXi upwards)",
+            "Electrically adjustable ORVMs (VXi upwards); electrically retractable on ZXi+",
+            "Front and rear power windows",
+            "Tilt steering (VXi upwards)",
+            "Idle start-stop"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Alloy wheels (ZXi+)",
+            "Front fog lamps (ZXi+)",
+            "Rear wiper and washer (ZXi+)",
+            "ORVMs with turn indicators (ZXi+)",
+            "165/70 R14 tyres (VXi upwards); 155/80 R13 on LXi"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Dual-tone interior",
+            "60:40 split rear seat (VXi upwards)",
+            "Day/night IRVM (VXi upwards)",
+            "Rear parcel tray"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.0-litre K10C petrol, 50.4 kW and 91.1 Nm (LXi, VXi)",
+            "1.2-litre K12N petrol, 66.9 kW and 113.7 Nm (ZXi, ZXi+)",
+            "5-speed manual or 5-speed AGS (AMT)",
+            "Factory-fitted S-CNG on 1.0 LXi and VXi",
+            "ZXi+ Bioflex: flex-fuel 1.2 for petrol-ethanol blends up to E85"
+          ]
+        }
+      ],
+      "highlights": [
+        "6 airbags standard across all variants",
+        "Two petrol engines: 1.0-litre K10C and 1.2-litre K12N",
+        "Factory-fitted S-CNG on LXi and VXi, claimed 33.47 km/kg",
+        "Bioflex variant runs on petrol-ethanol blends up to E85",
+        "Claimed 25.19 kmpl (1.0 AGS)"
+      ],
+      "variants": [
+        {
+          "name": "LXi 1.0 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 498900,
+          "efficiency": "24.35 kmpl",
+          "features": [
+            "6 airbags",
+            "ESP with Hill Hold Control",
+            "ABS with EBD",
+            "Reverse parking sensors",
+            "Air conditioner with heater",
+            "Dual-tone interior",
+            "155/80 R13 tyres"
+          ]
+        },
+        {
+          "name": "VXi 1.0 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 556900,
+          "efficiency": "24.35 kmpl",
+          "features": [
+            "Audio with Bluetooth and USB, 2 speakers",
+            "Remote keyless entry",
+            "Electrically adjustable ORVMs",
+            "Body-coloured door handles",
+            "60:40 split rear seat",
+            "Day/night IRVM",
+            "Tilt steering",
+            "Rear parcel tray",
+            "165/70 R14 tyres"
+          ]
+        },
+        {
+          "name": "LXi 1.0 S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 598900,
+          "efficiency": "33.47 km/kg",
+          "features": [
+            "Factory-fitted S-CNG",
+            "Air conditioner with heater",
+            "Front power windows",
+            "155/80 R13 tyres"
+          ]
+        },
+        {
+          "name": "VXi 1.0 AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 599400,
+          "efficiency": "25.19 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "Audio with Bluetooth and USB",
+            "Remote keyless entry",
+            "Electrically adjustable ORVMs",
+            "60:40 split rear seat"
+          ]
+        },
+        {
+          "name": "ZXi 1.2 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 599900,
+          "efficiency": "23.56 kmpl",
+          "features": [
+            "1.2-litre K12N engine (66.9 kW, 113.7 Nm)",
+            "Steering-mounted audio and calling controls",
+            "Idle start-stop",
+            "Front and rear power windows"
+          ]
+        },
+        {
+          "name": "ZXi+ 1.2 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 643900,
+          "efficiency": "23.56 kmpl",
+          "features": [
+            "17.78 cm SmartPlay Studio touchscreen with smartphone navigation",
+            "Android Auto and Apple CarPlay",
+            "4 speakers",
+            "Alloy wheels",
+            "Front fog lamps",
+            "Rear wiper and washer",
+            "Electrically retractable ORVMs with turn indicators",
+            "Tachometer"
+          ]
+        },
+        {
+          "name": "ZXi 1.2 AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 645900,
+          "efficiency": "24.43 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "1.2-litre K12N engine",
+            "Steering-mounted audio and calling controls",
+            "Hill Hold Assist"
+          ]
+        },
+        {
+          "name": "VXi 1.0 S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 654400,
+          "efficiency": "33.47 km/kg",
+          "features": [
+            "Factory-fitted S-CNG",
+            "Audio with Bluetooth and USB",
+            "Remote keyless entry",
+            "60:40 split rear seat",
+            "165/70 R14 tyres"
+          ]
+        },
+        {
+          "name": "ZXi+ 1.2 AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 688900,
+          "efficiency": "24.43 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "17.78 cm SmartPlay Studio touchscreen",
+            "Android Auto and Apple CarPlay",
+            "Alloy wheels",
+            "Front fog lamps",
+            "Rear wiper and washer",
+            "Electrically retractable ORVMs"
+          ]
+        },
+        {
+          "name": "ZXi+ Bioflex 1.2 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 723900,
+          "efficiency": null,
+          "features": [
+            "Flex-fuel 1.2-litre engine for petrol-ethanol blends up to E85",
+            "Ethanol sensor adjusts injection and ignition timing",
+            "Steering-mounted audio controls",
+            "Electrically adjustable ORVMs",
+            "Full wheel covers",
+            "6 airbags"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.marutisuzuki.com/arena/wagon-r",
+        "https://www.marutisuzuki.com/wagon-r/price-in-delhi",
+        "https://www.marutisuzuki.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=NRM,NRC&variantInfoRequired=true",
+        "https://www.autocarindia.com/car-news/maruti-prices-wagon-r-flex-fuel-at-rs-724-lakh-439964"
+      ],
+      "notes": "Official Delhi ex-showroom prices; metallic and non-metallic paints are priced the same. Dual-tone paint on ZXi+ MT/AGS adds ₹11,000. Tour H3 taxi variants are not included. Boot space: the FAQ says 341 L, the spec sheet 335 L and a feature tile 355 L; 341 L used. Ground clearance is the FAQ's 'approximately 165 mm'. The Global NCAP 1-star adult rating is from the 2023 test of this generation with 2 airbags. ZXi+ Bioflex (E85 flex-fuel, launched June 2026): the spec sheet repeats the 23.56 kmpl petrol figure and no E85 figure is published, so efficiency is null; some reports say it is aimed at commercial/fleet buyers, but it is listed as a regular Arena variant. Its E85 details are from Autocar India."
+    },
+    {
+      "slug": "maruti-swift",
+      "name": "Swift",
+      "bodyType": "Hatchback",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2024-05-09",
+      "engine": "1197 cc",
+      "power": "51.3 – 60 kW",
+      "torque": "101.8 – 111.7 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 265,
+      "groundClearanceMm": null,
+      "fuelTankL": 37,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3860,
+        "width": 1735,
+        "height": 1520,
+        "wheelbase": 2450
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Sizzling Red",
+          "hex": "#A10000"
+        },
+        {
+          "name": "Luster Blue",
+          "hex": "#1F47C2"
+        },
+        {
+          "name": "Novel Orange",
+          "hex": "#B33316"
+        },
+        {
+          "name": "Magma Grey",
+          "hex": "#2B2C31"
+        },
+        {
+          "name": "Splendid Silver",
+          "hex": "#737373"
+        },
+        {
+          "name": "Pearl Arctic White",
+          "hex": "#F3F3F3"
+        },
+        {
+          "name": "Sizzling Red with Bluish Black",
+          "hex": "#A10000"
+        },
+        {
+          "name": "Luster Blue with Bluish Black",
+          "hex": "#1F47C2"
+        },
+        {
+          "name": "Pearl Arctic White with Bluish Black",
+          "hex": "#F3F3F3"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Electronic Stability Program (ESP)",
+            "Hill Hold Assist",
+            "ABS with EBD",
+            "ISOFIX child seat anchorages",
+            "Reverse parking sensors",
+            "Rear parking camera (ZXi+)",
+            "Front seat belt pretensioners with force limiters",
+            "HEARTECT platform"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "22.86 cm SmartPlay Pro+ touchscreen with Surround Sense by ARKAMYS (ZXi+)",
+            "17.78 cm SmartPlay Pro touchscreen (VXi to ZXi)",
+            "Wireless Android Auto and Apple CarPlay (VXi upwards)",
+            "Hi Suzuki voice assistant and over-the-air updates (VXi upwards)",
+            "Suzuki Connect telematics (VXi (O) upwards)",
+            "Coloured multi-information display (ZXi+)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Cruise control (ZXi+)",
+            "Wireless charger (ZXi upwards)",
+            "Rear AC vents (ZXi upwards)",
+            "Engine push start/stop with smart key (VXi (O) upwards)",
+            "Remote keyless entry",
+            "Front and rear power windows",
+            "Electrically adjustable ORVMs (VXi upwards)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "LED projector headlamps with LED DRLs (ZXi upwards)",
+            "LED front fog lamps (ZXi+)",
+            "LED rear combination lamps",
+            "R15 alloy wheels with 185/65 R15 tyres (ZXi upwards)",
+            "Auto headlamps with follow-me-home (ZXi upwards)"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Leather-wrapped steering wheel (ZXi+)",
+            "Height-adjustable driver seat (ZXi upwards)",
+            "60:40 split rear seat",
+            "Front footwell illumination (ZXi+)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.2-litre Z12E three-cylinder Dual Jet, Dual VVT petrol, 60 kW and 111.7 Nm",
+            "5-speed manual or 5-speed AGS (AMT)",
+            "Factory-fitted S-CNG: 51.3 kW and 101.8 Nm, manual or AGS",
+            "Idle start-stop (petrol)"
+          ]
+        }
+      ],
+      "highlights": [
+        "6 airbags and ESP standard across all variants",
+        "1.2-litre Z12E three-cylinder petrol engine",
+        "S-CNG offered with manual and AGS gearboxes on VXi, VXi (O) and ZXi",
+        "Claimed 25.75 kmpl (AGS) and 35.34 km/kg (S-CNG AGS)",
+        "22.86 cm touchscreen, cruise control and rear camera on ZXi+"
+      ],
+      "variants": [
+        {
+          "name": "LXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 583900,
+          "efficiency": "24.80 kmpl",
+          "features": [
+            "6 airbags",
+            "ESP with Hill Hold Assist",
+            "ISOFIX anchorages",
+            "Reverse parking sensors",
+            "Air conditioner",
+            "Remote keyless entry and central locking",
+            "Front and rear power windows",
+            "Electric back door opener",
+            "Rear defogger",
+            "165/80 R14 steel wheels with covers"
+          ]
+        },
+        {
+          "name": "VXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 667900,
+          "efficiency": "24.80 kmpl",
+          "features": [
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "4 speakers",
+            "Steering-mounted audio and calling controls",
+            "Hi Suzuki voice assistant",
+            "Electrically adjustable body-coloured ORVMs with turn indicators",
+            "Body-coloured door handles",
+            "Day/night IRVM",
+            "Rear parcel tray"
+          ]
+        },
+        {
+          "name": "VXi (O) MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 693900,
+          "efficiency": "24.80 kmpl",
+          "features": [
+            "Engine push start/stop with smart key",
+            "Suzuki Connect telematics",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay"
+          ]
+        },
+        {
+          "name": "VXi AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 712900,
+          "efficiency": "25.75 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "Electrically adjustable ORVMs"
+          ]
+        },
+        {
+          "name": "VXi (O) AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 738900,
+          "efficiency": "25.75 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "Engine push start/stop with smart key",
+            "Suzuki Connect telematics",
+            "17.78 cm SmartPlay Pro touchscreen"
+          ]
+        },
+        {
+          "name": "VXi S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 757400,
+          "efficiency": "32.85 km/kg",
+          "features": [
+            "Factory-fitted S-CNG (55 L water-equivalent cylinder)",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay"
+          ]
+        },
+        {
+          "name": "ZXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 761900,
+          "efficiency": "24.80 kmpl",
+          "features": [
+            "LED projector headlamps with LED DRLs",
+            "R15 alloy wheels",
+            "Wireless charger",
+            "Rear AC vents",
+            "Height-adjustable driver seat",
+            "Auto headlamps with follow-me-home",
+            "2 tweeters",
+            "Adjustable rear headrests"
+          ]
+        },
+        {
+          "name": "VXi (O) S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 783400,
+          "efficiency": "32.85 km/kg",
+          "features": [
+            "Factory-fitted S-CNG",
+            "Engine push start/stop with smart key",
+            "Suzuki Connect telematics"
+          ]
+        },
+        {
+          "name": "VXi S-CNG AGS",
+          "fuel": "CNG",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 802400,
+          "efficiency": "35.34 km/kg",
+          "features": [
+            "S-CNG with 5-speed AGS (AMT)",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay"
+          ]
+        },
+        {
+          "name": "ZXi AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 806900,
+          "efficiency": "25.75 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "LED projector headlamps with LED DRLs",
+            "R15 alloy wheels",
+            "Wireless charger",
+            "Rear AC vents"
+          ]
+        },
+        {
+          "name": "VXi (O) S-CNG AGS",
+          "fuel": "CNG",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 828400,
+          "efficiency": "35.34 km/kg",
+          "features": [
+            "S-CNG with 5-speed AGS (AMT)",
+            "Engine push start/stop with smart key",
+            "Suzuki Connect telematics"
+          ]
+        },
+        {
+          "name": "ZXi+ MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 828900,
+          "efficiency": "24.80 kmpl",
+          "features": [
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "Surround Sense by ARKAMYS",
+            "Cruise control",
+            "Rear parking camera",
+            "LED front fog lamps",
+            "Leather-wrapped steering wheel",
+            "Coloured multi-information display",
+            "Front footwell illumination"
+          ]
+        },
+        {
+          "name": "ZXi S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 851400,
+          "efficiency": "32.85 km/kg",
+          "features": [
+            "Factory-fitted S-CNG",
+            "LED projector headlamps with LED DRLs",
+            "R15 alloy wheels",
+            "Wireless charger",
+            "Rear AC vents"
+          ]
+        },
+        {
+          "name": "ZXi+ AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 873900,
+          "efficiency": "25.75 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "Cruise control",
+            "Rear parking camera",
+            "LED front fog lamps",
+            "Leather-wrapped steering wheel"
+          ]
+        },
+        {
+          "name": "ZXi S-CNG AGS",
+          "fuel": "CNG",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 896400,
+          "efficiency": "35.34 km/kg",
+          "features": [
+            "S-CNG with 5-speed AGS (AMT)",
+            "LED projector headlamps with LED DRLs",
+            "R15 alloy wheels",
+            "Wireless charger"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.marutisuzuki.com/arena/swift",
+        "https://www.marutisuzuki.com/swift/price-in-delhi",
+        "https://www.marutisuzuki.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=NRM,NRC&variantInfoRequired=true",
+        "https://www.autocarindia.com/car-news/maruti-swift-and-dzire-cngs-now-available-with-amt-440802"
+      ],
+      "notes": "Official Delhi ex-showroom prices; metallic and non-metallic paints are priced the same and dual-tone paint on ZXi+ adds ₹15,000. The S-CNG AGS variants (added September 2026) have no spec-sheet entry yet; their 35.34 km/kg figure is the ARAI claim reported by Autocar India. No Bharat NCAP or Global NCAP test of this India-made generation has been published (the 2022 Global NCAP 1-star result was for the previous Swift). Ground clearance and top speed are not published."
+    },
+    {
+      "slug": "maruti-dzire",
+      "name": "Dzire",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2024-11-11",
+      "engine": "1197 cc",
+      "power": "51.3 – 61 kW",
+      "torque": "101.8 – 112.4 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Global NCAP",
+        "year": 2024
+      },
+      "bootSpaceL": 382,
+      "groundClearanceMm": null,
+      "fuelTankL": 37,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3995,
+        "width": 1735,
+        "height": 1525,
+        "wheelbase": 2450
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Gallant Red",
+          "hex": "#D2232B"
+        },
+        {
+          "name": "Alluring Blue",
+          "hex": "#415159"
+        },
+        {
+          "name": "Nutmeg Brown",
+          "hex": "#54473C"
+        },
+        {
+          "name": "Bluish Black",
+          "hex": "#141414"
+        },
+        {
+          "name": "Pearl Arctic White",
+          "hex": "#F3F3F3"
+        },
+        {
+          "name": "Magma Grey",
+          "hex": "#2B2C31"
+        },
+        {
+          "name": "Splendid Silver",
+          "hex": "#737373"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Electronic Stability Program (ESP) with Hill Hold Control",
+            "ABS with EBD and brake assist",
+            "ISOFIX child seat anchorages",
+            "Reverse parking sensors",
+            "360-degree HD view camera (ZXi+)",
+            "Rear parking camera (ZXi)",
+            "Tyre pressure monitoring system (ZXi upwards)",
+            "3-point seat belts for all seats"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "22.86 cm SmartPlay Pro+ touchscreen with Surround Sense by ARKAMYS (ZXi+)",
+            "17.78 cm SmartPlay Pro touchscreen (VXi, ZXi)",
+            "Wireless Android Auto and Apple CarPlay (VXi upwards)",
+            "Suzuki Connect telematics (ZXi upwards)",
+            "Coloured multi-information display (ZXi+)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Electric sunroof (ZXi+)",
+            "Cruise control (ZXi+)",
+            "Automatic climate control (ZXi upwards)",
+            "Wireless charger (ZXi upwards)",
+            "Engine push start/stop with smart key (ZXi upwards)",
+            "Rear AC vents (VXi upwards)",
+            "Rear centre armrest with cup holders (VXi upwards)",
+            "Height-adjustable driver seat (VXi upwards)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "LED Crystal Vision headlamps with LED DRLs (ZXi upwards)",
+            "FocusBeam projector headlamps (LXi, VXi)",
+            "R15 precision-cut alloy wheels (ZXi+); painted alloys on ZXi",
+            "LED fog lamps (ZXi+)",
+            "Shark-fin antenna",
+            "Electrically adjustable and foldable ORVMs with turn indicators (VXi upwards)"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Dual-tone interior",
+            "Satin silver and wood-finish instrument panel ornament (ZXi upwards)",
+            "Leatherette-wrapped steering wheel (ZXi+)",
+            "Chrome inside door handles (VXi upwards)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.2-litre Z12E three-cylinder petrol, 61 kW and 112.4 Nm",
+            "5-speed manual or 5-speed AGS (AMT)",
+            "Factory-fitted S-CNG: 51.3 kW and 101.8 Nm, manual or AGS",
+            "Idle start-stop"
+          ]
+        }
+      ],
+      "highlights": [
+        "Global NCAP 5-star rating (2024)",
+        "6 airbags and ESP standard across all variants",
+        "Electric sunroof and 360-degree camera on ZXi+",
+        "Claimed 26.13 kmpl (AGS) and 36.47 km/kg (S-CNG AGS)",
+        "382 L boot"
+      ],
+      "variants": [
+        {
+          "name": "LXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 633600,
+          "efficiency": "25.15 kmpl",
+          "features": [
+            "6 airbags",
+            "ESP with Hill Hold Control",
+            "ISOFIX anchorages",
+            "Reverse parking sensors",
+            "FocusBeam projector headlamps",
+            "LED tail lamps",
+            "Air conditioner",
+            "Remote keyless entry",
+            "Front and rear power windows",
+            "Rear defogger"
+          ]
+        },
+        {
+          "name": "VXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 730100,
+          "efficiency": "25.15 kmpl",
+          "features": [
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "4 speakers with steering-mounted controls",
+            "Electrically adjustable and foldable ORVMs",
+            "Rear AC vents",
+            "Rear centre armrest with cup holders",
+            "Height-adjustable driver seat",
+            "Full wheel covers",
+            "Chrome inside door handles"
+          ]
+        },
+        {
+          "name": "VXi AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 775100,
+          "efficiency": "26.13 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "Rear AC vents",
+            "Height-adjustable driver seat"
+          ]
+        },
+        {
+          "name": "VXi S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 821100,
+          "efficiency": "35.63 km/kg",
+          "features": [
+            "Factory-fitted S-CNG (55 L water-equivalent cylinder)",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Rear AC vents",
+            "Height-adjustable driver seat"
+          ]
+        },
+        {
+          "name": "ZXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 830700,
+          "efficiency": "25.15 kmpl",
+          "features": [
+            "LED Crystal Vision headlamps with LED DRLs",
+            "R15 alloy wheels",
+            "Automatic climate control",
+            "Engine push start/stop with smart key",
+            "Wireless charger",
+            "Rear parking camera",
+            "Tyre pressure monitoring system",
+            "Auto headlamps with follow-me-home",
+            "Suzuki Connect telematics",
+            "Tweeters"
+          ]
+        },
+        {
+          "name": "VXi S-CNG AGS",
+          "fuel": "CNG",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 863100,
+          "efficiency": "36.47 km/kg",
+          "features": [
+            "S-CNG with 5-speed AGS (AMT)",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Rear AC vents"
+          ]
+        },
+        {
+          "name": "ZXi AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 875700,
+          "efficiency": "26.13 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "LED Crystal Vision headlamps",
+            "R15 alloy wheels",
+            "Automatic climate control",
+            "Wireless charger",
+            "Rear parking camera",
+            "Tyre pressure monitoring system"
+          ]
+        },
+        {
+          "name": "ZXi+ MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 899300,
+          "efficiency": "25.15 kmpl",
+          "features": [
+            "Electric sunroof",
+            "360-degree HD view camera",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "Surround Sense by ARKAMYS",
+            "Cruise control",
+            "R15 precision-cut alloy wheels",
+            "LED fog lamps",
+            "Coloured multi-information display",
+            "Leatherette-wrapped steering wheel",
+            "Front footwell illumination"
+          ]
+        },
+        {
+          "name": "ZXi S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 921700,
+          "efficiency": "35.63 km/kg",
+          "features": [
+            "Factory-fitted S-CNG",
+            "LED Crystal Vision headlamps",
+            "R15 alloy wheels",
+            "Automatic climate control",
+            "Rear parking camera"
+          ]
+        },
+        {
+          "name": "ZXi+ AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 944300,
+          "efficiency": "26.13 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "Electric sunroof",
+            "360-degree HD view camera",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "Cruise control",
+            "Electrically retractable ORVMs"
+          ]
+        },
+        {
+          "name": "ZXi S-CNG AGS",
+          "fuel": "CNG",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 963700,
+          "efficiency": "36.47 km/kg",
+          "features": [
+            "S-CNG with 5-speed AGS (AMT)",
+            "LED Crystal Vision headlamps",
+            "R15 alloy wheels",
+            "Automatic climate control",
+            "Rear parking camera"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.marutisuzuki.com/arena/dzire",
+        "https://www.marutisuzuki.com/dzire/price-in-delhi",
+        "https://www.marutisuzuki.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=NRM,NRC&variantInfoRequired=true",
+        "https://www.autocarindia.com/car-news/maruti-swift-and-dzire-cngs-now-available-with-amt-440802"
+      ],
+      "notes": "Official Delhi ex-showroom prices; metallic and non-metallic paints are priced the same. Tour S taxi variants (sold through the commercial channel) are not included. Safety: the model page cites the Global NCAP 5-star rating (2024; 5 stars adult, 4 stars child). Indian media also report a 5-star Bharat NCAP result, not used here. S-CNG manual: the current spec sheet gives 35.63 km/kg while the model summary still shows 33.73 km/kg; the spec-sheet figure is used. Ground clearance and top speed are not published."
+    },
+    {
+      "slug": "maruti-baleno",
+      "name": "Baleno",
+      "bodyType": "Hatchback",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-02-23",
+      "engine": "1197 cc",
+      "power": "51.3 – 61 kW",
+      "torque": "101.8 – 112.4 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 4,
+        "agency": "Bharat NCAP",
+        "year": 2025
+      },
+      "bootSpaceL": 318,
+      "groundClearanceMm": null,
+      "fuelTankL": 37,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3990,
+        "width": 1745,
+        "height": 1530,
+        "wheelbase": 2520
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Nexa Blue",
+          "hex": "#001E5B"
+        },
+        {
+          "name": "Grandeur Grey",
+          "hex": "#303030"
+        },
+        {
+          "name": "Arctic White",
+          "hex": "#F9F9F9"
+        },
+        {
+          "name": "Splendid Silver",
+          "hex": "#464D50"
+        },
+        {
+          "name": "Opulent Red",
+          "hex": "#870001"
+        },
+        {
+          "name": "Enigmatic Teal Green",
+          "hex": "#069494"
+        },
+        {
+          "name": "Bluish Black",
+          "hex": "#181C28"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Electronic Stability Program (ESP) with Hill Hold Control",
+            "ABS with EBD and brake assist",
+            "ISOFIX child seat anchorages",
+            "Level 2 ADAS: adaptive cruise control, autonomous emergency braking, lane keep assist (Alpha (O))",
+            "360-degree view camera (Alpha upwards)",
+            "Rear parking camera (Zeta)",
+            "Tyre pressure monitoring system (Delta upwards)",
+            "Reverse parking sensors"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "22.86 cm SmartPlay Pro+ touchscreen (Zeta upwards)",
+            "17.78 cm SmartPlay Pro touchscreen (Delta)",
+            "Wireless Android Auto and Apple CarPlay (Delta upwards)",
+            "Head-up display (Alpha upwards)",
+            "Premium sound system by Clarion (Alpha upwards); Surround Sense by ARKAMYS (Zeta)",
+            "Suzuki Connect telematics and Hi Suzuki voice assistant (Zeta upwards)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Ventilated front seats (Alpha upwards)",
+            "Automatic climate control (Zeta upwards)",
+            "Rear AC vents (Delta upwards)",
+            "Engine push start/stop with smart key (Zeta upwards)",
+            "Wireless charging dock with active cooling (Zeta upwards)",
+            "Cruise control (Alpha); adaptive cruise control (Alpha (O))",
+            "Auto-dimming IRVM and auto-folding ORVMs (Alpha upwards)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "LED projector headlamps with NEXTre LED DRLs (Zeta upwards)",
+            "NEXTre signature LED tail lamps",
+            "Precision-cut R16 alloy wheels (Alpha upwards); painted alloys on Zeta",
+            "LED fog lamps (Alpha upwards)",
+            "Adaptive high-beam system (Alpha (O))",
+            "Shark-fin antenna"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Fabric and artificial leather upholstery (Alpha upwards)",
+            "Dual-tone interior",
+            "Tilt and telescopic steering (Zeta upwards)",
+            "60:40 split rear seat",
+            "Front centre armrest (Delta upwards)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.2-litre K-series Dual Jet, Dual VVT petrol, 61 kW and 112.4 Nm",
+            "5-speed manual or 5-speed AGS (AMT)",
+            "Factory-fitted S-CNG: 51.3 kW and 101.8 Nm, manual or AGS"
+          ]
+        }
+      ],
+      "highlights": [
+        "Level 2 ADAS on Alpha (O)",
+        "6 airbags and ESP standard across all variants",
+        "Claimed 24.77 kmpl (AGS) and 34.47 km/kg (S-CNG AGS)",
+        "S-CNG with manual or AGS on Delta and Zeta",
+        "Head-up display, 360-degree camera and ventilated front seats on Alpha"
+      ],
+      "variants": [
+        {
+          "name": "Sigma MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 598900,
+          "efficiency": "23.80 kmpl",
+          "features": [
+            "6 airbags",
+            "ESP with Hill Hold Control",
+            "ISOFIX anchorages",
+            "Reverse parking sensors",
+            "Halogen projector headlamps",
+            "NEXTre LED tail lamps",
+            "Remote keyless entry",
+            "Rear defogger",
+            "60:40 split rear seat",
+            "Tilt steering"
+          ]
+        },
+        {
+          "name": "Delta MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 699900,
+          "efficiency": "23.80 kmpl",
+          "features": [
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "4 speakers",
+            "Rear AC vents",
+            "Tyre pressure monitoring system",
+            "Electrically adjustable ORVMs with turn indicators",
+            "Front centre armrest",
+            "Rear USB-A and USB-C charging",
+            "Security alarm",
+            "Full wheel covers"
+          ]
+        },
+        {
+          "name": "Delta AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 749900,
+          "efficiency": "24.77 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "Rear AC vents",
+            "Tyre pressure monitoring system"
+          ]
+        },
+        {
+          "name": "Delta S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 792400,
+          "efficiency": "33.61 km/kg",
+          "features": [
+            "Factory-fitted S-CNG (55 L water-equivalent)",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Rear AC vents",
+            "Tyre pressure monitoring system"
+          ]
+        },
+        {
+          "name": "Zeta MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 799900,
+          "efficiency": "23.80 kmpl",
+          "features": [
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "Surround Sense by ARKAMYS",
+            "LED projector headlamps with NEXTre DRLs",
+            "Automatic climate control",
+            "Engine push start/stop with smart key",
+            "Rear parking camera",
+            "Wireless charging dock",
+            "Painted alloy wheels",
+            "Tilt and telescopic steering",
+            "Rear wiper and washer"
+          ]
+        },
+        {
+          "name": "Delta S-CNG AGS",
+          "fuel": "CNG",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 842400,
+          "efficiency": "34.47 km/kg",
+          "features": [
+            "S-CNG with 5-speed AGS (AMT)",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Rear AC vents"
+          ]
+        },
+        {
+          "name": "Zeta AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 849900,
+          "efficiency": "24.77 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "LED projector headlamps",
+            "Automatic climate control",
+            "Rear parking camera",
+            "Wireless charging dock"
+          ]
+        },
+        {
+          "name": "Zeta S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 892400,
+          "efficiency": "33.61 km/kg",
+          "features": [
+            "Factory-fitted S-CNG",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "LED projector headlamps",
+            "Automatic climate control",
+            "Rear parking camera"
+          ]
+        },
+        {
+          "name": "Alpha MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 909900,
+          "efficiency": "23.80 kmpl",
+          "features": [
+            "Head-up display",
+            "360-degree view camera",
+            "Ventilated front seats",
+            "Clarion premium sound system",
+            "Cruise control",
+            "LED fog lamps",
+            "Precision-cut alloy wheels",
+            "Auto-dimming IRVM",
+            "Auto-folding ORVMs",
+            "Leatherette steering wheel"
+          ]
+        },
+        {
+          "name": "Zeta S-CNG AGS",
+          "fuel": "CNG",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 942400,
+          "efficiency": "34.47 km/kg",
+          "features": [
+            "S-CNG with 5-speed AGS (AMT)",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "LED projector headlamps",
+            "Rear parking camera"
+          ]
+        },
+        {
+          "name": "Alpha (O) MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 949900,
+          "efficiency": "23.80 kmpl",
+          "features": [
+            "Level 2 ADAS",
+            "Adaptive cruise control",
+            "Autonomous emergency braking and forward collision warning",
+            "Lane keep assist and lane departure prevention",
+            "Adaptive high-beam system",
+            "Head-up display",
+            "360-degree view camera",
+            "Ventilated front seats"
+          ]
+        },
+        {
+          "name": "Alpha AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 959900,
+          "efficiency": "24.77 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "Head-up display",
+            "360-degree view camera",
+            "Ventilated front seats",
+            "Cruise control",
+            "Clarion premium sound system"
+          ]
+        },
+        {
+          "name": "Alpha (O) AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 999000,
+          "efficiency": "24.77 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "Level 2 ADAS",
+            "Adaptive cruise control",
+            "Autonomous emergency braking",
+            "Lane keep assist",
+            "Adaptive high-beam system"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.nexaexperience.com/baleno",
+        "https://www.nexaexperience.com/baleno/price-in-delhi",
+        "https://www.nexaexperience.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=EXC&variantInfoRequired=true",
+        "https://www.autocarindia.com/car-news/2026-maruti-baleno-full-price-list-revealed-440706",
+        "https://www.autocarindia.com/car-news/maruti-swift-and-dzire-cngs-now-available-with-amt-440802"
+      ],
+      "notes": "Prices are for the facelifted Baleno (September 2026), from the official NEXA Delhi pricing API; all paints are priced the same. The pricing API still lists earlier variant codes; only the variants on the current NEXA site are used. launchedOn is the current generation's February 2022 launch. Safety: Bharat NCAP 4 stars adult, 3 stars child (2025), tested before the 2026 facelift. The S-CNG AGS figure (34.47 km/kg) is from the spec sheet and press reports. Ground clearance and top speed not published."
+    },
+    {
+      "slug": "maruti-eeco",
+      "name": "Eeco",
+      "bodyType": "MUV",
+      "bodyStyle": "Van",
+      "isLuxury": false,
+      "launchedOn": "2010-01-01",
+      "engine": "1197 cc",
+      "power": "52.7 – 60.5 kW",
+      "torque": "95 – 105.5 Nm",
+      "seats": [
+        5,
+        6
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 32,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3675,
+        "width": 1475,
+        "height": 1825,
+        "wheelbase": 2350
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Bluish Black",
+          "hex": "#141414"
+        },
+        {
+          "name": "Metallic Glistening Grey",
+          "hex": "#4A4A4A"
+        },
+        {
+          "name": "Solid White",
+          "hex": "#F2F2F0"
+        },
+        {
+          "name": "Metallic Brisk Blue",
+          "hex": "#0D6DC3"
+        },
+        {
+          "name": "Metallic Silky Silver",
+          "hex": "#737373"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags (front, side and curtain) on passenger variants",
+            "Electronic Stability Program (ESP)",
+            "ABS with EBD",
+            "Reverse parking sensors",
+            "3-point ELR seat belts for all seats",
+            "Seat belt reminder for front and rear seats",
+            "Child locks for sliding doors and windows",
+            "Side impact beams"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Digital speedometer and multi-trip meter"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Air conditioner with cabin air filter (AC variants)",
+            "Heater",
+            "Reclining front seats",
+            "Sliding driver seat",
+            "12 V accessory socket"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Dual sliding rear doors",
+            "155 R13C tyres with centre caps",
+            "Front mud flaps"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Dual-tone interior",
+            "Moulded roof lining and floor carpet",
+            "Co-driver seat back pocket (AC variants)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.2-litre K12N four-cylinder petrol, 60.5 kW and 105.5 Nm",
+            "Factory-fitted S-CNG: 52.7 kW and 95 Nm",
+            "5-speed manual, rear-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "6 airbags standard on passenger variants",
+        "5-seater and 6-seater layouts",
+        "1.2-litre K12N petrol engine; S-CNG on the 5-seater AC",
+        "Claimed 19.71 kmpl (petrol) and 26.78 km/kg (S-CNG)",
+        "Sliding rear doors"
+      ],
+      "variants": [
+        {
+          "name": "5 Seater Standard",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 530900,
+          "efficiency": "19.71 kmpl",
+          "features": [
+            "5 seats",
+            "6 airbags",
+            "ESP",
+            "ABS with EBD",
+            "Reverse parking sensors",
+            "Heater",
+            "Reclining front seats"
+          ]
+        },
+        {
+          "name": "6 Seater Standard",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 557400,
+          "efficiency": "19.71 kmpl",
+          "features": [
+            "6 seats",
+            "6 airbags",
+            "ESP",
+            "Heater",
+            "Fixed pillow headrests for rear rows"
+          ]
+        },
+        {
+          "name": "5 Seater AC",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 563800,
+          "efficiency": "19.71 kmpl",
+          "features": [
+            "Air conditioner",
+            "Cabin air filter",
+            "Co-driver seat back pocket",
+            "5 seats"
+          ]
+        },
+        {
+          "name": "5 Seater AC S-CNG",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 648300,
+          "efficiency": "26.78 km/kg",
+          "features": [
+            "Factory-fitted S-CNG (65 L water-equivalent cylinder)",
+            "Air conditioner",
+            "Cabin air filter",
+            "5 seats"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.marutisuzuki.com/arena/eeco",
+        "https://www.marutisuzuki.com/eeco/price-in-delhi",
+        "https://www.marutisuzuki.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=NRM,NRC&variantInfoRequired=true"
+      ],
+      "notes": "Official Delhi ex-showroom prices. Only passenger variants are included; the Eeco Ambulance, Ambulance Shell, Cargo and Tour V (taxi) versions are commercial and left out. The current Eeco has been on sale since January 2010 (updated in 2022); launchedOn uses the month. No official crash-test result. Boot space, ground clearance and top speed are not published."
+    },
+    {
+      "slug": "maruti-fronx",
+      "name": "Fronx",
+      "bodyType": "SUV",
+      "bodyStyle": "Crossover",
+      "isLuxury": false,
+      "launchedOn": "2023-04-24",
+      "engine": "998 – 1197 cc",
+      "power": "57 – 73.6 kW",
+      "torque": "98.5 – 147.6 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 308,
+      "groundClearanceMm": null,
+      "fuelTankL": 37,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3995,
+        "width": 1765,
+        "height": 1550,
+        "wheelbase": 2520
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "NEXA Blue (Celestial)",
+          "hex": "#163472"
+        },
+        {
+          "name": "Arctic White",
+          "hex": "#F9F9F9"
+        },
+        {
+          "name": "Splendid Silver",
+          "hex": "#B6BABD"
+        },
+        {
+          "name": "Grandeur Grey",
+          "hex": "#464848"
+        },
+        {
+          "name": "Earthen Brown",
+          "hex": "#95897B"
+        },
+        {
+          "name": "Opulent Red",
+          "hex": "#AC0F0F"
+        },
+        {
+          "name": "Bluish Black",
+          "hex": "#171717"
+        },
+        {
+          "name": "Earthen Brown with Bluish Black Roof",
+          "hex": "#95897B"
+        },
+        {
+          "name": "Splendid Silver with Bluish Black Roof",
+          "hex": "#B6BABD"
+        },
+        {
+          "name": "Opulent Red with Bluish Black Roof",
+          "hex": "#AC0F0F"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags (front, side and curtain)",
+            "Electronic Stability Program (ESP) with Hill Hold Control",
+            "ABS with EBD",
+            "ISOFIX child seat anchorages",
+            "Reverse parking sensors",
+            "360-degree view camera (Alpha)",
+            "Rear parking camera (Zeta)",
+            "Seat belt reminder for front and rear seats"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "22.86 cm SmartPlay Pro+ touchscreen with Surround Sense by ARKAMYS (Alpha)",
+            "17.78 cm SmartPlay Pro touchscreen (Delta to Zeta)",
+            "Wireless Android Auto and Apple CarPlay (Delta upwards)",
+            "Head-up display (Alpha)",
+            "Suzuki Connect telematics (Zeta upwards)",
+            "Over-the-air system updates (Delta upwards)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic climate control",
+            "Rear AC vents (Zeta upwards)",
+            "Wireless charger (Zeta upwards)",
+            "Engine push start/stop with smart key (Zeta upwards)",
+            "Cruise control (Alpha)",
+            "Electrically foldable ORVMs (Delta upwards); auto-folding on Alpha",
+            "Remote keyless entry"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "LED projector headlamps (Zeta upwards); LED multi-reflector on Delta+",
+            "Halogen projector headlamps (Sigma, Delta)",
+            "LED DRLs (Delta+ upwards)",
+            "195/60 R16 tyres; precision-cut alloys on Alpha, painted alloys on Delta+ and Zeta",
+            "NEXWave grille with chrome finish",
+            "Front and rear skid plates"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Dual-tone interior",
+            "Sliding front armrest with utility box (Zeta upwards)",
+            "Leatherette steering wheel (Alpha)",
+            "Rear parcel tray (Delta upwards)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.2-litre K-series Dual Jet, Dual VVT petrol, 66 kW and 113 Nm, 5-speed MT or 5-speed AGS",
+            "1.0-litre Turbo Boosterjet Smart Hybrid petrol, 73.6 kW and 147.6 Nm, 5-speed MT or 6-speed AT",
+            "Factory-fitted S-CNG: 57 kW and 98.5 Nm in CNG mode"
+          ]
+        }
+      ],
+      "highlights": [
+        "1.2-litre petrol, 1.0-litre turbo petrol and S-CNG options",
+        "Turbo petrol with 6-speed torque-converter automatic on Zeta and Alpha",
+        "Claimed 22.89 kmpl (1.2 AGS) and 28.51 km/kg (S-CNG)",
+        "Head-up display and 360-degree camera on Alpha",
+        "308 L boot"
+      ],
+      "variants": [
+        {
+          "name": "Sigma 1.2 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 694900,
+          "efficiency": "21.79 kmpl",
+          "features": [
+            "Halogen projector headlamps",
+            "Automatic climate control",
+            "ESP with Hill Hold Control",
+            "ISOFIX anchorages",
+            "Reverse parking sensors",
+            "Remote keyless entry",
+            "Rear defogger",
+            "Steel wheels with covers",
+            "Idle start-stop"
+          ]
+        },
+        {
+          "name": "Delta 1.2 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 779900,
+          "efficiency": "21.79 kmpl",
+          "features": [
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "4 speakers",
+            "Steering-mounted audio and calling controls",
+            "Electrically foldable ORVMs with turn indicators",
+            "Over-the-air updates",
+            "Rear parcel tray"
+          ]
+        },
+        {
+          "name": "Sigma S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 798900,
+          "efficiency": "28.51 km/kg",
+          "features": [
+            "Factory-fitted S-CNG (55 L water-equivalent)",
+            "Automatic climate control",
+            "ESP with Hill Hold Control",
+            "Reverse parking sensors"
+          ]
+        },
+        {
+          "name": "Delta+ 1.2 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 819500,
+          "efficiency": "21.79 kmpl",
+          "features": [
+            "LED multi-reflector headlamps",
+            "LED DRLs",
+            "Painted alloy wheels",
+            "Follow-me-home headlamps",
+            "6 airbags",
+            "17.78 cm SmartPlay Pro touchscreen"
+          ]
+        },
+        {
+          "name": "Delta 1.2 AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 829900,
+          "efficiency": "22.89 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "Electrically foldable ORVMs"
+          ]
+        },
+        {
+          "name": "Delta+ 1.2 AGS",
+          "fuel": "Petrol",
+          "transmission": "AMT",
+          "transmissionDetail": "5-speed AGS (AMT)",
+          "price": 869500,
+          "efficiency": "22.89 kmpl",
+          "features": [
+            "5-speed AGS (AMT)",
+            "LED projector headlamps",
+            "LED DRLs",
+            "Painted alloy wheels"
+          ]
+        },
+        {
+          "name": "Delta S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 878900,
+          "efficiency": "28.51 km/kg",
+          "features": [
+            "Factory-fitted S-CNG",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay"
+          ]
+        },
+        {
+          "name": "Delta+ 1.0 Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 901900,
+          "efficiency": "21.50 kmpl",
+          "features": [
+            "1.0-litre Turbo Boosterjet Smart Hybrid (73.6 kW, 147.6 Nm)",
+            "LED projector headlamps",
+            "LED DRLs",
+            "Painted alloy wheels",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Zeta 1.0 Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 980900,
+          "efficiency": "21.50 kmpl",
+          "features": [
+            "Rear parking camera",
+            "Rear AC vents",
+            "Wireless charger",
+            "Engine push start/stop with smart key",
+            "Suzuki Connect telematics",
+            "Sliding front armrest with utility box",
+            "Rear wiper, washer and defogger",
+            "LED projector headlamps",
+            "2 tweeters"
+          ]
+        },
+        {
+          "name": "Alpha 1.0 Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1065900,
+          "efficiency": "21.50 kmpl",
+          "features": [
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "Surround Sense by ARKAMYS",
+            "Head-up display",
+            "360-degree view camera",
+            "Cruise control",
+            "Auto-folding ORVMs",
+            "Precision-cut alloy wheels",
+            "Leatherette steering wheel",
+            "UV-cut glass"
+          ]
+        },
+        {
+          "name": "Zeta 1.0 Turbo AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1108900,
+          "efficiency": "20.01 kmpl",
+          "features": [
+            "6-speed automatic",
+            "Rear parking camera",
+            "Rear AC vents",
+            "Wireless charger",
+            "Engine push start/stop with smart key"
+          ]
+        },
+        {
+          "name": "Alpha 1.0 Turbo AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1193900,
+          "efficiency": "20.01 kmpl",
+          "features": [
+            "6-speed automatic",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "Head-up display",
+            "360-degree view camera",
+            "Cruise control",
+            "Precision-cut alloy wheels"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.nexaexperience.com/fronx",
+        "https://www.nexaexperience.com/fronx/price-in-delhi",
+        "https://www.nexaexperience.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=EXC&variantInfoRequired=true"
+      ],
+      "notes": "Official NEXA Delhi ex-showroom prices; metallic and non-metallic paints are priced the same and dual-tone paint on Alpha adds ₹14,000. Airbags: the model page lists 6 airbags, but the spec sheet only shows side and curtain airbags from Delta+ upwards, so 6 airbags on Sigma and Delta needs checking. No Bharat NCAP or Global NCAP result for the India-made Fronx (it has been tested by Japan NCAP and ANCAP in other specs). Ground clearance and top speed not published."
+    },
+    {
+      "slug": "maruti-brezza",
+      "name": "Brezza",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-06-30",
+      "engine": "998 – 1462 cc",
+      "power": "64.6 – 81 kW",
+      "torque": "121.5 – 170 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2026
+      },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 48,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3995,
+        "width": 1790,
+        "height": 1685,
+        "wheelbase": 2500
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Pearl Arctic White with Bluish Black Roof",
+          "hex": "#F3F3F3"
+        },
+        {
+          "name": "Pearl Arctic White",
+          "hex": "#F3F3F3"
+        },
+        {
+          "name": "Splendid Silver",
+          "hex": "#A5AFB1"
+        },
+        {
+          "name": "Magma Grey",
+          "hex": "#555347"
+        },
+        {
+          "name": "Sizzling Red",
+          "hex": "#990000"
+        },
+        {
+          "name": "Vivacious Orange",
+          "hex": "#C2531B"
+        },
+        {
+          "name": "Lustrous Beige",
+          "hex": "#9F957A"
+        },
+        {
+          "name": "Pearl Bluish Black",
+          "hex": "#0C0D11"
+        },
+        {
+          "name": "Sizzling Red with Bluish Black Roof",
+          "hex": "#990000"
+        },
+        {
+          "name": "Lustrous Beige with Bluish Black Roof",
+          "hex": "#9F957A"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Electronic Stability Program (ESP)",
+            "Hill Hold Assist",
+            "360-degree view camera (ZXi+)",
+            "Blind spot monitoring (ZXi+)",
+            "Rear cross traffic alert and safe exit warning (ZXi+)",
+            "Front and rear parking sensors (ZXi+)",
+            "Tyre pressure monitoring system (ZXi+)",
+            "Rear parking camera (ZXi)",
+            "Emergency call (e-call) via Suzuki Connect (ZXi+)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "25.65 cm (10.1-inch) SmartPlay Pro X touchscreen with built-in Alexa, navigation and app store (ZXi+)",
+            "Surround Sense by ARKAMYS (ZXi+)",
+            "17.78 cm touchscreen with wireless Android Auto and Apple CarPlay (VXi, ZXi)",
+            "Head-up display (ZXi+)",
+            "Suzuki Connect Gen 3.0 with over-the-air updates (ZXi+)",
+            "Coloured TFT multi-information display (ZXi upwards)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Ventilated front seats with three cooling levels (ZXi+)",
+            "Electric sunroof (ZXi upwards)",
+            "Automatic climate control (VXi upwards)",
+            "Engine push start/stop with smart key (ZXi upwards)",
+            "Wireless charger (ZXi upwards; with active cooling on ZXi+)",
+            "Cruise control (ZXi Turbo and ZXi+)",
+            "PM 2.5 cabin filter with AQI display (ZXi+)",
+            "Cooled glove box (ZXi+)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Dual LED projector headlamps with floating LED DRLs (ZXi upwards)",
+            "Smoke chrome front grille and skid plates",
+            "Precision-cut alloy wheels (ZXi+); painted alloys on ZXi",
+            "215/60 R16 tyres",
+            "Roof rails (ZXi upwards)",
+            "Dual-tone paint options (ZXi upwards)"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Dark brown and black interior with leatherette upholstery (ZXi+)",
+            "64-colour ambient lighting (ZXi+)",
+            "Tilt and telescopic steering (ZXi upwards)",
+            "60:40 split rear seat (ZXi upwards)",
+            "Rear centre armrest with cup holders (ZXi+)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.0-litre K10C Turbo Boosterjet (DiTC) Smart Hybrid petrol, 81 kW and 170 Nm, 6-speed manual",
+            "1.5-litre K15C Smart Hybrid petrol, 75.8 kW and 139 Nm, 6-speed manual or 6-speed automatic",
+            "Underbody S-CNG with 1.5-litre K15C: 64.6 kW and 121.5 Nm in CNG mode, 6-speed manual"
+          ]
+        }
+      ],
+      "highlights": [
+        "Bharat NCAP 5-star rating (2026)",
+        "Three powertrains: 1.0-litre turbo petrol, 1.5-litre petrol and underbody S-CNG",
+        "Claimed 21.09 kmpl (1.5 MT) and 26.90 km/kg (S-CNG)",
+        "6 airbags and ESP standard",
+        "Ventilated front seats, head-up display and 360-degree camera on ZXi+"
+      ],
+      "variants": [
+        {
+          "name": "LXi 1.0 Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 754900,
+          "efficiency": "20.47 kmpl",
+          "features": [
+            "1.0-litre turbo petrol (81 kW, 170 Nm)",
+            "6-speed manual",
+            "6 airbags",
+            "ESP with Hill Hold Assist",
+            "Automatic climate control",
+            "Driver auto up/down window",
+            "Rear defogger",
+            "Turbo badge",
+            "Steel wheels with covers"
+          ]
+        },
+        {
+          "name": "LXi 1.5 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 839900,
+          "efficiency": "21.09 kmpl",
+          "features": [
+            "1.5-litre K15C Smart Hybrid petrol",
+            "6-speed manual",
+            "6 airbags",
+            "ESP with Hill Hold Assist",
+            "Manual air conditioner",
+            "Steel wheels with covers"
+          ]
+        },
+        {
+          "name": "VXi 1.0 Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 869900,
+          "efficiency": "20.47 kmpl",
+          "features": [
+            "17.78 cm touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "4 speakers with ARKAMYS tuning",
+            "Hi Suzuki voice assistant",
+            "Steering-mounted audio and calling controls",
+            "Automatic climate control",
+            "Painted alloy wheels",
+            "Grey skid plates"
+          ]
+        },
+        {
+          "name": "VXi 1.5 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 930900,
+          "efficiency": "21.09 kmpl",
+          "features": [
+            "17.78 cm touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "4 speakers",
+            "Steering-mounted audio and calling controls",
+            "Automatic climate control",
+            "Rear defogger"
+          ]
+        },
+        {
+          "name": "LXi S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 944900,
+          "efficiency": "26.90 km/kg",
+          "features": [
+            "Underbody S-CNG (55 L water-equivalent)",
+            "6-speed manual",
+            "6 airbags",
+            "ESP with Hill Hold Assist"
+          ]
+        },
+        {
+          "name": "ZXi 1.0 Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 998900,
+          "efficiency": "19.96 kmpl",
+          "features": [
+            "Electric sunroof",
+            "Dual LED projector headlamps with floating LED DRLs",
+            "Engine push start/stop with smart key",
+            "Rear parking camera",
+            "Wireless charger",
+            "Cruise control",
+            "Coloured TFT multi-information display",
+            "Painted alloy wheels",
+            "Roof rails",
+            "Tilt and telescopic steering"
+          ]
+        },
+        {
+          "name": "VXi S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 999000,
+          "efficiency": "26.90 km/kg",
+          "features": [
+            "Underbody S-CNG",
+            "17.78 cm touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "Automatic climate control"
+          ]
+        },
+        {
+          "name": "ZXi 1.5 MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1059900,
+          "efficiency": "20.81 kmpl",
+          "features": [
+            "Electric sunroof",
+            "Dual LED projector headlamps",
+            "Engine push start/stop with smart key",
+            "Rear parking camera",
+            "Painted alloy wheels",
+            "Roof rails",
+            "Mono ambient lighting"
+          ]
+        },
+        {
+          "name": "VXi 1.5 AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1060900,
+          "efficiency": "20.17 kmpl",
+          "features": [
+            "6-speed automatic",
+            "17.78 cm touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "Automatic climate control",
+            "Hill Hold Assist"
+          ]
+        },
+        {
+          "name": "ZXi+ 1.0 Turbo MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1130900,
+          "efficiency": "19.96 kmpl",
+          "features": [
+            "25.65 cm SmartPlay Pro X touchscreen with built-in Alexa",
+            "360-degree view camera",
+            "Ventilated front seats",
+            "Head-up display",
+            "Blind spot monitoring and rear cross traffic alert",
+            "Front parking sensors",
+            "64-colour ambient lighting",
+            "Cruise control",
+            "Wireless charger with active cooling",
+            "Machined alloy wheels"
+          ]
+        },
+        {
+          "name": "ZXi S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1164900,
+          "efficiency": "26.90 km/kg",
+          "features": [
+            "Underbody S-CNG",
+            "Electric sunroof",
+            "Dual LED projector headlamps",
+            "Rear parking camera",
+            "Painted alloy wheels"
+          ]
+        },
+        {
+          "name": "ZXi 1.5 AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1189900,
+          "efficiency": "20.17 kmpl",
+          "features": [
+            "6-speed automatic",
+            "Electric sunroof",
+            "Dual LED projector headlamps",
+            "Engine push start/stop with smart key",
+            "Rear parking camera"
+          ]
+        },
+        {
+          "name": "ZXi+ 1.5 AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1359900,
+          "efficiency": "20.17 kmpl",
+          "features": [
+            "6-speed automatic",
+            "25.65 cm SmartPlay Pro X touchscreen with built-in Alexa",
+            "360-degree view camera",
+            "Ventilated front seats",
+            "Head-up display",
+            "Blind spot monitoring and safe exit warning",
+            "Tyre pressure monitoring system",
+            "Leatherette upholstery",
+            "Auto-dimming IRVM",
+            "Cruise control"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.marutisuzuki.com/arena/brezza",
+        "https://www.marutisuzuki.com/brezza/price-in-delhi",
+        "https://www.marutisuzuki.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=NRM,NRC&variantInfoRequired=true",
+        "https://www.marutisuzuki.com/corporate/media/press-releases/2026/july/maruti-suzukis-upcoming-new-brezza-receives-5-star-bharat-ncap-safety-rating"
+      ],
+      "notes": "Prices are for the facelifted Brezza (launched 24 July 2026), from the official Delhi pricing API; metallic and non-metallic paints are priced the same. Dual-tone paint adds ₹15,600 (₹14,100 on ZXi Turbo). The pricing API still lists the previous Brezza's variant codes; only the variants on the current Arena site are used. launchedOn is the current generation's 2022 launch. Bharat NCAP 5 stars (30.41/32 adult, 43/49 child) for the facelift. The site describes the turbo engine as K10C DiTC Smart Hybrid. Boot space, ground clearance and top speed are not published in the spec sheet."
+    },
+    {
+      "slug": "maruti-ertiga",
+      "name": "Ertiga",
+      "bodyType": "MUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2018-11-21",
+      "engine": "1462 cc",
+      "power": "64.6 – 75.8 kW",
+      "torque": "121.5 – 136.8 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 209,
+      "groundClearanceMm": 185,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4395,
+        "width": 1735,
+        "height": 1690,
+        "wheelbase": 2740
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Auburn Red",
+          "hex": "#732112"
+        },
+        {
+          "name": "Pearl Metallic Dignity Brown",
+          "hex": "#1F1412"
+        },
+        {
+          "name": "Magma Grey",
+          "hex": "#2B2C31"
+        },
+        {
+          "name": "Prime Oxford Blue",
+          "hex": "#40519C"
+        },
+        {
+          "name": "Arctic White",
+          "hex": "#F3F3F3"
+        },
+        {
+          "name": "Splendid Silver",
+          "hex": "#737373"
+        },
+        {
+          "name": "Bluish Black",
+          "hex": "#141414"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Electronic Stability Program (ESP) with Hill Hold Control",
+            "ABS with EBD and brake assist",
+            "ISOFIX child seat anchorages",
+            "Reverse parking sensors",
+            "Rear parking camera (ZXi+)",
+            "Speed-sensitive auto door lock",
+            "HEARTECT platform"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "17.78 cm SmartPlay Pro touchscreen with wireless Android Auto and Apple CarPlay (ZXi+)",
+            "17.78 cm SmartPlay Studio touchscreen with Android Auto and Apple CarPlay (ZXi)",
+            "Audio with electrostatic touch buttons, Bluetooth and 4 speakers (VXi)",
+            "Surround Sense by ARKAMYS (ZXi+)",
+            "Suzuki Connect telematics (ZXi upwards)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Rear AC vents (VXi upwards)",
+            "Engine push start/stop with smart key (ZXi upwards)",
+            "Cruise control (ZXi+)",
+            "Remote keyless entry (VXi upwards)",
+            "Electrically adjustable and foldable ORVMs (VXi upwards)",
+            "Idle start-stop (smart hybrid petrol)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Projector headlamps",
+            "LED tail lamps",
+            "Machined two-tone alloy wheels (ZXi upwards)",
+            "Fog lamps (ZXi upwards)",
+            "Chrome winged front grille (VXi upwards)",
+            "Rear wiper and washer (ZXi upwards)"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "7 seats in three rows",
+            "60:40 split second row; 50:50 split, reclining third row",
+            "Third row folds flat",
+            "Teak-wood finish dashboard (ZXi upwards)",
+            "Sliding front armrest with utility box (ZXi upwards)",
+            "Height-adjustable driver seat (ZXi upwards)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.5-litre K15C Smart Hybrid petrol, 75.8 kW and 136.8 Nm",
+            "5-speed manual or 6-speed torque-converter automatic",
+            "Factory-fitted S-CNG: 64.6 kW and 121.5 Nm in CNG mode"
+          ]
+        }
+      ],
+      "highlights": [
+        "7-seater MPV with 6 airbags standard",
+        "1.5-litre K15C Smart Hybrid petrol with 5-speed manual or 6-speed automatic",
+        "Factory-fitted S-CNG on VXi and ZXi, claimed 26.11 km/kg",
+        "Claimed 20.51 kmpl (petrol manual)",
+        "Cruise control and rear camera on ZXi+"
+      ],
+      "variants": [
+        {
+          "name": "LXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 895000,
+          "efficiency": "20.51 kmpl",
+          "features": [
+            "6 airbags",
+            "ESP with Hill Hold Control",
+            "ISOFIX anchorages",
+            "Reverse parking sensors",
+            "Air conditioner",
+            "Front and rear power windows",
+            "Projector headlamps",
+            "60:40 second row and 50:50 reclining third row",
+            "Idle start-stop"
+          ]
+        },
+        {
+          "name": "VXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 998800,
+          "efficiency": "20.51 kmpl",
+          "features": [
+            "Audio with touch buttons, Bluetooth and 4 speakers",
+            "Steering-mounted audio and calling controls",
+            "Rear AC vents",
+            "Remote keyless entry",
+            "Electrically adjustable and foldable ORVMs with turn indicators",
+            "Chrome winged front grille",
+            "Auto up/down driver window"
+          ]
+        },
+        {
+          "name": "VXi S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1097300,
+          "efficiency": "26.11 km/kg",
+          "features": [
+            "Factory-fitted S-CNG (60 L water-equivalent cylinder)",
+            "Rear AC vents",
+            "Remote keyless entry",
+            "Steering-mounted audio controls"
+          ]
+        },
+        {
+          "name": "ZXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1106500,
+          "efficiency": "20.51 kmpl",
+          "features": [
+            "17.78 cm SmartPlay Studio touchscreen",
+            "Android Auto and Apple CarPlay",
+            "Engine push start/stop with smart key",
+            "Machined two-tone alloy wheels",
+            "Fog lamps",
+            "Rear wiper, washer and defogger",
+            "Teak-wood finish dashboard",
+            "Sliding front armrest with utility box",
+            "Height-adjustable driver seat",
+            "Suzuki Connect telematics"
+          ]
+        },
+        {
+          "name": "VXi AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1133800,
+          "efficiency": "20.30 kmpl",
+          "features": [
+            "6-speed automatic",
+            "Rear AC vents",
+            "Remote keyless entry",
+            "Steering-mounted audio and calling controls"
+          ]
+        },
+        {
+          "name": "ZXi+ MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1184100,
+          "efficiency": "20.51 kmpl",
+          "features": [
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "Surround Sense by ARKAMYS",
+            "Cruise control",
+            "Rear parking camera",
+            "Follow-me-home headlamps",
+            "Leatherette steering wheel",
+            "ORVMs that retract on locking"
+          ]
+        },
+        {
+          "name": "ZXi S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1205000,
+          "efficiency": "26.11 km/kg",
+          "features": [
+            "Factory-fitted S-CNG",
+            "17.78 cm SmartPlay Studio touchscreen",
+            "Engine push start/stop with smart key",
+            "Machined two-tone alloy wheels"
+          ]
+        },
+        {
+          "name": "ZXi AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1241500,
+          "efficiency": "20.30 kmpl",
+          "features": [
+            "6-speed automatic",
+            "17.78 cm SmartPlay Studio touchscreen",
+            "Engine push start/stop with smart key",
+            "Machined two-tone alloy wheels",
+            "Fog lamps"
+          ]
+        },
+        {
+          "name": "ZXi+ AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1319100,
+          "efficiency": "20.30 kmpl",
+          "features": [
+            "6-speed automatic",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "Cruise control",
+            "Rear parking camera",
+            "Surround Sense by ARKAMYS"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.marutisuzuki.com/arena/ertiga",
+        "https://www.marutisuzuki.com/ertiga/price-in-delhi",
+        "https://www.marutisuzuki.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=NRM,NRC&variantInfoRequired=true"
+      ],
+      "notes": "Official Delhi ex-showroom prices; metallic and non-metallic paints are priced the same. Tour M taxi variants are not included. The pricing API also lists an older set of variant codes at lower prices; only the variants currently listed on the Arena site are used, which are about ₹5,000 above the national prices reported for the October 2026 revision. Boot space is 209 L with all three rows up (803 L folded, per the FAQ); ground clearance is the FAQ's 'approximately 185 mm'. No current-protocol crash test of this generation in India spec (Global NCAP gave the pre-facelift car 3 stars in 2019). Top speed not published."
+    },
+    {
+      "slug": "maruti-jimny",
+      "name": "Jimny",
+      "bodyType": "SUV",
+      "bodyStyle": "Off-roader",
+      "isLuxury": false,
+      "launchedOn": "2023-06-07",
+      "engine": "1462 cc",
+      "power": "77.1 kW",
+      "torque": "134.2 Nm",
+      "seats": [
+        4
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 332,
+      "groundClearanceMm": null,
+      "fuelTankL": 40,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3985,
+        "width": 1645,
+        "height": 1720,
+        "wheelbase": 2590
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Sizzling Red",
+          "hex": "#B21511"
+        },
+        {
+          "name": "Granite Gray",
+          "hex": "#494A4E"
+        },
+        {
+          "name": "NEXA Blue",
+          "hex": "#163472"
+        },
+        {
+          "name": "Bluish Black",
+          "hex": "#040720"
+        },
+        {
+          "name": "Pearl Arctic White",
+          "hex": "#F9F9F9"
+        },
+        {
+          "name": "Kinetic Yellow with Bluish Black Roof",
+          "hex": "#E1ED4D"
+        },
+        {
+          "name": "Sizzling Red with Bluish Black Roof",
+          "hex": "#B21511"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Electronic Stability Program (ESP) with Hill Hold Control",
+            "Hill descent control",
+            "ABS with EBD and brake assist",
+            "Rear parking camera",
+            "Reverse parking sensors",
+            "ISOFIX child seat anchorages"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "22.86 cm SmartPlay Pro+ touchscreen with Surround Sense by ARKAMYS (Alpha)",
+            "17.78 cm SmartPlay Pro touchscreen (Zeta)",
+            "Wireless Android Auto and Apple CarPlay",
+            "4 speakers"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic climate control (Alpha); manual AC on Zeta",
+            "Cruise control (Alpha)",
+            "Engine push start/stop with smart key (Alpha)",
+            "Front and rear power windows",
+            "Idle start-stop"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "LED projector headlamps (Alpha); halogen on Zeta",
+            "Fog lamps (Alpha)",
+            "195/80 R15 tyres; alloy wheels on Alpha, steel on Zeta",
+            "Rear window wiper, washer and defogger",
+            "Gunmetal grey grille with chrome plating"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "4 seats",
+            "Leatherette steering wheel (Alpha)",
+            "Luggage lamp"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.5-litre K15B petrol, 77.1 kW and 134.2 Nm",
+            "5-speed manual or 4-speed automatic",
+            "ALLGRIP PRO four-wheel drive with low-range transfer gear",
+            "3-link rigid axle suspension front and rear"
+          ]
+        }
+      ],
+      "highlights": [
+        "ALLGRIP PRO four-wheel drive with low-range transfer case",
+        "1.5-litre K15B petrol; 5-speed manual or 4-speed automatic",
+        "Five-door, four-seat body",
+        "6 airbags standard across all variants",
+        "Claimed 16.94 kmpl (MT)"
+      ],
+      "variants": [
+        {
+          "name": "Zeta MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1269000,
+          "efficiency": "16.94 kmpl",
+          "features": [
+            "ALLGRIP PRO 4WD with low range",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "6 airbags",
+            "Hill descent control",
+            "Rear parking camera",
+            "Halogen headlamps",
+            "Steel wheels"
+          ]
+        },
+        {
+          "name": "Alpha MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1355700,
+          "efficiency": "16.94 kmpl",
+          "features": [
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "Surround Sense by ARKAMYS",
+            "LED projector headlamps",
+            "Fog lamps",
+            "Automatic climate control",
+            "Cruise control",
+            "Engine push start/stop with smart key",
+            "Alloy wheels",
+            "Body-coloured door handles",
+            "Leatherette steering wheel"
+          ]
+        },
+        {
+          "name": "Zeta AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "4-speed AT",
+          "price": 1375000,
+          "efficiency": "16.39 kmpl",
+          "features": [
+            "4-speed automatic",
+            "ALLGRIP PRO 4WD with low range",
+            "17.78 cm SmartPlay Pro touchscreen",
+            "Rear parking camera"
+          ]
+        },
+        {
+          "name": "Alpha AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "4-speed AT",
+          "price": 1461700,
+          "efficiency": "16.39 kmpl",
+          "features": [
+            "4-speed automatic",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "LED projector headlamps",
+            "Automatic climate control",
+            "Cruise control",
+            "Alloy wheels"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.nexaexperience.com/jimny",
+        "https://www.nexaexperience.com/jimny/price-in-delhi",
+        "https://www.nexaexperience.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=EXC&variantInfoRequired=true"
+      ],
+      "notes": "Official NEXA Delhi ex-showroom prices; metallic and non-metallic paints are priced the same and dual-tone paint on Alpha adds ₹15,400. Boot space is the spec sheet's 332 L (marked with an asterisk; the seat configuration is not stated). The pricing API also lists an older Zeta AT code at a lower price, which is not used. No official crash-test result for the India-made five-door. Ground clearance and approach/departure angles are not in the spec sheet."
+    },
+    {
+      "slug": "maruti-xl6",
+      "name": "XL6",
+      "bodyType": "MUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2019-08-21",
+      "engine": "1462 cc",
+      "power": "64.6 – 75.8 kW",
+      "torque": "121.5 – 139 Nm",
+      "seats": [
+        6
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4485,
+        "width": 1775,
+        "height": 1745,
+        "wheelbase": 2740
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "NEXA Blue (Celestial)",
+          "hex": "#163472"
+        },
+        {
+          "name": "Opulent Red",
+          "hex": "#AC0F0F"
+        },
+        {
+          "name": "Brave Khaki",
+          "hex": "#57490A"
+        },
+        {
+          "name": "Grandeur Grey",
+          "hex": "#464848"
+        },
+        {
+          "name": "Splendid Silver",
+          "hex": "#B6BABD"
+        },
+        {
+          "name": "Arctic White",
+          "hex": "#F9F9F9"
+        },
+        {
+          "name": "Bluish Black",
+          "hex": "#040720"
+        },
+        {
+          "name": "Opulent Red with Midnight Black Roof",
+          "hex": "#AC0F0F"
+        },
+        {
+          "name": "Brave Khaki with Midnight Black Roof",
+          "hex": "#57490A"
+        },
+        {
+          "name": "Splendid Silver with Midnight Black Roof",
+          "hex": "#B6BABD"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Electronic Stability Program (ESP) with Hill Hold Control",
+            "ABS with EBD and brake assist",
+            "ISOFIX child seat anchorages",
+            "360-degree view camera (Alpha upwards)",
+            "Tyre pressure monitoring system (Alpha upwards)",
+            "Reverse parking sensors"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "17.78 cm SmartPlay Pro touchscreen with wireless Android Auto and Apple CarPlay (Alpha upwards)",
+            "17.78 cm SmartPlay Studio touchscreen (Zeta)",
+            "Surround Sense by ARKAMYS (Alpha upwards)",
+            "Suzuki Connect telematics",
+            "Coloured TFT multi-information display"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Ventilated front seats (Alpha+)",
+            "Automatic climate control",
+            "Cruise control",
+            "Engine push start/stop with smart key",
+            "Electrically foldable ORVMs (key-synced on Alpha upwards)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Quad-chamber LED reflector headlamps with LED DRLs",
+            "Smoke grey LED tail lamps",
+            "Dual-tone machined R16 alloy wheels",
+            "Front and rear skid plates with side cladding",
+            "Shark-fin antenna"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Second-row captain seats with walk-in slide and recline",
+            "Sliding front armrest with utility box",
+            "Leatherette steering wheel (Alpha upwards)",
+            "Chrome inside door handles"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.5-litre K15C Smart Hybrid petrol, 75.8 kW and 139 Nm",
+            "5-speed manual or 6-speed automatic",
+            "Factory-fitted S-CNG on Zeta: 64.6 kW and 121.5 Nm in CNG mode"
+          ]
+        }
+      ],
+      "highlights": [
+        "Six-seater with second-row captain seats",
+        "1.5-litre K15C Smart Hybrid petrol with 5-speed manual or 6-speed automatic",
+        "Factory-fitted S-CNG on Zeta, claimed 26.32 km/kg",
+        "6 airbags standard",
+        "Ventilated front seats on Alpha+"
+      ],
+      "variants": [
+        {
+          "name": "Zeta MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1167300,
+          "efficiency": "20.97 kmpl",
+          "features": [
+            "6 airbags",
+            "ESP with Hill Hold Control",
+            "Second-row captain seats",
+            "17.78 cm SmartPlay Studio touchscreen",
+            "Automatic climate control",
+            "Cruise control",
+            "Engine push start/stop with smart key",
+            "Quad-chamber LED headlamps",
+            "Dual-tone R16 alloy wheels"
+          ]
+        },
+        {
+          "name": "Alpha MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1263800,
+          "efficiency": "20.97 kmpl",
+          "features": [
+            "360-degree view camera",
+            "Wireless Android Auto and Apple CarPlay",
+            "Surround Sense by ARKAMYS",
+            "Tyre pressure monitoring system",
+            "Leatherette steering wheel",
+            "Key-synced folding ORVMs"
+          ]
+        },
+        {
+          "name": "Zeta S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1265800,
+          "efficiency": "26.32 km/kg",
+          "features": [
+            "Factory-fitted S-CNG (60 L water-equivalent)",
+            "Second-row captain seats",
+            "17.78 cm SmartPlay Studio touchscreen",
+            "Automatic climate control"
+          ]
+        },
+        {
+          "name": "Zeta AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1302300,
+          "efficiency": "20.27 kmpl",
+          "features": [
+            "6-speed automatic",
+            "Remote AC control via Suzuki Connect",
+            "17.78 cm SmartPlay Studio touchscreen",
+            "Cruise control"
+          ]
+        },
+        {
+          "name": "Alpha+ MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1322100,
+          "efficiency": "20.97 kmpl",
+          "features": [
+            "Ventilated front seats",
+            "360-degree view camera",
+            "Tyre pressure monitoring system",
+            "Speed-sensitive auto door lock"
+          ]
+        },
+        {
+          "name": "Alpha AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1398800,
+          "efficiency": "20.27 kmpl",
+          "features": [
+            "6-speed automatic",
+            "360-degree view camera",
+            "Wireless Android Auto and Apple CarPlay",
+            "Tyre pressure monitoring system"
+          ]
+        },
+        {
+          "name": "Alpha+ AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1457100,
+          "efficiency": "20.27 kmpl",
+          "features": [
+            "6-speed automatic",
+            "Ventilated front seats",
+            "360-degree view camera",
+            "Remote AC control via Suzuki Connect"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.nexaexperience.com/xl6",
+        "https://www.nexaexperience.com/xl6/price-in-delhi",
+        "https://www.nexaexperience.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=EXC&variantInfoRequired=true"
+      ],
+      "notes": "Official NEXA Delhi ex-showroom prices; metallic and non-metallic paints are priced the same and dual-tone paint on Alpha+ adds ₹15,400. The pricing API also lists older variant codes, which are not used. S-CNG efficiency: the spec sheet gives 26.32 km/kg and the model summary 26.23 km/kg; the spec-sheet figure is used. launchedOn is the original 2019 launch; the current version is the April 2022 facelift. No official crash-test result. Boot space, ground clearance and top speed are not published in the spec sheet."
+    },
+    {
+      "slug": "maruti-victoris",
+      "name": "Victoris",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2025-09-03",
+      "engine": "1462 – 1490 cc",
+      "power": "64.6 – 75.8 kW",
+      "torque": "121.5 – 139 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2025
+      },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4360,
+        "width": 1795,
+        "height": 1655,
+        "wheelbase": 2600
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Splendid Silver",
+          "hex": "#737373"
+        },
+        {
+          "name": "Sizzling Red",
+          "hex": "#A10000"
+        },
+        {
+          "name": "Mystic Green",
+          "hex": "#2F4A3A"
+        },
+        {
+          "name": "Bluish Black",
+          "hex": "#141414"
+        },
+        {
+          "name": "Pearl Arctic White",
+          "hex": "#F3F3F3"
+        },
+        {
+          "name": "Magma Grey",
+          "hex": "#2B2C31"
+        },
+        {
+          "name": "Eternal Blue",
+          "hex": "#24475B"
+        },
+        {
+          "name": "Eternal Blue with Bluish Black Roof",
+          "hex": "#24475B"
+        },
+        {
+          "name": "Splendid Silver with Bluish Black Roof",
+          "hex": "#737373"
+        },
+        {
+          "name": "Sizzling Red with Bluish Black Roof",
+          "hex": "#A10000"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Level 2 ADAS: adaptive cruise control, autonomous emergency braking, lane keep assist, blind spot monitoring (ZXi+ AT and AllGrip)",
+            "360-degree HD view camera with 11 views (ZXi+)",
+            "Electronic parking brake with auto hold (automatic variants)",
+            "Tyre pressure monitoring system",
+            "Rear parking camera (VXi upwards)",
+            "ESP and Hill Hold Assist",
+            "Four-wheel disc brakes"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "25.65 cm (10.1-inch) SmartPlay Pro X HD touchscreen (ZXi+)",
+            "Infinity premium audio with Dolby Atmos spatial sound (ZXi+)",
+            "26.03 cm (10.25-inch) fully digital instrument cluster (ZXi upwards)",
+            "Head-up display (ZXi+)",
+            "Wireless Android Auto and Apple CarPlay (ZXi upwards)",
+            "Suzuki Connect with over-the-air updates and app store (ZXi+)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Smart powered tailgate with gesture control (ZXi upwards)",
+            "Panoramic sunroof ((O) variants)",
+            "Ventilated front seats (ZXi+)",
+            "8-way powered driver seat (ZXi+)",
+            "Wireless charger (ZXi+)",
+            "Cruise control",
+            "Rear AC vents",
+            "Paddle shifters (6-speed AT)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "LED projector headlamps with LED DRLs (ZXi upwards)",
+            "LED fog lamps with extended lighting (ZXi upwards)",
+            "Connected LED tail lamps (VXi upwards)",
+            "215/60 R17 tyres; machined alloy wheels on ZXi+, black painted alloys on ZXi",
+            "Dual-tone roof options"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "64-colour ambient lighting (ZXi+)",
+            "Semi-leatherette seats (ZXi+)",
+            "Soft-touch instrument panel (ZXi upwards)",
+            "Tilt and telescopic steering (ZXi+)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.5-litre K15C Smart Hybrid petrol, 75.8 kW and 139 Nm, 5-speed MT or 6-speed AT",
+            "1.5-litre M15D strong hybrid: engine 68 kW and 122 Nm with AC synchronous motor, e-CVT",
+            "Underbody S-CNG: 64.6 kW and 121.5 Nm in CNG mode, 5-speed MT",
+            "ALLGRIP SELECT all-wheel drive with terrain modes and hill descent control (ZXi+ AT AWD)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Bharat NCAP 5-star rating (2025)",
+        "Petrol, underbody S-CNG and strong-hybrid powertrains",
+        "Claimed 28.65 kmpl (strong hybrid) and 27.02 km/kg (S-CNG)",
+        "ALLGRIP SELECT all-wheel drive on ZXi+ automatic",
+        "Level 2 ADAS on ZXi+ automatic variants"
+      ],
+      "variants": [
+        {
+          "name": "LXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1059900,
+          "efficiency": "21.18 kmpl",
+          "features": [
+            "1.5-litre Smart Hybrid petrol",
+            "5-speed manual",
+            "6 airbags",
+            "ESP with Hill Hold Assist",
+            "Four-wheel disc brakes",
+            "Reverse parking sensors",
+            "215/60 R17 steel wheels with covers"
+          ]
+        },
+        {
+          "name": "LXi S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1164900,
+          "efficiency": "27.02 km/kg",
+          "features": [
+            "Underbody S-CNG (55 L water-equivalent)",
+            "5-speed manual",
+            "6 airbags",
+            "ESP with Hill Hold Assist"
+          ]
+        },
+        {
+          "name": "VXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1179900,
+          "efficiency": "21.18 kmpl",
+          "features": [
+            "Cruise control",
+            "Rear parking camera",
+            "Tyre pressure monitoring system",
+            "Connected LED tail lamps",
+            "Body-coloured door handles and ORVMs",
+            "Type-C fast-charging USB ports",
+            "Front footwell lighting",
+            "2 tweeters"
+          ]
+        },
+        {
+          "name": "VXi S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1284900,
+          "efficiency": "27.02 km/kg",
+          "features": [
+            "Underbody S-CNG",
+            "Cruise control",
+            "Rear parking camera",
+            "Tyre pressure monitoring system",
+            "Connected LED tail lamps"
+          ]
+        },
+        {
+          "name": "VXi AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1340900,
+          "efficiency": "21.06 kmpl",
+          "features": [
+            "6-speed automatic",
+            "Cruise control",
+            "Rear parking camera",
+            "Tyre pressure monitoring system"
+          ]
+        },
+        {
+          "name": "ZXi MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1361900,
+          "efficiency": "21.18 kmpl",
+          "features": [
+            "Smart powered tailgate with gesture control",
+            "26.03 cm digital instrument cluster",
+            "Wireless Android Auto and Apple CarPlay",
+            "LED projector headlamps with LED DRLs",
+            "LED fog lamps",
+            "Auto-dimming IRVM",
+            "Rear wiper and washer",
+            "Black painted alloy wheels",
+            "Soft-touch instrument panel"
+          ]
+        },
+        {
+          "name": "ZXi (O) MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1369000,
+          "efficiency": "21.18 kmpl",
+          "features": [
+            "Panoramic sunroof",
+            "Smart powered tailgate with gesture control",
+            "26.03 cm digital instrument cluster",
+            "LED projector headlamps"
+          ]
+        },
+        {
+          "name": "ZXi S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1466900,
+          "efficiency": "27.02 km/kg",
+          "features": [
+            "Underbody S-CNG",
+            "Smart powered tailgate with gesture control",
+            "26.03 cm digital instrument cluster",
+            "LED projector headlamps"
+          ]
+        },
+        {
+          "name": "ZXi AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1517900,
+          "efficiency": "21.06 kmpl",
+          "features": [
+            "6-speed automatic with paddle shifters",
+            "Electronic parking brake with auto hold",
+            "Smart powered tailgate with gesture control",
+            "26.03 cm digital instrument cluster",
+            "LED projector headlamps"
+          ]
+        },
+        {
+          "name": "ZXi (O) AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1525000,
+          "efficiency": "21.06 kmpl",
+          "features": [
+            "6-speed automatic with paddle shifters",
+            "Panoramic sunroof",
+            "Electronic parking brake with auto hold",
+            "Smart powered tailgate with gesture control"
+          ]
+        },
+        {
+          "name": "ZXi+ MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1538900,
+          "efficiency": "21.18 kmpl",
+          "features": [
+            "25.65 cm SmartPlay Pro X touchscreen",
+            "Infinity audio with Dolby Atmos",
+            "360-degree HD view camera",
+            "Head-up display",
+            "Ventilated front seats",
+            "8-way powered driver seat",
+            "Wireless charger",
+            "64-colour ambient lighting",
+            "Machined alloy wheels",
+            "Semi-leatherette seats"
+          ]
+        },
+        {
+          "name": "ZXi+ (O) MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1548000,
+          "efficiency": "21.18 kmpl",
+          "features": [
+            "Panoramic sunroof",
+            "Front parking sensors with auto camera activation",
+            "25.65 cm SmartPlay Pro X touchscreen",
+            "360-degree HD view camera",
+            "Ventilated front seats"
+          ]
+        },
+        {
+          "name": "VXi Strong Hybrid e-CVT",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 1642900,
+          "efficiency": "28.65 kmpl",
+          "features": [
+            "1.5-litre strong hybrid with e-CVT",
+            "Drive modes (Eco, Normal, Power)",
+            "26.03 cm digital instrument cluster",
+            "Cruise control",
+            "Rear parking camera",
+            "Tyre pressure monitoring system"
+          ]
+        },
+        {
+          "name": "ZXi+ AT ADAS",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1733900,
+          "efficiency": "21.06 kmpl",
+          "features": [
+            "Level 2 ADAS (adaptive cruise, AEB, lane keep assist)",
+            "6-speed automatic with paddle shifters",
+            "Electronic parking brake with auto hold",
+            "25.65 cm SmartPlay Pro X touchscreen",
+            "360-degree HD view camera",
+            "Ventilated front seats",
+            "Head-up display",
+            "Infinity audio with Dolby Atmos"
+          ]
+        },
+        {
+          "name": "ZXi+ (O) AT ADAS",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1743000,
+          "efficiency": "21.06 kmpl",
+          "features": [
+            "Level 2 ADAS",
+            "Panoramic sunroof",
+            "6-speed automatic with paddle shifters",
+            "360-degree HD view camera",
+            "Ventilated front seats"
+          ]
+        },
+        {
+          "name": "ZXi Strong Hybrid e-CVT",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 1784900,
+          "efficiency": "28.65 kmpl",
+          "features": [
+            "1.5-litre strong hybrid with e-CVT",
+            "Smart powered tailgate with gesture control",
+            "26.03 cm digital instrument cluster",
+            "LED projector headlamps",
+            "Black painted alloy wheels"
+          ]
+        },
+        {
+          "name": "ZXi (O) Strong Hybrid e-CVT",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 1843900,
+          "efficiency": "28.65 kmpl",
+          "features": [
+            "1.5-litre strong hybrid with e-CVT",
+            "Panoramic sunroof",
+            "Smart powered tailgate with gesture control"
+          ]
+        },
+        {
+          "name": "ZXi+ AT AllGrip Select",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1868900,
+          "efficiency": "19.07 kmpl",
+          "features": [
+            "ALLGRIP SELECT all-wheel drive",
+            "Terrain modes and hill descent control",
+            "Level 2 ADAS",
+            "6-speed automatic with paddle shifters",
+            "360-degree HD view camera",
+            "Ventilated front seats",
+            "Silver skid plates"
+          ]
+        },
+        {
+          "name": "ZXi+ (O) AT AllGrip Select",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1926900,
+          "efficiency": "19.07 kmpl",
+          "features": [
+            "ALLGRIP SELECT all-wheel drive",
+            "Panoramic sunroof",
+            "Level 2 ADAS",
+            "Terrain modes and hill descent control",
+            "360-degree HD view camera"
+          ]
+        },
+        {
+          "name": "ZXi+ Strong Hybrid e-CVT",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 1951900,
+          "efficiency": "28.65 kmpl",
+          "features": [
+            "1.5-litre strong hybrid with e-CVT",
+            "25.65 cm SmartPlay Pro X touchscreen",
+            "Infinity audio with Dolby Atmos",
+            "360-degree HD view camera",
+            "Head-up display",
+            "Ventilated front seats",
+            "Front parking sensors"
+          ]
+        },
+        {
+          "name": "ZXi+ (O) Strong Hybrid e-CVT",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 1998900,
+          "efficiency": "28.65 kmpl",
+          "features": [
+            "1.5-litre strong hybrid with e-CVT",
+            "Panoramic sunroof",
+            "25.65 cm SmartPlay Pro X touchscreen",
+            "360-degree HD view camera",
+            "Ventilated front seats"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.marutisuzuki.com/arena/victoris",
+        "https://www.marutisuzuki.com/victoris/price-in-delhi",
+        "https://www.marutisuzuki.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=NRM,NRC&variantInfoRequired=true",
+        "https://www.marutisuzuki.com/corporate/media/press-releases/2025/september/maruti-suzuki-launches-the-all-new-victoris"
+      ],
+      "notes": "Official Delhi ex-showroom prices; metallic and non-metallic paints are priced the same and dual-tone paint adds ₹15,400. Power and torque are engine figures; the combined strong-hybrid system output is not published in the spec sheet. Per the spec sheet, Level 2 ADAS is listed only on the ZXi+/ZXi+ (O) 6-speed automatic and AllGrip variants. Bharat NCAP 5 stars (2025); Global NCAP also rated it 5 stars in 2025. Boot space, ground clearance and top speed are not published in the spec sheet."
+    },
+    {
+      "slug": "maruti-grand-vitara",
+      "name": "Grand Vitara",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-09-26",
+      "engine": "1462 – 1490 cc",
+      "power": "64.6 – 75.8 kW",
+      "torque": "121.5 – 139 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4345,
+        "width": 1795,
+        "height": 1645,
+        "wheelbase": 2600
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "NEXA Blue",
+          "hex": "#163472"
+        },
+        {
+          "name": "Arctic White",
+          "hex": "#F9F9F9"
+        },
+        {
+          "name": "Splendid Silver",
+          "hex": "#B6BABD"
+        },
+        {
+          "name": "Grandeur Grey",
+          "hex": "#464848"
+        },
+        {
+          "name": "Chestnut Brown",
+          "hex": "#35312E"
+        },
+        {
+          "name": "Opulent Red",
+          "hex": "#AC0F0F"
+        },
+        {
+          "name": "Midnight Black",
+          "hex": "#171717"
+        },
+        {
+          "name": "Arctic White with Black Roof",
+          "hex": "#F9F9F9"
+        },
+        {
+          "name": "Splendid Silver with Black Roof",
+          "hex": "#B6BABD"
+        },
+        {
+          "name": "Opulent Red with Black Roof",
+          "hex": "#AC0F0F"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Electronic Stability Program (ESP) with Hill Hold Control",
+            "ABS with EBD and brake assist",
+            "Four-wheel disc brakes",
+            "360-degree view camera (Alpha and Alpha+)",
+            "Rear parking camera (Delta upwards)",
+            "Tyre pressure monitoring system (Zeta (O) upwards)",
+            "ISOFIX child seat anchorages"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "22.86 cm SmartPlay Pro+ touchscreen with Surround Sense by ARKAMYS (Zeta upwards)",
+            "SmartPlay Pro touchscreen (Sigma, Delta)",
+            "Wireless Android Auto and Apple CarPlay (Delta upwards)",
+            "Head-up display (Alpha and Alpha+)",
+            "Digital instrument cluster with 17.78 cm TFT (Zeta (O) upwards)",
+            "Suzuki Connect telematics with remote AC control (Zeta upwards)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sunroof (Zeta (O), Alpha (O) and Alpha+ (O))",
+            "Ventilated front seats (Zeta upwards)",
+            "Wireless charger (Zeta (O) upwards)",
+            "8-way powered driver seat (Alpha and Alpha+)",
+            "Cruise control (Delta upwards)",
+            "Automatic climate control with rear AC vents",
+            "Engine push start/stop with smart key"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "LED projector headlamps with auto headlamps (Zeta upwards)",
+            "215/60 R17 tyres; machined alloys on Alpha, painted alloys on Zeta",
+            "Roof rails (Alpha)",
+            "Dual-tone roof options (Zeta upwards)",
+            "LED tail lamps"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Ambient lighting (Alpha)",
+            "Leatherette steering wheel (Alpha and Alpha+)",
+            "Auto-dimming IRVM (Zeta upwards)",
+            "Rear centre armrest with cup holders",
+            "Sliding front armrest with utility box"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.5-litre K15C Smart Hybrid petrol, 75.8 kW and 139 Nm, 5-speed MT or 6-speed AT",
+            "1.5-litre strong hybrid (intelligent electric hybrid): engine 68 kW and 122 Nm, e-CVT",
+            "Factory-fitted S-CNG: 64.6 kW and 121.5 Nm in CNG mode",
+            "ALLGRIP Select all-wheel drive with hill descent control (Alpha AT AllGrip)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Strong hybrid with e-CVT, claimed 27.97 kmpl",
+        "ALLGRIP Select all-wheel drive on Alpha automatic",
+        "Factory-fitted S-CNG on Delta and Zeta, claimed 26.60 km/kg",
+        "6 airbags standard",
+        "Panoramic sunroof on (O) variants"
+      ],
+      "variants": [
+        {
+          "name": "Sigma Smart Hybrid MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1076500,
+          "efficiency": "21.11 kmpl",
+          "features": [
+            "1.5-litre Smart Hybrid petrol",
+            "6 airbags",
+            "ESP with Hill Hold Control",
+            "Four-wheel disc brakes",
+            "SmartPlay Pro touchscreen",
+            "Automatic climate control with rear AC vents",
+            "Engine push start/stop with smart key",
+            "LED DRLs",
+            "10.66 cm colour TFT multi-information display",
+            "Steel wheels with covers"
+          ]
+        },
+        {
+          "name": "Delta Smart Hybrid MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1214700,
+          "efficiency": "21.11 kmpl",
+          "features": [
+            "Wireless Android Auto and Apple CarPlay",
+            "Steering-mounted audio controls",
+            "Cruise control",
+            "Rear parking camera",
+            "Chrome inside door handles",
+            "Luggage lamp",
+            "Glove box illumination"
+          ]
+        },
+        {
+          "name": "Delta S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1304700,
+          "efficiency": "26.60 km/kg",
+          "features": [
+            "Factory-fitted S-CNG",
+            "Wireless Android Auto and Apple CarPlay",
+            "Cruise control",
+            "Rear parking camera"
+          ]
+        },
+        {
+          "name": "Delta Smart Hybrid AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1349700,
+          "efficiency": "20.58 kmpl",
+          "features": [
+            "6-speed automatic",
+            "Wireless Android Auto and Apple CarPlay",
+            "Cruise control",
+            "Rear parking camera"
+          ]
+        },
+        {
+          "name": "Zeta Smart Hybrid MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1385000,
+          "efficiency": "21.11 kmpl",
+          "features": [
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "Surround Sense by ARKAMYS",
+            "LED projector headlamps",
+            "Auto headlamps with follow-me-home",
+            "Auto-dimming IRVM",
+            "Rear wiper and washer",
+            "Suzuki Connect with remote AC control",
+            "Painted alloy wheels",
+            "2 tweeters"
+          ]
+        },
+        {
+          "name": "Zeta (O) Smart Hybrid MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1389100,
+          "efficiency": "21.11 kmpl",
+          "features": [
+            "Panoramic sunroof",
+            "Ventilated front seats",
+            "Wireless charger",
+            "Tyre pressure monitoring system",
+            "Digital instrument cluster with 17.78 cm TFT",
+            "LED headlamps"
+          ]
+        },
+        {
+          "name": "Zeta S-CNG MT",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1465000,
+          "efficiency": "26.60 km/kg",
+          "features": [
+            "Factory-fitted S-CNG",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "LED projector headlamps",
+            "Dual-tone precision-cut alloy wheels"
+          ]
+        },
+        {
+          "name": "Zeta Smart Hybrid AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1520000,
+          "efficiency": "20.58 kmpl",
+          "features": [
+            "6-speed automatic",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "LED projector headlamps",
+            "Auto-dimming IRVM"
+          ]
+        },
+        {
+          "name": "Zeta (O) Smart Hybrid AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1524100,
+          "efficiency": "20.58 kmpl",
+          "features": [
+            "6-speed automatic",
+            "Panoramic sunroof",
+            "Ventilated front seats",
+            "Wireless charger",
+            "Tyre pressure monitoring system"
+          ]
+        },
+        {
+          "name": "Alpha Smart Hybrid MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1534700,
+          "efficiency": "21.11 kmpl",
+          "features": [
+            "360-degree view camera",
+            "Head-up display",
+            "8-way powered driver seat",
+            "Ambient lighting",
+            "Leatherette steering wheel",
+            "Machined alloy wheels",
+            "Roof rails",
+            "Electrically foldable ORVMs",
+            "Ventilated front seats"
+          ]
+        },
+        {
+          "name": "Alpha (O) Smart Hybrid MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1538700,
+          "efficiency": "21.11 kmpl",
+          "features": [
+            "Panoramic sunroof",
+            "360-degree view camera",
+            "Head-up display",
+            "8-way powered driver seat"
+          ]
+        },
+        {
+          "name": "Delta+ Strong Hybrid e-CVT",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 1668300,
+          "efficiency": "27.97 kmpl",
+          "features": [
+            "1.5-litre strong hybrid with e-CVT",
+            "SmartPlay Pro touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "Cruise control",
+            "Rear parking camera"
+          ]
+        },
+        {
+          "name": "Alpha Smart Hybrid AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1669700,
+          "efficiency": "20.58 kmpl",
+          "features": [
+            "6-speed automatic",
+            "Electronic parking brake",
+            "360-degree view camera",
+            "Head-up display",
+            "8-way powered driver seat"
+          ]
+        },
+        {
+          "name": "Alpha (O) Smart Hybrid AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1673700,
+          "efficiency": "20.58 kmpl",
+          "features": [
+            "6-speed automatic",
+            "Panoramic sunroof",
+            "Electronic parking brake",
+            "360-degree view camera",
+            "Head-up display"
+          ]
+        },
+        {
+          "name": "Zeta+ Strong Hybrid e-CVT",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 1796600,
+          "efficiency": "27.97 kmpl",
+          "features": [
+            "1.5-litre strong hybrid with e-CVT",
+            "22.86 cm SmartPlay Pro+ touchscreen",
+            "LED projector headlamps",
+            "Auto-dimming IRVM",
+            "Painted alloy wheels"
+          ]
+        },
+        {
+          "name": "Alpha AllGrip Smart Hybrid AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1804700,
+          "efficiency": "19.20 kmpl",
+          "features": [
+            "ALLGRIP Select all-wheel drive",
+            "Hill descent control",
+            "6-speed automatic",
+            "Electronic parking brake",
+            "360-degree view camera",
+            "Head-up display"
+          ]
+        },
+        {
+          "name": "Zeta+ (O) Strong Hybrid e-CVT",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 1855300,
+          "efficiency": "27.97 kmpl",
+          "features": [
+            "1.5-litre strong hybrid with e-CVT",
+            "Panoramic sunroof",
+            "Ventilated front seats",
+            "Wireless charger",
+            "Digital instrument cluster"
+          ]
+        },
+        {
+          "name": "Alpha (O) AllGrip Smart Hybrid AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1862600,
+          "efficiency": "19.20 kmpl",
+          "features": [
+            "ALLGRIP Select all-wheel drive",
+            "Panoramic sunroof",
+            "Hill descent control",
+            "Electronic parking brake",
+            "360-degree view camera"
+          ]
+        },
+        {
+          "name": "Alpha+ Strong Hybrid e-CVT",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 1955200,
+          "efficiency": "27.97 kmpl",
+          "features": [
+            "1.5-litre strong hybrid with e-CVT",
+            "360-degree view camera",
+            "Head-up display",
+            "8-way powered driver seat",
+            "Digital instrument cluster with 17.7 cm TFT",
+            "Machined alloy wheels"
+          ]
+        },
+        {
+          "name": "Alpha+ (O) Strong Hybrid e-CVT",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 1962000,
+          "efficiency": "27.97 kmpl",
+          "features": [
+            "1.5-litre strong hybrid with e-CVT",
+            "Panoramic sunroof",
+            "360-degree view camera",
+            "Head-up display",
+            "8-way powered driver seat"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.nexaexperience.com/grand-vitara",
+        "https://www.nexaexperience.com/grand-vitara/price-in-delhi",
+        "https://www.nexaexperience.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=EXC&variantInfoRequired=true"
+      ],
+      "notes": "Official NEXA Delhi ex-showroom prices; metallic and non-metallic paints are priced the same and dual-tone paint adds ₹15,400. The pricing API also lists older variant codes, which are not used. A site placeholder holds an older static price list with higher figures, also not used. Power and torque are engine figures; the strong hybrid's combined output is not in the spec sheet. Bharat NCAP has reportedly tested the Grand Vitara, but no official result has been found. Boot space, ground clearance and top speed are not published in the spec sheet."
+    },
+    {
+      "slug": "maruti-e-vitara",
+      "name": "e Vitara",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-02-17",
+      "engine": "Electric motor",
+      "power": "105.8 – 128 kW",
+      "torque": "193 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 7,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2025
+      },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4275,
+        "width": 1800,
+        "height": 1640,
+        "wheelbase": 2700
+      },
+      "ev": {
+        "rangeKm": 543,
+        "rangeStandard": "CMVR Rule 124",
+        "batteryKwh": 61,
+        "dcCharge": "45 min (DC fast charging)",
+        "acCharge": "~6.5 h (49 kWh) / ~9 h (61 kWh)",
+        "motorKw": 128
+      },
+      "colors": [
+        {
+          "name": "Opulent Red",
+          "hex": "#AC0F0F"
+        },
+        {
+          "name": "Celestial Blue",
+          "hex": "#1E2B71"
+        },
+        {
+          "name": "Arctic White",
+          "hex": "#F9F9F9"
+        },
+        {
+          "name": "Splendid Silver",
+          "hex": "#B6BABD"
+        },
+        {
+          "name": "Bluish Black",
+          "hex": "#181C28"
+        },
+        {
+          "name": "Grandeur Grey",
+          "hex": "#464848"
+        },
+        {
+          "name": "Land Breeze Green with Bluish Black Roof",
+          "hex": "#4B4B3F"
+        },
+        {
+          "name": "Opulent Red with Bluish Black Roof",
+          "hex": "#AC0F0F"
+        },
+        {
+          "name": "Arctic White with Bluish Black Roof",
+          "hex": "#F9F9F9"
+        },
+        {
+          "name": "Splendid Silver with Bluish Black Roof",
+          "hex": "#B6BABD"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "7 airbags including driver knee airbag",
+            "Level 2 ADAS: adaptive cruise control, autonomous emergency braking, lane keep assist, blind spot monitoring (Alpha)",
+            "360-degree view camera (Alpha)",
+            "Rear parking camera (Zeta)",
+            "Front parking sensors with camera assist (Alpha)",
+            "Electronic Stability Program (ESP)",
+            "Four-wheel disc brakes",
+            "Electronic parking brake"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Infinity by Harman premium audio with subwoofer (Alpha)",
+            "Suzuki Connect with charging status, schedule charging and charger locator",
+            "Smartwatch connectivity"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Ventilated front seats (Alpha)",
+            "10-way powered driver seat (Alpha)",
+            "Fixed glass sunroof (Alpha)",
+            "Wireless charger (Zeta upwards)",
+            "Adaptive cruise control (Alpha)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "225/55 R18 alloy wheels with aero garnish",
+            "LED fog lamps (Alpha)",
+            "Adaptive high-beam system with auto headlamp levelling (Alpha)",
+            "Smart grille with adaptive shutters",
+            "Dual-tone roof options (Alpha)"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Synthetic leather and fabric front seats (Alpha)",
+            "Luggage area parcel shelf (Zeta upwards)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "49 kWh LFP battery: 105.8 kW motor, 440 km claimed range",
+            "61 kWh LFP battery: 128 kW motor, 543 km claimed range",
+            "193 Nm, front-wheel drive, single-speed",
+            "HEARTECT-e platform"
+          ]
+        }
+      ],
+      "highlights": [
+        "Maruti Suzuki's first electric car, launched February 2026",
+        "Claimed range of 543 km (61 kWh) and 440 km (49 kWh)",
+        "Bharat NCAP 5-star rating",
+        "7 airbags including a driver knee airbag",
+        "Level 2 ADAS on Alpha"
+      ],
+      "variants": [
+        {
+          "name": "Delta 49 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 1619000,
+          "efficiency": "440 km",
+          "features": [
+            "49 kWh LFP battery",
+            "105.8 kW motor",
+            "Claimed 440 km range",
+            "AC charging in about 6.5 hours",
+            "7 airbags",
+            "Electronic parking brake",
+            "R18 alloy wheels"
+          ]
+        },
+        {
+          "name": "Zeta 61 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 1794000,
+          "efficiency": "543 km",
+          "features": [
+            "61 kWh LFP battery",
+            "128 kW motor",
+            "Claimed 543 km range",
+            "Rear parking camera",
+            "Wireless charger",
+            "Luggage area parcel shelf"
+          ]
+        },
+        {
+          "name": "Alpha 61 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed automatic",
+          "price": 1999000,
+          "efficiency": "543 km",
+          "features": [
+            "Level 2 ADAS",
+            "360-degree view camera",
+            "Ventilated front seats",
+            "10-way powered driver seat",
+            "Infinity by Harman audio with subwoofer",
+            "Fixed glass sunroof",
+            "LED fog lamps",
+            "Adaptive high-beam system",
+            "Blind spot monitoring",
+            "Front parking sensors"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.nexaexperience.com/e-vitara",
+        "https://www.nexaexperience.com/e-vitara/price-in-delhi",
+        "https://www.nexaexperience.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=EXC&variantInfoRequired=true",
+        "https://www.marutisuzuki.com/corporate/media/press-releases/2026/february/india-goes-electric-with-maruti-suzuki-e-vitara-introductory-baas-price-starts",
+        "https://www.autocarindia.com/car-news/maruti-e-vitara-receives-5-star-bharat-ncap-safety-rating-438544"
+      ],
+      "notes": "Prices are the official NEXA Delhi ex-showroom figures with the battery included; dual-tone paint on Alpha adds ₹22,000. A Battery-as-a-Service option is also listed (₹10.99 lakh Delta, ₹12.29 lakh Zeta, ₹14.49 lakh Alpha, plus a per-km battery fee), not used here. Range is certified under CMVR Rule 124 per the press release; the release does not name ARAI or MIDC. DC charging is listed as 45 min without the state-of-charge window or charger power. Bharat NCAP 5 stars adult and child (Alpha 61 kWh tested; December 2025 report via Autocar India). Boot space and ground clearance not published."
+    },
+    {
+      "slug": "maruti-invicto",
+      "name": "Invicto",
+      "bodyType": "MUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2023-07-05",
+      "engine": "1987 cc",
+      "power": "112 kW",
+      "torque": "188 Nm",
+      "seats": [
+        7,
+        8
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2025
+      },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 52,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4755,
+        "width": 1850,
+        "height": 1795,
+        "wheelbase": 2850
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Magnificent Black",
+          "hex": "#000000"
+        },
+        {
+          "name": "NEXA Blue (Celestial)",
+          "hex": "#163472"
+        },
+        {
+          "name": "Stellar Bronze",
+          "hex": "#BEB2A6"
+        },
+        {
+          "name": "Majestic Silver",
+          "hex": "#CDD3E0"
+        },
+        {
+          "name": "Mystic White",
+          "hex": "#E5E4E2"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Electronic Stability Program (ESP) with Hill Hold Control",
+            "ABS with EBD",
+            "ISOFIX child seat anchorages",
+            "Rear parking camera",
+            "360-degree view camera (Alpha+)",
+            "Tyre pressure monitoring system (Alpha+)",
+            "Four-wheel disc brakes"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "25.65 cm (10.1-inch) touchscreen (Alpha+); 20.32 cm (8-inch) on Zeta+",
+            "Android Auto and Apple CarPlay",
+            "6 speakers",
+            "Suzuki Connect telematics",
+            "Multi-information display with digital and analogue speedometer modes"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sunroof (Alpha+)",
+            "Ventilated front seats (Alpha+)",
+            "8-way powered driver seat with memory (Alpha+)",
+            "Automatic climate control with rear AC vents",
+            "Engine push start/stop with smart key",
+            "Cruise control",
+            "Remote AC control via Suzuki Connect (Alpha+)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Twin LED projector headlamps with NEXTre DRLs",
+            "NEXTre LED tail lamps",
+            "Precision-cut R17 alloy wheels with 215/60 R17 tyres",
+            "Chrome-finish door handles (Alpha+)"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Second-row captain seats with walk-in slide and recline (7-seater)",
+            "Ambient lighting",
+            "Leatherette steering wheel",
+            "Rear centre armrest with cup holders (7-seater)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.0-litre strong hybrid petrol, engine 112 kW and 188 Nm",
+            "e-CVT, front-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Bharat NCAP 5-star rating (2025)",
+        "2.0-litre strong-hybrid petrol with e-CVT, claimed 22.16 kmpl",
+        "7-seater with captain seats or 8-seater",
+        "Panoramic sunroof, ventilated seats and 360-degree camera on Alpha+",
+        "6 airbags standard"
+      ],
+      "variants": [
+        {
+          "name": "Zeta+ 7-Seater e-CVT",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 2527400,
+          "efficiency": "22.16 kmpl",
+          "features": [
+            "Second-row captain seats with walk-in slide and recline",
+            "20.32 cm touchscreen with Android Auto and Apple CarPlay",
+            "Automatic climate control with rear AC vents",
+            "Twin LED projector headlamps",
+            "Rear parking camera",
+            "Cruise control",
+            "Engine push start/stop with smart key",
+            "Ambient lighting"
+          ]
+        },
+        {
+          "name": "Zeta+ 8-Seater e-CVT",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 2562300,
+          "efficiency": "22.16 kmpl",
+          "features": [
+            "8 seats with second-row bench",
+            "Wireless Apple CarPlay",
+            "20.32 cm touchscreen",
+            "Automatic climate control with rear AC vents",
+            "Rear parking camera",
+            "Cruise control"
+          ]
+        },
+        {
+          "name": "Alpha+ 7-Seater e-CVT",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 2895500,
+          "efficiency": "22.16 kmpl",
+          "features": [
+            "Panoramic sunroof",
+            "Ventilated front seats",
+            "8-way powered driver seat with memory",
+            "25.65 cm touchscreen",
+            "360-degree view camera",
+            "Tyre pressure monitoring system",
+            "Auto-dimming IRVM",
+            "Reverse parking sensors",
+            "Chrome-finish door handles",
+            "Remote AC control"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.nexaexperience.com/invicto",
+        "https://www.nexaexperience.com/invicto/price-in-delhi",
+        "https://www.nexaexperience.com/pricing/v2/common/pricing/ex-showroom-detail?forCode=08&channel=EXC&variantInfoRequired=true"
+      ],
+      "notes": "Official NEXA Delhi ex-showroom prices. Unusually, the pricing API lists the non-metallic paint ₹9,300–19,300 above metallic; the lower (metallic) price is used. The pricing API also lists an older Alpha+ code, which is not used. Power and torque are engine figures; the combined hybrid output is not in the spec sheet. Width and height are 1845/1795 mm on Zeta+ and 1850/1790 mm on Alpha+. Boot space, ground clearance and top speed are not published in the spec sheet."
+    }
+  ]
+}

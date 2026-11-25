@@ -1,0 +1,475 @@
+{
+  "brand": {
+    "slug": "isuzu",
+    "name": "Isuzu",
+    "country": "Japan",
+    "founded": 1916,
+    "tagline": "Japanese truck and pickup maker; Isuzu Motors India since 2012",
+    "description": "Japanese maker of trucks and pickups; Isuzu Motors India was set up in 2012 and builds vehicles at Sri City, Andhra Pradesh. Its private-buyer range covers the D-Max V-Cross and Hi-Lander pickups and the MU-X SUV.",
+    "isLuxury": false,
+    "website": "https://www.isuzu.in/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Tamil Nadu",
+  "models": [
+    {
+      "slug": "isuzu-d-max-v-cross",
+      "name": "D-Max V-Cross",
+      "bodyType": "SUV",
+      "bodyStyle": "Pickup",
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "1898 cc",
+      "power": "120 kW",
+      "torque": "360 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 55,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 5295,
+        "width": 1860,
+        "height": 1855,
+        "wheelbase": 3095
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Silky White Pearl",
+          "hex": "#EDEDE8"
+        },
+        {
+          "name": "Black Mica",
+          "hex": "#111214"
+        },
+        {
+          "name": "Red Spinel Mica",
+          "hex": "#8C1D24"
+        },
+        {
+          "name": "Nautilus Blue",
+          "hex": "#1F3B5C"
+        },
+        {
+          "name": "Galena Grey",
+          "hex": "#5B5F63"
+        },
+        {
+          "name": "Silver Metallic",
+          "hex": "#B7B9BB"
+        },
+        {
+          "name": "Splash White",
+          "hex": "#F5F5F5"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "Dual airbags (Z); 6 airbags (Z Prestige)",
+            "ESC, traction control, hill descent and hill start assist",
+            "ISOFIX anchorages",
+            "360-degree camera (Z Prestige)",
+            "TPMS (Z Prestige)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "17.8 cm touchscreen (Z)",
+            "26.16 cm touchscreen with wireless Android Auto/Apple CarPlay (Z Prestige)",
+            "8-speaker roof-mounted sound (Z Prestige)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic climate control",
+            "Passive entry and start",
+            "Cruise control",
+            "60:40 tip-up rear seat"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.9-litre VGS turbo diesel, 120 kW and 360 Nm",
+            "6-speed MT or 6-speed AT",
+            "Shift-on-the-fly 4WD with auto differential lock",
+            "Deck 1485 x 1530 x 465 mm"
+          ]
+        }
+      ],
+      "highlights": [
+        "Double-cab lifestyle pickup",
+        "1.9-litre turbo diesel, 120 kW and 360 Nm",
+        "Shift-on-the-fly 4WD on all variants",
+        "Six airbags on Z Prestige",
+        "Automatic available on Z Prestige"
+      ],
+      "variants": [
+        {
+          "name": "4WD MT Z",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2600500,
+          "efficiency": null,
+          "features": [
+            "1.9-litre turbo diesel, 6-speed MT",
+            "Shift-on-the-fly 4WD with auto differential lock",
+            "Dual front airbags",
+            "ESC, TCS, hill descent control, hill start assist",
+            "Bi-LED projector headlamps with LED DRLs",
+            "17.8 cm touchscreen with wired Android Auto/Apple CarPlay",
+            "16-inch steel wheels",
+            "Automatic climate control",
+            "Cruise control",
+            "Passive entry and push-button start"
+          ]
+        },
+        {
+          "name": "4WD MT Z Prestige",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2749500,
+          "efficiency": null,
+          "features": [
+            "6 airbags (front, side, curtain)",
+            "26.16 cm touchscreen with wireless Android Auto/Apple CarPlay",
+            "360-degree surround view camera",
+            "8-speaker roof-mounted surround sound",
+            "6-way electrically adjustable driver seat",
+            "Leather-accented seats",
+            "18-inch alloy wheels",
+            "TPMS and blind spot camera",
+            "Roof rails and side steps",
+            "Shift-on-the-fly 4WD"
+          ]
+        },
+        {
+          "name": "4WD AT Z Prestige",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3050000,
+          "efficiency": null,
+          "features": [
+            "6 airbags (front, side, curtain)",
+            "26.16 cm touchscreen with wireless Android Auto/Apple CarPlay",
+            "360-degree surround view camera",
+            "8-speaker roof-mounted surround sound",
+            "6-way electrically adjustable driver seat",
+            "Leather-accented seats",
+            "18-inch alloy wheels",
+            "TPMS and blind spot camera",
+            "Roof rails and side steps",
+            "Shift-on-the-fly 4WD"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.isuzu.in/vcross.php",
+        "https://www.isuzu.in/getprice.php",
+        "https://www.isuzu.in/images/Brochure/pdf_area/V-Cross%20Digital%20Brochure_A4.pdf"
+      ],
+      "notes": "Isuzu's price tool shows the same price for every state, labelled 'in Tamilnadu'. Each variant is also listed as 'Premium' at Rs 28,000 more (Rs 28,500 on Z Prestige MT), which appears to be a paint option; not listed separately. Height is 1785 mm on Z, 1855 mm on Z Prestige. Mileage and ground clearance not published. No 4x2 V-Cross on the current list."
+    },
+    {
+      "slug": "isuzu-hi-lander",
+      "name": "Hi-Lander",
+      "bodyType": "SUV",
+      "bodyStyle": "Pickup",
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "1898 cc",
+      "power": "120 kW",
+      "torque": "360 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 2,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 55,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 5295,
+        "width": 1860,
+        "height": 1785,
+        "wheelbase": 3095
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Silver Metallic",
+          "hex": "#B7B9BB"
+        },
+        {
+          "name": "Nautilus Blue",
+          "hex": "#1F3B5C"
+        },
+        {
+          "name": "Red Spinel Mica",
+          "hex": "#8C1D24"
+        },
+        {
+          "name": "Galena Grey",
+          "hex": "#5B5F63"
+        },
+        {
+          "name": "Black Mica",
+          "hex": "#111214"
+        },
+        {
+          "name": "Splash White",
+          "hex": "#F5F5F5"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "Dual front airbags",
+            "ESC, TCS, hill descent control, brake override",
+            "ISOFIX anchorages",
+            "Rear parking sensor"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "17.8 cm touchscreen with wired Android Auto/Apple CarPlay",
+            "4 speakers"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic climate control",
+            "Power-folding ORVMs",
+            "60:40 tip-up rear seat",
+            "Cruise control (AT)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.9-litre VGS turbo diesel, 120 kW and 360 Nm",
+            "6-speed MT or 6-speed AT",
+            "Rear-wheel drive (2WD)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Entry double-cab pickup for private buyers",
+        "1.9-litre turbo diesel, 120 kW and 360 Nm",
+        "2WD with manual or automatic",
+        "Deck carrying capacity up to 225 kg"
+      ],
+      "variants": [
+        {
+          "name": "2WD MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2150080,
+          "efficiency": null,
+          "features": [
+            "1.9-litre turbo diesel, 2WD",
+            "Dual front airbags",
+            "ESC, TCS, hill descent control",
+            "Bi-LED projector headlamps with LED DRLs",
+            "17.8 cm touchscreen with wired Android Auto/Apple CarPlay",
+            "Automatic climate control",
+            "Rear parking sensor",
+            "16-inch steel wheels with covers",
+            "Leather-wrapped steering wheel"
+          ]
+        },
+        {
+          "name": "2WD AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2359580,
+          "efficiency": null,
+          "features": [
+            "1.9-litre turbo diesel, 2WD",
+            "Dual front airbags",
+            "ESC, TCS, hill descent control",
+            "Bi-LED projector headlamps with LED DRLs",
+            "17.8 cm touchscreen with wired Android Auto/Apple CarPlay",
+            "Automatic climate control",
+            "Rear parking sensor",
+            "16-inch steel wheels with covers",
+            "Leather-wrapped steering wheel",
+            "Rear parking camera"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.isuzu.in/hilander.php",
+        "https://www.isuzu.in/getprice.php",
+        "https://www.isuzu.in/images/Brochure/pdf_area/Hi-Lander_2026_Brochure_LowRes.pdf"
+      ],
+      "notes": "Isuzu's price tool shows the same price for every state, labelled 'in Tamilnadu'. Each variant is also listed as 'Premium' at Rs 28,000 more, which appears to be a paint option. Rear camera listed on the AT spec table only. Mileage and ground clearance not published."
+    },
+    {
+      "slug": "isuzu-mu-x",
+      "name": "MU-X",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "1898 cc",
+      "power": "120 kW",
+      "torque": "360 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 235,
+      "groundClearanceMm": 230,
+      "fuelTankL": 55,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4825,
+        "width": 1860,
+        "height": 1860,
+        "wheelbase": 2845
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Nautilus Blue",
+          "hex": "#1F3B5C"
+        },
+        {
+          "name": "Red Spinel Mica",
+          "hex": "#8C1D24"
+        },
+        {
+          "name": "Silky White Pearl",
+          "hex": "#EDEDE8"
+        },
+        {
+          "name": "Galena Grey",
+          "hex": "#5B5F63"
+        },
+        {
+          "name": "Black Mica",
+          "hex": "#111214"
+        },
+        {
+          "name": "Silver Metallic",
+          "hex": "#B7B9BB"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags",
+            "ESC, TCS, hill descent control",
+            "4-wheel ventilated disc brakes",
+            "3 ISOFIX anchorages on 2nd row",
+            "Rear parking camera"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "22.8 cm touchscreen",
+            "8-speaker live surround sound"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Passive entry and start",
+            "6-way power driver seat",
+            "Climate control with cooling vents for all 3 rows",
+            "One-touch fold and tumble 2nd row",
+            "Cruise control"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.9-litre VGS turbo diesel, 120 kW and 360 Nm",
+            "6-speed automatic",
+            "Terrain Command 4x4 with 4-Low (4WD)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Body-on-frame seven-seat SUV",
+        "1.9-litre turbo diesel with 6-speed automatic",
+        "4x2 or 4x4 with low range",
+        "230 mm ground clearance",
+        "Six airbags"
+      ],
+      "variants": [
+        {
+          "name": "2WD AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3453240,
+          "efficiency": null,
+          "features": [
+            "1.9-litre turbo diesel, 6-speed AT",
+            "6 airbags",
+            "ESC, TCS, hill descent control",
+            "Bi-LED auto-levelling projector headlamps",
+            "22.8 cm touchscreen",
+            "Quilted leather-accented seats",
+            "6-way power driver seat",
+            "Climate control with vents for all three rows",
+            "Cruise control",
+            "18-inch diamond-cut alloy wheels"
+          ]
+        },
+        {
+          "name": "4WD AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3770580,
+          "efficiency": null,
+          "features": [
+            "Terrain Command 4x4 with 2H, 4H and 4L",
+            "1.9-litre turbo diesel, 6-speed AT",
+            "6 airbags",
+            "ESC, TCS, hill descent control",
+            "Bi-LED auto-levelling projector headlamps",
+            "22.8 cm touchscreen",
+            "Quilted leather-accented seats",
+            "6-way power driver seat",
+            "Climate control with vents for all three rows",
+            "Cruise control"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.isuzu.in/mux.php",
+        "https://www.isuzu.in/getprice.php",
+        "https://www.isuzu.in/images/Brochure/pdf_area/Isuzu%20MUX%20Brochures_2023_Final_AW_Digital.pdf"
+      ],
+      "notes": "Isuzu's price tool shows the same price for every state, labelled 'in Tamilnadu'. 4WD AT is also listed as 'Premium' at Rs 28,000 more (paint option). Dimensions and 230 mm ground clearance (at kerb) from the 2023 brochure diagram; check height. Boot 235 L behind 3rd row (878 L with 3rd row folded). Mileage not published."
+    }
+  ]
+}

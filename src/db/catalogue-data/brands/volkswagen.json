@@ -1,0 +1,814 @@
+{
+  "brand": {
+    "slug": "volkswagen",
+    "name": "Volkswagen",
+    "country": "Germany",
+    "founded": 1937,
+    "tagline": "German carmaker, in India since 2007",
+    "description": "German carmaker founded in 1937, part of the Volkswagen Group. Has sold cars in India since 2007; the Taigun and Virtus are built at Skoda Auto Volkswagen India's Chakan plant near Pune.",
+    "isLuxury": false,
+    "website": "https://www.volkswagen.co.in/en.html"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "volkswagen-taigun",
+      "name": "Taigun",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2021-09-23",
+      "engine": "999 – 1498 cc",
+      "power": "115 – 150 PS",
+      "torque": "178 – 250 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Global NCAP",
+        "year": 2022
+      },
+      "bootSpaceL": 385,
+      "groundClearanceMm": null,
+      "fuelTankL": 50,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4221,
+        "width": 1760,
+        "height": 1612,
+        "wheelbase": 2651
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Wild Cherry Red",
+          "hex": "#8e1a24"
+        },
+        {
+          "name": "Lava Blue",
+          "hex": "#1f3d6b"
+        },
+        {
+          "name": "Reflex Silver",
+          "hex": "#b5b8ba"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "1.0 TSI, 115 PS / 178 Nm, 6-speed MT or 8-speed automatic",
+            "1.5 TSI EVO with Active Cylinder Technology, 150 PS / 250 Nm, 7-speed DSG",
+            "Engine idle start/stop"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "ESC, ABS with EBD, multi-collision brakes",
+            "Hill start assist (automatics)",
+            "40+ safety features"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "25.65 cm VW Play touchscreen (Highline and above)",
+            "Wireless Android Auto/Apple CarPlay",
+            "15 built-in apps",
+            "Up to 26.03 cm digital cockpit"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Ventilated electric front seats (Topline, GT)",
+            "Panoramic sunroof (Topline, GT)",
+            "Electric sunroof (Highline Plus)",
+            "Wireless charging"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Full LED headlamps with LED DRL",
+            "Infinity LED tail lamps with sequential indicators",
+            "Illuminated VW logos (Topline and above)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Made in India on the MQB A0 IN platform",
+        "1.0 TSI or 1.5 TSI EVO turbo-petrol engines",
+        "1.0 TSI automatic is an 8-speed unit",
+        "Global NCAP 5 stars for adult and child occupants (2022)",
+        "Boot 385 L, expandable to 1,405 L"
+      ],
+      "variants": [
+        {
+          "name": "Comfortline 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1099900,
+          "efficiency": "19.98 kmpl",
+          "features": [
+            "1.0 TSI 115 PS",
+            "Full LED headlamps with LED DRL",
+            "17.78 cm touchscreen, wired Android Auto/Apple CarPlay",
+            "Climatronic touch AC",
+            "R16 steel wheels",
+            "6 airbags, ESC"
+          ]
+        },
+        {
+          "name": "Highline 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1299900,
+          "efficiency": "19.98 kmpl",
+          "features": [
+            "25.65 cm VW Play touchscreen",
+            "Wireless Android Auto/Apple CarPlay",
+            "Wireless charging",
+            "R16 'Nottingham' alloys",
+            "Hello Volkswagen voice commands"
+          ]
+        },
+        {
+          "name": "Highline 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 1409900,
+          "efficiency": "19.54 kmpl",
+          "features": [
+            "25.65 cm VW Play touchscreen",
+            "Wireless Android Auto/Apple CarPlay",
+            "Wireless charging",
+            "R16 'Nottingham' alloys",
+            "Hello Volkswagen voice commands",
+            "8-speed automatic with paddle shifters",
+            "Cruise control",
+            "Hill start assist"
+          ]
+        },
+        {
+          "name": "Highline Plus 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1441900,
+          "efficiency": "19.98 kmpl",
+          "features": [
+            "20.32 cm digital cockpit",
+            "Electric sunroof",
+            "Keyless push-button start",
+            "Animated LED tail lamps"
+          ]
+        },
+        {
+          "name": "Highline Plus 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 1556900,
+          "efficiency": "19.54 kmpl",
+          "features": [
+            "20.32 cm digital cockpit",
+            "Electric sunroof",
+            "Keyless push-button start",
+            "Animated LED tail lamps",
+            "8-speed automatic with paddle shifters"
+          ]
+        },
+        {
+          "name": "Topline 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1621900,
+          "efficiency": "19.98 kmpl",
+          "features": [
+            "26.03 cm configurable digital cockpit",
+            "Panoramic sunroof",
+            "Ventilated, electrically adjustable front seats",
+            "R17 dual-tone diamond-cut alloys",
+            "Sound package with amplifier and subwoofer",
+            "MyVolkswagen Connect Plus"
+          ]
+        },
+        {
+          "name": "Topline 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 1737900,
+          "efficiency": "19.54 kmpl",
+          "features": [
+            "26.03 cm configurable digital cockpit",
+            "Panoramic sunroof",
+            "Ventilated, electrically adjustable front seats",
+            "R17 dual-tone diamond-cut alloys",
+            "Sound package with amplifier and subwoofer",
+            "MyVolkswagen Connect Plus",
+            "8-speed automatic with paddle shifters"
+          ]
+        },
+        {
+          "name": "GT Line 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1471900,
+          "efficiency": "19.98 kmpl",
+          "features": [
+            "GT Line styling with black R17 alloys",
+            "Red ambient lighting",
+            "Black interior",
+            "Aluminium pedals"
+          ]
+        },
+        {
+          "name": "GT Line 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 1586900,
+          "efficiency": "19.54 kmpl",
+          "features": [
+            "GT Line styling with black R17 alloys",
+            "Red ambient lighting",
+            "Black interior",
+            "Aluminium pedals",
+            "8-speed automatic with paddle shifters"
+          ]
+        },
+        {
+          "name": "GT Plus Chrome 1.5 TSI DSG",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 1916900,
+          "efficiency": "18.85 kmpl",
+          "features": [
+            "1.5 TSI EVO 150 PS with 7-speed DSG",
+            "Red front and rear brake callipers",
+            "Panoramic sunroof",
+            "Ventilated electric front seats",
+            "26.03 cm digital cockpit",
+            "Chrome exterior accents"
+          ]
+        },
+        {
+          "name": "GT Plus Sport 1.5 TSI DSG",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 1946900,
+          "efficiency": "18.85 kmpl",
+          "features": [
+            "1.5 TSI EVO 150 PS with 7-speed DSG",
+            "Red front and rear brake callipers",
+            "Panoramic sunroof",
+            "Ventilated electric front seats",
+            "26.03 cm digital cockpit",
+            "Sport black exterior package"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.volkswagen.co.in/en/models/taigun.html",
+        "https://www.volkswagen.co.in/en/models.html",
+        "https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/new-taigun/the-new-taigun-brochure.pdf"
+      ],
+      "notes": "Prices are Volkswagen India's ex-showroom figures from the official model overview on 2026-11-25 (one national price; no city named). This is the updated 'new Taigun' with an 8-speed automatic for the 1.0 TSI. Fuel efficiency is the brochure's certified figure (Rule 115 CMVR). Ground clearance not stated in the new brochure. Global NCAP 5 stars (2022) was awarded to the pre-update Taigun of the same generation — confirm it still applies. Nine colours are offered; only three names were confirmed from the brochure."
+    },
+    {
+      "slug": "volkswagen-virtus",
+      "name": "Virtus",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-06-09",
+      "engine": "999 – 1498 cc",
+      "power": "115 – 150 PS",
+      "torque": "178 – 250 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Global NCAP",
+        "year": 2023
+      },
+      "bootSpaceL": 521,
+      "groundClearanceMm": 179,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4561,
+        "width": 1752,
+        "height": 1507,
+        "wheelbase": 2651
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Wild Cherry Red",
+          "hex": "#8e1a24"
+        },
+        {
+          "name": "Reflex Silver",
+          "hex": "#b5b8ba"
+        },
+        {
+          "name": "Lava Blue",
+          "hex": "#1f3d6b"
+        },
+        {
+          "name": "Candy White",
+          "hex": "#f4f4f2"
+        },
+        {
+          "name": "Carbon Steel Grey",
+          "hex": "#55595c"
+        },
+        {
+          "name": "Deep Black Pearl",
+          "hex": "#121213"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "1.0 TSI, 115 PS / 178 Nm, 6-speed MT or 6-speed AT",
+            "1.5 TSI EVO with Active Cylinder Technology, 150 PS / 250 Nm, 6-speed MT or 7-speed DSG"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "ESC, ABS with EBD, multi-collision brakes",
+            "Rear parking sensors",
+            "Hill start assist (automatics)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "25.65 cm VW Play touchscreen (Highline and above)",
+            "Wireless Android Auto/Apple CarPlay",
+            "8 speakers"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Ventilated front seats (Topline, GT Plus)",
+            "Electric sunroof (Highline Plus and above)",
+            "Cruise control (Highline and above)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Chrome styling (Virtus Chrome) or blacked-out styling (Virtus Sport)",
+            "Dual-tone roof in some colours"
+          ]
+        }
+      ],
+      "highlights": [
+        "Made in India on the MQB A0 IN platform",
+        "Sold in Chrome and Sport styling lines",
+        "Global NCAP 5 stars for adult and child occupants (2023)",
+        "521-litre boot",
+        "1.5 TSI offered with a 6-speed manual or 7-speed DSG"
+      ],
+      "variants": [
+        {
+          "name": "Chrome Comfortline 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1070900,
+          "efficiency": "20.19 kmpl",
+          "features": [
+            "1.0 TSI 115 PS",
+            "LED headlamps with LED DRL",
+            "17.78 cm touchscreen, wired Android Auto/Apple CarPlay",
+            "8 speakers",
+            "Rear parking sensors",
+            "6 airbags, ESC"
+          ]
+        },
+        {
+          "name": "Chrome Highline 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1350900,
+          "efficiency": "20.19 kmpl",
+          "features": [
+            "25.65 cm VW Play touchscreen",
+            "Wired and wireless Android Auto/Apple CarPlay",
+            "Cruise control",
+            "Chrome front wing"
+          ]
+        },
+        {
+          "name": "Chrome Highline 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1470900,
+          "efficiency": "18.7 kmpl",
+          "features": [
+            "25.65 cm VW Play touchscreen",
+            "Wired and wireless Android Auto/Apple CarPlay",
+            "Cruise control",
+            "Chrome front wing",
+            "Paddle shifters",
+            "Hill start assist"
+          ]
+        },
+        {
+          "name": "Chrome Highline Plus 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1390900,
+          "efficiency": "20.19 kmpl",
+          "features": [
+            "Electric sunroof",
+            "Keyless push-button start"
+          ]
+        },
+        {
+          "name": "Chrome Highline Plus 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1499900,
+          "efficiency": "18.7 kmpl",
+          "features": [
+            "Electric sunroof",
+            "Keyless push-button start",
+            "6-speed automatic with paddle shifters"
+          ]
+        },
+        {
+          "name": "Chrome Topline 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1515900,
+          "efficiency": "20.19 kmpl",
+          "features": [
+            "Ventilated front seats with leather inserts",
+            "Sound package with amplifier and subwoofer",
+            "Footwell illumination"
+          ]
+        },
+        {
+          "name": "Chrome Topline 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1634900,
+          "efficiency": "18.7 kmpl",
+          "features": [
+            "Ventilated front seats with leather inserts",
+            "Sound package with amplifier and subwoofer",
+            "Footwell illumination",
+            "6-speed automatic with paddle shifters"
+          ]
+        },
+        {
+          "name": "Chrome GT Plus 1.5 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1708900,
+          "efficiency": null,
+          "features": [
+            "1.5 TSI EVO 150 PS",
+            "Ventilated front seats",
+            "Electric sunroof",
+            "Sound package with subwoofer",
+            "6-speed manual"
+          ]
+        },
+        {
+          "name": "Chrome GT Plus 1.5 TSI DSG",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 1884900,
+          "efficiency": "19.62 kmpl",
+          "features": [
+            "1.5 TSI EVO 150 PS",
+            "Ventilated front seats",
+            "Electric sunroof",
+            "Sound package with subwoofer",
+            "7-speed DSG"
+          ]
+        },
+        {
+          "name": "Sport GT Line 1.0 TSI MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1434900,
+          "efficiency": "20.19 kmpl",
+          "features": [
+            "Virtus Sport: darkened full LED headlamps and tail lamps",
+            "Glossy black front wing",
+            "Black interior",
+            "Electric sunroof",
+            "Keyless push-button start",
+            "25.65 cm VW Play touchscreen",
+            "R17 'Cassino' black alloys"
+          ]
+        },
+        {
+          "name": "Sport GT Line 1.0 TSI AT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1524900,
+          "efficiency": "18.7 kmpl",
+          "features": [
+            "Virtus Sport: darkened full LED headlamps and tail lamps",
+            "Glossy black front wing",
+            "Black interior",
+            "Electric sunroof",
+            "Keyless push-button start",
+            "25.65 cm VW Play touchscreen",
+            "R17 'Cassino' black alloys",
+            "6-speed automatic with paddle shifters"
+          ]
+        },
+        {
+          "name": "Sport GT Plus 1.5 TSI DSG",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 1919900,
+          "efficiency": "19.62 kmpl",
+          "features": [
+            "1.5 TSI EVO 150 PS, 7-speed DSG",
+            "Virtus Sport blacked-out styling",
+            "Ventilated front seats with leather inserts",
+            "Sound package with subwoofer",
+            "Footwell illumination"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.volkswagen.co.in/en/models/virtus-chrome.html",
+        "https://www.volkswagen.co.in/en/models/virtus-sport.html",
+        "https://www.volkswagen.co.in/en/models.html",
+        "https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/virtus/virtus-chrome-brochure.pdf",
+        "https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/virtus/virtus-sport-brochure.pdf"
+      ],
+      "notes": "Prices are Volkswagen India's ex-showroom figures from the official model overview on 2026-11-25 (one national price). The site lists 'Virtus Chrome' and 'Virtus Sport' separately; combined here as one model with Chrome/Sport in the variant names. A facelifted 'New Virtus' is shown as 'coming soon' and is not included. Fuel efficiency from the brochures (1.0 MT 20.19, 1.0 AT 18.70, 1.5 DSG 19.62 km/l); the 1.5 MT figure isn't in the brochure. Virtus Sport dimensions per site: 4,221 mm is shown in its data, which looks like a copy error — brochure says 4,561 mm. Colour list partly confirmed from brochures."
+    },
+    {
+      "slug": "volkswagen-tayron",
+      "name": "Tayron",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "1984 cc",
+      "power": "204 PS (150 kW)",
+      "torque": "320 Nm",
+      "seats": [
+        5,
+        7
+      ],
+      "airbags": 9,
+      "safety": null,
+      "bootSpaceL": 885,
+      "groundClearanceMm": null,
+      "fuelTankL": 61,
+      "topSpeedKmh": 224,
+      "acceleration": "0–100 km/h in 7.3 s",
+      "dimensions": {
+        "length": 4792,
+        "width": 1866,
+        "height": 1665,
+        "wheelbase": 2789
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Oryx White",
+          "hex": "#f1efe8"
+        },
+        {
+          "name": "Dolphin Grey",
+          "hex": "#5d6266"
+        },
+        {
+          "name": "Cipressino Green",
+          "hex": "#5b6a5a"
+        },
+        {
+          "name": "Grenadilla Black",
+          "hex": "#121212"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "2.0 TSI EVO turbo-petrol, 204 PS / 320 Nm",
+            "7-speed DSG with 4MOTION all-wheel drive"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "9 airbags including front-centre airbag",
+            "Adaptive cruise control",
+            "Park Assist Plus with Park Distance Control",
+            "Driver drowsiness detection",
+            "360-degree Area View (R-Line)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "12.9-inch (Life) or 15-inch (R-Line) infotainment display",
+            "11-speaker 700 W Harman Kardon audio (R-Line)",
+            "Windscreen head-up display (R-Line)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Tilting and sliding panoramic sunroof",
+            "Massaging front seats (R-Line)",
+            "Sliding split-folding rear bench (Life)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "IQ.LIGHT HD Matrix headlamps (R-Line)",
+            "18-inch (Life) or 19-inch (R-Line) diamond-turned alloys"
+          ]
+        }
+      ],
+      "highlights": [
+        "2.0 TSI EVO with 4MOTION AWD and 7-speed DSG",
+        "Tayron Life seats five; Tayron R-Line seats seven",
+        "9 airbags",
+        "Euro NCAP 5 stars (as stated by Volkswagen India)"
+      ],
+      "variants": [
+        {
+          "name": "Tayron Life",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 4199000,
+          "efficiency": null,
+          "features": [
+            "Five seats with sliding rear bench",
+            "12.9-inch infotainment display",
+            "10-colour ambient lighting",
+            "8 speakers",
+            "18-inch Bologna alloys",
+            "Panoramic sunroof",
+            "Adaptive cruise control",
+            "Park Assist Plus",
+            "9 airbags"
+          ]
+        },
+        {
+          "name": "Tayron R-Line",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 4774000,
+          "efficiency": null,
+          "features": [
+            "Seven seats",
+            "15-inch infotainment display",
+            "Head-up display",
+            "11-speaker Harman Kardon audio",
+            "Massaging front seats",
+            "30-colour ambient lighting",
+            "IQ.LIGHT HD Matrix headlamps",
+            "19-inch Coventry alloys",
+            "360-degree Area View"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.volkswagen.co.in/en/models/tayron.html",
+        "https://www.volkswagen.co.in/en/models.html",
+        "https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/tayron/tayron-brochure.pdf",
+        "https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/tayron-r-line/tayron-r-Line-brochure.pdf"
+      ],
+      "notes": "Prices are Volkswagen India's ex-showroom figures from the official model overview on 2026-11-25. Brochure specs: Life is 1,853 mm wide, 1,666 mm tall, 5 seats, boot 885 L (2,090 L max); R-Line 1,866 mm wide, 1,665 mm tall, 7 seats, boot 345 L (1,905 L max). 0–100 km/h and 224 km/h top speed are R-Line brochure claims. Fuel efficiency and ground clearance not found in the brochures. India launch date not confirmed, so launchedOn is null. Euro NCAP 5 stars is quoted by VW India, but whether the India car is a CBU was not confirmed, so safety is left null. Seven colours offered; four names confirmed."
+    },
+    {
+      "slug": "volkswagen-golf-gti",
+      "name": "Golf GTI",
+      "bodyType": "Hatchback",
+      "bodyStyle": "Hot hatch",
+      "isLuxury": false,
+      "launchedOn": "2025-05-26",
+      "engine": "1984 cc",
+      "power": "265 PS (195 kW)",
+      "torque": "370 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 7,
+      "safety": {
+        "rating": 5,
+        "agency": "Euro NCAP",
+        "year": 2019
+      },
+      "bootSpaceL": 380,
+      "groundClearanceMm": 136,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 5.9 s",
+      "dimensions": {
+        "length": 4289,
+        "width": 1789,
+        "height": 1471,
+        "wheelbase": 2627
+      },
+      "ev": null,
+      "colors": [],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "2.0 TSI turbo-petrol, 265 PS / 370 Nm",
+            "7-speed DSG",
+            "XDS electronic front differential lock"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "7 airbags including centre airbag"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Red brake callipers",
+            "GTI red accents and black side spoiler fins"
+          ]
+        }
+      ],
+      "highlights": [
+        "Imported as a completely built unit",
+        "265 PS 2.0 TSI with 7-speed DSG",
+        "Claimed 0–100 km/h in 5.9 s",
+        "Single fully loaded variant"
+      ],
+      "variants": [
+        {
+          "name": "Golf GTI 2.0 TSI DSG",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DSG",
+          "price": 5090900,
+          "efficiency": null,
+          "features": [
+            "265 PS / 370 Nm",
+            "7-speed DSG",
+            "XDS front differential",
+            "7 airbags"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.volkswagen.co.in/en/models/golf-gti.html",
+        "https://www.volkswagen.co.in/en/models.html",
+        "https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/golf-gti/golf-gti-brochure.pdf"
+      ],
+      "notes": "Price is Volkswagen India's ex-showroom figure (₹50,90,900) from the official model page on 2026-11-25. Specs from the official brochure and model page. Euro NCAP 5 stars (2019) is the Golf Mk8 rating; the GTI is a CBU of the same generation. Colour names were not captured from an official source. Top speed not stated officially (page mentions 267 km/h achieved in a test)."
+    }
+  ]
+}

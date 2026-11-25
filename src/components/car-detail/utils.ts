@@ -85,18 +85,25 @@ export function peersOf(car: CarModel, cat: Catalog) {
   return sameBody.length >= 4 ? sameBody : sameClass;
 }
 
-/** "40 min (10–80%)" → { minutes: 40, window: "10–80%" } */
+/**
+ * "40 min (10–80%)" → { minutes: 40, window: "10–80%" }. Published wording varies ("Up to 175 kW; 238 km in 15 min"),
+ * so minutes are read next to "min"/"h"; 0 when the text has no time in it (show the text as is).
+ */
 export function parseDc(value: string) {
-  const minutes = numbersIn(value)[0] ?? 0;
-  const window = value.match(/\(([^)]+)\)/)?.[1] ?? "";
+  const min = value.match(/(\d+(?:\.\d+)?)\s*min/i);
+  const hrs = value.match(/(\d+(?:\.\d+)?)\s*(?:h|hr|hrs|hours?)\b/i);
+  const minutes = min ? Number(min[1]) + (hrs && hrs.index! < min.index! ? Number(hrs[1]) * 60 : 0) : hrs ? Number(hrs[1]) * 60 : 0;
+  const window = value.match(/\(([^)]+)\)/)?.[1] ?? value.match(/\d+\s*[–-]\s*\d+\s*%/)?.[0] ?? "";
   return { minutes, window };
 }
 
-/** "6.5 h (7.2 kW)" → { hours: 6.5, power: "7.2 kW" } */
+/** "6.5 h (7.2 kW)" → { hours: 6.5, power: "7.2 kW" }; hours 0 when the text has no time in it. */
 export function parseAc(value: string) {
-  const hours = numbersIn(value)[0] ?? 0;
-  const power = value.match(/\(([^)]+)\)/)?.[1] ?? "";
-  return { hours, power };
+  const hrs = value.match(/(\d+(?:\.\d+)?)\s*(?:h|hr|hrs|hours?)\b/i);
+  const min = value.match(/(\d+(?:\.\d+)?)\s*min/i);
+  const hours = hrs ? Number(hrs[1]) + (min && min.index! > hrs.index! ? Number(min[1]) / 60 : 0) : min ? Number(min[1]) / 60 : 0;
+  const power = value.match(/(\d+(?:\.\d+)?)\s*kW/i)?.[0] ?? value.match(/\(([^)]+)\)/)?.[1] ?? "";
+  return { hours: Number(hours.toFixed(1)), power };
 }
 
 /** Real-world range estimate used across EV visualisations. */
@@ -110,3 +117,10 @@ export function formatDuration(minutes: number) {
 }
 
 export const pad2 = (n: number) => String(n).padStart(2, "0");
+
+/** Whether the "Interior & exterior" section has anything to show: photos, factory colours or exterior/interior equipment. */
+export const hasDesignContent = (car: CarModel) =>
+  car.images.length > 0 || car.colors.length > 0 || car.features.some((g) => (g.group === "Exterior" || g.group === "Interior" || g.group === "Comfort") && g.items.length > 0);
+
+/** Whether any variant publishes a mileage/range figure. */
+export const hasEfficiency = (car: CarModel) => car.variants.some((v) => /\d/.test(v.efficiency)) || car.efficiencyValue > 0;

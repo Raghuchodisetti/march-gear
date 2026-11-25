@@ -1,5 +1,5 @@
 import type { InsProductCategory, InsVendorCategory } from "@/db/enums";
-import type { CarModel } from "@/types";
+import type { CarLite } from "@/types";
 import type { CoverPricing, FuelName, InsuranceSearch, PremiumEstimate, ProductDeductibles, ProductEligibility, ProductPricing } from "@/insurance/types";
 import { ageYears, pricingConfigFrom, eligibilityProblems, estimatePremium, effectiveNcb, parseEngineCc, vehicleAgeMonths, type PricingBlock, type PricingConfig } from "@/insurance/estimator";
 import { FUELS, isNewVehicle, isSearchReady, searchQuery } from "@/insurance/search";
@@ -126,7 +126,7 @@ export interface MarketVehicle {
   title: string;
 }
 
-type CatalogLookup = { getCar: (slug: string) => CarModel | undefined; brandName: (slug: string) => string };
+type CatalogLookup = { getCar: (slug: string) => CarLite | undefined; brandName: (slug: string) => string };
 
 /** The customer's car from the catalogue, or null when the search doesn't name a known model. `today` is an IST YYYY-MM-DD. */
 export function resolveVehicle(search: InsuranceSearch, catalog: CatalogLookup, config: PricingConfig, today: string): MarketVehicle | null {

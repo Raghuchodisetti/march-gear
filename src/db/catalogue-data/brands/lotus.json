@@ -1,0 +1,234 @@
+{
+  "brand": {
+    "slug": "lotus",
+    "name": "Lotus",
+    "country": "United Kingdom",
+    "founded": 1948,
+    "tagline": "British sports and electric performance carmaker, in India since 2023",
+    "description": "British sports-car maker founded by Colin Chapman in 1948 and now majority-owned by Geely. Lotus entered India in November 2023 with the Eletre; all cars are imported fully built and sold through Exclusive Motors, which runs the Lotus Centre at the World Trade Centre, New Delhi.",
+    "isLuxury": true,
+    "website": "https://www.lotuscars.com/en-IN"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "lotus-eletre",
+      "name": "Eletre",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2023-11-09",
+      "engine": "Electric motor",
+      "power": "603 – 905 hp",
+      "torque": "710 – 985 Nm",
+      "seats": [5],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 688,
+      "groundClearanceMm": 194,
+      "fuelTankL": null,
+      "topSpeedKmh": 258,
+      "acceleration": "0–100 km/h in 2.95 – 4.5 s",
+      "dimensions": { "length": 5103, "width": 2231, "height": 1636, "wheelbase": 3019 },
+      "ev": {
+        "rangeKm": 600,
+        "rangeStandard": "WLTP",
+        "batteryKwh": 112,
+        "dcCharge": "20 min (10–80%, 350 kW)",
+        "acCharge": "22 kW AC, about 5.8 h (0–100%)",
+        "motorKw": 450
+      },
+      "colors": [
+        { "name": "Solar Yellow", "hex": "#E8C21A" },
+        { "name": "Galloway Green", "hex": "#1F3D2B" },
+        { "name": "Kaimu Grey", "hex": "#5A5E60" },
+        { "name": "Stellar Black", "hex": "#0E0E10" },
+        { "name": "Blossom Grey", "hex": "#B8B4AE" },
+        { "name": "Natron Red", "hex": "#8E1B1F" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Four-zone climate control", "12-way adjustable front seats", "Soft-close doors", "Wireless phone charging", "Active air suspension"] },
+        { "group": "Infotainment", "items": ["15.1-inch OLED touchscreen", "Lotus Hyper OS with over-the-air updates", "Apple CarPlay and Android Auto", "15-speaker KEF sound system with Dolby Atmos"] },
+        { "group": "Safety", "items": ["Lidar-based ADAS", "Adaptive cruise control", "Blind-spot monitor"] },
+        { "group": "Exterior", "items": ["22-inch 10-spoke forged wheels (India specification)", "Matrix LED headlamps"] },
+        { "group": "Interior", "items": ["Configurable ambient lighting", "Four-seat layout available as an option (Executive seat pack)"] },
+        { "group": "Performance", "items": ["Dual-motor all-wheel drive", "Torque vectoring", "Five drive modes"] }
+      ],
+      "highlights": [
+        "Lotus's first model in India, launched in November 2023",
+        "112 kWh battery on all three variants",
+        "Claimed WLTP range of 600 km (Eletre, Eletre S) and 490 km (Eletre R)",
+        "Eletre R: 905 hp, 985 Nm and a claimed 0–100 km/h time of 2.95 s",
+        "Lidar-based ADAS and active air suspension as standard"
+      ],
+      "variants": [
+        {
+          "name": "Eletre",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 25500000,
+          "efficiency": "600 km (WLTP)",
+          "features": ["450 kW (603 hp) dual-motor all-wheel drive", "710 Nm", "0–100 km/h in 4.5 s (claimed)", "22-inch forged wheels"]
+        },
+        {
+          "name": "Eletre S",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 27500000,
+          "efficiency": "600 km (WLTP)",
+          "features": ["450 kW (603 hp) dual-motor all-wheel drive", "710 Nm", "0–100 km/h in 4.5 s (claimed)"]
+        },
+        {
+          "name": "Eletre R",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "2-speed (rear motor)",
+          "price": 29900000,
+          "efficiency": "490 km (WLTP)",
+          "features": ["675 kW (905 hp) dual-motor all-wheel drive", "985 Nm", "0–100 km/h in 2.95 s (claimed)", "Handling pack", "Carbon-fibre pack", "Gloss black wheels with high-performance tyres"]
+        }
+      ],
+      "sources": [
+        "https://www.lotuscars.com/en-IN/eletre",
+        "https://www.lotuscars.com/en-IN/eletre/models",
+        "https://www.autocarindia.com/car-news/lotus-enters-india-with-eletre-suv-priced-at-rs-255-crore-429806",
+        "https://www.autocarindia.com/cars/lotus/eletre/specifications",
+        "https://www.cardekho.com/lotus/eletre",
+        "https://www.carwale.com/lotus-cars/eletre/"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (launch report) and CarDekho (New Delhi, Nov 2026); these are pan-India ex-showroom figures, listed the same for New Delhi. Lotus's global site now groups the Eletre as 600 and 900 series; Indian listings still use Eletre / S / R. Specs from Autocar India; the official en-IN page gives only headline figures. No Euro NCAP result found for the Eletre, so safety is null. Publications disagree on airbags (7 vs 8), so airbags is null. Width includes mirrors. Top speed 258 km/h per Autocar India; some sources give 265 km/h for the R. ev.motorKw is for Eletre/S; the R is 675 kW."
+    },
+    {
+      "slug": "lotus-emeya",
+      "name": "Emeya",
+      "bodyType": "Sedan",
+      "bodyStyle": "Four-door GT (liftback)",
+      "isLuxury": true,
+      "launchedOn": "2025-01-16",
+      "engine": "Electric motor",
+      "power": "603 hp (450 kW)",
+      "torque": "710 Nm",
+      "seats": [5],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 509,
+      "groundClearanceMm": 141,
+      "fuelTankL": null,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 4.2 s",
+      "dimensions": { "length": 5139, "width": 2241, "height": 1459, "wheelbase": 3069 },
+      "ev": {
+        "rangeKm": 610,
+        "rangeStandard": "WLTP",
+        "batteryKwh": 102,
+        "dcCharge": "18 min (10–80%, 350 kW)",
+        "acCharge": "5.5 h (22 kW AC)",
+        "motorKw": 450
+      },
+      "colors": [
+        { "name": "Boreal Grey", "hex": "#7D8287" },
+        { "name": "Fireglow Orange", "hex": "#D2541E" },
+        { "name": "Solar Yellow", "hex": "#E8C21A" },
+        { "name": "Akoya White", "hex": "#EDEBE6" },
+        { "name": "Stellar Black", "hex": "#0E0E10" },
+        { "name": "Kaimu Grey", "hex": "#5A5E60" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Massage seats", "Power-assisted doors", "Electronically controlled air suspension", "Panoramic sunroof", "Powered boot lid"] },
+        { "group": "Infotainment", "items": ["15.1-inch touchscreen", "55-inch projected head-up display", "KEF sound system with Dolby Atmos", "Lotus Hyper OS with over-the-air updates", "Apple CarPlay and Android Auto"] },
+        { "group": "Safety", "items": ["Lidar-based ADAS", "360-degree camera"] },
+        { "group": "Exterior", "items": ["Active front grille", "Active aerodynamics: air dam, rear diffuser and rear wing"] },
+        { "group": "Performance", "items": ["Dual-motor all-wheel drive", "800 V electrical architecture", "Four drive modes"] }
+      ],
+      "highlights": [
+        "102 kWh battery on an 800 V architecture",
+        "Claimed WLTP range of 610 km on 20-inch wheels",
+        "Claimed 10–80% DC charge in 18 min on a 350 kW charger",
+        "509-litre boot plus 31-litre front storage",
+        "Launched in India in January 2025 alongside the Emira"
+      ],
+      "variants": [
+        {
+          "name": "Emeya",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 23351065,
+          "efficiency": "610 km (WLTP)",
+          "features": ["450 kW (603 hp) dual-motor all-wheel drive", "710 Nm", "0–100 km/h in 4.2 s (claimed)", "Top speed 250 km/h", "20-inch wheels"]
+        }
+      ],
+      "sources": [
+        "https://www.lotuscars.com/en-IN/emeya",
+        "https://www.lotuscars.com/en-IN/emeya/models",
+        "https://www.autocarindia.com/car-news/lotus-emeya-launched-at-rs-234-crore-434170",
+        "https://www.motownindia.com/Bureau/Auto-Pit-Cars/2533/Lotus-Cars-expands-footprint-in-India-Introduces-2025-Emeya-updated-Emira-Motown-India-Bureau",
+        "https://www.autocarindia.com/cars/lotus/emeya/specifications",
+        "https://www.cardekho.com/lotus/emeya",
+        "https://www.carwale.com/lotus-cars/emeya/"
+      ],
+      "notes": "Price not published by the brand; from Motown India's launch report (Rs 2,33,51,065 ex-showroom India) and CarDekho (Rs 2.34 crore New Delhi, Nov 2026). Only the base Emeya has a published Indian price. The Emeya S and R (900 series) were shown at launch but have no Indian price, so they are left out. Autocar India's listing card shows 'from Rs 2.95 crore' with no variant breakdown; check. CarWale/CarDekho call this variant 'Emeya GT'. No Euro NCAP result found. Width 2241 mm includes mirrors (2005 mm per Autocar India launch report). Specs from Autocar India."
+    },
+    {
+      "slug": "lotus-emira",
+      "name": "Emira",
+      "bodyType": "Coupe",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2025-01-16",
+      "engine": "1991 cc turbo petrol (4-cylinder)",
+      "power": "365 hp",
+      "torque": "430 Nm",
+      "seats": [2],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 151,
+      "groundClearanceMm": 140,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": { "length": 4412, "width": 1895, "height": 1225, "wheelbase": 2575 },
+      "ev": null,
+      "colors": [
+        { "name": "Vivid Red", "hex": "#C8102E" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Cruise control", "Physical controls for climate and drive modes", "Optional 12-way adjustable sports seats"] },
+        { "group": "Infotainment", "items": ["10.25-inch touchscreen", "Apple CarPlay and Android Auto", "12.3-inch digital driver's display", "KEF 10-channel sound system"] },
+        { "group": "Safety", "items": ["ADAS", "Electronic stability control", "Traction control"] },
+        { "group": "Exterior", "items": ["20-inch alloy wheels", "Goodyear Eagle F1 SuperSport tyres", "LED headlamps and daytime running lights"] },
+        { "group": "Performance", "items": ["Mid-mounted, transversely installed engine", "Rear-wheel drive", "Double-wishbone suspension front and rear", "Touring suspension"] }
+      ],
+      "highlights": [
+        "The only combustion-engined Lotus sold in India",
+        "2.0-litre turbo four-cylinder sourced from Mercedes-AMG",
+        "8-speed dual-clutch gearbox driving the rear wheels",
+        "Mid-engined two-seater",
+        "Launched in India in January 2025"
+      ],
+      "variants": [
+        {
+          "name": "Turbo",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 32231748,
+          "efficiency": null,
+          "features": ["365 hp / 430 Nm 2.0-litre turbo four-cylinder", "Rear-wheel drive", "Touring suspension", "20-inch alloy wheels", "Standard paint Vivid Red"]
+        }
+      ],
+      "sources": [
+        "https://www.lotuscars.com/en-IN/emira",
+        "https://www.autocarindia.com/car-news/lotus-emira-launched-prices-start-at-rs-322-crore-434198",
+        "https://www.motownindia.com/Bureau/Auto-Pit-Cars/2533/Lotus-Cars-expands-footprint-in-India-Introduces-2025-Emeya-updated-Emira-Motown-India-Bureau",
+        "https://www.autocarindia.com/cars/lotus/emira/turbo/specifications",
+        "https://www.cardekho.com/lotus/emira",
+        "https://www.carwale.com/lotus-cars/emira/"
+      ],
+      "notes": "Price not published by the brand; from Motown India's launch report (Rs 3,22,31,748 ex-showroom India) and Autocar India (base Turbo Rs 3.22 crore); CarDekho also lists Rs 3.22 crore New Delhi (Nov 2026). CarWale lists the Emira Turbo at Rs 3.05 crore (Nov 2026); check. lotuscars.com/en-IN also lists the Turbo SE, V6 SE and 420 Sport, but none has a published Indian price, so they are left out. 0–100 km/h and top speed for the Turbo were not found in Indian or official sources, so they are null. Sources disagree on fuel tank size, so it is null."
+    }
+  ]
+}

@@ -1,0 +1,428 @@
+{
+  "brand": {
+    "slug": "maserati",
+    "name": "Maserati",
+    "country": "Italy",
+    "founded": 1914,
+    "tagline": "Italian luxury and performance carmaker, part of Stellantis",
+    "description": "Italian luxury carmaker founded in Bologna in 1914 and now part of Stellantis. Maserati returned to India in 2015; cars are imported fully built and sold through Maserati North India (AMP Supercars, New Delhi), VST Maserati (Bengaluru) and, since June 2026, Navnit Maserati for Western and Central India.",
+    "isLuxury": true,
+    "website": "https://www.maserati.com/in/en"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "maserati-grecale",
+      "name": "Grecale",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2026-10-30",
+      "engine": "2.0-litre turbo petrol mild hybrid / 3.0-litre twin-turbo V6 / electric motors (Folgore)",
+      "power": "300 – 550 hp",
+      "torque": "450 – 820 Nm",
+      "seats": [5],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 535,
+      "groundClearanceMm": null,
+      "fuelTankL": 64,
+      "topSpeedKmh": 285,
+      "acceleration": "0–100 km/h in 3.8 – 5.6 s",
+      "dimensions": { "length": 4876, "width": 2163, "height": 1660, "wheelbase": 2901 },
+      "ev": {
+        "rangeKm": 580,
+        "rangeStandard": null,
+        "batteryKwh": 105,
+        "dcCharge": "Up to 150 kW DC",
+        "acCharge": "Up to 22 kW AC",
+        "motorKw": null
+      },
+      "colors": [
+        { "name": "Bianco", "hex": "#F4F4F2" },
+        { "name": "Bianco Astro", "hex": "#ECEBE7" },
+        { "name": "Blu Intenso", "hex": "#1D2F5E" },
+        { "name": "Devil Orange", "hex": "#E0561B" },
+        { "name": "Giallo Modenese", "hex": "#F2C230" },
+        { "name": "Grigio Lava", "hex": "#55585C" },
+        { "name": "Nero Tempesta", "hex": "#121314" },
+        { "name": "Night Interaction", "hex": "#1B2130" },
+        { "name": "Verde Royale", "hex": "#1F4A3A" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Three-zone climate control (not on GT)", "Heated front seats (not on GT)"] },
+        { "group": "Infotainment", "items": ["12.3-inch central touchscreen", "8.8-inch lower climate screen", "Wireless Apple CarPlay and Android Auto", "Maserati Intelligent Assistant", "14-speaker Sonus faber audio (not on GT)"] },
+        { "group": "Safety", "items": ["Front, side and curtain airbags", "Electronic stability control", "Isofix child-seat mounts", "Parking sensors", "Autonomous emergency braking with pedestrian detection", "Lane management and blind-spot monitoring", "Traffic-sign recognition (not on Folgore)"] },
+        { "group": "Interior", "items": ["Octagonal steering wheel with aluminium paddle shifters", "Ambient lighting (not on GT)"] },
+        { "group": "Performance", "items": ["8-speed automatic on petrol versions", "Nettuno 3.0-litre twin-turbo V6 on Modena V6 and Trofeo"] }
+      ],
+      "highlights": [
+        "Facelift launched in India on 30 October 2026",
+        "Four petrol versions and one electric version (Folgore)",
+        "Modena V6 is new with the facelift: 390 hp, 500 Nm",
+        "Grecale Folgore: 105 kWh battery and claimed range up to 580 km",
+        "Boot of 535 litres (GT, Modena, Folgore) or 570 litres (Modena V6, Trofeo)"
+      ],
+      "variants": [
+        {
+          "name": "GT",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 11400000,
+          "efficiency": null,
+          "features": ["2.0-litre turbo mild hybrid, 300 hp / 450 Nm", "0–100 km/h in 5.6 s, top speed 240 km/h (claimed)", "Frequency-selective dampers", "20-inch forged wheels", "Full-LED headlamps", "Chrome exhaust tips", "Maglia Milano trim", "535-litre boot"]
+        },
+        {
+          "name": "Modena",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 12900000,
+          "efficiency": null,
+          "features": ["2.0-litre turbo mild hybrid, 330 hp / 450 Nm", "0–100 km/h in 5.3 s, top speed 240 km/h (claimed)", "Adaptive Skyhook suspension", "Limited-slip differential", "Gloss-black 20-inch forged wheels", "Black exhaust tips", "14-speaker Sonus faber audio", "Three-zone climate control", "Heated front seats", "Ambient lighting"]
+        },
+        {
+          "name": "Modena V6",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 13900000,
+          "efficiency": null,
+          "features": ["3.0-litre Nettuno twin-turbo V6, 390 hp / 500 Nm", "0–100 km/h in 4.9 s, top speed 260 km/h (claimed)", "Adaptive Skyhook suspension", "Limited-slip differential", "Yellow brake calipers and yellow stitching", "Alcantara steering wheel", "14-way power front seats", "570-litre boot"]
+        },
+        {
+          "name": "Trofeo",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 20000000,
+          "efficiency": null,
+          "features": ["3.0-litre Nettuno twin-turbo V6, 530 hp / 620 Nm", "0–100 km/h in 3.8 s, top speed 285 km/h (claimed)", "Height-adjustable Skyhook air suspension", "Electronic limited-slip differential", "GT, Off-Road, Sport and Corsa drive modes", "Brembo brakes", "Matrix LED headlamps", "21-inch alloy wheels", "Panoramic sunroof", "570-litre boot"]
+        },
+        {
+          "name": "Folgore",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 19000000,
+          "efficiency": "580 km (claimed)",
+          "features": ["105 kWh battery, 550 hp / 820 Nm", "0–100 km/h in 4.1 s, top speed 220 km/h (claimed)", "All-wheel drive with energy-saving disconnect", "Height-adjustable Skyhook air suspension", "20-inch Nembo alloy wheels", "Copper brake calipers", "Illuminated black side vents", "22 kW AC and 150 kW DC charging", "No traffic-sign recognition or intersection collision assist"]
+        }
+      ],
+      "sources": [
+        "https://www.autocarindia.com/car-news/maserati-grecale-facelift-launched-at-rs-114-crore-441170",
+        "https://www.autocarpro.in/news/maserati-granturismo-grancabrio-and-grecale-facelifts-launched-in-india-135579",
+        "https://www.autocarindia.com/cars/maserati/grecale/price-in-delhi",
+        "https://www.autocarindia.com/cars/maserati/grecale-folgore/price-in-delhi",
+        "https://www.autocarindia.com/cars/maserati/grecale/specifications",
+        "https://www.autocarindia.com/cars/maserati/grecale-folgore/specifications",
+        "https://www.autocarindia.com/cars/maserati/grecale/colours"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (launch report, 30 Oct 2026, and Delhi ex-showroom price pages, Nov 2026). launchedOn is the facelift's India launch. Autocar India's price page calls the trims 'GT' and 'Trofeo V6'; launch coverage says 'Grecale' and 'Trofeo'. The 2.0-litre mild-hybrid versions are listed as Petrol. Autocar India lists the Grecale Folgore as a separate model; it is treated here as a variant. The Folgore's range standard and motor kW were not published, so both are null. The claimed 10.9–11.4 km/l combined is not an ARAI figure, so efficiency is null. Dimensions are Autocar India's figures (Trofeo); width includes mirrors."
+    },
+    {
+      "slug": "maserati-granturismo",
+      "name": "GranTurismo",
+      "bodyType": "Coupe",
+      "bodyStyle": "Grand tourer",
+      "isLuxury": true,
+      "launchedOn": "2026-10-30",
+      "engine": "2992 cc twin-turbo V6 petrol / three electric motors (Folgore)",
+      "power": "490 – 761 hp",
+      "torque": "600 – 1340 Nm",
+      "seats": [4],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 70,
+      "topSpeedKmh": 325,
+      "acceleration": "0–100 km/h in 2.5 – 3.9 s",
+      "dimensions": { "length": 4976, "width": 2113, "height": 1358, "wheelbase": 2929 },
+      "ev": {
+        "rangeKm": 540,
+        "rangeStandard": "WLTP",
+        "batteryKwh": 92.5,
+        "dcCharge": "18 min (20–80%, 270 kW)",
+        "acCharge": "Up to 22 kW AC",
+        "motorKw": null
+      },
+      "colors": [
+        { "name": "Bianco Astro", "hex": "#ECEBE7" },
+        { "name": "Blu Emozione", "hex": "#1F3E7A" },
+        { "name": "Blu Modena", "hex": "#2B4C8C" },
+        { "name": "Devil Orange", "hex": "#E0561B" },
+        { "name": "Giallo Modenese", "hex": "#F2C230" },
+        { "name": "Grigio Maratea", "hex": "#6E7378" },
+        { "name": "Nero Assoluto", "hex": "#0B0B0B" },
+        { "name": "Night Interaction", "hex": "#1B2130" },
+        { "name": "Verde Giada", "hex": "#2F6B5A" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Air suspension on all versions"] },
+        { "group": "Infotainment", "items": ["12.3-inch central touchscreen", "8.8-inch climate display", "12.2-inch instrument cluster", "Head-up display"] },
+        { "group": "Safety", "items": ["Driver distraction and fatigue monitoring"] },
+        { "group": "Interior", "items": ["Racing-style steering wheel with parking-function paddles", "Metal-finish drive selector controls"] },
+        { "group": "Exterior", "items": ["Clear-lens rear lights", "Officine Fuoriserie personalisation colours"] },
+        { "group": "Performance", "items": ["8-speed automatic on V6 versions", "Country drive mode on Folgore raises ride height up to 120 km/h"] }
+      ],
+      "highlights": [
+        "Second-generation GranTurismo, facelifted and launched in India in October 2026",
+        "Nettuno 3.0-litre twin-turbo V6 in Modena (490 hp) and Trofeo (590 hp)",
+        "Folgore: 92.5 kWh battery, three motors, 761 hp and 1,340 Nm",
+        "Folgore claimed WLTP range of 540 km",
+        "Air suspension on all versions"
+      ],
+      "variants": [
+        {
+          "name": "Modena",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 26200000,
+          "efficiency": null,
+          "features": ["3.0-litre twin-turbo V6, 490 hp / 600 Nm", "0–100 km/h in 3.9 s (claimed)", "Top speed 302 km/h (claimed)"]
+        },
+        {
+          "name": "Trofeo",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 28000000,
+          "efficiency": null,
+          "features": ["3.0-litre twin-turbo V6, 590 hp / 650 Nm", "0–100 km/h in 3.5 s (claimed)", "Top speed 320 km/h (claimed)"]
+        },
+        {
+          "name": "Folgore",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 31400000,
+          "efficiency": "540 km (WLTP)",
+          "features": ["Three electric motors, 761 hp / 1,340 Nm", "92.5 kWh battery", "0–100 km/h in 2.5 s (claimed)", "Top speed 325 km/h (claimed)", "Country drive mode", "20–80% DC charge in 18 min at 270 kW"]
+        }
+      ],
+      "sources": [
+        "https://www.autocarpro.in/news/maserati-granturismo-grancabrio-and-grecale-facelifts-launched-in-india-135579",
+        "https://www.autocarindia.com/car-news/maserati-granturismo-grancabrio-and-grecale-facelifts-revealed-439994",
+        "https://www.autocarindia.com/cars/maserati/granturismo/price-in-delhi",
+        "https://www.autocarindia.com/cars/maserati/granturismo-folgore/price-in-delhi",
+        "https://www.autocarindia.com/cars/maserati/granturismo/specifications",
+        "https://www.autocarindia.com/cars/maserati/granturismo/colours"
+      ],
+      "notes": "Price not published by the brand; from Autocar India Delhi ex-showroom price pages (Nov 2026) and AutocarPro's launch report (30 Oct 2026). Prices are pre-FTA; the India–EU FTA is expected in 2027. Autocar India calls the 490 hp version 'Modena'; AutocarPro calls it '490'. Autocar India lists the GranTurismo Folgore as a separate model; it is treated here as a variant. Folgore motor kW not published, so null. Boot not given in Indian sources, so null. Dimensions are Autocar India's figures; width includes mirrors."
+    },
+    {
+      "slug": "maserati-grancabrio",
+      "name": "GranCabrio",
+      "bodyType": "Coupe",
+      "bodyStyle": "Convertible",
+      "isLuxury": true,
+      "launchedOn": "2026-10-30",
+      "engine": "2992 cc twin-turbo V6 petrol / three electric motors (Folgore)",
+      "power": "490 – 761 hp",
+      "torque": "600 – 1340 Nm",
+      "seats": [4],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 70,
+      "topSpeedKmh": 316,
+      "acceleration": "0–100 km/h in 2.8 – 4.0 s",
+      "dimensions": { "length": 4976, "width": 2113, "height": 1363, "wheelbase": 2929 },
+      "ev": {
+        "rangeKm": 540,
+        "rangeStandard": "WLTP",
+        "batteryKwh": 92.5,
+        "dcCharge": "18 min (20–80%, 270 kW)",
+        "acCharge": "Up to 22 kW AC",
+        "motorKw": null
+      },
+      "colors": [
+        { "name": "Bianco Astro", "hex": "#ECEBE7" },
+        { "name": "Blu Emozione", "hex": "#1F3E7A" },
+        { "name": "Devil Orange", "hex": "#E0561B" },
+        { "name": "Giallo Modenese", "hex": "#F2C230" },
+        { "name": "Grigio Maratea", "hex": "#6E7378" },
+        { "name": "Nero Assoluto", "hex": "#0B0B0B" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Fabric roof: opens in 14 s, closes in 16 s", "Air suspension on all versions"] },
+        { "group": "Infotainment", "items": ["12.3-inch central touchscreen", "8.8-inch climate display", "12.2-inch instrument cluster", "Head-up display"] },
+        { "group": "Safety", "items": ["Driver distraction and fatigue monitoring"] },
+        { "group": "Interior", "items": ["Racing-style steering wheel with parking-function paddles"] },
+        { "group": "Performance", "items": ["8-speed automatic on V6 versions", "Country drive mode on Folgore raises ride height up to 120 km/h"] }
+      ],
+      "highlights": [
+        "Four-seat convertible version of the GranTurismo, facelift launched in India in October 2026",
+        "Electrically operated fabric roof",
+        "Nettuno 3.0-litre twin-turbo V6 in Modena (490 hp) and Trofeo (590 hp)",
+        "Folgore: 92.5 kWh battery, three motors, 761 hp and 1,340 Nm",
+        "Air suspension on all versions"
+      ],
+      "variants": [
+        {
+          "name": "Modena",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 29100000,
+          "efficiency": null,
+          "features": ["3.0-litre twin-turbo V6, 490 hp / 600 Nm", "0–100 km/h in 4.0 s (claimed)", "Top speed 300 km/h (claimed)"]
+        },
+        {
+          "name": "Trofeo",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 31000000,
+          "efficiency": null,
+          "features": ["3.0-litre twin-turbo V6, 590 hp / 650 Nm", "0–100 km/h in 3.6 s (claimed)", "Top speed 316 km/h (claimed)"]
+        },
+        {
+          "name": "Folgore",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 33000000,
+          "efficiency": "540 km (WLTP)",
+          "features": ["Three electric motors, 761 hp / 1,340 Nm", "92.5 kWh battery", "0–100 km/h in 2.8 s (claimed)", "Top speed 290 km/h (claimed)", "Country drive mode"]
+        }
+      ],
+      "sources": [
+        "https://www.autocarpro.in/news/maserati-granturismo-grancabrio-and-grecale-facelifts-launched-in-india-135579",
+        "https://www.autocarindia.com/car-news/maserati-granturismo-grancabrio-and-grecale-facelifts-revealed-439994",
+        "https://www.autocarindia.com/cars/maserati/grancabrio/price-in-delhi",
+        "https://www.autocarindia.com/cars/maserati/grancabrio/specifications"
+      ],
+      "notes": "Price not published by the brand. Modena and Trofeo are from Autocar India's Delhi ex-showroom price page (Nov 2026). The Folgore's Rs 3.30 crore is from AutocarPro's launch report (30 Oct 2026). Prices are pre-FTA. Launch coverage quotes the 540 km WLTP range for the Folgore versions generally; confirm the GranCabrio Folgore figure. Coverage gives the boot as 151–172 L without clearly separating roof up and roof down, so boot is null. Colours are a representative set shared with the GranTurismo; confirm with dealer. Folgore motor kW not published. Width includes mirrors."
+    },
+    {
+      "slug": "maserati-mcpura",
+      "name": "MCPura",
+      "bodyType": "Coupe",
+      "bodyStyle": "Coupe / Cielo (retractable glass roof)",
+      "isLuxury": true,
+      "launchedOn": "2025-10-04",
+      "engine": "3000 cc twin-turbo V6 petrol (Nettuno)",
+      "power": "630 hp",
+      "torque": "720 Nm",
+      "seats": [2],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 150,
+      "groundClearanceMm": null,
+      "fuelTankL": 60,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 2.9 s",
+      "dimensions": { "length": 4667, "width": 1965, "height": 1214, "wheelbase": 2700 },
+      "ev": null,
+      "colors": [
+        { "name": "AI Aqua Rainbow", "hex": "#4FA9B8" },
+        { "name": "Bianco Audace Matte", "hex": "#E9E8E4" },
+        { "name": "Blu Infinito", "hex": "#1C2D5A" },
+        { "name": "Giallo Genio", "hex": "#F2C12E" },
+        { "name": "Nero Essenza", "hex": "#0E0E0E" },
+        { "name": "Devil Orange", "hex": "#E0561B" },
+        { "name": "Grigio Incognito", "hex": "#4D5156" },
+        { "name": "Grigio Mistero", "hex": "#6B6E72" },
+        { "name": "Night Interaction", "hex": "#1B2130" },
+        { "name": "Rosso Vincente", "hex": "#A3161C" },
+        { "name": "Verde Royale", "hex": "#1F4A3A" }
+      ],
+      "features": [
+        { "group": "Interior", "items": ["Alcantara seats with laser-etched 3D-look pattern", "Revised steering wheel"] },
+        { "group": "Exterior", "items": ["Butterfly doors", "Gloss-black accents and MCPura badging", "Aero changes developed with Dallara"] },
+        { "group": "Performance", "items": ["Carbon-fibre monocoque chassis", "8-speed dual-clutch gearbox", "Rear-wheel drive", "Mid-mounted engine"] }
+      ],
+      "highlights": [
+        "Facelifted successor to the MC20, launched in India in October 2025",
+        "3.0-litre Nettuno twin-turbo V6 with 630 hp and 720 Nm",
+        "Claimed 0–100 km/h in 2.9 s for both Coupe and Cielo",
+        "Carbon-fibre monocoque with butterfly doors",
+        "Cielo roof opens or closes in 12 s at up to 50 km/h"
+      ],
+      "variants": [
+        {
+          "name": "Coupe",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 43500000,
+          "efficiency": null,
+          "features": ["Fixed roof", "Matte finish for AI Aqua Rainbow paint", "Gloss interior trim"]
+        },
+        {
+          "name": "Cielo",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 52000000,
+          "efficiency": null,
+          "features": ["Retractable glass roof, 12 s operation up to 50 km/h", "Gloss finish for AI Aqua Rainbow paint", "Matte interior trim"]
+        }
+      ],
+      "sources": [
+        "https://www.autocarindia.com/car-news/2027-maserati-mcpura-priced-at-rs-435-crore-441177",
+        "https://www.autocarindia.com/car-news/maserati-mcpura-launched-at-rs-412-crore-437583",
+        "https://www.autocarindia.com/cars/maserati/mcpura/price-in-delhi",
+        "https://www.autocarindia.com/cars/maserati/mcpura/specifications",
+        "https://www.autocarindia.com/cars/maserati/mcpura/colours"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (2027 model-year prices reported 30 Oct 2026, matching the Delhi ex-showroom price page, Nov 2026). Prices are before options. Launch prices in Oct 2025 were Rs 4.12 / 5.12 crore. Autocar India expects prices to fall once the India–EU FTA takes effect in 2027. Maserati claims a top speed of 'over 320 km/h', so topSpeedKmh is null. Coupe kerb weight 1,500 kg per Autocar India's launch report. Dimensions, boot and fuel tank are Autocar India's figures."
+    },
+    {
+      "slug": "maserati-gt2-stradale",
+      "name": "GT2 Stradale",
+      "bodyType": "Coupe",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2026-10-30",
+      "engine": "3.0-litre twin-turbo V6 petrol (Nettuno)",
+      "power": "640 hp",
+      "torque": "720 Nm",
+      "seats": [2],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 100,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 324,
+      "acceleration": "0–100 km/h in 2.8 s",
+      "dimensions": null,
+      "ev": null,
+      "colors": [],
+      "features": [
+        { "group": "Exterior", "items": ["GT2 race-car aero: front diffuser, bonnet and wheel-arch vents, enlarged rear intakes", "Three-position adjustable rear wing", "20-inch single-nut forged wheels", "Butterfly doors"] },
+        { "group": "Interior", "items": ["Alcantara upholstery", "Carbon-fibre racing seats", "Carbon-fibre steering wheel with shift lights", "10.25-inch digital instrument cluster"] },
+        { "group": "Performance", "items": ["Up to 500 kg of downforce at 280 km/h (high-drag wing setting)", "Front-axle lift raising the nose by 35 mm", "Wet, GT, Sport and Corsa drive modes plus Corsa Evo mode", "8-speed dual-clutch gearbox, rear-wheel drive", "Optional Performance Pack: semi-slick tyres, electronic LSD, carbon-ceramic brakes"] }
+      ],
+      "highlights": [
+        "Road version of the GT2 race car, launched in India on 30 October 2026",
+        "Production limited to 914 units worldwide",
+        "640 hp, 720 Nm 3.0-litre Nettuno twin-turbo V6",
+        "Claimed 0–100 km/h in 2.8 s and 324 km/h top speed",
+        "Claimed dry weight of 1,365 kg"
+      ],
+      "variants": [
+        {
+          "name": "GT2 Stradale",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 57200000,
+          "efficiency": null,
+          "features": ["640 hp / 720 Nm", "Adjustable rear wing", "Carbon-fibre racing seats", "Optional Performance Pack and Performance Pack Plus"]
+        }
+      ],
+      "sources": [
+        "https://www.autocarindia.com/car-news/maserati-gt2-stradale-launched-in-india-at-rs-572-crore-441179",
+        "https://www.autocarindia.com/cars/maserati"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (Rs 5.72 crore ex-showroom before options, 30 Oct 2026; pan-India figure). Timesdrive and Newsbytes quote Rs 5.71 crore. Limited to 914 units worldwide; the India allocation is not disclosed. Dimensions, fuel tank and colours are not given in Indian sources, so they are null or empty."
+    }
+  ]
+}

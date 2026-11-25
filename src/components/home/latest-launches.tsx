@@ -1,5 +1,6 @@
-import Image from "next/image";
 import { cardPhotoAlt } from "@/lib/image-alt";
+import { CarImage } from "@/components/vehicle/car-image";
+import { hasExpertScore } from "@/lib/specs";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { getCatalog } from "@/server/catalog";
@@ -10,8 +11,11 @@ import { Button } from "@/components/ui/button";
 
 export async function LatestLaunches() {
   const { latestLaunches, brandName } = await getCatalog();
-  const [lead, ...rest] = latestLaunches();
+  // The lead plus a short index — the catalogue dates every model's launch, so cap the list.
+  const [lead, ...more] = latestLaunches();
+  const rest = more.slice(0, 4);
   if (!lead) return null;
+  const reviewed = [lead, ...rest].every(hasExpertScore);
   const leadTitle = `${brandName(lead.brand)} ${lead.name}`;
   const [day, month, year] = formatDate(lead.launchedOn!).split(" ");
 
@@ -22,7 +26,15 @@ export async function LatestLaunches() {
           <div>
             <Eyebrow>Latest launches</Eyebrow>
             <h2 id="launches-title" className="type-h2 mt-5 max-w-2xl text-balance">
-              Fresh off the stage, <span className="type-editorial">already</span> reviewed.
+              {reviewed ? (
+                <>
+                  Fresh off the stage, <span className="type-editorial">already</span> reviewed.
+                </>
+              ) : (
+                <>
+                  Fresh off the stage, <span className="type-editorial">in full</span> detail.
+                </>
+              )}
             </h2>
           </div>
           <TextLink href="/new-cars?sort=latest">All recent launches</TextLink>
@@ -33,13 +45,13 @@ export async function LatestLaunches() {
           <Reveal className="lg:col-span-8">
             <article className="group/lead relative">
               <Link href={`/cars/${lead.slug}`} className="relative block aspect-[16/10] overflow-hidden bg-ink">
-                <Image
-                  src={lead.images[0]}
-                  alt={cardPhotoAlt(lead.images[0], leadTitle)}
-                  fill
+                <CarImage
+                  car={lead}
+                  alt={lead.images[0] ? cardPhotoAlt(lead.images[0], leadTitle) : ""}
                   sizes="(min-width: 1024px) 60vw, 100vw"
                   className="object-cover transition-transform duration-[1200ms] ease-[var(--ease-premium)] group-hover/lead:scale-[1.03]"
                   style={{ objectPosition: lead.focus ?? "50% 60%" }}
+                  placeholderClassName="pt-16 md:pt-10"
                 />
                 <div className="absolute left-0 top-0 bg-white px-5 py-4 text-ink md:px-7 md:py-5">
                   <p className="type-eyebrow text-red">Launched</p>
@@ -57,7 +69,9 @@ export async function LatestLaunches() {
                       {lead.name}
                     </Link>
                   </h3>
-                  <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted">{lead.overview.split(". ").slice(0, 2).join(". ")}.</p>
+                  <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted">
+                    {lead.overview.trim() ? `${lead.overview.split(". ").slice(0, 2).join(". ").replace(/\.$/, "")}.` : lead.tagline}
+                  </p>
                 </div>
                 <div className="flex flex-col">
                   <ul className="space-y-3 border-t border-line pt-5">
@@ -70,7 +84,7 @@ export async function LatestLaunches() {
                   </ul>
                   <div className="mt-6 flex items-end justify-between gap-4 border-t border-line pt-5">
                     <div>
-                      <p className="text-[12px] text-muted">Starting price · indicative</p>
+                      <p className="text-[12px] text-muted">{lead.priceCity ? `Ex-showroom ${lead.priceCity}` : "Starting price · indicative"}</p>
                       <p className="mt-1 text-xl font-semibold num">{formatPriceRange(lead.priceMin, lead.priceMax)}</p>
                     </div>
                     <Button href={`/cars/${lead.slug}`} variant="dark" size="sm" arrow>
@@ -91,13 +105,7 @@ export async function LatestLaunches() {
                   <Reveal delay={0.08 * i}>
                     <Link href={`/cars/${car.slug}`} className="group/row grid grid-cols-[96px_1fr] gap-5 py-6">
                       <span className="relative aspect-square overflow-hidden bg-mist">
-                        <Image
-                          src={car.images[0]}
-                          alt=""
-                          fill
-                          sizes="96px"
-                          className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/row:scale-110"
-                        />
+                        <CarImage car={car} alt="" sizes="96px" className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/row:scale-110" />
                       </span>
                       <span className="flex min-w-0 flex-col">
                         <span className="text-[12px] text-muted num">{formatDate(car.launchedOn!)}</span>
@@ -108,7 +116,7 @@ export async function LatestLaunches() {
                           <ArrowUpRight className="mt-0.5 size-4 shrink-0 text-muted transition-transform duration-[250ms] group-hover/row:-translate-y-0.5 group-hover/row:translate-x-0.5 group-hover/row:text-red" aria-hidden />
                         </span>
                         <span className="mt-auto pt-2 text-[14px] font-semibold num">{formatPriceRange(car.priceMin, car.priceMax)}</span>
-                        <span className="mt-1 line-clamp-1 text-[12.5px] text-muted">{car.highlights[0]}</span>
+                        <span className="mt-1 line-clamp-1 text-[12.5px] text-muted">{car.highlights[0] ?? car.tagline}</span>
                       </span>
                     </Link>
                   </Reveal>

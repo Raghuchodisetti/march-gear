@@ -4,6 +4,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight, ArrowUpRight, BadgeCheck, CarFront, ClipboardCheck, IndianRupee, ShieldCheck, Star, Tag, Wind, Wrench, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import type { BodyType } from "@/types";
+import { CarPlaceholder } from "@/components/vehicle/car-image";
 import { formatDate } from "@/lib/format";
 import { Badge } from "@/components/portal/ui";
 import { daysBetween } from "@/components/portal/billing/shared";
@@ -26,7 +28,8 @@ import {
 
 /* Server-safe pieces of My garage: the car visual, number plate, cards, reminder lists and quick actions. */
 
-export type CarImage = { src: string; focus?: string } | null;
+/** The catalogue photo; `src: ""` with a body type = a catalogue model whose photos aren't uploaded yet. */
+export type CarImage = { src: string; focus?: string; bodyType?: BodyType } | null;
 
 export const REMINDER_ICON: Record<ReminderKind, LucideIcon> = { insurance: ShieldCheck, puc: Wind, service: Wrench, warranty: BadgeCheck };
 const ACTION_ICON: Record<QuickActionKey, LucideIcon> = { quotes: ShieldCheck, value: IndianRupee, sell: Tag, pdi: ClipboardCheck, reviews: Star };
@@ -44,7 +47,9 @@ const DOT: Record<string, string> = {
 export function CarVisual({ car, image, sizes, className, priority }: { car: Pick<GarageCar, "brandName" | "modelName">; image: CarImage; sizes: string; className?: string; priority?: boolean }) {
   return (
     <div className={cn("relative overflow-hidden bg-[#1b1b1b]", className)}>
-      {image ? (
+      {image && !image.src && image.bodyType ? (
+        <CarPlaceholder bodyType={image.bodyType} tone="dark" name={carTitle(car)} />
+      ) : image?.src ? (
         <Image src={image.src} alt={cardPhotoAlt(image.src, carTitle(car))} fill sizes={sizes} preload={priority} className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/card:scale-[1.03]" style={{ objectPosition: image.focus ?? "50% 55%" }} />
       ) : (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-white">

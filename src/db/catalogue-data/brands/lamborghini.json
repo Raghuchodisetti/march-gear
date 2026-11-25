@@ -1,0 +1,342 @@
+{
+  "brand": {
+    "slug": "lamborghini",
+    "name": "Lamborghini",
+    "country": "Italy",
+    "founded": 1963,
+    "tagline": "Italian super sports car maker from Sant'Agata Bolognese, part of the Audi / Volkswagen Group",
+    "description": "Automobili Lamborghini is an Italian maker of super sports cars and SUVs, founded in 1963 and based in Sant'Agata Bolognese; it is owned by Audi within the Volkswagen Group. In India it sells imported cars through dealerships in New Delhi, Mumbai and Bengaluru. The current Indian line-up is all plug-in hybrid: Urus SE, Temerario and Revuelto.",
+    "isLuxury": true,
+    "website": "https://www.lamborghini.com/en-en/dealerships/lamborghini-delhi"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "lamborghini-urus",
+      "name": "Urus",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2024-08-09",
+      "engine": "3996 cc twin-turbo V8 + electric motor (plug-in hybrid)",
+      "power": "800 CV combined (V8 620 CV + 141 kW e-motor)",
+      "torque": "950 Nm combined (V8 800 Nm, e-motor 483 Nm)",
+      "seats": [5],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 312,
+      "acceleration": "0–100 km/h in 3.4 s",
+      "dimensions": { "length": 5123, "width": 2022, "height": 1638, "wheelbase": 3003 },
+      "ev": null,
+      "colors": [
+        { "name": "Arancio Borealis", "hex": "#F26B1D" },
+        { "name": "Bianco Icarus", "hex": "#F2F2EE" },
+        { "name": "Bianco Monocerus", "hex": "#F7F7F4" },
+        { "name": "Blu Astraeus", "hex": "#1B2A5C" },
+        { "name": "Blu Eleos", "hex": "#1F3C88" },
+        { "name": "Giallo Auge", "hex": "#F5C400" },
+        { "name": "Giallo Inti", "hex": "#F2B200" },
+        { "name": "Grigio Keres", "hex": "#6E7378" },
+        { "name": "Grigio Nimbus", "hex": "#9A9C9E" },
+        { "name": "Marrone Alcestis", "hex": "#4A3426" },
+        { "name": "Nero Helene", "hex": "#1A1A1C" },
+        { "name": "Nero Noctis", "hex": "#0B0B0C" },
+        { "name": "Rosso Anteros", "hex": "#7A1015" },
+        { "name": "Rosso Mars", "hex": "#C8102E" },
+        { "name": "Verde Lares", "hex": "#2F4F3A" },
+        { "name": "Verde Mantis", "hex": "#7AC943" }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "4.0-litre twin-turbo V8 with 141 kW electric motor integrated in the gearbox",
+            "8-speed automatic gearbox with torque converter",
+            "25.9 kWh lithium-ion traction battery",
+            "Four-wheel drive with torque-vectoring electronic rear differential",
+            "Carbon-ceramic brakes (440 mm front, 410 mm rear discs)",
+            "EV Drive, Hybrid, Recharge and Performance hybrid modes in addition to road, track and off-road modes"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Air suspension with semi-active dampers and ride-height adjustment",
+            "Rear-wheel steering"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": ["12.3-inch central touchscreen"]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Matrix LED headlamps",
+            "21-inch wheels standard (285/45 ZR21 front, 315/40 ZR21 rear); 22- and 23-inch wheels available"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": ["Ad Personam personalisation programme"]
+        }
+      ],
+      "highlights": [
+        "Plug-in hybrid: 4.0-litre twin-turbo V8 plus electric motor, 800 CV combined",
+        "25.9 kWh battery with a claimed electric-only range of 60 km",
+        "0–100 km/h in 3.4 s and 312 km/h top speed (claimed)",
+        "8-speed automatic, all-wheel drive, air suspension and rear-wheel steering",
+        "Replaced the Urus S and Urus Performante in India in August 2024"
+      ],
+      "variants": [
+        {
+          "name": "Urus SE",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic (torque converter)",
+          "price": 45700000,
+          "efficiency": null,
+          "features": [
+            "800 CV plug-in hybrid V8 powertrain",
+            "25.9 kWh battery, 60 km claimed electric range",
+            "Air suspension with rear-wheel steering",
+            "Carbon-ceramic brakes",
+            "12.3-inch central touchscreen",
+            "21-inch wheels"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.lamborghini.com/en-en/models/urus/urus-se",
+        "https://www.autocarindia.com/cars/lamborghini/urus/price-in-delhi",
+        "https://www.autocarindia.com/car-news/lamborghini-urus-se-launched-in-india-at-rs-457-crore-432491",
+        "https://www.autocarindia.com/cars/lamborghini/urus/specifications",
+        "https://www.autocarindia.com/cars/lamborghini/urus/colours"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (Delhi ex-showroom, before options). The figure is the Aug 2024 launch price still listed in Nov 2026; no Lamborghini revision after the Sept 2025 GST change was found, so confirm with a dealer. Urus SE is the only Urus sold in India; the Urus SE Performante (revealed July 2026) has no India launch yet and is not included. Combined torque (950 Nm), 60 km EV range and 12.3-inch screen are from Autocar India's launch report; lamborghini.com lists V8 800 Nm and e-motor 483 Nm. Seat count (5) from Autocar India. Fuel tank and boot are not on lamborghini.com and publications disagree (85/75 L tank, 454/616 L boot), so left null. Colours are Lamborghini's standard palette as listed by Autocar India; Ad Personam colours cost extra. No ARAI figure."
+    },
+    {
+      "slug": "lamborghini-temerario",
+      "name": "Temerario",
+      "bodyType": "Coupe",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2025-04-30",
+      "engine": "3995 cc twin-turbo V8 + three electric motors (plug-in hybrid)",
+      "power": "920 CV combined (V8 800 CV + three 110 kW e-motors)",
+      "torque": "730 Nm (V8)",
+      "seats": [2],
+      "airbags": 4,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 343,
+      "acceleration": "0–100 km/h in 2.7 s",
+      "dimensions": { "length": 4706, "width": 1996, "height": 1201, "wheelbase": 2658 },
+      "ev": null,
+      "colors": [
+        { "name": "Arancio Borealis", "hex": "#F26B1D" },
+        { "name": "Bianco Icarus", "hex": "#F2F2EE" },
+        { "name": "Bianco Monocerus", "hex": "#F7F7F4" },
+        { "name": "Blu Astraeus", "hex": "#1B2A5C" },
+        { "name": "Blu Eleos", "hex": "#1F3C88" },
+        { "name": "Giallo Auge", "hex": "#F5C400" },
+        { "name": "Giallo Inti", "hex": "#F2B200" },
+        { "name": "Grigio Keres", "hex": "#6E7378" },
+        { "name": "Grigio Nimbus", "hex": "#9A9C9E" },
+        { "name": "Marrone Alcestis", "hex": "#4A3426" },
+        { "name": "Nero Helene", "hex": "#1A1A1C" },
+        { "name": "Nero Noctis", "hex": "#0B0B0C" },
+        { "name": "Rosso Anteros", "hex": "#7A1015" },
+        { "name": "Rosso Mars", "hex": "#C8102E" },
+        { "name": "Verde Lares", "hex": "#2F4F3A" },
+        { "name": "Verde Mantis", "hex": "#7AC943" }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "4.0-litre twin-turbo hot-V V8, 800 CV at 9000–9750 rpm",
+            "Three axial-flux e-motors: two on the front axle, one between engine and gearbox",
+            "8-speed dual-clutch gearbox",
+            "All-wheel drive with electric front axle",
+            "Lithium-ion high-specific-power battery (3.8 kWh)",
+            "CCB Plus carbon-ceramic brakes with 10-piston front calipers",
+            "Lamborghini Magneride (LMR) dampers, double-wishbone suspension",
+            "13 driving modes, including Città, Strada, Sport and Corsa"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "12.3-inch driver display",
+            "8.4-inch central touchscreen",
+            "9.1-inch passenger display"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Hexagonal LED daytime running lights",
+            "Exposed engine",
+            "20-inch front and 21-inch rear wheels with Bridgestone Potenza Sport tyres"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Driver, passenger and side airbags",
+            "ESC with ABS and traction control calibrated per driving mode"
+          ]
+        }
+      ],
+      "highlights": [
+        "Plug-in hybrid twin-turbo V8 with three e-motors, 920 CV combined",
+        "0–100 km/h in 2.7 s and 343 km/h top speed (claimed)",
+        "8-speed dual-clutch gearbox with all-wheel drive",
+        "Successor to the Huracán, whose last Indian delivery was in February 2026",
+        "India launch April 2025; customer deliveries began in June 2026"
+      ],
+      "variants": [
+        {
+          "name": "Temerario",
+          "fuel": "Hybrid",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 60000000,
+          "efficiency": null,
+          "features": [
+            "920 CV plug-in hybrid V8 powertrain",
+            "All-wheel drive with electric front axle",
+            "CCB Plus carbon-ceramic brakes",
+            "Magneride dampers",
+            "Driver, central and passenger displays",
+            "20/21-inch wheels"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.lamborghini.com/en-en/models/temerario-models/temerario",
+        "https://www.autocarindia.com/cars/lamborghini/temerario/price-in-delhi",
+        "https://www.autocarpro.in/news/lamborghini-temerario-launched-in-india-with-920-cv-hybrid-powertrain-starts-from-rs-6-crores-126184",
+        "https://www.autocarpro.in/news/lamborghini-india-commences-deliveries-for-temerario-hybrid-super-sports-car-132895",
+        "https://www.autocarpro.in/news/lamborghini-delivers-final-hurac%C3%A1n-to-indian-market-after-decade-long-run-131038",
+        "https://www.autocarindia.com/cars/lamborghini/temerario/colours"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (Delhi ex-showroom, before options). One version is priced in India; the Alleggerita package is an option and not separately priced. The Temerario Spyder has no India launch and is not included. lamborghini.com publishes V8 torque only (730 Nm), no combined figure. Airbag count (4) is Lamborghini's 'driver, passenger, side airbags'; knee airbags exist only for some markets. Battery size and screen sizes are from Autocar Pro's launch report. Fuel tank and luggage capacity are not on the official page, so left null. Colours are Lamborghini's standard palette as listed by Autocar India; Ad Personam colours cost extra. No ARAI figure."
+    },
+    {
+      "slug": "lamborghini-revuelto",
+      "name": "Revuelto",
+      "bodyType": "Coupe",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2023-12-06",
+      "engine": "6498.5 cc naturally aspirated V12 + three electric motors (plug-in hybrid)",
+      "power": "1015 CV combined (V12 825 CV + three e-motors)",
+      "torque": "725 Nm (V12)",
+      "seats": [2],
+      "airbags": 4,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 350,
+      "acceleration": "0–100 km/h in 2.5 s",
+      "dimensions": { "length": 4947, "width": 2038, "height": 1161, "wheelbase": 2779 },
+      "ev": null,
+      "colors": [
+        { "name": "Arancio Borealis", "hex": "#F26B1D" },
+        { "name": "Bianco Icarus", "hex": "#F2F2EE" },
+        { "name": "Bianco Monocerus", "hex": "#F7F7F4" },
+        { "name": "Blu Astraeus", "hex": "#1B2A5C" },
+        { "name": "Blu Eleos", "hex": "#1F3C88" },
+        { "name": "Giallo Auge", "hex": "#F5C400" },
+        { "name": "Giallo Inti", "hex": "#F2B200" },
+        { "name": "Grigio Keres", "hex": "#6E7378" },
+        { "name": "Grigio Nimbus", "hex": "#9A9C9E" },
+        { "name": "Marrone Alcestis", "hex": "#4A3426" },
+        { "name": "Nero Helene", "hex": "#1A1A1C" },
+        { "name": "Nero Noctis", "hex": "#0B0B0C" },
+        { "name": "Rosso Anteros", "hex": "#7A1015" },
+        { "name": "Rosso Mars", "hex": "#C8102E" },
+        { "name": "Verde Lares", "hex": "#2F4F3A" },
+        { "name": "Verde Mantis", "hex": "#7AC943" }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "6.5-litre naturally aspirated V12, 825 CV at 9250 rpm",
+            "Three e-motors: front electric axle (220 kW) and rear P2-P3 e-motor (110 kW)",
+            "Transversal 8-speed dual-clutch e-gearbox",
+            "All-wheel drive with front-axle torque vectoring",
+            "CCB Plus carbon-ceramic brakes with 10-piston front calipers",
+            "Lamborghini Magneride (LMR) dampers, double-wishbone suspension",
+            "13 driving experiences combining Città, Strada, Sport and Corsa with hybrid modes"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Carbon-fibre monofuselage with forged-composite front structure",
+            "Active rear wing with three positions",
+            "Y-shaped LED daytime running lights",
+            "20-inch front / 21-inch rear wheels standard; 21/22-inch optional",
+            "Bridgestone Potenza Sport run-flat tyres"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Three digital displays: driver cockpit, central touchscreen and passenger display"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Driver, passenger and side airbags",
+            "ESC with ABS and traction control calibrated per driving mode"
+          ]
+        }
+      ],
+      "highlights": [
+        "Plug-in hybrid V12 with three e-motors, 1015 CV combined",
+        "0–100 km/h in 2.5 s and top speed over 350 km/h (claimed)",
+        "Carbon-fibre monofuselage chassis",
+        "Transversally mounted 8-speed dual-clutch gearbox",
+        "Launched in India in December 2023"
+      ],
+      "variants": [
+        {
+          "name": "Revuelto",
+          "fuel": "Hybrid",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed transversal e-DCT",
+          "price": 88900000,
+          "efficiency": null,
+          "features": [
+            "1015 CV plug-in hybrid V12 powertrain",
+            "All-wheel drive with front electric axle",
+            "Active rear wing",
+            "CCB Plus carbon-ceramic brakes",
+            "Magneride dampers",
+            "Three digital displays"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.lamborghini.com/en-en/models/revuelto-models/revuelto",
+        "https://www.autocarindia.com/cars/lamborghini/revuelto/price-in-delhi",
+        "https://www.autocarindia.com/car-news/lamborghini-revuelto-launched-at-rs-889-crore-430016",
+        "https://www.autocarindia.com/cars/lamborghini/revuelto/colours"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (Delhi ex-showroom, before options), unchanged since the Dec 2023 launch. The Revuelto Roadster is listed as upcoming in India (estimated price only) and the Revuelto SV has no India launch, so neither is included. Top speed is published as '>350 km/h'. lamborghini.com publishes V12 torque only. Dimensions are from the official technical-specification table; the same page's structured data gives width 2033 mm and height 1160 mm. Airbag count (4) is Lamborghini's 'driver, passenger, side airbags'. Fuel tank and luggage capacity not published on the official page. Colours are Lamborghini's standard palette as listed by Autocar India; Ad Personam colours cost extra. No ARAI figure."
+    }
+  ]
+}

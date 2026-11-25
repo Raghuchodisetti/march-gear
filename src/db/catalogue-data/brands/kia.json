@@ -1,0 +1,4452 @@
+{
+  "brand": {
+    "slug": "kia",
+    "name": "Kia",
+    "country": "South Korea",
+    "founded": 1944,
+    "tagline": "Korean carmaker, in India since 2019",
+    "description": "South Korean carmaker and part of Hyundai Motor Group. Kia India began sales in 2019 and builds cars at its plant in Anantapur, Andhra Pradesh. Its range covers compact and mid-size SUVs, MPVs and electric vehicles.",
+    "isLuxury": false,
+    "website": "https://www.kia.com/in/home.html"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "kia-sonet",
+      "name": "Sonet",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2020-09-18",
+      "engine": "998 – 1493 cc",
+      "power": "61 – 88 kW",
+      "torque": "115 – 250 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 3,
+        "agency": "Global NCAP",
+        "year": 2022
+      },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3995,
+        "width": 1790,
+        "height": 1642,
+        "wheelbase": 2500
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Aurora Black Pearl",
+          "hex": "#111214"
+        },
+        {
+          "name": "Glacier White Pearl",
+          "hex": "#F3F3F1"
+        },
+        {
+          "name": "Glacier White Pearl + Aurora Black Pearl",
+          "hex": "#F3F3F1"
+        },
+        {
+          "name": "Gravity Grey",
+          "hex": "#5B5E61"
+        },
+        {
+          "name": "Imperial Blue",
+          "hex": "#1E2F5C"
+        },
+        {
+          "name": "Magma Red",
+          "hex": "#9E1B1E"
+        },
+        {
+          "name": "Matte Graphite",
+          "hex": "#3B3D3F"
+        },
+        {
+          "name": "Pewter Olive",
+          "hex": "#5E6150"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "ESC, HAC, BA and VSM",
+            "Highline TPMS",
+            "ISOFIX",
+            "ADAS Level 1 with 10 features (GTX+, X-Line)",
+            "360-degree camera with blind view monitor (GTX+, X-Line)",
+            "Dashcam (HTK+(O) and above)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "20.32 cm (8\") touchscreen with wireless Android Auto and Apple CarPlay",
+            "26.03 cm (10.25\") HD touchscreen navigation (GTX+, X-Line)",
+            "Full digital cluster with 26.04 cm (10.25\") colour LCD (GTX+, X-Line)",
+            "Bose premium 7-speaker system (GTX+, X-Line)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Electric sunroof",
+            "Front ventilated seats (HTX and above)",
+            "Fully automatic temperature control",
+            "Smartphone wireless charger",
+            "Smart Pure air purifier",
+            "4-way power driver seat (GTX+, X-Line)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Crown Jewel LED headlamps",
+            "Star Map LED DRLs and connected tail lamps",
+            "Ice Cube LED fog lamps",
+            "R16 crystal-cut alloy wheels"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Smartstream G1.2 petrol, 61 kW / 115 Nm, 5-speed MT",
+            "Smartstream G1.0 T-GDi petrol, 88 kW / 172 Nm, 6-speed iMT or 7-speed DCT",
+            "1.5 CRDi VGT diesel, 85 kW / 250 Nm, 6-speed MT or 6-speed AT"
+          ]
+        }
+      ],
+      "highlights": [
+        "Three engines: 1.2 petrol, 1.0 turbo-petrol and 1.5 diesel",
+        "Six airbags as standard",
+        "ADAS Level 1 with 10 features on GTX+ and X-Line",
+        "360-degree camera on top trims",
+        "Diesel automatic offered from the HTE(O) trim"
+      ],
+      "variants": [
+        {
+          "name": "HTE 1.2 Petrol 5MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 744900,
+          "efficiency": null,
+          "features": [
+            "6 Airbags",
+            "ESC, HAC, BA, VSM",
+            "ISOFIX child anchor",
+            "High line tyre pressure monitor",
+            "Advance 10.67 cm (4.2\") Color instrument cluster",
+            "Electric adjust outside mirror",
+            "Tilt Steering",
+            "Halogen Headlamps",
+            "Rear AC Vent",
+            "Semi Leatherette Seats with All Black Interiors"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.2 Petrol 5MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 787900,
+          "efficiency": null,
+          "features": [
+            "Electric Sunroof",
+            "Star Map LED DRLs",
+            "Rear Door power windows",
+            "Rear Door Sunshade curtain",
+            "R16 Styled Steel wheel (D1.5 6AT)",
+            "Rear AC Vents"
+          ]
+        },
+        {
+          "name": "HTK(O) 1.2 Petrol 5MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 888900,
+          "efficiency": null,
+          "features": [
+            "Star Map LED DRL",
+            "Star Map Rear Connected Lights",
+            "Auto Headlamps",
+            "Fully Automatic Temperature Control",
+            "20.32 cm (8.0”) Touchscreen with Wireless Android Auto & Apple CarPlay",
+            "R16 Styled Steel wheel",
+            "Rear Wiper & Washer",
+            "Front & Rear speakers, 2 Tweeters",
+            "Steering Mounted Audio Control",
+            "Silver Roof Rack"
+          ]
+        },
+        {
+          "name": "HTK+ 1.2 Petrol 5MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 927900,
+          "efficiency": null,
+          "features": [
+            "Smartphone Wireless Charger",
+            "Smart key with push button start",
+            "Remote engine start on smart key - D1.5 only",
+            "Semi Leatherette 60:40 Split Seats",
+            "D-Cut Steering Wheel",
+            "R16 Diamond Cut Alloy Wheel"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 928900,
+          "efficiency": null,
+          "features": [
+            "Electric Sunroof",
+            "Star Map LED DRLs",
+            "Rear Door power windows",
+            "Rear Door Sunshade curtain",
+            "R16 Styled Steel wheel (D1.5 6AT)",
+            "Rear AC Vents"
+          ]
+        },
+        {
+          "name": "HTK(O) 1.0 Turbo GDi iMT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed iMT",
+          "price": 933900,
+          "efficiency": null,
+          "features": [
+            "Star Map LED DRL",
+            "Star Map Rear Connected Lights",
+            "Auto Headlamps",
+            "Fully Automatic Temperature Control",
+            "20.32 cm (8.0”) Touchscreen with Wireless Android Auto & Apple CarPlay",
+            "R16 Styled Steel wheel",
+            "Rear Wiper & Washer",
+            "Front & Rear speakers, 2 Tweeters",
+            "Steering Mounted Audio Control",
+            "Silver Roof Rack"
+          ]
+        },
+        {
+          "name": "HTK+(O) 1.2 Petrol 5MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 975900,
+          "efficiency": null,
+          "features": [
+            "Electric Sunroof - G1.0T, D1.5 6AT",
+            "Ice Cube LED Fog Lamps",
+            "Leatherette Seats with Indigo Pera Interiors",
+            "Rear Center Armrest with Cup holder",
+            "Driver Seat back pocket",
+            "Dash Cam",
+            "Crown Jewel LED headlamps",
+            "Leatherette wrapped D-cut steering wheel",
+            "Driver one touch Auto up/down with anti pinch function"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 999900,
+          "efficiency": null,
+          "features": [
+            "Electric Sunroof",
+            "Star Map LED DRLs",
+            "Rear Door power windows",
+            "Rear Door Sunshade curtain",
+            "R16 Styled Steel wheel (D1.5 6AT)",
+            "Rear AC Vents"
+          ]
+        },
+        {
+          "name": "HTK(O) 1.0 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 999900,
+          "efficiency": null,
+          "features": [
+            "Star Map LED DRL",
+            "Star Map Rear Connected Lights",
+            "Auto Headlamps",
+            "Fully Automatic Temperature Control",
+            "20.32 cm (8.0”) Touchscreen with Wireless Android Auto & Apple CarPlay",
+            "R16 Styled Steel wheel",
+            "Rear Wiper & Washer",
+            "Front & Rear speakers, 2 Tweeters",
+            "Steering Mounted Audio Control",
+            "Silver Roof Rack"
+          ]
+        },
+        {
+          "name": "HTK(O) 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 999900,
+          "efficiency": null,
+          "features": [
+            "Star Map LED DRL",
+            "Star Map Rear Connected Lights",
+            "Auto Headlamps",
+            "Fully Automatic Temperature Control",
+            "20.32 cm (8.0”) Touchscreen with Wireless Android Auto & Apple CarPlay",
+            "R16 Styled Steel wheel",
+            "Rear Wiper & Washer",
+            "Front & Rear speakers, 2 Tweeters",
+            "Steering Mounted Audio Control",
+            "Silver Roof Rack"
+          ]
+        },
+        {
+          "name": "HTK+(O) 1.0 Turbo GDi iMT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed iMT",
+          "price": 1028900,
+          "efficiency": null,
+          "features": [
+            "Electric Sunroof - G1.0T, D1.5 6AT",
+            "Ice Cube LED Fog Lamps",
+            "Leatherette Seats with Indigo Pera Interiors",
+            "Rear Center Armrest with Cup holder",
+            "Driver Seat back pocket",
+            "Dash Cam",
+            "Crown Jewel LED headlamps",
+            "Leatherette wrapped D-cut steering wheel",
+            "Driver one touch Auto up/down with anti pinch function"
+          ]
+        },
+        {
+          "name": "HTK+ 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1064900,
+          "efficiency": null,
+          "features": [
+            "Smartphone Wireless Charger",
+            "Smart key with push button start",
+            "Remote engine start on smart key - D1.5 only",
+            "Semi Leatherette 60:40 Split Seats",
+            "D-Cut Steering Wheel",
+            "R16 Diamond Cut Alloy Wheel"
+          ]
+        },
+        {
+          "name": "HTK(O) 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1108900,
+          "efficiency": null,
+          "features": [
+            "Star Map LED DRL",
+            "Star Map Rear Connected Lights",
+            "Auto Headlamps",
+            "Fully Automatic Temperature Control",
+            "20.32 cm (8.0”) Touchscreen with Wireless Android Auto & Apple CarPlay",
+            "R16 Styled Steel wheel",
+            "Rear Wiper & Washer",
+            "Front & Rear speakers, 2 Tweeters",
+            "Steering Mounted Audio Control",
+            "Silver Roof Rack"
+          ]
+        },
+        {
+          "name": "HTK+(O) 1.0 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1108900,
+          "efficiency": null,
+          "features": [
+            "Electric Sunroof - G1.0T, D1.5 6AT",
+            "Ice Cube LED Fog Lamps",
+            "Leatherette Seats with Indigo Pera Interiors",
+            "Rear Center Armrest with Cup holder",
+            "Driver Seat back pocket",
+            "Dash Cam",
+            "Crown Jewel LED headlamps",
+            "Leatherette wrapped D-cut steering wheel",
+            "Driver one touch Auto up/down with anti pinch function"
+          ]
+        },
+        {
+          "name": "HTK+(O) 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1114900,
+          "efficiency": null,
+          "features": [
+            "Electric Sunroof - G1.0T, D1.5 6AT",
+            "Ice Cube LED Fog Lamps",
+            "Leatherette Seats with Indigo Pera Interiors",
+            "Rear Center Armrest with Cup holder",
+            "Driver Seat back pocket",
+            "Dash Cam",
+            "Crown Jewel LED headlamps",
+            "Leatherette wrapped D-cut steering wheel",
+            "Driver one touch Auto up/down with anti pinch function"
+          ]
+        },
+        {
+          "name": "HTK+ 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1144900,
+          "efficiency": null,
+          "features": [
+            "Smartphone Wireless Charger",
+            "Smart key with push button start",
+            "Remote engine start on smart key - D1.5 only",
+            "Semi Leatherette 60:40 Split Seats",
+            "D-Cut Steering Wheel",
+            "R16 Diamond Cut Alloy Wheel"
+          ]
+        },
+        {
+          "name": "HTX 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1159900,
+          "efficiency": null,
+          "features": [
+            "Rear Disc Brakes",
+            "Cruise Control",
+            "Traction modes - Sand / Mud / Wet (Automatic Only)",
+            "Paddle Shifters (Automatic Only)",
+            "Rear Parcel Tray",
+            "Front Ventilated Seats",
+            "Smart Pure Air Purifier with Virus protection",
+            "Black & Beige Semi Leatherette Seats - G1.0T-GDi Smartstream iMT & D1.5 CRDI VGT MT"
+          ]
+        },
+        {
+          "name": "HTX 1.0 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1183900,
+          "efficiency": null,
+          "features": [
+            "Rear Disc Brakes",
+            "Cruise Control",
+            "Traction modes - Sand / Mud / Wet (Automatic Only)",
+            "Paddle Shifters (Automatic Only)",
+            "Rear Parcel Tray",
+            "Front Ventilated Seats",
+            "Smart Pure Air Purifier with Virus protection",
+            "Black & Beige Semi Leatherette Seats - G1.0T-GDi Smartstream iMT & D1.5 CRDI VGT MT"
+          ]
+        },
+        {
+          "name": "HTK+(O) 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1194900,
+          "efficiency": null,
+          "features": [
+            "Electric Sunroof - G1.0T, D1.5 6AT",
+            "Ice Cube LED Fog Lamps",
+            "Leatherette Seats with Indigo Pera Interiors",
+            "Rear Center Armrest with Cup holder",
+            "Driver Seat back pocket",
+            "Dash Cam",
+            "Crown Jewel LED headlamps",
+            "Leatherette wrapped D-cut steering wheel",
+            "Driver one touch Auto up/down with anti pinch function"
+          ]
+        },
+        {
+          "name": "HTX 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1238900,
+          "efficiency": null,
+          "features": [
+            "Rear Disc Brakes",
+            "Cruise Control",
+            "Traction modes - Sand / Mud / Wet (Automatic Only)",
+            "Paddle Shifters (Automatic Only)",
+            "Rear Parcel Tray",
+            "Front Ventilated Seats",
+            "Smart Pure Air Purifier with Virus protection",
+            "Black & Beige Semi Leatherette Seats - G1.0T-GDi Smartstream iMT & D1.5 CRDI VGT MT"
+          ]
+        },
+        {
+          "name": "GTX+ 1.0 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1374900,
+          "efficiency": null,
+          "features": [
+            "ADAS Level1 with 10 Autonomous Features",
+            "360 Degree Camera with Blind View Monitor in Cluster",
+            "R16 40.56cm (16\") Sporty Crystal Cut Alloy Wheels",
+            "Full Digital Cluster with 26.04cm (10.25\") Color LCD MID",
+            "26.03 cm (10.25”) HD Touchscreen Navigation with Wired Android Auto & Apple CarPlay",
+            "Front Parking Sensors",
+            "4-Way Power Driver's Seat",
+            "Rear Spoiler - Body Color",
+            "BOSE premium 7 speaker system"
+          ]
+        },
+        {
+          "name": "X-Line 1.0 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1388900,
+          "efficiency": null,
+          "features": [
+            "ADAS Level1 with 10 Autonomous Features",
+            "360 Degree Camera with Blind View Monitor in Cluster",
+            "R16 40.56cm (16\") Sporty Crystal Cut Alloy Wheels",
+            "Full Digital Cluster with 26.04cm (10.25\") Color LCD MID",
+            "26.03 cm (10.25”) HD Touchscreen Navigation with Wired Android Auto & Apple CarPlay",
+            "Front Parking Sensors",
+            "4-Way Power Driver's Seat",
+            "Front Ventilated Seats",
+            "Rear Spoiler - Body Color",
+            "Smart Pure Air Purifier with Virus protection"
+          ]
+        },
+        {
+          "name": "GTX+ 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1435900,
+          "efficiency": null,
+          "features": [
+            "ADAS Level1 with 10 Autonomous Features",
+            "360 Degree Camera with Blind View Monitor in Cluster",
+            "R16 40.56cm (16\") Sporty Crystal Cut Alloy Wheels",
+            "Full Digital Cluster with 26.04cm (10.25\") Color LCD MID",
+            "26.03 cm (10.25”) HD Touchscreen Navigation with Wired Android Auto & Apple CarPlay",
+            "Front Parking Sensors",
+            "4-Way Power Driver's Seat",
+            "Rear Spoiler - Body Color",
+            "BOSE premium 7 speaker system"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.kia.com/in/our-vehicles/sonet/showroom.html",
+        "https://www.kia.com/in/our-vehicles/sonet/specs.html",
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/sonet/brochure/Sonet_Wild_Reborn_Brochure_2026_Desktop.pdf",
+        "https://www.kia.com/api/kia2_in/emiCalculator.getPrice.do"
+      ],
+      "notes": "Kia India does not publish ARAI fuel-efficiency figures on its model pages or brochures, so efficiency is null. Prices are Delhi ex-showroom from Kia India's official price service (EMI calculator, state DL / city Delhi). Height 1642 mm with R16 wheels and roof rails (1610 mm otherwise). Fuel tank and boot space not published. Safety: Global NCAP 3 stars (2022) for this generation before the 2024 facelift. Kia's price service returned no price for G1.2 HTK, turbo iMT HTX and HTK+ iMT, so those are left out. Dual-tone is not priced separately in the price service."
+    },
+    {
+      "slug": "kia-syros",
+      "name": "Syros",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2025-02-01",
+      "engine": "998 – 1493 cc",
+      "power": "85 – 88.3 kW (116 – 120 PS)",
+      "torque": "172 – 250 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2025
+      },
+      "bootSpaceL": 465,
+      "groundClearanceMm": null,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3995,
+        "width": 1805,
+        "height": 1680,
+        "wheelbase": 2550
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Aurora Black Pearl",
+          "hex": "#111214"
+        },
+        {
+          "name": "Frost Blue",
+          "hex": "#A9C4D6"
+        },
+        {
+          "name": "Glacier White Pearl",
+          "hex": "#F3F3F1"
+        },
+        {
+          "name": "Gravity Gray",
+          "hex": "#5B5E61"
+        },
+        {
+          "name": "Imperial Blue",
+          "hex": "#1E2F5C"
+        },
+        {
+          "name": "Ivory Silver Gloss",
+          "hex": "#C9C8C3"
+        },
+        {
+          "name": "Ivory Silver Matte",
+          "hex": "#C2C1BC"
+        },
+        {
+          "name": "Magma Red",
+          "hex": "#9E1B1E"
+        },
+        {
+          "name": "Pewter Olive",
+          "hex": "#5E6150"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags and a 20-feature safety pack standard",
+            "ESC, VSM, HAC and BAS",
+            "Highline TPMS (HTE(O) and above)",
+            "Rear view camera with dynamic guidelines (HTK(EX) and above)",
+            "Smart dashcam with dual camera (HTX and above)",
+            "All-wheel disc brakes on automatics"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "26.04 cm (10.25\") HD touchscreen with wireless Android Auto and Apple CarPlay",
+            "31.24 cm (12.3\") HD touchscreen (HTX and above)",
+            "Harman Kardon premium 8-speaker system (HTX and above)",
+            "Kia Connect 2.0 with OTA updates (HTX(O))"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Dual-pane panoramic sunroof (HTK+ and above)",
+            "Front ventilated seats (HTX and above)",
+            "Rear ventilated seats (HTX(O))",
+            "60:40 rear seats with sliding and reclining",
+            "4-way power driver seat",
+            "Smartphone wireless charger"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Ice Cube MFR LED headlamps",
+            "Star Map LED DRLs and tail lamps",
+            "R17 crystal-cut alloys with neon brake calipers (HTX)",
+            "Bridge-type roof rails"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.0 T-GDi petrol, 120 PS / 172 Nm: 6-speed MT or 7-speed DCT",
+            "1.5 CRDi VGT diesel, 116 PS / 250 Nm: 6-speed MT or 6-speed AT",
+            "Drive and traction modes on automatics"
+          ]
+        }
+      ],
+      "highlights": [
+        "5-star Bharat NCAP rating (2025)",
+        "1.0 turbo-petrol and 1.5 diesel engines",
+        "Boot space of 465 litres",
+        "Dual-pane panoramic sunroof from HTK+",
+        "Rear seats slide and recline"
+      ],
+      "variants": [
+        {
+          "name": "HTE 1.0 Turbo GDi 6MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 841900,
+          "efficiency": null,
+          "features": [
+            "26.04 cm (10.25”) HD Touchscreen with Wireless Android Auto/Apple CarPlay, 4 Speakers",
+            "30.48 cm (12”) Full Segment LCD Cluster with Advanced 10.5 cm (4.2”) Color TFT MID",
+            "Standard 20 Hi Safety Package",
+            "Streamline Door Handles",
+            "Kia Signature Digital Tiger Face",
+            "Black & Grey Semi Leatherette Seats",
+            "Rear Door Sunshade Curtains",
+            "LED Front Fog Lamp",
+            "LED High Mounted Stop Lamp",
+            "Shark Fin Antenna"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.0 Turbo GDi 6MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 921900,
+          "efficiency": null,
+          "features": [
+            "26.04 cm (10.25”) HD Touchscreen with Wireless Android Auto/Apple CarPlay, 4 Speakers & 2 Tweeters",
+            "Electric Sunroof",
+            "R16 - 40.56 cm (16”) Crystal Cut Alloy Wheels",
+            "Driver Seat Height Adjust",
+            "Highline Tyre Pressure Monitor (TPMS)"
+          ]
+        },
+        {
+          "name": "HTK(EX) 1.0 Turbo GDi 6MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 981900,
+          "efficiency": null,
+          "features": [
+            "Ice Cube MFR LED Headlamps",
+            "Starmap LED DRL with integrated turn signal",
+            "Starmap LED Combination Tail Lamps",
+            "Electric adjust outside mirrors with Auto Fold",
+            "Rear View Camera With Dynamic Guidelines",
+            "Black High Glossy Bridge Type Roof Rails",
+            "Auto Light Control"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 999900,
+          "efficiency": null,
+          "features": [
+            "26.04 cm (10.25”) HD Touchscreen with Wireless Android Auto/Apple CarPlay, 4 Speakers & 2 Tweeters",
+            "Electric Sunroof",
+            "R16 - 40.56 cm (16”) Crystal Cut Alloy Wheels",
+            "Driver Seat Height Adjust",
+            "Highline Tyre Pressure Monitor (TPMS)"
+          ]
+        },
+        {
+          "name": "HTK(EX) 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1061900,
+          "efficiency": null,
+          "features": [
+            "Ice Cube MFR LED Headlamps",
+            "Starmap LED DRL with integrated turn signal",
+            "Starmap LED Combination Tail Lamps",
+            "Electric adjust outside mirrors with Auto Fold",
+            "Rear View Camera With Dynamic Guidelines",
+            "Black High Glossy Bridge Type Roof Rails",
+            "Auto Light Control"
+          ]
+        },
+        {
+          "name": "HTK+ 1.0 Turbo GDi 6MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1075900,
+          "efficiency": null,
+          "features": [
+            "Dual Pane Panoramic Sunroof",
+            "60:40 Split Rear Seats with Sliding & Reclining Function",
+            "Cruise Control with Manual Speed Limit Assist",
+            "Smart Key with Push Button Start (Automatic only)",
+            "Electric Parking Brake with Auto Hold (Automatic only)",
+            "Paddle Shifters (Automatic only)",
+            "Drive Mode Select [Eco/Normal/Sport] (Automatic only)",
+            "Traction Control Mode [Sand/Mud/Snow] (Automatic only)",
+            "Driver Door Window Up/Down through Smart Key (Automatic only)",
+            "Driver One Touch Window Auto Up/Down with Safety"
+          ]
+        },
+        {
+          "name": "HTK+ 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1155900,
+          "efficiency": null,
+          "features": [
+            "Dual Pane Panoramic Sunroof",
+            "60:40 Split Rear Seats with Sliding & Reclining Function",
+            "Cruise Control with Manual Speed Limit Assist",
+            "Smart Key with Push Button Start (Automatic only)",
+            "Electric Parking Brake with Auto Hold (Automatic only)",
+            "Paddle Shifters (Automatic only)",
+            "Drive Mode Select [Eco/Normal/Sport] (Automatic only)",
+            "Traction Control Mode [Sand/Mud/Snow] (Automatic only)",
+            "Driver Door Window Up/Down through Smart Key (Automatic only)",
+            "Driver One Touch Window Auto Up/Down with Safety"
+          ]
+        },
+        {
+          "name": "HTK+ 1.0 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1195900,
+          "efficiency": null,
+          "features": [
+            "Dual Pane Panoramic Sunroof",
+            "60:40 Split Rear Seats with Sliding & Reclining Function",
+            "Cruise Control with Manual Speed Limit Assist",
+            "Smart Key with Push Button Start (Automatic only)",
+            "Electric Parking Brake with Auto Hold (Automatic only)",
+            "Paddle Shifters (Automatic only)",
+            "Drive Mode Select [Eco/Normal/Sport] (Automatic only)",
+            "Traction Control Mode [Sand/Mud/Snow] (Automatic only)",
+            "Driver Door Window Up/Down through Smart Key (Automatic only)",
+            "Driver One Touch Window Auto Up/Down with Safety"
+          ]
+        },
+        {
+          "name": "HTK+(O) 1.0 Turbo GDi 6MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1201900,
+          "efficiency": null,
+          "features": [
+            "Cloud Blue & Grey Leatherette Seats",
+            "Smart Key with Push Button Start",
+            "Rear Wiper & Washer",
+            "Driver Door Window Up/Down through Smart Key"
+          ]
+        },
+        {
+          "name": "HTK+ 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1275900,
+          "efficiency": null,
+          "features": [
+            "Dual Pane Panoramic Sunroof",
+            "60:40 Split Rear Seats with Sliding & Reclining Function",
+            "Cruise Control with Manual Speed Limit Assist",
+            "Smart Key with Push Button Start (Automatic only)",
+            "Electric Parking Brake with Auto Hold (Automatic only)",
+            "Paddle Shifters (Automatic only)",
+            "Drive Mode Select [Eco/Normal/Sport] (Automatic only)",
+            "Traction Control Mode [Sand/Mud/Snow] (Automatic only)",
+            "Driver Door Window Up/Down through Smart Key (Automatic only)",
+            "Driver One Touch Window Auto Up/Down with Safety"
+          ]
+        },
+        {
+          "name": "HTK+(O) 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1281900,
+          "efficiency": null,
+          "features": [
+            "Cloud Blue & Grey Leatherette Seats",
+            "Smart Key with Push Button Start",
+            "Rear Wiper & Washer",
+            "Driver Door Window Up/Down through Smart Key"
+          ]
+        },
+        {
+          "name": "HTK+(O) 1.0 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1321900,
+          "efficiency": null,
+          "features": [
+            "Cloud Blue & Grey Leatherette Seats",
+            "Smart Key with Push Button Start",
+            "Rear Wiper & Washer",
+            "Driver Door Window Up/Down through Smart Key"
+          ]
+        },
+        {
+          "name": "HTK+(O) 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1401900,
+          "efficiency": null,
+          "features": [
+            "Cloud Blue & Grey Leatherette Seats",
+            "Smart Key with Push Button Start",
+            "Rear Wiper & Washer",
+            "Driver Door Window Up/Down through Smart Key"
+          ]
+        },
+        {
+          "name": "HTX 1.0 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1401900,
+          "efficiency": null,
+          "features": [
+            "31.24 cm (12.3”) HD Touchscreen with Wireless Android Auto/Apple CarPlay",
+            "Harman Kardon Premium 8 Speakers Sound System",
+            "Front Ventilated Seats",
+            "4-Way Power Driver Seat",
+            "R17 - 43.66 cm (17”) Sporty Crystal Cut Alloy Wheels with Neon Brake Calipers",
+            "Dual Tone Grey Leatherette Seats",
+            "Smart Dashcam with Dual Camera (With Mobile App)*",
+            "Smartphone Wireless Charger",
+            "All Door Window Up/Down through Smart Key",
+            "All Door One Touch Window Auto Up/Down with Safety"
+          ]
+        },
+        {
+          "name": "HTX 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1481900,
+          "efficiency": null,
+          "features": [
+            "31.24 cm (12.3”) HD Touchscreen with Wireless Android Auto/Apple CarPlay",
+            "Harman Kardon Premium 8 Speakers Sound System",
+            "Front Ventilated Seats",
+            "4-Way Power Driver Seat",
+            "R17 - 43.66 cm (17”) Sporty Crystal Cut Alloy Wheels with Neon Brake Calipers",
+            "Dual Tone Grey Leatherette Seats",
+            "Smart Dashcam with Dual Camera (With Mobile App)*",
+            "Smartphone Wireless Charger",
+            "All Door Window Up/Down through Smart Key",
+            "All Door One Touch Window Auto Up/Down with Safety"
+          ]
+        },
+        {
+          "name": "HTX(O) 1.0 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1499900,
+          "efficiency": null,
+          "features": [
+            "31.24 cm (12.3”) HD Touchscreen Navigation Cockpit with Wireless Android Auto/Apple CarPlay",
+            "31.24 cm (12.3”) HD Display Instrument Cluster",
+            "12.7 cm (5”) Touchscreen – Fully Automatic Air Conditioner Control",
+            "Rear Ventilated Seats (Seat Thigh Only)",
+            "Kia Connect 2.0",
+            "OTA Software Updates with Kia Remote Diagnostics",
+            "Auto Anti-glare Rear View Mirror with Kia Connect Controls"
+          ]
+        },
+        {
+          "name": "HTX(O) 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1581900,
+          "efficiency": null,
+          "features": [
+            "31.24 cm (12.3”) HD Touchscreen Navigation Cockpit with Wireless Android Auto/Apple CarPlay",
+            "31.24 cm (12.3”) HD Display Instrument Cluster",
+            "12.7 cm (5”) Touchscreen – Fully Automatic Air Conditioner Control",
+            "Rear Ventilated Seats (Seat Thigh Only)",
+            "Kia Connect 2.0",
+            "OTA Software Updates with Kia Remote Diagnostics",
+            "Auto Anti-glare Rear View Mirror with Kia Connect Controls"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.kia.com/in/our-vehicles/syros/showroom.html",
+        "https://www.kia.com/in/our-vehicles/syros/specs.html",
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/syros/Kia_Syros_5_Star_Brochure_Desktop.pdf",
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/syros/FACT-SHEET-SYROS-1.pdf",
+        "https://www.kia.com/api/kia2_in/emiCalculator.getPrice.do"
+      ],
+      "notes": "Kia India does not publish ARAI fuel-efficiency figures on its model pages or brochures, so efficiency is null. Prices are Delhi ex-showroom from Kia India's official price service (EMI calculator, state DL / city Delhi). Boot 465 l per brochure (the site FAQ quotes 390 l for lower trims). Height 1680 mm with roof rails. Bharat NCAP 2025 result is for the petrol Syros; applies to the variants in the fact-sheet annexure."
+    },
+    {
+      "slug": "kia-syros-ev",
+      "name": "Syros EV",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-07-23",
+      "engine": "Electric motor",
+      "power": "99 – 126 kW (135 – 171 PS)",
+      "torque": "255 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3995,
+        "width": 1805,
+        "height": 1670,
+        "wheelbase": 2550
+      },
+      "ev": {
+        "rangeKm": 526,
+        "rangeStandard": "MIDC P1+P2 (ARAI)",
+        "batteryKwh": 51.4,
+        "dcCharge": "39 min (10–80%, 100 kW DC)",
+        "acCharge": "4 h (42 kWh) / 4 h 50 min (51.4 kWh), 10–100%, 11 kW",
+        "motorKw": 126
+      },
+      "colors": [
+        {
+          "name": "Aurora Black Pearl",
+          "hex": "#111214"
+        },
+        {
+          "name": "Frost Blue",
+          "hex": "#A9C4D6"
+        },
+        {
+          "name": "Glacier White Pearl",
+          "hex": "#F3F3F1"
+        },
+        {
+          "name": "Gravity Grey",
+          "hex": "#5B5E61"
+        },
+        {
+          "name": "Ivory Silver Gloss",
+          "hex": "#C9C8C3"
+        },
+        {
+          "name": "Ivory Silver Matte",
+          "hex": "#C2C1BC"
+        },
+        {
+          "name": "Magma Red",
+          "hex": "#9E1B1E"
+        },
+        {
+          "name": "Matte Graphite",
+          "hex": "#3B3D3F"
+        },
+        {
+          "name": "Pewter Olive",
+          "hex": "#5E6150"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "42 kWh battery: 99 kW (135 PS), 443 km claimed range",
+            "51.4 kWh Extended Range battery: 126 kW (171 PS), 526 km claimed range",
+            "255 Nm torque",
+            "DC fast charging 10–80% in 39 min (100 kW)",
+            "Paddle shifters for regen braking and i-Pedal"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags",
+            "All-wheel disc brakes",
+            "Highline TPMS",
+            "Virtual engine sound system",
+            "ADAS Level 2 with 16 features (X-Line)",
+            "360-degree camera with blind view monitor (X-Line)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "31.24 cm (12.3\") HD touchscreen and 12.3\" cluster",
+            "Harman Kardon premium 8-speaker system (HTX+ ER and above)",
+            "Kia Connect 2.0 with OTA updates",
+            "Digital key (X-Line)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Dual-pane panoramic sunroof (HTX and above)",
+            "All-row seat ventilation (HTX+ ER and above)",
+            "60:40 rear seats with sliding and reclining",
+            "Front storage (16 l frunk)",
+            "V2L inside (X-Line)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "R16 or R17 crystal-cut dual-tone aero alloys",
+            "Star Map LED DRLs",
+            "Ice Cube MFR LED headlamps",
+            "Active air flap"
+          ]
+        }
+      ],
+      "highlights": [
+        "Launched on 23 July 2026",
+        "Up to 526 km claimed range (MIDC P1+P2)",
+        "42 kWh and 51.4 kWh battery options",
+        "10–80% DC charge in 39 minutes on a 100 kW charger",
+        "Battery-as-a-Service purchase option offered by Kia"
+      ],
+      "variants": [
+        {
+          "name": "HTK 42 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 1349900,
+          "efficiency": "443 km",
+          "features": [
+            "31.24 cm (12.3”) HD Touchscreen with 6 Speakers",
+            "31.24 cm (12.3”) HD Display Instrument Cluster",
+            "12.7 cm (5”) Touch Screen – Fully Automatic Temperature Control",
+            "R16 - 40.56 cm (16”) Crystal Cut Dual Tone Aero Alloy Wheels",
+            "Shift-by-Wire (SBW) - Column Type",
+            "Smart Key with Push Button Start",
+            "Paddle Shifters for Regen Braking & i-Pedal",
+            "Floating Console with Premium Sliding Cover, Retractable Cup Holders & Open Storage",
+            "Electric Adjust Outside Rear View Mirrors with Auto Fold",
+            "Standard 25 Hi Safety Package"
+          ]
+        },
+        {
+          "name": "HTK+ 42 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 1499900,
+          "efficiency": "443 km",
+          "features": [
+            "Cruise Control with Manual Speed Limit Assist",
+            "Rear View Camera with Dynamic Guidelines",
+            "100W C-Type USB Charger (Front × 1)",
+            "Drive Mode Select [Eco / Normal / Sport]"
+          ]
+        },
+        {
+          "name": "HTX 42 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 1599900,
+          "efficiency": "443 km",
+          "features": [
+            "Dual Pane Panoramic Sunroof",
+            "60:40 Split Rear Seats with Sliding & Reclining Function",
+            "All Door Window Up/Down with Smart Key",
+            "All Door Window Up/Down with Safety (Anti-Pinch)",
+            "LED Rear Turn Signal",
+            "Rear Wiper & Washer",
+            "Rear Defogger"
+          ]
+        },
+        {
+          "name": "HTK+ ER 51.4 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 1699900,
+          "efficiency": "526 km",
+          "features": [
+            "51.4 kWh (Extended Range) Battery Pack",
+            "R17 - 43.66 cm (17”) Crystal Cut Dual Tone Aero Alloy Wheels",
+            "Shark Fin Antenna",
+            "Black High Glossy Garnish Type Roof Rails",
+            "Drive Mode Select [Eco / Normal / Sport]",
+            "Virtual Engine Sound System",
+            "Auto Light Control with Escort Function"
+          ]
+        },
+        {
+          "name": "HTX ER 51.4 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 1799900,
+          "efficiency": "526 km",
+          "features": [
+            "Dual Pane Panoramic Sunroof",
+            "60:40 Split Rear Seats with Sliding & Reclining Function",
+            "Kia Connect 2.0",
+            "Over-the-Air (OTA) Software Updates",
+            "Day & Night Rear View Mirror with Kia Connect 2.0 Controls",
+            "All Door Window Up/Down with Smart Key",
+            "All Door Window Up/Down with Safety (Anti-Pinch)",
+            "LED Rear Turn Signal",
+            "Rear Wiper & Washer",
+            "Rear Defogger"
+          ]
+        },
+        {
+          "name": "HTX+ ER 51.4 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 1949900,
+          "efficiency": "526 km",
+          "features": [
+            "All Row Seat Ventilation (2nd Row - Seat Thigh Only)",
+            "Leatherette - Seats, Side Door Trims & Steering Wheel",
+            "Harman Kardon Premium 8 Speakers Sound System",
+            "31.24 cm (12.3”) HD Touchscreen Navigation Cockpit",
+            "Auto Streamline Door Handles",
+            "4-Way Power Driver Seat",
+            "Wireless Phone Charger",
+            "Smart Dashcam with Dual Camera (With Mobile App)*",
+            "Kia Connect 2.0 with 95+ Features",
+            "Auto Antiglare Rear View Mirror with Kia Connect 2.0 Controls"
+          ]
+        },
+        {
+          "name": "X-Line ER 51.4 kWh",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 1999900,
+          "efficiency": "526 km",
+          "features": [
+            "ADAS Level 2 with 16 Autonomous Features",
+            "360 Degree Camera with Blind View Monitor",
+            "Digital Key",
+            "V2L - Vehicle to Load [Internal]",
+            "1st Row 64 Color Ambient Mood Lighting with LED Footwell Lamps",
+            "Puddle Lamps with Kia Logo Projections",
+            "Front & Side Parking Sensors"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.kia.com/in/our-vehicles/syros-ev/showroom.html",
+        "https://www.kia.com/in/our-vehicles/syros-ev/specs.html",
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/syros_ev/brochure/Kia_Syros_EV_Brochure_Desktop2026.pdf",
+        "https://www.kia.com/api/kia2_in/emiCalculator.getPrice.do"
+      ],
+      "notes": "Prices are Delhi ex-showroom from Kia India's official price service (EMI calculator, state DL / city Delhi). Ranges are ARAI-certified MIDC Part 1 + Part 2: 443 km (42 kWh) and 526 km (51.4 kWh). Battery-as-a-Service pricing (from INR 7.99 lakh + INR 3.3/km) is not listed as variants. Boot space not published for the EV. No crash-test result published for the Syros EV."
+    },
+    {
+      "slug": "kia-seltos",
+      "name": "Seltos",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-01-02",
+      "engine": "1482 – 1497 cc",
+      "power": "84.4 – 117.5 kW",
+      "torque": "144 – 253 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2026
+      },
+      "bootSpaceL": 447,
+      "groundClearanceMm": null,
+      "fuelTankL": 50,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4460,
+        "width": 1830,
+        "height": 1635,
+        "wheelbase": 2690
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Frost Blue",
+          "hex": "#A9C4D6"
+        },
+        {
+          "name": "Ivory Silver Gloss",
+          "hex": "#C9C8C3"
+        },
+        {
+          "name": "Imperial Blue",
+          "hex": "#1E2F5C"
+        },
+        {
+          "name": "Morning Haze",
+          "hex": "#8E9AA3"
+        },
+        {
+          "name": "Aurora Black Pearl",
+          "hex": "#111214"
+        },
+        {
+          "name": "Gravity Gray",
+          "hex": "#5B5E61"
+        },
+        {
+          "name": "Magma Red",
+          "hex": "#9E1B1E"
+        },
+        {
+          "name": "Pewter Olive",
+          "hex": "#5E6150"
+        },
+        {
+          "name": "Glacier White Pearl",
+          "hex": "#F3F3F1"
+        },
+        {
+          "name": "Matte Graphite",
+          "hex": "#3B3D3F"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "ESC and all-wheel disc brakes",
+            "ADAS Level 2 with 21 features ((A) trims)",
+            "ADAS Level 2+ with 28 features (GTX(O), X-Line(O))",
+            "360-degree camera with blind view monitor",
+            "Side parking sensors (ADAS trims)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "26.04 cm (10.25\") HD touchscreen with wireless Android Auto and Apple CarPlay",
+            "Trinity panoramic display with 12.3\" screens (top trims)",
+            "Bose premium 8-speaker system",
+            "Digital key",
+            "Kia Connect with remote seat ventilation"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Dual-pane panoramic sunroof (HTK(O) and above)",
+            "Front ventilated seats",
+            "Dual-zone automatic climate control",
+            "10-way power driver seat with memory (top trims)",
+            "64-colour ambient lighting",
+            "Smartphone wireless charger"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Kia Digital Tiger Face grille",
+            "Ice Cube LED projection headlamps (GTX, X-Line)",
+            "Star Map LED DRLs and connected tail lamps",
+            "R18 alloys on GTX and X-Line"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Smartstream G1.5 petrol, 84.4 kW / 144 Nm: 6-speed MT or IVT",
+            "Smartstream G1.5 T-GDi, 117.5 kW / 253 Nm: 7-speed DCT",
+            "1.5 CRDi VGT diesel, 85 kW / 250 Nm: 6-speed MT or 6-speed AT"
+          ]
+        }
+      ],
+      "highlights": [
+        "Second-generation model on the K3 platform, prices announced 2 January 2026",
+        "5-star Bharat NCAP rating (2026)",
+        "Petrol, turbo-petrol and diesel engines",
+        "ADAS Level 2+ with 28 features on GTX(O) and X-Line(O)",
+        "Boot space of 447 litres"
+      ],
+      "variants": [
+        {
+          "name": "HTE 1.5 Petrol 6MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1124900,
+          "efficiency": null,
+          "features": [
+            "Star Map LED DRLs",
+            "Ice Cube MFR LED Headlamps",
+            "Auto Light Control & Headlamp Escort",
+            "R16 - 40.56 cm (16”) Steel Wheels with Cover",
+            "Kia Digital Tiger Face Grille",
+            "Robust Front & Rear Skid Plate with Silver Finish",
+            "Shark Fin Antenna",
+            "Integrated Rear Spoiler with LED High Mount Stop Lamp",
+            "Streamline Door Handles (Manual Type)",
+            "Star Map LED Tail Lamps"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.5 Petrol 6MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1241900,
+          "efficiency": null,
+          "features": [
+            "Star Map LED Connected Tail Lamps",
+            "Black High Glossy Roof Rails",
+            "Smoky Black & Grey Semi-Leatherette Seats",
+            "60:40 Rear Split Seats with Recline Function & Rear Centre Armrest with Cup Holders",
+            "Rear Passengers Adjustable Headrest (x3)",
+            "Electric Parking Brake with Auto Hold (Automatic Only)",
+            "Traction Control Mode [Sand/ Mud/ Snow] (Automatic Only)",
+            "Drive Mode Select [Eco/ Normal/ Sport] (Automatic Only)",
+            "Paddle Shifters (Automatic Only)",
+            "Premium Sliding Cup Holder Cover (Automatic Only)"
+          ]
+        },
+        {
+          "name": "HTE 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1293900,
+          "efficiency": null,
+          "features": [
+            "Star Map LED DRLs",
+            "Ice Cube MFR LED Headlamps",
+            "Auto Light Control & Headlamp Escort",
+            "R16 - 40.56 cm (16”) Steel Wheels with Cover",
+            "Kia Digital Tiger Face Grille",
+            "Robust Front & Rear Skid Plate with Silver Finish",
+            "Shark Fin Antenna",
+            "Integrated Rear Spoiler with LED High Mount Stop Lamp",
+            "Streamline Door Handles (Manual Type)",
+            "Star Map LED Tail Lamps"
+          ]
+        },
+        {
+          "name": "HTK 1.5 Petrol 6MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1341900,
+          "efficiency": null,
+          "features": [
+            "R17 - 43.66 cm (17”) Crystal Cut Alloy Wheels",
+            "R16 - 40.56 cm (16”) Style Steel Wheels (G1.5 MT Only)",
+            "Electric Adjust Outside Mirrors with Auto Fold",
+            "Hidden Rear Wiper",
+            "Rear Defogger",
+            "Streamline Door Handles (Automatic)",
+            "Smart Key with Push Button Start & Motion Sensor",
+            "Smart Key Proximity Unlock Function",
+            "Rear Door Sunshade Curtains",
+            "Tilt & Telescopic Steering Wheel"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.5 Petrol IVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "IVT",
+          "price": 1371900,
+          "efficiency": null,
+          "features": [
+            "Star Map LED Connected Tail Lamps",
+            "Black High Glossy Roof Rails",
+            "Smoky Black & Grey Semi-Leatherette Seats",
+            "60:40 Rear Split Seats with Recline Function & Rear Centre Armrest with Cup Holders",
+            "Rear Passengers Adjustable Headrest (x3)",
+            "Electric Parking Brake with Auto Hold (Automatic Only)",
+            "Traction Control Mode [Sand/ Mud/ Snow] (Automatic Only)",
+            "Drive Mode Select [Eco/ Normal/ Sport] (Automatic Only)",
+            "Paddle Shifters (Automatic Only)",
+            "Premium Sliding Cup Holder Cover (Automatic Only)"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1403900,
+          "efficiency": null,
+          "features": [
+            "Star Map LED Connected Tail Lamps",
+            "Black High Glossy Roof Rails",
+            "Smoky Black & Grey Semi-Leatherette Seats",
+            "60:40 Rear Split Seats with Recline Function & Rear Centre Armrest with Cup Holders",
+            "Rear Passengers Adjustable Headrest (x3)",
+            "Electric Parking Brake with Auto Hold (Automatic Only)",
+            "Traction Control Mode [Sand/ Mud/ Snow] (Automatic Only)",
+            "Drive Mode Select [Eco/ Normal/ Sport] (Automatic Only)",
+            "Paddle Shifters (Automatic Only)",
+            "Premium Sliding Cup Holder Cover (Automatic Only)"
+          ]
+        },
+        {
+          "name": "HTK(O) 1.5 Petrol 6MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1451900,
+          "efficiency": null,
+          "features": [
+            "Smoky Black & Grey leatherette Seats",
+            "Dual pane panoramic sunroof",
+            "LED personal lamp",
+            "Dual tone leatherette wrapped steering wheel",
+            "Relaxation power driver seat (Manual)",
+            "Smartphone wireless charger",
+            "Front ventilated seat (Automatic only)",
+            "8-way power driver seat (Automatic only)"
+          ]
+        },
+        {
+          "name": "HTK 1.5 Petrol IVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "IVT",
+          "price": 1471900,
+          "efficiency": null,
+          "features": [
+            "R17 - 43.66 cm (17”) Crystal Cut Alloy Wheels",
+            "R16 - 40.56 cm (16”) Style Steel Wheels (G1.5 MT Only)",
+            "Electric Adjust Outside Mirrors with Auto Fold",
+            "Hidden Rear Wiper",
+            "Rear Defogger",
+            "Streamline Door Handles (Automatic)",
+            "Smart Key with Push Button Start & Motion Sensor",
+            "Smart Key Proximity Unlock Function",
+            "Rear Door Sunshade Curtains",
+            "Tilt & Telescopic Steering Wheel"
+          ]
+        },
+        {
+          "name": "HTK 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1503900,
+          "efficiency": null,
+          "features": [
+            "R17 - 43.66 cm (17”) Crystal Cut Alloy Wheels",
+            "R16 - 40.56 cm (16”) Style Steel Wheels (G1.5 MT Only)",
+            "Electric Adjust Outside Mirrors with Auto Fold",
+            "Hidden Rear Wiper",
+            "Rear Defogger",
+            "Streamline Door Handles (Automatic)",
+            "Smart Key with Push Button Start & Motion Sensor",
+            "Smart Key Proximity Unlock Function",
+            "Rear Door Sunshade Curtains",
+            "Tilt & Telescopic Steering Wheel"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1532400,
+          "efficiency": null,
+          "features": [
+            "Star Map LED Connected Tail Lamps",
+            "Black High Glossy Roof Rails",
+            "Smoky Black & Grey Semi-Leatherette Seats",
+            "60:40 Rear Split Seats with Recline Function & Rear Centre Armrest with Cup Holders",
+            "Rear Passengers Adjustable Headrest (x3)",
+            "Electric Parking Brake with Auto Hold (Automatic Only)",
+            "Traction Control Mode [Sand/ Mud/ Snow] (Automatic Only)",
+            "Drive Mode Select [Eco/ Normal/ Sport] (Automatic Only)",
+            "Paddle Shifters (Automatic Only)",
+            "Premium Sliding Cup Holder Cover (Automatic Only)"
+          ]
+        },
+        {
+          "name": "HTK(O) 1.5 Petrol IVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "IVT",
+          "price": 1581900,
+          "efficiency": null,
+          "features": [
+            "Smoky Black & Grey leatherette Seats",
+            "Dual pane panoramic sunroof",
+            "LED personal lamp",
+            "Dual tone leatherette wrapped steering wheel",
+            "Relaxation power driver seat (Manual)",
+            "Smartphone wireless charger",
+            "Front ventilated seat (Automatic only)",
+            "8-way power driver seat (Automatic only)"
+          ]
+        },
+        {
+          "name": "HTX 1.5 Petrol 6MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1591900,
+          "efficiency": null,
+          "features": [
+            "Kia Digital Tiger Face With Black High Glossy Grille",
+            "Front ventilated seat",
+            "Robust Front & Rear Skid Plate with Satin Silver Finish",
+            "Side Door Garnish with Sliver Metallic Accents",
+            "Premium Brown & Grey Two Tone Interiors with Neon Green Accents",
+            "Premium Brown & Grey Leatherette Seats",
+            "Leatherette Dashboard Centre Garnish",
+            "Leatherette Front Door Trims",
+            "LED Front Fog Lamps",
+            "64 Color Ambient Mood Lighting"
+          ]
+        },
+        {
+          "name": "HTK(O) 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1613900,
+          "efficiency": null,
+          "features": [
+            "Smoky Black & Grey leatherette Seats",
+            "Dual pane panoramic sunroof",
+            "LED personal lamp",
+            "Dual tone leatherette wrapped steering wheel",
+            "Relaxation power driver seat (Manual)",
+            "Smartphone wireless charger",
+            "Front ventilated seat (Automatic only)",
+            "8-way power driver seat (Automatic only)"
+          ]
+        },
+        {
+          "name": "HTK 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1633900,
+          "efficiency": null,
+          "features": [
+            "R17 - 43.66 cm (17”) Crystal Cut Alloy Wheels",
+            "R16 - 40.56 cm (16”) Style Steel Wheels (G1.5 MT Only)",
+            "Electric Adjust Outside Mirrors with Auto Fold",
+            "Hidden Rear Wiper",
+            "Rear Defogger",
+            "Streamline Door Handles (Automatic)",
+            "Smart Key with Push Button Start & Motion Sensor",
+            "Smart Key Proximity Unlock Function",
+            "Rear Door Sunshade Curtains",
+            "Tilt & Telescopic Steering Wheel"
+          ]
+        },
+        {
+          "name": "HTK(O) 1.5 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1661900,
+          "efficiency": null,
+          "features": [
+            "Smoky Black & Grey leatherette Seats",
+            "Dual pane panoramic sunroof",
+            "LED personal lamp",
+            "Dual tone leatherette wrapped steering wheel",
+            "Relaxation power driver seat (Manual)",
+            "Smartphone wireless charger",
+            "Front ventilated seat (Automatic only)",
+            "8-way power driver seat (Automatic only)"
+          ]
+        },
+        {
+          "name": "HTX(A) 1.5 Petrol 6MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1701900,
+          "efficiency": null,
+          "features": [
+            "Trinity Panoramic Display Panel",
+            "31.24cm (12.3”) HD Display Instrument Cluster",
+            "Side Parking Sensors (2/Side)",
+            "Kia DriveWise Technology",
+            "ADAS Level 2 with 21 Autonomous Features"
+          ]
+        },
+        {
+          "name": "HTX 1.5 Petrol IVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "IVT",
+          "price": 1721900,
+          "efficiency": null,
+          "features": [
+            "Kia Digital Tiger Face With Black High Glossy Grille",
+            "Front ventilated seat",
+            "Robust Front & Rear Skid Plate with Satin Silver Finish",
+            "Side Door Garnish with Sliver Metallic Accents",
+            "Premium Brown & Grey Two Tone Interiors with Neon Green Accents",
+            "Premium Brown & Grey Leatherette Seats",
+            "Leatherette Dashboard Centre Garnish",
+            "Leatherette Front Door Trims",
+            "LED Front Fog Lamps",
+            "64 Color Ambient Mood Lighting"
+          ]
+        },
+        {
+          "name": "HTK(O) 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1743900,
+          "efficiency": null,
+          "features": [
+            "Smoky Black & Grey leatherette Seats",
+            "Dual pane panoramic sunroof",
+            "LED personal lamp",
+            "Dual tone leatherette wrapped steering wheel",
+            "Relaxation power driver seat (Manual)",
+            "Smartphone wireless charger",
+            "Front ventilated seat (Automatic only)",
+            "8-way power driver seat (Automatic only)"
+          ]
+        },
+        {
+          "name": "HTX 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1753900,
+          "efficiency": null,
+          "features": [
+            "Kia Digital Tiger Face With Black High Glossy Grille",
+            "Front ventilated seat",
+            "Robust Front & Rear Skid Plate with Satin Silver Finish",
+            "Side Door Garnish with Sliver Metallic Accents",
+            "Premium Brown & Grey Two Tone Interiors with Neon Green Accents",
+            "Premium Brown & Grey Leatherette Seats",
+            "Leatherette Dashboard Centre Garnish",
+            "Leatherette Front Door Trims",
+            "LED Front Fog Lamps",
+            "64 Color Ambient Mood Lighting"
+          ]
+        },
+        {
+          "name": "HTX 1.5 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1801900,
+          "efficiency": null,
+          "features": [
+            "Kia Digital Tiger Face With Black High Glossy Grille",
+            "Front ventilated seat",
+            "Robust Front & Rear Skid Plate with Satin Silver Finish",
+            "Side Door Garnish with Sliver Metallic Accents",
+            "Premium Brown & Grey Two Tone Interiors with Neon Green Accents",
+            "Premium Brown & Grey Leatherette Seats",
+            "Leatherette Dashboard Centre Garnish",
+            "Leatherette Front Door Trims",
+            "LED Front Fog Lamps",
+            "64 Color Ambient Mood Lighting"
+          ]
+        },
+        {
+          "name": "HTX(A) 1.5 Petrol IVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "IVT",
+          "price": 1831900,
+          "efficiency": null,
+          "features": [
+            "Trinity Panoramic Display Panel",
+            "31.24cm (12.3”) HD Display Instrument Cluster",
+            "Side Parking Sensors (2/Side)",
+            "Kia DriveWise Technology",
+            "ADAS Level 2 with 21 Autonomous Features"
+          ]
+        },
+        {
+          "name": "HTX(A) 1.5 CRDi Diesel 6MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1863900,
+          "efficiency": null,
+          "features": [
+            "Trinity Panoramic Display Panel",
+            "31.24cm (12.3”) HD Display Instrument Cluster",
+            "Side Parking Sensors (2/Side)",
+            "Kia DriveWise Technology",
+            "ADAS Level 2 with 21 Autonomous Features"
+          ]
+        },
+        {
+          "name": "GTX 1.5 Petrol IVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "IVT",
+          "price": 1871900,
+          "efficiency": null,
+          "features": [
+            "Ice Cube LED Projection Headlamps with Dynamic Welcome Function",
+            "Star Map LED DRLs with Integrated Turn Signal",
+            "Kia Digital Tiger Face with Dark Gunmetal Accents",
+            "Glossy Black Front Bumper and Cladding",
+            "Robust Front & Rear Skid Plate with Dark Gunmetal Finish",
+            "Side Door Garnish with Body Color Accents",
+            "R18- 46.20 cm (18”) Sporty Crystal Cut Alloy Wheels",
+            "Neon Brake Calipers (Only for GT-Line)",
+            "Mudflaps (Fr + Rr)",
+            "LED Reverse Lamps"
+          ]
+        },
+        {
+          "name": "HTX 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1883900,
+          "efficiency": null,
+          "features": [
+            "Kia Digital Tiger Face With Black High Glossy Grille",
+            "Front ventilated seat",
+            "Robust Front & Rear Skid Plate with Satin Silver Finish",
+            "Side Door Garnish with Sliver Metallic Accents",
+            "Premium Brown & Grey Two Tone Interiors with Neon Green Accents",
+            "Premium Brown & Grey Leatherette Seats",
+            "Leatherette Dashboard Centre Garnish",
+            "Leatherette Front Door Trims",
+            "LED Front Fog Lamps",
+            "64 Color Ambient Mood Lighting"
+          ]
+        },
+        {
+          "name": "HTX(A) 1.5 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1911900,
+          "efficiency": null,
+          "features": [
+            "Trinity Panoramic Display Panel",
+            "31.24cm (12.3”) HD Display Instrument Cluster",
+            "Side Parking Sensors (2/Side)",
+            "Kia DriveWise Technology",
+            "ADAS Level 2 with 21 Autonomous Features"
+          ]
+        },
+        {
+          "name": "GTX 1.5 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1951900,
+          "efficiency": null,
+          "features": [
+            "Ice Cube LED Projection Headlamps with Dynamic Welcome Function",
+            "Star Map LED DRLs with Integrated Turn Signal",
+            "Kia Digital Tiger Face with Dark Gunmetal Accents",
+            "Glossy Black Front Bumper and Cladding",
+            "Robust Front & Rear Skid Plate with Dark Gunmetal Finish",
+            "Side Door Garnish with Body Color Accents",
+            "R18- 46.20 cm (18”) Sporty Crystal Cut Alloy Wheels",
+            "Neon Brake Calipers (Only for GT-Line)",
+            "Mudflaps (Fr + Rr)",
+            "LED Reverse Lamps"
+          ]
+        },
+        {
+          "name": "GTX(A) 1.5 Petrol IVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "IVT",
+          "price": 1981900,
+          "efficiency": null,
+          "features": [
+            "R18 - 46.20 cm (18”) Sporty Crystal Cut Alloy Wheels",
+            "Trinity Panoramic Display Panel",
+            "31.24cm (12.3”) HD Display Instrument Cluster",
+            "Side Parking Sensors (2/Side)",
+            "Kia DriveWise Technology",
+            "ADAS Level 2 with 21 Autonomous Features"
+          ]
+        },
+        {
+          "name": "X-Line(A) 1.5 Petrol IVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "IVT",
+          "price": 1981900,
+          "efficiency": null,
+          "features": [
+            "Robust Front & Rear Skid Plate with Black High Glossy Finish",
+            "Side Door Garnish with Dark Gunmetal Accents",
+            "Smoky Black & Hunter Green Two Tone Interiors with Satin Metal Accents",
+            "Smoky Black & Hunter Green Leatherette Seats",
+            "R18 - 46.20 cm (18”) Black Painted Alloy Wheels"
+          ]
+        },
+        {
+          "name": "HTX(A) 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1993900,
+          "efficiency": null,
+          "features": [
+            "Trinity Panoramic Display Panel",
+            "31.24cm (12.3”) HD Display Instrument Cluster",
+            "Side Parking Sensors (2/Side)",
+            "Kia DriveWise Technology",
+            "ADAS Level 2 with 21 Autonomous Features"
+          ]
+        },
+        {
+          "name": "GTX 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1999900,
+          "efficiency": null,
+          "features": [
+            "Ice Cube LED Projection Headlamps with Dynamic Welcome Function",
+            "Star Map LED DRLs with Integrated Turn Signal",
+            "Kia Digital Tiger Face with Dark Gunmetal Accents",
+            "Glossy Black Front Bumper and Cladding",
+            "Robust Front & Rear Skid Plate with Dark Gunmetal Finish",
+            "Side Door Garnish with Body Color Accents",
+            "R18- 46.20 cm (18”) Sporty Crystal Cut Alloy Wheels",
+            "Neon Brake Calipers (Only for GT-Line)",
+            "Mudflaps (Fr + Rr)",
+            "LED Reverse Lamps"
+          ]
+        },
+        {
+          "name": "GTX(A) 1.5 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1999900,
+          "efficiency": null,
+          "features": [
+            "R18 - 46.20 cm (18”) Sporty Crystal Cut Alloy Wheels",
+            "Trinity Panoramic Display Panel",
+            "31.24cm (12.3”) HD Display Instrument Cluster",
+            "Side Parking Sensors (2/Side)",
+            "Kia DriveWise Technology",
+            "ADAS Level 2 with 21 Autonomous Features"
+          ]
+        },
+        {
+          "name": "X-Line(A) 1.5 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1999900,
+          "efficiency": null,
+          "features": [
+            "Robust Front & Rear Skid Plate with Black High Glossy Finish",
+            "Side Door Garnish with Dark Gunmetal Accents",
+            "Smoky Black & Hunter Green Two Tone Interiors with Satin Metal Accents",
+            "Smoky Black & Hunter Green Leatherette Seats",
+            "R18 - 46.20 cm (18”) Black Painted Alloy Wheels"
+          ]
+        },
+        {
+          "name": "GTX(A) 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2032400,
+          "efficiency": null,
+          "features": [
+            "R18 - 46.20 cm (18”) Sporty Crystal Cut Alloy Wheels",
+            "Trinity Panoramic Display Panel",
+            "31.24cm (12.3”) HD Display Instrument Cluster",
+            "Side Parking Sensors (2/Side)",
+            "Kia DriveWise Technology",
+            "ADAS Level 2 with 21 Autonomous Features"
+          ]
+        },
+        {
+          "name": "X-Line(A) 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2032400,
+          "efficiency": null,
+          "features": [
+            "Robust Front & Rear Skid Plate with Black High Glossy Finish",
+            "Side Door Garnish with Dark Gunmetal Accents",
+            "Smoky Black & Hunter Green Two Tone Interiors with Satin Metal Accents",
+            "Smoky Black & Hunter Green Leatherette Seats",
+            "R18 - 46.20 cm (18”) Black Painted Alloy Wheels"
+          ]
+        },
+        {
+          "name": "GTX(O) 1.5 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 2156900,
+          "efficiency": null,
+          "features": [
+            "Smoky Black & White Two-Tone Interiors with White Accents",
+            "Smoky Black & White Leatherette Seats",
+            "ADAS Level 2+ with 28 Autonomous Features",
+            "Ice Cube LED Projection Headlamps with Dynamic Welcome Function",
+            "Star Map LED DRLs with Integrated Turn Signal",
+            "Kia Digital Tiger Face with Dark Gunmetal Accents",
+            "Glossy Black Front Bumper and Cladding",
+            "Robust Front & Rear Skid Plate with Dark Gunmetal Finish",
+            "Side Door Garnish with Body Color Accents",
+            "R18 - 46.20 cm (18”) Sporty Crystal Cut Alloy Wheels"
+          ]
+        },
+        {
+          "name": "X-Line(O) 1.5 Turbo GDi 7DCT",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 2156900,
+          "efficiency": null,
+          "features": [
+            "Robust Front & Rear Skid Plate with Black High Glossy Finish",
+            "Side Door Garnish with Dark Gunmetal Accents",
+            "Smoky Black & Hunter Green Two Tone Interiors with Satin Metal Accents",
+            "Smoky Black & Hunter Green Leatherette Seats",
+            "R18 - 46.20 cm (18”) Black Painted Alloy Wheels"
+          ]
+        },
+        {
+          "name": "GTX(O) 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2181900,
+          "efficiency": null,
+          "features": [
+            "Smoky Black & White Two-Tone Interiors with White Accents",
+            "Smoky Black & White Leatherette Seats",
+            "ADAS Level 2+ with 28 Autonomous Features",
+            "Ice Cube LED Projection Headlamps with Dynamic Welcome Function",
+            "Star Map LED DRLs with Integrated Turn Signal",
+            "Kia Digital Tiger Face with Dark Gunmetal Accents",
+            "Glossy Black Front Bumper and Cladding",
+            "Robust Front & Rear Skid Plate with Dark Gunmetal Finish",
+            "Side Door Garnish with Body Color Accents",
+            "R18 - 46.20 cm (18”) Sporty Crystal Cut Alloy Wheels"
+          ]
+        },
+        {
+          "name": "X-Line(O) 1.5 CRDi Diesel 6AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2181900,
+          "efficiency": null,
+          "features": [
+            "Robust Front & Rear Skid Plate with Black High Glossy Finish",
+            "Side Door Garnish with Dark Gunmetal Accents",
+            "Smoky Black & Hunter Green Two Tone Interiors with Satin Metal Accents",
+            "Smoky Black & Hunter Green Leatherette Seats",
+            "R18 - 46.20 cm (18”) Black Painted Alloy Wheels"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.kia.com/in/our-vehicles/seltos/showroom.html",
+        "https://www.kia.com/in/our-vehicles/seltos/specs.html",
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/new-seltos/showroom/brochure/Kia_Seltos_Brochure_2026_Desktop.pdf",
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/new-seltos/All-New-Seltos-BNCAP-Fact-Sheet.pdf",
+        "https://www.kia.com/api/kia2_in/emiCalculator.getPrice.do"
+      ],
+      "notes": "Kia India does not publish ARAI fuel-efficiency figures on its model pages or brochures, so efficiency is null. Prices are Delhi ex-showroom from Kia India's official price service (EMI calculator, state DL / city Delhi). Fuel tank 47 l (1.5 petrol, diesel) or 50 l (turbo); 50 used. Kia's price service returned no price for X-Line (non-ADAS) and the turbo iMT variants, so those are left out. The previous-generation Seltos is no longer priced."
+    },
+    {
+      "slug": "kia-carens",
+      "name": "Carens",
+      "bodyType": "MUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-02-15",
+      "engine": "1493 – 1497 cc",
+      "power": "70.6 – 85 kW",
+      "torque": "123.2 – 250 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 3,
+        "agency": "Global NCAP",
+        "year": 2024
+      },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4540,
+        "width": 1800,
+        "height": 1708,
+        "wheelbase": 2780
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Aurora Black Pearl",
+          "hex": "#111214"
+        },
+        {
+          "name": "Clear White",
+          "hex": "#F5F5F5"
+        },
+        {
+          "name": "Imperial Blue",
+          "hex": "#1E2F5C"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "ESC, VSM, BAS, HAC and downhill brake control",
+            "All-wheel disc brakes",
+            "Highline TPMS",
+            "ISOFIX"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "2nd row one-touch electric tumble",
+            "Roof-mounted 2nd and 3rd row AC vents",
+            "2nd row 60:40 sliding and reclining seats",
+            "3rd row 50:50 reclining, flat-folding seats",
+            "5 USB Type-C ports"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "20.32 cm (8\") touchscreen with Android Auto and Apple CarPlay",
+            "6 speakers"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Smartstream G1.5 petrol, 84.4 kW / 143.8 Nm, 6-speed MT",
+            "1.5 CRDi VGT diesel, 85 kW / 250 Nm, 6-speed MT",
+            "G1.5 petrol-CNG bi-fuel, 70.6 kW / 123.2 Nm on CNG"
+          ]
+        }
+      ],
+      "highlights": [
+        "Seven-seat MPV sold in a single Premium (O) trim",
+        "Petrol, diesel and factory-fitted CNG options",
+        "Six airbags as standard",
+        "One-touch electric tumble for the 2nd row",
+        "All-wheel disc brakes"
+      ],
+      "variants": [
+        {
+          "name": "Premium(O) 1.5 Petrol 6MT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1111900,
+          "efficiency": null,
+          "features": [
+            "20.32 cm (8.0\") Touchscreen with Android Auto, Apple Carplay (6 Speakers)",
+            "Electric Adjust Outside Mirror with LED Turn Signals",
+            "Robust 10 Hi-Safety Package [6 Airbags, ESC, VSM, BAS, HAC, DBC (Downhill Brake Control), All Wheel Disc Brakes, Highline TPMS, Rear Parking Sensors, ABS]",
+            "2nd Seat \"One Touch Easy Electric Tumble\"",
+            "Roof Flushed 2nd & 3rd Row Diffused AC Vents",
+            "Semi Leatherette (Black & Indigo) Seats",
+            "2nd row 60:40 Split Seats with Sliding, Reclining and Tumble",
+            "3rd row 50:50 Split Seats with Reclining and Full Flat Folding",
+            "ISOFIX Child Anchor",
+            "5 USB Type C Ports"
+          ]
+        },
+        {
+          "name": "Premium(O) 1.5 Petrol-CNG 6MT 7-seater",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1211800,
+          "efficiency": null,
+          "features": [
+            "Factory-fitted CNG (60 l water equivalent)",
+            "20.32 cm (8.0\") Touchscreen with Android Auto, Apple Carplay (6 Speakers)",
+            "Electric Adjust Outside Mirror with LED Turn Signals",
+            "Robust 10 Hi-Safety Package [6 Airbags, ESC, VSM, BAS, HAC, DBC (Downhill Brake Control), All Wheel Disc Brakes, Highline TPMS, Rear Parking Sensors, ABS]",
+            "2nd Seat \"One Touch Easy Electric Tumble\"",
+            "Roof Flushed 2nd & 3rd Row Diffused AC Vents",
+            "Semi Leatherette (Black & Indigo) Seats",
+            "2nd row 60:40 Split Seats with Sliding, Reclining and Tumble",
+            "3rd row 50:50 Split Seats with Reclining and Full Flat Folding",
+            "ISOFIX Child Anchor"
+          ]
+        },
+        {
+          "name": "Premium(O) 1.5 CRDi Diesel 6MT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1297900,
+          "efficiency": null,
+          "features": [
+            "20.32 cm (8.0\") Touchscreen with Android Auto, Apple Carplay (6 Speakers)",
+            "Electric Adjust Outside Mirror with LED Turn Signals",
+            "Robust 10 Hi-Safety Package [6 Airbags, ESC, VSM, BAS, HAC, DBC (Downhill Brake Control), All Wheel Disc Brakes, Highline TPMS, Rear Parking Sensors, ABS]",
+            "2nd Seat \"One Touch Easy Electric Tumble\"",
+            "Roof Flushed 2nd & 3rd Row Diffused AC Vents",
+            "Semi Leatherette (Black & Indigo) Seats",
+            "2nd row 60:40 Split Seats with Sliding, Reclining and Tumble",
+            "3rd row 50:50 Split Seats with Reclining and Full Flat Folding",
+            "ISOFIX Child Anchor",
+            "5 USB Type C Ports"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.kia.com/in/our-vehicles/carens/showroom.html",
+        "https://www.kia.com/in/our-vehicles/carens/specs.html",
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/Brochures/Kia_Carens_Brochure_Desktop_2026.pdf",
+        "https://www.kia.com/api/kia2_in/emiCalculator.getPrice.do"
+      ],
+      "notes": "Kia India does not publish ARAI fuel-efficiency figures on its model pages or brochures, so efficiency is null. Prices are Delhi ex-showroom from Kia India's official price service (EMI calculator, state DL / city Delhi). The Carens now sells only in the Premium (O) trim alongside the Carens Clavis. Safety: Global NCAP 3 stars adult (5 stars child) from the 2024 re-test. Height 1708 mm with roof rails. CNG tank 60 l water equivalent."
+    },
+    {
+      "slug": "kia-carens-clavis",
+      "name": "Carens Clavis",
+      "bodyType": "MUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2025-05-23",
+      "engine": "1482 – 1497 cc",
+      "power": "70.6 – 117.6 kW",
+      "torque": "123.2 – 253 Nm",
+      "seats": [
+        6,
+        7
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 45,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4550,
+        "width": 1800,
+        "height": 1708,
+        "wheelbase": 2780
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Aurora Black Pearl",
+          "hex": "#111214"
+        },
+        {
+          "name": "Dark Gun Metal",
+          "hex": "#3E4247"
+        },
+        {
+          "name": "Glacier White Pearl",
+          "hex": "#F3F3F1"
+        },
+        {
+          "name": "Gravity Gray",
+          "hex": "#5B5E61"
+        },
+        {
+          "name": "Imperial Blue",
+          "hex": "#1E2F5C"
+        },
+        {
+          "name": "Ivory Silver Gloss",
+          "hex": "#C9C8C3"
+        },
+        {
+          "name": "Pewter Olive",
+          "hex": "#5E6150"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags and an 18-feature safety pack standard",
+            "All-wheel disc brakes",
+            "ADAS Level 2 with 20 features (HTX+ DCT and above)",
+            "360-degree camera with blind view monitor (HTX and above)",
+            "Smart dashcam with dual camera"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "31.12 cm (12.25\") HD touchscreen navigation and 12.25\" cluster (HTX and above)",
+            "20.32 cm (8\") touchscreen (HTE(O) – HTK+)",
+            "Bose premium 8-speaker system",
+            "Next-generation Kia Connect with OTA updates"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Dual-pane panoramic sunroof",
+            "Front ventilated seats (HTX+ and above)",
+            "2nd row captain seats (6-seater)",
+            "One-touch electric tumble 2nd row",
+            "Roof-mounted 2nd and 3rd row AC vents",
+            "Smartphone wireless charger"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Ice Cube LED MFR headlamps",
+            "Star Map LED connected DRLs and tail lamps",
+            "R17 crystal-cut dual-tone alloys",
+            "Lime brake calipers (GTX, GTX+)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Smartstream G1.5 petrol, 84.4 kW / 143.8 Nm, 6-speed MT",
+            "Smartstream G1.5 T-GDi, 117.6 kW / 253 Nm: 6-speed MT, 6-speed iMT or 7-speed DCT",
+            "1.5 CRDi VGT diesel, 85.3 kW / 250 Nm: 6-speed MT or 6-speed AT",
+            "G1.5 petrol-CNG bi-fuel (HTE, HTE(O))"
+          ]
+        }
+      ],
+      "highlights": [
+        "Six- and seven-seat MPV",
+        "Petrol, turbo-petrol, diesel and factory-fitted CNG",
+        "ADAS Level 2 with 20 features on top trims",
+        "Dual-pane panoramic sunroof on higher trims",
+        "GTX, GTX+ and X-Line styling trims"
+      ],
+      "variants": [
+        {
+          "name": "HTE 1.5 Petrol 6MT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1138900,
+          "efficiency": null,
+          "features": [
+            "Robust 18 Hi-safety Package",
+            "2nd Row Seat “One Touch Easy Electric Tumble”",
+            "Roof Flushed 2nd and 3rd Row Diffused AC Vents",
+            "2nd row 60:40 Split Seats with Sliding, Reclining and Tumble",
+            "3rd row 50:50 Split Seats with Reclining and Full Flat Folding",
+            "5 USB Type C Ports",
+            "Keyless Entry with Burglar Alarm",
+            "Black & Navy Semi-Leatherette Seats",
+            "Rear Door Sunshade Curtains",
+            "R15 - 38.02 cm (15\") Glossy Black Alloy Wheel (G1.5)"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.5 Petrol 6MT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1234900,
+          "efficiency": null,
+          "features": [
+            "Robust 18 Hi-Safety Package",
+            "31.7 cm (12.5”) Full Segment LCD Cluster with Advanced (10.5 cm) 4.2\" Color TFT MID",
+            "20.32 cm (8.0\") Touchscreen with Android Auto, Apple CarPlay",
+            "Electric Adjust Outside Mirrors with LED turn signal",
+            "R16 - 40.56 cm (16\") Styled Steel Wheel with Full Size Wheel Cover (G1.5T/D1.5)",
+            "Drive Mode (AT/DCT)",
+            "Smart Key with Push Button Start & Motion Sensor (AT/DCT)",
+            "Smart Key Remote Engine Start (AT/DCT)",
+            "Electronic Parking Brake (AT/DCT)",
+            "ISG [Except G1.5 CNG and D1.5 AT]"
+          ]
+        },
+        {
+          "name": "HTE 1.5 Petrol-CNG 6MT 7-seater",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1238800,
+          "efficiency": null,
+          "features": [
+            "Factory-fitted CNG (60 l water equivalent)",
+            "Robust 18 Hi-safety Package",
+            "2nd Row Seat “One Touch Easy Electric Tumble”",
+            "Roof Flushed 2nd and 3rd Row Diffused AC Vents",
+            "2nd row 60:40 Split Seats with Sliding, Reclining and Tumble",
+            "3rd row 50:50 Split Seats with Reclining and Full Flat Folding",
+            "5 USB Type C Ports",
+            "Keyless Entry with Burglar Alarm",
+            "Black & Navy Semi-Leatherette Seats",
+            "Rear Door Sunshade Curtains"
+          ]
+        },
+        {
+          "name": "HTE(EX) 1.5 Petrol 6MT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1285900,
+          "efficiency": null,
+          "features": [
+            "2nd Row 60:40 Split Seats with Sliding, Reclining and Tumble",
+            "3rd Row 50:50 Split Seats with Reclining and Full Flat Folding",
+            "5 USB Type-C Ports",
+            "Electric Adjust Outside Mirrors with LED Turn Signal",
+            "R15 – 38.02 cm (15\") Glossy Black Alloy Wheel (G1.5)",
+            "R16 – 40.56 cm (16\") Styled Steel Wheel with Full-Size Wheel Cover (G1.5T/D1.5)",
+            "Star Map LED DRLs",
+            "Fully Automatic Air Conditioner",
+            "Sky Light Electric Sunroof",
+            "Drive Mode (DCT)"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.5 Turbo GDi 6MT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1321900,
+          "efficiency": null,
+          "features": [
+            "Robust 18 Hi-Safety Package",
+            "31.7 cm (12.5”) Full Segment LCD Cluster with Advanced (10.5 cm) 4.2\" Color TFT MID",
+            "20.32 cm (8.0\") Touchscreen with Android Auto, Apple CarPlay",
+            "Electric Adjust Outside Mirrors with LED turn signal",
+            "R16 - 40.56 cm (16\") Styled Steel Wheel with Full Size Wheel Cover (G1.5T/D1.5)",
+            "Drive Mode (AT/DCT)",
+            "Smart Key with Push Button Start & Motion Sensor (AT/DCT)",
+            "Smart Key Remote Engine Start (AT/DCT)",
+            "Electronic Parking Brake (AT/DCT)",
+            "ISG [Except G1.5 CNG and D1.5 AT]"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.5 Petrol-CNG 6MT 7-seater",
+          "fuel": "CNG",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1334800,
+          "efficiency": null,
+          "features": [
+            "Factory-fitted CNG (60 l water equivalent)",
+            "Robust 18 Hi-Safety Package",
+            "31.7 cm (12.5”) Full Segment LCD Cluster with Advanced (10.5 cm) 4.2\" Color TFT MID",
+            "20.32 cm (8.0\") Touchscreen with Android Auto, Apple CarPlay",
+            "Electric Adjust Outside Mirrors with LED turn signal",
+            "R16 - 40.56 cm (16\") Styled Steel Wheel with Full Size Wheel Cover (G1.5T/D1.5)",
+            "Drive Mode (AT/DCT)",
+            "Smart Key with Push Button Start & Motion Sensor (AT/DCT)",
+            "Smart Key Remote Engine Start (AT/DCT)",
+            "Electronic Parking Brake (AT/DCT)"
+          ]
+        },
+        {
+          "name": "HTE(EX) 1.5 Turbo GDi 6MT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1376900,
+          "efficiency": null,
+          "features": [
+            "2nd Row 60:40 Split Seats with Sliding, Reclining and Tumble",
+            "3rd Row 50:50 Split Seats with Reclining and Full Flat Folding",
+            "5 USB Type-C Ports",
+            "Electric Adjust Outside Mirrors with LED Turn Signal",
+            "R15 – 38.02 cm (15\") Glossy Black Alloy Wheel (G1.5)",
+            "R16 – 40.56 cm (16\") Styled Steel Wheel with Full-Size Wheel Cover (G1.5T/D1.5)",
+            "Star Map LED DRLs",
+            "Fully Automatic Air Conditioner",
+            "Sky Light Electric Sunroof",
+            "Drive Mode (DCT)"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.5 CRDi Diesel 6MT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1436900,
+          "efficiency": null,
+          "features": [
+            "Robust 18 Hi-Safety Package",
+            "31.7 cm (12.5”) Full Segment LCD Cluster with Advanced (10.5 cm) 4.2\" Color TFT MID",
+            "20.32 cm (8.0\") Touchscreen with Android Auto, Apple CarPlay",
+            "Electric Adjust Outside Mirrors with LED turn signal",
+            "R16 - 40.56 cm (16\") Styled Steel Wheel with Full Size Wheel Cover (G1.5T/D1.5)",
+            "Drive Mode (AT/DCT)",
+            "Smart Key with Push Button Start & Motion Sensor (AT/DCT)",
+            "Smart Key Remote Engine Start (AT/DCT)",
+            "Electronic Parking Brake (AT/DCT)",
+            "ISG [Except G1.5 CNG and D1.5 AT]"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.5 Turbo GDi 7DCT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1466900,
+          "efficiency": null,
+          "features": [
+            "Robust 18 Hi-Safety Package",
+            "31.7 cm (12.5”) Full Segment LCD Cluster with Advanced (10.5 cm) 4.2\" Color TFT MID",
+            "20.32 cm (8.0\") Touchscreen with Android Auto, Apple CarPlay",
+            "Electric Adjust Outside Mirrors with LED turn signal",
+            "R16 - 40.56 cm (16\") Styled Steel Wheel with Full Size Wheel Cover (G1.5T/D1.5)",
+            "Drive Mode (AT/DCT)",
+            "Smart Key with Push Button Start & Motion Sensor (AT/DCT)",
+            "Smart Key Remote Engine Start (AT/DCT)",
+            "Electronic Parking Brake (AT/DCT)",
+            "ISG [Except G1.5 CNG and D1.5 AT]"
+          ]
+        },
+        {
+          "name": "HTE(EX) 1.5 CRDi Diesel 6MT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1487900,
+          "efficiency": null,
+          "features": [
+            "2nd Row 60:40 Split Seats with Sliding, Reclining and Tumble",
+            "3rd Row 50:50 Split Seats with Reclining and Full Flat Folding",
+            "5 USB Type-C Ports",
+            "Electric Adjust Outside Mirrors with LED Turn Signal",
+            "R15 – 38.02 cm (15\") Glossy Black Alloy Wheel (G1.5)",
+            "R16 – 40.56 cm (16\") Styled Steel Wheel with Full-Size Wheel Cover (G1.5T/D1.5)",
+            "Star Map LED DRLs",
+            "Fully Automatic Air Conditioner",
+            "Sky Light Electric Sunroof",
+            "Drive Mode (DCT)"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.5 CRDi Diesel 6AT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1581900,
+          "efficiency": null,
+          "features": [
+            "Robust 18 Hi-Safety Package",
+            "31.7 cm (12.5”) Full Segment LCD Cluster with Advanced (10.5 cm) 4.2\" Color TFT MID",
+            "20.32 cm (8.0\") Touchscreen with Android Auto, Apple CarPlay",
+            "Electric Adjust Outside Mirrors with LED turn signal",
+            "R16 - 40.56 cm (16\") Styled Steel Wheel with Full Size Wheel Cover (G1.5T/D1.5)",
+            "Drive Mode (AT/DCT)",
+            "Smart Key with Push Button Start & Motion Sensor (AT/DCT)",
+            "Smart Key Remote Engine Start (AT/DCT)",
+            "Electronic Parking Brake (AT/DCT)",
+            "ISG [Except G1.5 CNG and D1.5 AT]"
+          ]
+        },
+        {
+          "name": "HTK+(O) 1.5 Turbo GDi 6MT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1641900,
+          "efficiency": null,
+          "features": [
+            "Electric Adjust Outside Mirrors with Auto Fold and integrated LED turn signal",
+            "Star Map LED Connected DRLs with Integrated Turn Signals",
+            "R17 - 43.66cm (17\") Crystal Cut Dual Tone Alloy Wheel",
+            "Smartphone Wireless Charger",
+            "Rear Defogger",
+            "Rear Wiper and Washer",
+            "Sky Light Electric Sunroof (D1.5)",
+            "Dual Pane Panoramic Sunroof (G1.5T)",
+            "Smart Dashcam with Dual Camera (with Mobile App)",
+            "Ice Cube LED MFR Headlamps"
+          ]
+        },
+        {
+          "name": "HTK+ 1.5 CRDi Diesel 6MT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1643900,
+          "efficiency": null,
+          "features": [
+            "31.7 cm (12.5”) Full Segment LCD Cluster with Advanced (10.5cm) 4.2\" Color TFT MID",
+            "20.32 cm (8.0\") Touchscreen with Android Auto, Apple Carplay",
+            "Star Map LED Connected Taillamp",
+            "R16 - 40.56cm (16\") Styled Steel Wheel with Full Size Wheel Cover (G1.5T/D1.5)",
+            "Auto Cruise Control with Speed Limiting Option",
+            "Smart Key Remote Engine Start",
+            "Smart Key with Push Button Start & Motion Sensor",
+            "Sky Light Electric Sunroof (G1.5 T/DCT, D1.5 MT only)",
+            "ISG (NA in D1.5 AT)"
+          ]
+        },
+        {
+          "name": "HTK+ 1.5 Turbo GDi 7DCT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1684900,
+          "efficiency": null,
+          "features": [
+            "31.7 cm (12.5”) Full Segment LCD Cluster with Advanced (10.5cm) 4.2\" Color TFT MID",
+            "20.32 cm (8.0\") Touchscreen with Android Auto, Apple Carplay",
+            "Star Map LED Connected Taillamp",
+            "R16 - 40.56cm (16\") Styled Steel Wheel with Full Size Wheel Cover (G1.5T/D1.5)",
+            "Auto Cruise Control with Speed Limiting Option",
+            "Smart Key Remote Engine Start",
+            "Smart Key with Push Button Start & Motion Sensor",
+            "Sky Light Electric Sunroof (G1.5 T/DCT, D1.5 MT only)",
+            "ISG (NA in D1.5 AT)"
+          ]
+        },
+        {
+          "name": "HTK+(O) 1.5 CRDi Diesel 6MT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1721900,
+          "efficiency": null,
+          "features": [
+            "Electric Adjust Outside Mirrors with Auto Fold and integrated LED turn signal",
+            "Star Map LED Connected DRLs with Integrated Turn Signals",
+            "R17 - 43.66cm (17\") Crystal Cut Dual Tone Alloy Wheel",
+            "Smartphone Wireless Charger",
+            "Rear Defogger",
+            "Rear Wiper and Washer",
+            "Sky Light Electric Sunroof (D1.5)",
+            "Dual Pane Panoramic Sunroof (G1.5T)",
+            "Smart Dashcam with Dual Camera (with Mobile App)",
+            "Ice Cube LED MFR Headlamps"
+          ]
+        },
+        {
+          "name": "HTK+ 1.5 CRDi Diesel 6AT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 1756900,
+          "efficiency": null,
+          "features": [
+            "31.7 cm (12.5”) Full Segment LCD Cluster with Advanced (10.5cm) 4.2\" Color TFT MID",
+            "20.32 cm (8.0\") Touchscreen with Android Auto, Apple Carplay",
+            "Star Map LED Connected Taillamp",
+            "R16 - 40.56cm (16\") Styled Steel Wheel with Full Size Wheel Cover (G1.5T/D1.5)",
+            "Auto Cruise Control with Speed Limiting Option",
+            "Smart Key Remote Engine Start",
+            "Smart Key with Push Button Start & Motion Sensor",
+            "Sky Light Electric Sunroof (G1.5 T/DCT, D1.5 MT only)",
+            "ISG (NA in D1.5 AT)"
+          ]
+        },
+        {
+          "name": "HTK+(O) 1.5 Turbo GDi 7DCT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1785900,
+          "efficiency": null,
+          "features": [
+            "Electric Adjust Outside Mirrors with Auto Fold and integrated LED turn signal",
+            "Star Map LED Connected DRLs with Integrated Turn Signals",
+            "R17 - 43.66cm (17\") Crystal Cut Dual Tone Alloy Wheel",
+            "Smartphone Wireless Charger",
+            "Rear Defogger",
+            "Rear Wiper and Washer",
+            "Sky Light Electric Sunroof (D1.5)",
+            "Dual Pane Panoramic Sunroof (G1.5T)",
+            "Smart Dashcam with Dual Camera (with Mobile App)",
+            "Ice Cube LED MFR Headlamps"
+          ]
+        },
+        {
+          "name": "HTX 1.5 CRDi Diesel 6MT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1900900,
+          "efficiency": null,
+          "features": [
+            "31.12 cm (12.25”) HD Display Instrument Cluster",
+            "31.12 cm (12.25”) HD Touchscreen Navigation with Kia Connect",
+            "Beige & Navy Leatherette seats",
+            "360 Degree Camera",
+            "Blind View Monitor in Cluster",
+            "Next Generation Kia Connect with OTA Map and System Updates",
+            "Smart Pure Air Purifier with AQI Display",
+            "Smart Dashcam with Dual Camera (with Mobile App) (MT)",
+            "Retractable SeatBack Table with Cup Holder and IT Device Holder",
+            "64-Color Ambient Lighting"
+          ]
+        },
+        {
+          "name": "HTX+ 1.5 Turbo GDi 6MT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1903900,
+          "efficiency": null,
+          "features": [
+            "ADAS Level 2 with 20 Autonomous Features (DCT)",
+            "R17 - 43.66 cm (17\") Crystal Cut Dual Tone Alloy Wheel",
+            "Rain sensing wipers",
+            "Smart Dashcam with Dual Camera (with Mobile App) (MT/IMT)",
+            "Walk-in Lever: 1st row passenger seat sliding lever",
+            "Front Ventilated Seats",
+            "2nd Row Captain Seats with Sliding, Reclining and Tumble [6 Seater]",
+            "Paddle Shifters (DCT Only)"
+          ]
+        },
+        {
+          "name": "HTX+ 1.5 Turbo GDi iMT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed iMT",
+          "price": 1932900,
+          "efficiency": null,
+          "features": [
+            "ADAS Level 2 with 20 Autonomous Features (DCT)",
+            "R17 - 43.66 cm (17\") Crystal Cut Dual Tone Alloy Wheel",
+            "Rain sensing wipers",
+            "Smart Dashcam with Dual Camera (with Mobile App) (MT/IMT)",
+            "Walk-in Lever: 1st row passenger seat sliding lever",
+            "Front Ventilated Seats",
+            "2nd Row Captain Seats with Sliding, Reclining and Tumble [6 Seater]",
+            "Paddle Shifters (DCT Only)"
+          ]
+        },
+        {
+          "name": "HTX(O) 1.5 Turbo GDi 7DCT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1961900,
+          "efficiency": null,
+          "features": [
+            "2nd row 60:40 Split Seats with Sliding, Reclining and Tumble",
+            "3rd row 50:50 Split Seats with Reclining and Full Flat Folding",
+            "31.12cm (12.25”) HD Display Instrument Cluster",
+            "Electric Adjust Outside Mirrors with LED turn signal",
+            "Beige & Navy Leatherette seats",
+            "R17 - 43.66 cm (17\") Crystal Cut Dual Tone Alloy Wheels",
+            "BOSE Premium Sound System with 8 Speakers"
+          ]
+        },
+        {
+          "name": "GTX 1.5 Turbo GDi 7DCT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 1999900,
+          "efficiency": null,
+          "features": [
+            "2nd Row 60:40 Split Seats with Sliding, Reclining and Tumble",
+            "3rd Row 50:50 Split Seats with Reclining and Full Flat Folding",
+            "Electric Adjust Outside Mirrors with LED Turn Signal",
+            "Black Leatherette seats with Offwhite Accent",
+            "R17 - 43.66 cm (17\") Crystal Cut Dual Tone Alloy Wheel with Lime Caliper",
+            "Drive Mode (DCT)",
+            "Dual Pane Panoramic Sunroof",
+            "ISG"
+          ]
+        },
+        {
+          "name": "HTX+ 1.5 Turbo GDi 7DCT 6-seater",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 2106900,
+          "efficiency": null,
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "ADAS Level 2 with 20 Autonomous Features (DCT)",
+            "R17 - 43.66 cm (17\") Crystal Cut Dual Tone Alloy Wheel",
+            "Rain sensing wipers",
+            "Smart Dashcam with Dual Camera (with Mobile App) (MT/IMT)",
+            "Walk-in Lever: 1st row passenger seat sliding lever",
+            "Front Ventilated Seats",
+            "2nd Row Captain Seats with Sliding, Reclining and Tumble [6 Seater]",
+            "Paddle Shifters (DCT Only)"
+          ]
+        },
+        {
+          "name": "HTX+ 1.5 Turbo GDi 7DCT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 2106900,
+          "efficiency": null,
+          "features": [
+            "ADAS Level 2 with 20 Autonomous Features (DCT)",
+            "R17 - 43.66 cm (17\") Crystal Cut Dual Tone Alloy Wheel",
+            "Rain sensing wipers",
+            "Smart Dashcam with Dual Camera (with Mobile App) (MT/IMT)",
+            "Walk-in Lever: 1st row passenger seat sliding lever",
+            "Front Ventilated Seats",
+            "2nd Row Captain Seats with Sliding, Reclining and Tumble [6 Seater]",
+            "Paddle Shifters (DCT Only)"
+          ]
+        },
+        {
+          "name": "GTX+ 1.5 Turbo GDi 7DCT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 2178900,
+          "efficiency": null,
+          "features": [
+            "Drive Mode",
+            "Retractable Seatback Table with Cup Holder and IT Device Holder",
+            "Walk-in Lever: 1st Row Passenger Seat Sliding Lever",
+            "Paddle Shifters"
+          ]
+        },
+        {
+          "name": "X-Line 1.5 Turbo GDi 7DCT 7-seater",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed DCT",
+          "price": 2178900,
+          "efficiency": null,
+          "features": [
+            "Black Leatherette seats with Hunter Green Accent",
+            "R17 - 43.66 cm (17\") Crystal Cut Dual Tone Alloy Wheels",
+            "Drive Mode (DCT)",
+            "Robust 18 Hi-Safety Package",
+            "ADAS Level 2 with 20 Autonomous Features (DCT)",
+            "2nd Row Seat “One Touch Easy Electric Tumble”",
+            "Roof Flushed 2nd and 3rd Row Diffused AC Vents",
+            "2nd Row 60:40 Split Seats with Sliding, Reclining and Tumble",
+            "3rd Row 50:50 Split Seats with Reclining and Full Flat Folding",
+            "5 USB Type-C Ports"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.kia.com/in/our-vehicles/carens-clavis/showroom.html",
+        "https://www.kia.com/in/our-vehicles/carens-clavis/specs.html",
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/kia-clavis/broc/Kia_Carens_Clavis_2026_Desktop.pdf",
+        "https://www.kia.com/api/kia2_in/emiCalculator.getPrice.do"
+      ],
+      "notes": "Kia India does not publish ARAI fuel-efficiency figures on its model pages or brochures, so efficiency is null. Prices are Delhi ex-showroom from Kia India's official price service (EMI calculator, state DL / city Delhi). Kia's price service returned no price for several listed variants (most 6-seaters, GTX/X-Line 6-seaters, diesel HTE MT, turbo HTK+ MT, HTX MT, HTX(O) 6-seater, iMT HTX); those are left out. Two names in the price service lacked a seat count (turbo HTK+(O) MT and DCT); listed as 7-seaters because the brochure offers 6 seats only on HTX+. No Bharat NCAP result published for the Clavis."
+    },
+    {
+      "slug": "kia-carens-clavis-ev",
+      "name": "Carens Clavis EV",
+      "bodyType": "MUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2025-07-15",
+      "engine": "Electric motor",
+      "power": "99 – 126 kW",
+      "torque": "255 Nm",
+      "seats": [
+        6,
+        7
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4550,
+        "width": 1800,
+        "height": 1730,
+        "wheelbase": 2780
+      },
+      "ev": {
+        "rangeKm": 490,
+        "rangeStandard": "MIDC P1+P2 (ARAI)",
+        "batteryKwh": 51.4,
+        "dcCharge": "39 min (10–80%, 100 kW DC)",
+        "acCharge": "4 h (42 kWh) / 4 h 45 min (51.4 kWh), 10–100%, 11 kW",
+        "motorKw": 126
+      },
+      "colors": [
+        {
+          "name": "Aurora Black Pearl",
+          "hex": "#111214"
+        },
+        {
+          "name": "Dark Gun Metal",
+          "hex": "#3E4247"
+        },
+        {
+          "name": "Glacier White Pearl",
+          "hex": "#F3F3F1"
+        },
+        {
+          "name": "Gravity Grey",
+          "hex": "#5B5E61"
+        },
+        {
+          "name": "Imperial Blue",
+          "hex": "#1E2F5C"
+        },
+        {
+          "name": "Ivory Silver Matte",
+          "hex": "#C2C1BC"
+        },
+        {
+          "name": "Pewter Olive",
+          "hex": "#5E6150"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "42 kWh battery: 99 kW, 404 km claimed range",
+            "51.4 kWh Extended Range battery: 126 kW, 490 km claimed range",
+            "255 Nm torque",
+            "DC fast charging 10–80% in 39 min (100 kW)",
+            "Paddle shifters for i-Pedal and regen braking"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags and an 18-feature safety pack standard",
+            "All-wheel disc brakes",
+            "ADAS Level 2 with 20 features (HTX and above)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sunroof (HTX E and above)",
+            "2nd row captain seats (6-seater)",
+            "Roof-mounted 2nd and 3rd row AC vents",
+            "25 l front storage (frunk)",
+            "Vehicle-to-load (V2L)",
+            "Smartphone wireless charger"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Dual 12.25\" displays",
+            "Bose premium 8-speaker system (HTX+ ER and above)",
+            "Kia Connect with OTA updates"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Star Map LED connected DRLs and tail lamps",
+            "Ice Cube LED MFR headlamps",
+            "Active air flap",
+            "Illuminated front charging port",
+            "R16 or R17 aero alloys"
+          ]
+        }
+      ],
+      "highlights": [
+        "Electric six- and seven-seat MPV",
+        "Up to 490 km claimed range (MIDC P1+P2)",
+        "42 kWh and 51.4 kWh battery options",
+        "10–80% DC charge in 39 minutes on a 100 kW charger",
+        "Same price for 6- and 7-seat versions of each trim"
+      ],
+      "variants": [
+        {
+          "name": "HTK+ 42 kWh 7-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 1803900,
+          "efficiency": "404 km",
+          "features": [
+            "R16 40.56cm (16”) Crystal Cut Dual Tone Aero Alloy Wheels",
+            "Ice Cube LED MFR Headlamps",
+            "Star Map LED Connected Taillamp",
+            "Star Map LED Connected DRLs with Integrated Turn Signals",
+            "Active Air Flap",
+            "Front Charging port with illumination",
+            "Power Windows (All Doors) with Switch Illumination",
+            "Electric Adjust Outside Mirrors with Auto Fold and integrated LED turn signal",
+            "Roof Flushed 2nd & 3rd Row Diffused AC Vents",
+            "Smart Key with Motion Sensor & Remote Start"
+          ]
+        },
+        {
+          "name": "HTX E 42 kWh 6-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 1999900,
+          "efficiency": "404 km",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "Front Charging Port with Illumination",
+            "Electric Adjust Outside Mirrors with Auto Fold and Integrated LED Turn Signal",
+            "Infotainment–Temperature Control Swap Switch",
+            "25 L Frunk with Cover",
+            "Paddle Shifters for i-Pedal & Re-gen Braking",
+            "64-Color Ambient Lighting & Footwell Lamp",
+            "Beige & Navy Leatherette Seats",
+            "Panoramic Sunroof",
+            "Solar Glass – UV Cut (All Door Windows)"
+          ]
+        },
+        {
+          "name": "HTX E 42 kWh 7-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 1999900,
+          "efficiency": "404 km",
+          "features": [
+            "Front Charging Port with Illumination",
+            "Electric Adjust Outside Mirrors with Auto Fold and Integrated LED Turn Signal",
+            "Infotainment–Temperature Control Swap Switch",
+            "25 L Frunk with Cover",
+            "Paddle Shifters for i-Pedal & Re-gen Braking",
+            "64-Color Ambient Lighting & Footwell Lamp",
+            "Beige & Navy Leatherette Seats",
+            "Panoramic Sunroof",
+            "Solar Glass – UV Cut (All Door Windows)",
+            "Smartphone Wireless Charger"
+          ]
+        },
+        {
+          "name": "HTX 42 kWh 7-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 2053900,
+          "efficiency": "404 km",
+          "features": [
+            "Beige & Navy Leatherette seats",
+            "Dual Pane Panoramic Sunroof",
+            "ADAS Level 2 with 20 Autonomous Features",
+            "All windows auto up/down safety with Voice recognition"
+          ]
+        },
+        {
+          "name": "HTX 42 kWh 6-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 2053900,
+          "efficiency": "404 km",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "Beige & Navy Leatherette seats",
+            "Dual Pane Panoramic Sunroof",
+            "ADAS Level 2 with 20 Autonomous Features",
+            "All windows auto up/down safety with Voice recognition"
+          ]
+        },
+        {
+          "name": "HTX E ER 51.4 kWh 6-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 2203900,
+          "efficiency": "490 km",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "R17 - 43.66 cm (17”) Dual Tone Aero Alloy Wheels",
+            "Front Charging Port with Illumination",
+            "Power Windows (All Doors) with Switch Illumination",
+            "Electric Adjust Outside Mirrors with Auto Fold and Integrated LED Turn Signal",
+            "Infotainment – Temperature Control Swap Switch",
+            "25 L Frunk with Cover",
+            "Floating Console with Premium Sliding Cover & Cup Holder & Open Storage",
+            "Paddle Shifters for i-Pedal & Re-gen Braking",
+            "Beige & Navy Leatherette Seats"
+          ]
+        },
+        {
+          "name": "HTX E ER 51.4 kWh 7-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 2203900,
+          "efficiency": "490 km",
+          "features": [
+            "R17 - 43.66 cm (17”) Dual Tone Aero Alloy Wheels",
+            "Front Charging Port with Illumination",
+            "Power Windows (All Doors) with Switch Illumination",
+            "Electric Adjust Outside Mirrors with Auto Fold and Integrated LED Turn Signal",
+            "Infotainment – Temperature Control Swap Switch",
+            "25 L Frunk with Cover",
+            "Floating Console with Premium Sliding Cover & Cup Holder & Open Storage",
+            "Paddle Shifters for i-Pedal & Re-gen Braking",
+            "Beige & Navy Leatherette Seats",
+            "Panoramic Sunroof"
+          ]
+        },
+        {
+          "name": "HTX ER 51.4 kWh 7-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 2253900,
+          "efficiency": "490 km",
+          "features": [
+            "R 17 - 43.66 cm (17”) Dual Tone Aero Alloy Wheels",
+            "Front Charging port with illumination",
+            "Electric Adjust Outside Mirrors with Auto Fold and integrated LED turn signal",
+            "Infotainment-Temperature control swap switch",
+            "25 L Frunk with cover",
+            "Paddle Shifters for i-Pedal & Re-gen braking",
+            "Beige & Navy Leatherette seats",
+            "Dual Pane Panoramic Sunroof",
+            "ADAS Level 2 with 20 Autonomous Features",
+            "Drive Mode Select [Eco/Normal/Sport]"
+          ]
+        },
+        {
+          "name": "HTX ER 51.4 kWh 6-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 2253900,
+          "efficiency": "490 km",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "R 17 - 43.66 cm (17”) Dual Tone Aero Alloy Wheels",
+            "Front Charging port with illumination",
+            "Electric Adjust Outside Mirrors with Auto Fold and integrated LED turn signal",
+            "Infotainment-Temperature control swap switch",
+            "25 L Frunk with cover",
+            "Paddle Shifters for i-Pedal & Re-gen braking",
+            "Beige & Navy Leatherette seats",
+            "Dual Pane Panoramic Sunroof",
+            "ADAS Level 2 with 20 Autonomous Features"
+          ]
+        },
+        {
+          "name": "GTX ER 51.4 kWh 6-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 2303900,
+          "efficiency": "490 km",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "R 17 - 43.66 cm (17”) Dual Tone Aero Alloy Wheels With Lime Caliper",
+            "Infotainment-Temperature Control Swap Switch",
+            "Black Leatherette Seats with Offwhite Accent",
+            "3-Spoke Dual Tone Leatherette Wrapped Steering Wheel"
+          ]
+        },
+        {
+          "name": "GTX ER 51.4 kWh 7-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 2303900,
+          "efficiency": "490 km",
+          "features": [
+            "R 17 - 43.66 cm (17”) Dual Tone Aero Alloy Wheels With Lime Caliper",
+            "Infotainment-Temperature Control Swap Switch",
+            "Black Leatherette Seats with Offwhite Accent",
+            "3-Spoke Dual Tone Leatherette Wrapped Steering Wheel"
+          ]
+        },
+        {
+          "name": "HTX+ ER 51.4 kWh 7-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 2453900,
+          "efficiency": "490 km",
+          "features": [
+            "BOSE Premium Sound System with 8 Speakers",
+            "V2L - Vehicle To Load (External & Internal)",
+            "Rear Door Spot Lamps with Kia Logo Projection",
+            "Walk-in Lever : 1st Row Passenger Seat Sliding Lever",
+            "Front Ventilated Seats, 4-way Power Driver Seat, Rain Sensing Wipers"
+          ]
+        },
+        {
+          "name": "HTX+ ER 51.4 kWh 6-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 2453900,
+          "efficiency": "490 km",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "BOSE Premium Sound System with 8 Speakers",
+            "V2L - Vehicle To Load (External & Internal)",
+            "Rear Door Spot Lamps with Kia Logo Projection",
+            "Walk-in Lever : 1st Row Passenger Seat Sliding Lever",
+            "Front Ventilated Seats, 4-way Power Driver Seat, Rain Sensing Wipers"
+          ]
+        },
+        {
+          "name": "GTX+ ER 51.4 kWh 6-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 2499900,
+          "efficiency": "490 km",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "R 17 - 43.66 cm (17”) Dual Tone Aero Alloy Wheels With Lime Caliper",
+            "Front Charging Port with Illumination",
+            "Power Windows (All Doors) with Switch Illumination",
+            "Electric Adjust Outside Mirrors with Auto Fold and Integrated LED Turn Signal",
+            "Infotainment-Temperature Control Swap Switch",
+            "25 L Frunk with Cover",
+            "Floating Console with Premium Sliding Cover & Cup Holder & Open Storage",
+            "Paddle Shifters for i-Pedal & Re-gen Braking",
+            "Black Leatherette Seats with Offwhite Accent"
+          ]
+        },
+        {
+          "name": "GTX+ ER 51.4 kWh 7-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 2499900,
+          "efficiency": "490 km",
+          "features": [
+            "R 17 - 43.66 cm (17”) Dual Tone Aero Alloy Wheels With Lime Caliper",
+            "Front Charging Port with Illumination",
+            "Power Windows (All Doors) with Switch Illumination",
+            "Electric Adjust Outside Mirrors with Auto Fold and Integrated LED Turn Signal",
+            "Infotainment-Temperature Control Swap Switch",
+            "25 L Frunk with Cover",
+            "Floating Console with Premium Sliding Cover & Cup Holder & Open Storage",
+            "Paddle Shifters for i-Pedal & Re-gen Braking",
+            "Black Leatherette Seats with Offwhite Accent",
+            "Panoramic Sunroof"
+          ]
+        },
+        {
+          "name": "X-Line ER 51.4 kWh 6-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 2499900,
+          "efficiency": "490 km",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "R 17 - 43.66 cm (17”) Black Alloy Wheels",
+            "Black Leatherette Seats with Hunter Green Accent",
+            "Ice Cube LED MFR Headlamps",
+            "Star Map LED Connected Taillamp",
+            "Star Map LED Connected DRLs with Integrated Turn Signals",
+            "Active Air Flap",
+            "Front Charging Port with Illumination",
+            "Power Windows (All Doors) with Switch Illumination",
+            "Electric Adjust Outside Mirrors with Auto Fold and Integrated LED Turn Signal"
+          ]
+        },
+        {
+          "name": "X-Line ER 51.4 kWh 7-seater",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 2499900,
+          "efficiency": "490 km",
+          "features": [
+            "R 17 - 43.66 cm (17”) Black Alloy Wheels",
+            "Black Leatherette Seats with Hunter Green Accent",
+            "Ice Cube LED MFR Headlamps",
+            "Star Map LED Connected Taillamp",
+            "Star Map LED Connected DRLs with Integrated Turn Signals",
+            "Active Air Flap",
+            "Front Charging Port with Illumination",
+            "Power Windows (All Doors) with Switch Illumination",
+            "Electric Adjust Outside Mirrors with Auto Fold and Integrated LED Turn Signal",
+            "Roof Flushed 2nd & 3rd Row Diffused AC Vents"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.kia.com/in/our-vehicles/carens-clavis-ev/showroom.html",
+        "https://www.kia.com/in/our-vehicles/carens-clavis-ev/specs.html",
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/kia-carens-clavis-ev/showroom/Kia_CarensClavisEV_Brochure_Desktop.pdf",
+        "https://www.kia.com/api/kia2_in/emiCalculator.getPrice.do"
+      ],
+      "notes": "Prices are Delhi ex-showroom from Kia India's official price service (EMI calculator, state DL / city Delhi). Ranges are ARAI-certified MIDC Part 1 + Part 2: 404 km (42 kWh) and 490 km (51.4 kWh). Height 1730 mm with roof rails. BaaS pricing is not listed as variants. No crash-test result published."
+    },
+    {
+      "slug": "kia-carnival",
+      "name": "Carnival",
+      "bodyType": "MUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2024-10-03",
+      "engine": "2.2 l diesel",
+      "power": "142 kW (193 PS)",
+      "torque": "45 kgf·m",
+      "seats": [
+        7
+      ],
+      "airbags": 8,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 72,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 5155,
+        "width": 1995,
+        "height": 1775,
+        "wheelbase": 3090
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Fusion Black",
+          "hex": "#121212"
+        },
+        {
+          "name": "Glacier White Pearl",
+          "hex": "#F3F3F1"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "2nd row powered relaxation VIP seats with leg support",
+            "One-touch power sliding doors with hands-free function",
+            "Dual sunroof",
+            "Smart power tailgate",
+            "12-way power driver seat"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "12.3\" HD touchscreen navigation and 12.3\" cluster",
+            "27.9 cm (11\") head-up display",
+            "12-speaker Bose premium sound system",
+            "Wireless Android Auto and Apple CarPlay",
+            "Kia Connect with OTA updates"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "8 airbags",
+            "ADAS Level 2 with 23 features",
+            "Smart Cruise Control with Stop & Go"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.2 l diesel, 142 kW (193 PS), 45 kgf·m",
+            "8-speed automatic, front-wheel drive",
+            "Shift-by-wire dial selector with drive modes"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Dual LED headlamps with LED DRLs",
+            "R18 diamond-cut alloy wheels"
+          ]
+        }
+      ],
+      "highlights": [
+        "Seven-seat Limousine+ trim only",
+        "2.2 l diesel with 8-speed automatic",
+        "Powered 2nd row VIP relaxation seats",
+        "ADAS Level 2 with 23 features",
+        "Eight airbags"
+      ],
+      "variants": [
+        {
+          "name": "Limousine+ 2.2 Diesel 8AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 5964900,
+          "efficiency": null,
+          "features": [
+            "2nd row powered relaxation VIP seats with leg support",
+            "One-touch power sliding doors with hands-free function",
+            "Dual sunroof",
+            "ADAS Level 2 with 23 features",
+            "8 airbags",
+            "12.3\" touchscreen navigation and 12.3\" cluster",
+            "27.9 cm (11\") head-up display",
+            "12-speaker Bose premium sound system",
+            "Smart power tailgate",
+            "Dual LED headlamps with LED DRLs and fog lamps"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.kia.com/in/our-vehicles/carnival/showroom.html",
+        "https://www.kia.com/in/our-vehicles/carnival/specs.html",
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/carnival/Kia_Carnival_Brochure_Desktop.pdf",
+        "https://www.kia.com/api/kia2_in/emiCalculator.getPrice.do"
+      ],
+      "notes": "Kia India does not publish ARAI fuel-efficiency figures on its model pages or brochures, so efficiency is null. Prices are Delhi ex-showroom from Kia India's official price service (EMI calculator, state DL / city Delhi). Brochure gives displacement only as 2.2 l and torque as 45 kgf·m. Height 1775 mm with roof rails. The Limousine (non-plus) trim listed on the specs page has no price in Kia's price service. No NCAP result for this generation in India."
+    },
+    {
+      "slug": "kia-ev6",
+      "name": "EV6",
+      "bodyType": "SUV",
+      "bodyStyle": "Crossover",
+      "isLuxury": true,
+      "launchedOn": "2022-06-02",
+      "engine": "Electric motor",
+      "power": "325 PS",
+      "torque": "605 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 8,
+      "safety": {
+        "rating": 5,
+        "agency": "Euro NCAP",
+        "year": 2022
+      },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 5.3 s",
+      "dimensions": {
+        "length": 4695,
+        "width": 1890,
+        "height": 1570,
+        "wheelbase": 2900
+      },
+      "ev": {
+        "rangeKm": 663,
+        "rangeStandard": "ARAI MIDC Full",
+        "batteryKwh": 84,
+        "dcCharge": "18 min (10–80%, 350 kW DC)",
+        "acCharge": null,
+        "motorKw": null
+      },
+      "colors": [
+        {
+          "name": "Aurora Black Pearl",
+          "hex": "#111214"
+        },
+        {
+          "name": "Runway Red",
+          "hex": "#A3171C"
+        },
+        {
+          "name": "Snow White Pearl",
+          "hex": "#F2F2EE"
+        },
+        {
+          "name": "Wolf Grey",
+          "hex": "#6E7275"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "84 kWh battery",
+            "Dual-motor all-wheel drive, 325 PS and 605 Nm",
+            "Claimed 0–100 km/h in 5.3 s",
+            "663 km claimed range (ARAI MIDC Full)",
+            "350 kW-capable DC charging: 10–80% in 18 min"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "8 airbags including 2 side centre airbags",
+            "ADAS with Forward Collision-Avoidance Assist 2.0",
+            "Lane Follow Assist 2.0",
+            "Safe Exit Assist",
+            "Rear occupant alert"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Ventilated front seats",
+            "Wide sunroof with tilt and slide",
+            "Digital Key 2.0",
+            "Vehicle-to-load (V2L) up to 3.6 kW"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "GT-Line bumper design",
+            "R19 aerodynamic alloy wheels"
+          ]
+        }
+      ],
+      "highlights": [
+        "Imported GT-Line AWD electric crossover",
+        "84 kWh battery with 663 km claimed range (ARAI MIDC Full)",
+        "10–80% DC charge in 18 minutes on a 350 kW charger",
+        "Dual motors with 325 PS and 605 Nm",
+        "5-star Euro NCAP rating (2022)"
+      ],
+      "variants": [
+        {
+          "name": "GT-Line AWD",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 6597937,
+          "efficiency": "663 km",
+          "features": [
+            "84 kWh battery, 663 km claimed range (ARAI MIDC Full)",
+            "Dual-motor AWD, 325 PS and 605 Nm",
+            "8 airbags",
+            "Forward Collision-Avoidance Assist 2.0",
+            "Lane Follow Assist 2.0",
+            "Smart Cruise Control with Stop & Go",
+            "Rear occupant alert",
+            "Digital Key 2.0",
+            "Vehicle-to-load (V2L)",
+            "R19 aerodynamic alloy wheels"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.kia.com/in/our-vehicles/ev6/showroom.html",
+        "https://www.kia.com/in/our-vehicles/ev6/specs.html",
+        "https://www.kia.com/content/dam/kia2/in/en/images/buy/download-brochure/ev6/EV6_Desktop_2025.pdf",
+        "https://www.kia.com/api/kia2_in/emiCalculator.getPrice.do"
+      ],
+      "notes": "Prices are Delhi ex-showroom from Kia India's official price service (EMI calculator, state DL / city Delhi). Price returned is INR 65,97,937 (an unrounded figure; worth a check). The GT-Line (2WD) trim on the specs page has no price. Euro NCAP 5 stars (2022) applies as the EV6 is imported. Motor output is published only in PS; AC charging time not published."
+    },
+    {
+      "slug": "kia-ev9",
+      "name": "EV9",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2024-10-03",
+      "engine": "Electric motor",
+      "power": "282.6 kW (384 PS)",
+      "torque": "700 Nm",
+      "seats": [
+        6
+      ],
+      "airbags": 10,
+      "safety": {
+        "rating": 5,
+        "agency": "Euro NCAP",
+        "year": 2023
+      },
+      "bootSpaceL": 333,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 5.3 s",
+      "dimensions": {
+        "length": 5015,
+        "width": 1980,
+        "height": 1780,
+        "wheelbase": 3100
+      },
+      "ev": {
+        "rangeKm": 561,
+        "rangeStandard": "ARAI MIDC Full",
+        "batteryKwh": 99.8,
+        "dcCharge": "24 min (10–80%, 350 kW DC)",
+        "acCharge": null,
+        "motorKw": 283
+      },
+      "colors": [
+        {
+          "name": "Aurora Black Pearl",
+          "hex": "#111214"
+        },
+        {
+          "name": "Ocean Blue",
+          "hex": "#23406B"
+        },
+        {
+          "name": "Panthera Metal",
+          "hex": "#4B4F52"
+        },
+        {
+          "name": "Pebble Gray",
+          "hex": "#8D8F8C"
+        },
+        {
+          "name": "Snow White Pearl",
+          "hex": "#F2F2EE"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "99.8 kWh battery",
+            "Two motors, all-wheel drive: 282.6 kW and 700 Nm",
+            "Claimed 0–100 km/h in 5.3 s",
+            "561 km claimed range (ARAI MIDC Full)",
+            "DC charging 10–80% in 24 min (350 kW)"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "10 airbags",
+            "ADAS Level 2",
+            "360-degree camera with blind view monitor",
+            "Parking Collision-Avoidance Assist – Reverse"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Six seats in 2+2+2 layout",
+            "Vehicle-to-load (V2L) inside and outside, up to 3.68 kW"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Star Map daytime running lights",
+            "Star Map LED rear lamps",
+            "R20 alloy wheels"
+          ]
+        }
+      ],
+      "highlights": [
+        "Imported three-row electric SUV in GT-Line AWD trim",
+        "99.8 kWh battery with 561 km claimed range (ARAI MIDC Full)",
+        "Two motors with 282.6 kW and 700 Nm",
+        "Ten airbags",
+        "5-star Euro NCAP rating (2023)"
+      ],
+      "variants": [
+        {
+          "name": "GT-Line AWD",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed reduction gear",
+          "price": 12990000,
+          "efficiency": "561 km",
+          "features": [
+            "99.8 kWh battery, 561 km claimed range (ARAI MIDC Full)",
+            "Dual-motor AWD, 282.6 kW and 700 Nm",
+            "10 airbags",
+            "ADAS Level 2",
+            "360-degree camera with blind view monitor",
+            "Parking Collision-Avoidance Assist – Reverse",
+            "V2L inside and outside",
+            "Six seats (2+2+2)",
+            "R20 alloy wheels",
+            "Star Map daytime running lights"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.kia.com/in/our-vehicles/ev9/showroom.html",
+        "https://www.kia.com/in/our-vehicles/ev9/specs.html",
+        "https://www.kia.com/content/dam/kia2/in/en/our-vehicles/showroom/ev9/Kia_EV9_Brochure_Desktop.pdf",
+        "https://www.kia.com/api/kia2_in/emiCalculator.getPrice.do"
+      ],
+      "notes": "Prices are Delhi ex-showroom from Kia India's official price service (EMI calculator, state DL / city Delhi). The price service gives INR 1,29,90,000 for Delhi; the showroom FAQ quotes INR 1,29,91,312 (all-India). motorKw is the combined 282.6 kW of both motors, rounded. Height 1780 mm with roof rails. Euro NCAP 5 stars (2023) applies as the EV9 is imported. AC charging time not published."
+    },
+    {
+      "slug": "kia-sorento",
+      "name": "Sorento",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-09-04",
+      "engine": "1.6 l turbo-petrol hybrid / 2.2 l diesel",
+      "power": null,
+      "torque": null,
+      "seats": [
+        6,
+        7
+      ],
+      "airbags": 10,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4815,
+        "width": 1900,
+        "height": 1785,
+        "wheelbase": 2815
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Aurora Black Pearl",
+          "hex": "#111214"
+        },
+        {
+          "name": "Dark Gun Metal (Matte)",
+          "hex": "#45494D"
+        },
+        {
+          "name": "Glacier White Pearl",
+          "hex": "#F3F3F1"
+        },
+        {
+          "name": "Gravity Gray",
+          "hex": "#5B5E61"
+        },
+        {
+          "name": "Imperial Blue",
+          "hex": "#1E2F5C"
+        },
+        {
+          "name": "Ivory Silver Gloss",
+          "hex": "#C9C8C3"
+        },
+        {
+          "name": "Magma Red",
+          "hex": "#9E1B1E"
+        },
+        {
+          "name": "Pewter Olive",
+          "hex": "#5E6150"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "Smartstream 1.6 Turbo GDi hybrid with 6-speed AT",
+            "Smartstream D2.2 diesel with 8-speed DCT",
+            "Paddle shifters and shift-by-wire dial",
+            "All-wheel drive with terrain modes (Snow, Sand, Mud) on HTX trims"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "7 airbags standard; 10 airbags on HTX trims",
+            "26-feature standard safety pack",
+            "ADAS Level 2 with 21 features (HTK(A))",
+            "ADAS Level 2+ with 30 features (HTX(A))",
+            "8 parking sensors with rear view monitor"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "31.24 cm (12.3\") HD touchscreen",
+            "Panoramic curved display with 12.3\" cluster (HTK and above)",
+            "Kia AI Assistant with generative AI",
+            "Wireless charger with Android Auto and Apple CarPlay"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sunroof (HTE(O) and above)",
+            "Front ventilated seats with 3-step cooling",
+            "10-way power driver seat with lumbar",
+            "Smart power tailgate",
+            "6- or 7-seat layouts"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "LED 4-cube projector headlamps (HTK and above)",
+            "Star Map LED tail lamps",
+            "R18 or R19 crystal-cut alloys",
+            "Black Line styling variants"
+          ]
+        }
+      ],
+      "highlights": [
+        "Launched on 4 September 2026",
+        "Hybrid and diesel powertrains",
+        "ARAI-certified 19.6 km/l for the hybrid (official claim, \"up to\")",
+        "6- and 7-seat layouts",
+        "ADAS Level 2+ with 30 features on HTX(A)"
+      ],
+      "variants": [
+        {
+          "name": "HTE 2.2 Diesel 8DCT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 2799000,
+          "efficiency": null,
+          "features": [
+            "10-Way Driver Power Seat with Lumbar",
+            "31.24cm (12.3”) HD Touchscreen",
+            "26 Standard Safety Pack (w/ 7 Airbags)",
+            "Paddle Shifters & SBW Dial Type (Hybrid only)",
+            "Wireless Charger, Apple CarPlay & Android Auto",
+            "Solar & Acoustic Front Windshield",
+            "3 Cube MFR Headlamps",
+            "8 Parking Sensors, RVM",
+            "18” Crystal Cut Alloys",
+            "Electric Adjust & Power Folding ORVMs"
+          ]
+        },
+        {
+          "name": "HTE(O) 2.2 Diesel 8DCT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 2949000,
+          "efficiency": null,
+          "features": [
+            "Smart Power Tailgate",
+            "Panoramic Sunroof",
+            "Front Ventilated Seats with 3-Step Cooling",
+            "8-Way Passenger Power Seat",
+            "R18 - 46.20 cm (18”) Sporty Crystal Cut Alloy Wheels"
+          ]
+        },
+        {
+          "name": "HTE 1.6 Turbo GDi Hybrid 6AT 7-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 2949000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "10-Way Driver Power Seat with Lumbar",
+            "31.24cm (12.3”) HD Touchscreen",
+            "26 Standard Safety Pack (w/ 7 Airbags)",
+            "Paddle Shifters & SBW Dial Type (Hybrid only)",
+            "Wireless Charger, Apple CarPlay & Android Auto",
+            "Solar & Acoustic Front Windshield",
+            "3 Cube MFR Headlamps",
+            "8 Parking Sensors, RVM",
+            "18” Crystal Cut Alloys",
+            "Electric Adjust & Power Folding ORVMs"
+          ]
+        },
+        {
+          "name": "HTE(O) 1.6 Turbo GDi Hybrid 6AT 7-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3099000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "Smart Power Tailgate",
+            "Panoramic Sunroof",
+            "Front Ventilated Seats with 3-Step Cooling",
+            "8-Way Passenger Power Seat",
+            "R18 - 46.20 cm (18”) Sporty Crystal Cut Alloy Wheels"
+          ]
+        },
+        {
+          "name": "HTK 2.2 Diesel 8DCT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 3249000,
+          "efficiency": null,
+          "features": [
+            "Fog Lamp - LED MFR",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen and 12.3-inch HD Display Instrument Cluster)",
+            "LED Rear Combination Lamp",
+            "LED 4 Cube Projector Headlamps",
+            "R19 - 48.74 cm (19”) Premium Crystal Cut Alloy Wheels",
+            "Leatherette Soft-touch Door Trim",
+            "Paddle Shifters & SBW Dial Type (Diesel & Hybrid)"
+          ]
+        },
+        {
+          "name": "HTK 2.2 Diesel 8DCT 6-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 3269000,
+          "efficiency": null,
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "Fog Lamp - LED MFR",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen and 12.3-inch HD Display Instrument Cluster)",
+            "LED Rear Combination Lamp",
+            "LED 4 Cube Projector Headlamps",
+            "R19 - 48.74 cm (19”) Premium Crystal Cut Alloy Wheels",
+            "Leatherette Soft-touch Door Trim",
+            "Paddle Shifters & SBW Dial Type (Diesel & Hybrid)"
+          ]
+        },
+        {
+          "name": "HTK(A) 2.2 Diesel 8DCT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 3349000,
+          "efficiency": null,
+          "features": [
+            "ADAS Level 2 with 21 Autonomous Features",
+            "Fog Lamp - LED MFR",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen and 12.3-inch HD Display Instrument Cluster)",
+            "LED Rear Combination Lamp",
+            "LED 4 Cube Projector Headlamps",
+            "R19 - 48.74 cm (19”) Premium Crystal Cut Alloy Wheels",
+            "Leatherette Soft-touch Door Trim",
+            "Smart Power Tailgate",
+            "Panoramic Sunroof",
+            "Front Ventilated Seats with 3-Step Cooling"
+          ]
+        },
+        {
+          "name": "HTK(A) 2.2 Diesel 8DCT 6-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 3369000,
+          "efficiency": null,
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "ADAS Level 2 with 21 Autonomous Features",
+            "Fog Lamp - LED MFR",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen and 12.3-inch HD Display Instrument Cluster)",
+            "LED Rear Combination Lamp",
+            "LED 4 Cube Projector Headlamps",
+            "R19 - 48.74 cm (19”) Premium Crystal Cut Alloy Wheels",
+            "Leatherette Soft-touch Door Trim",
+            "Smart Power Tailgate",
+            "Panoramic Sunroof"
+          ]
+        },
+        {
+          "name": "HTK(A) Black Line 2.2 Diesel 8DCT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 3369000,
+          "efficiency": null,
+          "features": [
+            "Black Line styling",
+            "ADAS Level 2 with 21 Autonomous Features",
+            "Fog Lamp - LED MFR",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen and 12.3-inch HD Display Instrument Cluster)",
+            "LED Rear Combination Lamp",
+            "LED 4 Cube Projector Headlamps",
+            "R19 - 48.74 cm (19”) Premium Crystal Cut Alloy Wheels",
+            "Leatherette Soft-touch Door Trim",
+            "Smart Power Tailgate",
+            "Panoramic Sunroof"
+          ]
+        },
+        {
+          "name": "HTK(A) Black Line 2.2 Diesel 8DCT 6-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 3389000,
+          "efficiency": null,
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "Black Line styling",
+            "ADAS Level 2 with 21 Autonomous Features",
+            "Fog Lamp - LED MFR",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen and 12.3-inch HD Display Instrument Cluster)",
+            "LED Rear Combination Lamp",
+            "LED 4 Cube Projector Headlamps",
+            "R19 - 48.74 cm (19”) Premium Crystal Cut Alloy Wheels",
+            "Leatherette Soft-touch Door Trim",
+            "Smart Power Tailgate"
+          ]
+        },
+        {
+          "name": "HTK 1.6 Turbo GDi Hybrid 6AT 7-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3399000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "Fog Lamp - LED MFR",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen and 12.3-inch HD Display Instrument Cluster)",
+            "LED Rear Combination Lamp",
+            "LED 4 Cube Projector Headlamps",
+            "R19 - 48.74 cm (19”) Premium Crystal Cut Alloy Wheels",
+            "Leatherette Soft-touch Door Trim",
+            "Paddle Shifters & SBW Dial Type (Diesel & Hybrid)"
+          ]
+        },
+        {
+          "name": "HTK 1.6 Turbo GDi Hybrid 6AT 6-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3419000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "Fog Lamp - LED MFR",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen and 12.3-inch HD Display Instrument Cluster)",
+            "LED Rear Combination Lamp",
+            "LED 4 Cube Projector Headlamps",
+            "R19 - 48.74 cm (19”) Premium Crystal Cut Alloy Wheels",
+            "Leatherette Soft-touch Door Trim",
+            "Paddle Shifters & SBW Dial Type (Diesel & Hybrid)"
+          ]
+        },
+        {
+          "name": "HTK(A) 1.6 Turbo GDi Hybrid 6AT 7-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3499000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "ADAS Level 2 with 21 Autonomous Features",
+            "Fog Lamp - LED MFR",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen and 12.3-inch HD Display Instrument Cluster)",
+            "LED Rear Combination Lamp",
+            "LED 4 Cube Projector Headlamps",
+            "R19 - 48.74 cm (19”) Premium Crystal Cut Alloy Wheels",
+            "Leatherette Soft-touch Door Trim",
+            "Smart Power Tailgate",
+            "Panoramic Sunroof",
+            "Front Ventilated Seats with 3-Step Cooling"
+          ]
+        },
+        {
+          "name": "HTK(A) 1.6 Turbo GDi Hybrid 6AT 6-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3519000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "ADAS Level 2 with 21 Autonomous Features",
+            "Fog Lamp - LED MFR",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen and 12.3-inch HD Display Instrument Cluster)",
+            "LED Rear Combination Lamp",
+            "LED 4 Cube Projector Headlamps",
+            "R19 - 48.74 cm (19”) Premium Crystal Cut Alloy Wheels",
+            "Leatherette Soft-touch Door Trim",
+            "Smart Power Tailgate",
+            "Panoramic Sunroof"
+          ]
+        },
+        {
+          "name": "HTK(A) Black Line 1.6 Turbo GDi Hybrid 6AT 7-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3519000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "Black Line styling",
+            "ADAS Level 2 with 21 Autonomous Features",
+            "Fog Lamp - LED MFR",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen and 12.3-inch HD Display Instrument Cluster)",
+            "LED Rear Combination Lamp",
+            "LED 4 Cube Projector Headlamps",
+            "R19 - 48.74 cm (19”) Premium Crystal Cut Alloy Wheels",
+            "Leatherette Soft-touch Door Trim",
+            "Smart Power Tailgate",
+            "Panoramic Sunroof"
+          ]
+        },
+        {
+          "name": "HTK(A) Black Line 1.6 Turbo GDi Hybrid 6AT 6-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3539000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "Black Line styling",
+            "ADAS Level 2 with 21 Autonomous Features",
+            "Fog Lamp - LED MFR",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen and 12.3-inch HD Display Instrument Cluster)",
+            "LED Rear Combination Lamp",
+            "LED 4 Cube Projector Headlamps",
+            "R19 - 48.74 cm (19”) Premium Crystal Cut Alloy Wheels",
+            "Leatherette Soft-touch Door Trim",
+            "Smart Power Tailgate"
+          ]
+        },
+        {
+          "name": "HTX 2.2 Diesel 8DCT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 3749000,
+          "efficiency": null,
+          "features": [
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion",
+            "Driver Seat - 3 Preset Memory Function with ORVM & HUD",
+            "1st Row - Up/Down/Sliding Headrest",
+            "PU + Punching with Embo Seat Covering",
+            "2nd Row - Wing-out Headrest (6-Seater)"
+          ]
+        },
+        {
+          "name": "HTX 2.2 Diesel 8DCT 6-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 3769000,
+          "efficiency": null,
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion",
+            "Driver Seat - 3 Preset Memory Function with ORVM & HUD",
+            "1st Row - Up/Down/Sliding Headrest",
+            "PU + Punching with Embo Seat Covering"
+          ]
+        },
+        {
+          "name": "HTX Black Line 2.2 Diesel 8DCT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 3769000,
+          "efficiency": null,
+          "features": [
+            "Black Line styling",
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion",
+            "Driver Seat - 3 Preset Memory Function with ORVM & HUD",
+            "1st Row - Up/Down/Sliding Headrest",
+            "PU + Punching with Embo Seat Covering"
+          ]
+        },
+        {
+          "name": "HTX Black Line 2.2 Diesel 8DCT 6-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 3789000,
+          "efficiency": null,
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "Black Line styling",
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion",
+            "Driver Seat - 3 Preset Memory Function with ORVM & HUD",
+            "1st Row - Up/Down/Sliding Headrest"
+          ]
+        },
+        {
+          "name": "HTX(A) 2.2 Diesel 8DCT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 3849000,
+          "efficiency": null,
+          "features": [
+            "ADAS Level 2 with 30 Autonomous Features",
+            "2nd Row - Wing out Headrest (6-Seater)",
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion",
+            "Driver Seat - 3 Preset Memory Function with ORVM & HUD",
+            "1st Row - Up/Down/Sliding Headrest"
+          ]
+        },
+        {
+          "name": "HTX(A) 2.2 Diesel 8DCT 6-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 3869000,
+          "efficiency": null,
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "ADAS Level 2 with 30 Autonomous Features",
+            "2nd Row - Wing out Headrest (6-Seater)",
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion",
+            "Driver Seat - 3 Preset Memory Function with ORVM & HUD"
+          ]
+        },
+        {
+          "name": "HTX(A) Black Line 2.2 Diesel 8DCT 7-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 3869000,
+          "efficiency": null,
+          "features": [
+            "Black Line styling",
+            "ADAS Level 2 with 30 Autonomous Features",
+            "2nd Row - Wing out Headrest (6-Seater)",
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion",
+            "Driver Seat - 3 Preset Memory Function with ORVM & HUD"
+          ]
+        },
+        {
+          "name": "HTX(A) Black Line 2.2 Diesel 8DCT 6-seater",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 3889000,
+          "efficiency": null,
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "Black Line styling",
+            "ADAS Level 2 with 30 Autonomous Features",
+            "2nd Row - Wing out Headrest (6-Seater)",
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion"
+          ]
+        },
+        {
+          "name": "HTX 1.6 Turbo GDi Hybrid 6AT 7-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3899000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion",
+            "Driver Seat - 3 Preset Memory Function with ORVM & HUD",
+            "1st Row - Up/Down/Sliding Headrest",
+            "PU + Punching with Embo Seat Covering",
+            "2nd Row - Wing-out Headrest (6-Seater)"
+          ]
+        },
+        {
+          "name": "HTX 1.6 Turbo GDi Hybrid 6AT 6-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3919000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion",
+            "Driver Seat - 3 Preset Memory Function with ORVM & HUD",
+            "1st Row - Up/Down/Sliding Headrest",
+            "PU + Punching with Embo Seat Covering"
+          ]
+        },
+        {
+          "name": "HTX Black Line 1.6 Turbo GDi Hybrid 6AT 7-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3919000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "Black Line styling",
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion",
+            "Driver Seat - 3 Preset Memory Function with ORVM & HUD",
+            "1st Row - Up/Down/Sliding Headrest",
+            "PU + Punching with Embo Seat Covering"
+          ]
+        },
+        {
+          "name": "HTX Black Line 1.6 Turbo GDi Hybrid 6AT 6-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3939000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "Black Line styling",
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion",
+            "Driver Seat - 3 Preset Memory Function with ORVM & HUD",
+            "1st Row - Up/Down/Sliding Headrest"
+          ]
+        },
+        {
+          "name": "HTX(A) 1.6 Turbo GDi Hybrid 6AT 7-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 3999000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "ADAS Level 2 with 30 Autonomous Features",
+            "2nd Row - Wing out Headrest (6-Seater)",
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion",
+            "Driver Seat - 3 Preset Memory Function with ORVM & HUD",
+            "1st Row - Up/Down/Sliding Headrest"
+          ]
+        },
+        {
+          "name": "HTX(A) 1.6 Turbo GDi Hybrid 6AT 6-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 4019000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "ADAS Level 2 with 30 Autonomous Features",
+            "2nd Row - Wing out Headrest (6-Seater)",
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion",
+            "Driver Seat - 3 Preset Memory Function with ORVM & HUD"
+          ]
+        },
+        {
+          "name": "HTX(A) Black Line 1.6 Turbo GDi Hybrid 6AT 7-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 4019000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "Black Line styling",
+            "ADAS Level 2 with 30 Autonomous Features",
+            "2nd Row - Wing out Headrest (6-Seater)",
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion",
+            "Driver Seat - 3 Preset Memory Function with ORVM & HUD"
+          ]
+        },
+        {
+          "name": "HTX(A) Black Line 1.6 Turbo GDi Hybrid 6AT 6-seater",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "6-speed AT",
+          "price": 4039000,
+          "efficiency": "19.6 kmpl",
+          "features": [
+            "6-seater with 2nd row captain seats",
+            "Black Line styling",
+            "ADAS Level 2 with 30 Autonomous Features",
+            "2nd Row - Wing out Headrest (6-Seater)",
+            "All Wheel Drive with Terrain Mode (Snow, Sand & Mud)",
+            "Panoramic Curved Display Panel (12.3-inch HD Touchscreen Navigation Cockpit and 12.3-inch HD Display Instrument Cluster)",
+            "10 Airbags (RSAB & CSAB added)",
+            "1st Row - Premium Relaxation Seats",
+            "1st Row - 2-Way Lumbar for Passenger Seat",
+            "1st Row - Driver Seat with Economic Ergo Motion"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.kia.com/in/our-vehicles/sorento/showroom.html",
+        "https://www.kia.com/in/our-vehicles/sorento/specs.html",
+        "https://www.kia.com/content/dam/kia2/in/en/images/our-vehicles/sorento/brochure/Kia_Sorento_Brochure_2026_Desktop.pdf",
+        "https://www.kia.com/api/kia2_in/emiCalculator.getPrice.do"
+      ],
+      "notes": "Prices are Delhi ex-showroom from Kia India's official price service (EMI calculator, state DL / city Delhi). Hybrid efficiency is Kia's 'up to 19.6 km/l ARAI-certified' claim, applied to all hybrid variants; diesel figure not published. Power, torque, fuel tank and boot space are not published on Kia India's site or brochure, so they are null; exact displacement is not published either. Height 1785 mm with roof rack. Which trims get AWD is not fully clear from the specs page."
+    }
+  ]
+}

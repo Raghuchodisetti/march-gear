@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowLeft, Check, Loader2, RotateCcw, Wrench } from "lucide-react";
 import type { FuelType } from "@/types";
-import type { Catalog } from "@/lib/catalog";
+import type { ClientCatalog as Catalog } from "@/lib/catalog";
 import { formatKm, formatPrice, formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";

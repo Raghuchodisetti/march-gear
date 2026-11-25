@@ -1,5 +1,6 @@
 import type { CarModel } from "@/types";
 import type { Catalog } from "@/lib/catalog";
+import { isFactsOnly } from "@/lib/specs";
 
 export interface CarVideo {
   id: string;
@@ -19,6 +20,7 @@ export interface CarVideo {
  */
 export function videosForCar(car: CarModel, cat: Catalog): CarVideo[] {
   const title = `${cat.brandName(car.brand)} ${car.name}`;
+  const newsroomOnly = car.images.length === 0 || isFactsOnly(car);
   const poster = (i: number) => car.images[i % car.images.length];
 
   const fromNewsroom: CarVideo[] = cat.articles
@@ -32,6 +34,9 @@ export function videosForCar(car: CarModel, cat: Catalog): CarVideo[] {
       articleSlug: a.slug,
       kind: "Review" as const,
     }));
+
+  // Models with researched facts only (no photos, no editorial) get no demo clips — only real newsroom videos.
+  if (newsroomOnly) return fromNewsroom.slice(0, 3);
 
   const generic: CarVideo[] = [
     {

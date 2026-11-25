@@ -12,6 +12,7 @@ import { useUI } from "@/components/providers/app-provider";
 import { TrackView } from "@/components/portal/track";
 import type { PublicVehicle } from "@/components/portal/inventory/shared";
 import { StockVehicleDetail, availabilityText, stockTitle } from "./stock-detail";
+import { CarPlaceholder, asBodyType } from "@/components/vehicle/car-image";
 
 /*
  * "In stock at this showroom" on a partner dealer's public page: published new-car stock, in stock or on order.
@@ -58,7 +59,7 @@ export function StockSection({ items, dealerId, dealerName }: { items: PublicVeh
               <li key={v.id}>
                 <article className="group/card flex h-full flex-col border border-line bg-white transition-[border-color] duration-[400ms] ease-[var(--ease-premium)] hover:border-ink/25">
                   <button type="button" onClick={() => setOpen(v)} className="relative block aspect-[3/2] overflow-hidden bg-mist text-left" aria-label={`View details of ${title} ${v.variant}`}>
-                    {v.images[0] && (
+                    {v.images[0] ? (
                       <Image
                         src={v.images[0]}
                         alt=""
@@ -66,6 +67,8 @@ export function StockSection({ items, dealerId, dealerName }: { items: PublicVeh
                         sizes="(min-width: 1280px) 24vw, (min-width: 1024px) 31vw, (min-width: 640px) 46vw, 100vw"
                         className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/card:scale-[1.04]"
                       />
+                    ) : (
+                      <CarPlaceholder bodyType={asBodyType(v.bodyType)} />
                     )}
                     <span className="absolute left-3 top-3 inline-flex h-6 items-center rounded-full bg-white/95 px-2.5 text-[11px] font-semibold text-ink num">
                       <span aria-hidden className={`mr-1.5 size-1.5 rounded-full ${v.availability === "on_order" ? "bg-[#c98a1b]" : "bg-[#1e7a3c]"}`} />

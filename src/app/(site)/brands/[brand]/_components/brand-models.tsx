@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { carPhotoAlt } from "@/lib/image-alt";
+import { CarImage } from "@/components/vehicle/car-image";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Cog, Fuel, Gauge, ShieldCheck, Zap } from "lucide-react";
-import type { BodyType, CarModel } from "@/types";
+import type { BodyType, CarLite } from "@/types";
 import { isElectric } from "@/lib/catalog";
 import { formatPriceRange } from "@/lib/format";
 import { EASE } from "@/lib/motion";
@@ -22,7 +22,7 @@ const ORDER: BodyType[] = ["SUV", "Sedan", "Hatchback", "MUV", "Coupe"];
 const PLURAL: Record<BodyType, string> = { SUV: "SUVs", Sedan: "Sedans", Hatchback: "Hatchbacks", MUV: "MUVs", Coupe: "Coupés" };
 
 /** The brand line-up: body-type tabs over a CarCard grid, or a feature for single-model brands. */
-export function BrandModels({ cars }: { cars: CarModel[] }) {
+export function BrandModels({ cars }: { cars: CarLite[] }) {
   const types = ORDER.filter((t) => cars.some((c) => c.bodyType === t));
   const [tab, setTab] = useState<string>("all");
   const list = tab === "all" ? cars : cars.filter((c) => c.bodyType === tab);
@@ -63,14 +63,21 @@ export function BrandModels({ cars }: { cars: CarModel[] }) {
 }
 
 /** Single-model brands get an editorial split instead of a lonely card. */
-function ModelFeature({ car }: { car: CarModel }) {
+function ModelFeature({ car }: { car: CarLite }) {
   const { brandName } = useCatalog();
   const title = `${brandName(car.brand)} ${car.name}`;
   const ev = isElectric(car);
   return (
     <article className="grid grid-cols-1 border border-line lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
       <div className="relative aspect-[16/10] overflow-hidden bg-mist lg:aspect-auto lg:min-h-[460px]">
-        <Image src={car.images[0]} alt={carPhotoAlt(car.images[0], title)} fill sizes="(min-width: 1024px) 56vw, 100vw" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
+        <CarImage
+          car={car}
+          alt={car.images[0] ? carPhotoAlt(car.images[0], title) : ""}
+          sizes="(min-width: 1024px) 56vw, 100vw"
+          className="object-cover"
+          style={{ objectPosition: car.focus ?? "50% 55%" }}
+          name={title}
+        />
       </div>
       <div className="flex flex-col p-6 sm:p-8 xl:p-12">
         <p className="type-eyebrow text-muted">{car.bodyType}</p>
@@ -81,7 +88,7 @@ function ModelFeature({ car }: { car: CarModel }) {
         <div className="mt-8 grid grid-cols-2 gap-6 border-t border-line pt-6">
           <Spec icon={<Fuel />} label="Fuel" value={fuelSummary(car)} />
           <Spec icon={<Cog />} label="Gearbox" value={transmissionSummary(car)} />
-          <Spec icon={ev ? <Zap /> : <Gauge />} label={ev ? "Claimed range" : "Claimed mileage"} value={bestEfficiency(car)} />
+          <Spec icon={ev ? <Zap /> : <Gauge />} label={ev ? "Claimed range" : "Claimed mileage"} value={bestEfficiency(car) || "—"} />
           <Spec icon={<ShieldCheck />} label="Safety" value={car.safetyRating > 0 ? `${car.safetyRating}★ · ${car.safetyAgency}` : "Not tested"} />
         </div>
         <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-4 pt-10">

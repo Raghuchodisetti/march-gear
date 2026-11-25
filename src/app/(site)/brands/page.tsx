@@ -42,15 +42,19 @@ export default async function BrandsPage() {
       <section className="container-x pt-12 md:pt-16">
         <Reveal className="grid grid-cols-1 bg-ink text-white lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
           <div className="relative aspect-[16/10] overflow-hidden lg:aspect-auto lg:min-h-[520px]">
-            <Image
-              src={featuredBrand.heroImage}
-              alt={describePhoto(featuredBrand.heroImage, `${featuredBrand.name} — featured marque`)}
-              fill
-              preload
-              sizes="(min-width: 1024px) 58vw, 100vw"
-              className="object-cover"
-              style={{ objectPosition: "50% 60%" }}
-            />
+            {featuredBrand.heroImage ? (
+              <Image
+                src={featuredBrand.heroImage}
+                alt={describePhoto(featuredBrand.heroImage, `${featuredBrand.name} — featured marque`)}
+                fill
+                preload
+                sizes="(min-width: 1024px) 58vw, 100vw"
+                className="object-cover"
+                style={{ objectPosition: "50% 60%" }}
+              />
+            ) : (
+              <div aria-hidden className="absolute inset-0 bg-[radial-gradient(90%_70%_at_30%_30%,#2a2a2a_0%,#161616_70%)]" />
+            )}
           </div>
           <div className="flex flex-col justify-between gap-12 p-6 sm:p-10 xl:p-14">
             <div>

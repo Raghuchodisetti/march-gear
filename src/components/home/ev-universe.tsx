@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { carPhotoAlt } from "@/lib/image-alt";
+import { CarImage } from "@/components/vehicle/car-image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -14,12 +14,31 @@ import { Eyebrow } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { onTablistKeyDown } from "@/components/ui/tabs";
 import { useCatalog } from "@/components/providers/catalog-provider";
+import { parseDc } from "@/components/car-detail/utils";
 
 const MAX_RANGE = 700;
+const WORDS = ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
+const countWord = (n: number) => WORDS[n] ?? String(n);
+
+/** "40 min" from the published DC figure; long wording stays as published. */
+function dcShort(text: string) {
+  const { minutes } = parseDc(text);
+  if (minutes) return `${minutes} min`;
+  return text || "—";
+}
 
 export function EvUniverse() {
   const { electricCars, brandName } = useCatalog();
-  const evs = useMemo(() => electricCars().sort((a, b) => a.priceMin - b.priceMin), [electricCars]);
+  const total = electricCars().length;
+  // A short, browsable selection: models with photos first (up to eight), shown in price order.
+  const evs = useMemo(
+    () =>
+      [...electricCars()]
+        .sort((a, b) => Number(b.images.length > 0) - Number(a.images.length > 0) || a.priceMin - b.priceMin)
+        .slice(0, 8)
+        .sort((a, b) => a.priceMin - b.priceMin),
+    [electricCars],
+  );
   const [active, setActive] = useState(evs.findIndex((c) => c.slug === "porsche-taycan"));
   const car = evs[active] ?? evs[0];
   const ev = car.ev!;
@@ -36,7 +55,7 @@ export function EvUniverse() {
             </h2>
           </div>
           <p className="max-w-sm text-[15px] leading-relaxed text-white/60">
-            Seven electric models, from city-friendly compacts to 870-horsepower grand tourers. Pick one to see how far it really goes.
+            {countWord(total)} electric models on sale, from city-friendly compacts to high-performance grand tourers. Pick one to see how far it really goes.
           </p>
         </div>
 
@@ -85,7 +104,15 @@ export function EvUniverse() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.9, ease: EASE }}
                 >
-                  <Image src={car.images[0]} alt={carPhotoAlt(car.images[0], `${brandName(car.brand)} ${car.name}`)} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
+                  <CarImage
+                    car={car}
+                    alt={car.images[0] ? carPhotoAlt(car.images[0], `${brandName(car.brand)} ${car.name}`) : ""}
+                    sizes="(min-width: 1024px) 60vw, 100vw"
+                    className="object-cover"
+                    style={{ objectPosition: car.focus ?? "50% 55%" }}
+                    tone="dark"
+                    placeholderClassName="pb-24"
+                  />
                 </motion.div>
               </AnimatePresence>
               <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />
@@ -106,7 +133,7 @@ export function EvUniverse() {
             <div className="mt-px grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-3">
               <Stat icon={<Gauge />} label="Claimed range" value={<><span className="num">{ev.rangeKm}</span> km</>} />
               <Stat icon={<BatteryCharging />} label="Battery" value={<><span className="num">{ev.batteryKwh}</span> kWh</>} />
-              <Stat icon={<PlugZap />} label="DC fast charge" value={ev.dcCharge} />
+              <Stat icon={<PlugZap />} label="DC fast charge" value={dcShort(ev.dcCharge)} />
             </div>
             <div className="bg-ink-2 px-5 py-5 md:px-6">
               <div className="flex items-center justify-between text-[12px] text-white/50">
@@ -115,7 +142,7 @@ export function EvUniverse() {
                 <span>{MAX_RANGE} km</span>
               </div>
               <div className="relative mt-3 h-[3px] bg-white/10">
-                <motion.div className="absolute inset-y-0 left-0 bg-red" animate={{ width: `${(ev.rangeKm / MAX_RANGE) * 100}%` }} transition={{ duration: 0.9, ease: EASE }} />
+                <motion.div className="absolute inset-y-0 left-0 bg-red" animate={{ width: `${Math.min(1, ev.rangeKm / MAX_RANGE) * 100}%` }} transition={{ duration: 0.9, ease: EASE }} />
                 <span aria-hidden className="absolute -top-1 h-[11px] w-px bg-white/60" style={{ left: `${(300 / MAX_RANGE) * 100}%` }} />
               </div>
             </div>

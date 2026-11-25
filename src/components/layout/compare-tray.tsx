@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -10,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { MAX_COMPARE, useCompare } from "@/components/providers/app-provider";
 import { useCatalog } from "@/components/providers/catalog-provider";
+import { CarImage } from "@/components/vehicle/car-image";
 
 /** Pages that carry their own sticky bottom action bar on mobile. */
 const HAS_BOTTOM_BAR = /^\/(cars|used-cars|electric-cars)\/[^/]+/;
@@ -48,7 +48,7 @@ export function CompareTray() {
             <span className="flex -space-x-2">
               {cars.map((c) => (
                 <span key={c.slug} className="relative size-8 overflow-hidden rounded-full border-2 border-ink bg-ink-3">
-                  <Image src={c.images[0]} alt="" fill sizes="32px" className="object-cover" />
+                  <CarImage car={c} alt="" sizes="32px" className="object-cover" tone="dark" />
                 </span>
               ))}
             </span>
@@ -102,7 +102,7 @@ export function CompareTray() {
                       return (
                         <div key={car.slug} className="group relative flex h-20 items-center gap-3 bg-ink px-3">
                           <span className="relative h-12 w-16 shrink-0 overflow-hidden bg-ink-3">
-                            <Image src={car.images[0]} alt="" fill sizes="64px" className="object-cover" />
+                            <CarImage car={car} alt="" sizes="64px" className="object-cover" tone="dark" />
                           </span>
                           <span className="min-w-0">
                             <span className="block truncate text-[11px] text-white/50">{brandName(car.brand)}</span>

@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/ui/page-header";
 import { CompareExperience } from "@/components/compare/compare-experience";
 import { CompareSkeleton } from "@/components/compare/compare-skeleton";
 import { pageMetadata } from "@/components/seo/metadata";
+import { getCatalog } from "@/server/catalog";
 
 export const metadata: Metadata = pageMetadata({
   title: "Compare Cars Side by Side: Prices & Specs",
@@ -12,9 +13,13 @@ export const metadata: Metadata = pageMetadata({
   path: "/compare",
 });
 
-export default async function ComparePage() {
+export default async function ComparePage({ searchParams }: PageProps<"/compare">) {
   // Render per request so the filterable listing (it reads the URL's query) is server-rendered into the HTML, not a client-only skeleton.
   await connection();
+  // Full details of the cars in a shared link, so the table needs no extra request (the browser's catalogue is light).
+  const { cars } = await searchParams;
+  const cat = await getCatalog();
+  const initial = (typeof cars === "string" ? cars.split(",").slice(0, 4) : []).map((s) => cat.getCar(s.trim())).filter((c) => c !== undefined);
   return (
     <>
       <PageHeader
@@ -28,7 +33,7 @@ export default async function ComparePage() {
         description="Line up to four cars and let the numbers talk — price in your city, performance, running costs, space, safety and every feature, with the strongest figure in each row marked."
       />
       <Suspense fallback={<CompareSkeleton />}>
-        <CompareExperience />
+        <CompareExperience initial={initial} />
       </Suspense>
     </>
   );

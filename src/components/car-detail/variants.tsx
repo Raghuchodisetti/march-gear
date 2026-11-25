@@ -134,7 +134,7 @@ export function VariantsTable() {
                     </td>
                     <td className="py-4 pr-4">{v.fuel}</td>
                     <td className="py-4 pr-4">{v.transmission}</td>
-                    <td className="py-4 pr-4 num">{v.efficiency}</td>
+                    <td className="py-4 pr-4 num">{v.efficiency || <span className="text-muted">—</span>}</td>
                     <td className="py-4 pr-4 text-right num">{formatPrice(v.price)}</td>
                     <td className="py-4 pr-4 text-right font-semibold num">{formatINR(onRoadPrice(v.price, city.slug, ev))}</td>
                     <td className="py-4 text-right">
@@ -169,7 +169,7 @@ export function VariantsTable() {
                   <ArrowRight aria-hidden className="mt-0.5 size-4 shrink-0 text-red" />
                 </Link>
                 <p className="mt-1 text-[12.5px] text-muted">
-                  {v.fuel} · {v.transmission} · {v.efficiency}
+                  {[v.fuel, v.transmission, v.efficiency].filter(Boolean).join(" · ")}
                 </p>
                 <dl className="mt-3 grid grid-cols-2 gap-3">
                   <div>

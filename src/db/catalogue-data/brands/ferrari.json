@@ -1,0 +1,494 @@
+{
+  "brand": {
+    "slug": "ferrari",
+    "name": "Ferrari",
+    "country": "Italy",
+    "founded": 1947,
+    "tagline": "Italian sports car maker from Maranello",
+    "description": "Ferrari is an Italian sports car maker based in Maranello; the first Ferrari-badged car was built in 1947. In India it sells imported cars through authorised dealers Select Cars (New Delhi and Bengaluru) and Navnit Motors (Mumbai).",
+    "isLuxury": true,
+    "website": "https://www.ferrari.com/en-IN"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "ferrari-296",
+      "name": "296",
+      "bodyType": "Coupe",
+      "bodyStyle": "Berlinetta (GTB) and RHT spider (GTS)",
+      "isLuxury": true,
+      "launchedOn": "2022-08-01",
+      "engine": "2992 cc twin-turbo V6 + electric motor (plug-in hybrid)",
+      "power": "830 cv combined (V6 663 cv + 167 cv e-motor)",
+      "torque": "740 Nm at 6250 rpm",
+      "seats": [2],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 65,
+      "topSpeedKmh": 330,
+      "acceleration": "0–100 km/h in 2.9 s",
+      "dimensions": { "length": 4565, "width": 1958, "height": 1187, "wheelbase": 2600 },
+      "ev": null,
+      "colors": [
+        { "name": "Rosso Corsa", "hex": "#D40000" },
+        { "name": "Rosso Scuderia", "hex": "#E2231A" },
+        { "name": "Rosso Imola", "hex": "#B01E23" },
+        { "name": "Rosso Mugello", "hex": "#9E1B20" },
+        { "name": "Rosso Fiorano", "hex": "#8B1A1A" },
+        { "name": "Giallo Modena", "hex": "#F7D917" },
+        { "name": "Bianco Avus", "hex": "#F4F4F0" },
+        { "name": "Bianco Cervino", "hex": "#EDEDEA" },
+        { "name": "Avorio", "hex": "#EDE6D3" },
+        { "name": "Nero", "hex": "#0A0A0A" },
+        { "name": "Nero Daytona", "hex": "#121418" },
+        { "name": "Grigio Silverstone", "hex": "#7B7F83" },
+        { "name": "Grigio Titanio", "hex": "#8A8D8F" },
+        { "name": "Grigio Scuro", "hex": "#3E4245" },
+        { "name": "Argento Nürburgring", "hex": "#B8BCC0" },
+        { "name": "Canna di Fucile", "hex": "#4B4E52" },
+        { "name": "Blu Pozzi", "hex": "#1B2F5C" },
+        { "name": "Blu Tour de France", "hex": "#23305E" },
+        { "name": "Blu Abu Dhabi", "hex": "#2A4B7C" },
+        { "name": "Verde British Racing", "hex": "#0B3D2E" }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "3.0-litre 120° V6 with turbochargers inside the vee, 663 cv",
+            "Rear electric motor, 167 cv; 7.45 kWh high-voltage battery",
+            "eDrive electric mode up to 135 km/h; 25 km claimed electric range (GTB)",
+            "8-speed F1 dual-clutch gearbox, rear-wheel drive",
+            "ABS evo with 6-way Chassis Dynamic Sensor (6w-CDS)",
+            "Magnetorheological dampers and brake-by-wire with 'Aero' calipers",
+            "Optional Assetto Fiorano pack with Multimatic dampers and carbon-fibre aero parts"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Active rear spoiler integrated in the rear bumper",
+            "296 GTS: retractable hard top, opens or closes in 14 s at up to 45 km/h",
+            "Optional Lexan rear screen and 250 LM-inspired livery with Assetto Fiorano pack"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": ["Full-digital driver interface", "Passenger display"]
+        }
+      ],
+      "highlights": [
+        "Plug-in hybrid 3.0-litre V6 with an electric motor, 830 cv combined",
+        "0–100 km/h in 2.9 s and top speed over 330 km/h (claimed)",
+        "Up to 135 km/h and 25 km on electric power alone (GTB, claimed)",
+        "Sold as the 296 GTB berlinetta and the 296 GTS retractable hard-top spider"
+      ],
+      "variants": [
+        {
+          "name": "296 GTB",
+          "fuel": "Hybrid",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed F1 DCT",
+          "price": 54000000,
+          "efficiency": null,
+          "features": [
+            "Fixed-roof berlinetta",
+            "830 cv plug-in hybrid V6",
+            "25 km claimed electric range",
+            "Assetto Fiorano pack optional"
+          ]
+        },
+        {
+          "name": "296 GTS",
+          "fuel": "Hybrid",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed F1 DCT",
+          "price": 62400000,
+          "efficiency": null,
+          "features": [
+            "Retractable hard top: 14 s at up to 45 km/h",
+            "830 cv plug-in hybrid V6",
+            "Assetto Fiorano pack optional"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.ferrari.com/en-EN/auto/296-gtb",
+        "https://www.ferrari.com/en-EN/auto/296-gts",
+        "https://www.autocarindia.com/cars/ferrari/296-gtb/price-in-delhi",
+        "https://www.autocarindia.com/car-news/ferrari-296-gts-launched-at-rs-624-crore-428252",
+        "https://www.autocarindia.com/car-news/ferrari-taking-orders-at-30-percent-reduced-prices-anticipating-india-eu-fta-439758",
+        "https://www.carwale.com/ferrari-cars/296-gts/price-in-delhi/",
+        "https://www.autocarindia.com/cars/ferrari/296-gtb/colours"
+      ],
+      "notes": "Price not published by the brand; from Autocar India. 296 GTB: Autocar India Delhi ex-showroom (unchanged since the Aug 2022 launch). 296 GTS: Autocar India no longer has a GTS price page, but its May 2026 report lists the GTS in Ferrari's Indian line-up; ₹6.24 crore is its May 2023 launch figure (ex-showroom, city not stated). CarWale shows ₹5,90,27,027 Delhi ex-showroom for the GTS, so check this one. Hybrids are not part of Ferrari's FTA-linked reduced order prices. No India price found for the 296 Speciale / Speciale A, so they are left out. Dimensions are the GTB's; the GTS is 1191 mm tall and weighs 1540 kg dry (GTB 1470 kg). Top speed is published as '>330 km/h'. Colours are Ferrari paint names listed for the 296 by Autocar India; Tailor Made colours cost extra. Ferrari doesn't publish an airbag count. No ARAI figure."
+    },
+    {
+      "slug": "ferrari-amalfi",
+      "name": "Amalfi",
+      "bodyType": "Coupe",
+      "bodyStyle": "2+ coupe and soft-top spider",
+      "isLuxury": true,
+      "launchedOn": "2026-02-06",
+      "engine": "3855 cc twin-turbo V8",
+      "power": "640 cv",
+      "torque": "760 Nm at 3000–5750 rpm",
+      "seats": [4],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 80,
+      "topSpeedKmh": 320,
+      "acceleration": "0–100 km/h in 3.3 s",
+      "dimensions": { "length": 4660, "width": 1974, "height": 1301, "wheelbase": 2670 },
+      "ev": null,
+      "colors": [
+        { "name": "Verde Costiera", "hex": "#1E8C8C" },
+        { "name": "Rosso Portofino", "hex": "#C1121F" },
+        { "name": "Rosso Tramonto", "hex": "#B4402E" },
+        { "name": "Blu Elettrico", "hex": "#1F5FBF" },
+        { "name": "Grigio Silverstone", "hex": "#7B7F83" },
+        { "name": "Nero Daytona", "hex": "#121418" }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "3.9-litre twin-turbo V8, 640 cv",
+            "8-speed F1 dual-clutch gearbox, rear-wheel drive",
+            "Revised electric power steering calibration"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Active rear wing with Low Drag, Medium Downforce and High Downforce positions (110 kg at 250 km/h)",
+            "20-inch wheels",
+            "Amalfi Spider: five-layer fabric roof, opens in 13.5 s at up to 60 km/h"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "10.25-inch central touchscreen",
+            "15.6-inch instrument cluster",
+            "Passenger display"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": ["2+ seating layout", "Steering wheel with physical buttons"]
+        }
+      ],
+      "highlights": [
+        "3.9-litre twin-turbo V8 with 640 cv and 760 Nm",
+        "0–100 km/h in 3.3 s and 320 km/h top speed (claimed)",
+        "Successor to the Roma and Roma Spider",
+        "Offered as a 2+ coupe and as the soft-top Amalfi Spider"
+      ],
+      "variants": [
+        {
+          "name": "Amalfi",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed F1 DCT",
+          "price": 40800000,
+          "efficiency": null,
+          "features": ["Fixed-roof 2+ coupe", "640 cv twin-turbo V8", "Active rear wing", "Three-display cabin"]
+        },
+        {
+          "name": "Amalfi Spider",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed F1 DCT",
+          "price": 46000000,
+          "efficiency": null,
+          "features": [
+            "Five-layer fabric soft top, 13.5 s at up to 60 km/h",
+            "640 cv twin-turbo V8",
+            "Active rear wing"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.ferrari.com/en-EN/auto/ferrari-amalfi",
+        "https://www.ferrari.com/en-EN/auto/ferrari-amalfi-spider",
+        "https://www.autocarindia.com/cars/ferrari/amalfi/price-in-delhi",
+        "https://www.autocarindia.com/cars/ferrari/amalfi-spider/price-in-delhi",
+        "https://www.autocarindia.com/car-news/ferrari-amalfi-price-in-india-starts-at-rs-559-crore-438993",
+        "https://www.autocarindia.com/car-news/ferrari-amalfi-spider-launched-at-rs-46-crore-440239",
+        "https://www.autocarindia.com/car-news/ferrari-taking-orders-at-30-percent-reduced-prices-anticipating-india-eu-fta-439758"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (Delhi ex-showroom, before options). These are the reduced order prices Ferrari dealers have quoted since May 2026 in expectation of the India-EU FTA. They are estimates: the final price depends on the FTA terms and EUR-INR, and buyers who take delivery before the FTA takes effect pay the earlier price. The coupe was announced at ₹5.59 crore in Feb 2026, with bookings open and deliveries not expected before 2027. The Spider launched on 17 July 2026 at ₹4.6 crore. Dimensions are the coupe's; the Spider is 1305 mm tall and weighs 1556 kg dry (coupe 1470 kg), with 0–200 km/h in 9.4 s (coupe 9.0 s). The passenger-display size is given inconsistently, so it is not stated. Colours are those named on ferrari.com for the Amalfi and Amalfi Spider. Ferrari doesn't publish an airbag count. No ARAI figure."
+    },
+    {
+      "slug": "ferrari-12cilindri",
+      "name": "12Cilindri",
+      "bodyType": "Coupe",
+      "bodyStyle": "Berlinetta and RHT spider",
+      "isLuxury": true,
+      "launchedOn": "2025-01-31",
+      "engine": "6496 cc naturally aspirated V12",
+      "power": "830 cv at 9250 rpm",
+      "torque": "678 Nm at 7250 rpm",
+      "seats": [2],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 92,
+      "topSpeedKmh": 340,
+      "acceleration": "0–100 km/h in 2.9 s",
+      "dimensions": { "length": 4733, "width": 2176, "height": 1292, "wheelbase": 2700 },
+      "ev": null,
+      "colors": [
+        { "name": "Rosso Imola", "hex": "#B01E23" },
+        { "name": "Rosso Corsa", "hex": "#D40000" },
+        { "name": "Bianco Artico", "hex": "#F5F5F2" },
+        { "name": "Argento Nürburgring", "hex": "#B8BCC0" },
+        { "name": "Blu Corsa", "hex": "#1C3F94" },
+        { "name": "Giallo Montecarlo", "hex": "#F4D03F" }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "6.5-litre naturally aspirated 65° V12, 9500 rpm rev limit",
+            "8-speed dual-clutch gearbox, rear-wheel drive",
+            "ABS-Evo active in all Manettino positions",
+            "6D vehicle-dynamics sensor"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Active rear flaps with Low Drag and High Downforce settings",
+            "12Cilindri Spider: retractable hard top"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "15.6-inch driver display",
+            "10.25-inch central capacitive touchscreen",
+            "8.8-inch passenger display",
+            "Apple CarPlay and Android Auto as standard"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": ["Wireless phone charging pad as standard"]
+        },
+        {
+          "group": "Interior",
+          "items": ["Capacitive steering wheel with indented buttons"]
+        }
+      ],
+      "highlights": [
+        "Naturally aspirated 6.5-litre V12 with 830 cv and 678 Nm",
+        "0–100 km/h in 2.9 s and top speed over 340 km/h (coupe, claimed)",
+        "Three-display cabin: driver, central and passenger screens",
+        "Offered as a berlinetta and as a retractable hard-top Spider"
+      ],
+      "variants": [
+        {
+          "name": "12Cilindri",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 58900000,
+          "efficiency": null,
+          "features": ["Fixed-roof berlinetta", "830 cv V12", "Three-display HMI", "Apple CarPlay and Android Auto"]
+        },
+        {
+          "name": "12Cilindri Spider",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed DCT",
+          "price": 63800000,
+          "efficiency": null,
+          "features": ["Retractable hard top", "830 cv V12", "Three-display HMI", "Apple CarPlay and Android Auto"]
+        }
+      ],
+      "sources": [
+        "https://www.ferrari.com/en-EN/auto/ferrari-12cilindri",
+        "https://www.ferrari.com/en-EN/auto/ferrari-12cilindri-spider",
+        "https://www.autocarindia.com/cars/ferrari/12cilindri/price-in-delhi",
+        "https://www.autocarindia.com/car-news/ferrari-12cilindri-india-price-starts-at-rs-85-crore-434417",
+        "https://www.autocarindia.com/car-news/ferrari-taking-orders-at-30-percent-reduced-prices-anticipating-india-eu-fta-439758",
+        "https://www.autocarindia.com/cars/ferrari/12cilindri/colours"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (Delhi ex-showroom, before options). These are the reduced order prices dealers have quoted since May 2026 in expectation of the India-EU FTA. They are estimates, and buyers who take delivery before the FTA takes effect pay the earlier ₹8.50 crore (coupe) / ₹9.15 crore (Spider) announced on 31 Jan 2025. The 12Cilindri Manuale (revealed July 2026) has no India price and is left out. Spider figures: 0–100 km/h in under 3.0 s, 0–200 km/h in under 8.3 s, 1620 kg dry (coupe 1560 kg). Top speed is published as '>340 km/h'. Autocar India lists 6.45 kmpl, but that is not an ARAI claim, so efficiency is null. Some listings (CarDekho, ZigWheels) wrongly show this car as upcoming in 2028. Colours are a selection of Ferrari names from ferrari.com and Autocar India. Ferrari doesn't publish an airbag count."
+    },
+    {
+      "slug": "ferrari-purosangue",
+      "name": "Purosangue",
+      "bodyType": "SUV",
+      "bodyStyle": "Four-door, four-seat",
+      "isLuxury": true,
+      "launchedOn": "2024-02-29",
+      "engine": "6496 cc naturally aspirated V12",
+      "power": "725 cv at 7750 rpm",
+      "torque": "716 Nm at 6250 rpm",
+      "seats": [4],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 310,
+      "acceleration": "0–100 km/h in 3.3 s",
+      "dimensions": { "length": 4973, "width": 2028, "height": 1589, "wheelbase": 3018 },
+      "ev": null,
+      "colors": [
+        { "name": "Rosso Corsa", "hex": "#D40000" },
+        { "name": "Giallo Modena", "hex": "#F7D917" },
+        { "name": "Bianco Avus", "hex": "#F4F4F0" },
+        { "name": "Grigio Silverstone", "hex": "#7B7F83" },
+        { "name": "Grigio Titanio", "hex": "#8A8D8F" },
+        { "name": "Blu Pozzi", "hex": "#1B2F5C" }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "Front-mid-mounted 6.5-litre naturally aspirated V12 with rear transaxle gearbox",
+            "8-speed oil-bath dual-clutch gearbox",
+            "4RM-S four-wheel drive with independent four-wheel steering",
+            "Ferrari Active Suspension Technology",
+            "ABS evo with 6w-CDS sensor",
+            "Hill Descent Control",
+            "Optional Handling Speciale configuration"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Four independently adjustable heated electric seats",
+            "Rear-hinged rear doors",
+            "Folding rear seats"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": ["Full-digital driver interface", "10.25-inch passenger display"]
+        },
+        {
+          "group": "Exterior",
+          "items": ["Carbon-fibre roof", "Suspended rear spoiler"]
+        }
+      ],
+      "highlights": [
+        "Ferrari's first four-door, four-seat model",
+        "Naturally aspirated 6.5-litre V12 with 725 cv and 716 Nm",
+        "0–100 km/h in 3.3 s and top speed over 310 km/h (claimed)",
+        "Active suspension, four-wheel drive and four-wheel steering",
+        "Rear-hinged rear doors"
+      ],
+      "variants": [
+        {
+          "name": "Purosangue",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed F1 DCT",
+          "price": 75900000,
+          "efficiency": null,
+          "features": [
+            "725 cv V12",
+            "Four-wheel drive and four-wheel steering",
+            "Ferrari Active Suspension Technology",
+            "Four individual heated seats",
+            "Rear-hinged rear doors"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.ferrari.com/en-EN/auto/ferrari-purosangue",
+        "https://www.autocarindia.com/cars/ferrari/purosangue/price-in-delhi",
+        "https://www.autocarindia.com/car-news/ferrari-purosangue-india-price-from-rs-105-crore-430817",
+        "https://www.autocarindia.com/car-news/ferrari-taking-orders-at-30-percent-reduced-prices-anticipating-india-eu-fta-439758",
+        "https://www.autocarindia.com/cars/ferrari/purosangue/colours"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (Delhi ex-showroom, before options). This is the reduced order price dealers have quoted since May 2026 in expectation of the India-EU FTA. It is an estimate, and buyers who take delivery before the FTA takes effect pay the earlier ₹10.50 crore set in Feb 2024. Autocar India suggests new orders may not be delivered until 2027–28. The optional Handling Speciale configuration is not separately priced. Ferrari doesn't call the car an SUV; it is filed here as SUV for body-type filtering. Fuel tank and boot capacity are not on ferrari.com, so left null. Top speed is published as '>310 km/h'. Colours are a selection of Ferrari names listed for the Purosangue by Autocar India. Ferrari doesn't publish an airbag count. No ARAI figure."
+    },
+    {
+      "slug": "ferrari-849-testarossa",
+      "name": "849 Testarossa",
+      "bodyType": "Coupe",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2026-03-15",
+      "engine": "3990 cc twin-turbo V8 + three electric motors (plug-in hybrid)",
+      "power": "1050 cv combined (V8 830 cv + 220 cv e-motors)",
+      "torque": "842 Nm (V8)",
+      "seats": [2],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 68,
+      "topSpeedKmh": 330,
+      "acceleration": "0–100 km/h in under 2.3 s",
+      "dimensions": { "length": 4718, "width": 1999, "height": 1225, "wheelbase": 2650 },
+      "ev": null,
+      "colors": [
+        { "name": "Rosso Fiammante", "hex": "#C4161C" },
+        { "name": "Rosso Corsa", "hex": "#D40000" },
+        { "name": "Giallo Ambra", "hex": "#F2A900" },
+        { "name": "Grigio Titanio", "hex": "#8A8D8F" },
+        { "name": "Bianco Cervino", "hex": "#EDEDEA" }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "4.0-litre twin-turbo V8, 830 cv",
+            "Three electric motors totalling 220 cv; two on the front axle (RAC-e) with torque vectoring",
+            "7.45 kWh battery; 25 km claimed electric range",
+            "8-speed F1 dual-clutch gearbox, all-wheel drive",
+            "Side Slip Control (SSC)",
+            "Optional Assetto Fiorano configuration"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": ["Optional Assetto Fiorano livery in Bianco Cervino or Rosso Corsa"]
+        }
+      ],
+      "highlights": [
+        "Plug-in hybrid twin-turbo V8 with three e-motors, 1050 cv combined",
+        "0–100 km/h in under 2.3 s and 0–200 km/h in 6.35 s (claimed)",
+        "All-wheel drive with front-axle torque vectoring",
+        "Replaces the SF90 Stradale as Ferrari's range-topping series-production model",
+        "India price announced in February 2026; national premiere in Mumbai on 15 March 2026"
+      ],
+      "variants": [
+        {
+          "name": "849 Testarossa",
+          "fuel": "Hybrid",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed F1 DCT",
+          "price": 103700000,
+          "efficiency": null,
+          "features": [
+            "1050 cv plug-in hybrid V8",
+            "All-wheel drive with front e-axle",
+            "25 km claimed electric range",
+            "Assetto Fiorano configuration optional"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.ferrari.com/en-EN/auto/849-testarossa",
+        "https://www.autocarindia.com/cars/ferrari/849-testarossa/price-in-delhi",
+        "https://www.autocarindia.com/car-news/ferrari-849-testarossa-india-price-starts-at-rs-1037-crore-438997",
+        "https://www.autocarindia.com/car-news/ferrari-debuts-the-849-testarossa-in-india-439216"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (Delhi ex-showroom, before options), announced 9 Feb 2026. Deliveries are due from the second half of 2026. It is a hybrid, so it is not part of the FTA-linked reduced-price scheme. The 849 Testarossa Spider is sold elsewhere, but no India price was found, so it is left out. The SF90 Stradale / Spider it replaces is no longer listed by Autocar India. Top speed is published as '>330 km/h'. The torque figure is for the V8 only; Ferrari doesn't publish a combined figure. Colours are those named on ferrari.com for the 849 Testarossa. Ferrari doesn't publish an airbag count. No ARAI figure."
+    }
+  ]
+}

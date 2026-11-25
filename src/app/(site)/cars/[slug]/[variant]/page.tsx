@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { carPhotoAlt } from "@/lib/image-alt";
+import { CarImage } from "@/components/vehicle/car-image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check, Plus } from "lucide-react";
@@ -21,9 +21,16 @@ import { BottomActionBar } from "@/components/car-detail/bottom-bar";
 import { BOTTOM_BAR_PADDING, competitorsOf, efficiencyOf, isEv, pad2, sortedVariants } from "@/components/car-detail/utils";
 import { fitDescription, fitTitle, pageMetadata } from "@/components/seo/metadata";
 
+/** "Petrol · Manual · 18.4 kmpl" without empty parts (some variants have no published figure). */
+const variantLine = (v: Pick<Variant, "fuel" | "transmission" | "efficiency">) => [v.fuel, v.transmission, v.efficiency].filter(Boolean).join(" · ");
+
+/**
+ * Prebuilt at deploy for models with editorial content; the researched catalogue's thousands of other
+ * variant pages render on first visit and are cached from then on.
+ */
 export async function generateStaticParams() {
   const { cars } = await getCatalog();
-  return cars.flatMap((car) => car.variants.map((v) => ({ slug: car.slug, variant: v.slug })));
+  return cars.filter((car) => car.images.length > 0 && car.overview.trim()).flatMap((car) => car.variants.map((v) => ({ slug: car.slug, variant: v.slug })));
 }
 
 export async function generateMetadata(props: PageProps<"/cars/[slug]/[variant]">): Promise<Metadata> {
@@ -37,11 +44,11 @@ export async function generateMetadata(props: PageProps<"/cars/[slug]/[variant]"
   return pageMetadata({
     title: fitTitle([`${full} Price & Specs`, `${full} Price`, `${car.name} ${variant.name} Price & Specs`, `${car.name} ${variant.name} Price`, `${car.name} ${variant.name}`]),
     description: fitDescription(
-      `${full}: ${variant.fuel}, ${variant.transmission}, ${variant.efficiency}.`,
+      `${full}: ${[variant.fuel, variant.transmission, variant.efficiency].filter(Boolean).join(", ")}.`,
       [
-        `Ex-showroom ${formatPrice(variant.price)} (indicative), with the on-road price by city, features and full specifications.`,
-        `Ex-showroom ${formatPrice(variant.price)} (indicative), on-road price by city, features and specs.`,
-        `${formatPrice(variant.price)} ex-showroom (indicative), features and specs.`,
+        `Ex-showroom ${formatPrice(variant.price)} (${car.priceCity ?? "indicative"}), with the on-road price by city, features and full specifications.`,
+        `Ex-showroom ${formatPrice(variant.price)} (${car.priceCity ?? "indicative"}), on-road price by city, features and specs.`,
+        `${formatPrice(variant.price)} ex-showroom (${car.priceCity ?? "indicative"}), features and specs.`,
       ],
     ),
     path: `/cars/${car.slug}/${variant.slug}`,
@@ -85,6 +92,10 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
   const position = variants.findIndex((v) => v.slug === variant.slug) + 1;
   const diff = stepDiff(car, variant);
   const highlights = car.highlights.slice(0, 4);
+  const showFeatures = variant.features.length > 0 || highlights.length > 0;
+  // Section numbers follow the sections actually shown.
+  const order = ["price-breakdown", ...(showFeatures ? ["key-features"] : []), ...(diff ? ["step-up"] : []), "specifications", "other-variants"];
+  const idx = (id: string) => pad2(order.indexOf(id) + 1);
 
   return (
     <div className={BOTTOM_BAR_PADDING}>
@@ -110,14 +121,14 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
 
         <div className="container-x grid grid-cols-1 gap-10 pb-14 pt-8 md:pb-20 lg:grid-cols-12 lg:gap-12">
           <div className="relative aspect-[4/3] overflow-hidden bg-mist md:aspect-[16/10] lg:col-span-7">
-            <Image
-              src={car.images[0]}
-              alt={carPhotoAlt(car.images[0], `${title} ${variant.name}`)}
-              fill
+            <CarImage
+              car={car}
+              alt={car.images[0] ? carPhotoAlt(car.images[0], `${title} ${variant.name}`) : ""}
               preload
               sizes="(min-width: 1024px) 56vw, 100vw"
               className="object-cover"
               style={{ objectPosition: car.focus ?? "50% 55%" }}
+              name={title}
             />
             <span className="absolute left-4 top-4">
               <Badge tone="glass">
@@ -133,7 +144,7 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
               {variant.name}
             </h1>
             <ul className="mt-6 flex flex-wrap gap-2" aria-label="Variant summary">
-              {[variant.fuel, variant.transmission, variant.efficiency, `${car.seats.join(" / ")} seats`].map((t) => (
+              {[variant.fuel, variant.transmission, variant.efficiency, `${car.seats.join(" / ")} seats`].filter(Boolean).map((t) => (
                 <li key={t} className="inline-flex h-8 items-center rounded-full border border-line px-3.5 text-[12.5px] font-medium">
                   {t}
                 </li>
@@ -146,7 +157,7 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
 
       <DetailSection
         id="price-breakdown"
-        index="01"
+        index={idx("price-breakdown")}
         eyebrow="On-road price"
         divider={false}
         title="What you'll actually pay."
@@ -155,8 +166,15 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
         <OnRoadBreakdown exShowroom={variant.price} ev={ev} variantName={variant.name} />
       </DetailSection>
 
-      <DetailSection id="key-features" index="02" eyebrow="Key features" title={`What defines the ${variant.name}.`}>
+      {showFeatures && (
+      <DetailSection id="key-features" index={idx("key-features")} eyebrow="Key features" title={`What defines the ${variant.name}.`}>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
+          {variant.features.length === 0 && (
+            <p className="max-w-xl text-[15px] text-muted lg:col-span-8">
+              {car.name} equipment by variant hasn&rsquo;t been listed in our catalogue yet — the range-wide highlights are alongside.
+            </p>
+          )}
+          {variant.features.length > 0 && (
           <ol
             className={cn(
               "grid grid-cols-1 gap-px border border-line bg-line lg:col-span-8",
@@ -173,6 +191,8 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
               </li>
             ))}
           </ol>
+          )}
+          {highlights.length > 0 && (
           <div className="lg:col-span-4">
             <h3 className="type-eyebrow text-muted">Across the {car.name} range</h3>
             <ul className="mt-5 space-y-3">
@@ -185,13 +205,15 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
             </ul>
             <p className="mt-6 text-[12.5px] text-muted">Range highlights may depend on variant. Confirm equipment with your dealer.</p>
           </div>
+          )}
         </div>
       </DetailSection>
+      )}
 
       {diff && (
         <DetailSection
           id="step-up"
-          index="03"
+          index={idx("step-up")}
           eyebrow={diff.mode === "next" ? "Step up" : "Flagship"}
           tone="mist"
           title={
@@ -214,9 +236,7 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
                 <>
                   <p className="type-eyebrow text-muted">{current ? "This variant" : diff.mode === "next" ? "Next trim up" : "Previous trim"}</p>
                   <p className="type-h3 mt-4">{v.name}</p>
-                  <p className="mt-1 text-[13px] text-muted">
-                    {v.fuel} · {v.transmission} · {v.efficiency}
-                  </p>
+                  <p className="mt-1 text-[13px] text-muted">{variantLine(v)}</p>
                   <p className="mt-6 text-[22px] font-semibold num">{formatPrice(v.price)}</p>
                   {!current && (
                     <span className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-medium">
@@ -258,7 +278,7 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
 
       <DetailSection
         id="specifications"
-        index={diff ? "04" : "03"}
+        index={idx("specifications")}
         eyebrow="Specifications"
         divider={!diff}
         title="Full specification."
@@ -270,7 +290,7 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
               ["Variant", variant.name],
               ["Fuel", variant.fuel],
               ["Transmission", variant.transmission],
-              [ev ? "Claimed range" : "Claimed efficiency", variant.efficiency],
+              [ev ? "Claimed range" : "Claimed efficiency", variant.efficiency || "—"],
             ] as [string, string][]
           ).map(([label, value]) => (
             <dl key={label}>
@@ -281,7 +301,7 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
         <SpecTables car={car} />
       </DetailSection>
 
-      <DetailSection id="other-variants" index={diff ? "05" : "04"} eyebrow="Other variants" title={`Every ${car.name}, in order of price.`}>
+      <DetailSection id="other-variants" index={idx("other-variants")} eyebrow="Other variants" title={`Every ${car.name}, in order of price.`}>
         <nav aria-label={`${car.name} variants`}>
           <ol className="border-t border-line">
             {variants.map((v, i) => {
@@ -299,14 +319,10 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
                     <span className={cn("text-[12px] font-medium num", current ? "text-red-600" : "text-muted")}>{pad2(i + 1)}</span>
                     <span className="min-w-0">
                       <span className="block truncate text-[15px] font-medium">{v.name}</span>
-                      <span className="block truncate text-[12.5px] text-muted md:hidden">
-                        {v.fuel} · {v.transmission} · {v.efficiency}
-                      </span>
+                      <span className="block truncate text-[12.5px] text-muted md:hidden">{variantLine(v)}</span>
                       {current && <span className="mt-1 block text-[11.5px] font-medium text-red-600">You are viewing this variant</span>}
                     </span>
-                    <span className="hidden text-[13px] text-muted md:block">
-                      {v.fuel} · {v.transmission} · {v.efficiency}
-                    </span>
+                    <span className="hidden text-[13px] text-muted md:block">{variantLine(v)}</span>
                     <span className="text-right text-[14px] font-semibold num">{formatPriceShort(v.price)}</span>
                     <ArrowRight
                       aria-hidden

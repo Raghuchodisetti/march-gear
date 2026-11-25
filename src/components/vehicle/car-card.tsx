@@ -1,16 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { ArrowRight, Cog, Fuel, Gauge, Zap } from "lucide-react";
-import type { CarModel } from "@/types";
+import type { CarLite } from "@/types";
 import { isElectric } from "@/lib/catalog";
 import { formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { useCatalog } from "@/components/providers/catalog-provider";
 import { CompareToggle, WishlistButton } from "./toggles";
+import { CarImage } from "./car-image";
 import { bestEfficiency, carHref, fuelSummary, transmissionSummary } from "./card-utils";
 
 /**
@@ -24,7 +24,7 @@ export function CarCard({
   badge,
   sizes = "(min-width: 1280px) 25vw, (min-width: 768px) 40vw, 85vw",
 }: {
-  car: CarModel;
+  car: CarLite;
   className?: string;
   priority?: boolean;
   badge?: string;
@@ -43,10 +43,9 @@ export function CarCard({
       )}
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-mist">
-        <Image
-          src={car.images[0]}
-          alt={cardPhotoAlt(car.images[0], title)}
-          fill
+        <CarImage
+          car={car}
+          alt={car.images[0] ? cardPhotoAlt(car.images[0], title) : ""}
           sizes={sizes}
           preload={priority}
           className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/card:scale-[1.04]"
@@ -78,7 +77,7 @@ export function CarCard({
         <dl className="mt-5 grid grid-cols-3 border-t border-line pt-4 text-[12.5px]">
           <SpecMini icon={<Fuel />} label="Fuel" value={fuelSummary(car)} />
           <SpecMini icon={<Cog />} label="Gearbox" value={transmissionSummary(car)} />
-          <SpecMini icon={ev ? <Zap /> : <Gauge />} label={ev ? "Range" : "Mileage"} value={bestEfficiency(car)} />
+          <SpecMini icon={ev ? <Zap /> : <Gauge />} label={ev ? "Range" : "Mileage"} value={bestEfficiency(car) || "—"} />
         </dl>
 
         <div className="mt-auto flex items-center justify-between pt-5">

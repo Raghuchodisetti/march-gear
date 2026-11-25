@@ -1,0 +1,267 @@
+{
+  "brand": {
+    "slug": "force-motors",
+    "name": "Force Motors",
+    "country": "India",
+    "founded": 1958,
+    "tagline": "Pune-based vehicle maker; builds the Gurkha off-roader",
+    "description": "Indian maker of vans, buses, utility vehicles and engines, headquartered in Pune. Its passenger-car line-up is the Gurkha 4x4 in three-door and five-door forms; its vans and buses are sold mainly as commercial vehicles.",
+    "isLuxury": false,
+    "website": "https://www.forcemotors.com/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "force-gurkha",
+      "name": "Gurkha 3 Door",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "2596 cc",
+      "power": "140 PS",
+      "torque": "320 Nm",
+      "seats": [
+        4
+      ],
+      "airbags": 2,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": 233,
+      "fuelTankL": 63,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3965,
+        "width": 1865,
+        "height": 2080,
+        "wheelbase": 2400
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Red",
+          "hex": "#A51E22"
+        },
+        {
+          "name": "White",
+          "hex": "#F4F4F4"
+        },
+        {
+          "name": "Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "Green",
+          "hex": "#3F5A3A"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "Dual front airbags",
+            "ABS with EBD",
+            "Front and rear manual differential locks",
+            "TPMS",
+            "Speed-sensing door locks"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Touchscreen infotainment (no Android Auto/Apple CarPlay per Force FAQ)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Air conditioning with heater",
+            "Power windows and central locking",
+            "Tilt and telescopic steering",
+            "Captain seats in the 2nd row"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Full LED headlamps and DRLs",
+            "Air-intake snorkel",
+            "18-inch wheels with LT 255/65 R18 all-terrain tyres",
+            "Fog lamps and rear wiper"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.6-litre Mercedes-derived common-rail diesel, 140 PS and 320 Nm",
+            "5-speed manual",
+            "4x4 with electric-shift transfer case (2H, 4H, 4L)",
+            "233 mm ground clearance, 700 mm water wading"
+          ]
+        }
+      ],
+      "highlights": [
+        "Ladder-frame 4x4 with low range",
+        "Front and rear manual differential locks",
+        "233 mm ground clearance",
+        "700 mm water-wading capability",
+        "Approach and departure angles of 39 and 37 degrees"
+      ],
+      "variants": [
+        {
+          "name": "3 Door 3+D",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1651881,
+          "efficiency": null,
+          "features": [
+            "2.6-litre diesel, 140 PS and 320 Nm",
+            "4x4 with 2H, 4H and 4L",
+            "Front and rear diff locks",
+            "Dual airbags",
+            "Four captain seats",
+            "Full LED headlamps",
+            "Snorkel",
+            "TPMS",
+            "Touchscreen infotainment"
+          ]
+        }
+      ],
+      "sources": [
+        "https://forcegurkha.co.in/",
+        "https://forcegurkha.co.in/explore/",
+        "https://forcegurkha.co.in/faqs/",
+        "https://www.forcemotors.com/prices/"
+      ],
+      "notes": "Price from Force Motors' price list, which names no city. The Gurkha microsite shows prices exactly 1% higher (Rs 16,68,400 / Rs 18,01,200), apparently including TCS. Height 2080 mm without roof carrier (2270 mm with). Fuel tank is 63.5 L (rounded down to 63). Screen size is given as 9-inch on the site and FAQ but 7-inch in the variant matrix. Mileage not published."
+    },
+    {
+      "slug": "force-gurkha-5-door",
+      "name": "Gurkha 5 Door",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "2596 cc",
+      "power": "140 PS",
+      "torque": "320 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": 2,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": 233,
+      "fuelTankL": 63,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4390,
+        "width": 1865,
+        "height": 2095,
+        "wheelbase": 2825
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Red",
+          "hex": "#A51E22"
+        },
+        {
+          "name": "White",
+          "hex": "#F4F4F4"
+        },
+        {
+          "name": "Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "Green",
+          "hex": "#3F5A3A"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "Dual front airbags",
+            "ABS with EBD",
+            "Front and rear manual differential locks",
+            "TPMS",
+            "Speed-sensing door locks"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Touchscreen infotainment (no Android Auto/Apple CarPlay per Force FAQ)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Air conditioning with heater",
+            "Power windows and central locking",
+            "Tilt and telescopic steering",
+            "Captain seats in the 2nd row"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Full LED headlamps and DRLs",
+            "Air-intake snorkel",
+            "18-inch wheels with LT 255/65 R18 all-terrain tyres",
+            "Fog lamps and rear wiper"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.6-litre Mercedes-derived common-rail diesel, 140 PS and 320 Nm",
+            "5-speed manual",
+            "4x4 with electric-shift transfer case (2H, 4H, 4L)",
+            "233 mm ground clearance, 700 mm water wading"
+          ]
+        }
+      ],
+      "highlights": [
+        "Five-door, seven-seat version of the Gurkha",
+        "2.6-litre diesel with 4x4 and low range",
+        "Front and rear manual differential locks",
+        "233 mm ground clearance",
+        "2825 mm wheelbase"
+      ],
+      "variants": [
+        {
+          "name": "5 Door 6+D",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 1783366,
+          "efficiency": null,
+          "features": [
+            "2.6-litre diesel, 140 PS and 320 Nm",
+            "4x4 with 2H, 4H and 4L",
+            "Front and rear diff locks",
+            "Dual airbags",
+            "Captain seats in 1st and 3rd rows, 3-seat bench in 2nd row",
+            "Full LED headlamps",
+            "Snorkel",
+            "TPMS"
+          ]
+        }
+      ],
+      "sources": [
+        "https://forcegurkha.co.in/",
+        "https://forcegurkha.co.in/explore/",
+        "https://forcegurkha.co.in/faqs/",
+        "https://www.forcemotors.com/prices/"
+      ],
+      "notes": "Price from Force Motors' price list, which names no city. The Gurkha microsite shows prices exactly 1% higher (Rs 16,68,400 / Rs 18,01,200), apparently including TCS. Height 2095 mm without roof carrier (2296 mm with). Fuel tank is 63.5 L (rounded down to 63). Middle-row passengers get lap belts per Force FAQ. Mileage not published."
+    }
+  ]
+}

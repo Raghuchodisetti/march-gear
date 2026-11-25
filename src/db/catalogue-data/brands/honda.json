@@ -1,0 +1,1087 @@
+{
+  "brand": {
+    "slug": "honda",
+    "name": "Honda",
+    "country": "Japan",
+    "founded": 1948,
+    "tagline": "Japanese carmaker; Honda Cars India since 1995",
+    "description": "Japanese carmaker; Honda Cars India Ltd was set up in 1995 and builds cars at Tapukara, Rajasthan. The current line-up covers the Amaze, City and Elevate, plus the imported ZR-V hybrid.",
+    "isLuxury": false,
+    "website": "https://www.hondacarindia.com/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "honda-city",
+      "name": "City",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-05-22",
+      "engine": "1498 cc",
+      "power": "89 – 93 kW",
+      "torque": "145 Nm (petrol); 253 Nm (hybrid motor)",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 506,
+      "groundClearanceMm": null,
+      "fuelTankL": 40,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4594,
+        "width": 1748,
+        "height": 1489,
+        "wheelbase": 2600
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Obsidian Blue Pearl",
+          "hex": "#2A3260"
+        },
+        {
+          "name": "Radiant Red Metallic",
+          "hex": "#B5121B"
+        },
+        {
+          "name": "Platinum White Pearl",
+          "hex": "#F2F2EF"
+        },
+        {
+          "name": "Crystal Black Pearl",
+          "hex": "#0A0A0A"
+        },
+        {
+          "name": "Meteoroid Gray Metallic",
+          "hex": "#535C61"
+        },
+        {
+          "name": "Lunar Silver Metallic",
+          "hex": "#AFAFAE"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Honda SENSING ADAS from V upwards",
+            "VSA, hill start assist, TPMS",
+            "LaneWatch camera (ZX)",
+            "360-degree camera (ZX+)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "20.3 cm touchscreen (SV, V)",
+            "25.6 cm floating touchscreen (ZX and above)",
+            "Wireless Android Auto and Apple CarPlay (V and above)",
+            "Next Gen Honda Connect telematics"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic climate control with rear vents",
+            "One-touch electric sunroof (ZX and above)",
+            "Ventilated front seats (ZX+)",
+            "Wireless charger",
+            "Rear sunshade"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.5-litre i-VTEC petrol, 89 kW and 145 Nm",
+            "1.5-litre e:HEV strong hybrid, 93 kW system output",
+            "6-speed MT, CVT or e-CVT"
+          ]
+        }
+      ],
+      "highlights": [
+        "Facelift launched May 2026",
+        "Honda SENSING ADAS from the V variant",
+        "Strong hybrid e:HEV claims 27.26 km/l",
+        "506-litre boot",
+        "Six airbags standard"
+      ],
+      "variants": [
+        {
+          "name": "SV MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1199900,
+          "efficiency": "17.77 km/l",
+          "features": [
+            "Bi-LED projector headlamps with split LED DRLs",
+            "15-inch steel wheels with covers",
+            "20.3 cm touchscreen with wired Android Auto/Apple CarPlay",
+            "6 airbags, VSA, hill start assist",
+            "Multi-angle rear camera",
+            "TPMS (deflation warning)",
+            "Automatic climate control with rear AC vents",
+            "Push-button start",
+            "Tilt and telescopic steering"
+          ]
+        },
+        {
+          "name": "V MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1350700,
+          "efficiency": "17.77 km/l",
+          "features": [
+            "Honda SENSING ADAS: CMBS, adaptive cruise control, LKAS, auto high-beam",
+            "15-inch alloy wheels",
+            "Wireless Android Auto and Apple CarPlay",
+            "Next Gen Honda Connect telematics",
+            "Smart keyless access with walk-away auto lock",
+            "Remote engine start (CVT)",
+            "7-speed paddle shifters (CVT)"
+          ]
+        },
+        {
+          "name": "V CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 1450700,
+          "efficiency": "17.97 km/l",
+          "features": [
+            "Honda SENSING ADAS: CMBS, adaptive cruise control, LKAS, auto high-beam",
+            "15-inch alloy wheels",
+            "Wireless Android Auto and Apple CarPlay",
+            "Next Gen Honda Connect telematics",
+            "Smart keyless access with walk-away auto lock",
+            "Remote engine start (CVT)",
+            "7-speed paddle shifters (CVT)"
+          ]
+        },
+        {
+          "name": "ZX MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1546700,
+          "efficiency": "17.77 km/l",
+          "features": [
+            "One-touch electric sunroof",
+            "16-inch diamond-cut alloy wheels",
+            "25.6 cm floating touchscreen",
+            "8-speaker sound system",
+            "Leather upholstery, ivory and black interior",
+            "LaneWatch camera",
+            "Wireless charger",
+            "Rain-sensing wipers and auto-dimming IRVM",
+            "Honda SENSING ADAS",
+            "Rear sunshade"
+          ]
+        },
+        {
+          "name": "ZX+ MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1635700,
+          "efficiency": "17.77 km/l",
+          "features": [
+            "360-degree surround-vision camera",
+            "Ventilated front seats",
+            "17.7 cm full-colour TFT meter",
+            "Auto-folding door mirrors",
+            "All four windows auto up/down",
+            "Trunk lip spoiler",
+            "Sunroof and 16-inch alloys",
+            "Honda SENSING ADAS",
+            "8-speaker sound system"
+          ]
+        },
+        {
+          "name": "ZX CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 1646700,
+          "efficiency": "17.97 km/l",
+          "features": [
+            "One-touch electric sunroof",
+            "16-inch diamond-cut alloy wheels",
+            "25.6 cm floating touchscreen",
+            "8-speaker sound system",
+            "Leather upholstery, ivory and black interior",
+            "LaneWatch camera",
+            "Wireless charger",
+            "Rain-sensing wipers and auto-dimming IRVM",
+            "Honda SENSING ADAS",
+            "Rear sunshade"
+          ]
+        },
+        {
+          "name": "ZX+ CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 1735700,
+          "efficiency": "17.97 km/l",
+          "features": [
+            "360-degree surround-vision camera",
+            "Ventilated front seats",
+            "17.7 cm full-colour TFT meter",
+            "Auto-folding door mirrors",
+            "All four windows auto up/down",
+            "Trunk lip spoiler",
+            "Sunroof and 16-inch alloys",
+            "Honda SENSING ADAS",
+            "8-speaker sound system"
+          ]
+        },
+        {
+          "name": "ZX+ e:HEV",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 2135800,
+          "efficiency": "27.26 km/l",
+          "features": [
+            "1.5-litre self-charging strong hybrid, 93 kW system output",
+            "EV, hybrid and engine drive modes",
+            "Low speed follow for adaptive cruise",
+            "Rear disc brakes and electric parking brake with auto hold",
+            "Deceleration paddles for regeneration",
+            "360-degree camera",
+            "Ventilated front seats",
+            "Sunroof",
+            "Honda SENSING ADAS"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.hondacarindia.com/honda-city",
+        "https://www.hondacarindia.com/check-price",
+        "https://www.hondacarindia.com/web-data/brochures/The%20New%20City%20Brochure_21.pdf"
+      ],
+      "notes": "Prices from Honda's official price API for Delhi. The e:HEV is now sold as the City ZX+ e:HEV. Petrol mileage from the current brochure (17.77 MT / 17.97 CVT); an older figure of 18.4 km/l still appears in site data. Ground clearance not published."
+    },
+    {
+      "slug": "honda-amaze",
+      "name": "Amaze",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2024-12-04",
+      "engine": "1199 cc",
+      "power": "66 kW",
+      "torque": "110 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": {
+        "rating": 5,
+        "agency": "Bharat NCAP",
+        "year": 2025
+      },
+      "bootSpaceL": 416,
+      "groundClearanceMm": null,
+      "fuelTankL": 35,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3995,
+        "width": 1733,
+        "height": 1500,
+        "wheelbase": 2470
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Obsidian Blue Pearl",
+          "hex": "#2A3260"
+        },
+        {
+          "name": "Lunar Silver Metallic",
+          "hex": "#AFAFAE"
+        },
+        {
+          "name": "Meteoroid Grey Metallic",
+          "hex": "#535C61"
+        },
+        {
+          "name": "Golden Brown Metallic",
+          "hex": "#977B70"
+        },
+        {
+          "name": "Platinum White Pearl",
+          "hex": "#F2F2EF"
+        },
+        {
+          "name": "Radiant Red Metallic",
+          "hex": "#B5121B"
+        },
+        {
+          "name": "Crystal Black Pearl",
+          "hex": "#0A0A0A"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "VSA, hill start assist",
+            "ISOFIX",
+            "Honda SENSING ADAS (ZX)",
+            "LaneWatch camera (VX, ZX)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "20.3 cm touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "Next Gen Honda Connect (VX, ZX)",
+            "6-speaker audio (VX, ZX)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic climate control with rear vents (VX, ZX)",
+            "Wireless charger (VX, ZX)",
+            "Smart key with push start (VX, ZX)",
+            "Remote engine start (CVT)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.2-litre i-VTEC petrol, 66 kW and 110 Nm",
+            "5-speed MT or CVT with 7-step paddles"
+          ]
+        }
+      ],
+      "highlights": [
+        "Bharat NCAP five-star rating",
+        "Honda SENSING ADAS on ZX",
+        "Six airbags standard",
+        "Claimed 19.46 km/l (CVT)",
+        "416-litre boot"
+      ],
+      "variants": [
+        {
+          "name": "V MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 765400,
+          "efficiency": "18.65 km/l",
+          "features": [
+            "LED projector headlamps with LED DRLs",
+            "14-inch steel wheels",
+            "20.3 cm touchscreen with wireless Android Auto/Apple CarPlay",
+            "6 airbags, VSA, hill start assist",
+            "17.7 cm full-colour TFT MID",
+            "Rear parking sensors",
+            "Manual AC",
+            "PM2.5 cabin filter",
+            "Driver seat height adjust",
+            "7-speed paddle shifters (CVT)"
+          ]
+        },
+        {
+          "name": "VX MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 865400,
+          "efficiency": "18.65 km/l",
+          "features": [
+            "LaneWatch camera",
+            "Multi-angle rear camera",
+            "15-inch alloy wheels",
+            "Automatic climate control with rear AC vents",
+            "Smart key with push-button start",
+            "Wireless charger",
+            "Next Gen Honda Connect telematics",
+            "LED fog lamps",
+            "Remote engine start (CVT)",
+            "6-speaker sound system"
+          ]
+        },
+        {
+          "name": "V CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 870400,
+          "efficiency": "19.46 km/l",
+          "features": [
+            "LED projector headlamps with LED DRLs",
+            "14-inch steel wheels",
+            "20.3 cm touchscreen with wireless Android Auto/Apple CarPlay",
+            "6 airbags, VSA, hill start assist",
+            "17.7 cm full-colour TFT MID",
+            "Rear parking sensors",
+            "Manual AC",
+            "PM2.5 cabin filter",
+            "Driver seat height adjust",
+            "7-speed paddle shifters (CVT)"
+          ]
+        },
+        {
+          "name": "ZX MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 939400,
+          "efficiency": "18.65 km/l",
+          "features": [
+            "Honda SENSING ADAS: CMBS, adaptive cruise, LKAS, auto high-beam",
+            "Dual-tone diamond-cut 15-inch alloys",
+            "Chrome outer door handles",
+            "LaneWatch camera",
+            "Automatic climate control",
+            "Wireless charger",
+            "Soft-touch door armrests"
+          ]
+        },
+        {
+          "name": "VX CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 940400,
+          "efficiency": "19.46 km/l",
+          "features": [
+            "LaneWatch camera",
+            "Multi-angle rear camera",
+            "15-inch alloy wheels",
+            "Automatic climate control with rear AC vents",
+            "Smart key with push-button start",
+            "Wireless charger",
+            "Next Gen Honda Connect telematics",
+            "LED fog lamps",
+            "Remote engine start (CVT)",
+            "6-speaker sound system"
+          ]
+        },
+        {
+          "name": "ZX CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 999900,
+          "efficiency": "19.46 km/l",
+          "features": [
+            "Honda SENSING ADAS: CMBS, adaptive cruise, LKAS, auto high-beam",
+            "Dual-tone diamond-cut 15-inch alloys",
+            "Chrome outer door handles",
+            "LaneWatch camera",
+            "Automatic climate control",
+            "Wireless charger",
+            "Soft-touch door armrests"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.hondacarindia.com/honda-amaze",
+        "https://www.hondacarindia.com/check-price",
+        "https://www.hondacarindia.com/web-data/brochures/pdfs/29042026_Amaze_Brochure_1may26.pdf"
+      ],
+      "notes": "Third-generation Amaze. Bharat NCAP five-star result (adult 28.33/32, child 40.81/49) covers cars built from November 2025, as reported by Autocar India. Ground clearance not published."
+    },
+    {
+      "slug": "honda-amaze-2nd-gen",
+      "name": "Amaze 2nd Gen",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": null,
+      "engine": "1199 cc",
+      "power": "66 kW",
+      "torque": "110 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 2,
+      "safety": {
+        "rating": 2,
+        "agency": "Global NCAP",
+        "year": 2024
+      },
+      "bootSpaceL": 420,
+      "groundClearanceMm": null,
+      "fuelTankL": 35,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 3995,
+        "width": 1695,
+        "height": 1501,
+        "wheelbase": 2470
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Radiant Red Metallic",
+          "hex": "#B5121B"
+        },
+        {
+          "name": "Platinum White Pearl",
+          "hex": "#F2F2EF"
+        },
+        {
+          "name": "Golden Brown Metallic",
+          "hex": "#977B70"
+        },
+        {
+          "name": "Meteoroid Grey Metallic",
+          "hex": "#535C61"
+        },
+        {
+          "name": "Lunar Silver Metallic",
+          "hex": "#AFAFAE"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "Dual airbags",
+            "ABS with EBD",
+            "ISOFIX child seat anchorage",
+            "Rear parking sensor",
+            "Seat belt reminder for all 5 seats"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "2-DIN LCD audio with Bluetooth, USB and Aux",
+            "Steering-mounted audio and telephony controls",
+            "4 door speakers"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Manual AC with heater",
+            "Central locking with keyless entry",
+            "Power-adjustable and folding door mirrors",
+            "Driver seat height adjust"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.2-litre i-VTEC petrol",
+            "5-speed MT or CVT"
+          ]
+        }
+      ],
+      "highlights": [
+        "Previous-generation Amaze sold alongside the new one",
+        "Single S trim with MT or CVT",
+        "1.2-litre i-VTEC petrol",
+        "420-litre boot"
+      ],
+      "variants": [
+        {
+          "name": "S MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "5-speed MT",
+          "price": 697700,
+          "efficiency": "18.60 km/l",
+          "features": [
+            "Halogen headlamps with LED position lights",
+            "14-inch steel wheels with full covers",
+            "Dual airbags",
+            "ABS with EBD",
+            "2-DIN audio with Bluetooth and USB",
+            "Manual AC",
+            "Rear parking sensor",
+            "Power-folding door mirrors",
+            "Driver seat height adjust"
+          ]
+        },
+        {
+          "name": "S CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 779800,
+          "efficiency": "18.30 km/l",
+          "features": [
+            "Halogen headlamps with LED position lights",
+            "14-inch steel wheels with full covers",
+            "Dual airbags",
+            "ABS with EBD",
+            "2-DIN audio with Bluetooth and USB",
+            "Manual AC",
+            "Rear parking sensor",
+            "Power-folding door mirrors",
+            "Driver seat height adjust"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.hondacarindia.com/honda-amaze-2g",
+        "https://www.hondacarindia.com/check-price",
+        "https://www.hondacarindia.com/web-data/brochures/pdfs/04022025_Amaze%20Spec_Leaflet%20Rev%20copy.pdf"
+      ],
+      "notes": "S MT price conflict: Honda's price API returns Rs 5,99,000 for Delhi, but the model's official 'starting from' price is Rs 6,97,700 and the Mumbai API price (Rs 7,05,960) matches that level; Rs 6,97,700 used, check. Global NCAP 2-star (2024) result is for this generation. Ground clearance not published."
+    },
+    {
+      "slug": "honda-elevate",
+      "name": "Elevate",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-10-06",
+      "engine": "1498 cc",
+      "power": "89 kW",
+      "torque": "145 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 458,
+      "groundClearanceMm": 220,
+      "fuelTankL": 40,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4312,
+        "width": 1790,
+        "height": 1650,
+        "wheelbase": 2650
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Obsidian Blue Pearl",
+          "hex": "#2A3260"
+        },
+        {
+          "name": "Radiant Red Metallic",
+          "hex": "#B5121B"
+        },
+        {
+          "name": "Platinum White Pearl",
+          "hex": "#F2F2EF"
+        },
+        {
+          "name": "Lunar Silver Metallic",
+          "hex": "#AFAFAE"
+        },
+        {
+          "name": "Meteoroid Gray Metallic",
+          "hex": "#535C61"
+        },
+        {
+          "name": "Crystal Black Pearl",
+          "hex": "#0A0A0A"
+        },
+        {
+          "name": "Nordic Forest Pearl",
+          "hex": "#3A645F"
+        },
+        {
+          "name": "Platinum White Pearl with Crystal Black Pearl Roof",
+          "hex": "#F2F2EF"
+        },
+        {
+          "name": "Radiant Red Metallic with Crystal Black Pearl Roof",
+          "hex": "#B5121B"
+        },
+        {
+          "name": "Nordic Forest Pearl with Crystal Black Pearl Roof",
+          "hex": "#3A645F"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags standard",
+            "Honda SENSING ADAS (ZX and above)",
+            "LaneWatch camera (VX and above)",
+            "360-degree camera (ZX+)",
+            "VSA, hill start assist"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "20.3 cm touchscreen (V, VX)",
+            "26.03 cm touchscreen (ZX and above)",
+            "Wireless Android Auto and Apple CarPlay",
+            "Next Gen Honda Connect"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Automatic climate control with rear vents",
+            "Electric sunroof (VX and above)",
+            "Ventilated front seats (ZX); front and rear ventilated seats (ZX+)",
+            "Power front seats (ZX+)",
+            "Wireless charger"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "1.5-litre i-VTEC petrol, 89 kW and 145 Nm",
+            "6-speed MT or CVT",
+            "220 mm ground clearance (Honda data)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Facelift launched October 2026",
+        "Honda SENSING ADAS on ZX and above",
+        "Rear ventilated seats on ZX+",
+        "458-litre boot",
+        "220 mm ground clearance (Honda internal data)"
+      ],
+      "variants": [
+        {
+          "name": "SV MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1180000,
+          "efficiency": "15.31 km/l",
+          "features": [
+            "LED projector headlamps and LED DRLs",
+            "16-inch steel wheels",
+            "6 airbags, VSA, hill start assist",
+            "Automatic climate control with rear AC vents",
+            "Smart key with push-button start",
+            "17.7 cm TFT MID",
+            "Tilt and telescopic steering",
+            "Rear parking sensors",
+            "60:40 split rear seat"
+          ]
+        },
+        {
+          "name": "V MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1229000,
+          "efficiency": "15.31 km/l",
+          "features": [
+            "20.3 cm touchscreen with wireless Android Auto/Apple CarPlay",
+            "Multi-angle rear camera",
+            "Next Gen Honda Connect telematics",
+            "Rear disc brakes, EPB and auto brake hold (CVT)",
+            "Remote engine start (CVT)",
+            "7-speed paddle shifters (CVT)",
+            "Rear demister"
+          ]
+        },
+        {
+          "name": "V CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 1379000,
+          "efficiency": "16.61 km/l",
+          "features": [
+            "20.3 cm touchscreen with wireless Android Auto/Apple CarPlay",
+            "Multi-angle rear camera",
+            "Next Gen Honda Connect telematics",
+            "Rear disc brakes, EPB and auto brake hold (CVT)",
+            "Remote engine start (CVT)",
+            "7-speed paddle shifters (CVT)",
+            "Rear demister"
+          ]
+        },
+        {
+          "name": "VX MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1393000,
+          "efficiency": "15.31 km/l",
+          "features": [
+            "One-touch electric sunroof",
+            "17-inch diamond-cut alloy wheels",
+            "LaneWatch camera",
+            "LED fog lamps and tri-bar LED lights",
+            "Wireless charger",
+            "Auto-folding door mirrors",
+            "Ambient lighting",
+            "6-speaker sound system",
+            "Leather steering wheel",
+            "Roof rail garnish"
+          ]
+        },
+        {
+          "name": "ZX MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1539000,
+          "efficiency": "15.31 km/l",
+          "features": [
+            "Honda SENSING ADAS: CMBS, adaptive cruise, LKAS, auto high-beam",
+            "26.03 cm touchscreen",
+            "Leather upholstery",
+            "Ventilated front seats",
+            "8-speaker sound system",
+            "Auto-dimming frameless IRVM",
+            "Sunroof",
+            "LaneWatch camera"
+          ]
+        },
+        {
+          "name": "VX CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 1539000,
+          "efficiency": "16.61 km/l",
+          "features": [
+            "One-touch electric sunroof",
+            "17-inch diamond-cut alloy wheels",
+            "LaneWatch camera",
+            "LED fog lamps and tri-bar LED lights",
+            "Wireless charger",
+            "Auto-folding door mirrors",
+            "Ambient lighting",
+            "6-speaker sound system",
+            "Leather steering wheel",
+            "Roof rail garnish"
+          ]
+        },
+        {
+          "name": "ZX+ MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1680000,
+          "efficiency": "15.31 km/l",
+          "features": [
+            "360-degree surround-vision camera",
+            "Front parking sensors",
+            "8-way power driver seat, 4-way power co-driver seat",
+            "Rear ventilated seats",
+            "Ventilated front seats",
+            "Honda SENSING ADAS",
+            "26.03 cm touchscreen",
+            "Dual-tone paint option (CVT)"
+          ]
+        },
+        {
+          "name": "ZX CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 1689000,
+          "efficiency": "16.61 km/l",
+          "features": [
+            "Honda SENSING ADAS: CMBS, adaptive cruise, LKAS, auto high-beam",
+            "26.03 cm touchscreen",
+            "Leather upholstery",
+            "Ventilated front seats",
+            "8-speaker sound system",
+            "Auto-dimming frameless IRVM",
+            "Sunroof",
+            "LaneWatch camera"
+          ]
+        },
+        {
+          "name": "ZX+ Black MT",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1690000,
+          "efficiency": "15.31 km/l",
+          "features": [
+            "Gloss-black 17-inch alloy wheels",
+            "Gloss-black door lower garnish",
+            "Black outer door handles",
+            "360-degree camera",
+            "Front and rear ventilated seats",
+            "Power front seats",
+            "Honda SENSING ADAS"
+          ]
+        },
+        {
+          "name": "ZX+ CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 1830000,
+          "efficiency": "16.61 km/l",
+          "features": [
+            "360-degree surround-vision camera",
+            "Front parking sensors",
+            "8-way power driver seat, 4-way power co-driver seat",
+            "Rear ventilated seats",
+            "Ventilated front seats",
+            "Honda SENSING ADAS",
+            "26.03 cm touchscreen",
+            "Dual-tone paint option (CVT)"
+          ]
+        },
+        {
+          "name": "ZX+ Black CVT",
+          "fuel": "Petrol",
+          "transmission": "CVT",
+          "transmissionDetail": "CVT",
+          "price": 1840000,
+          "efficiency": "16.61 km/l",
+          "features": [
+            "Gloss-black 17-inch alloy wheels",
+            "Gloss-black door lower garnish",
+            "Black outer door handles",
+            "360-degree camera",
+            "Front and rear ventilated seats",
+            "Power front seats",
+            "Honda SENSING ADAS"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.hondacarindia.com/honda-elevate",
+        "https://www.hondacarindia.com/check-price",
+        "https://www.hondacarindia.com/web-data/brochures/pdfs/All%20New%20Elevate%20Brochure_Latest.pdf"
+      ],
+      "notes": "Mileage from the current brochure (15.31 MT / 16.61 CVT); site data still shows 16.92 for CVT. Ground clearance is 'as per Honda internal data'. Dual-tone paint is for ZX+ CVT. Honda reports a Japan NCAP five-star result for the Japan-market WR-V; not used as it is not an allowed agency."
+    },
+    {
+      "slug": "honda-zr-v",
+      "name": "ZR-V",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2026-07-25",
+      "engine": "1993 cc",
+      "power": "135 kW (system)",
+      "torque": "315 Nm (motor)",
+      "seats": [
+        5
+      ],
+      "airbags": 8,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 57,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4567,
+        "width": 1840,
+        "height": 1621,
+        "wheelbase": 2655
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Twilight Mist Black Pearl",
+          "hex": "#0B0A08"
+        },
+        {
+          "name": "Platinum White Pearl",
+          "hex": "#F2F2EF"
+        },
+        {
+          "name": "Crystal Black Pearl",
+          "hex": "#0A0A0A"
+        },
+        {
+          "name": "Meteoroid Grey Metallic",
+          "hex": "#535C61"
+        }
+      ],
+      "features": [
+        {
+          "group": "Safety",
+          "items": [
+            "8 airbags including front knee",
+            "Honda SENSING ADAS with low speed follow",
+            "Driver attention monitor",
+            "360-degree surround-vision camera",
+            "Hill descent control"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "22.8 cm floating touchscreen",
+            "Wireless Apple CarPlay and Android Auto",
+            "Bose 12-speaker sound system",
+            "25.9 cm fully digital TFT meter"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Hands-free power tailgate",
+            "8-way power driver seat with memory",
+            "Dual-zone automatic climate control",
+            "Wireless charger",
+            "Leather upholstery"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "2.0-litre e:HEV strong hybrid",
+            "Engine 105 kW and 189 Nm; motor 135 kW and 315 Nm",
+            "e-CVT with ECON, Normal and Sport modes"
+          ]
+        }
+      ],
+      "highlights": [
+        "Imported strong-hybrid SUV, single variant",
+        "2.0-litre e:HEV with 135 kW system output",
+        "Claimed 22.80 km/l",
+        "Eight airbags and Honda SENSING",
+        "Bose 12-speaker audio"
+      ],
+      "variants": [
+        {
+          "name": "ZR-V e:HEV",
+          "fuel": "Hybrid",
+          "transmission": "CVT",
+          "transmissionDetail": "e-CVT",
+          "price": 4999900,
+          "efficiency": "22.80 km/l",
+          "features": [
+            "2.0-litre e:HEV strong hybrid",
+            "Honda SENSING ADAS",
+            "8 airbags",
+            "360-degree camera",
+            "Bose 12-speaker audio",
+            "Hands-free power tailgate",
+            "18-inch diamond-cut alloys",
+            "Leather upholstery",
+            "Dual-zone climate control",
+            "Driver attention monitor"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.hondacarindia.com/honda-zrv",
+        "https://www.hondacarindia.com/check-price",
+        "https://www.hondacarindia.com/web-data/brochures/pdfs/ZR-V%20Brochure_25July26.pdf"
+      ],
+      "notes": "Launched at an introductory Rs 47.99 lakh in July 2026; Honda's site now lists Rs 49,99,900. The model page's overview widget shows City e:HEV figures (93 kW, 40 L) in error; brochure figures used (57 L tank). Boot space not published."
+    }
+  ]
+}

@@ -1,0 +1,4802 @@
+{
+  "brand": {
+    "slug": "mercedes-benz",
+    "name": "Mercedes-Benz",
+    "country": "Germany",
+    "founded": 1926,
+    "tagline": "German luxury carmaker, in India since 1994",
+    "description": "German luxury carmaker; Mercedes-Benz India was set up in 1994 and assembles cars at its plant in Chakan, near Pune. The Indian line-up spans Mercedes-Benz, Mercedes-AMG and Mercedes-Maybach models, including electric and plug-in hybrid cars.",
+    "isLuxury": true,
+    "website": "https://www.mercedes-benz.co.in"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "mercedes-cla",
+      "name": "CLA Electric",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2026-04-24",
+      "engine": "Electric motor",
+      "power": "165 – 200 kW (224 – 272 hp)",
+      "torque": "335 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 405,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 210,
+      "acceleration": "0–100 km/h in 6.7–7.5 s",
+      "dimensions": {
+        "length": 4723,
+        "width": 1855,
+        "height": 1468,
+        "wheelbase": 2790
+      },
+      "ev": {
+        "rangeKm": 792,
+        "rangeStandard": "WLTP",
+        "batteryKwh": 85.0,
+        "dcCharge": "22 min (10–80%, up to 320 kW)",
+        "acCharge": "9 h (11 kW)",
+        "motorKw": 200
+      },
+      "colors": [
+        {
+          "name": "Polar White",
+          "hex": "#f4f4f2"
+        },
+        {
+          "name": "Cosmic Black",
+          "hex": "#121214"
+        },
+        {
+          "name": "Aqua Mint",
+          "hex": "#8fc7bb"
+        },
+        {
+          "name": "MANUFAKTUR Patagonia Red",
+          "hex": "#7a1520"
+        },
+        {
+          "name": "Sheer Blue",
+          "hex": "#5a7ca6"
+        },
+        {
+          "name": "MANUFAKTUR Alpine Grey",
+          "hex": "#8e9294"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic roof",
+            "Sports seats"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "MBUX Superscreen"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "45.7 cm (18-inch) 5-twin-spoke light-alloy wheels",
+            "Partially illuminated Mercedes star",
+            "Panel with illuminated Mercedes-Benz pattern"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "ARTICO - Black",
+            "ARTICO - Ivory Beige",
+            "Ship's deck open-pore brown oak trim elements with aluminium lines",
+            "Matt white natural fibre silent lines trim elements",
+            "ARTICO nappa-look / MICROCUT two-tone microfibre Black /Clean white pearl",
+            "ARTICO nappa-look man-made leather Black/ power red"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Direct current charging system (DC charging with 800 V)",
+            "Rear-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Battery-electric sedan on an 800 V architecture",
+        "58 kWh battery (CLA 200) or 85 kWh battery (CLA 250+)",
+        "DC charging at up to 320 kW on the CLA 250+",
+        "Claimed WLTP range of 542 km (CLA 200) and 792 km (CLA 250+)"
+      ],
+      "variants": [
+        {
+          "name": "CLA 200 Progressive Line",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 5650000,
+          "efficiency": "542 km",
+          "features": [
+            "224 hp, 335 Nm",
+            "Rear-wheel drive",
+            "45.7 cm (18-inch) 5-twin-spoke light-alloy wheels",
+            "Panoramic roof",
+            "Partially illuminated Mercedes star",
+            "Panel with illuminated Mercedes-Benz pattern",
+            "Direct current charging system (DC charging with 800 V)"
+          ]
+        },
+        {
+          "name": "CLA 250+ AMG Line",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 6050000,
+          "efficiency": "792 km",
+          "features": [
+            "272 hp, 335 Nm",
+            "Rear-wheel drive",
+            "Sports seats",
+            "Panoramic roof",
+            "Partially illuminated Mercedes star",
+            "Panel with illuminated Mercedes-Benz pattern",
+            "Direct current charging system (DC charging with 800 V)"
+          ]
+        },
+        {
+          "name": "CLA 250+ Launch Edition",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 6400000,
+          "efficiency": "792 km",
+          "features": [
+            "272 hp, 335 Nm",
+            "Rear-wheel drive",
+            "Sports seats",
+            "Panoramic roof",
+            "MBUX Superscreen",
+            "Partially illuminated Mercedes star",
+            "Panel with illuminated Mercedes-Benz pattern",
+            "Direct current charging system (DC charging with 800 V)"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/saloon/cla-electric/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/C174",
+        "https://www.mercedes-benz.co.in/passengercars/models.html",
+        "https://www.autocarindia.com/car-news/mercedes-india-debuts-cla-electric-with-792km-wltp-range-439080"
+      ],
+      "notes": "Prices, specs and equipment from the Mercedes-Benz India configurator (no location selected; Mercedes-Benz India quotes one all-India ex-showroom price). The 542 km WLTP figure for the CLA 200 is on the official model page; the 792 km WLTP figure for the CLA 250+ is from launch coverage (Autocar India). ARAI mileage/range not published."
+    },
+    {
+      "slug": "mercedes-c-class",
+      "name": "C-Class",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2022-05-10",
+      "engine": "1496 – 1999 cc",
+      "power": "147 – 300 kW (200 – 408 hp)",
+      "torque": "300 – 500 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 455,
+      "groundClearanceMm": null,
+      "fuelTankL": 50,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 4.6–7.3 s",
+      "dimensions": {
+        "length": 4751,
+        "width": 1820,
+        "height": 1438,
+        "wheelbase": 2865
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Sodalite Blue",
+          "hex": "#1f2c48"
+        },
+        {
+          "name": "Selenite Grey",
+          "hex": "#6b6e70"
+        },
+        {
+          "name": "MANUFAKTUR Opalite White Bright",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "High-tech Silver",
+          "hex": "#b7b9bb"
+        },
+        {
+          "name": "Patagonia Red",
+          "hex": "#7a1520"
+        },
+        {
+          "name": "Polar White",
+          "hex": "#f4f4f2"
+        },
+        {
+          "name": "Graphite Grey",
+          "hex": "#4c4f52"
+        },
+        {
+          "name": "Spectral Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "MANUFAKTUR Selenite Grey Magno",
+          "hex": "#6b6e70"
+        },
+        {
+          "name": "MANUFAKTUR Graphite Grey Magno",
+          "hex": "#4c4f52"
+        },
+        {
+          "name": "MANUFAKTUR Patagonia Red Bright",
+          "hex": "#7a1520"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic Sliding/glass Sunroof",
+            "Air conditioning (THERMATIC automatic climate control : 2 Zone)",
+            "Storage Package",
+            "Panoramic Sliding Sunroof",
+            "Sun Protection Package"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Instrument Cluster Display M",
+            "MBUX Navigation Premium",
+            "USB-Package",
+            "USB Package Plus",
+            "Driver Display"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Parking Package High",
+            "Keyless-Go-Package"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "LM-Wheel 5-Spoke Design 17\" All Round",
+            "Mirror package ( Included Logo Projection)",
+            "AMG Line Exterior / AMG Sport-Package Exterior",
+            "Night Package",
+            "Individualisation Package",
+            "AMG-Double Spoke Wheel 18\" with Tire Mix",
+            "Light-Package",
+            "Mirror Package"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "ARTICO Black",
+            "ARTICO Sienna Brown/Black",
+            "ARTICO Macchiato Beige",
+            "Black open-pore aluminium lines wood trim",
+            "Leather multifunction sports steering wheel",
+            "AMG Line Interior / AMG Sport-Package Interior",
+            "ARTICO Two-Tone - Sienna Brown / Black",
+            "Metal Structure Trim Element"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Rear-wheel drive",
+            "9-speed automatic (9G-TRONIC)",
+            "All-wheel drive",
+            "AMG SPEEDSHIFT MCT 9G"
+          ]
+        }
+      ],
+      "highlights": [
+        "Petrol (C 200, C 300), diesel (C 220d) and Mercedes-AMG C 43 4MATIC versions",
+        "48 V mild-hybrid system on C 200, C 220d and C 300",
+        "9-speed automatic on all versions",
+        "Mercedes-AMG C 43 4MATIC: 2.0-litre four-cylinder, 300 kW (408 hp), all-wheel drive"
+      ],
+      "variants": [
+        {
+          "name": "C 200",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (9G-TRONIC)",
+          "price": 6120000,
+          "efficiency": null,
+          "features": [
+            "204 hp, 300 Nm",
+            "Rear-wheel drive",
+            "48 V mild-hybrid system",
+            "LM-Wheel 5-Spoke Design 17\" All Round",
+            "Panoramic Sliding/glass Sunroof",
+            "Parking Package High",
+            "Air conditioning (THERMATIC automatic climate control : 2 Zone)",
+            "Mirror package ( Included Logo Projection)",
+            "Leather multifunction sports steering wheel",
+            "Storage Package"
+          ]
+        },
+        {
+          "name": "C 220d",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (9G-TRONIC)",
+          "price": 6200000,
+          "efficiency": null,
+          "features": [
+            "200 hp, 440 Nm",
+            "Rear-wheel drive",
+            "48 V mild-hybrid system",
+            "LM-Wheel 5-Spoke Design 17\" All Round",
+            "Panoramic Sliding/glass Sunroof",
+            "Parking Package High",
+            "Air conditioning (THERMATIC automatic climate control : 2 Zone)",
+            "Mirror package ( Included Logo Projection)",
+            "Leather multifunction sports steering wheel",
+            "Storage Package"
+          ]
+        },
+        {
+          "name": "C 300",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (9G-TRONIC)",
+          "price": 6700000,
+          "efficiency": null,
+          "features": [
+            "258 hp, 400 Nm",
+            "Rear-wheel drive",
+            "48 V mild-hybrid system",
+            "AMG Line Exterior / AMG Sport-Package Exterior",
+            "Night Package",
+            "AMG Line Interior / AMG Sport-Package Interior",
+            "Individualisation Package",
+            "AMG-Double Spoke Wheel 18\" with Tire Mix",
+            "Panoramic Sliding Sunroof",
+            "Light-Package"
+          ]
+        },
+        {
+          "name": "Mercedes-AMG C 43 4MATIC",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "AMG SPEEDSHIFT MCT 9G",
+          "price": 9405000,
+          "efficiency": null,
+          "features": [
+            "408 hp, 500 Nm",
+            "All-wheel drive",
+            "Panoramic Sliding Sunroof",
+            "Driver Display"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/saloon/c-class/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/models/saloon/c-class/amg.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/W206",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Prices, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom). The Mercedes-AMG C 43 4MATIC is sold under the C-Class in the configurator and is listed here as a variant. Fuel tank figure is for the C 200 (configurator lists 40 L for C 220d and 66 L for C 300). ARAI mileage not published. The model page also mentions a '140 Years Celebration Edition' that is not separately priced in the configurator."
+    },
+    {
+      "slug": "mercedes-e-class",
+      "name": "E-Class LWB",
+      "bodyType": "Sedan",
+      "bodyStyle": "Long-wheelbase sedan",
+      "isLuxury": true,
+      "launchedOn": "2024-10-09",
+      "engine": "1993 – 2999 cc",
+      "power": "145 – 280 kW (197 – 381 hp)",
+      "torque": "320 – 500 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 540,
+      "groundClearanceMm": null,
+      "fuelTankL": 66,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 4.5–7.6 s",
+      "dimensions": {
+        "length": 5082,
+        "width": 1880,
+        "height": 1492,
+        "wheelbase": 3094
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Polar White",
+          "hex": "#f4f4f2"
+        },
+        {
+          "name": "Verde Silver",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Nautik Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Graphite Grey",
+          "hex": "#4c4f52"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic Sliding Sunroof",
+            "Memory Package (Driver Seat, Strg. Col., Mirror)",
+            "Chauffeur Package",
+            "Electric Rear Recline Seats",
+            "Electrically Adjustable Right Driver Seat W Memory",
+            "Seat Adjustment Elec. Also Operable From Rear",
+            "Climatized rear seats",
+            "Comfort Headrest Driver and Front Passenger",
+            "Comfort Headrest Rear",
+            "Comfort Seats",
+            "Lumbar Support Adjustment Front",
+            "Electric Rear Door Sun Blinds",
+            "Electric Blind for Rear Window",
+            "Air Purification Package",
+            "4-Zone Automatic Climate Control",
+            "Air-Conditioning System",
+            "Trunk Lid Comfort Locking",
+            "Illuminated Step-Board Embellisher Illuminated",
+            "Leather Covered Dashboard and Instrument Panel",
+            "Sun Blind in Rear Doors Lh and Rh",
+            "Electrically Adjustable Left Driver Seat W. Memory",
+            "Climatized front seats",
+            "Air Cleaner with Water Protection",
+            "Contactless Gesture Control Front"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Central Display Size L",
+            "MBUX Superscreen",
+            "Instrument Cluster Display M",
+            "Passenger Display",
+            "Switchable Passenger Display",
+            "Mbconnect - Services for Navigation",
+            "Hard-Disc Navigation",
+            "MBUX Navigation Premium",
+            "Selfie and Video Camera",
+            "Remote Services Advanced",
+            "MBUX Entertainment Including Video Streaming",
+            "MBUX 3Rd Gen Ui",
+            "Sound Customization",
+            "Burmester 4D Surround Sound",
+            "Smartphone Integration Package",
+            "Smartphone Integration Android Auto",
+            "USB Package Entry",
+            "Wireless Phone Charging Front",
+            "Wireless Phone Charging in the Rear",
+            "Smartphone Integration Apple Carplay"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Blind Spot Assist",
+            "Forward Collision Warning.(fcw) With .Active Brake Contr.",
+            "360° Camera Parking Package",
+            "Active Parking Assist",
+            "360° Camera",
+            "Handsfree Access",
+            "Keyless-Go",
+            "Keyless-Go-Package",
+            "Knee Airbag",
+            "Center Airbag",
+            "Mono Driver Camera",
+            "Childrens Recognition in the Closed Car Passive",
+            "Soft Close Doors",
+            "Pedestrian Protection - Active Bonnet",
+            "Intelligent Headlight Control Plus (Ihc+)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "18\" 5-Spoke Light Alloy Wheel in Black with High Sheen",
+            "Headlamps LED Static Left-Side Traffic",
+            "Automatically Dimming Interior and Exterior Mirror",
+            "Electrically Folding Exterior Mirrors",
+            "Mirror Package",
+            "Under-Body Protection (Skid Plate)",
+            "18\" AMG Light 5-Twin Spoke Wheels in Tantalite Grey",
+            "Digital Light Package",
+            "AMG Line Exterior Styling"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "ARTICO Leather - Brown",
+            "ARTICO Leather - Beige",
+            "Open-Pore Black Ash Wood Trim",
+            "Open-Pore Black Ash Wood Centre Console",
+            "Nappa Leather- Steering Wheel",
+            "Logo-Projection via Mirror",
+            "64 Colour Ambience Lighting Premium",
+            "MANUFAKTUR Piano Black Lacquer Trim Elements",
+            "Piano Black Gloss Centre Console"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Comfort Suspension with Agility Control",
+            "Chassis with 4-Matic-/All-Wheel Drive",
+            "Rear-wheel drive",
+            "9-speed automatic (9G-TRONIC)",
+            "All-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Long-wheelbase sedan sold as 'E-Class Sedan Long'",
+        "E 200 petrol, E 220d diesel and E 450 4MATIC petrol versions",
+        "E 450 4MATIC has a six-cylinder engine and all-wheel drive",
+        "9-speed automatic on all versions"
+      ],
+      "variants": [
+        {
+          "name": "E200",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (9G-TRONIC)",
+          "price": 8200000,
+          "efficiency": null,
+          "features": [
+            "204 hp, 320 Nm",
+            "Rear-wheel drive",
+            "18\" 5-Spoke Light Alloy Wheel in Black with High Sheen",
+            "Sound Customization",
+            "Burmester 4D Surround Sound",
+            "Memory Package (Driver Seat, Strg. Col., Mirror)",
+            "Chauffeur Package",
+            "Electric Rear Recline Seats",
+            "Electrically Adjustable Right Driver Seat W Memory",
+            "Seat Adjustment Elec. Also Operable From Rear"
+          ]
+        },
+        {
+          "name": "E220d",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (9G-TRONIC)",
+          "price": 8400000,
+          "efficiency": null,
+          "features": [
+            "197 hp, 440 Nm",
+            "Rear-wheel drive",
+            "18\" 5-Spoke Light Alloy Wheel in Black with High Sheen",
+            "Sound Customization",
+            "Burmester 4D Surround Sound",
+            "Memory Package (Driver Seat, Strg. Col., Mirror)",
+            "Chauffeur Package",
+            "Electric Rear Recline Seats",
+            "Electrically Adjustable Right Driver Seat W Memory",
+            "Seat Adjustment Elec. Also Operable From Rear"
+          ]
+        },
+        {
+          "name": "E450 4MATIC AMG LINE",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (9G-TRONIC)",
+          "price": 9650000,
+          "efficiency": null,
+          "features": [
+            "381 hp, 500 Nm",
+            "All-wheel drive",
+            "18\" AMG Light 5-Twin Spoke Wheels in Tantalite Grey",
+            "Sound Customization",
+            "Burmester 4D Surround Sound",
+            "Memory Package (Driver Seat, Strg. Col., Mirror)",
+            "Chauffeur Package",
+            "Electrically Adjustable Left Driver Seat W. Memory",
+            "Electrically Adjustable Right Driver Seat W Memory",
+            "Seat Adjustment Elec. Also Operable From Rear"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/saloon/e-class/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/V214",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Prices, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom). ARAI mileage not published."
+    },
+    {
+      "slug": "mercedes-amg-e-53",
+      "name": "Mercedes-AMG E 53 Hybrid",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2999 cc + electric motor",
+      "power": "430 kW (585 hp)",
+      "torque": "750 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 370,
+      "groundClearanceMm": null,
+      "fuelTankL": 60,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 4 s",
+      "dimensions": {
+        "length": 4965,
+        "width": 1902,
+        "height": 1472,
+        "wheelbase": 2971
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Polar White",
+          "hex": "#f4f4f2"
+        },
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Nautic Blue",
+          "hex": "#1e2a40"
+        },
+        {
+          "name": "Velvet Brown",
+          "hex": "#5a3d2b"
+        },
+        {
+          "name": "Graphite Grey",
+          "hex": "#4c4f52"
+        },
+        {
+          "name": "High Tech Silver",
+          "hex": "#b5b7b9"
+        }
+      ],
+      "features": [
+        {
+          "group": "Infotainment",
+          "items": [
+            "AMG Real Performance Sound",
+            "Burmester 4D surround sound system"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Driver monitoring camera"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "AMG Night Package",
+            "AMG Night Package II",
+            "AMG Driver's Package"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Open-pore black ash wood trim"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "AMG ride control suspension",
+            "AMG dynamic plus Package",
+            "All-wheel drive",
+            "9G-Tronic"
+          ]
+        }
+      ],
+      "highlights": [
+        "Plug-in hybrid with a 3.0-litre six-cylinder petrol engine and an electric motor",
+        "System output 430 kW (585 hp) and 750 Nm",
+        "4MATIC+ all-wheel drive",
+        "Offered as Performance Edition and Racing Edition"
+      ],
+      "variants": [
+        {
+          "name": "Mercedes-AMG E 53 4MATIC+ Performance Edition",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 14500000,
+          "efficiency": null,
+          "features": [
+            "585 hp, 750 Nm",
+            "All-wheel drive",
+            "AMG Night Package",
+            "AMG Night Package II",
+            "AMG Real Performance Sound",
+            "Burmester 4D surround sound system",
+            "AMG ride control suspension",
+            "AMG dynamic plus Package",
+            "Driver monitoring camera"
+          ]
+        },
+        {
+          "name": "Mercedes-AMG E 53 4MATIC+ Racing Edition",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 14800000,
+          "efficiency": null,
+          "features": [
+            "585 hp, 750 Nm",
+            "All-wheel drive",
+            "AMG Night Package",
+            "AMG Night Package II",
+            "AMG Driver's Package",
+            "AMG Real Performance Sound",
+            "Burmester 4D surround sound system",
+            "AMG ride control suspension",
+            "AMG dynamic plus Package",
+            "Driver monitoring camera"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/saloon/e-class/amg.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/W214?subBrand=Mercedes-AMG",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Listed on the Indian site as 'E-Class Sedan' (standard wheelbase, Mercedes-AMG). Prices, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom). Electric-only range not published in India. India launch date not confirmed."
+    },
+    {
+      "slug": "mercedes-s-class",
+      "name": "S-Class",
+      "bodyType": "Sedan",
+      "bodyStyle": "Long-wheelbase sedan",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2999 cc + electric motor",
+      "power": "320 kW (435 hp)",
+      "torque": "680 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 345,
+      "groundClearanceMm": null,
+      "fuelTankL": 67,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 5.7 s",
+      "dimensions": {
+        "length": 5304,
+        "width": 1921,
+        "height": 1503,
+        "wheelbase": 3216
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Velvet Brown",
+          "hex": "#5a3d2b"
+        },
+        {
+          "name": "Emerald Green",
+          "hex": "#1e4a3a"
+        },
+        {
+          "name": "MANUFAKTUR Opalite White Bright",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "MANUFAKTUR Exclusive Allanite Green Metallic",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "MANUFAKTUR Exclusive Silver Metallic",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "MANUFAKTUR Exclusive Chromite Black Metallic",
+          "hex": "#111111"
+        },
+        {
+          "name": "MANUFAKTUR Exclusive Carneol Red Metallic",
+          "hex": "#9b1b24"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sliding sunroof",
+            "Executive seat",
+            "ENERGIZING Air Control",
+            "THERMOTRONIC automatic climate control"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "MBUX Superscreen",
+            "3D driver's display",
+            "MBUX augmented reality Head-up Display",
+            "Burmester high-end 4D surround sound system",
+            "MBUX High-End Rear Seat Entertainment System"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Digital Extra: mb.drive assist",
+            "Rear airbag",
+            "Beltbag"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Electric sunblinds in rear doors, left and right",
+            "Guard 360 ° break-in resistant heat- and noise-insulated laminated safety glass",
+            "Magic Vision Control",
+            "Lighting design with Mercedes-Benz lettering",
+            "Radiator grille with illuminated surround"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Exclusive nappa leather beech brown / black",
+            "Active ambient lighting",
+            "Exclusive nappa leather black"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Rear-wheel drive",
+            "9G-Tronic"
+          ]
+        }
+      ],
+      "highlights": [
+        "Long-wheelbase S 450e plug-in hybrid",
+        "3.0-litre six-cylinder petrol engine with an electric motor; 320 kW (435 hp) and 680 Nm",
+        "Offered as Launch Edition and Manufaktur Edition",
+        "MBUX Superscreen and MBUX augmented-reality head-up display"
+      ],
+      "variants": [
+        {
+          "name": "S450e Launch Edition",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 22000000,
+          "efficiency": null,
+          "features": [
+            "435 hp, 680 Nm",
+            "Rear-wheel drive",
+            "Burmester high-end 4D surround sound system",
+            "MBUX augmented reality Head-up Display",
+            "Executive seat",
+            "Digital Extra: mb.drive assist",
+            "MBUX High-End Rear Seat Entertainment System",
+            "Panoramic sliding sunroof",
+            "MBUX Superscreen",
+            "Active ambient lighting"
+          ]
+        },
+        {
+          "name": "S450e Manufaktur Edition",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 23800000,
+          "efficiency": null,
+          "features": [
+            "435 hp, 680 Nm",
+            "Rear-wheel drive",
+            "Burmester high-end 4D surround sound system",
+            "MBUX augmented reality Head-up Display",
+            "Executive seat",
+            "Digital Extra: mb.drive assist",
+            "MBUX High-End Rear Seat Entertainment System",
+            "Panoramic sliding sunroof",
+            "MBUX Superscreen",
+            "Active ambient lighting"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/saloon-long/s-class/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/V223",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "2026 facelift. Only the S 450e plug-in hybrid is listed in the configurator; earlier S 350d/S 450 versions are no longer listed. Prices, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom). Electric-only range not published in India."
+    },
+    {
+      "slug": "mercedes-maybach-s-class",
+      "name": "Mercedes-Maybach S-Class",
+      "bodyType": "Sedan",
+      "bodyStyle": "Long-wheelbase sedan",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2998 cc + electric motor",
+      "power": "430 kW (585 hp)",
+      "torque": "750 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 330,
+      "groundClearanceMm": null,
+      "fuelTankL": 67,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 4.8 s",
+      "dimensions": {
+        "length": 5484,
+        "width": 1921,
+        "height": 1510,
+        "wheelbase": 3396
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "MANUFAKTUR Exclusive Dark Olive Green Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "Verde Silver Metallic",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "Warm Grey Solid",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Emerald Green Metallic",
+          "hex": "#1e4a3a"
+        },
+        {
+          "name": "Emerald Green Metallic / Mojave Silver Metallic",
+          "hex": "#a39c90"
+        },
+        {
+          "name": "Nautical Blue Metallic / High-tech Silver Metallic",
+          "hex": "#b7b9bb"
+        },
+        {
+          "name": "High-tech Silver Metallic / Selenite Grey Metallic",
+          "hex": "#b7b9bb"
+        },
+        {
+          "name": "Obsidian Black Metallic / High-tech Silver Metallic",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "MANUFAKTUR Opal White Bright / Verde Silver Metallic",
+          "hex": "#f2f2f0"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Executive seats"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "MANUFAKTUR seat backrest trim",
+            "50,8 cm (20\") Maybach multi-spoke forged wheels with an upright star"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Maybach Exclusive Nappa crystal white / silver grey pearl",
+            "MANUFAKTUR special upholstery in Exclusive nappa leather mystic blue / black",
+            "MANUFAKTUR special upholstery in Exclusive nappa leather tundra brown / black",
+            "MANUFAKTUR special upholstery in Exclusive nappa leather chestnut brown / black",
+            "MANUFAKTUR special upholstery in Exclusive nappa leather titian red / black"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "All-wheel drive",
+            "9G-Tronic"
+          ]
+        }
+      ],
+      "highlights": [
+        "Mercedes-Maybach S 580e plug-in hybrid",
+        "3.0-litre six-cylinder petrol engine with an electric motor; 430 kW (585 hp) and 750 Nm",
+        "4MATIC all-wheel drive",
+        "20-inch Maybach multi-spoke forged wheels"
+      ],
+      "variants": [
+        {
+          "name": "Mercedes-Maybach S580e",
+          "fuel": "Hybrid",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 31000000,
+          "efficiency": null,
+          "features": [
+            "585 hp, 750 Nm",
+            "All-wheel drive",
+            "MANUFAKTUR seat backrest trim",
+            "50,8 cm (20\") Maybach multi-spoke forged wheels with an upright star",
+            "Executive seats"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/saloon-long/mercedes-maybach-s-class/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/Z223?subBrand=Mercedes-Maybach",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Price is the configurator base price (Rs 3.10 crore); the all-models page shows 'starting from Rs 3,20,00,000' for the Mercedes-Maybach S-Class, so check which is current. Specs and equipment from the Mercedes-Benz India configurator."
+    },
+    {
+      "slug": "mercedes-eqs",
+      "name": "EQS",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor",
+      "power": "400 kW (544 hp)",
+      "torque": "858 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 620,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 210,
+      "acceleration": "0–100 km/h in 4.3 s",
+      "dimensions": {
+        "length": 5216,
+        "width": 1926,
+        "height": 1512,
+        "wheelbase": 3210
+      },
+      "ev": {
+        "rangeKm": 817,
+        "rangeStandard": null,
+        "batteryKwh": 118.0,
+        "dcCharge": "31 min (10–80%, up to 200 kW)",
+        "acCharge": "12.25 h (11 kW)",
+        "motorKw": 400
+      },
+      "colors": [
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Graphite Grey",
+          "hex": "#4c4f52"
+        },
+        {
+          "name": "Opalith White",
+          "hex": "#f2f2f0"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic Sliding Sunroof",
+            "Rear Seat Comfort Package",
+            "Rear Comfort Package",
+            "Rear Comfort Package Plus",
+            "Rear Back Rest Adjustment and Head Restraints, Ele",
+            "Electrically Adjustable Left Driver Seat W. Memory",
+            "Electrically Adjustable Right Driver Seat W Memory",
+            "Memory Package (Driver Seat, Strg. Col., Mirror)",
+            "Neck-Warmer Rear",
+            "Armrest Rear Premium",
+            "Multi-Contour Seat Front with Massage Function",
+            "Climatised Front Seats",
+            "Climatised Seats Rear",
+            "Multi-Contour Rear Seat",
+            "Comfort Headrest Driver and Frontpassenger",
+            "Comfort Headrest Rear",
+            "Chauffeur-Postion Front Passenger",
+            "Design Belt-Lock",
+            "Seat Type Variant 3",
+            "Comfort Seat Heating Front",
+            "Comfort Seat Heating Rear",
+            "Sun Visor with Additional Function",
+            "Pre Cascades Filter",
+            "Air Purification Package",
+            "Automatic Climate Control",
+            "Electric window lifters twofold",
+            "Additional Shelves in the Center Console",
+            "Baggage Compartment Covering",
+            "Automatic Rear Door",
+            "Contactless Gesture Control Front"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Fingerprint Scanner",
+            "Display-Package High",
+            "Passenger Display",
+            "Head-Up-Display Advanced (HUD)",
+            "Mbconnect - Services for Navigation",
+            "Hard-Disc Navigation",
+            "MBUX Navigation Premium",
+            "Augmented Reality Video",
+            "Mbconnect - EV Features",
+            "MBUX Entertainment",
+            "Remote Services Plus",
+            "Sound Customization",
+            "Premium Sound System",
+            "Headphones for Rear Entertainment (Amount 2)",
+            "Smartphone Integration Package",
+            "Smartphone Integration Apple Carplay",
+            "Smartphone Integration Android Auto",
+            "USB-Package",
+            "Vehicle Access and Authorization via Smartphone",
+            "Wireless Phone Charging Front",
+            "Touchscreen Rear",
+            "Beruehrungslose Gestensteuerung Hinten",
+            "Fond-Entertainment Plus",
+            "Wireless Phone Charging in the Rear",
+            "Change Mode 2-Charging Cable to Generation 5.1",
+            "Bundel Mode 2- Charging Cable",
+            "Bundel Mode 3- Charging Cable",
+            "Sc - Conversion DC Flap Cover and Light Clip",
+            "Charging cable for domestic socket, 8 M, straight",
+            "Eb4xy-Battery (L)"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Driving Assistance Package (L2)",
+            "Active Lane Departure-Assistant (Camera)",
+            "DISTRONIC Plus with Cross-Traffic Assist (Dtr+q)",
+            "Intelligent Headlight Control Plus (Ihc+)",
+            "Remote Parking",
+            "Remote Parking-Package",
+            "Active Parking Assist",
+            "360° Camera",
+            "Vehicle with Separating Clutch Eats",
+            "Elektromotor Vorne - Eats-Modul 1",
+            "Elektromotor Hinten - Eats-Modul 1",
+            "Handsfree Access",
+            "Keyless-Go",
+            "Keyless-Go-Package",
+            "Window Bag",
+            "Pre-Safe Impulse Side",
+            "Sidebags in Rear",
+            "Knee Airbag",
+            "Pre-safe system",
+            "Adaptive Cruise Control Plus (DISTRONIC Plus)",
+            "Exterior Noise -Sound Generator for Hybrid and EV",
+            "Pedestrian Protection - Active Bonnet"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "LM-Wheel 5-Spoke Design 20\" All Round",
+            "Light-Package Premium",
+            "Automatically Dimming Interior and Exterior Mirror",
+            "Electrically Folding Exterior Mirrors",
+            "Mirror Package",
+            "Light Band Front",
+            "Radiator Grill in Diamant-/Staroptics",
+            "AMG Bodystyling - Front Spoiler, Side Skirts"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Leather pebble beige",
+            "Trim Elements-Wood Vinterio Walnut (2C19)",
+            "Center Console - Wood Vinterio Walnut (2C19)",
+            "Luxury Steering Wheel - Leather",
+            "Adaptive Rear Interior Light",
+            "Ambiance Lighting Connected Light",
+            "Ambience Lighting Premium",
+            "Air Balance Package"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Direct current charging system (DC charging)",
+            "Adaptive Damping System Plus (Ads+)",
+            "AIRMATIC Dual Control / Air Suspension Semi-Active",
+            "Driving Experience Switch (Individual Driving Prog)",
+            "Rear Axle Steering",
+            "All-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Battery-electric luxury sedan",
+        "Dual motors with 400 kW (544 hp) and 858 Nm",
+        "118 kWh battery (gross, as listed by Mercedes-Benz India)",
+        "DC charging at up to 200 kW"
+      ],
+      "variants": [
+        {
+          "name": "EQS 580 4MATIC Celebration Edition",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 13000000,
+          "efficiency": "817 km",
+          "features": [
+            "544 hp, 858 Nm",
+            "All-wheel drive",
+            "LM-Wheel 5-Spoke Design 20\" All Round",
+            "Sound Customization",
+            "Premium Sound System",
+            "Headphones for Rear Entertainment (Amount 2)",
+            "Head-Up-Display Advanced (HUD)",
+            "Rear Seat Comfort Package",
+            "Rear Comfort Package",
+            "Rear Comfort Package Plus"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/saloon/eqs/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/V297",
+        "https://www.mercedes-benz.co.in/passengercars/models.html",
+        "https://www.autocarindia.com/car-news/mercedes-eqs-580-celebration-edition-launched-at-rs-130-crore-435750"
+      ],
+      "notes": "Only the EQS 580 4MATIC Celebration Edition is listed. Price, specs and equipment from the Mercedes-Benz India configurator. Claimed range of 817 km is from launch coverage (Autocar India), which does not name the test cycle; the earlier EQS 580 was ARAI-rated at 857 km."
+    },
+    {
+      "slug": "mercedes-eqs-suv",
+      "name": "EQS SUV",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2024-09-16",
+      "engine": "Electric motor",
+      "power": "265 – 400 kW (360 – 544 hp)",
+      "torque": "800 – 858 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 645,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 210,
+      "acceleration": "0–100 km/h in 4.7–6.1 s",
+      "dimensions": {
+        "length": 5136,
+        "width": 1965,
+        "height": 1718,
+        "wheelbase": 3210
+      },
+      "ev": {
+        "rangeKm": 809,
+        "rangeStandard": "ARAI",
+        "batteryKwh": 118.0,
+        "dcCharge": "31 min (10–80%, up to 200 kW)",
+        "acCharge": "12.25 h (22 kW)",
+        "motorKw": 400
+      },
+      "colors": [
+        {
+          "name": "Black Lacquer",
+          "hex": "#111111"
+        },
+        {
+          "name": "Polar White",
+          "hex": "#f4f4f2"
+        },
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Velvet Brown Metallic Paint",
+          "hex": "#5a3d2b"
+        },
+        {
+          "name": "Sodalithblue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Emerald Green",
+          "hex": "#1e4a3a"
+        },
+        {
+          "name": "Selenitgrey",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Opalith White",
+          "hex": "#f2f2f0"
+        },
+        {
+          "name": "High-Tech-Silver - Metalliclack",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "Alpingrau-Unilack",
+          "hex": "#808080"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sliding sunroof",
+            "Rear Comfort Package",
+            "Rear seat ventilation",
+            "Power front left seat with memory function",
+            "Power front right seat with memory function",
+            "Memory Package",
+            "Telephone compartment in front armrest",
+            "Multi-Contour Seat Front with Massage Function",
+            "Climatised front seats",
+            "Comfort head rests at front seats",
+            "Electrically adjustable rear seats",
+            "Comfort Seats",
+            "Seat heating Plus for driver and front passenger seats",
+            "Pull-out sun visor",
+            "ENERGIZING Air Control Plus",
+            "THERMOTRONIC automatic climate control",
+            "Heat pump",
+            "Flex bottleholder",
+            "Stowage compartment beneath centre console",
+            "Easy-pack tailgate",
+            "MBUX Interior Assistant",
+            "Interior Light Package",
+            "Rear belt status indication in the instrument display",
+            "Illuminated door sill panel with \"Mercedes-Benz\" lettering",
+            "3rd row seat",
+            "Pre Cascades Filter"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Fingerprint scanner",
+            "Extended MBUX functions",
+            "MBUX multimedia system",
+            "MBUX hyper screen",
+            "Passenger display",
+            "Head-up display",
+            "Hard-disc navigation",
+            "MBUX Navigation Premium",
+            "MBUX augmented reality for navigation",
+            "Transparent bonnet",
+            "Sound personalisation",
+            "Burmester 3D surround sound system",
+            "2 wireless head sets",
+            "Smartphone integration",
+            "Apple CarPlay",
+            "Android Auto",
+            "USB Package Plus",
+            "Vehicle Access and Authorization via Smartphone",
+            "Wireless charging system for mobile devices in the front",
+            "MBUX rear tablet",
+            "MBUX Interior Assist in the rear",
+            "MBUX High-End Rear Seat Entertainment System",
+            "Wireless charging system for mobile devices in the rear"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Driving Assistance Package Plus",
+            "Active Lane Keeping Assist",
+            "DISTRONIC Plus with Cross-Traffic Assist (Dtr+q)",
+            "Adaptive Highbeam Assist Plus",
+            "Parking package with 360deg camera",
+            "Active Parking Assist",
+            "360° Camera",
+            "Hands-Free Access",
+            "Keyless-Go",
+            "Keyless-go Comfort Package",
+            "Window airbags",
+            "Pre-safe Impulse Side",
+            "Sidebags in rear",
+            "Knee airbag",
+            "Pre-safe system for preventive occupant protection",
+            "Centre airbag",
+            "Mercedes-Benz emergency call system",
+            "Passive person presence reminder",
+            "Adaptive Cruise Control Plus (DISTRONIC Plus)",
+            "Power closing",
+            "Acoustic presence indicator"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "AMG Line",
+            "Premium Package with Digital Extras",
+            "AMG-Multi Spoke Wheel 21\" All Round",
+            "Digital Light",
+            "Acoustic Comfort Package",
+            "Automatically dimming rear-view mirror",
+            "Electrically folding exterior mirrors",
+            "Mirror Package",
+            "Continuous reflector strip at front",
+            "Radiator grille with Mercedes-Benz pattern",
+            "Aluminium-look, illuminated running boards with rubber studs",
+            "Vehicle socket flap, electric",
+            "AMG Bodystyling - Front Spoiler, Side Skirts"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Leather - Macchiato beige/ Space grey",
+            "Leather - Neva grey / Balao brown",
+            "Trim Elements - Wood Fineline Anthracite (2C09)",
+            "Center Console-Wood Fineline Anthracite (2C09)",
+            "Multifunction steering wheel in nappa leather",
+            "Adaptive rear compartment lighting",
+            "Ambient lighting with projection of brand logo",
+            "Active ambient lighting",
+            "Ambience Lighting Premium",
+            "Air balance Package"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "On board Direct current charger (DC charging) upto 200kW",
+            "On board Alternating current charger (AC charging) upto 22kW",
+            "Suspension with adaptive damping system",
+            "AIRMATIC",
+            "Dynamic Select",
+            "Rear axle steering - 10 Degree",
+            "All-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Battery-electric SUV assembled in India",
+        "EQS 450 4MATIC (265 kW) and EQS 580 4MATIC (400 kW) versions",
+        "118 kWh battery (gross, as listed by Mercedes-Benz India)",
+        "DC charging at up to 200 kW"
+      ],
+      "variants": [
+        {
+          "name": "EQS SUV 450 4MATIC",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 13500000,
+          "efficiency": "820 km",
+          "features": [
+            "360 hp, 800 Nm",
+            "All-wheel drive",
+            "AMG Line",
+            "Premium Package with Digital Extras",
+            "AMG-Multi Spoke Wheel 21\" All Round",
+            "Sound personalisation",
+            "Burmester 3D surround sound system",
+            "2 wireless head sets",
+            "Head-up display",
+            "Rear Comfort Package"
+          ]
+        },
+        {
+          "name": "EQS SUV 580 4MATIC",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 14900000,
+          "efficiency": "809 km",
+          "features": [
+            "544 hp, 858 Nm",
+            "All-wheel drive",
+            "Premium Package with Digital Extras",
+            "AMG-Multi Spoke Wheel 21\" All Round",
+            "Sound personalisation",
+            "Burmester 3D surround sound system",
+            "2 wireless head sets",
+            "Head-up display",
+            "Rear Comfort Package",
+            "Rear seat ventilation"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/suv/eqs/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/X296",
+        "https://www.mercedes-benz.co.in/passengercars/models.html",
+        "https://www.autocarindia.com/cars/mercedes-benz/eqs-suv/range"
+      ],
+      "notes": "Prices, specs and equipment from the Mercedes-Benz India configurator. Range figures are from launch coverage: 809 km (ARAI) for the 580; 820 km for the 450 is reported with differing test standards. Configurator lists 5 seats for both versions."
+    },
+    {
+      "slug": "mercedes-maybach-eqs-suv",
+      "name": "Mercedes-Maybach EQS SUV",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2024-09-05",
+      "engine": "Electric motor",
+      "power": "484 kW (658 hp)",
+      "torque": "955 Nm",
+      "seats": [
+        4
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 440,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 210,
+      "acceleration": "0–100 km/h in 4.4 s",
+      "dimensions": {
+        "length": 5125,
+        "width": 2034,
+        "height": 1721,
+        "wheelbase": 3210
+      },
+      "ev": {
+        "rangeKm": 611,
+        "rangeStandard": "WLTP",
+        "batteryKwh": 118.0,
+        "dcCharge": "31 min (10–80%, up to 200 kW)",
+        "acCharge": "6.25 h (22 kW)",
+        "motorKw": 484
+      },
+      "colors": [
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Velvet Brown",
+          "hex": "#5a3d2b"
+        },
+        {
+          "name": "Sodalite Blue",
+          "hex": "#1f2c48"
+        },
+        {
+          "name": "Emerald Green",
+          "hex": "#1e4a3a"
+        },
+        {
+          "name": "Selenite Grey",
+          "hex": "#6b6e70"
+        },
+        {
+          "name": "MANUFAKTUR Opalite White Bright",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "High-Tech Silver",
+          "hex": "#b7b9bb"
+        },
+        {
+          "name": "MANUFAKTUR Alpine Grey Solid",
+          "hex": "#8e9294"
+        },
+        {
+          "name": "Maybach Two-tone Obsidian Black / Selenite Grey",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Maybach Two-tone High-tech Silver / Nautic Blue",
+          "hex": "#b7b9bb"
+        },
+        {
+          "name": "Maybach Two-tone Paint Obsidian Black / MANUFAKTUR Kalahari ",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Maybach Two-tone High-tech Silver / Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Maybach Two-tone Paint Velvet Brown / Onyx Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "Maybach Two-tone Paint Obsidian Black / Mojave Silver",
+          "hex": "#1b1c1e"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sliding sunroof",
+            "Rear Seat Memory Package",
+            "Chauffeur Package",
+            "Electrically adjustable outer rear seats",
+            "Power front left seat with memory function",
+            "Power front right seat with memory function",
+            "Memory Package",
+            "Neck and shoulder heating in the rear",
+            "Calf massage in the rear",
+            "Climatised front seats",
+            "Climatised rear seats",
+            "Multicontour rear seats",
+            "Active Multicontour Seat Package",
+            "Easy adjust luxury head restraints for driver+front passenger, folding+removable on front pass. side",
+            "Seat on front passenger side electrically adjustable from the rear",
+            "Executive seats",
+            "Designer belt buckles in front and rear",
+            "Comfort Seats",
+            "Seat heating Plus for driver and front passenger seats",
+            "Seat heating Plus in the rear",
+            "Belt feeders in the rear",
+            "Electric sunblinds in rear doors, left and right",
+            "Pull-out sun visor",
+            "Air filter for air conditioning system",
+            "ENERGIZING Air Control Plus",
+            "THERMOTRONIC automatic climate control",
+            "Heat pump",
+            "Flex bottleholder",
+            "Stowage compartment beneath centre console",
+            "Prod. prot. f. freight pkging with tie-down hooks"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "MBUX augmented reality Head-up Display",
+            "Fingerprint scanner",
+            "Extended MBUX functions",
+            "MBUX multimedia system",
+            "MBUX hyper screen",
+            "OLED front passenger display",
+            "Hard-disc navigation",
+            "MBUX Navigation Premium",
+            "MBUX augmented reality for navigation",
+            "Transparent bonnet",
+            "Sound personalisation",
+            "Burmester 4D surround sound system",
+            "2 wireless head sets",
+            "Smartphone integration",
+            "Apple CarPlay",
+            "Android Auto",
+            "USB Package Plus",
+            "Wireless charging system for mobile devices in the front",
+            "MBUX rear tablet",
+            "MBUX Interior Assist in the rear",
+            "MBUX High-End Rear Seat Entertainment System",
+            "Wireless charging system for mobile devices in the rear"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Guard 360° Vehicle protection Plus",
+            "Driving Assistance Package Plus",
+            "Active Lane Keeping Assist",
+            "Active Steering Assist",
+            "Evasive manoeuvre support",
+            "Traffic Sign Assist",
+            "Adaptive Highbeam Assist Plus",
+            "Parking package with Remote Parking functions",
+            "Active Parking Assist with parktronic",
+            "Automatic comfort doors, front",
+            "Automatic comfort doors in the rear",
+            "Hands-Free Access",
+            "Keyless-Go",
+            "Keyless-go Comfort Package",
+            "Keyless-go Convenience Package Plus",
+            "Window airbags",
+            "Pre-safe Impulse Side",
+            "Sidebags in rear",
+            "Knee airbag",
+            "Pre-safe system",
+            "Rear airbag",
+            "Mercedes-Benz emergency call system",
+            "Pre-safe Impulse",
+            "Passive person presence reminder",
+            "DISTRONIC plus incl. bas Plus and pre-safe Brake",
+            "Anti-theft alarm system",
+            "Interior monitoring system",
+            "Power closing",
+            "Acoustic presence indicator"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "53.3 cm (21\") Maybach multi-spoke light-alloy wheels",
+            "Night Series",
+            "MANUFAKTUR seat backrest trim",
+            "Exclusive trim Package",
+            "53.3 cm (21-inch) Maybach 7-spoke light-alloy wheels",
+            "Digital Light",
+            "Automatically dimming rear-view mirror",
+            "Electrically folding exterior mirrors",
+            "Mirror Package",
+            "Continuous reflector strip at front",
+            "Transport protection",
+            "Surround lighting with animated projection of the Mercedes-Maybach pattern",
+            "Aluminium-look, illuminated running boards with rubber studs",
+            "Vehicle socket flap, electric"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Maybach Exclusive nappa leather balao brown pearl / espresso brown",
+            "MANUFAKTUR crystal white / silver grey pearl",
+            "MANUFAKTUR brown open-pore birch wood trim",
+            "MANUFAKTUR brown open-pore walnut wood trim",
+            "MANUFAKTUR black piano lacquer trim with flowing lines",
+            "Centre console in MANUFAKTUR open-pore brown walnut wood",
+            "Centre console in MANUFAKTUR open-pore brown birch wood",
+            "Centre console in MANUFAKTUR black flowing lines piano lacquer",
+            "Multifunction steering wheel in nappa leather",
+            "ENERGIZING Package Plus",
+            "Maybach Exclusive nappa leather pearl black",
+            "Interior trim in MANUFAKTUR open-pore dark brown fishbone pattern walnut wood",
+            "Wood/leather multifunction steering wheel",
+            "Adaptive rear compartment lighting",
+            "Ambient lighting with projection of brand logo",
+            "Active ambient lighting",
+            "Ambient lighting plus",
+            "Air balance Package"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Direct current charging system (DC charging)",
+            "Alternating current charging system (AC charging)",
+            "Suspension with adaptive damping system",
+            "AIRMATIC",
+            "Dynamic Select",
+            "Rear axle steering - 10 Degree",
+            "All-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Battery-electric Maybach SUV",
+        "Dual motors with 484 kW (658 hp) and 955 Nm",
+        "118 kWh battery (gross, as listed by Mercedes-Benz India)",
+        "Four-seat layout"
+      ],
+      "variants": [
+        {
+          "name": "Mercedes-Maybach EQS 680",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 24000000,
+          "efficiency": "611 km",
+          "features": [
+            "658 hp, 955 Nm",
+            "All-wheel drive",
+            "53.3 cm (21\") Maybach multi-spoke light-alloy wheels",
+            "MBUX augmented reality Head-up Display",
+            "Centre console in MANUFAKTUR open-pore brown birch wood",
+            "Guard 360° Vehicle protection Plus"
+          ]
+        },
+        {
+          "name": "Mercedes-Maybach EQS 680 Night Series",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 26500000,
+          "efficiency": "611 km",
+          "features": [
+            "658 hp, 955 Nm",
+            "All-wheel drive",
+            "Night Series",
+            "MANUFAKTUR seat backrest trim",
+            "Exclusive trim Package",
+            "53.3 cm (21-inch) Maybach 7-spoke light-alloy wheels",
+            "Sound personalisation",
+            "Burmester 4D surround sound system",
+            "2 wireless head sets",
+            "MBUX augmented reality Head-up Display"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/suv/maybach-eqs/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/Z296?subBrand=Mercedes-Maybach",
+        "https://www.mercedes-benz.co.in/passengercars/models.html",
+        "https://www.autocarindia.com/car-news/mercedes-maybach-eqs-suv-launched-at-rs-225-crore-432750"
+      ],
+      "notes": "Prices, specs and equipment from the Mercedes-Benz India configurator. WLTP range of 611 km is from launch coverage (Autocar India); not stated on the official page."
+    },
+    {
+      "slug": "mercedes-gla",
+      "name": "GLA",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2024-01-31",
+      "engine": "1332 – 1950 cc",
+      "power": "120 – 140 kW (163 – 190 hp)",
+      "torque": "270 – 400 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 425,
+      "groundClearanceMm": null,
+      "fuelTankL": 43,
+      "topSpeedKmh": 219,
+      "acceleration": "0–100 km/h in 7.5–8.9 s",
+      "dimensions": {
+        "length": 4412,
+        "width": 1834,
+        "height": 1616,
+        "wheelbase": 2729
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Cosmos Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "Iridium Silver",
+          "hex": "#a8abad"
+        },
+        {
+          "name": "Mountain Grey",
+          "hex": "#7a7d80"
+        }
+      ],
+      "features": [
+        {
+          "group": "Exterior",
+          "items": [
+            "45.7 cm (18-inch) 5-twin-spoke light-alloy wheels"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Anthracite Black"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Front-wheel drive",
+            "7G-DCT",
+            "All-wheel drive",
+            "8G-DCT"
+          ]
+        }
+      ],
+      "highlights": [
+        "GLA 200 petrol (front-wheel drive) and GLA 220d 4MATIC diesel (all-wheel drive)",
+        "7-speed DCT on the GLA 200; 8-speed DCT on the GLA 220d 4MATIC",
+        "GLA 220d 4MATIC also offered with AMG Line"
+      ],
+      "variants": [
+        {
+          "name": "GLA 200",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7G-DCT",
+          "price": 5180000,
+          "efficiency": null,
+          "features": [
+            "163 hp, 270 Nm",
+            "Front-wheel drive",
+            "45.7 cm (18-inch) 5-twin-spoke light-alloy wheels"
+          ]
+        },
+        {
+          "name": "GLA 220d 4MATIC",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8G-DCT",
+          "price": 5300000,
+          "efficiency": null,
+          "features": [
+            "190 hp, 400 Nm",
+            "All-wheel drive"
+          ]
+        },
+        {
+          "name": "GLA 220d 4MATIC AMG Line",
+          "fuel": "Diesel",
+          "transmission": "DCT",
+          "transmissionDetail": "8G-DCT",
+          "price": 5500000,
+          "efficiency": null,
+          "features": [
+            "190 hp, 400 Nm",
+            "All-wheel drive"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/suv/gla/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/H247",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Prices, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom). ARAI mileage not published."
+    },
+    {
+      "slug": "mercedes-glc",
+      "name": "GLC",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2023-08-09",
+      "engine": "1993 – 1999 cc",
+      "power": "145 – 190 kW (197 – 258 hp)",
+      "torque": "400 – 440 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 620,
+      "groundClearanceMm": null,
+      "fuelTankL": 62,
+      "topSpeedKmh": 240,
+      "acceleration": "0–100 km/h in 6.2–8 s",
+      "dimensions": {
+        "length": 4716,
+        "width": 1890,
+        "height": 1640,
+        "wheelbase": 2888
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Polar White",
+          "hex": "#f4f4f2"
+        },
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Graphite Grey",
+          "hex": "#4c4f52"
+        },
+        {
+          "name": "Spectral Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "High-Tech Silver",
+          "hex": "#b7b9bb"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic Sunroof",
+            "Air Purification Package",
+            "Storage Package",
+            "Interior Chrome Package"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "MBUX Navigation Premium",
+            "USB-Package",
+            "Mbconnect - Services for Navigation"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Parking Package High",
+            "Keyless-Go-Package"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "5-Double Spoke 19\" Alloy Wheel",
+            "Mirror Package",
+            "Under-Body Protection (Skid Plate)",
+            "Running Board in Aluminimum Appearance with Rubber Studs",
+            "Chrome-Package"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Leatherette - Black / Anthracite",
+            "Leatherette - Brown",
+            "Leatherette - Beige",
+            "Sport-Steering Wheel - Split Leather Smooth"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Offroad-Package",
+            "All-wheel drive",
+            "9-speed automatic (9G-TRONIC)"
+          ]
+        }
+      ],
+      "highlights": [
+        "GLC 300 4MATIC petrol and GLC 220d 4MATIC diesel versions",
+        "4MATIC all-wheel drive as standard",
+        "9-speed automatic",
+        "620-litre boot (as listed by Mercedes-Benz India)"
+      ],
+      "variants": [
+        {
+          "name": "GLC 300 4MATIC",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (9G-TRONIC)",
+          "price": 7700000,
+          "efficiency": null,
+          "features": [
+            "258 hp, 400 Nm",
+            "All-wheel drive",
+            "5-Double Spoke 19\" Alloy Wheel",
+            "Panoramic Sunroof",
+            "Parking Package High",
+            "Air Purification Package",
+            "Mirror Package",
+            "Under-Body Protection (Skid Plate)",
+            "Running Board in Aluminimum Appearance with Rubber Studs",
+            "Sport-Steering Wheel - Split Leather Smooth"
+          ]
+        },
+        {
+          "name": "GLC 220d 4MATIC",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (9G-TRONIC)",
+          "price": 7800000,
+          "efficiency": null,
+          "features": [
+            "197 hp, 440 Nm",
+            "All-wheel drive",
+            "5-Double Spoke 19\" Alloy Wheel",
+            "Offroad-Package",
+            "Panoramic Sunroof",
+            "Mirror Package",
+            "Under-Body Protection (Skid Plate)",
+            "Chrome-Package",
+            "Sport-Steering Wheel - Split Leather Smooth",
+            "Storage Package"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/suv/glc/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/X254",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Prices, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom). ARAI mileage not published."
+    },
+    {
+      "slug": "mercedes-glc-electric",
+      "name": "GLC Electric",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2026-11-04",
+      "engine": "Electric motor",
+      "power": "360 kW (489 hp)",
+      "torque": "800 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 570,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 210,
+      "acceleration": "0–100 km/h in 4.3 s",
+      "dimensions": {
+        "length": 4856,
+        "width": 1965,
+        "height": 1652,
+        "wheelbase": 2972
+      },
+      "ev": {
+        "rangeKm": 711,
+        "rangeStandard": "WLTP",
+        "batteryKwh": 94.0,
+        "dcCharge": "22 min (10–80%, up to 330 kW)",
+        "acCharge": "10.5 h",
+        "motorKw": 360
+      },
+      "colors": [
+        {
+          "name": "Obsidian Black Metallic",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Lavender Silver Metallic",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "Sheer Blue Metallic",
+          "hex": "#5a7ca6"
+        },
+        {
+          "name": "MANUFAKTUR Opalite White Bright",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "MANUFAKTUR Alpine Grey Solid",
+          "hex": "#8e9294"
+        },
+        {
+          "name": "MANUFAKTUR Patagonia Red Metallic",
+          "hex": "#7a1520"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Sky control panoramic roof"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "MBUX Hyperscreen",
+            "Transparent bonnet",
+            "Wireless charging system for mobile devices in the front, double"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Partially illuminated Mercedes star",
+            "Mercedes-Benz iconic grille with illuminated panel",
+            "Mercedes-Benz iconic grille with illuminated frame"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "ARTICO man-made leather black",
+            "ARTICO man-made leather beech brown / black",
+            "ARTICO man-made leather ivory beige / black",
+            "Illuminated pattern in the panoramic roof"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "All-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Battery-electric SUV assembled in India",
+        "Dual motors with 360 kW (489 hp) and 800 Nm, all-wheel drive",
+        "94 kWh battery with DC charging at up to 330 kW",
+        "39.1-inch MBUX Hyperscreen",
+        "128-litre front trunk in addition to the 570-litre boot"
+      ],
+      "variants": [
+        {
+          "name": "GLC 400 4MATIC electric",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 7850000,
+          "efficiency": "711 km",
+          "features": [
+            "489 hp, 800 Nm",
+            "All-wheel drive",
+            "Sky control panoramic roof",
+            "MBUX Hyperscreen",
+            "Illuminated pattern in the panoramic roof",
+            "Partially illuminated Mercedes star",
+            "Mercedes-Benz iconic grille with illuminated panel",
+            "Mercedes-Benz iconic grille with illuminated frame",
+            "Transparent bonnet",
+            "Wireless charging system for mobile devices in the front, double"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/suv/glc-electric/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/X540",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Single GLC 400 4MATIC version. Price is listed as introductory at launch. Range (711 km WLTP), Hyperscreen and frunk details from the official model page; specs from the configurator."
+    },
+    {
+      "slug": "mercedes-gle",
+      "name": "GLE",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1993 – 2999 cc",
+      "power": "198 – 270 kW (269 – 367 hp)",
+      "torque": "500 – 750 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 630,
+      "groundClearanceMm": null,
+      "fuelTankL": 85,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 5.6–6.9 s",
+      "dimensions": {
+        "length": 4924,
+        "width": 2010,
+        "height": 1797,
+        "wheelbase": 2995
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Polar White Non Metallic Paint",
+          "hex": "#f4f4f2"
+        },
+        {
+          "name": "Obsidian Black Metallic Paint",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Sodalite Blue Metallic Paint",
+          "hex": "#1f2c48"
+        },
+        {
+          "name": "High-tech Silver Metallic Paint",
+          "hex": "#b7b9bb"
+        },
+        {
+          "name": "MANUFAKTUR Alpine Grey Solid",
+          "hex": "#8e9294"
+        },
+        {
+          "name": "Polar White",
+          "hex": "#f4f4f2"
+        },
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Sodalithblue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "High-Tech Silver",
+          "hex": "#b7b9bb"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Rear Comfort Package",
+            "Memory Package",
+            "ENERGIZING Air Control",
+            "Interior Chrome Package",
+            "Dashboard and door beltlines in ARTICO man-made leather",
+            "Panoramic Sliding Sunroof",
+            "Driver's Seat, Electrically Adjustable with Memory Function",
+            "Memory Package Front",
+            "Power Front Left Seat with Memory Function",
+            "Comfort Headrest Rear",
+            "Vario Rear Seat",
+            "4-Way Lumbar Support",
+            "Electric Sunblinds in Rear Doors, Left and Right",
+            "THERMOTRONIC Automatic Climate Control",
+            "Easy-Pack Load Compartment Cover",
+            "Easy-Pack Tailgate",
+            "Ashtray Insert for Cup Holder",
+            "MBUX Interior Assistant"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Additional USB ports",
+            "Head-Up Display",
+            "Extended MBUX Functions",
+            "OLED Central Display",
+            "Mbconnect - Services for Navigation",
+            "Hard-Disc Navigation",
+            "MBUX Multimedia System",
+            "Communications Module (LTE) for the Use of Mercedes Me Connect Services",
+            "Advanced Connectivity Plus",
+            "Premium Sound System",
+            "Smartphone Integration Package",
+            "Smartphone Integration Apple Carplay",
+            "USB Package Plus",
+            "Wireless Phone Charging in Front"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Parking Package with 360-degree camera",
+            "Keyless-go Comfort Package",
+            "Blind Spot Assist",
+            "Active Brake Assist",
+            "Adaptive Highbeam Assist Plus",
+            "Parking Package with Reversing Camera",
+            "Active Parking Assist with Parktronic",
+            "360° Camera",
+            "Sidebags in Rear",
+            "Mercedes-Benz Emergency Call System"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "AMG Line exterior",
+            "Night package",
+            "Advanced Plus Package",
+            "AMG 20\" Black alloys",
+            "Mirror Package",
+            "Aluminium-look, illuminated running boards with rubber studs",
+            "Night Edition package",
+            "AMG Line Interieur",
+            "LED-Intelligent Light System",
+            "Automatically Dimming Interior and Exterior Mirror",
+            "Electrically Folding Exterior Mirrors",
+            "Under-Body Protection (Skid Plate)",
+            "AMG Body Styling",
+            "Wheel Arch Cladding Size S",
+            "Running Board in Aluminimum Appearance with Rubber Studs"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "ARTICO man-made leather - Black",
+            "ARTICO man-made leather - Bahia brown / black",
+            "ARTICO man-made leather - Macchiato beige / Black",
+            "High-gloss brown linestructure lime wood trim",
+            "Leather black",
+            "Black popular trimpart",
+            "Leatherette - Black / Anthracite",
+            "Leatherette ARTICO saddle brown/black",
+            "Leatherette - Beige",
+            "Trim Element - Wood Socket Wrench Bit Tree",
+            "Anthracite Open-Pore Oak Wood Trim Elements",
+            "Multifunctional steering wheel in leather nappa",
+            "Ambient Lighting with Projection of Brand Logo",
+            "Interior Light Package",
+            "Black Nappa Leather"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "AIRMATIC Package",
+            "Adaptive Damping System Plus (Ads +)",
+            "48V Technology",
+            "All-wheel drive",
+            "9G-Tronic",
+            "9-speed automatic (9G-TRONIC)"
+          ]
+        }
+      ],
+      "highlights": [
+        "GLE 300d and GLE 450d diesel and GLE 450 petrol versions",
+        "4MATIC all-wheel drive as standard",
+        "Night Edition versions of the GLE 300d and GLE 450"
+      ],
+      "variants": [
+        {
+          "name": "GLE 300d 4MATIC AMG Line",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 10000000,
+          "efficiency": null,
+          "features": [
+            "269 hp, 550 Nm",
+            "All-wheel drive",
+            "48 V mild-hybrid system",
+            "AMG Line exterior",
+            "Night package",
+            "Advanced Plus Package",
+            "AMG 20\" Black alloys",
+            "Rear Comfort Package",
+            "Memory Package",
+            "Parking Package with 360-degree camera"
+          ]
+        },
+        {
+          "name": "GLE 300d 4MATIC Night Edition",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 10500000,
+          "efficiency": null,
+          "features": [
+            "269 hp, 550 Nm",
+            "All-wheel drive",
+            "48 V mild-hybrid system",
+            "Night Edition package",
+            "AMG Line exterior",
+            "Night package",
+            "AMG Line Interieur",
+            "Advanced Plus Package",
+            "AMG 20\" Black alloys",
+            "Head-Up Display"
+          ]
+        },
+        {
+          "name": "GLE 450 4MATIC",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (9G-TRONIC)",
+          "price": 11150000,
+          "efficiency": null,
+          "features": [
+            "367 hp, 500 Nm",
+            "All-wheel drive",
+            "48 V mild-hybrid system",
+            "Night package",
+            "AMG 20\" Black alloys",
+            "Premium Sound System",
+            "Head up display",
+            "Driver's Seat, Electrically Adjustable with Memory Function",
+            "Rear Comfort Package",
+            "Memory Package Front"
+          ]
+        },
+        {
+          "name": "GLE 450 4MATIC Night Edition",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (9G-TRONIC)",
+          "price": 11400000,
+          "efficiency": null,
+          "features": [
+            "367 hp, 500 Nm",
+            "All-wheel drive",
+            "48 V mild-hybrid system",
+            "Night Edition package",
+            "Night package",
+            "AMG Line Interieur",
+            "AMG 20\" Black alloys",
+            "Premium Sound System",
+            "Head up display",
+            "Driver's Seat, Electrically Adjustable with Memory Function"
+          ]
+        },
+        {
+          "name": "GLE 450d 4MATIC",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 11650000,
+          "efficiency": null,
+          "features": [
+            "367 hp, 750 Nm",
+            "All-wheel drive",
+            "48 V mild-hybrid system",
+            "Night package",
+            "AMG 20\" Black alloys"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/suv/gle/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/V167",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Prices, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom). ARAI mileage not published."
+    },
+    {
+      "slug": "mercedes-gls",
+      "name": "GLS",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2024-01-08",
+      "engine": "2989 – 2999 cc",
+      "power": "270 – 280 kW (367 – 381 hp)",
+      "torque": "500 – 750 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 355,
+      "groundClearanceMm": null,
+      "fuelTankL": 90,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 6.1 s",
+      "dimensions": {
+        "length": 5209,
+        "width": 1956,
+        "height": 1823,
+        "wheelbase": 3135
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Polar White",
+          "hex": "#f4f4f2"
+        },
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Sodalith Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Selenite Grey",
+          "hex": "#6b6e70"
+        },
+        {
+          "name": "High-Tech-Silver",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "MANUFAKTUR Alpine Grey Solid",
+          "hex": "#8e9294"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sliding sunroof",
+            "Rear Seat Comfort Package Plus"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Night Package",
+            "Acoustic Comfort Package",
+            "Running Board in Alu-Appearance with Rubber Studs"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "ARTICO man-made leather black",
+            "ARTICO man-made leather Bahia brown / black",
+            "Macchiato beige / black",
+            "MANUFAKTUR high-gloss black flowing lines piano lacquer",
+            "MANUFAKTUR - Nappa leather black"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "All-wheel drive",
+            "9-speed automatic (9G-TRONIC)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Seven-seat luxury SUV",
+        "GLS 450d diesel and GLS 450 petrol versions",
+        "4MATIC all-wheel drive as standard",
+        "Night Edition versions alongside AMG Line"
+      ],
+      "variants": [
+        {
+          "name": "GLS 450 4MATIC AMG Line",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (9G-TRONIC)",
+          "price": 13750000,
+          "efficiency": null,
+          "features": [
+            "381 hp, 500 Nm",
+            "All-wheel drive",
+            "48 V mild-hybrid system",
+            "Night Package",
+            "Rear Seat Comfort Package Plus",
+            "Panoramic sliding sunroof",
+            "Acoustic Comfort Package",
+            "Running Board in Alu-Appearance with Rubber Studs"
+          ]
+        },
+        {
+          "name": "GLS 450d 4MATIC AMG Line",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (9G-TRONIC)",
+          "price": 13970000,
+          "efficiency": null,
+          "features": [
+            "367 hp, 750 Nm",
+            "All-wheel drive",
+            "Night Package",
+            "Rear Seat Comfort Package Plus",
+            "Panoramic sliding sunroof",
+            "Acoustic Comfort Package",
+            "Running Board in Alu-Appearance with Rubber Studs"
+          ]
+        },
+        {
+          "name": "GLS 450 4MATIC Night Edition",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (9G-TRONIC)",
+          "price": 14050000,
+          "efficiency": null,
+          "features": [
+            "All-wheel drive",
+            "Night Package",
+            "Rear Seat Comfort Package Plus",
+            "Panoramic sliding sunroof",
+            "Acoustic Comfort Package",
+            "Running Board in Alu-Appearance with Rubber Studs"
+          ]
+        },
+        {
+          "name": "GLS 450d 4MATIC Night Edition",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (9G-TRONIC)",
+          "price": 14270000,
+          "efficiency": null,
+          "features": [
+            "367 hp, 750 Nm",
+            "All-wheel drive",
+            "Night Package",
+            "Rear Seat Comfort Package Plus",
+            "Panoramic sliding sunroof",
+            "Acoustic Comfort Package",
+            "Running Board in Alu-Appearance with Rubber Studs"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/suv/gls/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/X167",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Prices, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom). The configurator's technical data for the 'GLS 450 4MATIC Night Edition' shows the 2,989 cc diesel engine of the GLS 450d; it is listed here as petrol per its GLS 450 name — check. ARAI mileage not published."
+    },
+    {
+      "slug": "mercedes-maybach-gls",
+      "name": "Mercedes-Maybach GLS",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "3982 cc",
+      "power": "410 kW (557 hp)",
+      "torque": "770 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 520,
+      "groundClearanceMm": null,
+      "fuelTankL": 90,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 4.9 s",
+      "dimensions": {
+        "length": 5208,
+        "width": 2030,
+        "height": 1838,
+        "wheelbase": 3135
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Polar White",
+          "hex": "#f4f4f2"
+        },
+        {
+          "name": "Obsidian Black Metallic",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Sodalite Blue",
+          "hex": "#1f2c48"
+        },
+        {
+          "name": "Selenite Grey Metallic",
+          "hex": "#6b6e70"
+        },
+        {
+          "name": "MANUFAKTUR Opalite White Bright",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "High-tech Silver Metallic",
+          "hex": "#b7b9bb"
+        },
+        {
+          "name": "MANUFAKTUR Alpine Grey Solid",
+          "hex": "#8e9294"
+        },
+        {
+          "name": "Maybach Two-tone Paint High-tech Silver / Nautic Blue",
+          "hex": "#b7b9bb"
+        },
+        {
+          "name": "Maybach Two-tone Paint Obsidian Black / Rubellite Red",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Maybach Two-tone Paint Obsidian Black / MANUFAKTUR Kalahari ",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Maybach Two-tone Paint High-tech Silver / Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Maybach Two-tone Paint Obsidian Black / Mojave Silver",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "High-tech Silver",
+          "hex": "#b7b9bb"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sliding sunroof",
+            "MANUFAKTUR door sill panels with “Maybach” lettering, illuminated",
+            "First class compartment",
+            "Folding table in rear"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Magic Vision Control",
+            "Acoustic Comfort package",
+            "Night Series Package",
+            "MANUFAKTUR Exclusive Leather package",
+            "23-inch Maybach Night Series 7-spoke light-alloy wheels",
+            "MANUFAKTUR Exclusive Leather",
+            "MANUFAKTUR Leather package",
+            "58.4 cm (23-inch) Maybach 5-hole forged wheels"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Maybach Exclusive nappa leather black",
+            "Maybach Exclusive nappa leather MANUFAKTUR crystal white / silver grey pearl",
+            "MANUFAKTUR high-gloss black flowing lines piano lacquer",
+            "Anthracite open-pore oak wood trim elements",
+            "Wood/leather multifunction steering wheel",
+            "ENERGIZING package Plus",
+            "Exclusive leather black",
+            "Exclusive leather java",
+            "MANUFAKTUR crystal white / silver grey pearl",
+            "MANUFAKTUR Exclusive Maybach nappa leather crystal white / black pearl"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "E-Active body control",
+            "All-wheel drive",
+            "9G-Tronic"
+          ]
+        }
+      ],
+      "highlights": [
+        "Mercedes-Maybach GLS 600 with a 4.0-litre V8 petrol engine",
+        "4MATIC all-wheel drive",
+        "Night Series and Celebration Edition versions"
+      ],
+      "variants": [
+        {
+          "name": "Mercedes-Maybach GLS 600",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 27500000,
+          "efficiency": null,
+          "features": [
+            "557 hp, 770 Nm",
+            "All-wheel drive",
+            "48 V mild-hybrid system",
+            "Panoramic sliding sunroof",
+            "Magic Vision Control",
+            "Acoustic Comfort package",
+            "MANUFAKTUR door sill panels with “Maybach” lettering, illuminated"
+          ]
+        },
+        {
+          "name": "Mercedes-Maybach GLS 600 Night Series",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 30700000,
+          "efficiency": null,
+          "features": [
+            "557 hp, 770 Nm",
+            "All-wheel drive",
+            "48 V mild-hybrid system",
+            "Night Series Package",
+            "MANUFAKTUR Exclusive Leather package",
+            "23-inch Maybach Night Series 7-spoke light-alloy wheels",
+            "Panoramic sliding sunroof",
+            "Magic Vision Control",
+            "Acoustic Comfort package",
+            "Wood/leather multifunction steering wheel"
+          ]
+        },
+        {
+          "name": "Mercedes-Maybach GLS 600 Celebration Edition",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 41000000,
+          "efficiency": null,
+          "features": [
+            "557 hp, 770 Nm",
+            "All-wheel drive",
+            "48 V mild-hybrid system",
+            "MANUFAKTUR Exclusive Leather",
+            "MANUFAKTUR Leather package",
+            "58.4 cm (23-inch) Maybach 5-hole forged wheels",
+            "First class compartment",
+            "E-Active body control",
+            "Panoramic sliding sunroof",
+            "Magic Vision Control"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/suv/mercedes-maybach-gls/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/X167?subBrand=Mercedes-Maybach",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Prices, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom)."
+    },
+    {
+      "slug": "mercedes-g-class",
+      "name": "G-Class",
+      "bodyType": "SUV",
+      "bodyStyle": "Off-roader",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2989 – 3982 cc",
+      "power": "270 – 430 kW (367 – 585 hp)",
+      "torque": "750 – 850 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 640,
+      "groundClearanceMm": null,
+      "fuelTankL": 100,
+      "topSpeedKmh": 220,
+      "acceleration": "0–100 km/h in 4.4–5.8 s",
+      "dimensions": null,
+      "ev": null,
+      "colors": [
+        {
+          "name": "Obsidian Black Metallic",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "MANUFAKTUR Opalite White Bright",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "MANUFAKTUR Classic Grey Non",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "MANUFAKTUR Rubellite Red Metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "MANUFAKTUR Dark Blue Non",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Aqua Mint Solid",
+          "hex": "#8fc7bb"
+        },
+        {
+          "name": "Iridium Silver Metallic",
+          "hex": "#a8abad"
+        },
+        {
+          "name": "Sodalite Blue Metallic",
+          "hex": "#1f2c48"
+        },
+        {
+          "name": "Mojave Silver Metallic",
+          "hex": "#a39c90"
+        },
+        {
+          "name": "Emerald Green Metallic",
+          "hex": "#1e4a3a"
+        },
+        {
+          "name": "Selenite Grey Metallic",
+          "hex": "#6b6e70"
+        },
+        {
+          "name": "MANUFAKTUR Ocean Blue Metallic",
+          "hex": "#24427a"
+        },
+        {
+          "name": "MANUFAKTUR Graphite Metallic",
+          "hex": "#808080"
+        },
+        {
+          "name": "MANUFAKTUR South Seas Blue Metallic",
+          "hex": "#24427a"
+        },
+        {
+          "name": "MANUFAKTUR Olive Metallic",
+          "hex": "#5a5b3e"
+        },
+        {
+          "name": "MANUFAKTUR Travertine Beige Metallic",
+          "hex": "#cbb894"
+        },
+        {
+          "name": "MANUFAKTUR Indium Grey Metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "MANUFAKTUR Hyacinth Red Metallic",
+          "hex": "#6e1a28"
+        },
+        {
+          "name": "MANUFAKTUR Platinum Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Monza Grey Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Night Black Magno",
+          "hex": "#0d0d0d"
+        },
+        {
+          "name": "MANUFAKTUR Dark Olive Green Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Citrine Brown Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Green Hell Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Copper Orange Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Opalite White Magno",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "MANUFAKTUR Kalahari Gold Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Manganite Grey Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Hyacinth Red Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Desert Sand Non",
+          "hex": "#c8b593"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Sliding sunroof",
+            "I-Size child seat anchor",
+            "Temperature-controlled cup holder",
+            "Set of four illuminated stainless steel door sill panels",
+            "Partition net",
+            "Upper part of dashboard in leather",
+            "Rear belt status indication in the instrument display",
+            "Rear loading sill protection in stainless steel"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Digital Extra: Offroad Track",
+            "Extended MBUX functions",
+            "Hard-disc navigation",
+            "MBUX Navigation Premium",
+            "MBUX Augmented Reality Navigation",
+            "Transparent bonnet",
+            "Offroad Track",
+            "AMG Track Pace",
+            "Communications module (LTE) for the use of Mercedes me connect services",
+            "Remote Services Advanced",
+            "MBUX multimedia system",
+            "Map updates free of charge for 6 years",
+            "Burmester 3D surround sound system",
+            "Smartphone integration",
+            "Apple CarPlay",
+            "Android Auto",
+            "Wireless charging system for mobile devices in the front",
+            "2 USB ports in the rear"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Assistance package",
+            "Technology Package",
+            "Blind Spot Assist",
+            "Active Distance Assist DISTRONIC",
+            "Active Lane Keeping Assist",
+            "Active Steering Assist",
+            "Active Speed Limit Assist",
+            "Adaptive Highbeam Assist Plus",
+            "Extended restart",
+            "Route-based speed adaptation",
+            "Parking Package with 360° camera",
+            "Parktronic Parking Assist",
+            "Active Parking Assist with parktronic",
+            "360° camera",
+            "Keyless-Go",
+            "Exit warning function",
+            "Sidebags in rear",
+            "Pre-safe system",
+            "Mercedes-Benz emergency call system",
+            "Passive person presence reminder",
+            "Interior monitoring system",
+            "Guard 360° Vehicle protection Plus"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "AMG Offroad Package pro",
+            "Comfort Package",
+            "Low Range",
+            "Professional roof luggage rack",
+            "Spare wheel on rear-end door",
+            "Spare wheel cover with stainless-steel ring",
+            "AMG Performance Package",
+            "AMG Driver's package",
+            "55.9 cm (22-inch) AMG cross-spoke forged wheels",
+            "MULTIBEAM LED \"Left-side traffic\"",
+            "Omission of heat-insulating dark-tinted glass",
+            "Full transport packaging",
+            "AMG fuel filler cap",
+            "AMG front and rear brake callipers painted in red",
+            "Exterior protective strips with trim inserts in black",
+            "Bumper insert in stainless steel",
+            "Exterior mirror housings in vehicle colour",
+            "Side running boards"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "MANUFAKTUR two-tone nappa upholstery platinum white / black",
+            "MANUFAKTUR two-tone nappa upholstery bengal red / black",
+            "MANUFAKTUR platinum white / black",
+            "MANUFAKTUR espresso brown / black",
+            "MANUFAKTUR catalana beige / black",
+            "MANUFAKTUR Bengal red / black",
+            "MANUFAKTUR titanium grey pearl / black",
+            "MANUFAKTUR saddle brown / black",
+            "MANUFAKTUR red pepper / black",
+            "MANUFAKTUR sage grey / black",
+            "MANUFAKTUR black with accent band in espresso brown",
+            "MANUFAKTUR black with accent band in Red Pepper",
+            "MANUFAKTUR black with accent band in titanium grey",
+            "Nappa leather truffle brown/black",
+            "Nappa leather macchiato beige/black",
+            "MANUFAKTUR black with accent band in platinum white",
+            "MANUFAKTUR black with accent band in saddle brown",
+            "MANUFAKTUR black with accent band in catalana beige",
+            "MANUFAKTUR black with accent band in lime green",
+            "MANUFAKTUR black with accent band in Bengal red",
+            "MANUFAKTUR black with accent band in sage grey",
+            "MANUFAKTUR black with contrasting topstitching in blue",
+            "MANUFAKTUR black with contrasting topstitching in white",
+            "MANUFAKTUR black with contrasting topstitching in bronze",
+            "MANUFAKTUR black with contrasting topstitching in lime green",
+            "MANUFAKTUR black with contrasting topstitching in red",
+            "MANUFAKTUR black with contrasting topstitching in gold",
+            "Black piano lacquer trim elements",
+            "Exclusive Line Interior",
+            "Superior Line Interior"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "AMG Active Ride Control",
+            "AMG SPEEDSHIFT TCT 9G",
+            "100% differential locks",
+            "AMG Dynamic Select",
+            "All-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "G 450d diesel and Mercedes-AMG G 63 petrol versions",
+        "Mercedes-AMG G 63: 4.0-litre V8 petrol engine",
+        "G 450d: 3.0-litre six-cylinder diesel engine",
+        "All-wheel drive; Mercedes-AMG G 63 also offered with the Offroad Pro package"
+      ],
+      "variants": [
+        {
+          "name": "G450d AMG Line",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 29000000,
+          "efficiency": null,
+          "features": [
+            "367 hp, 750 Nm",
+            "All-wheel drive"
+          ]
+        },
+        {
+          "name": "Mercedes-AMG G 63 Offroad Pro",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 38000000,
+          "efficiency": null,
+          "features": [
+            "585 hp, 850 Nm",
+            "All-wheel drive",
+            "AMG Offroad Package pro",
+            "Comfort Package",
+            "AMG Active Ride Control",
+            "AMG SPEEDSHIFT TCT 9G",
+            "100% differential locks",
+            "Low Range",
+            "Professional roof luggage rack",
+            "Spare wheel on rear-end door"
+          ]
+        },
+        {
+          "name": "Mercedes-AMG G 63",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 38000000,
+          "efficiency": null,
+          "features": [
+            "585 hp, 850 Nm",
+            "All-wheel drive",
+            "AMG Performance Package",
+            "Exclusive Line Interior",
+            "AMG Driver's package",
+            "Comfort package",
+            "55.9 cm (22-inch) AMG cross-spoke forged wheels",
+            "Burmester 3D surround sound system",
+            "I-Size child seat anchor",
+            "Assistance package"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/suv/g-class/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/models/suv/g-class/amg.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/W465",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Prices, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom). The electric G 580 is listed separately (mercedes-g-class-electric). ARAI mileage not published."
+    },
+    {
+      "slug": "mercedes-g-class-electric",
+      "name": "G 580 with EQ Technology",
+      "bodyType": "SUV",
+      "bodyStyle": "Off-roader",
+      "isLuxury": true,
+      "launchedOn": "2025-01-09",
+      "engine": "Electric motor",
+      "power": "432 kW (587 hp)",
+      "torque": null,
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 620,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 180,
+      "acceleration": "0–100 km/h in 4.7 s",
+      "dimensions": null,
+      "ev": {
+        "rangeKm": 473,
+        "rangeStandard": "WLTP",
+        "batteryKwh": 116,
+        "dcCharge": null,
+        "acCharge": null,
+        "motorKw": 432
+      },
+      "colors": [
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Iridium Silver",
+          "hex": "#a8abad"
+        },
+        {
+          "name": "Sodalite Blue",
+          "hex": "#1f2c48"
+        },
+        {
+          "name": "Mojave Silver",
+          "hex": "#a39c90"
+        },
+        {
+          "name": "Brilliant Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Emerald Green",
+          "hex": "#1e4a3a"
+        },
+        {
+          "name": "Selenite Grey",
+          "hex": "#6b6e70"
+        },
+        {
+          "name": "MANUFAKTUR Ocean Blue Metallic",
+          "hex": "#24427a"
+        },
+        {
+          "name": "MANUFAKTUR Graphite Metallic",
+          "hex": "#808080"
+        },
+        {
+          "name": "MANUFAKTUR South Sea Blue Metallic",
+          "hex": "#24427a"
+        },
+        {
+          "name": "MANUFAKTUR Travertine Beige Metallic",
+          "hex": "#cbb894"
+        },
+        {
+          "name": "MANUFAKTUR Indium Grey Metallic",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "MANUFAKTUR Hyacinth Red Metallic",
+          "hex": "#6e1a28"
+        },
+        {
+          "name": "MANUFAKTUR Opalite White Bright",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "MANUFAKTUR Platinum Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Monza Grey Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Night Black Magno",
+          "hex": "#0d0d0d"
+        },
+        {
+          "name": "MANUFAKTUR Citrine Brown Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Copper Orange Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Opalite White Magno",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "MANUFAKTUR Kalahari Gold Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Manganite Grey Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Hyacinth Red Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Classic Grey Non",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "MANUFAKTUR Desert Sand Non",
+          "hex": "#c8b593"
+        },
+        {
+          "name": "MANUFAKTUR Southsea Blue Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Brilliant Blue Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Rubellite Red Metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "MANUFAKTUR Deep Green Non",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "MANUFAKTUR Dark Blue Non",
+          "hex": "#24427a"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Sliding sunroof",
+            "Active Multicontour Seat Package Plus",
+            "G-Roar",
+            "Dashboard in nappa leather"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Offroad Track",
+            "Burmester 3D surround sound system"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Technology Package"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "AMG Line Exterior",
+            "Night Package",
+            "Night Package II",
+            "Comfort package",
+            "MANUFAKTUR Logo Package in black",
+            "MANUFAKTUR Schöckl Design package",
+            "(20\") AMG Black 10-spoke light-alloy wheels",
+            "Low range",
+            "Exterior mirror housings in night black magno",
+            "Darkened lamp units",
+            "Radiator grille in obsidian black",
+            "Exterior mirror housings in obsidian black"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Superior Line Interior",
+            "MANUFAKTUR Full leather package",
+            "MANUFAKTUR instrument panel in two-tone nappa leather",
+            "Trim element in the grab handle with \"MANUFAKTUR\" lettering",
+            "Nappa leather black",
+            "MANUFAKTUR platinum white / black",
+            "MANUFAKTUR espresso brown / black",
+            "MANUFAKTUR catalana beige / black",
+            "MANUFAKTUR Bengal red / black",
+            "MANUFAKTUR titanium grey pearl / black",
+            "MANUFAKTUR saddle brown / black",
+            "MANUFAKTUR red pepper / black",
+            "MANUFAKTUR sage grey / black",
+            "MANUFAKTUR black with accent band in espresso brown",
+            "MANUFAKTUR black with accent band in Red Pepper",
+            "MANUFAKTUR black with accent band in titanium grey",
+            "Silver pearl / black",
+            "Nappa Leather truffle brown/blac",
+            "MANUFAKTUR black with accent band in platinum white",
+            "MANUFAKTUR black with accent band in saddle brown",
+            "MANUFAKTUR black with accent band in catalana beige",
+            "MANUFAKTUR black with accent band in lime green",
+            "MANUFAKTUR black with accent band in Bengal red",
+            "MANUFAKTUR black with accent band in sage grey",
+            "MANUFAKTUR black with contrasting topstitching in blue",
+            "MANUFAKTUR black with contrasting topstitching in white",
+            "MANUFAKTUR black with contrasting topstitching in bronze",
+            "MANUFAKTUR black with contrasting topstitching in lime green",
+            "MANUFAKTUR black with contrasting topstitching in red",
+            "MANUFAKTUR black with contrasting topstitching in gold"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "G-Turn",
+            "G-Steering",
+            "Offroad crawling",
+            "Torque vectoring",
+            "All-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Battery-electric G-Class",
+        "432 kW (587 hp), all-wheel drive",
+        "0–100 km/h in 4.7 s; top speed 180 km/h",
+        "G-STEERING off-road function reduces the turning circle at up to 25 km/h"
+      ],
+      "variants": [
+        {
+          "name": "G 580 with EQ Technology",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 31500000,
+          "efficiency": "473 km",
+          "features": [
+            "587 hp",
+            "All-wheel drive",
+            "AMG Line Exterior",
+            "Night Package",
+            "Night Package II",
+            "Superior Line Interior",
+            "Comfort package",
+            "(20\") AMG Black 10-spoke light-alloy wheels",
+            "Burmester 3D surround sound system",
+            "Active Multicontour Seat Package Plus"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/suv/g-class-electric/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/N465",
+        "https://www.mercedes-benz.co.in/passengercars/models.html",
+        "https://www.autocarindia.com/car-news/mercedes-g-580-launched-in-india-at-rs-3-crore-434087"
+      ],
+      "notes": "Price, power, acceleration and top speed from the Mercedes-Benz India configurator and model page. Battery (116 kWh) and WLTP range (473 km) from launch coverage (Autocar India). Width not listed in the configurator, so dimensions are left empty."
+    },
+    {
+      "slug": "mercedes-amg-gle-53-coupe",
+      "name": "Mercedes-AMG GLE 53 Coupé",
+      "bodyType": "SUV",
+      "bodyStyle": "Coupé SUV",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2999 cc",
+      "power": "320 kW (435 hp)",
+      "torque": "560 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 655,
+      "groundClearanceMm": null,
+      "fuelTankL": 85,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 5 s",
+      "dimensions": {
+        "length": 4944,
+        "width": 2018,
+        "height": 1720,
+        "wheelbase": 2935
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Polar White",
+          "hex": "#f4f4f2"
+        },
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Sodalite Blue",
+          "hex": "#1f2c48"
+        },
+        {
+          "name": "Selenite Grey",
+          "hex": "#6b6e70"
+        },
+        {
+          "name": "MANUFAKTUR Opalite White Bright",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "Hightech Silver",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "MANUFAKTUR Alpine Grey Solid",
+          "hex": "#8e9294"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Dashboard and door beltlines in ARTICO man-made leather"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "AMG Track Pace",
+            "Sound personalisation"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Active Lane keep assist"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "55.9 cm (22-inch) AMG cross-spoke forged wheels"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Exclusive nappa AMG leather, two-tone macchiato beige / black",
+            "Exclusive nappa AMG leather, two-tone red pepper / black",
+            "Exclusive nappa AMG leather, two-tone bahia brown / black",
+            "AMG nappa leather black",
+            "AMG nappa leather, two-tone macchiato beige / black",
+            "Two-tone AMG nappa leather red pepper / black",
+            "AMG Exclusive nappa leather black",
+            "AMG Exclusive style nappa leather black",
+            "High-gloss brown linestructure lime wood trim",
+            "MANUFAKTUR high-gloss black flowing lines piano lacquer",
+            "Brown open-pore walnut wood trim",
+            "Anthracite open-pore oak wood trim elements",
+            "Brushed aluminium trim with light longitudinal grain",
+            "AMG carbon-fibre trim",
+            "AMG Performance steering wheel in nappa leather",
+            "AMG Performance steering wheel in nappa leather / MICROCUT microfibre"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "All-wheel drive",
+            "9G-Tronic"
+          ]
+        }
+      ],
+      "highlights": [
+        "Coupé-style SUV with a 3.0-litre six-cylinder petrol engine",
+        "4MATIC+ all-wheel drive",
+        "Sold as the Performance Edition"
+      ],
+      "variants": [
+        {
+          "name": "Mercedes-AMG GLE 53 Coupé Performance Edition",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 15200000,
+          "efficiency": null,
+          "features": [
+            "435 hp, 560 Nm",
+            "All-wheel drive",
+            "55.9 cm (22-inch) AMG cross-spoke forged wheels",
+            "Sound personalisation",
+            "Active Lane keep assist",
+            "AMG Performance steering wheel in nappa leather / MICROCUT microfibre",
+            "Dashboard and door beltlines in ARTICO man-made leather",
+            "AMG Track Pace"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/suv/gle-coupe/amg.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/C167?subBrand=Mercedes-AMG",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Prices, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom)."
+    },
+    {
+      "slug": "mercedes-amg-glc-43-coupe",
+      "name": "Mercedes-AMG GLC 43 Coupé",
+      "bodyType": "SUV",
+      "bodyStyle": "Coupé SUV",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1991 cc",
+      "power": "310 kW (421 hp)",
+      "torque": "500 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 545,
+      "groundClearanceMm": null,
+      "fuelTankL": 62,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 4.8 s",
+      "dimensions": {
+        "length": 4792,
+        "width": 1920,
+        "height": 1603,
+        "wheelbase": 2888
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Polar White",
+          "hex": "#f4f4f2"
+        },
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Graphite Grey",
+          "hex": "#4c4f52"
+        },
+        {
+          "name": "Spectral Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "MANUFAKTUR High-Tech Silver Magno",
+          "hex": "#b7b9bb"
+        },
+        {
+          "name": "MANUFAKTUR Graphite Grey Magno",
+          "hex": "#4c4f52"
+        },
+        {
+          "name": "MANUFAKTUR Opalite White Bright",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "High-Tech Silver",
+          "hex": "#b7b9bb"
+        },
+        {
+          "name": "MANUFAKTUR Patagonia Red Bright",
+          "hex": "#7a1520"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sliding sunroof",
+            "Power front left seat with memory function",
+            "Power front right seat with memory function",
+            "Memory Package",
+            "Through-loading feature",
+            "Sports seats",
+            "Heated front seats",
+            "4-way lumbar support",
+            "Roller sunblinds in left and right rear doors",
+            "ENERGIZING Air Control",
+            "THERMATIC automatic climate control",
+            "Stowage Space Package",
+            "Double cup holder",
+            "Easy-pack load compartment cover",
+            "Easy-pack tailgate",
+            "Boot Comfort Package",
+            "Interior Light Package",
+            "Chrome-package Interior",
+            "Rear belt status indication in the instrument display",
+            "Instrument panel and beltlines in ARTICO man-made leather in nappa look",
+            "12 V socket in load area",
+            "AMG illuminated door sills with \"AMG\" lettering and with exchangeable cover"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Fingerprint scanner",
+            "Extended MBUX functions",
+            "Central display",
+            "Driver display",
+            "Head-up display",
+            "Hard-disc navigation",
+            "MBUX Navigation Premium",
+            "MBUX augmented reality for navigation",
+            "Transparent bonnet",
+            "AMG Track Pace",
+            "Remote Services Advanced",
+            "MBUX Multimediasystem Premium (gen 20X)",
+            "Sound personalisation",
+            "AMG Real Performance Sound",
+            "Burmester 3D surround sound system",
+            "Apple CarPlay",
+            "Android Auto",
+            "USB Package Plus",
+            "Wireless charging system for mobile devices in the front"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Blind Spot Assist",
+            "Active Lane Keeping Assist",
+            "Active Brake Assist",
+            "Adaptive Highbeam Assist Plus",
+            "Parking Package with 360° camera",
+            "Active Parking Assist with parktronic",
+            "360° camera",
+            "Hands-Free Access",
+            "Keyless-Go",
+            "Keyless go starting function",
+            "Keyless-go Comfort Package",
+            "Sidebags in rear",
+            "Centre airbag",
+            "Mercedes-Benz emergency call system",
+            "Automatic front passenger airbag deactivation"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Mercedes-AMG exterior",
+            "AMG Styling Package",
+            "AMG Exterior Night Package",
+            "Premium Package",
+            "Digital Light",
+            "Heat and noise-insulating acoustic glass",
+            "Automatically dimming rear-view mirror",
+            "Electrically folding exterior mirrors",
+            "Mirror Package",
+            "Wheel arch liners in the vehicle colour",
+            "AMG bodystyling",
+            "Wider wheel arch for AMG wheels",
+            "Aluminium-look running boards with rubber studs",
+            "Chrome package",
+            "AMG spoiler lip"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Mercedes-AMG interior",
+            "ARTICO / Microfibre MICROCUT black with red contrasting topstitching",
+            "Metal structure trim element",
+            "Centre console in metal-structure finish",
+            "AMG Performance steering wheel in nappa leather / dinamica microfibre",
+            "Ambient lighting with projection of brand logo",
+            "Ambient lighting",
+            "Ambient lighting Plus"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "AMG SPEEDSHIFT MCT 9G",
+            "AMG ride control suspension",
+            "Red-painted brake callipers",
+            "Rear-axle steering",
+            "Mild Hybrid",
+            "Dynamic Select",
+            "AMG dynamic plus Package",
+            "All-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Coupé-style SUV with a 2.0-litre four-cylinder petrol engine",
+        "4MATIC all-wheel drive",
+        "AMG SPEEDSHIFT MCT 9G transmission"
+      ],
+      "variants": [
+        {
+          "name": "Mercedes-AMG GLC 43 4MATIC Coupé",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "AMG SPEEDSHIFT MCT 9G",
+          "price": 9935000,
+          "efficiency": null,
+          "features": [
+            "421 hp, 500 Nm",
+            "All-wheel drive",
+            "Mercedes-AMG exterior",
+            "AMG Styling Package",
+            "AMG Exterior Night Package",
+            "Mercedes-AMG interior",
+            "Premium Package",
+            "Sound personalisation",
+            "AMG Real Performance Sound",
+            "Burmester 3D surround sound system"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/suv/glc-coupe/amg.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/C254?subBrand=Mercedes-AMG",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Price is the configurator base price (Rs 99.35 lakh); the all-models page shows 'starting from Rs 99,85,000', so check which is current. Specs and equipment from the Mercedes-Benz India configurator."
+    },
+    {
+      "slug": "mercedes-amg-a-45-s",
+      "name": "Mercedes-AMG A 45 S",
+      "bodyType": "Hatchback",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1991 cc",
+      "power": "310 kW (421 hp)",
+      "torque": "500 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 370,
+      "groundClearanceMm": null,
+      "fuelTankL": 51,
+      "topSpeedKmh": 270,
+      "acceleration": "0–100 km/h in 3.9 s",
+      "dimensions": {
+        "length": 4453,
+        "width": 1850,
+        "height": 1414,
+        "wheelbase": 2729
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Cosmos Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "Mountain Grey",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "MANUFAKTUR Mountain Grey Magno",
+          "hex": "#5d6064"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic sliding sunroof",
+            "Driver's seat, electrically adjustable with memory function",
+            "AMG Performance seats"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Burmester surround sound system"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Parking Package with 360° camera"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "AMG Aerodynamics Package",
+            "AMG Night Package",
+            "48.3 cm (19-inch) AMG cross-spoke forged wheels"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Aluminium AMG Design trim elements in black/silver",
+            "Ambient lighting"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Red-painted brake callipers",
+            "All-wheel drive",
+            "AMG SPEEDSHIFT DCT 8G"
+          ]
+        }
+      ],
+      "highlights": [
+        "Hot hatchback with a 2.0-litre four-cylinder petrol engine",
+        "4MATIC+ all-wheel drive",
+        "AMG SPEEDSHIFT DCT 8G transmission",
+        "Sold as the Aero Track Edition"
+      ],
+      "variants": [
+        {
+          "name": "Mercedes-AMG A45s Aero Track Edition",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "AMG SPEEDSHIFT DCT 8G",
+          "price": 8700000,
+          "efficiency": null,
+          "features": [
+            "421 hp, 500 Nm",
+            "All-wheel drive",
+            "AMG Aerodynamics Package",
+            "AMG Night Package",
+            "48.3 cm (19-inch) AMG cross-spoke forged wheels",
+            "Burmester surround sound system",
+            "Driver's seat, electrically adjustable with memory function",
+            "AMG Performance seats",
+            "Red-painted brake callipers",
+            "Panoramic sliding sunroof"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/hatchback/a-class/amg.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/W177?subBrand=Mercedes-AMG",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Listed on the Indian site as 'A-Class Hatchback'. Price, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom)."
+    },
+    {
+      "slug": "mercedes-amg-cle-53-coupe",
+      "name": "Mercedes-AMG CLE 53 Coupé",
+      "bodyType": "Coupe",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2999 cc",
+      "power": "330 kW (449 hp)",
+      "torque": "560 Nm",
+      "seats": [
+        4
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 410,
+      "groundClearanceMm": null,
+      "fuelTankL": 65,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 4.2 s",
+      "dimensions": {
+        "length": 4853,
+        "width": 1935,
+        "height": 1434,
+        "wheelbase": 2875
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Metallic Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Solid Sun Yellow",
+          "hex": "#e2b51b"
+        },
+        {
+          "name": "Metallic Spectral Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "MANUFAKTUR Spectral Blue Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Graphite Grey Magno",
+          "hex": "#4c4f52"
+        },
+        {
+          "name": "MANUFAKTUR Opalite White",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "MANUFAKTUR Alpine Grey Solid",
+          "hex": "#8e9294"
+        },
+        {
+          "name": "MANUFAKTUR Patagonia Red",
+          "hex": "#7a1520"
+        }
+      ],
+      "features": [
+        {
+          "group": "Infotainment",
+          "items": [
+            "Burmester 3D surround sound"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Parking Package with 360°"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Premium Package",
+            "20-inch AMG Black Y-spoke light-alloy wheels"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Leather nappa anthracite"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "All-wheel drive",
+            "AMG SPEEDSHIFT TCT 9G"
+          ]
+        }
+      ],
+      "highlights": [
+        "Two-door, four-seat coupé with a 3.0-litre six-cylinder petrol engine",
+        "4MATIC+ all-wheel drive",
+        "AMG SPEEDSHIFT TCT 9G transmission"
+      ],
+      "variants": [
+        {
+          "name": "AMG CLE 53 4MATIC+ Coupé",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "AMG SPEEDSHIFT TCT 9G",
+          "price": 13400000,
+          "efficiency": null,
+          "features": [
+            "449 hp, 560 Nm",
+            "All-wheel drive",
+            "Premium Package",
+            "20-inch AMG Black Y-spoke light-alloy wheels",
+            "Burmester 3D surround sound",
+            "Parking Package with 360°"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/coupe/cle/amg.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/C236?subBrand=Mercedes-AMG",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Listed on the Indian site as 'CLE Coupé'. Price, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom)."
+    },
+    {
+      "slug": "mercedes-cle-cabriolet",
+      "name": "CLE Cabriolet",
+      "bodyType": "Coupe",
+      "bodyStyle": "Convertible",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1999 cc",
+      "power": "190 kW (258 hp)",
+      "torque": "400 Nm",
+      "seats": [
+        4
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 295,
+      "groundClearanceMm": null,
+      "fuelTankL": 66,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 6.6 s",
+      "dimensions": {
+        "length": 4850,
+        "width": 1861,
+        "height": 1424,
+        "wheelbase": 2865
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Graphite Grey",
+          "hex": "#4c4f52"
+        },
+        {
+          "name": "Spectral Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "MANUFAKTUR Graphite Grey Magno",
+          "hex": "#4c4f52"
+        },
+        {
+          "name": "MANUFAKTUR Opalite White Bright",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "High-tech Silver",
+          "hex": "#b7b9bb"
+        },
+        {
+          "name": "MANUFAKTUR Alpine Grey Solid",
+          "hex": "#8e9294"
+        },
+        {
+          "name": "MANUFAKTUR Patagonia Red Bright",
+          "hex": "#7a1520"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Acoustic fabric soft-top",
+            "Fabric soft top in black",
+            "Power front left seat with memory function",
+            "Power front right seat with memory function",
+            "Memory Package",
+            "Folding rear seat backrests",
+            "AIRCAP",
+            "Climatised front seats",
+            "AIRSCARF",
+            "4-way lumbar support",
+            "ENERGIZING Air Control",
+            "THERMATIC automatic climate control",
+            "Stowage Space Package",
+            "Double cup holder",
+            "Freight packaging with tie-down hooks",
+            "Automatic boot separator",
+            "Interior Light Package",
+            "Rear belt status indication in the instrument display",
+            "Belt feeder",
+            "Illuminated door sill panels with \"Mercedes-Benz\" lettering",
+            "Instrument panel and beltlines in ARTICO man-made leather in nappa look"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Fingerprint scanner",
+            "Extended MBUX functions",
+            "Central display",
+            "Driver display",
+            "Head-up display",
+            "Hard-disc navigation",
+            "MBUX Navigation Premium",
+            "MBUX augmented reality for navigation",
+            "Remote Services Advanced",
+            "MBUX multimedia system",
+            "Sound personalisation",
+            "Burmester 3D Surround Sound",
+            "Smartphone integration",
+            "Android Auto",
+            "USB Package",
+            "Wireless charging system for mobile devices in the front"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Blind Spot Assist",
+            "Speed Limit Assist",
+            "Adaptive Highbeam Assist Plus",
+            "Parking Package with 360° camera",
+            "Active Parking Assist with parktronic",
+            "360° camera",
+            "Hands-Free Access",
+            "Keyless-Go",
+            "Keyless go starting function",
+            "Pre-safe system",
+            "Centre airbag",
+            "Mercedes-Benz emergency call system",
+            "Passive person presence reminder",
+            "Pedestrian protection"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "AMG Line exterior",
+            "Premium Package",
+            "19\" AMG multi-spoke alloys",
+            "Digital Light",
+            "Interior mirror and driver's exterior mirror automatically dimming",
+            "Electrically folding exterior mirrors",
+            "Mirror Package",
+            "AMG bodystyling",
+            "Fuel tank with a capacity of 66 litres"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "AMG Line interior",
+            "Leather black",
+            "Leather tonka brown / black",
+            "Leather power red / black",
+            "Metal structure trim element",
+            "Centre console in a mixed fabric-look finish with metal effect",
+            "Multifunction sports steering wheel in nappa leather",
+            "Ambient lighting with projection of brand logo",
+            "Ambient lighting",
+            "Ambient lighting Plus",
+            "Cabriolet Comfort package"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "9G-Tronic",
+            "AMG Sports Suspension",
+            "Braking system with larger brake discs on the front axle",
+            "Mild Hybrid Antrieb",
+            "Dynamic Select",
+            "All-wheel drive"
+          ]
+        }
+      ],
+      "highlights": [
+        "Four-seat convertible with an acoustic fabric soft top",
+        "CLE 300 4MATIC with a 2.0-litre four-cylinder petrol engine",
+        "4MATIC all-wheel drive",
+        "AIRSCARF neck-level heating"
+      ],
+      "variants": [
+        {
+          "name": "CLE 300 CABRIOLET 4MATIC",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 11600000,
+          "efficiency": null,
+          "features": [
+            "258 hp, 400 Nm",
+            "All-wheel drive",
+            "AMG Line exterior",
+            "AMG Line interior",
+            "Premium Package",
+            "19\" AMG multi-spoke alloys",
+            "Sound personalisation",
+            "Burmester 3D Surround Sound",
+            "Head-up display",
+            "Power front left seat with memory function"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/cabriolet-roadster/cle/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/A236",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Price, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom)."
+    },
+    {
+      "slug": "mercedes-amg-gt-coupe",
+      "name": "Mercedes-AMG GT Coupé",
+      "bodyType": "Coupe",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "3982 cc",
+      "power": "430 – 450 kW (585 – 612 hp)",
+      "torque": "800 – 850 Nm",
+      "seats": [
+        2
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 321,
+      "groundClearanceMm": null,
+      "fuelTankL": 70,
+      "topSpeedKmh": 317,
+      "acceleration": "0–100 km/h in 3.2 s",
+      "dimensions": {
+        "length": 4728,
+        "width": 1984,
+        "height": 1354,
+        "wheelbase": 2700
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Metallic Paintwork Obsidian Black",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "Sun Yellow Solid",
+          "hex": "#e2b51b"
+        },
+        {
+          "name": "Metallic Paintwork Spectral Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Metallic Paintwork Selenite Grey",
+          "hex": "#6b6e70"
+        },
+        {
+          "name": "MANUFAKTUR Magno Paint MANUFAKTUR Green Hell Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Paint MANUFAKTUR Spectral Blue Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Paint MANUFAKTUR Opalite White Magno",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "MANUFAKTUR Paint MANUFAKTUR Opalite White Bright",
+          "hex": "#f2f1ec"
+        },
+        {
+          "name": "Metallic Paintwork High-tech Silver",
+          "hex": "#b7b9bb"
+        },
+        {
+          "name": "MANUFAKTUR Paint MANUFAKTUR Alpine Grey Solid",
+          "hex": "#8e9294"
+        },
+        {
+          "name": "MANUFAKTUR Paint MANUFAKTUR Hyper Blue Magno",
+          "hex": "#5d6064"
+        },
+        {
+          "name": "MANUFAKTUR Paint MANUFAKTUR Patagonia Red Bright",
+          "hex": "#7a1520"
+        },
+        {
+          "name": "Solid Paint Sun Yellow",
+          "hex": "#e2b51b"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panoramic roof",
+            "Easy-pack tailgate",
+            "AMG illuminated door sill panels with \"AMG\" lettering and exchangeable covers"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "AMG Track Pace"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Hands-Free Access"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "AMG Night Package",
+            "(20-inch) AMG 10-twin-spoke light-alloy wheels painted in tantalite grey with a high-sheen finish",
+            "AMG Exterior Carbon Package",
+            "AMG Aerodynamics Package",
+            "Carbon exterior mirrors"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Nappa leather / MICROCUT microfibre black with yellow top-stitch",
+            "Nappa leather / MICROCUT microfibre black with red top stitch",
+            "Nappa leather sienna brown / black",
+            "Nappa leather red pepper / black",
+            "Nappa leather sage grey /black",
+            "MANUFAKTUR nappa leather truffle brown / black",
+            "MANUFAKTUR nappa leather crystal white / black",
+            "MANUFAKTUR nappa leather macchiato beige / titanium grey",
+            "Nappa leather black",
+            "AMG aluminium trim",
+            "AMG carbon-fibre trim",
+            "MANUFAKTUR trim elements in black chrome",
+            "Open-pore grey birch wood trim elements",
+            "Ship's deck open-pore brown ash wood trim elements with aluminium lines",
+            "AMG Performance steering wheel in carbon fibre design / MICROCUT microfibre",
+            "AMG Performance steering wheel in nappa leather / MICROCUT microfibre",
+            "AMG trim elements in high-gloss black"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Lift system, front axle",
+            "Rear axle steering with up to 2.5° steering angle",
+            "Black-painted brake callipers for AMG ceramic high-performance composite brake system",
+            "AMG high-performance ceramic composite braking system",
+            "All-wheel drive",
+            "AMG SPEEDSHIFT MCT 9G transmission with RACE START function"
+          ]
+        }
+      ],
+      "highlights": [
+        "Two-seat sports coupé with a 4.0-litre V8 petrol engine",
+        "4MATIC+ all-wheel drive",
+        "AMG GT 63 and AMG GT 63 PRO versions"
+      ],
+      "variants": [
+        {
+          "name": "Mercedes-AMG GT 63 4MATIC+",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "AMG SPEEDSHIFT MCT 9G transmission with RACE START function",
+          "price": 30500000,
+          "efficiency": null,
+          "features": [
+            "585 hp, 800 Nm",
+            "All-wheel drive",
+            "AMG Night Package",
+            "(20-inch) AMG 10-twin-spoke light-alloy wheels painted in tantalite grey with a high-sheen finish",
+            "Lift system, front axle",
+            "Rear axle steering with up to 2.5° steering angle",
+            "Panoramic roof",
+            "Easy-pack tailgate",
+            "AMG illuminated door sill panels with \"AMG\" lettering and exchangeable covers",
+            "AMG Track Pace"
+          ]
+        },
+        {
+          "name": "Mercedes-AMG GT 63 PRO 4MATIC+",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "AMG SPEEDSHIFT MCT 9G transmission with RACE START function",
+          "price": 36500000,
+          "efficiency": null,
+          "features": [
+            "612 hp, 850 Nm",
+            "All-wheel drive",
+            "AMG Exterior Carbon Package",
+            "AMG Aerodynamics Package",
+            "Carbon exterior mirrors",
+            "Lift system, front axle",
+            "Black-painted brake callipers for AMG ceramic high-performance composite brake system",
+            "AMG high-performance ceramic composite braking system",
+            "Rear axle steering with up to 2.5° steering angle",
+            "Easy-pack tailgate"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/coupe/amg-gt-2-door/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/C192?subBrand=Mercedes-AMG",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Prices, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom)."
+    },
+    {
+      "slug": "mercedes-maybach-sl",
+      "name": "Mercedes-Maybach SL 680 Monogram Series",
+      "bodyType": "Coupe",
+      "bodyStyle": "Roadster",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "3982 cc",
+      "power": "430 kW (585 hp)",
+      "torque": "800 Nm",
+      "seats": [
+        2
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 240,
+      "groundClearanceMm": null,
+      "fuelTankL": 70,
+      "topSpeedKmh": 260,
+      "acceleration": "0–100 km/h in 4.1 s",
+      "dimensions": {
+        "length": 4697,
+        "width": 1915,
+        "height": 1358,
+        "wheelbase": 2700
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "MANUFAKTUR Paint MANUFAKTUR Garnet Red Metallic",
+          "hex": "#9b1b24"
+        },
+        {
+          "name": "MANUFAKTUR Magno Paint MANUFAKTUR Opalite White Magno",
+          "hex": "#f2f1ec"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "ENERGIZING Air Control"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Driver display",
+            "MBUX Navigation Premium"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Driving Assistance Package",
+            "Parking Package with Memory Parking Assist",
+            "Pre-safe system"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Red Ambience",
+            "53.3 cm (21-inch) Maybach multi-spoke forged wheels",
+            "Magic Vision Control",
+            "Mirror Package",
+            "Illuminated radiator shell with maybach lettering"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "MANUFAKTUR Exclusive nappa leather upholstery crystal white",
+            "ENERGIZING Package Plus"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "All-wheel drive",
+            "SPEEDSHIFT MCT 9G"
+          ]
+        }
+      ],
+      "highlights": [
+        "Two-seat Maybach roadster",
+        "4.0-litre V8 petrol engine; 430 kW (585 hp) and 800 Nm",
+        "All-wheel drive"
+      ],
+      "variants": [
+        {
+          "name": "Mercedes-Maybach SL 680 Monogram Series",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "SPEEDSHIFT MCT 9G",
+          "price": 44000000,
+          "efficiency": null,
+          "features": [
+            "585 hp, 800 Nm",
+            "All-wheel drive",
+            "Red Ambience",
+            "53.3 cm (21-inch) Maybach multi-spoke forged wheels",
+            "Driving Assistance Package",
+            "Parking Package with Memory Parking Assist",
+            "ENERGIZING Package Plus",
+            "ENERGIZING Air Control",
+            "Magic Vision Control",
+            "Mirror Package"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/cabriolet-roadster/mercedes-maybach-sl/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/mercedes-benz-cars/car-configurator.html/start/CCci/IN/en/tc/Z232?subBrand=Mercedes-Maybach",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Price, specs and equipment from the Mercedes-Benz India configurator (all-India ex-showroom)."
+    },
+    {
+      "slug": "mercedes-v-class",
+      "name": "V-Class",
+      "bodyType": "MUV",
+      "bodyStyle": "Luxury MPV",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1950 – 1999 cc",
+      "power": "170 – 174 kW (231 – 237 hp)",
+      "torque": "370 – 500 Nm",
+      "seats": [
+        6
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 1410,
+      "groundClearanceMm": null,
+      "fuelTankL": 70,
+      "topSpeedKmh": 220,
+      "acceleration": "0–100 km/h in 8 s",
+      "dimensions": {
+        "length": 5370,
+        "width": 1928,
+        "height": 1901,
+        "wheelbase": 3430
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Sothalite Blue Metallic",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Rock Crystal White, Metallic",
+          "hex": "#f1f1ee"
+        },
+        {
+          "name": "Obsidian Black Metallic",
+          "hex": "#1b1c1e"
+        },
+        {
+          "name": "High-tech Silver Metallic",
+          "hex": "#b7b9bb"
+        },
+        {
+          "name": "Alpine Grey",
+          "hex": "#8e9294"
+        }
+      ],
+      "features": [
+        {
+          "group": "Exterior",
+          "items": [
+            "45,7 cm (18\") 7.5 J x 18 light-alloy wheels, 10-spoke design"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Leather Lugano, black",
+            "Leather Lugano, silk beige"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Agility control suspension",
+            "Rear-wheel drive",
+            "9G-Tronic"
+          ]
+        }
+      ],
+      "highlights": [
+        "Extra-long luxury MPV with six seats",
+        "V 300 petrol and V 300 d diesel versions at the same price",
+        "9G-TRONIC automatic, rear-wheel drive"
+      ],
+      "variants": [
+        {
+          "name": "V 300 Avantgarde Extra-long",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 14000000,
+          "efficiency": null,
+          "features": [
+            "231 hp, 370 Nm",
+            "Rear-wheel drive",
+            "45,7 cm (18\") 7.5 J x 18 light-alloy wheels, 10-spoke design",
+            "Agility control suspension"
+          ]
+        },
+        {
+          "name": "V 300 d Avantgarde Extra-long",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9G-Tronic",
+          "price": 14000000,
+          "efficiency": null,
+          "features": [
+            "237 hp, 500 Nm",
+            "Rear-wheel drive",
+            "45,7 cm (18\") 7.5 J x 18 light-alloy wheels, 10-spoke design",
+            "Agility control suspension"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mercedes-benz.co.in/passengercars/models/van/v-class/overview.html",
+        "https://www.mercedes-benz.co.in/passengercars/models.html"
+      ],
+      "notes": "Prices and specs from the Mercedes-Benz India configurator data (all-India ex-showroom); the model card links to stock search rather than a configurator."
+    }
+  ]
+}

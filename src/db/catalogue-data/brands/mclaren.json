@@ -1,0 +1,211 @@
+{
+  "brand": {
+    "slug": "mclaren",
+    "name": "McLaren",
+    "country": "United Kingdom",
+    "founded": 1985,
+    "tagline": "British supercar maker, in India since 2022",
+    "description": "British supercar maker based in Woking; McLaren Automotive traces back to McLaren Cars, founded in 1985. McLaren entered India in 2022 through its official retailer Infinity Cars, whose McLaren Mumbai showroom in Prabhadevi is the brand's only Indian outlet; all cars are imported fully built.",
+    "isLuxury": true,
+    "website": "https://www.mclaren.com/cars/gl_en/retailers/Mumbai"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "mclaren-750s",
+      "name": "750S",
+      "bodyType": "Coupe",
+      "bodyStyle": "Coupe / Spider",
+      "isLuxury": true,
+      "launchedOn": "2024-01-12",
+      "engine": "3994 cc twin-turbo V8 petrol",
+      "power": "750 PS (740 bhp)",
+      "torque": "800 Nm",
+      "seats": [2],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 150,
+      "groundClearanceMm": 107,
+      "fuelTankL": 72,
+      "topSpeedKmh": 332,
+      "acceleration": "0–100 km/h in 2.8 s",
+      "dimensions": { "length": 4569, "width": 2161, "height": 1196, "wheelbase": 2670 },
+      "ev": null,
+      "colors": [
+        { "name": "McLaren Orange", "hex": "#FF7A00" },
+        { "name": "Aurora Blue", "hex": "#1E4A8C" },
+        { "name": "Onyx Black", "hex": "#111111" },
+        { "name": "Silica White", "hex": "#F1F1EC" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Front suspension lift (about 4 s)", "Electrically adjustable driver's seat", "Dihedral doors"] },
+        { "group": "Infotainment", "items": ["8.0-inch central touchscreen", "Apple CarPlay", "Wireless phone charger", "Digital instrument cluster", "Speech recognition"] },
+        { "group": "Safety", "items": ["Electronic stability control", "Traction control", "Park-assist camera"] },
+        { "group": "Performance", "items": ["Launch control", "Aero adjustment controls", "Rear-wheel drive", "7-speed dual-clutch gearbox"] }
+      ],
+      "highlights": [
+        "4.0-litre twin-turbo V8 with 750 PS and 800 Nm",
+        "Claimed 0–100 km/h in 2.8 s and 0–200 km/h in 7.2 s (Coupe)",
+        "Claimed dry weight of 1,277 kg (Coupe)",
+        "Sold as a Coupe and as a Spider with a retractable hard top",
+        "McLaren says 750S production ends in 2027 (final orders accepted from Oct 2026)"
+      ],
+      "variants": [
+        {
+          "name": "Coupe",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed SSG dual-clutch",
+          "price": 49400000,
+          "efficiency": null,
+          "features": ["Fixed roof", "0–200 km/h in 7.2 s (claimed)", "Dry weight 1,277 kg (claimed)"]
+        },
+        {
+          "name": "Spider",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed SSG dual-clutch",
+          "price": 54600000,
+          "efficiency": null,
+          "features": ["Retractable hard top, opens or closes in 11 s", "Open two-seater"]
+        }
+      ],
+      "sources": [
+        "https://www.autocarindia.com/car-news/mclaren-750s-launched-in-india-at-rs-591-crore-430323",
+        "https://www.autocarindia.com/car-news/mclaren-set-to-cut-india-prices-by-up-to-rs-33-crore-ahead-of-india-uk-fta-439930",
+        "https://www.autocarindia.com/car-news/mclaren-750s-production-to-end-in-2027-final-orders-now-being-accepted-440988",
+        "https://www.autocarindia.com/cars/mclaren/750s",
+        "https://www.autocarindia.com/cars/mclaren/750s/specifications",
+        "https://www.autocarindia.com/cars/mclaren/750s/price-in-delhi",
+        "https://autotijd.be/en/specs/mclaren/750s"
+      ],
+      "notes": "Price not published by the brand; from Autocar India. These are McLaren's revised India prices after the India–UK FTA (in force 15 Jul 2026): reported in June 2026 and restated by Autocar India on 9 Oct 2026 as Coupe Rs 4.94 crore and Spider Rs 5.46 crore before options. They are pan-India figures. Autocar India's model and Delhi price pages still show the older Rs 7.94 / 8.78 crore; check with McLaren Mumbai. Production ends in 2027. Top speed 332 km/h is McLaren's figure; Autocar India's launch report says 331. Boot is the 150-litre front compartment. Width includes mirrors. Airbags not officially published."
+    },
+    {
+      "slug": "mclaren-artura",
+      "name": "Artura",
+      "bodyType": "Coupe",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": "2023-05-26",
+      "engine": "2993 cc twin-turbo V6 petrol + electric motor (plug-in hybrid)",
+      "power": "680 hp combined (700 PS on MY2025-on cars)",
+      "torque": "720 Nm combined",
+      "seats": [2],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 160,
+      "groundClearanceMm": null,
+      "fuelTankL": 66,
+      "topSpeedKmh": 330,
+      "acceleration": "0–100 km/h in 3.0 s",
+      "dimensions": { "length": 4539, "width": 2080, "height": 1193, "wheelbase": 2640 },
+      "ev": null,
+      "colors": [
+        { "name": "McLaren Orange", "hex": "#FF7A00" },
+        { "name": "Aurora Blue", "hex": "#1E4A8C" },
+        { "name": "Onyx Black", "hex": "#111111" },
+        { "name": "Silica White", "hex": "#F1F1EC" },
+        { "name": "Flux Green", "hex": "#2FA84F" },
+        { "name": "Ember Orange", "hex": "#D9541E" },
+        { "name": "Mantis Green", "hex": "#7CC242" },
+        { "name": "Tokyo Cyan", "hex": "#1AA6C8" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Dual-zone climate control", "Two USB ports"] },
+        { "group": "Infotainment", "items": ["8.0-inch touchscreen", "Apple CarPlay and Android Auto", "Digital instrument cluster"] },
+        { "group": "Safety", "items": ["ADAS", "Electronic stability control", "Traction control"] },
+        { "group": "Performance", "items": ["Axial-flux electric motor (95 hp, 225 Nm)", "7.4 kWh battery, up to 31 km electric-only range (claimed)", "Electric-only top speed 130 km/h", "McLaren Carbon Lightweight Architecture carbon-fibre tub", "Rear-wheel drive"] }
+      ],
+      "highlights": [
+        "Plug-in hybrid: 3.0-litre twin-turbo V6 plus an axial-flux electric motor",
+        "7.4 kWh battery with up to 31 km of electric-only range (claimed)",
+        "Claimed 0–100 km/h in 3.0 s and a 330 km/h top speed",
+        "Built on McLaren's carbon-fibre Carbon Lightweight Architecture",
+        "Launched in India in May 2023 at Rs 5.1 crore (ex-showroom)"
+      ],
+      "variants": [
+        {
+          "name": "Coupe",
+          "fuel": "Hybrid",
+          "transmission": "DCT",
+          "transmissionDetail": "8-speed SSG dual-clutch",
+          "price": 51000000,
+          "efficiency": null,
+          "features": ["Plug-in hybrid, 680 hp / 720 Nm combined", "Battery charges 0–80% in 2.5 h", "Kerb weight 1,498 kg"]
+        }
+      ],
+      "sources": [
+        "https://www.autocarindia.com/car-news-amp/mclaren-artura-launched-at-rs-51-crore-428297",
+        "https://www.autocarindia.com/cars/mclaren/artura",
+        "https://www.autocarindia.com/cars/mclaren/artura/specifications",
+        "https://www.autocarindia.com/cars/mclaren/artura/price-in-delhi",
+        "https://www.autocarindia.com/car-news/mclaren-set-to-cut-india-prices-by-up-to-rs-33-crore-ahead-of-india-uk-fta-439930",
+        "https://cars.mclaren.com/en/artura-spider"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (Rs 5.10 crore ex-showroom Delhi, Nov 2026; Rs 5.1 crore ex-showroom Delhi at the 2023 launch). As a plug-in hybrid it gets no India–UK FTA duty cut, and reports say its price is unchanged. The Artura Spider has no Indian launch or price, so it is left out. Power is the India-launch figure (585 hp V6 + 95 hp motor). McLaren raised the combined output to 700 PS for MY2025, but the spec of current Indian cars is not confirmed. Autocar India's 21.74 kmpl is not an ARAI figure, so efficiency is null. McLaren plans to drop the Artura and GTS by 2028. Width includes mirrors. Airbags not officially published."
+    },
+    {
+      "slug": "mclaren-gts",
+      "name": "GTS",
+      "bodyType": "Coupe",
+      "bodyStyle": "Grand tourer",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "3994 cc twin-turbo V8 petrol",
+      "power": "635 PS",
+      "torque": "630 Nm",
+      "seats": [2],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 570,
+      "groundClearanceMm": null,
+      "fuelTankL": 72,
+      "topSpeedKmh": 326,
+      "acceleration": "0–100 km/h in 3.2 s",
+      "dimensions": { "length": 4683, "width": 2095, "height": 1213, "wheelbase": 2675 },
+      "ev": null,
+      "colors": [
+        { "name": "McLaren Orange", "hex": "#FF7A00" },
+        { "name": "Onyx Black", "hex": "#111111" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Dual-zone climate control", "Keyless entry", "Cruise control", "Glass tailgate", "Nose-lift system: 130 mm clearance in about 4 s"] },
+        { "group": "Infotainment", "items": ["10.25-inch instrument display", "Touchscreen with satellite navigation", "Bluetooth", "Optional 12-speaker Bowers & Wilkins audio"] },
+        { "group": "Safety", "items": ["Electronic stability control", "Traction control", "Carbon-ceramic brakes", "Electronic parking brake with auto hold"] },
+        { "group": "Exterior", "items": ["10-spoke forged Turbine wheels", "Carbon-fibre roof", "Optional electrochromic glass roof"] },
+        { "group": "Performance", "items": ["Launch control", "Hydraulic power steering", "7-speed dual-clutch gearbox", "Rear-wheel drive"] }
+      ],
+      "highlights": [
+        "4.0-litre twin-turbo V8 with 635 PS and 630 Nm",
+        "570 litres of luggage space (420 L rear, 150 L front)",
+        "Claimed 0–100 km/h in 3.2 s and 0–200 km/h in 8.9 s",
+        "Replaced the McLaren GT; renamed GTS with the December 2023 facelift",
+        "DIN kerb weight of 1,520 kg (claimed)"
+      ],
+      "variants": [
+        {
+          "name": "V8",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed SSG dual-clutch",
+          "price": 38300000,
+          "efficiency": null,
+          "features": ["635 PS / 630 Nm twin-turbo V8", "Launch control", "Nose-lift system"]
+        }
+      ],
+      "sources": [
+        "https://www.autocarindia.com/car-news/mclaren-gt-facelift-named-gts-430133",
+        "https://www.autocarindia.com/cars/mclaren/gts/v8",
+        "https://www.autocarindia.com/cars/mclaren/gts/price-in-delhi",
+        "https://www.autocarindia.com/car-news/mclaren-set-to-cut-india-prices-by-up-to-rs-33-crore-ahead-of-india-uk-fta-439930",
+        "https://www.carwale.com/news/india-uk-fta-effect-mclaren-cars-to-witness-a-massive-price-revision/",
+        "https://www.autox.com/news/car-news/mclaren-750s-gts-prices-to-drop-by-up-to-rs-332-crore-ahead-of-india-uk-fta-123764/",
+        "https://paultan.org/2023/12/22/2024-mclaren-gts-debuts-635-ps-630-nm-biturbo-v8-10-kg-lighter-quicker-20-mm-nose-lift-mechanism/",
+        "https://www.supercars.net/blog/new-mclaren-gts/"
+      ],
+      "notes": "Price not published by the brand; from Autocar India, CarWale and AutoX (June 2026). They reported McLaren's revised India price after the India–UK FTA as Rs 3.83 crore, down from Rs 6.15 crore. Autocar India's GTS listing and Delhi price page still show Rs 6.15 crore (Nov 2026), and no later report confirms the GTS figure; check with McLaren Mumbai. Performance and luggage figures are McLaren's published figures, as reported at the Dec 2023 reveal. India launch date not published. McLaren plans to drop the GTS by 2028. Width includes mirrors. Airbags not officially published."
+    }
+  ]
+}

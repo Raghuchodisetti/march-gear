@@ -22,7 +22,7 @@ import {
   Zap,
   type LucideIcon,
 } from "lucide-react";
-import type { CarModel } from "@/types";
+import type { CarLite } from "@/types";
 import { isElectric } from "@/lib/catalog";
 import { IMG } from "@/data/images";
 import { formatPriceRange } from "@/lib/format";
@@ -31,6 +31,8 @@ import { EASE } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { useCatalog } from "@/components/providers/catalog-provider";
+import { CarImage } from "@/components/vehicle/car-image";
+import { accelSeconds, known } from "@/lib/specs";
 
 type Answers = { budget?: string; seats?: string; body?: string; usage?: string; fuel?: string };
 
@@ -99,7 +101,7 @@ const QUESTIONS: { key: keyof Answers; title: string; options: Option[] }[] = [
 
 const SAMPLE: Answers = { budget: "10-20", seats: "5", body: "SUV", usage: "city", fuel: "any" };
 
-function score(car: CarModel, a: Answers) {
+function score(car: CarLite, a: Answers) {
   let s = 0;
   const reasons: string[] = [];
   const [lo, hi] = (a.budget ?? "0-1000").split("-").map((n) => Number(n) * 100_000);
@@ -132,7 +134,7 @@ function score(car: CarModel, a: Answers) {
       }
       break;
     case "highway":
-      if (car.fuelTypes.includes("Diesel") || car.topSpeed >= 200) {
+      if (car.fuelTypes.includes("Diesel") || (known(car.topSpeed) ?? 0) >= 200) {
         s += 14;
         reasons.push("Relaxed, long-legged cruiser");
       }
@@ -140,7 +142,7 @@ function score(car: CarModel, a: Answers) {
     case "family":
       if (car.bootSpace >= 400 || maxSeats >= 7) {
         s += 14;
-        reasons.push(`${car.bootSpace} L boot for luggage`);
+        reasons.push(car.bootSpace >= 400 ? `${car.bootSpace} L boot for luggage` : `Seats up to ${maxSeats}`);
       }
       break;
     case "adventure":
@@ -150,9 +152,9 @@ function score(car: CarModel, a: Answers) {
       }
       break;
     case "fun":
-      if (parseFloat(car.acceleration) < 8) {
+      if ((accelSeconds(car.acceleration) ?? 99) < 8) {
         s += 14;
-        reasons.push(`0–100 km/h in ${car.acceleration}`);
+        reasons.push(`0–100 km/h in ${accelSeconds(car.acceleration)} s`);
       }
       break;
   }
@@ -325,7 +327,7 @@ export function PerfectCarQuiz() {
   );
 }
 
-function Result({ results, answers, onRestart }: { results: { car: CarModel; match: number; reasons: string[] }[]; answers: Answers; onRestart: () => void }) {
+function Result({ results, answers, onRestart }: { results: { car: CarLite; match: number; reasons: string[] }[]; answers: Answers; onRestart: () => void }) {
   const { brandName } = useCatalog();
   const [best, ...alts] = results;
   if (!best) return null;
@@ -345,7 +347,13 @@ function Result({ results, answers, onRestart }: { results: { car: CarModel; mat
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-[1.1fr_1fr]">
         <Link href={`/cars/${best.car.slug}`} className="group relative block aspect-[4/3] overflow-hidden bg-mist">
-          <Image src={best.car.images[0]} alt={cardPhotoAlt(best.car.images[0], title)} fill sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover transition-transform duration-[900ms] ease-[var(--ease-premium)] group-hover:scale-[1.04]" style={{ objectPosition: best.car.focus ?? "50% 55%" }} />
+          <CarImage
+            car={best.car}
+            alt={best.car.images[0] ? cardPhotoAlt(best.car.images[0], title) : ""}
+            sizes="(min-width: 1024px) 30vw, 100vw"
+            className="object-cover transition-transform duration-[900ms] ease-[var(--ease-premium)] group-hover:scale-[1.04]"
+            style={{ objectPosition: best.car.focus ?? "50% 55%" }}
+          />
           <span className="absolute left-3 top-3 bg-ink px-3 py-1.5 text-[12px] font-semibold text-white num">{best.match}% match</span>
         </Link>
         <div className="flex flex-col">
@@ -376,7 +384,7 @@ function Result({ results, answers, onRestart }: { results: { car: CarModel; mat
           <li key={car.slug}>
             <Link href={`/cars/${car.slug}`} className="group flex items-center gap-4 border border-line p-3 transition-colors hover:border-ink/40">
               <span className="relative h-14 w-20 shrink-0 overflow-hidden bg-mist">
-                <Image src={car.images[0]} alt="" fill sizes="80px" className="object-cover" />
+                <CarImage car={car} alt="" sizes="80px" className="object-cover" />
               </span>
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-[14px] font-medium">

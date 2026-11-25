@@ -1,0 +1,386 @@
+{
+  "brand": {
+    "slug": "porsche",
+    "name": "Porsche",
+    "country": "Germany",
+    "founded": 1931,
+    "tagline": "German sports car maker, part of the Volkswagen Group",
+    "description": "German sports car and SUV maker founded in Stuttgart in 1931 and part of the Volkswagen Group. Its cars are imported into India and sold through Porsche Centres in major cities.",
+    "isLuxury": true,
+    "website": "https://www.porsche.com/india/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "porsche-911",
+      "name": "911",
+      "bodyType": "Coupe",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2981 – 3996 cc",
+      "power": "290 – 523 kW",
+      "torque": "450 – 800 Nm",
+      "seats": [2, 4],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 135,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 322,
+      "acceleration": "0–100 km/h in 2.5 s (Turbo S)",
+      "dimensions": { "length": 4542, "width": 1852, "height": 1302, "wheelbase": 2450 },
+      "ev": null,
+      "colors": [
+        { "name": "Lugano Blue", "hex": "#3A7BC8" },
+        { "name": "Carmine Red", "hex": "#B3122A" },
+        { "name": "Slate Grey Neo", "hex": "#5E6468" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Sports seats plus, 4-way electric (Carrera 4 GTS)", "Adaptive Sports Plus seats, 18-way electric with memory (Turbo S)", "Heated GT sports steering wheel (Carrera 4 GTS)", "Sports bucket seats (GT3)"] },
+        { "group": "Infotainment", "items": ["Porsche Communication Management", "BOSE Surround Sound System (Turbo S)", "Sound Package Plus (GT3)"] },
+        { "group": "Safety", "items": ["Porsche Ceramic Composite Brakes (Turbo S)", "Red brake calipers (Carrera 4 GTS)", "Porsche Traction Management all-wheel drive (Carrera 4 GTS, Turbo S)"] },
+        { "group": "Exterior", "items": ["Matrix LED headlights (GT3)", "HD-Matrix LED headlights (Turbo S)", "SportDesign Package (Carrera 4 GTS)", "20/21-inch forged alloy wheels (GTS, GT3)", "Porsche Active Aerodynamics (Turbo S)"] },
+        { "group": "Interior", "items": ["GT sports steering wheel", "2+2 seating (Carrera, Carrera 4 GTS, Turbo S); two seats in GT3", "Front luggage compartment of 135 l"] },
+        { "group": "Performance", "items": ["8-speed PDK (7-speed PDK on GT3)", "T-Hybrid powertrain with electric turbocharger (Carrera 4 GTS, Turbo S)", "Sport Chrono Package (GTS, GT3, Turbo S)", "Rear-axle steering (GTS, Turbo S)", "PASM Sport Suspension (Carrera 4 GTS)", "Sports exhaust system"] }
+      ],
+      "highlights": [
+        "Four derivatives listed for India: Carrera, Carrera 4 GTS, GT3 and Turbo S",
+        "Carrera 4 GTS and Turbo S use the T-Hybrid 3.6 l six-cylinder with an electric turbocharger",
+        "GT3 uses a naturally aspirated 4.0 l six-cylinder rated at 375 kW",
+        "Turbo S produces 523 kW and 800 Nm combined",
+        "All derivatives use the PDK dual-clutch gearbox"
+      ],
+      "variants": [
+        { "name": "911 Carrera", "fuel": "Petrol", "transmission": "DCT", "transmissionDetail": "8-speed PDK", "price": 21129000, "efficiency": null, "features": ["3.0 l twin-turbo flat-six, 290 kW / 450 Nm", "Rear-wheel drive", "0–100 km/h in 4.1 s (3.9 s with Sport Chrono)", "294 km/h top speed", "2+2 seats"] },
+        { "name": "911 Carrera 4 GTS", "fuel": "Hybrid", "transmission": "DCT", "transmissionDetail": "8-speed PDK", "price": 28214000, "efficiency": null, "features": ["3.6 l T-Hybrid flat-six, 398 kW / 610 Nm combined", "All-wheel drive", "0–100 km/h in 3.0 s with Sport Chrono", "PASM Sport Suspension (-10 mm)", "Rear-axle steering", "Porsche Torque Vectoring Plus", "Sport Chrono Package", "20/21-inch Carrera GTS forged wheels", "Sports exhaust system", "Red brake calipers"] },
+        { "name": "911 GT3", "fuel": "Petrol", "transmission": "DCT", "transmissionDetail": "7-speed PDK", "price": 33260000, "efficiency": null, "features": ["4.0 l naturally aspirated flat-six, 375 kW / 450 Nm", "Rear-wheel drive", "0–100 km/h in 3.4 s", "311 km/h top speed", "Two-seater with sports bucket seats", "20/21-inch forged aluminium wheels", "Matrix LED headlights", "Lightweight stainless steel sports exhaust"] },
+        { "name": "911 Turbo S", "fuel": "Hybrid", "transmission": "DCT", "transmissionDetail": "8-speed PDK", "price": 38249000, "efficiency": null, "features": ["3.6 l T-Hybrid flat-six with twin electric turbochargers, 523 kW / 800 Nm combined", "All-wheel drive", "0–100 km/h in 2.5 s with Sport Chrono", "322 km/h top speed", "Porsche Ceramic Composite Brakes", "Adaptive Sports Plus seats (18-way)", "HD-Matrix LED headlights", "BOSE Surround Sound System", "Rear-axle steering", "Porsche Active Aerodynamics"] }
+      ],
+      "sources": [
+        "https://www.porsche.com/middle-east/_india_/models/911/",
+        "https://www.porsche.com/middle-east/_india_/models/911/carrera-models/911-carrera/",
+        "https://www.porsche.com/middle-east/_india_/models/911/carrera-models/911-carrera-4-gts/",
+        "https://www.porsche.com/middle-east/_india_/models/911/911-gt3-models/911-gt3/",
+        "https://www.porsche.com/middle-east/_india_/models/911/911-turbo-models/911-turbo-s/"
+      ],
+      "notes": "Prices are Porsche India's published 'from' prices incl. GST; Porsche shows one all-India price, used here for Delhi. Only these four 911 derivatives are listed on the Indian site, so no Cabriolet, Targa or Carrera S is included. Boot is the front compartment; 261 l more behind the front seats with rear seats up (2+2 cars). Dimensions are for the Carrera. Fuel tank not stated on the Indian pages. Colours are the ones named on the model pages; the configurator has the full palette."
+    },
+    {
+      "slug": "porsche-taycan",
+      "name": "Taycan",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor",
+      "power": "440 – 650 kW",
+      "torque": "710 – 890 Nm",
+      "seats": [4, 5],
+      "airbags": null,
+      "safety": { "rating": 5, "agency": "Euro NCAP", "year": 2019 },
+      "bootSpaceL": 407,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 260,
+      "acceleration": "0–100 km/h in 2.7 s (Turbo)",
+      "dimensions": { "length": 4963, "width": 1966, "height": 1379, "wheelbase": 2900 },
+      "ev": { "rangeKm": 645, "rangeStandard": "WLTP", "batteryKwh": 105, "dcCharge": "18 min (10–80%, 320 kW)", "acCharge": "11 kW on-board", "motorKw": 650 },
+      "colors": [
+        { "name": "Jet Black Metallic", "hex": "#16181B" },
+        { "name": "Ice Grey Metallic", "hex": "#9BA0A3" },
+        { "name": "Carmine Red", "hex": "#B3122A" },
+        { "name": "Shade Green Metallic", "hex": "#3E4B44" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["14-way electric comfort front seats with memory", "Four-zone climate control with heat pump", "Panoramic roof", "Adaptive air suspension with PASM"] },
+        { "group": "Infotainment", "items": ["16.8-inch curved instrument display", "BOSE Surround Sound System", "Apple CarPlay"] },
+        { "group": "Safety", "items": ["Surround View with Lane Change Assist (Black Edition)", "Rear-axle steering (Turbo)", "Five-star Euro NCAP rating (2019)"] },
+        { "group": "Exterior", "items": ["Matrix LED headlights (HD-Matrix on Turbo)", "19-inch Taycan S Aero wheels (4S)", "21-inch Aero Design wheels in high-gloss black (Black Edition)", "Black taillight strip with illuminated PORSCHE lettering (Black Edition)"] },
+        { "group": "Interior", "items": ["Leather multifunction sports steering wheel", "Comfort rear seats with two individual seats", "Black Edition badge on centre console (Black Edition)"] },
+        { "group": "Performance", "items": ["Dual-motor all-wheel drive", "Two-speed gearbox on the rear axle", "Up to 320 kW DC charging (Performance Battery Plus)", "Sport Chrono Package with Push-to-Pass (Turbo)"] }
+      ],
+      "highlights": [
+        "All-electric four-door Sport Saloon with all-wheel drive",
+        "Performance Battery Plus has 105 kWh gross capacity",
+        "10–80% DC charge in 18 minutes at up to 320 kW",
+        "Taycan Turbo produces up to 650 kW with Launch Control",
+        "Five-star Euro NCAP rating (2019)"
+      ],
+      "variants": [
+        { "name": "Taycan 4S", "fuel": "Electric", "transmission": "Automatic", "transmissionDetail": "2-speed (rear axle)", "price": 20070000, "efficiency": "489 – 645 km (WLTP)", "features": ["Dual motors, 440 kW / 710 Nm with Launch Control (Performance Battery Plus)", "0–100 km/h in 3.7 s", "250 km/h top speed", "19-inch Taycan S Aero wheels", "Matrix LED headlights", "BOSE Surround Sound System", "Panoramic roof"] },
+        { "name": "Taycan 4S Black Edition", "fuel": "Electric", "transmission": "Automatic", "transmissionDetail": "2-speed (rear axle)", "price": 20945000, "efficiency": "566 – 645 km (WLTP)", "features": ["Performance Battery Plus as standard", "21-inch Aero Design wheels in high-gloss black", "Black SportDesign elements", "Black taillight strip with illuminated PORSCHE lettering", "LED door courtesy lights", "14-way comfort seats with memory", "Surround View with Lane Change Assist", "Brushed black aluminium illuminated sill guards"] },
+        { "name": "Taycan Turbo", "fuel": "Electric", "transmission": "Automatic", "transmissionDetail": "2-speed (rear axle)", "price": 27427000, "efficiency": "572 – 637 km (WLTP)", "features": ["Dual motors, 650 kW / 890 Nm with Launch Control", "0–100 km/h in 2.7 s", "260 km/h top speed", "Turbo Sport Aero 20-inch wheels", "HD-Matrix LED headlights", "Heated GT multifunction steering wheel", "Sport Chrono Package with Push-to-Pass", "Rear-axle steering"] }
+      ],
+      "sources": [
+        "https://www.porsche.com/middle-east/_india_/models/taycan/",
+        "https://www.porsche.com/middle-east/_india_/models/taycan/taycan-models/taycan-4s/",
+        "https://www.porsche.com/middle-east/_india_/models/taycan/taycan-models/taycan-turbo/",
+        "https://www.porsche.com/middle-east/_india_/models/taycan/taycan-black-edition/",
+        "https://www.porsche.com/international/models/taycan/taycan-models/taycan-4s/",
+        "https://autocarindia.com/car-news/porsche-taycan-scores-5-star-euro-ncap-rating-415161"
+      ],
+      "notes": "Prices are Porsche India's published 'from' prices incl. GST; one all-India price, used here for Delhi. The Indian pages show European specs 'to be confirmed upon homologation' and give no WLTP range, so ranges come from Porsche's international pages: 4S 489–560 km with Performance Battery (89 kWh) and 566–645 km with Performance Battery Plus (105 kWh). Check which battery the Indian 4S has as standard. Boot is the rear compartment (81 l front; 366 l rear on Turbo). Only these three derivatives are listed for India."
+    },
+    {
+      "slug": "porsche-panamera",
+      "name": "Panamera",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2894 cc",
+      "power": "260 kW",
+      "torque": "500 Nm",
+      "seats": [4, 5],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 494,
+      "groundClearanceMm": null,
+      "fuelTankL": 75,
+      "topSpeedKmh": 272,
+      "acceleration": "0–100 km/h in 5.3 s",
+      "dimensions": { "length": 5052, "width": 1937, "height": 1423, "wheelbase": 2950 },
+      "ev": null,
+      "colors": [
+        { "name": "Volcano Grey Metallic", "hex": "#5B5B57" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["8-way electric comfort front seats", "Four-zone automatic climate control with rear touchscreen", "Comfort Access with keyless entry", "Foot-gesture automatic tailgate", "Adaptive air suspension with PASM"] },
+        { "group": "Infotainment", "items": ["BOSE Surround Sound System (14 speakers)", "Digital radio", "Wireless smartphone charging"] },
+        { "group": "Safety", "items": ["Front, side, knee and curtain airbags", "ParkAssist with Surround View", "Alarm with interior monitoring"] },
+        { "group": "Exterior", "items": ["Matrix LED headlights", "3D taillight strip", "19-inch wheels"] },
+        { "group": "Interior", "items": ["Heated sports steering wheel", "Four seats standard, 4+1 optional"] },
+        { "group": "Performance", "items": ["2.9 l twin-turbo V6", "8-speed PDK", "Rear-wheel drive"] }
+      ],
+      "highlights": [
+        "2.9 l twin-turbo V6 with 260 kW and 500 Nm",
+        "Rear-wheel drive with 8-speed PDK",
+        "Adaptive air suspension with PASM standard",
+        "494 l boot up to the rear seat top edge",
+        "Four seats standard; 4+1 layout optional"
+      ],
+      "variants": [
+        { "name": "Panamera", "fuel": "Petrol", "transmission": "DCT", "transmissionDetail": "8-speed PDK", "price": 17912000, "efficiency": null, "features": ["2.9 l twin-turbo V6, 260 kW / 500 Nm", "Rear-wheel drive", "0–100 km/h in 5.3 s (5.1 s with Sport Chrono)", "272 km/h top speed", "Adaptive air suspension with PASM", "Matrix LED headlights", "BOSE Surround Sound System", "Four-zone climate control"] }
+      ],
+      "sources": [
+        "https://www.porsche.com/middle-east/_india_/models/panamera/",
+        "https://www.porsche.com/middle-east/_india_/models/panamera/panamera-models/panamera/"
+      ],
+      "notes": "Price is Porsche India's published 'from' price incl. GST; one all-India price, used here for Delhi. Only the base Panamera (MY2027) is listed on the Indian site. Indian media list a Panamera GTS at about Rs 2.35 crore, but Porsche India has no GTS page, so it is left out; check. Airbag count not stated."
+    },
+    {
+      "slug": "porsche-macan-electric",
+      "name": "Macan Electric",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor",
+      "power": "265 – 470 kW",
+      "torque": "563 – 1130 Nm",
+      "seats": [5],
+      "airbags": null,
+      "safety": { "rating": 5, "agency": "Euro NCAP", "year": 2024 },
+      "bootSpaceL": 540,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 260,
+      "acceleration": "0–100 km/h in 3.3 s (Turbo)",
+      "dimensions": { "length": 4784, "width": 1938, "height": 1623, "wheelbase": 2893 },
+      "ev": { "rangeKm": 641, "rangeStandard": "WLTP", "batteryKwh": 100, "dcCharge": "21 min (10–80%, 270 kW)", "acCharge": "11 kW on-board (22 kW optional)", "motorKw": 470 },
+      "colors": [
+        { "name": "Frozen Blue Metallic", "hex": "#8FB3CF" },
+        { "name": "Provence", "hex": "#9C8FB8" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["8-way electric comfort front seats", "Four-zone climate control with heat pump", "Panoramic roof", "Porsche Entry (UWB keyless, hands-free frunk and tailgate)", "18-way adaptive sports seats (Turbo)"] },
+        { "group": "Infotainment", "items": ["12.6-inch instrument cluster and 10.9-inch central display", "Apple CarPlay and Android Auto", "Sound Package Plus (10 speakers)", "Bose Surround Sound System (Turbo)", "Augmented Reality Head-Up Display (Turbo)"] },
+        { "group": "Safety", "items": ["ParkAssist with reversing camera (Surround View on 4S and Turbo)", "Driver Awareness Detection", "Warn and Brake Assist", "Lane Change Assist (4S)"] },
+        { "group": "Exterior", "items": ["20-inch alloy wheels", "LED headlights (Matrix LED on Turbo)", "Porsche Active Aerodynamics"] },
+        { "group": "Interior", "items": ["Leather multifunction steering wheel with drive-mode switch", "40:20:40 split-folding rear bench", "84 l front luggage compartment"] },
+        { "group": "Performance", "items": ["Performance Battery Plus, 100 kWh gross", "Rear-wheel drive (Macan Electric) or all-wheel drive (4S, Turbo)", "Adaptive air suspension with PASM (Turbo)", "Porsche Torque Vectoring Plus (Turbo)", "800-volt architecture with up to 270 kW DC charging"] }
+      ],
+      "highlights": [
+        "All-electric SUV on a 100 kWh (gross) battery",
+        "Claimed WLTP range up to 641 km for the rear-wheel-drive Macan Electric",
+        "10–80% DC charge in 21 minutes at up to 270 kW",
+        "Macan Turbo Electric produces up to 470 kW with Launch Control",
+        "Five-star Euro NCAP rating (2024)"
+      ],
+      "variants": [
+        { "name": "Macan Electric", "fuel": "Electric", "transmission": "Automatic", "transmissionDetail": "Single-speed", "price": 12162000, "efficiency": "547 – 641 km (WLTP)", "features": ["Rear motor, 265 kW / 563 Nm with Launch Control", "Rear-wheel drive", "0–100 km/h in 5.7 s", "220 km/h top speed", "20-inch alloy wheels", "Panoramic roof", "Sound Package Plus"] },
+        { "name": "Macan 4S Electric", "fuel": "Electric", "transmission": "Automatic", "transmissionDetail": "Single-speed", "price": 16304000, "efficiency": "523 – 611 km (WLTP)", "features": ["Dual motors, 380 kW / 820 Nm with Launch Control", "All-wheel drive", "0–100 km/h in 4.1 s", "240 km/h top speed", "20-inch Macan S wheels", "ParkAssist with Surround View", "Lane Change Assist", "Porsche Electric Sport Sound"] },
+        { "name": "Macan Turbo Electric", "fuel": "Electric", "transmission": "Automatic", "transmissionDetail": "Single-speed", "price": 17774000, "efficiency": "527 – 589 km (WLTP)", "features": ["Dual motors, 470 kW / 1130 Nm with Launch Control", "0–100 km/h in 3.3 s", "260 km/h top speed", "20-inch Macan Turbo wheels", "Matrix LED headlights", "18-way adaptive sports seats", "Bose Surround Sound System", "Augmented Reality Head-Up Display", "Porsche Torque Vectoring Plus", "Adaptive air suspension with PASM"] }
+      ],
+      "sources": [
+        "https://www.porsche.com/middle-east/_india_/models/macan/",
+        "https://www.porsche.com/middle-east/_india_/models/macan/macan-electric-models/macan-electric/",
+        "https://www.porsche.com/middle-east/_india_/models/macan/macan-electric-models/macan-4s-electric/",
+        "https://www.porsche.com/middle-east/_india_/models/macan/macan-electric-models/macan-turbo-electric/",
+        "https://www.porsche.com/international/models/macan/macan-electric-models/macan-electric/",
+        "https://newsroom.porsche.com/en/2024/products/porsche-macan-test-ncap-five-stars-38176.html"
+      ],
+      "notes": "Prices are Porsche India's published 'from' prices incl. GST; one all-India price, used here for Delhi. The Indian pages list WLTP range as 'TBA', so ranges come from Porsche's international page. Boot is the rear compartment of the base car (84 l front; 518 l on 4S, 480 l on Turbo). Euro NCAP tested the Macan 4 Electric. The petrol Macan is listed at Rs 91,09,000 but marked 'currently unavailable for order', so it is not included."
+    },
+    {
+      "slug": "porsche-cayenne",
+      "name": "Cayenne",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2995 – 3996 cc",
+      "power": "260 – 368 kW",
+      "torque": "500 – 660 Nm",
+      "seats": [5],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 772,
+      "groundClearanceMm": null,
+      "fuelTankL": 75,
+      "topSpeedKmh": 275,
+      "acceleration": "0–100 km/h in 4.7 s (GTS)",
+      "dimensions": { "length": 4930, "width": 1983, "height": 1679, "wheelbase": 2895 },
+      "ev": null,
+      "colors": [
+        { "name": "Montego Blue Metallic", "hex": "#2E4A6B" },
+        { "name": "Chromite Black Metallic", "hex": "#1E1F21" },
+        { "name": "Dolomite Silver Metallic", "hex": "#A9ABA8" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["8-way electric comfort front seats", "14-way comfort seats with memory (Black Edition)", "Four-zone automatic climate control", "Keyless drive", "Adaptive air suspension with PASM"] },
+        { "group": "Infotainment", "items": ["Porsche Communication Management", "12.6-inch curved instrument display", "Sound Package Plus", "BOSE Surround Sound System (Black Edition)"] },
+        { "group": "Safety", "items": ["Driver, passenger, knee, front side, curtain and rear side airbags", "Warn and Brake Assist with pedestrian protection", "Front and rear ParkAssist"] },
+        { "group": "Exterior", "items": ["Matrix LED headlights (HD-Matrix on Black Edition)", "20-inch Cayenne Design wheels", "21-inch RS Spyder Design wheels (Black Edition, GTS)", "SportDesign package with high-gloss black accents (GTS)", "Panoramic roof (Black Edition)"] },
+        { "group": "Interior", "items": ["GTS sports seats with Race-Tex centres (GTS)", "Heated GT sports steering wheel (Black Edition)", "Illuminated door sill guards (Black Edition)"] },
+        { "group": "Performance", "items": ["8-speed Tiptronic S automatic", "Porsche Traction Management all-wheel drive", "Sports exhaust with Dark Bronze tailpipes (GTS, Black Edition)", "10 mm lower GTS air suspension tuning (GTS)"] }
+      ],
+      "highlights": [
+        "3.0 l turbo V6 (260 kW) or 4.0 l twin-turbo V8 in the GTS (368 kW)",
+        "All-wheel drive with 8-speed Tiptronic S automatic",
+        "Adaptive air suspension with PASM standard",
+        "772 l boot up to the rear seat top edge",
+        "Black Edition adds HD-Matrix LED headlights, panoramic roof and BOSE audio"
+      ],
+      "variants": [
+        { "name": "Cayenne", "fuel": "Petrol", "transmission": "Automatic", "transmissionDetail": "8-speed Tiptronic S", "price": 15118000, "efficiency": null, "features": ["3.0 l turbo V6, 260 kW / 500 Nm", "0–100 km/h in 6.0 s", "248 km/h top speed", "20-inch Cayenne Design wheels", "Matrix LED headlights", "Four-zone climate control", "Sound Package Plus"] },
+        { "name": "Cayenne Black Edition", "fuel": "Petrol", "transmission": "Automatic", "transmissionDetail": "8-speed Tiptronic S", "price": 18303000, "efficiency": null, "features": ["3.0 l turbo V6, 260 kW / 500 Nm", "21-inch RS Spyder Design wheels in high-gloss black", "HD-Matrix LED headlights", "Panoramic Roof System", "14-way comfort seats with memory", "BOSE Surround Sound System", "Heated GT sports steering wheel", "Dark Bronze sports tailpipes"] },
+        { "name": "Cayenne GTS", "fuel": "Petrol", "transmission": "Automatic", "transmissionDetail": "8-speed Tiptronic S", "price": 21126000, "efficiency": null, "features": ["4.0 l twin-turbo V8, 368 kW / 660 Nm", "0–100 km/h in 4.7 s", "275 km/h top speed", "90 l fuel tank", "21-inch RS Spyder Design wheels in Anthracite Grey", "Tinted HD-Matrix LED headlights", "GTS sports seats with Race-Tex centres", "Red brake calipers"] }
+      ],
+      "sources": [
+        "https://www.porsche.com/middle-east/_india_/models/cayenne/",
+        "https://www.porsche.com/middle-east/_india_/models/cayenne/cayenne-models/cayenne/",
+        "https://www.porsche.com/middle-east/_india_/models/cayenne/cayenne-models/cayenne-gts/",
+        "https://www.porsche.com/middle-east/_india_/models/cayenne/cayenne-black-edition/"
+      ],
+      "notes": "Prices are Porsche India's published 'from' prices incl. GST; one all-India price, used here for Delhi. Fuel tank is 75 l on the V6 and 90 l on the GTS. Cayenne E-Hybrid and S appear only in image captions with no price, so they are not included. Airbag types are listed but no total."
+    },
+    {
+      "slug": "porsche-cayenne-coupe",
+      "name": "Cayenne Coupé",
+      "bodyType": "SUV",
+      "bodyStyle": "Coupé SUV",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2995 – 3996 cc",
+      "power": "260 – 368 kW",
+      "torque": "500 – 660 Nm",
+      "seats": [4],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 592,
+      "groundClearanceMm": null,
+      "fuelTankL": 75,
+      "topSpeedKmh": 275,
+      "acceleration": "0–100 km/h in 4.4 s (GTS Coupé)",
+      "dimensions": { "length": 4930, "width": 1983, "height": 1659, "wheelbase": 2895 },
+      "ev": null,
+      "colors": [
+        { "name": "Arctic Grey", "hex": "#B9BCBC" },
+        { "name": "Carrara White Metallic", "hex": "#EEEDE8" },
+        { "name": "Algarve Blue", "hex": "#2F6FA8" },
+        { "name": "Chromite Black Metallic", "hex": "#1E1F21" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["8-way electric front sports seats", "Four-zone automatic climate control", "Fixed panoramic roof", "Adaptive air suspension with PASM"] },
+        { "group": "Infotainment", "items": ["12.3-inch PCM touchscreen", "Sound Package Plus", "BOSE Surround Sound System (Black Edition)"] },
+        { "group": "Safety", "items": ["Warn and Brake Assist with pedestrian protection", "ParkAssist"] },
+        { "group": "Exterior", "items": ["Matrix LED headlights", "20-inch Cayenne Design wheels", "Brushed stainless steel exhaust", "21-inch RS Spyder Design wheels in high-gloss black (Black Edition)"] },
+        { "group": "Interior", "items": ["Sports rear seat system with two seats", "Leather interior with black brushed aluminium package (Black Edition)"] },
+        { "group": "Performance", "items": ["8-speed Tiptronic S automatic", "Porsche Traction Management all-wheel drive", "4.0 l twin-turbo V8 (GTS Coupé)"] }
+      ],
+      "highlights": [
+        "Coupé-roofed Cayenne with a fixed panoramic roof",
+        "3.0 l turbo V6 (260 kW) or 4.0 l twin-turbo V8 in the GTS Coupé (368 kW)",
+        "All-wheel drive with 8-speed Tiptronic S automatic",
+        "592 l boot up to the rear seat top edge",
+        "Black Edition offered alongside the standard car"
+      ],
+      "variants": [
+        { "name": "Cayenne Coupé", "fuel": "Petrol", "transmission": "Automatic", "transmissionDetail": "8-speed Tiptronic S", "price": 15737000, "efficiency": null, "features": ["3.0 l turbo V6, 260 kW / 500 Nm", "0–100 km/h in 5.7 s with Sport Chrono", "248 km/h top speed", "Fixed panoramic roof", "Matrix LED headlights", "20-inch Cayenne Design wheels"] },
+        { "name": "Cayenne Coupé Black Edition", "fuel": "Petrol", "transmission": "Automatic", "transmissionDetail": "8-speed Tiptronic S", "price": 18995000, "efficiency": null, "features": ["3.0 l turbo V6, 260 kW / 500 Nm", "Black high-gloss exterior accents", "21-inch RS Spyder Design wheels in high-gloss black", "HD-Matrix LED headlights", "BOSE Surround Sound System", "14-way comfort seats with memory"] },
+        { "name": "Cayenne GTS Coupé", "fuel": "Petrol", "transmission": "Automatic", "transmissionDetail": "8-speed Tiptronic S", "price": 21261000, "efficiency": null, "features": ["4.0 l twin-turbo V8, 368 kW", "0–100 km/h in 4.4 s with Sport Chrono", "275 km/h top speed", "GTS sports seats", "SportDesign package", "Sports exhaust"] }
+      ],
+      "sources": [
+        "https://www.porsche.com/middle-east/_india_/models/cayenne/",
+        "https://www.porsche.com/middle-east/_india_/models/cayenne/cayenne-coupe-models/cayenne-coupe/",
+        "https://www.porsche.com/middle-east/_india_/models/cayenne/cayenne-coupe-models/cayenne-coupe-gts/",
+        "https://www.porsche.com/middle-east/_india_/models/cayenne/cayenne-black-edition/"
+      ],
+      "notes": "Prices are Porsche India's published 'from' prices incl. GST, as shown on the Cayenne range page; one all-India price, used here for Delhi. Fuel tank is 75 l on the V6 (90 l GTS per the GTS SUV page). Seats: the page describes a two-seat sports rear seat system; a three-seat bench may be an option, check. GTS Coupé equipment summarised from the range page."
+    },
+    {
+      "slug": "porsche-cayenne-electric",
+      "name": "Cayenne Electric",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor",
+      "power": "325 – 850 kW",
+      "torque": "835 – 1500 Nm",
+      "seats": [5],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 781,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 260,
+      "acceleration": "0–100 km/h in 2.5 s (Turbo)",
+      "dimensions": { "length": 4985, "width": 1980, "height": 1674, "wheelbase": 3023 },
+      "ev": { "rangeKm": 641, "rangeStandard": "WLTP", "batteryKwh": 113, "dcCharge": "16 min (10–80%, 390 kW)", "acCharge": "11 kW on-board (22 kW optional)", "motorKw": 850 },
+      "colors": [
+        { "name": "Vanadium Grey Metallic", "hex": "#5C6266" },
+        { "name": "Mystic Green Metallic", "hex": "#3D4A42" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["8-way electric front comfort seats", "18-way adaptive sports seats (Turbo)", "Electric 2+1 rear seats", "Four-zone climate control", "Comfort Access (UWB)", "Adaptive air suspension with PASM"] },
+        { "group": "Infotainment", "items": ["Navigation High", "Sound Package Plus (10 speakers, 150 W)", "Bose Surround Sound System, 14 speakers, 710 W (Turbo)", "Wireless smartphone charging up to 25 W"] },
+        { "group": "Safety", "items": ["Park Assist with 2D Surround View", "Warn and Brake Assist (Turbo)"] },
+        { "group": "Exterior", "items": ["20-inch Aero wheels (21-inch Cayenne Turbo Aero on Turbo)", "Matrix LED headlights (HD-Matrix on Turbo)", "Panoramic sunroof (sliding on Turbo)"] },
+        { "group": "Interior", "items": ["Heated leather steering wheel (GT Sports on Turbo)", "90 l front luggage compartment"] },
+        { "group": "Performance", "items": ["Dual-motor all-wheel drive", "113 kWh (gross) battery", "Up to 390 kW DC charging", "Porsche Torque Vectoring Plus (Turbo)", "Sport Chrono Package with Push-to-Pass (Turbo)", "Plug & Charge (Turbo)"] }
+      ],
+      "highlights": [
+        "All-electric Cayenne with a 113 kWh (gross) battery and dual motors",
+        "Claimed WLTP range up to 641 km (Cayenne Electric)",
+        "10–80% DC charge in 16 minutes at up to 390 kW",
+        "Cayenne Turbo Electric produces up to 850 kW with Launch Control",
+        "781 l rear boot plus 90 l front compartment"
+      ],
+      "variants": [
+        { "name": "Cayenne Electric", "fuel": "Electric", "transmission": "Automatic", "transmissionDetail": "Single-speed", "price": 17727000, "efficiency": "568 – 641 km (WLTP)", "features": ["Dual motors, 325 kW / 835 Nm with Launch Control", "0–100 km/h in 4.8 s", "230 km/h top speed", "20-inch Aero wheels", "Matrix LED headlights", "Panoramic sunroof", "Park Assist with 2D Surround View"] },
+        { "name": "Cayenne Turbo Electric", "fuel": "Electric", "transmission": "Automatic", "transmissionDetail": "Single-speed", "price": 22751000, "efficiency": null, "features": ["Dual motors, 850 kW / 1500 Nm with Launch Control (630 kW nominal)", "0–100 km/h in 2.5 s", "260 km/h top speed", "21-inch Cayenne Turbo Aero wheels", "HD-Matrix LED headlights", "18-way adaptive sports seats", "Bose Surround Sound System", "Porsche Torque Vectoring Plus", "Sport Chrono Package with Push-to-Pass", "Sliding panoramic roof"] }
+      ],
+      "sources": [
+        "https://www.porsche.com/middle-east/_india_/models/cayenne/",
+        "https://www.porsche.com/middle-east/_india_/models/cayenne/cayenne-electric-models/cayenne-electric/",
+        "https://www.porsche.com/middle-east/_india_/models/cayenne/cayenne-electric-models/cayenne-turbo-electric/",
+        "https://www.porsche.com/international/models/cayenne/cayenne-electric-models/cayenne-electric/"
+      ],
+      "notes": "Prices are Porsche India's published 'from' prices incl. GST; one all-India price, used here for Delhi. The Indian pages list WLTP range as 'TBA'; the Cayenne Electric range is from Porsche's international page. No range is published for the Turbo Electric, so its efficiency is null. Boot is the base car's rear figure (747 l on Turbo). No crash-test result yet."
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import { and, asc, count, eq, inArray } from "drizzle-orm";
 import { getDb } from "@/db";
 import { customerNotifications, customerVehicles } from "@/db/schema";
 import { getCatalog } from "@/server/catalog";
+import type { BodyType } from "@/types";
 import { todayISO } from "@/server/validation";
 import { notifyCustomer } from "@/server/customer/notify";
 import { formatDate } from "@/lib/format";
@@ -129,13 +130,16 @@ function reminderBody(r: GarageReminder) {
   }
 }
 
-/** The catalogue photo for a garage car (when its model is in the catalogue). */
-export async function garageImages(cars: Pick<GarageVehicle, "id" | "model">[]): Promise<Record<number, { src: string; focus?: string } | null>> {
+/**
+ * The catalogue photo for a garage car (when its model is in the catalogue). A catalogue model without photos
+ * yet gets `src: ""` and its body type, so the card can show the body-type placeholder.
+ */
+export async function garageImages(cars: Pick<GarageVehicle, "id" | "model">[]): Promise<Record<number, { src: string; focus?: string; bodyType?: BodyType } | null>> {
   const { getCar } = await getCatalog();
-  const out: Record<number, { src: string; focus?: string } | null> = {};
+  const out: Record<number, { src: string; focus?: string; bodyType?: BodyType } | null> = {};
   for (const c of cars) {
     const car = c.model ? getCar(c.model) : undefined;
-    out[c.id] = car?.images[0] ? { src: car.images[0], focus: car.focus } : null;
+    out[c.id] = car?.images[0] ? { src: car.images[0], focus: car.focus } : car ? { src: "", bodyType: car.bodyType } : null;
   }
   return out;
 }

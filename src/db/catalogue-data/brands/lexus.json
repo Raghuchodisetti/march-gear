@@ -1,0 +1,343 @@
+{
+  "brand": {
+    "slug": "lexus",
+    "name": "Lexus",
+    "country": "Japan",
+    "founded": 1989,
+    "tagline": "Toyota's luxury brand, in India since 2017",
+    "description": "Japanese luxury car brand launched by Toyota in 1989. Lexus entered India in 2017 and is run by Toyota Kirloskar Motor; its hybrid, diesel and electric models are imported.",
+    "isLuxury": true,
+    "website": "https://www.lexusindia.co.in/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "lexus-es",
+      "name": "ES 350h",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2487 cc",
+      "power": "139 kW (engine) + 119.1 kW (motor)",
+      "torque": "237 Nm (engine)",
+      "seats": [5],
+      "airbags": 8,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": { "length": 5145, "width": 1920, "height": 1575, "wheelbase": 2950 },
+      "ev": null,
+      "colors": [
+        { "name": "White Nova", "hex": "#F1F1EE" },
+        { "name": "Graphite Black", "hex": "#1E1F22" },
+        { "name": "Sonic Chrome", "hex": "#8C8F92" },
+        { "name": "Sonic Copper", "hex": "#A2633E" },
+        { "name": "Sonic Titanium", "hex": "#A8A8A3" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Auto 2-zone air conditioner", "Tilt and slide sunroof", "Power back door", "Heated and ventilated front seats (Luxury)", "Climate Concierge (Luxury)", "nanoeX ion generator (Luxury)"] },
+        { "group": "Infotainment", "items": ["14-inch Full HD infotainment screen", "12.3-inch uniquely shaped LCD meter (TAZUNA cockpit)", "Android Auto and Apple CarPlay", "Connected technology (DCM)", "17-speaker Mark Levinson audio (Luxury)", "Responsive Hidden Switch panel"] },
+        { "group": "Safety", "items": ["8 SRS airbags", "Lexus Safety System+ 4.0 (PCS, DRCC, LTA, LDA, AHB)", "Blind Spot Monitor", "ISOFIX anchors", "Driver Monitor (Luxury)", "Panoramic View Monitor (Luxury)"] },
+        { "group": "Exterior", "items": ["Slim twin L-signature LED headlamps", "Integrated illuminating rear logo", "19-inch Aero wheels", "Semi-flush door handles"] },
+        { "group": "Interior", "items": ["Synthetic leather seats", "Rear seat trunk through", "Ambient lighting (static; static and dynamic on Luxury)"] },
+        { "group": "Performance", "items": ["2.5 l 4-cylinder hybrid", "e-CVT", "Front-wheel drive", "3 drive modes plus Custom"] }
+      ],
+      "highlights": [
+        "New-generation ES with a 2.5 l self-charging hybrid powertrain",
+        "Ground clearance raised by 20 mm for India",
+        "8 airbags and Lexus Safety System+ 4.0 on both grades",
+        "Luxury grade adds 17-speaker Mark Levinson audio and Head-Up Display",
+        "Offered in Exquisite and Luxury grades"
+      ],
+      "variants": [
+        { "name": "ES 350h Exquisite", "fuel": "Hybrid", "transmission": "CVT", "transmissionDetail": "e-CVT", "price": 6610000, "efficiency": null, "features": ["10-speaker Lexus Audio", "19-inch Aero wheels", "Synthetic leather seats", "2-way driver lumbar support", "12.3-inch LCD meter and 14-inch infotainment screen", "8 airbags", "Lexus Safety System+ 4.0"] },
+        { "name": "ES 350h Luxury", "fuel": "Hybrid", "transmission": "CVT", "transmissionDetail": "e-CVT", "price": 7180000, "efficiency": null, "features": ["17-speaker Mark Levinson audio", "Heated and ventilated front seats", "Head-Up Display", "Panoramic View Monitor", "Front wireless charger", "Heated steering wheel", "Climate Concierge", "Driver Monitor", "Memory door mirrors", "Electronic inner rear-view mirror"] }
+      ],
+      "sources": [
+        "https://www.lexusindia.co.in/price-and-model-tools/price-list/",
+        "https://www.lexusindia.co.in/models/es-350h/",
+        "https://www.lexusindia.co.in/wp-content/uploads/2026/08/ES-350h-Brochure-Aug-26.pdf"
+      ],
+      "notes": "Prices are Lexus India's published 'From' prices; one all-India price, used here for Delhi. The brochure gives engine and motor outputs separately and no system output. No ARAI figure, top speed, 0–100 time, boot, tank or ground clearance published (the page says ground clearance is 20 mm higher than global spec). The electric ES 500e is listed as its own model."
+    },
+    {
+      "slug": "lexus-es-500e",
+      "name": "ES 500e",
+      "bodyType": "Sedan",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor",
+      "power": "252 kW",
+      "torque": "438 Nm",
+      "seats": [5],
+      "airbags": 8,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": "0–100 km/h in 5.5 s",
+      "dimensions": { "length": 5145, "width": 1920, "height": 1575, "wheelbase": 2950 },
+      "ev": { "rangeKm": 580, "rangeStandard": null, "batteryKwh": 74.68, "dcCharge": "28 min (10–80%, 150 kW)", "acCharge": null, "motorKw": 252 },
+      "colors": [
+        { "name": "White Nova", "hex": "#F1F1EE" },
+        { "name": "Graphite Black", "hex": "#1E1F22" },
+        { "name": "Sonic Copper", "hex": "#A2633E" },
+        { "name": "Sonic Titanium", "hex": "#A8A8A3" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Heated and ventilated front seats", "Auto 2-zone air conditioner", "Tilt and slide sunroof", "Sunshades for rear doors", "Auto and easy door closure", "Power back door"] },
+        { "group": "Infotainment", "items": ["14-inch Full HD infotainment screen", "12.3-inch LCD meter", "17-speaker Mark Levinson audio", "Two wireless chargers", "Android Auto and Apple CarPlay", "Head-Up Display"] },
+        { "group": "Safety", "items": ["8 SRS airbags", "Auto Emergency Brake", "Dynamic Radar Cruise Control", "Lane Tracing Assist", "Adaptive High Beam System", "Panoramic View Monitor"] },
+        { "group": "Exterior", "items": ["Slim twin L-signature LED headlamps", "Cornering lamps", "21-inch Aero wheels", "Integrated illuminating rear logo"] },
+        { "group": "Interior", "items": ["Semi-aniline leather seats", "Ambient lights and surface illuminating trims", "Rear seat trunk through"] },
+        { "group": "Performance", "items": ["Dual-motor all-wheel drive", "74.68 kWh lithium-ion battery", "Adaptive Variable Suspension", "Pitch and Bounce Control"] }
+      ],
+      "highlights": [
+        "All-electric ES with dual-motor all-wheel drive",
+        "74.68 kWh battery with a claimed 580 km range",
+        "10–80% charge in 28 minutes on a 150 kW DC charger",
+        "252 kW and 438 Nm system output; 0–100 km/h in 5.5 s",
+        "8 airbags and 17-speaker Mark Levinson audio"
+      ],
+      "variants": [
+        { "name": "ES 500e Luxury", "fuel": "Electric", "transmission": "Automatic", "transmissionDetail": null, "price": 9120000, "efficiency": "580 km", "features": ["Dual motors, 252 kW / 438 Nm", "All-wheel drive", "21-inch Aero wheels", "Semi-aniline leather seats", "17-speaker Mark Levinson audio", "Head-Up Display", "Adaptive Variable Suspension", "Panoramic View Monitor"] }
+      ],
+      "sources": [
+        "https://www.lexusindia.co.in/price-and-model-tools/price-list/",
+        "https://www.lexusindia.co.in/models/es-500e/",
+        "https://www.lexusindia.co.in/wp-content/uploads/2026/04/Brochure_02_Low_res.pdf"
+      ],
+      "notes": "Price is Lexus India's published 'From' price; one all-India price, used here for Delhi. Lexus India gives the 580 km range without naming the test standard, so rangeStandard is null. AC charging rate, top speed and boot not published."
+    },
+    {
+      "slug": "lexus-nx",
+      "name": "NX 350h",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2487 cc",
+      "power": "176 kW (system)",
+      "torque": "238 Nm (engine)",
+      "seats": [5],
+      "airbags": 8,
+      "safety": { "rating": 5, "agency": "Euro NCAP", "year": 2022 },
+      "bootSpaceL": 520,
+      "groundClearanceMm": null,
+      "fuelTankL": 55,
+      "topSpeedKmh": 200,
+      "acceleration": "0–100 km/h in 7.7 s",
+      "dimensions": { "length": 4660, "width": 1865, "height": 1670, "wheelbase": 2690 },
+      "ev": null,
+      "colors": [
+        { "name": "Radiant Red", "hex": "#9E1B22" },
+        { "name": "Sonic Chrome", "hex": "#8C8F92" },
+        { "name": "Sonic Titanium", "hex": "#A8A8A3" },
+        { "name": "White Nova Glass Flake", "hex": "#F1F1EE" },
+        { "name": "Graphite Black Glass Flake", "hex": "#1E1F22" },
+        { "name": "Moon Desert", "hex": "#B9A98C" },
+        { "name": "Heat Blue Contrast Layering", "hex": "#1F5FA8" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Power front seats, 8-way with driver memory", "Ventilated front seats", "Auto climate control with nanoe-X", "Panoramic sliding roof", "Power back door (kick sensor except Exquisite)", "E-latch door handles"] },
+        { "group": "Infotainment", "items": ["14-inch (35.56 cm) touchscreen", "Lexus navigation", "Apple CarPlay and Android Auto", "Colour head-up display", "17-speaker Mark Levinson audio (all but Exquisite)", "Wireless charger (all but Exquisite)"] },
+        { "group": "Safety", "items": ["8 SRS airbags", "Lexus Safety System+ 3 (PCS, DRCC, LTA, AHB)", "Blind Spot Monitor", "Rear Cross Traffic Alert", "Panoramic View Monitor (all but Exquisite)"] },
+        { "group": "Exterior", "items": ["3-eye Bi-Beam LED headlamps with auto levelling", "Headlamp cleaners", "End-to-end LED light bar", "Cornering lamps", "Extended Mobility Tyres"] },
+        { "group": "Interior", "items": ["Leather seats (synthetic leather on Overtrail)", "60:40 power-folding rear seat", "64-colour ambient illumination", "Wood or aluminium door trim ornament"] },
+        { "group": "Performance", "items": ["2.5 l hybrid with front and rear motors (E-Four AWD)", "e-CVT", "EV mode", "Sport S / S+ modes (Overtrail, F SPORT)", "F SPORT performance dampers (F SPORT)"] }
+      ],
+      "highlights": [
+        "2.5 l self-charging hybrid with E-Four all-wheel drive",
+        "Claimed fuel economy of 20.26 kmpl",
+        "176 kW system output; 0–100 km/h in 7.7 s",
+        "8 airbags on all grades",
+        "Offered in Exquisite, Overtrail, Luxury and F SPORT grades"
+      ],
+      "variants": [
+        { "name": "NX 350h Exquisite", "fuel": "Hybrid", "transmission": "CVT", "transmissionDetail": "e-CVT", "price": 6793000, "efficiency": "20.26 kmpl", "features": ["20-inch wheels", "Leather seats", "10-speaker Lexus Premium Audio", "Panoramic sliding roof", "Power back door", "Eco / Normal / Sport drive modes", "Wood door trim ornament"] },
+        { "name": "NX 350h Overtrail", "fuel": "Hybrid", "transmission": "CVT", "transmissionDetail": "e-CVT", "price": 7179000, "efficiency": "20.26 kmpl", "features": ["18-inch matte black wheels with 235/60 R18 tyres", "Synthetic leather Overtrail upholstery", "Bright black machined bumpers and grille", "Black roof rails", "17-speaker Mark Levinson audio", "Panoramic View Monitor", "Kick-sensor power back door", "Sport S / Sport S+ modes", "Moon Desert paint exclusive to this grade"] },
+        { "name": "NX 350h Luxury", "fuel": "Hybrid", "transmission": "CVT", "transmissionDetail": "e-CVT", "price": 7270000, "efficiency": "20.26 kmpl", "features": ["20-inch wheels", "Leather seats with 4-way power lumbar", "17-speaker Mark Levinson audio", "Panoramic View Monitor", "Kick-sensor power back door", "Heated steering wheel", "Wireless charger"] },
+        { "name": "NX 350h F SPORT", "fuel": "Hybrid", "transmission": "CVT", "transmissionDetail": "e-CVT", "price": 7488000, "efficiency": "20.26 kmpl", "features": ["20-inch black wheels", "F SPORT bumpers, grille and fender emblems", "F SPORT front seats", "F SPORT performance dampers", "Heated sports steering wheel", "Aluminium door trim ornament", "17-speaker Mark Levinson audio", "Sport S / Sport S+ modes", "Heat Blue Contrast Layering paint exclusive to this grade"] }
+      ],
+      "sources": [
+        "https://www.lexusindia.co.in/price-and-model-tools/price-list/",
+        "https://www.lexusindia.co.in/models/nx-350h/",
+        "https://www.lexusindia.co.in/wp-content/uploads/2026/09/NX-350h-Brochure_2026_LR.pdf",
+        "https://www.euroncap.com/press-media/euro-ncap-twenty-five-years-on-new-polo-taigo-megane-and-nx-earn-highest-accolades/"
+      ],
+      "notes": "Prices are Lexus India's published 'From' prices; one all-India price, used here for Delhi. Engine output is 137 kW / 238 Nm; front motor 134 kW / 270 Nm, rear 40 kW / 121 Nm. The Euro NCAP result was published in March 2022. Ground clearance not published."
+    },
+    {
+      "slug": "lexus-rx",
+      "name": "RX",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2393 – 2487 cc",
+      "power": "181 – 273 kW (system)",
+      "torque": "238 – 460 Nm (engine)",
+      "seats": [5],
+      "airbags": 8,
+      "safety": { "rating": 5, "agency": "Euro NCAP", "year": 2022 },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 65,
+      "topSpeedKmh": 210,
+      "acceleration": "0–100 km/h in 6.2 s (RX 500h)",
+      "dimensions": { "length": 4890, "width": 1920, "height": 1695, "wheelbase": 2850 },
+      "ev": null,
+      "colors": [
+        { "name": "Sonic Quartz", "hex": "#EDEDEA" },
+        { "name": "Sonic Chrome", "hex": "#8C8F92" },
+        { "name": "Sonic Iridium", "hex": "#7D8084" },
+        { "name": "Graphite Black", "hex": "#1E1F22" },
+        { "name": "Red Mica Crystal Shine", "hex": "#8E1620" },
+        { "name": "New Sonic Copper", "hex": "#A2633E" },
+        { "name": "Deep Blue Mica", "hex": "#1E2E6B" },
+        { "name": "Sonic Titanium", "hex": "#A8A8A3" },
+        { "name": "Heat Blue Contrast Layering", "hex": "#1F5FA8" },
+        { "name": "White Nova Glass Flake", "hex": "#F1F1EE" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Heated front and rear seats", "Ventilated front and outboard rear seats", "Power reclining and folding rear seats", "3-zone automatic climate control", "Lexus Climate Concierge", "Panoramic roof with power sunshade"] },
+        { "group": "Infotainment", "items": ["14-inch touch display", "Head-up display", "Wireless Apple CarPlay, wired Android Auto", "Wireless charger", "21-speaker Mark Levinson Surround Sound (RX 350h option, RX 500h)"] },
+        { "group": "Safety", "items": ["8 SRS airbags", "Lexus Safety System+ 3", "Adaptive High-beam System", "Blind Spot Monitor and Safe Exit Assist", "Panoramic View Monitor", "Tyre pressure warning system"] },
+        { "group": "Exterior", "items": ["3-projector Bi-Beam LED headlamps", "LED front and rear fog lamps", "Headlamp cleaners", "e-Latch door handles", "21-inch aluminium wheels"] },
+        { "group": "Interior", "items": ["Semi-aniline upholstery (RX 350h)", "F SPORT seats, steering wheel and scuff plates (RX 500h)", "Multi-colour ambient illumination", "TAZUNA cockpit"] },
+        { "group": "Performance", "items": ["E-Four AWD (RX 350h)", "DIRECT4 AWD with 6-speed automatic (RX 500h)", "Dynamic Rear Wheel Steering (RX 500h)", "eAxle rear motor (RX 500h)"] }
+      ],
+      "highlights": [
+        "RX 350h: 2.5 l self-charging hybrid with 181 kW system output and E-Four AWD",
+        "RX 500h F SPORT+: 2.4 l turbo hybrid with 273 kW, DIRECT4 AWD and rear-wheel steering",
+        "8 airbags and Lexus Safety System+ 3",
+        "Separately priced RX 350h Exquisite with 21-speaker Mark Levinson audio",
+        "Five-star Euro NCAP rating (2022)"
+      ],
+      "variants": [
+        { "name": "RX 350h Exquisite", "fuel": "Hybrid", "transmission": "CVT", "transmissionDetail": null, "price": 9044000, "efficiency": null, "features": ["2.5 l hybrid, 181 kW system output", "E-Four AWD", "0–100 km/h in 7.9 s", "Lexus audio", "21-inch Dark Premium Metallic wheels", "Semi-aniline upholstery", "10-way power front seats", "Heated and ventilated seats", "Head-up display", "Panoramic View Monitor"] },
+        { "name": "RX 350h Exquisite (Mark Levinson)", "fuel": "Hybrid", "transmission": "CVT", "transmissionDetail": null, "price": 9387000, "efficiency": null, "features": ["2.5 l hybrid, 181 kW system output", "21-speaker Mark Levinson Surround Sound", "E-Four AWD", "21-inch wheels", "Semi-aniline upholstery", "Panoramic roof with power sunshade"] },
+        { "name": "RX 500h F SPORT+", "fuel": "Hybrid", "transmission": "Automatic", "transmissionDetail": "6-speed Automatic", "price": 11055000, "efficiency": null, "features": ["2.4 l turbo hybrid, 273 kW system output; engine 200 kW / 460 Nm", "DIRECT4 AWD", "0–100 km/h in 6.2 s, 210 km/h top speed", "Dynamic Rear Wheel Steering", "21-inch F SPORT Performance matte black wheels", "F SPORT grille, bumpers and fender emblems", "F SPORT front seats and steering wheel", "Aluminium sport pedals"] }
+      ],
+      "sources": [
+        "https://www.lexusindia.co.in/price-and-model-tools/price-list/",
+        "https://www.lexusindia.co.in/models/rx-350h/",
+        "https://www.lexusindia.co.in/models/rx-500h/",
+        "https://www.lexusindia.co.in/wp-content/uploads/2026/09/RX-Brochure-2026_LR.pdf",
+        "https://newsroom.lexus.eu/all-new-lexus-rx-delivers-five-star-safety/"
+      ],
+      "notes": "Prices are Lexus India's published 'From' prices; one all-India price, used here for Delhi. The RX 350h Exquisite with Mark Levinson audio is priced separately at Rs 93,87,000 on the price list. Lexus India doesn't state the RX 350h gearbox; it is entered as CVT (the 2.5 l hybrid uses e-CVT on NX, ES and LM), so check. Top speed is 210 km/h (RX 500h) and 200 km/h (RX 350h). No ARAI figure, boot or ground clearance published."
+    },
+    {
+      "slug": "lexus-lx",
+      "name": "LX 500d",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "3346 cc",
+      "power": "227 kW",
+      "torque": "700 Nm",
+      "seats": [5],
+      "airbags": 10,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 80,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": { "length": 5100, "width": 1990, "height": 1895, "wheelbase": 2850 },
+      "ev": null,
+      "colors": [
+        { "name": "Sonic Titanium", "hex": "#A8A8A3" },
+        { "name": "Moon Desert", "hex": "#B9A98C" },
+        { "name": "Graphite Black", "hex": "#1E1F22" },
+        { "name": "Sonic Quartz", "hex": "#EDEDEA" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Power front seats (driver 10-way, passenger 8-way)", "Heated front and rear seats", "Ventilated front and rear seats", "Power tumble rear seats", "Moon roof"] },
+        { "group": "Infotainment", "items": ["12.3-inch touchscreen infotainment", "7-inch drive and climate touch display", "8-inch colour multi-information display", "25-speaker Mark Levinson audio"] },
+        { "group": "Safety", "items": ["10 SRS airbags", "Fingerprint authentication start", "Multi-Terrain Monitor cameras", "Blind Spot Monitor", "Electronically Controlled Brakes"] },
+        { "group": "Exterior", "items": ["3-projector Bi-Beam LED headlamps with auto levelling and cleaner", "Cornering lamps", "22-inch forged wheels (Urban)", "Gloss black grille and black trim (Overtrail)"] },
+        { "group": "Interior", "items": ["Premium leather seats", "Auto-dimming inside mirror"] },
+        { "group": "Performance", "items": ["3.3 l V6 twin-turbo diesel", "Direct Shift 10-speed automatic", "Active Height Control", "Adaptive Variable Suspension", "Front and rear differential locks (Overtrail)", "Seven drive modes"] }
+      ],
+      "highlights": [
+        "3.3 l V6 twin-turbo diesel with 227 kW and 700 Nm",
+        "10-speed automatic with Active Height Control",
+        "25-speaker Mark Levinson audio on both grades",
+        "Overtrail adds front and rear differential locks and 18-inch wheels",
+        "80 l fuel tank"
+      ],
+      "variants": [
+        { "name": "LX 500d Urban", "fuel": "Diesel", "transmission": "Automatic", "transmissionDetail": "Direct Shift-10AT", "price": 29125000, "efficiency": null, "features": ["22-inch forged aluminium wheels", "Active Height Control", "25-speaker Mark Levinson audio", "Heated and ventilated front and rear seats", "Fingerprint authentication start", "12.3-inch touchscreen"] },
+        { "name": "LX 500d Overtrail", "fuel": "Diesel", "transmission": "Automatic", "transmissionDetail": "Direct Shift-10AT", "price": 30291000, "efficiency": null, "features": ["18-inch matte gray metallic wheels", "Front and rear differential locks", "Gloss black spindle grille and black exterior trim", "Matte Mercury Gray roof rails", "Moon Desert paint exclusive to this grade", "25-speaker Mark Levinson audio"] }
+      ],
+      "sources": [
+        "https://www.lexusindia.co.in/price-and-model-tools/price-list/",
+        "https://www.lexusindia.co.in/models/lx-500d/",
+        "https://www.lexusindia.co.in/wp-content/uploads/2026/09/LX-500d-Brochure.pdf"
+      ],
+      "notes": "Prices are Lexus India's published 'From' prices; one all-India price, used here for Delhi. Airbags: the brochure spec sheet lists 10 SRS airbags, but the model page says 8; check. No ARAI figure, top speed, 0–100 time, boot or ground clearance published."
+    },
+    {
+      "slug": "lexus-lm",
+      "name": "LM 350h",
+      "bodyType": "MUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2487 cc",
+      "power": "182 kW (system)",
+      "torque": "239 Nm (engine)",
+      "seats": [4, 7],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 60,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": { "length": 5125, "width": 1890, "height": 1945, "wheelbase": 3000 },
+      "ev": null,
+      "colors": [
+        { "name": "Sonic Quartz", "hex": "#EDEDEA" },
+        { "name": "Sonic Titanium", "hex": "#A8A8A3" },
+        { "name": "Graphite Black Glass Flake", "hex": "#1E1F22" },
+        { "name": "Sonic Agate", "hex": "#6B6E70" }
+      ],
+      "features": [
+        { "group": "Comfort", "items": ["Business-class second-row seats", "Removable rear-seat controllers for recline, lighting, temperature and shades", "Window sunshades", "Active Noise Control", "Large-capacity refrigerator (4-seater)"] },
+        { "group": "Infotainment", "items": ["48-inch wide-screen rear display (4-seater)", "Mark Levinson 3D Surround Sound (21 speakers 7-seater, 23 speakers 4-seater)", "Qi wireless charging and USB Type-C at rear seats"] },
+        { "group": "Safety", "items": ["SRS front side airbags", "SRS curtain shield airbags for front, sliding door and rear quarter windows"] },
+        { "group": "Exterior", "items": ["19-inch forged aluminium wheels", "Power sliding doors"] },
+        { "group": "Interior", "items": ["7-seater: power long-slide rails", "4-seater: partition between front and rear cabins"] },
+        { "group": "Performance", "items": ["2.5 l hybrid with front and rear motors (E-Four AWD)", "CVT", "Adaptive Variable Suspension"] }
+      ],
+      "highlights": [
+        "Luxury MPV offered as a 7-seater VIP or a 4-seater Ultra Luxury",
+        "2.5 l self-charging hybrid with E-Four all-wheel drive and 182 kW system output",
+        "4-seater has a 48-inch rear display and refrigerator",
+        "Mark Levinson 3D Surround Sound with up to 23 speakers",
+        "3000 mm wheelbase"
+      ],
+      "variants": [
+        { "name": "LM 350h 7-Seater VIP", "fuel": "Hybrid", "transmission": "CVT", "transmissionDetail": "CVT", "price": 22738000, "efficiency": null, "features": ["7 seats", "21-speaker Mark Levinson 3D Surround Sound", "Power long-slide rails", "19-inch forged aluminium wheels", "E-Four AWD"] },
+        { "name": "LM 350h 4-Seater Ultra Luxury", "fuel": "Hybrid", "transmission": "CVT", "transmissionDetail": "CVT", "price": 28424000, "efficiency": null, "features": ["4 seats", "48-inch wide-screen rear display", "Large-capacity refrigerator", "23-speaker Mark Levinson 3D Surround Sound", "Cabin partition", "19-inch forged aluminium wheels"] }
+      ],
+      "sources": [
+        "https://www.lexusindia.co.in/price-and-model-tools/price-list/",
+        "https://www.lexusindia.co.in/models/lm-350h/",
+        "https://www.lexusindia.co.in/wp-content/uploads/2026/09/Lexus-LM-350h-brochure.pdf"
+      ],
+      "notes": "Prices are Lexus India's published 'From' prices; one all-India price, used here for Delhi. Engine output is 138 kW / 239 Nm; front motor 134 kW, rear 40 kW. Height is 1945 mm per the brochure drawing (the spec table rounds to 194 cm). Airbag types are listed but no total. No ARAI figure, top speed or 0–100 time published."
+    }
+  ]
+}

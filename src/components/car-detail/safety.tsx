@@ -71,20 +71,27 @@ export function CarSafety({ car }: { car: CarModel }) {
             <>
               <p className="type-h1 mt-5">Not yet rated</p>
               <p className="mt-4 max-w-sm text-[14px] text-muted">
-                The {car.name} has not been crash-tested by an independent NCAP programme. Its safety credentials rest on the equipment listed here.
+                No independent NCAP crash-test result has been published for this generation of the {car.name}. Its safety credentials rest on the equipment listed here.
               </p>
             </>
           )}
         </div>
 
-        <div className="mt-10 grid grid-cols-[96px_1fr] items-center gap-6 border-t border-line pt-8 sm:grid-cols-[120px_1fr]">
-          <AirbagDiagram count={car.airbags} />
-          <div>
-            <p className="font-display text-[clamp(2.5rem,2rem+2vw,3.5rem)] font-semibold leading-none tracking-[-0.03em] num">{car.airbags}</p>
-            <p className="mt-2 text-[14px] font-medium">Airbags, top variant</p>
-            <p className="mt-1 text-[13px] text-muted">Positions shown are illustrative for a right-hand-drive cabin.</p>
+        {car.airbags > 0 ? (
+          <div className="mt-10 grid grid-cols-[96px_1fr] items-center gap-6 border-t border-line pt-8 sm:grid-cols-[120px_1fr]">
+            <AirbagDiagram count={car.airbags} />
+            <div>
+              <p className="font-display text-[clamp(2.5rem,2rem+2vw,3.5rem)] font-semibold leading-none tracking-[-0.03em] num">{car.airbags}</p>
+              <p className="mt-2 text-[14px] font-medium">Airbags, top variant</p>
+              <p className="mt-1 text-[13px] text-muted">Positions shown are illustrative for a right-hand-drive cabin.</p>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="mt-10 border-t border-line pt-8">
+            <p className="text-[14px] font-medium">Airbags</p>
+            <p className="mt-1 max-w-sm text-[13px] text-muted">The maker doesn&rsquo;t publish an airbag count for this model; check the variant&rsquo;s equipment list or ask the dealer.</p>
+          </div>
+        )}
       </Reveal>
 
       <Reveal delay={0.1} className="lg:col-span-7">
@@ -99,6 +106,7 @@ export function CarSafety({ car }: { car: CarModel }) {
           </div>
         )}
         <h3 className="type-h4">Safety equipment</h3>
+        {rest.length === 0 && <p className="mt-4 text-[14px] text-muted">The safety equipment list for this model hasn&rsquo;t been published in our catalogue yet.</p>}
         <ul className="mt-4 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
           {rest.map((item) => (
             <li key={item} className="flex items-center gap-3 border-b border-line py-4 text-[15px]">

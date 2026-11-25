@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
+import { CarImage } from "@/components/vehicle/car-image";
 import { useMemo, useState } from "react";
-import type { CarModel } from "@/types";
-import { carTitle } from "@/lib/catalog";
+import type { CarLite } from "@/types";
+import { carTitle, isElectric } from "@/lib/catalog";
 import { formatINR, formatNumber, formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { RangeField, Segmented, SelectField } from "@/components/ui/field";
@@ -24,10 +24,12 @@ export function OwnershipCost() {
   const { cars, getCar, brandName, cities, getCity, onRoadPrice, content } = useCatalog();
   const rates = useMemo(() => calcRates(content.toolRates), [content.toolRates]);
   const cityOptions = useMemo(() => cities.map((c) => ({ value: c.slug, label: `${c.name}, ${c.state}` })), [cities]);
-  const title = (c: CarModel) => carTitle(c, brandName);
+  const title = (c: CarLite) => carTitle(c, brandName);
   const carOptions = useMemo(
     () =>
       [...cars]
+        // Running costs need a claimed mileage (or an EV range): models without one are left out.
+        .filter((c) => (isElectric(c) ? Boolean(c.ev?.rangeKm) : c.efficiencyValue > 0))
         .sort((a, b) => carTitle(a, brandName).localeCompare(carTitle(b, brandName)))
         .map((c) => ({ value: c.slug, label: carTitle(c, brandName) })),
     [cars, brandName],
@@ -108,7 +110,7 @@ export function OwnershipCost() {
             <div className="min-w-0 bg-white p-6 md:p-10 lg:col-span-8">
               <div className="flex items-center gap-4 border-b border-line pb-6">
                 <div className="relative h-14 w-20 shrink-0 overflow-hidden bg-mist">
-                  <Image src={car.images[0]} alt="" fill sizes="80px" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
+                  <CarImage car={car} alt="" sizes="80px" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
                 </div>
                 <div className="min-w-0">
                   <p className="type-h4 truncate">{title(car)}</p>

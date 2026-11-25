@@ -1,26 +1,32 @@
 "use client";
 
-import Image from "next/image";
 import { useMemo, useState } from "react";
 import { Check, Plus, Search } from "lucide-react";
-import type { CarModel } from "@/types";
+import type { CarLite } from "@/types";
 import { formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Chip } from "@/components/ui/chip";
 import { Modal } from "@/components/ui/overlay";
 import { useCatalog } from "@/components/providers/catalog-provider";
+import { CarImage } from "@/components/vehicle/car-image";
+
+/** Rows shown before "Show all" when nothing is searched (the catalogue has hundreds of models). */
+const FIRST_PAGE = 40;
 
 /** Modal car chooser: search, brand chips and a thumbnail list. Suggests rivals of the cars already chosen. */
 export function CarPicker({
   open,
   onClose,
   selected,
+  rivals: rivalSlugs = [],
   onPick,
   max,
 }: {
   open: boolean;
   onClose: () => void;
   selected: string[];
+  /** Rivals of the cars already chosen (their `competitors`), suggested first. */
+  rivals?: string[];
   onPick: (slug: string) => void;
   max: number;
 }) {
@@ -29,6 +35,7 @@ export function CarPicker({
   const [query, setQuery] = useState("");
   const [brand, setBrand] = useState("");
   const [wasOpen, setWasOpen] = useState(open);
+  const [showAll, setShowAll] = useState(false);
 
   // Start fresh every time the picker opens.
   if (open !== wasOpen) {
@@ -36,6 +43,7 @@ export function CarPicker({
     if (open) {
       setQuery("");
       setBrand("");
+      setShowAll(false);
     }
   }
 
@@ -48,9 +56,11 @@ export function CarPicker({
   });
 
   // With no query, lead with rivals of the cars already in the comparison.
-  const rivals = !q && !brand ? Array.from(new Set(selected.flatMap((s) => cars.find((c) => c.slug === s)?.competitors ?? []))).filter((s) => !selected.includes(s)) : [];
-  const suggested = rivals.map((s) => cars.find((c) => c.slug === s)).filter((c): c is CarModel => c !== undefined);
+  const rivals = !q && !brand ? Array.from(new Set(rivalSlugs)).filter((s) => !selected.includes(s)) : [];
+  const suggested = rivals.map((s) => cars.find((c) => c.slug === s)).filter((c): c is CarLite => c !== undefined);
   const rest = matches.filter((c) => !rivals.includes(c.slug));
+  const capped = !q && !brand && !showAll && rest.length > FIRST_PAGE;
+  const shown = capped ? rest.slice(0, FIRST_PAGE) : rest;
 
   return (
     <Modal open={open} onClose={onClose} title="Add a car to compare" description={`${selected.length} of ${max} slots filled`} size="lg">
@@ -85,7 +95,17 @@ export function CarPicker({
           <PickerSection title="Suggested rivals" items={suggested} selected={selected} onPick={onPick} full={selected.length >= max} />
         )}
         {rest.length > 0 ? (
-          <PickerSection title={suggested.length ? "All cars" : `${rest.length} ${rest.length === 1 ? "car" : "cars"}`} items={rest} selected={selected} onPick={onPick} full={selected.length >= max} />
+          <>
+            <PickerSection title={suggested.length ? "All cars" : `${rest.length} ${rest.length === 1 ? "car" : "cars"}`} items={shown} selected={selected} onPick={onPick} full={selected.length >= max} />
+            {capped && (
+              <div className="px-3 pb-3 pt-1">
+                <button type="button" onClick={() => setShowAll(true)} className="h-10 w-full rounded-[3px] border border-line text-[13px] font-medium transition-colors hover:border-ink num">
+                  Show all {rest.length} cars
+                </button>
+                <p className="mt-2 text-center text-[12px] text-muted">Or search, or pick a brand above.</p>
+              </div>
+            )}
+          </>
         ) : (
           suggested.length === 0 && <p className="px-4 py-12 text-center text-[14px] text-muted">No cars match &ldquo;{query}&rdquo;. Try a brand or model name.</p>
         )}
@@ -94,7 +114,7 @@ export function CarPicker({
   );
 }
 
-function PickerSection({ title, items, selected, onPick, full }: { title: string; items: CarModel[]; selected: string[]; onPick: (slug: string) => void; full: boolean }) {
+function PickerSection({ title, items, selected, onPick, full }: { title: string; items: CarLite[]; selected: string[]; onPick: (slug: string) => void; full: boolean }) {
   const { brandName } = useCatalog();
   return (
     <div className="py-2">
@@ -111,7 +131,7 @@ function PickerSection({ title, items, selected, onPick, full }: { title: string
                 className="group/pick flex w-full items-center gap-4 rounded-[3px] px-3 py-2.5 text-left transition-colors duration-[250ms] enabled:hover:bg-mist disabled:cursor-default"
               >
                 <span className="relative h-12 w-16 shrink-0 overflow-hidden bg-mist">
-                  <Image src={c.images[0]} alt="" fill sizes="64px" className="object-cover" style={{ objectPosition: c.focus ?? "50% 55%" }} />
+                  <CarImage car={c} alt="" sizes="64px" className="object-cover" style={{ objectPosition: c.focus ?? "50% 55%" }} />
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block text-[11px] font-medium uppercase tracking-[0.12em] text-muted">{brandName(c.brand)}</span>

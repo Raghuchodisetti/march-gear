@@ -1,0 +1,319 @@
+{
+  "brand": {
+    "slug": "aston-martin",
+    "name": "Aston Martin",
+    "country": "United Kingdom",
+    "founded": 1913,
+    "tagline": "British sports and grand touring car maker, founded 1913",
+    "description": "British maker of sports cars, grand tourers and SUVs, founded in 1913 by Lionel Martin and Robert Bamford and based in Gaydon, England. Cars are imported to India as completely built units and sold through Aston Martin New Delhi, the only Indian dealer on the brand's official dealer locator.",
+    "isLuxury": true,
+    "website": "https://www.astonmartin.com/en/dealers/aston-martin-new-delhi"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "aston-martin-vantage",
+      "name": "Vantage",
+      "bodyType": "Coupe",
+      "bodyStyle": "Coupe / Roadster",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "4.0-litre twin-turbo V8 (3982 cc)",
+      "power": "680 PS (670 bhp)",
+      "torque": "800 Nm",
+      "seats": [2],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": 73,
+      "topSpeedKmh": 325,
+      "acceleration": "0–100 km/h in 3.4 s",
+      "dimensions": { "length": 4495, "width": 1980, "height": 1275, "wheelbase": 2705 },
+      "ev": null,
+      "colors": [
+        { "name": "Onyx Black", "hex": "#111214" },
+        { "name": "Zenith White", "hex": "#EEEDE8" },
+        { "name": "Aluminite Silver", "hex": "#A7AAAD" },
+        { "name": "Magnetic Silver", "hex": "#8C9196" },
+        { "name": "Xenon Grey", "hex": "#5D6166" },
+        { "name": "Satin Titanium Grey", "hex": "#6A6D70" },
+        { "name": "Ultramarine Black", "hex": "#1A1F2E" },
+        { "name": "Hyper Red", "hex": "#B3121D" },
+        { "name": "Plasma Blue", "hex": "#2457A6" },
+        { "name": "Ion Blue", "hex": "#2E6FB5" },
+        { "name": "Podium Green", "hex": "#1E7A3E" },
+        { "name": "Aston Martin Racing Green", "hex": "#0F3B2A" },
+        { "name": "Iridescent Emerald", "hex": "#1F6B4F" },
+        { "name": "Cosmopolitan Yellow", "hex": "#E4C21B" },
+        { "name": "Cosmos Orange", "hex": "#E86A1C" }
+      ],
+      "features": [
+        { "group": "Performance", "items": ["Front mid-mounted 4.0-litre twin-turbo V8, rear-wheel drive", "Rear mid-mounted ZF 8-speed automatic transaxle with electronic differential", "Bilstein DTX adaptive dampers", "Steel brakes 400/360 mm; carbon ceramic brakes optional", "Rear subframe mounted directly to the body"] },
+        { "group": "Comfort", "items": ["Two-zone climate control", "Heated seats", "Electric steering column adjustment", "Keyless entry and start", "Rain-sensing wipers and auto-dimming mirror", "Front and rear parking sensors"] },
+        { "group": "Infotainment", "items": ["10.25-inch touchscreen and 10.25-inch driver display", "Apple CarPlay (CarPlay Ultra depending on market)", "360 W 11-speaker audio; 1,170 W 15-speaker Bowers & Wilkins optional", "Wireless phone charging", "Satellite navigation with natural voice control"] },
+        { "group": "Safety", "items": ["Front and curtain airbags", "Automatic emergency braking", "Adaptive cruise control with stop-and-go", "Lane keep assist and blind-spot assist", "Rear cross-traffic assist and door exit warning", "3D surround-view camera"] },
+        { "group": "Exterior", "items": ["Matrix LED headlamps", "Swan Wing frameless doors", "21-inch forged wheels on Michelin Pilot Sport S 5 tyres", "Gloss black bonnet blades", "Full-width decklid spoiler"] },
+        { "group": "Interior", "items": ["Alcantara and leather 'Accelerate' trim with satin carbon inlays", "Embroidered S logos", "Knurled drive-mode dial in red or silver"] }
+      ],
+      "highlights": [
+        "Sold in India as Vantage S coupe and Vantage S Roadster",
+        "4.0-litre twin-turbo V8 rated at 680 PS and 800 Nm",
+        "Claimed top speed 325 km/h; 0–100 km/h in 3.4 s (coupe)",
+        "Rear-wheel drive with ZF 8-speed automatic transaxle",
+        "Roadster has a Z-fold fabric roof"
+      ],
+      "variants": [
+        {
+          "name": "Vantage S",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 31500000,
+          "efficiency": null,
+          "features": ["Two-door coupe", "0–100 km/h in 3.4 s", "Kerb weight 1,745 kg (EU)", "21-inch forged wheels", "Full-width decklid spoiler"]
+        },
+        {
+          "name": "Vantage S Roadster",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 33500000,
+          "efficiency": null,
+          "features": ["Z-fold fabric roof, operates in 6.8 s at up to 31 mph", "Gloss black waist rail", "0–100 km/h in 3.5 s", "Same 680 PS / 800 Nm V8 as the coupe"]
+        }
+      ],
+      "sources": [
+        "https://www.astonmartin.com/en/models/vantage-s",
+        "https://www.astonmartin.com/en/models/vantage-roadster",
+        "https://www.autocarindia.com/car-news/aston-martin-reveals-post-india-uk-fta-car-prices-440362",
+        "https://www.carwale.com/news/aston-martin-cars-prices-drop-by-rs-4-crore-following-india-uk-fta-implementation/",
+        "https://www.cardekho.com/cars/Aston_Martin"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (post-India-UK FTA price list, 1 Aug 2026; the article names no city), matched by CarDekho's Nov 2026 list (ex-showroom New Delhi). Only the S versions are priced in India; the S models replaced the standard Vantage and Vantage Roadster. India launch date of the S models not found. Roadster-specific dimensions/weight not published for the S; model-level specs are the coupe's. Torque rpm band differs between the official page (2,000–5,000) and press release (3,000–6,000). Boot not published. Engine cc taken from the official DBX S page (same 4.0 V8). Colour set is representative; India availability not confirmed."
+    },
+    {
+      "slug": "aston-martin-db12",
+      "name": "DB12",
+      "bodyType": "Coupe",
+      "bodyStyle": "Coupe / Volante convertible",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "4.0-litre twin-turbo V8 (3982 cc)",
+      "power": "700 PS (690 bhp)",
+      "torque": "800 Nm",
+      "seats": [4],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": 120,
+      "fuelTankL": 78,
+      "topSpeedKmh": 325,
+      "acceleration": "0–100 km/h in 3.5 s",
+      "dimensions": { "length": 4725, "width": 1980, "height": 1290, "wheelbase": 2805 },
+      "ev": null,
+      "colors": [
+        { "name": "Onyx Black", "hex": "#111214" },
+        { "name": "Neutron White", "hex": "#F2F2EE" },
+        { "name": "Zenith White", "hex": "#EEEDE8" },
+        { "name": "Magnetic Silver", "hex": "#8C9196" },
+        { "name": "Satin Aluminite Silver", "hex": "#9EA1A4" },
+        { "name": "Xenon Grey", "hex": "#5D6166" },
+        { "name": "Ultramarine Black", "hex": "#1A1F2E" },
+        { "name": "Hyper Red", "hex": "#B3121D" },
+        { "name": "Plasma Blue", "hex": "#2457A6" },
+        { "name": "Storm Purple", "hex": "#3E3150" },
+        { "name": "Minotaur Green", "hex": "#3E4A3A" },
+        { "name": "Iridescent Emerald", "hex": "#1F6B4F" }
+      ],
+      "features": [
+        { "group": "Performance", "items": ["4.0-litre twin-turbo V8, rear-wheel drive", "ZF 8-speed automatic with shift-by-wire; shift time cut 43% to 120 ms on the S", "Electronic rear differential", "Carbon ceramic brakes (410/360 mm) standard on the S"] },
+        { "group": "Comfort", "items": ["16-way Sport Plus seats", "Over-the-air software updates"] },
+        { "group": "Infotainment", "items": ["Wireless Apple CarPlay (CarPlay Ultra) and wired Android Auto", "390 W 11-speaker audio; Bowers & Wilkins 1,170 W system available"] },
+        { "group": "Safety", "items": ["Front airbags", "Matrix high beam (market dependent)"] },
+        { "group": "Exterior", "items": ["Fixed rear spoiler and dual-element front splitter (S)", "21-inch 'Evolution' wheels"] },
+        { "group": "Interior", "items": ["Red knurled drive-mode dial (S)", "2+2 seating"] }
+      ],
+      "highlights": [
+        "Sold in India as DB12 S coupe and DB12 S Volante convertible",
+        "4.0-litre twin-turbo V8 rated at 700 PS and 800 Nm",
+        "Carbon ceramic brakes standard on the S",
+        "Claimed top speed 325 km/h; 0–100 km/h in 3.5 s (coupe)",
+        "2+2 seating"
+      ],
+      "variants": [
+        {
+          "name": "DB12 S",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 41000000,
+          "efficiency": null,
+          "features": ["Two-door 2+2 coupe", "Kerb weight 1,820 kg (EU)", "Carbon ceramic brakes", "Fixed rear spoiler", "21-inch Evolution wheels"]
+        },
+        {
+          "name": "DB12 S Volante",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 43500000,
+          "efficiency": null,
+          "features": ["K-fold fabric roof (opens in 14 s, works at up to 35 mph)", "Boot 206 L roof up / 169 L roof down (DB12 Volante figures)", "Same 700 PS / 800 Nm V8 as the coupe"]
+        }
+      ],
+      "sources": [
+        "https://www.astonmartin.com/en/models/db12-s",
+        "https://www.astonmartin.com/en/models/db12-volante",
+        "https://www.autocarindia.com/car-news/aston-martin-reveals-post-india-uk-fta-car-prices-440362",
+        "https://www.carwale.com/news/aston-martin-cars-prices-drop-by-rs-4-crore-following-india-uk-fta-implementation/",
+        "https://www.cardekho.com/cars/Aston_Martin"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (post-India-UK FTA price list, 1 Aug 2026; the article names no city), matched by CarDekho's Nov 2026 list (ex-showroom New Delhi). Only the S versions are priced in India; they replaced the standard DB12 and DB12 Volante. India launch date of the S models not found. Aston Martin publishes no separate DB12 S Volante specs; roof and boot figures quoted are from the DB12 Volante page. Coupe boot not published for the S (standard DB12: 262 L). Airbag count not published. Colour set is representative; India availability not confirmed."
+    },
+    {
+      "slug": "aston-martin-dbx",
+      "name": "DBX",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "4.0-litre twin-turbo V8 (3982 cc)",
+      "power": "727 PS (717 bhp)",
+      "torque": "900 Nm",
+      "seats": [5],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 638,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 310,
+      "acceleration": "0–100 km/h in 3.3 s",
+      "dimensions": { "length": 5039, "width": 1998, "height": 1680, "wheelbase": 3060 },
+      "ev": null,
+      "colors": [
+        { "name": "Onyx Black", "hex": "#111214" },
+        { "name": "Epsilon Black", "hex": "#16171A" },
+        { "name": "Zenith White", "hex": "#EEEDE8" },
+        { "name": "Magnetic Silver", "hex": "#8C9196" },
+        { "name": "Xenon Grey", "hex": "#5D6166" },
+        { "name": "Ultramarine Black", "hex": "#1A1F2E" },
+        { "name": "Supernova Red", "hex": "#C21F25" },
+        { "name": "Synapse Orange", "hex": "#F0661E" },
+        { "name": "Cosmopolitan Yellow", "hex": "#E4C21B" },
+        { "name": "Podium Green", "hex": "#1E7A3E" },
+        { "name": "Malachite Green", "hex": "#1E5E4A" },
+        { "name": "Aura Green", "hex": "#7E9A8C" }
+      ],
+      "features": [
+        { "group": "Performance", "items": ["4.0-litre twin-turbo V8", "9-speed automatic with multi-plate wet clutch in place of a torque converter", "All-wheel drive with active centre transfer case and electronic rear limited-slip differential", "Carbon ceramic brakes", "Towing capacity 2,700 kg"] },
+        { "group": "Comfort", "items": ["Air suspension with active roll control", "Three-zone climate control", "Heated front and rear seats", "Panoramic roof", "Power tailgate and soft-close doors"] },
+        { "group": "Infotainment", "items": ["10.25-inch touchscreen and 12.3-inch driver display", "800 W 14-speaker audio", "Four USB-C ports", "15 W Qi wireless charging"] },
+        { "group": "Safety", "items": ["Knee and rear thorax airbags", "ISOFIX child-seat mounts"] },
+        { "group": "Exterior", "items": ["Optional carbon-fibre roof (saves 18 kg)", "Optional 23-inch magnesium wheels (save 19 kg)"] },
+        { "group": "Interior", "items": ["64-colour ambient lighting", "40:20:40 split rear seat", "Boot 638 L (491 L below the load shelf)"] }
+      ],
+      "highlights": [
+        "Sold in India as the DBX S, which replaced the DBX707",
+        "4.0-litre twin-turbo V8 rated at 727 PS and 900 Nm",
+        "Claimed top speed 310 km/h; 0–100 km/h in 3.3 s",
+        "All-wheel drive with 9-speed wet-clutch automatic",
+        "Boot capacity 638 litres"
+      ],
+      "variants": [
+        {
+          "name": "DBX S",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed automatic (wet clutch)",
+          "price": 41500000,
+          "efficiency": null,
+          "features": ["727 PS / 900 Nm V8", "Carbon ceramic brakes", "Active roll control (body roll limited to 1.5°)", "Panoramic roof", "Five seats"]
+        }
+      ],
+      "sources": [
+        "https://www.astonmartin.com/en/models/dbx-s",
+        "https://www.autocarindia.com/car-news/aston-martin-reveals-post-india-uk-fta-car-prices-440362",
+        "https://www.carwale.com/news/aston-martin-cars-prices-drop-by-rs-4-crore-following-india-uk-fta-implementation/",
+        "https://www.cardekho.com/cars/Aston_Martin"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (post-India-UK FTA price list, 1 Aug 2026; the article names no city), matched by CarDekho's Nov 2026 list (ex-showroom New Delhi). DBX707 is no longer listed for India (replaced by the DBX S); the global DBX GT has no India price and is not included. India launch date of the DBX S not found. Gearbox is a wet-clutch automatic (not a torque converter or DCT), mapped to Automatic. Fuel tank not published on the DBX S page; official kerb weight 2,245 kg (DIN) vs 2,198 kg quoted by Autocar India — check. Colour set is representative; India availability not confirmed."
+    },
+    {
+      "slug": "aston-martin-vanquish",
+      "name": "Vanquish",
+      "bodyType": "Coupe",
+      "bodyStyle": "Coupe / Volante convertible",
+      "isLuxury": true,
+      "launchedOn": "2025-03-22",
+      "engine": "5.2-litre twin-turbo V12",
+      "power": "835 PS (824 bhp)",
+      "torque": "1000 Nm",
+      "seats": [2],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 248,
+      "groundClearanceMm": null,
+      "fuelTankL": 82,
+      "topSpeedKmh": 345,
+      "acceleration": "0–100 km/h in 3.3 s",
+      "dimensions": { "length": 4855, "width": 2044, "height": 1290, "wheelbase": 2885 },
+      "ev": null,
+      "colors": [
+        { "name": "Onyx Black", "hex": "#111214" },
+        { "name": "Epsilon Black", "hex": "#16171A" },
+        { "name": "Neutron White", "hex": "#F2F2EE" },
+        { "name": "Aluminite Silver", "hex": "#A7AAAD" },
+        { "name": "Xenon Grey", "hex": "#5D6166" },
+        { "name": "Ultramarine Black", "hex": "#1A1F2E" },
+        { "name": "Supernova Red", "hex": "#C21F25" },
+        { "name": "Plasma Blue", "hex": "#2457A6" },
+        { "name": "Digital Violet", "hex": "#5B3A8F" },
+        { "name": "Minotaur Green", "hex": "#3E4A3A" }
+      ],
+      "features": [
+        { "group": "Performance", "items": ["5.2-litre twin-turbo V12, 48 valves", "ZF 8-speed automatic with electronic differential", "Carbon ceramic brakes 410/360 mm", "Bilstein DTX adaptive dampers", "Nine-level traction control"] },
+        { "group": "Comfort", "items": ["Heated 16-way Sports Plus seats", "Panoramic glass roof (coupe)"] },
+        { "group": "Infotainment", "items": ["Bowers & Wilkins 1,170 W 15-speaker audio as standard"] },
+        { "group": "Exterior", "items": ["Carbon-fibre body panels", "Presenting door handles", "Pirelli P Zero PZ4 tyres with noise-cancelling technology"] },
+        { "group": "Interior", "items": ["Two-seat cabin as standard"] }
+      ],
+      "highlights": [
+        "Sold in India as Vanquish coupe and Vanquish Volante convertible",
+        "5.2-litre twin-turbo V12 rated at 835 PS and 1,000 Nm",
+        "Claimed top speed 345 km/h",
+        "Carbon ceramic brakes and Bowers & Wilkins audio as standard",
+        "Coupe launched in India in March 2025"
+      ],
+      "variants": [
+        {
+          "name": "Vanquish",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 64000000,
+          "efficiency": null,
+          "features": ["Two-door coupe with panoramic glass roof", "0–100 km/h in 3.3 s", "Boot 248 L", "Weight 1,910 kg (EU unladen)"]
+        },
+        {
+          "name": "Vanquish Volante",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed automatic",
+          "price": 69000000,
+          "efficiency": null,
+          "features": ["K-fold fabric roof: opens in 14 s, closes in 16 s, works up to 50 km/h", "Eight-layer insulated roof", "Roll-over protection system", "0–100 km/h in 3.4 s", "Boot 219 L roof closed / 187 L roof stowed", "Weight 2,005 kg (EU unladen)", "Black roof standard; red, blue or black-and-grey optional"]
+        }
+      ],
+      "sources": [
+        "https://www.astonmartin.com/en/models/vanquish",
+        "https://www.astonmartin.com/en/models/vanquish-volante",
+        "https://www.autocarindia.com/car-news-amp/2025-aston-martin-vanquish-launched-at-rs-885-crore-434888",
+        "https://www.autocarindia.com/car-news/aston-martin-reveals-post-india-uk-fta-car-prices-440362",
+        "https://www.carwale.com/news/aston-martin-cars-prices-drop-by-rs-4-crore-following-india-uk-fta-implementation/",
+        "https://www.cardekho.com/cars/Aston_Martin"
+      ],
+      "notes": "Price not published by the brand; from Autocar India (post-India-UK FTA price list, 1 Aug 2026; the article names no city), matched by CarDekho's Nov 2026 list (ex-showroom New Delhi). The coupe launched in India on 22 Mar 2025 at ₹8.85 crore; the Volante was first priced for India in the Aug 2026 list. Seating is two as standard (2+2 reported as optional — check). Airbag count not published. Colour set is representative; India availability not confirmed."
+    }
+  ]
+}

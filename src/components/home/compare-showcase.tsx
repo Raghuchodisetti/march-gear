@@ -1,13 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "motion/react";
 import { ChevronDown, Plus, X } from "lucide-react";
-import type { CarModel } from "@/types";
+import type { CarLite, CarModel } from "@/types";
 import { isElectric } from "@/lib/catalog";
 import { formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -17,17 +16,23 @@ import { Eyebrow } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { useCompare } from "@/components/providers/app-provider";
 import { useCatalog } from "@/components/providers/catalog-provider";
+import { useCarDetails } from "@/components/providers/car-details";
+import { CarImage } from "@/components/vehicle/car-image";
+import { NOT_PUBLISHED, known, powerBhp, topFigure } from "@/lib/specs";
+import { SHOWCASE_DEFAULT } from "./showcase-defaults";
 
-const DEFAULT = ["hyundai-creta", "toyota-hyryder", "honda-elevate"];
 const MAX = 4;
 
-const maxNumber = (s: string) => Math.max(...(s.match(/[\d.]+/g) ?? ["0"]).map(Number));
-const featureCount = (c: CarModel) => c.features.reduce((n, g) => n + g.items.length, 0);
+const featureCount = (c?: CarModel) => (c ? c.features.reduce((n, g) => n + g.items.length, 0) : 0);
+const dash = <span className="text-muted">{NOT_PUBLISHED}</span>;
+
+/** A light catalogue model plus its full details once loaded (power and features aren't in the light shape). */
+type ShowcaseCar = CarLite & { full?: CarModel };
 
 interface Metric {
   label: string;
-  value: (c: CarModel) => number;
-  display: (c: CarModel) => React.ReactNode;
+  value: (c: ShowcaseCar) => number;
+  display: (c: ShowcaseCar) => React.ReactNode;
   /** Draw a proportional bar */
   bar?: boolean;
   higherIsBetter?: boolean;
@@ -35,11 +40,18 @@ interface Metric {
 
 const METRICS: Metric[] = [
   { label: "Engine", value: () => 0, display: (c) => c.engine },
-  { label: "Power", value: (c) => maxNumber(c.power), display: (c) => `${maxNumber(c.power)} bhp`, bar: true, higherIsBetter: true },
+  {
+    // Shown as published (bhp, PS or kW); compared in bhp so mixed units rank fairly.
+    label: "Power",
+    value: (c) => powerBhp(c.full?.power) ?? 0,
+    display: (c) => topFigure(c.full?.power)?.text ?? dash,
+    bar: true,
+    higherIsBetter: true,
+  },
   {
     label: "Mileage / range",
     value: (c) => (isElectric(c) ? 0 : c.efficiencyValue),
-    display: (c) => c.efficiency,
+    display: (c) => c.efficiency || dash,
   },
   {
     label: "Safety",
@@ -55,17 +67,22 @@ const METRICS: Metric[] = [
       ),
     higherIsBetter: true,
   },
-  { label: "Features", value: featureCount, display: (c) => `${featureCount(c)} listed`, bar: true, higherIsBetter: true },
-  { label: "Boot space", value: (c) => c.bootSpace, display: (c) => `${c.bootSpace} L`, bar: true, higherIsBetter: true },
+  { label: "Features", value: (c) => featureCount(c.full), display: (c) => (c.full ? `${featureCount(c.full)} listed` : dash), bar: true, higherIsBetter: true },
+  { label: "Boot space", value: (c) => c.bootSpace, display: (c) => (known(c.bootSpace) ? `${c.bootSpace} L` : dash), bar: true, higherIsBetter: true },
 ];
 
-export function CompareShowcase() {
+/** `initial`: full details of SHOWCASE_DEFAULT from the server; others load when picked. */
+export function CompareShowcase({ initial }: { initial?: CarModel[] }) {
   const router = useRouter();
   const compare = useCompare();
   const { getCar, brandName } = useCatalog();
-  const [slugs, setSlugs] = useState<string[]>(DEFAULT);
+  const [slugs, setSlugs] = useState<string[]>(() => SHOWCASE_DEFAULT.filter((s) => getCar(s)));
   const [adding, setAdding] = useState(false);
-  const selected = slugs.map(getCar).filter((c): c is CarModel => Boolean(c));
+  const details = useCarDetails(slugs, initial);
+  const selected: ShowcaseCar[] = slugs
+    .map(getCar)
+    .filter((c): c is CarLite => Boolean(c))
+    .map((c) => ({ ...c, full: details.get(c.slug) }));
 
   const replace = (i: number, slug: string) => setSlugs((prev) => prev.map((s, j) => (j === i ? slug : s)));
   const remove = (i: number) => setSlugs((prev) => prev.filter((_, j) => j !== i));
@@ -123,7 +140,13 @@ export function CompareShowcase() {
                     <div className="relative aspect-[16/10] overflow-hidden bg-mist">
                       <AnimatePresence mode="popLayout" initial={false}>
                         <motion.div key={car.slug} className="absolute inset-0" initial={{ opacity: 0, scale: 1.04 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6, ease: EASE }}>
-                          <Image src={car.images[0]} alt={cardPhotoAlt(car.images[0], `${brandName(car.brand)} ${car.name}`)} fill sizes="(min-width: 1024px) 22vw, 40vw" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
+                          <CarImage
+                            car={car}
+                            alt={car.images[0] ? cardPhotoAlt(car.images[0], `${brandName(car.brand)} ${car.name}`) : ""}
+                            sizes="(min-width: 1024px) 22vw, 40vw"
+                            className="object-cover"
+                            style={{ objectPosition: car.focus ?? "50% 55%" }}
+                          />
                         </motion.div>
                       </AnimatePresence>
                       {selected.length > 2 && (
@@ -201,7 +224,7 @@ export function CompareShowcase() {
         </div>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4 text-[13px] text-muted">
-          <p>Specifications are manufacturer-claimed demo figures. Leader in each measure shown in red.</p>
+          <p>Specifications are manufacturer-claimed figures; &ldquo;{NOT_PUBLISHED}&rdquo; means not published. Leader in each measure shown in red.</p>
           <Link href="/compare" className="font-medium text-ink underline-offset-4 hover:underline">
             Browse popular comparisons
           </Link>
@@ -234,7 +257,7 @@ function CarSelect({
   placeholder?: string;
   autoOpen?: boolean;
 }) {
-  const { cars, getCar, brandName } = useCatalog();
+  const { brands, carsByBrand, getCar, brandName } = useCatalog();
   const current = value ? getCar(value) : undefined;
   return (
     <div className="group relative mt-4">
@@ -262,13 +285,18 @@ function CarSelect({
         className="absolute inset-0 cursor-pointer opacity-0"
       >
         {!value && <option value="">{placeholder}</option>}
-        {cars
-          .filter((c) => c.slug === value || !exclude.includes(c.slug))
-          .map((c) => (
-            <option key={c.slug} value={c.slug}>
-              {brandName(c.brand)} {c.name}
-            </option>
-          ))}
+        {brands.map((b) => {
+          const line = carsByBrand(b.slug).filter((c) => c.slug === value || !exclude.includes(c.slug));
+          return line.length ? (
+            <optgroup key={b.slug} label={b.name}>
+              {line.map((c) => (
+                <option key={c.slug} value={c.slug}>
+                  {brandName(c.brand)} {c.name}
+                </option>
+              ))}
+            </optgroup>
+          ) : null;
+        })}
       </select>
     </div>
   );

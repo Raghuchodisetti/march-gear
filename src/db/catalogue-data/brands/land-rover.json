@@ -1,0 +1,1750 @@
+{
+  "brand": {
+    "slug": "land-rover",
+    "name": "Land Rover",
+    "country": "United Kingdom",
+    "founded": 1948,
+    "tagline": "British SUV maker, part of JLR (owned by Tata Motors since 2008)",
+    "description": "British maker of four-wheel-drive SUVs, founded in 1948 and part of JLR, which Tata Motors has owned since 2008. In India it is sold by Jaguar Land Rover India Limited under the Range Rover, Defender and Discovery families; several models are locally assembled, the rest are imported.",
+    "isLuxury": true,
+    "website": "https://www.landrover.in/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "range-rover",
+      "name": "Range Rover",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2996 – 4395 cc",
+      "power": "258 – 395 kW",
+      "torque": "550 – 750 Nm",
+      "seats": [
+        5,
+        7
+      ],
+      "airbags": null,
+      "safety": {
+        "rating": 5,
+        "agency": "Euro NCAP",
+        "year": 2022
+      },
+      "bootSpaceL": 818,
+      "groundClearanceMm": 216,
+      "fuelTankL": null,
+      "topSpeedKmh": 261,
+      "acceleration": "0–100 km/h in 4.6 s (P540)",
+      "dimensions": {
+        "length": 5052,
+        "width": 2047,
+        "height": 1868,
+        "wheelbase": 2997
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Fuji White",
+          "hex": "#F4F4F0"
+        },
+        {
+          "name": "Santorini Black",
+          "hex": "#1B1C1E"
+        },
+        {
+          "name": "Eiger Grey",
+          "hex": "#5D6266"
+        },
+        {
+          "name": "Belgravia Green",
+          "hex": "#2F3A33"
+        },
+        {
+          "name": "Varesine Blue",
+          "hex": "#2B3A4F"
+        },
+        {
+          "name": "Ostuni Pearl White",
+          "hex": "#EDEBE4"
+        },
+        {
+          "name": "Carpathian Grey",
+          "hex": "#4A4D50"
+        },
+        {
+          "name": "Batumi Gold",
+          "hex": "#9C8A6A"
+        },
+        {
+          "name": "Charente Grey",
+          "hex": "#6E7275"
+        },
+        {
+          "name": "Senja Green",
+          "hex": "#3E4A3E"
+        },
+        {
+          "name": "Narvik Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "British Racing Green in Gloss finish",
+          "hex": "#1F3B2D"
+        },
+        {
+          "name": "Ethereal Frost Silver in Gloss finish",
+          "hex": "#C9CDD0"
+        },
+        {
+          "name": "Velocity Blue in Gloss finish",
+          "hex": "#2D5DA8"
+        },
+        {
+          "name": "Ionian Silver in Gloss finish",
+          "hex": "#A7ABAE"
+        },
+        {
+          "name": "Sunset Gold in Gloss finish",
+          "hex": "#B08A4F"
+        },
+        {
+          "name": "Amethyst Grey Purple in Gloss finish",
+          "hex": "#5F5468"
+        },
+        {
+          "name": "Petrolix Blue in Gloss finish",
+          "hex": "#1F4F5C"
+        },
+        {
+          "name": "Tourmaline Brown in Gloss finish",
+          "hex": "#5A4335"
+        },
+        {
+          "name": "Sunrise Copper in Gloss finish",
+          "hex": "#A0603D"
+        },
+        {
+          "name": "Obsidian Black in Gloss finish",
+          "hex": "#121314"
+        },
+        {
+          "name": "Constellation Blue in Gloss finish",
+          "hex": "#1E2C4A"
+        },
+        {
+          "name": "Flux Silver in Gloss finish",
+          "hex": "#9EA3A7"
+        },
+        {
+          "name": "Icy White in Gloss finish",
+          "hex": "#F2F4F5"
+        },
+        {
+          "name": "Twilight Mauve in Gloss finish",
+          "hex": "#6D5A66"
+        },
+        {
+          "name": "Titan Silver in Gloss finish",
+          "hex": "#8F9498"
+        },
+        {
+          "name": "British Racing Green in Satin finish",
+          "hex": "#24402F"
+        },
+        {
+          "name": "Velocity Blue in Satin finish",
+          "hex": "#30588F"
+        },
+        {
+          "name": "Obsidian Black in Satin finish",
+          "hex": "#1A1B1C"
+        },
+        {
+          "name": "Sunrise Copper in Satin finish",
+          "hex": "#94603F"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "24-way heated and cooled massage electric front seats",
+            "Executive Class rear seats with deployable centre console (Comfort / Comfort Plus on higher trims)",
+            "Four-zone Climate Control",
+            "Cabin Air Purification",
+            "Powered upper and lower tailgate",
+            "Soft door close"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Pivi Pro infotainment",
+            "Interactive Driver Display",
+            "Head-up Display",
+            "Meridian Signature Sound System (Autobiography and above)",
+            "33.27 cm (13.1) Rear Seat Entertainment (SV Black, SV Ultra)",
+            "Wireless Apple CarPlay and Android Auto"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Front airbags with passenger seat occupant detector",
+            "Front side airbags",
+            "Emergency Brake Assist",
+            "Dynamic Stability Control",
+            "Rear ISOFIX",
+            "3D Surround Camera"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Digital LED headlights with signature DRL and Image Projection (Autobiography and above)",
+            "Sliding panoramic roof",
+            "Atlas Exterior Pack (Autobiography)",
+            "SV Gloss Black Exterior Pack (SV Black)",
+            "Flush deployable door handles"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Semi-Aniline leather seats",
+            "Tailgate Event Suite with cushions",
+            "Illuminated metal treadplates",
+            "Body and Soul Seat (SV)",
+            "Sensory floor (SV Black, SV Ultra)"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Electronic Air Suspension",
+            "All Wheel Drive with twin-speed transfer box",
+            "8-speed automatic transmission",
+            "Terrain Response 2",
+            "Electronic Active Differential with Torque Vectoring by Braking (SV)",
+            "900 mm wading depth"
+          ]
+        }
+      ],
+      "highlights": [
+        "Offered in standard (SWB) and long (LWB) wheelbase; LWB Autobiography available with 7 seats",
+        "3.0 l diesel HSE and 3.0 l petrol Autobiography LWB versions are made in India",
+        "4.4 l twin-turbo V8 (P540) rated at 395 kW and 750 Nm",
+        "SV, SV Black and SV Ultra versions in both wheelbases",
+        "Five-star Euro NCAP rating (2022)"
+      ],
+      "variants": [
+        {
+          "name": "LWB 3.0 l Diesel HSE (Made in India)",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 24000000,
+          "efficiency": null,
+          "features": [
+            "D350 3.0 l 6-cylinder diesel mild hybrid, 258 kW / 700 Nm",
+            "Long wheelbase (3197 mm)",
+            "Meridian 3D Surround Sound System",
+            "Semi-Aniline leather seats",
+            "24-way heated and cooled hot stone massage front seats",
+            "Executive Class Comfort rear seats",
+            "Head-up Display",
+            "Four-zone Climate Control",
+            "Powered gesture tailgate"
+          ]
+        },
+        {
+          "name": "LWB 3.0 l Petrol Autobiography (Made in India)",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 26500000,
+          "efficiency": null,
+          "features": [
+            "P400 3.0 l 6-cylinder petrol mild hybrid, 294 kW / 550 Nm",
+            "Long wheelbase (3197 mm)",
+            "Digital LED headlights with Image Projection",
+            "Sliding panoramic roof",
+            "Meridian Signature Sound System",
+            "Executive Class Comfort Plus rear seats",
+            "Atlas Exterior Pack",
+            "Tailgate Event Suite with cushions",
+            "Illuminated metal treadplates with Autobiography script"
+          ]
+        },
+        {
+          "name": "SWB 4.4 l Petrol Autobiography",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 28000000,
+          "efficiency": null,
+          "features": [
+            "P540 4.4 l twin-turbo V8, 395 kW / 750 Nm",
+            "Standard wheelbase (2997 mm)",
+            "Digital LED headlights with Image Projection",
+            "Sliding panoramic roof",
+            "Meridian Signature Sound System",
+            "24-way heated and cooled hot stone massage front seats",
+            "Atlas Exterior Pack",
+            "Tailgate Event Suite with cushions"
+          ]
+        },
+        {
+          "name": "LWB 4.4 l Petrol Autobiography",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 29500000,
+          "efficiency": null,
+          "features": [
+            "P540 4.4 l twin-turbo V8, 395 kW / 750 Nm",
+            "Long wheelbase (3197 mm)",
+            "Digital LED headlights with Image Projection",
+            "Sliding panoramic roof",
+            "Meridian Signature Sound System",
+            "Executive Class Comfort Plus rear seats",
+            "Atlas Exterior Pack"
+          ]
+        },
+        {
+          "name": "LWB 4.4 l Petrol Autobiography (7 Seats)",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 30000000,
+          "efficiency": null,
+          "features": [
+            "P540 4.4 l twin-turbo V8, 395 kW / 750 Nm",
+            "Long wheelbase with three seating rows (7 seats)",
+            "Loadspace 212 l behind third row",
+            "Digital LED headlights with Image Projection",
+            "Sliding panoramic roof",
+            "Meridian Signature Sound System"
+          ]
+        },
+        {
+          "name": "SWB 4.4 l Petrol SV",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 33500000,
+          "efficiency": null,
+          "features": [
+            "P540 4.4 l twin-turbo V8, 395 kW / 750 Nm",
+            "SV Semi-Aniline leather seats",
+            "24-way heated and ventilated hot stone massage front seats",
+            "Executive Class Comfort Plus rear seats",
+            "Body and Soul Seat",
+            "Electronic Active Differential with Torque Vectoring by Braking",
+            "Electronic Air Suspension with Dynamic Response Pro",
+            "Illuminated metal treadplates with SV script"
+          ]
+        },
+        {
+          "name": "SWB 4.4 l Petrol SV Black",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 33500000,
+          "efficiency": null,
+          "features": [
+            "P540 4.4 l twin-turbo V8, 395 kW / 750 Nm",
+            "SV Gloss Black Exterior Pack",
+            "SV Black Ebony Near-Aniline leather seats",
+            "33.27 cm (13.1) Rear Seat Entertainment",
+            "Body and Soul rear seat",
+            "Sensory floor",
+            "Illuminated metal treadplates with SV Black script"
+          ]
+        },
+        {
+          "name": "SWB 4.4 l Petrol SV Ultra",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 36500000,
+          "efficiency": null,
+          "features": [
+            "P540 4.4 l twin-turbo V8, 395 kW / 750 Nm",
+            "SV Ultra exterior accents",
+            "Orchid White perforated Ultrafabrics seats",
+            "33.27 cm (13.1) Rear Seat Entertainment",
+            "Body and Soul rear seat",
+            "Sensory floor",
+            "Illuminated metal treadplates with SV Ultra script"
+          ]
+        },
+        {
+          "name": "LWB 4.4 l Petrol SV",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 35000000,
+          "efficiency": null,
+          "features": [
+            "P540 4.4 l twin-turbo V8, 395 kW / 750 Nm",
+            "Long wheelbase (3197 mm)",
+            "SV Semi-Aniline leather seats",
+            "Executive Class Comfort Plus rear seats",
+            "Body and Soul Seat",
+            "Electronic Active Differential with Torque Vectoring by Braking"
+          ]
+        },
+        {
+          "name": "LWB 4.4 l Petrol SV Black",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 35000000,
+          "efficiency": null,
+          "features": [
+            "P540 4.4 l twin-turbo V8, 395 kW / 750 Nm",
+            "Long wheelbase (3197 mm)",
+            "SV Gloss Black Exterior Pack",
+            "SV Black Ebony Near-Aniline leather seats",
+            "33.27 cm (13.1) Rear Seat Entertainment",
+            "Sensory floor"
+          ]
+        },
+        {
+          "name": "LWB 4.4 l Petrol SV Ultra",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 38000000,
+          "efficiency": null,
+          "features": [
+            "P540 4.4 l twin-turbo V8, 395 kW / 750 Nm",
+            "Long wheelbase (3197 mm)",
+            "SV Ultra exterior accents",
+            "Orchid White perforated Ultrafabrics seats",
+            "33.27 cm (13.1) Rear Seat Entertainment",
+            "Sensory floor"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.findmeasuv.in/pricing_pdf/land-rover-vehicles-price-in-india.pdf",
+        "https://www.rangerover.com/en-in/range-rover/index.html",
+        "https://www.rangerover.com/lr/en_in/l460/ipr/personalise/",
+        "https://rules.config.landrover.com/rc/lr/en_in/l460",
+        "https://media.landrover.com/news/2022/11/range-rover-and-range-rover-sport-awarded-five-star-euro-ncap-safety-ratings"
+      ],
+      "notes": "Prices from JLR India's official price list (27MY 4.4 l and 26MY made-in-India 3.0 l); JLR India publishes one all-India ex-showroom price, used here for Delhi. Specs from JLR India's online configurator. Dimensions and boot (818 l behind row 2) are for SWB; LWB is 5252 mm long on a 3197 mm wheelbase. Ground clearance is the standard air-suspension ride height (off-road height 291 mm). Seats: 5 standard, 7 on LWB Autobiography (7 Seats); a 4-seat SV layout, if offered in India, is not shown in the configurator data. No ARAI figure published. Range Rover Electric is open for bookings but unpriced, so it is not included."
+    },
+    {
+      "slug": "range-rover-sport",
+      "name": "Range Rover Sport",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2996 – 4395 cc",
+      "power": "258 – 467 kW",
+      "torque": "550 – 750 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": {
+        "rating": 5,
+        "agency": "Euro NCAP",
+        "year": 2022
+      },
+      "bootSpaceL": 647,
+      "groundClearanceMm": 218,
+      "fuelTankL": 90,
+      "topSpeedKmh": 290,
+      "acceleration": "0–100 km/h in 3.9 s (SV)",
+      "dimensions": {
+        "length": 4946,
+        "width": 2047,
+        "height": 1822,
+        "wheelbase": 2997
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Fuji White",
+          "hex": "#F4F4F0"
+        },
+        {
+          "name": "Santorini Black",
+          "hex": "#1B1C1E"
+        },
+        {
+          "name": "Giola Green",
+          "hex": "#3F4A3C"
+        },
+        {
+          "name": "Varesine Blue",
+          "hex": "#2B3A4F"
+        },
+        {
+          "name": "Charente Grey",
+          "hex": "#6E7275"
+        },
+        {
+          "name": "Firenze Red",
+          "hex": "#8E1B1E"
+        },
+        {
+          "name": "Borasco Grey",
+          "hex": "#6B6F70"
+        },
+        {
+          "name": "Carpathian Grey",
+          "hex": "#4A4D50"
+        },
+        {
+          "name": "Zadar Grey",
+          "hex": "#8A8D8F"
+        },
+        {
+          "name": "Ostuni Pearl White",
+          "hex": "#EDEBE4"
+        },
+        {
+          "name": "Narvik Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "British Racing Green in Gloss finish",
+          "hex": "#1F3B2D"
+        },
+        {
+          "name": "Ethereal Frost Silver in Gloss finish",
+          "hex": "#C9CDD0"
+        },
+        {
+          "name": "Velocity Blue in Gloss finish",
+          "hex": "#2D5DA8"
+        },
+        {
+          "name": "Ionian Silver in Gloss finish",
+          "hex": "#A7ABAE"
+        },
+        {
+          "name": "Sunset Gold in Gloss finish",
+          "hex": "#B08A4F"
+        },
+        {
+          "name": "Amethyst Grey Purple in Gloss finish",
+          "hex": "#5F5468"
+        },
+        {
+          "name": "Petrolix Blue in Gloss finish",
+          "hex": "#1F4F5C"
+        },
+        {
+          "name": "Tourmaline Brown in Gloss finish",
+          "hex": "#5A4335"
+        },
+        {
+          "name": "Sunrise Copper in Gloss finish",
+          "hex": "#A0603D"
+        },
+        {
+          "name": "Constellation Blue in Gloss finish",
+          "hex": "#1E2C4A"
+        },
+        {
+          "name": "Flux Silver in Gloss finish",
+          "hex": "#9EA3A7"
+        },
+        {
+          "name": "Obsidian Black in Gloss finish",
+          "hex": "#121314"
+        },
+        {
+          "name": "Icy White in Gloss finish",
+          "hex": "#F2F4F5"
+        },
+        {
+          "name": "Twilight Mauve in Gloss finish",
+          "hex": "#6D5A66"
+        },
+        {
+          "name": "Sanguinello Orange in Gloss finish",
+          "hex": "#D3562A"
+        },
+        {
+          "name": "Eiger Grey in Satin Finish",
+          "hex": "#5F6468"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "22-way heated and ventilated massage front seats (Dynamic HSE)",
+            "Heated and ventilated power-recline rear seats",
+            "Cabin Air Purification Pro",
+            "Front centre console refrigerator compartment",
+            "Powered gesture tailgate",
+            "Soft door close"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Pivi Pro with 33.27 cm (13.1) touchscreen",
+            "Head-up Display",
+            "Meridian 3D Surround Sound System",
+            "Meridian Signature Sound System (Autobiography)",
+            "28.96 cm (11.4) Rear Seat Entertainment",
+            "Apple CarPlay and Android Auto"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Front airbags with passenger seat occupant detector",
+            "Front side airbags",
+            "Emergency Brake Assist",
+            "Roll Stability Control",
+            "Tyre Pressure Monitoring System",
+            "Rear ISOFIX"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "55.88 cm (22) wheels (Dynamic HSE)",
+            "Dynamic Exterior Pack",
+            "Black Exterior Pack (Twenty Edition)",
+            "Red brake calipers (Autobiography)",
+            "Flush deployable door handles",
+            "Rear animated directional indicators"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Semi-Aniline leather seats",
+            "Full Extended Leather Upgrade (Autobiography)",
+            "Satin Forged Carbon finisher",
+            "Configurable cabin lighting",
+            "Illuminated metal treadplates"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Dynamic Air Suspension",
+            "All Wheel Drive with twin-speed transfer box",
+            "8-speed automatic transmission",
+            "Terrain Response 2",
+            "6D Dynamics air suspension and SV Mode (SV)",
+            "900 mm wading depth"
+          ]
+        }
+      ],
+      "highlights": [
+        "3.0 l petrol and diesel Dynamic HSE and Autobiography versions are made in India",
+        "4.4 l V8 versions: Autobiography and Twenty Edition (P540) and SV (P635, 467 kW)",
+        "SV offered as SV, SV Black and SV Carbon",
+        "8-speed automatic with All Wheel Drive across the range",
+        "Five-star Euro NCAP rating (2022)"
+      ],
+      "variants": [
+        {
+          "name": "3.0 l Petrol Dynamic HSE (Made in India)",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 14300000,
+          "efficiency": null,
+          "features": [
+            "P400 3.0 l 6-cylinder petrol mild hybrid, 294 kW / 550 Nm",
+            "55.88 cm (22) wheels",
+            "Semi-Aniline leather seats",
+            "22-way heated and ventilated massage front seats",
+            "Meridian 3D Surround Sound System",
+            "28.96 cm (11.4) Rear Seat Entertainment",
+            "Dynamic Air Suspension",
+            "Dynamic Exterior Pack"
+          ]
+        },
+        {
+          "name": "3.0 l Diesel Dynamic HSE (Made in India)",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 14300000,
+          "efficiency": null,
+          "features": [
+            "D350 3.0 l 6-cylinder diesel mild hybrid, 258 kW / 700 Nm",
+            "55.88 cm (22) wheels",
+            "Semi-Aniline leather seats",
+            "22-way heated and ventilated massage front seats",
+            "Meridian 3D Surround Sound System",
+            "28.96 cm (11.4) Rear Seat Entertainment",
+            "Dynamic Air Suspension",
+            "Dynamic Exterior Pack"
+          ]
+        },
+        {
+          "name": "3.0 l Petrol Autobiography (Made in India)",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 16000000,
+          "efficiency": null,
+          "features": [
+            "P400 3.0 l 6-cylinder petrol mild hybrid, 294 kW / 550 Nm",
+            "Autobiography badge and red brake calipers",
+            "Meridian Signature Sound System",
+            "Full Extended Leather Upgrade",
+            "Satin Forged Carbon finisher",
+            "Deep pile carpet mats",
+            "Configurable Programs (Terrain Response)",
+            "Illuminated metal treadplates with Autobiography script"
+          ]
+        },
+        {
+          "name": "3.0 l Diesel Autobiography (Made in India)",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 16000000,
+          "efficiency": null,
+          "features": [
+            "D350 3.0 l 6-cylinder diesel mild hybrid, 258 kW / 700 Nm",
+            "Autobiography badge and red brake calipers",
+            "Meridian Signature Sound System",
+            "Full Extended Leather Upgrade",
+            "Satin Forged Carbon finisher",
+            "Deep pile carpet mats",
+            "Configurable Programs (Terrain Response)"
+          ]
+        },
+        {
+          "name": "4.4 l Petrol Autobiography",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 18000000,
+          "efficiency": null,
+          "features": [
+            "P540 4.4 l twin-turbo V8 petrol mild hybrid, 395 kW / 750 Nm",
+            "0–100 km/h in 4.5 s, 250 km/h top speed",
+            "Meridian Signature Sound System",
+            "Red brake calipers",
+            "Full Extended Leather Upgrade",
+            "Satin Forged Carbon finisher"
+          ]
+        },
+        {
+          "name": "4.4 l Petrol Twenty Edition",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 19000000,
+          "efficiency": null,
+          "features": [
+            "P540 4.4 l twin-turbo V8 petrol mild hybrid, 395 kW / 750 Nm",
+            "58.42 cm (23) wheels",
+            "Black Exterior Pack",
+            "Meridian 3D Surround Sound System",
+            "16-way heated and cooled Performance front seats with massage",
+            "Satin Forged Carbon veneer with Twenty Edition script",
+            "Illuminated metal treadplates with Twenty Edition script"
+          ]
+        },
+        {
+          "name": "4.4 l Petrol SV",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 20500000,
+          "efficiency": null,
+          "features": [
+            "P635 4.4 l twin-turbo V8 mild hybrid, 467 kW / 750 Nm (800 Nm with Dynamic Launch)",
+            "0–100 km/h in 3.9 s",
+            "SV Mode",
+            "6D Dynamics Air Suspension",
+            "Body and Soul Seat (BASS)",
+            "Dual-cast brake discs"
+          ]
+        },
+        {
+          "name": "4.4 l Petrol SV Black",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 22000000,
+          "efficiency": null,
+          "features": [
+            "P635 4.4 l twin-turbo V8 mild hybrid, 467 kW",
+            "Narvik Black body with Gloss Black accents",
+            "Carbon fibre bonnet",
+            "Gloss Black forged 23-inch wheels",
+            "Gloss Black brake calipers",
+            "Ebony Windsor leather interior with SV Black treadplates"
+          ]
+        },
+        {
+          "name": "4.4 l Petrol SV Carbon",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 23500000,
+          "efficiency": null,
+          "features": [
+            "P635 4.4 l twin-turbo V8 mild hybrid, 467 kW",
+            "Exposed or painted carbon fibre bonnet",
+            "Carbon Ceramic Brakes",
+            "Forged Carbon or Twill Carbon exterior finishers",
+            "Carbon fibre interior trim with Moonlight Chrome accents",
+            "Optional 23-inch carbon fibre wheels"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.findmeasuv.in/pricing_pdf/land-rover-vehicles-price-in-india.pdf",
+        "https://www.rangerover.com/en-in/range-rover-sport/models-and-specifications.html",
+        "https://www.rangerover.com/en-in/range-rover-sport/sv.html",
+        "https://rules.config.landrover.com/rc/lr/en_in/l461",
+        "https://media.landrover.com/news/2022/11/range-rover-and-range-rover-sport-awarded-five-star-euro-ncap-safety-ratings"
+      ],
+      "notes": "Prices from JLR India's official price list (26MY made-in-India 3.0 l, 27MY 4.4 l, 26MY SV); one all-India ex-showroom price, used here for Delhi. The price list calls the made-in-India trim 'HSE'; the model page calls it 'Dynamic HSE (Made in India)'. Top speed 290 km/h and 0–100 in 3.9 s are SV figures from the SV page, which also mentions 266 km/h in a footnote. Fuel tank: 90 l petrol, 80 l diesel. Configurator lists P540 at 395 kW in the spec table and 397 kW in the derivative name. Range Rover Sport Electric is open for bookings but unpriced, so it is not included."
+    },
+    {
+      "slug": "range-rover-velar",
+      "name": "Range Rover Velar",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1997 – 1998 cc",
+      "power": "150 – 183.9 kW",
+      "torque": "365 – 430 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 552,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 217,
+      "acceleration": "0–100 km/h in 7.5 s (P250)",
+      "dimensions": {
+        "length": 4797,
+        "width": 2041,
+        "height": 1683,
+        "wheelbase": 2874
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Fuji White",
+          "hex": "#F4F4F0"
+        },
+        {
+          "name": "Santorini Black",
+          "hex": "#1B1C1E"
+        },
+        {
+          "name": "Varesine Blue",
+          "hex": "#2B3A4F"
+        },
+        {
+          "name": "Giola Green",
+          "hex": "#3F4A3C"
+        },
+        {
+          "name": "Ostuni Pearl White",
+          "hex": "#EDEBE4"
+        },
+        {
+          "name": "Batumi Gold",
+          "hex": "#9C8A6A"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "20-way massage front seats with driver memory",
+            "Rear seat power recline",
+            "Air Quality Sensor",
+            "Keyless Entry",
+            "Front and rear cupholders"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Pivi Pro infotainment",
+            "Meridian 3D Surround Sound System",
+            "Voice control",
+            "Bluetooth connectivity"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags",
+            "Emergency Brake Assist",
+            "Dynamic Stability Control",
+            "Roll Stability Control",
+            "Rear ISOFIX",
+            "Power operated child locks"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Pixel LED headlights with signature DRL",
+            "Sliding panoramic roof",
+            "50.80 cm (20) Style 1089 Diamond Turned Dark Agate wheels",
+            "Flush deployable door handles",
+            "Acoustic laminated windscreen"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Windsor leather seats with contrast stitching",
+            "Full Extended Windsor Leather",
+            "Suedecloth headliner",
+            "Illuminated metal front treadplates",
+            "40:20:40 split fold rear seat"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "All Wheel Drive",
+            "8-speed automatic transmission",
+            "All Terrain Progress Control",
+            "Hill Descent Control",
+            "Torque Vectoring by Braking"
+          ]
+        }
+      ],
+      "highlights": [
+        "Locally manufactured in India",
+        "Sold in Autobiography trim with a 2.0 l petrol or 2.0 l diesel mild-hybrid engine",
+        "Both versions are priced the same",
+        "6 airbags standard",
+        "8-speed automatic with All Wheel Drive"
+      ],
+      "variants": [
+        {
+          "name": "2.0 l Petrol Autobiography",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 8850000,
+          "efficiency": null,
+          "features": [
+            "P250 2.0 l 4-cylinder turbo petrol, 183.9 kW / 365 Nm",
+            "0–100 km/h in 7.5 s, 217 km/h top speed",
+            "Pixel LED headlights",
+            "Sliding panoramic roof",
+            "Meridian 3D Surround Sound System",
+            "20-way massage front seats with driver memory"
+          ]
+        },
+        {
+          "name": "2.0 l Diesel Autobiography",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 8850000,
+          "efficiency": null,
+          "features": [
+            "D200 2.0 l 4-cylinder turbo diesel mild hybrid, 150 kW / 430 Nm",
+            "0–100 km/h in 8.3 s, 210 km/h top speed",
+            "Pixel LED headlights",
+            "Sliding panoramic roof",
+            "Meridian 3D Surround Sound System",
+            "20-way massage front seats with driver memory"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.findmeasuv.in/pricing_pdf/land-rover-vehicles-price-in-india.pdf",
+        "https://www.rangerover.com/en-in/range-rover-velar/index.html",
+        "https://rules.config.landrover.com/rc/lr/en_in/l560"
+      ],
+      "notes": "Prices from JLR India's official price list (26.75MY, locally manufactured); one all-India ex-showroom price, used here for Delhi. Boot is 552 l behind row 2 for the diesel and 568 l for the petrol. The configurator also lists a Belgravia Edition that is not on the price list, so it is left out. Safety is null: Velar's Euro NCAP result (2017) is for European-built cars and the Indian car is locally made. No ARAI figure or ground clearance published."
+    },
+    {
+      "slug": "range-rover-evoque",
+      "name": "Range Rover Evoque",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1997 – 1998 cc",
+      "power": "150 – 184 kW",
+      "torque": "365 – 430 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 472,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 230,
+      "acceleration": "0–100 km/h in 7.6 s (P250)",
+      "dimensions": {
+        "length": 4371,
+        "width": 1996,
+        "height": 1649,
+        "wheelbase": 2681
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Fuji White",
+          "hex": "#F4F4F0"
+        },
+        {
+          "name": "Santorini Black",
+          "hex": "#1B1C1E"
+        },
+        {
+          "name": "Arroios Grey",
+          "hex": "#7C7F80"
+        },
+        {
+          "name": "Ostuni Pearl White",
+          "hex": "#EDEBE4"
+        },
+        {
+          "name": "Carpathian Grey",
+          "hex": "#4A4D50"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "14-way driver memory electric front seats",
+            "Electrically adjustable steering column",
+            "Rear air vents",
+            "40:20:40 rear seat fold"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Pivi Pro infotainment",
+            "Meridian Surround Sound System",
+            "Voice control",
+            "Bluetooth connectivity",
+            "Dynamic Volume Control"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Front airbags with passenger seat occupant detector",
+            "Front side airbags",
+            "Full length side window curtain airbag",
+            "Emergency Brake Assist",
+            "ClearSight interior rear view mirror",
+            "Rear ISOFIX"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Pixel LED headlights with signature DRL",
+            "Sliding panoramic roof",
+            "48.26 cm (19) Style 5136 wheels",
+            "Burnished Copper Exterior Styling",
+            "Flush exterior door handles"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Windsor leather with contrast stitching",
+            "Extended Windsor Leather",
+            "Suedecloth headliner",
+            "Illuminated metal treadplates with Range Rover script"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "All Wheel Drive",
+            "9-speed automatic transmission",
+            "Torque Vectoring by Braking",
+            "Hill Launch Assist",
+            "530 mm wading depth"
+          ]
+        }
+      ],
+      "highlights": [
+        "Locally manufactured in India",
+        "Sold in Autobiography trim with a 2.0 l petrol or 2.0 l diesel mild-hybrid engine",
+        "9-speed automatic with All Wheel Drive",
+        "Both versions are priced the same",
+        "530 mm wading depth"
+      ],
+      "variants": [
+        {
+          "name": "2.0 l Petrol Autobiography",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed Automatic",
+          "price": 6490000,
+          "efficiency": null,
+          "features": [
+            "P250 2.0 l 4-cylinder petrol mild hybrid, 184 kW / 365 Nm",
+            "0–100 km/h in 7.6 s, 230 km/h top speed",
+            "Pixel LED headlights",
+            "Sliding panoramic roof",
+            "Meridian Surround Sound System",
+            "Windsor leather with contrast stitching"
+          ]
+        },
+        {
+          "name": "2.0 l Diesel Autobiography",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed Automatic",
+          "price": 6490000,
+          "efficiency": null,
+          "features": [
+            "D200 2.0 l 4-cylinder diesel mild hybrid, 150 kW / 430 Nm",
+            "0–100 km/h in 8.5 s, 213 km/h top speed",
+            "Pixel LED headlights",
+            "Sliding panoramic roof",
+            "Meridian Surround Sound System",
+            "Windsor leather with contrast stitching"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.findmeasuv.in/pricing_pdf/land-rover-vehicles-price-in-india.pdf",
+        "https://www.rangerover.com/en-in/range-rover-evoque/index.html",
+        "https://rules.config.landrover.com/rc/lr/en_in/l551"
+      ],
+      "notes": "Prices from JLR India's official price list (26.75MY, locally manufactured); one all-India ex-showroom price, used here for Delhi. Safety is null: Evoque's Euro NCAP result (2019) is for European-built cars and the Indian car is locally made. No ARAI figure, airbag count or ground clearance published."
+    },
+    {
+      "slug": "land-rover-defender",
+      "name": "Defender",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1997 – 4395 cc",
+      "power": "221 – 467 kW",
+      "torque": "400 – 750 Nm",
+      "seats": [
+        5,
+        7,
+        8
+      ],
+      "airbags": null,
+      "safety": {
+        "rating": 5,
+        "agency": "Euro NCAP",
+        "year": 2020
+      },
+      "bootSpaceL": 743,
+      "groundClearanceMm": 218,
+      "fuelTankL": null,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 4.0 s (OCTA)",
+      "dimensions": {
+        "length": 5018,
+        "width": 2008,
+        "height": 1967,
+        "wheelbase": 3022
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Fuji White",
+          "hex": "#F4F4F0"
+        },
+        {
+          "name": "Santorini Black",
+          "hex": "#1B1C1E"
+        },
+        {
+          "name": "Borasco Grey",
+          "hex": "#6B6F70"
+        },
+        {
+          "name": "Tasman Blue",
+          "hex": "#355E8C"
+        },
+        {
+          "name": "Woolstone Green",
+          "hex": "#4E5B4A"
+        },
+        {
+          "name": "Carpathian Grey",
+          "hex": "#4A4D50"
+        },
+        {
+          "name": "Gondwana Stone",
+          "hex": "#A39A88"
+        },
+        {
+          "name": "Sedona Red",
+          "hex": "#7F2A22"
+        },
+        {
+          "name": "Charente Grey",
+          "hex": "#6E7275"
+        },
+        {
+          "name": "Sargasso Blue",
+          "hex": "#1F3150"
+        },
+        {
+          "name": "Petra Copper",
+          "hex": "#8A5A3C"
+        },
+        {
+          "name": "Narvik Black",
+          "hex": "#111111"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "14-way heated and cooled electric memory front seats",
+            "Two-zone Climate Control (three-zone optional)",
+            "Front centre console refrigerator compartment",
+            "Cabin Air Purification Plus",
+            "Keyless Entry",
+            "Sliding panoramic roof"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Pivi Pro with 33.27 cm (13.1) touchscreen",
+            "Interactive Driver Display",
+            "Meridian Sound System",
+            "Apple CarPlay and Android Auto",
+            "Wireless device charging"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Front airbags with passenger seat occupant detector",
+            "3D Surround Camera",
+            "Adaptive Cruise Control",
+            "Emergency Brake Assist",
+            "Wade Sensing",
+            "Front passenger seat and rear ISOFIX"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "LED headlights with signature DRL",
+            "Side-hinged tailgate with full-size spare wheel",
+            "Alpine lights",
+            "Black contrast roof",
+            "50.80 cm (20) alloy wheels"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Windsor leather seats (X-Dynamic HSE)",
+            "Windsor leather and Kvadrat seats (X)",
+            "Semi-Aniline leather seats (OCTA)",
+            "Manual third row seats (110 X-Dynamic HSE Made in India)",
+            "ClearSight interior rear view mirror"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "All Wheel Drive with twin-speed transfer box",
+            "8-speed automatic transmission",
+            "Electronic Air Suspension",
+            "Terrain Response",
+            "Up to 900 mm wading depth (air suspension)",
+            "6D Dynamics air suspension (OCTA)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Defender 110 versions are locally manufactured in India",
+        "Offered as Defender 110 (5+2 seats), the longer Defender 130 and Defender OCTA",
+        "Defender OCTA uses a 467 kW 4.4 l twin-turbo V8",
+        "Twin-speed transfer box and All Wheel Drive on all versions",
+        "Five-star Euro NCAP rating for Defender 110 (2020)"
+      ],
+      "variants": [
+        {
+          "name": "110 2.0 l Petrol X-Dynamic HSE",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 9900000,
+          "efficiency": null,
+          "features": [
+            "P300 2.0 l 4-cylinder turbo petrol, 221 kW / 400 Nm",
+            "0–100 km/h in 7.4 s",
+            "Made in India",
+            "Electronic Air Suspension",
+            "Manual third row seats",
+            "14-way heated and cooled electric memory front seats",
+            "Front centre console refrigerator compartment",
+            "Sliding panoramic roof",
+            "ClearSight interior rear view mirror"
+          ]
+        },
+        {
+          "name": "110 3.0 l Diesel X-Dynamic HSE",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 11800000,
+          "efficiency": null,
+          "features": [
+            "D350 3.0 l 6-cylinder diesel mild hybrid, 257 kW / 700 Nm",
+            "0–100 km/h in 6.4 s",
+            "Made in India",
+            "Electronic Air Suspension",
+            "Manual third row seats",
+            "14-way heated and cooled electric memory front seats",
+            "Sliding panoramic roof",
+            "Cabin Air Purification Plus"
+          ]
+        },
+        {
+          "name": "110 3.0 l Petrol X-Dynamic HSE",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 11800000,
+          "efficiency": null,
+          "features": [
+            "P400 3.0 l 6-cylinder petrol mild hybrid, 294 kW / 550 Nm",
+            "0–100 km/h in 6.1 s",
+            "Made in India",
+            "Electronic Air Suspension",
+            "Manual third row seats",
+            "14-way heated and cooled electric memory front seats",
+            "Sliding panoramic roof"
+          ]
+        },
+        {
+          "name": "130 3.0 l Diesel X-Dynamic HSE",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 14600000,
+          "efficiency": null,
+          "features": [
+            "D350 3.0 l 6-cylinder diesel mild hybrid, 257 kW / 700 Nm",
+            "Defender 130 body, 5099 mm long (5358 mm with spare wheel)",
+            "Electronic Air Suspension",
+            "Windsor leather seats",
+            "Sliding panoramic roof"
+          ]
+        },
+        {
+          "name": "130 3.0 l Diesel X",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 15600000,
+          "efficiency": null,
+          "features": [
+            "D350 3.0 l 6-cylinder diesel mild hybrid, 257 kW / 700 Nm",
+            "Defender 130 body, 5099 mm long",
+            "50.80 cm (20) Style 5095 Diamond Turned wheels",
+            "Windsor leather and Kvadrat seats",
+            "Meridian Surround Sound System",
+            "Signature interior upgrade"
+          ]
+        },
+        {
+          "name": "OCTA",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 24190000,
+          "efficiency": null,
+          "features": [
+            "P635 4.4 l twin-turbo V8 mild hybrid, 467 kW / 750 Nm",
+            "0–100 km/h in 4.0 s; 250 km/h with 22-inch wheels",
+            "6D Dynamics air suspension",
+            "OCTA Mode",
+            "Semi-Aniline leather seats",
+            "Body and Soul Seat",
+            "Active exhaust system",
+            "250 mm ride height, 1 m wading depth"
+          ]
+        },
+        {
+          "name": "OCTA Black",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed Automatic",
+          "price": 26190000,
+          "efficiency": null,
+          "features": [
+            "P635 4.4 l twin-turbo V8 mild hybrid, 467 kW / 750 Nm",
+            "Narvik Black paint with gloss black exterior elements",
+            "50.80 cm (20) Style 1086 Satin Dark Tint wheels",
+            "Semi-Aniline leather and Kvadrat seats",
+            "Body and Soul Seat",
+            "6D Dynamics air suspension"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.findmeasuv.in/pricing_pdf/land-rover-vehicles-price-in-india.pdf",
+        "https://www.landrover.in/defender/index.html",
+        "https://www.landrover.in/defender/defender-octa/index.html",
+        "https://rules.config.landrover.com/rc/lr/en_in/l663",
+        "https://www.landrover.co.uk/content/dam/lrdx/pdfs/uk/wltp-pdfs/Land-Rover-Defender-TD-Insert-1L6632600000GBEN01P.pdf",
+        "https://media.landrover.com/news/2020/12/five-star-euro-ncap-safety-rating-award-winning-new-defender-110"
+      ],
+      "notes": "Prices from JLR India's official price list (26MY): made-in-India Defender 110, imported 130 and OCTA. One all-India ex-showroom price, used here for Delhi. Defender 90 is not on the current price list and is left out. Dimensions are for the 110 from Land Rover's UK technical sheet (5018 mm with spare wheel, 4758 mm without), because the Indian configurator gives none for the 110. Boot is 743 l behind row 2 (5+2 seats). Ground clearance is the 110's air-suspension ride height; OCTA is 250 mm. Seats: the Indian configurator lists the 130 with 5 seats by default, with 7-seat (captain chairs) and 8-seat layouts as options; check which are offered. No ARAI figure or airbag count published."
+    },
+    {
+      "slug": "land-rover-discovery",
+      "name": "Discovery",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "2997 cc",
+      "power": "257 kW",
+      "torque": "700 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": null,
+      "safety": {
+        "rating": 5,
+        "agency": "Euro NCAP",
+        "year": 2017
+      },
+      "bootSpaceL": null,
+      "groundClearanceMm": 207,
+      "fuelTankL": null,
+      "topSpeedKmh": 209,
+      "acceleration": "0–100 km/h in 6.3 s",
+      "dimensions": {
+        "length": 4956,
+        "width": 2073,
+        "height": 1888,
+        "wheelbase": 2923
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Fuji White",
+          "hex": "#F4F4F0"
+        },
+        {
+          "name": "Tasman Blue",
+          "hex": "#355E8C"
+        },
+        {
+          "name": "Santorini Black",
+          "hex": "#1B1C1E"
+        },
+        {
+          "name": "Eiger Grey",
+          "hex": "#5D6266"
+        },
+        {
+          "name": "Lantau Bronze",
+          "hex": "#6E5A45"
+        },
+        {
+          "name": "Sedona Red",
+          "hex": "#7F2A22"
+        },
+        {
+          "name": "Varesine Blue",
+          "hex": "#2B3A4F"
+        },
+        {
+          "name": "Carpathian Grey",
+          "hex": "#4A4D50"
+        },
+        {
+          "name": "Charente Grey",
+          "hex": "#6E7275"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "20-way massage electric driver memory seat with Captain's armrest",
+            "Heated and cooled front seats",
+            "Heated electric third row seats",
+            "Four-zone Climate Control",
+            "Cabin Air Purification Plus",
+            "Powered tailgate"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Pivi Pro infotainment",
+            "Head-up Display",
+            "Meridian Surround Sound System",
+            "Click and Go integrated base unit"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Emergency Brake Assist",
+            "Dynamic Stability Control",
+            "Rear ISOFIX",
+            "Hill Descent Control"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "55.88 cm (22) Style 5124 Gloss Black wheels with Copper Tinted lacquer",
+            "Petra Copper contrast roof",
+            "Sliding front sunroof and fixed rear panoramic roof",
+            "Black brake calipers",
+            "Matte Protective Film"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Extended Windsor leather",
+            "Shadow Aluminium with Dark Grey Tint and Tempest branding",
+            "Metal front treadplates with Tempest script",
+            "Seven seats in three rows"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "D350 3.0 l 6-cylinder diesel",
+            "Automatic transmission",
+            "All Wheel Drive",
+            "Off-road ride height 286 mm"
+          ]
+        }
+      ],
+      "highlights": [
+        "Seven seats in three rows",
+        "Sold in India as the Tempest Edition with a 3.0 l six-cylinder diesel",
+        "257 kW and 700 Nm from the D350 engine",
+        "Heated electric third row seats on the Tempest Edition",
+        "Five-star Euro NCAP rating (2017)"
+      ],
+      "variants": [
+        {
+          "name": "3.0 l Diesel Tempest Edition",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "Automatic",
+          "price": 13906000,
+          "efficiency": null,
+          "features": [
+            "D350 3.0 l 6-cylinder diesel, 257 kW / 700 Nm",
+            "55.88 cm (22) Gloss Black wheels with Copper Tinted lacquer",
+            "Petra Copper contrast roof",
+            "Matte Protective Film",
+            "Extended Windsor leather",
+            "20-way massage electric driver memory seat",
+            "Heated electric third row seats",
+            "Four-zone Climate Control",
+            "Head-up Display",
+            "Metal front treadplates with Tempest script"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.findmeasuv.in/pricing_pdf/land-rover-vehicles-price-in-india.pdf",
+        "https://www.landrover.in/discovery/index.html",
+        "https://rules.config.landrover.com/rc/lr/en_in/l462",
+        "https://media.landrover.com/news/2017/03/safety-numbers-five-stars-land-rovers-seven-seat-discovery"
+      ],
+      "notes": "Price from JLR India's official price list (27MY); one all-India ex-showroom price, used here for Delhi. The list prices only the Tempest Edition. The configurator also shows a Landmark trim with no published price, so it is left out. Euro NCAP rating dates from 2017 and may have lapsed under Euro NCAP's six-year validity rule. No ARAI figure, boot volume or airbag count published."
+    },
+    {
+      "slug": "land-rover-discovery-sport",
+      "name": "Discovery Sport",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1997 – 1998 cc",
+      "power": "150 – 184 kW",
+      "torque": "365 – 430 Nm",
+      "seats": [
+        7
+      ],
+      "airbags": null,
+      "safety": {
+        "rating": 5,
+        "agency": "Euro NCAP",
+        "year": 2022
+      },
+      "bootSpaceL": 840,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 224,
+      "acceleration": "0–100 km/h in 8.1 s (P250, 5+2 seats)",
+      "dimensions": {
+        "length": 4597,
+        "width": 2069,
+        "height": 1727,
+        "wheelbase": 2741
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Fuji White",
+          "hex": "#F4F4F0"
+        },
+        {
+          "name": "Santorini Black",
+          "hex": "#1B1C1E"
+        },
+        {
+          "name": "Varesine Blue",
+          "hex": "#2B3A4F"
+        },
+        {
+          "name": "Carpathian Grey",
+          "hex": "#4A4D50"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "14-way electric front seats with driver memory",
+            "Heated and cooled front seats",
+            "Cabin Air Purification Plus",
+            "Manual third row seats",
+            "2 USB charging ports in first row"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Pivi Pro infotainment",
+            "Interactive Driver Display",
+            "Meridian Surround Sound System"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Emergency Brake Assist",
+            "Dynamic Stability Control",
+            "Roll Stability Control",
+            "Rear ISOFIX",
+            "Trailer Stability Assist"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Matrix LED headlights with signature DRL",
+            "Fixed panoramic roof",
+            "48.26 cm (19) Style 5136 wheels",
+            "Heated rear window"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Windsor leather seats",
+            "Bright metal pedals",
+            "Satin Chrome gearshift paddles",
+            "Front and rear grab handles"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "All Wheel Drive",
+            "Automatic transmission",
+            "Hill Launch Assist",
+            "Electronic Traction Control"
+          ]
+        }
+      ],
+      "highlights": [
+        "5+2 seating with manual third row seats",
+        "Sold in Metropolitan Edition trim with a 2.0 l petrol or 2.0 l diesel mild-hybrid engine",
+        "Both versions are priced the same",
+        "All Wheel Drive with an automatic gearbox",
+        "Five-star Euro NCAP rating (2022 retest)"
+      ],
+      "variants": [
+        {
+          "name": "2.0 l Petrol Metropolitan Edition",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "Automatic",
+          "price": 6590000,
+          "efficiency": null,
+          "features": [
+            "P250 2.0 l 4-cylinder petrol mild hybrid, 184 kW / 365 Nm",
+            "0–100 km/h in 7.8 s (5 seats) / 8.1 s (5+2)",
+            "Matrix LED headlights",
+            "Fixed panoramic roof",
+            "Meridian Surround Sound System",
+            "Heated and cooled front seats",
+            "Interactive Driver Display"
+          ]
+        },
+        {
+          "name": "2.0 l Diesel Metropolitan Edition",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "Automatic",
+          "price": 6590000,
+          "efficiency": null,
+          "features": [
+            "D200 2.0 l 4-cylinder diesel mild hybrid, 150 kW / 430 Nm",
+            "0–100 km/h in 8.6 s (5 seats) / 8.9 s (5+2)",
+            "Matrix LED headlights",
+            "Fixed panoramic roof",
+            "Meridian Surround Sound System",
+            "Heated and cooled front seats",
+            "Interactive Driver Display"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.findmeasuv.in/pricing_pdf/land-rover-vehicles-price-in-india.pdf",
+        "https://www.landrover.in/discovery/index.html",
+        "https://rules.config.landrover.com/rc/lr/en_in/l550",
+        "https://media.landrover.com/news/2022/12/five-star-euro-ncap-rating-discovery-sport"
+      ],
+      "notes": "Prices from JLR India's official price list (26MY); one all-India ex-showroom price, used here for Delhi. Boot is 840 l behind row 2 for the 5+2 (115 l behind row 3). Top speed is 224 km/h for the petrol 5+2 (225 km/h for 5 seats); the diesel does 209 km/h. The configurator gives the gearbox only as 'Automatic'. No ARAI figure, airbag count or ground clearance published."
+    }
+  ]
+}

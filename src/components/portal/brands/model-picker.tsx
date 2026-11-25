@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
+import { CarImage } from "@/components/vehicle/car-image";
 import { useRouter } from "next/navigation";
 import { ChevronDown, Search } from "lucide-react";
 import type { BrandAuthStatus } from "@/db/enums";
@@ -159,7 +159,7 @@ export function ModelPicker({ lineups, initialBrand }: { lineups: BrandLineup[];
                   <div className="flex items-center gap-3 px-5 py-3.5">
                     <Check2 checked={picked} onChange={(on) => toggleModel(c.slug, on)} label={<span className="sr-only">Sell the {c.name}</span>} />
                     <span className="relative hidden h-11 w-16 shrink-0 overflow-hidden bg-mist sm:block">
-                      {c.images[0] && <Image src={c.images[0]} alt="" fill sizes="64px" className="object-cover" />}
+                      <CarImage car={c} alt="" sizes="64px" className="object-cover" />
                     </span>
                     <button type="button" onClick={() => setOpen(expanded ? null : c.slug)} aria-expanded={expanded} className="flex min-w-0 flex-1 items-center justify-between gap-3 text-left">
                       <span className="min-w-0">

@@ -16,6 +16,8 @@ import { Newsletter } from "@/components/home/newsletter";
 import { AdSlot } from "@/components/ads/ad-slot";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/components/seo/metadata";
+import { SHOWCASE_DEFAULT } from "@/components/home/showcase-defaults";
+import { getCatalog } from "@/server/catalog";
 
 export const metadata: Metadata = pageMetadata({
   title: "MarchGear: New & Used Cars, Prices and Reviews",
@@ -25,7 +27,9 @@ export const metadata: Metadata = pageMetadata({
   absoluteTitle: true,
 });
 
-export default function HomePage() {
+export default async function HomePage() {
+  const cat = await getCatalog();
+  const showcase = SHOWCASE_DEFAULT.map((s) => cat.getCar(s)).filter((c) => c !== undefined);
   return (
     <>
       <Hero />
@@ -35,7 +39,7 @@ export default function HomePage() {
       <DiscoverCategories />
       <LatestLaunches />
       <AdSlot placement="home_banner" />
-      <CompareShowcase />
+      <CompareShowcase initial={showcase} />
       <PerfectCarQuiz />
       <UsedShowcase />
       <UpcomingCars />

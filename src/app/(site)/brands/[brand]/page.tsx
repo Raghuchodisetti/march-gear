@@ -5,7 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, ArrowUpRight, Clock, MapPin, Star } from "lucide-react";
 import type { Article, Brand } from "@/types";
-import type { Catalog } from "@/lib/catalog";
+import { toCarLite, type Catalog } from "@/lib/catalog";
 import { getCatalog } from "@/server/catalog";
 import { formatDate, formatMonth, formatPriceRange } from "@/lib/format";
 import { Badge, DemoNote } from "@/components/ui/badge";
@@ -41,7 +41,8 @@ export async function generateMetadata(props: PageProps<"/brands/[brand]">): Pro
       "Specs, upcoming launches, stories and dealers.",
     ),
     path: `/brands/${brand.slug}`,
-    images: [shareImage(brand.heroImage, `${brand.name} cars`)],
+    // No hero photo yet (newly researched brands): the branded site card.
+    images: brand.heroImage ? [shareImage(brand.heroImage, `${brand.name} cars`)] : undefined,
   });
 }
 
@@ -80,7 +81,12 @@ export default async function BrandPage(props: PageProps<"/brands/[brand]">) {
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative isolate overflow-hidden bg-ink text-white">
-        <Image src={brand.heroImage} alt="" fill preload sizes="100vw" className="-z-10 animate-kenburns object-cover opacity-55" style={{ objectPosition: "50% 60%" }} />
+        {brand.heroImage ? (
+          <Image src={brand.heroImage} alt="" fill preload sizes="100vw" className="-z-10 animate-kenburns object-cover opacity-55" style={{ objectPosition: "50% 60%" }} />
+        ) : (
+          // No licensed hero photo yet: a quiet graphite field instead.
+          <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(90%_70%_at_75%_20%,#2a2a2a_0%,#111111_65%)]" />
+        )}
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/55 to-ink/15" />
         <div className="container-x flex min-h-[600px] flex-col pb-14 pt-10 md:min-h-[680px] md:pb-20 md:pt-14">
           <Breadcrumbs items={[{ label: "Brands", href: "/brands" }, { label: brand.name }]} tone="light" />
@@ -88,7 +94,7 @@ export default async function BrandPage(props: PageProps<"/brands/[brand]">) {
             <div className="flex items-center gap-4">
               <BrandMonogram name={brand.name} tone="dark" className="size-12 text-[17px] md:size-14 md:text-[19px]" />
               <Eyebrow tone="light">
-                {brand.country} · Since {brand.founded}
+                {brand.founded ? `${brand.country} · Since ${brand.founded}` : brand.country}
               </Eyebrow>
             </div>
             <h1 className="type-display mt-8 text-balance break-words">{brand.name}</h1>
@@ -115,14 +121,14 @@ export default async function BrandPage(props: PageProps<"/brands/[brand]">) {
             <BrandStat label="Models on sale">
               <Counter to={summary.models} />
             </BrandStat>
-            <BrandStat label="Starting ex-showroom" note="Indicative">
+            <BrandStat label="Starting ex-showroom" note={line[0]?.priceCity ? line[0].priceCity : "Indicative"}>
               {price ? <Counter to={price.value} decimals={price.decimals} prefix="₹" suffix={price.suffix} /> : "—"}
             </BrandStat>
             <BrandStat label="Electric models">
               <Counter to={summary.evs} />
             </BrandStat>
             <BrandStat label="Founded">
-              <span>{brand.founded}</span>
+              <span>{brand.founded || "—"}</span>
             </BrandStat>
           </dl>
         </div>
@@ -134,13 +140,17 @@ export default async function BrandPage(props: PageProps<"/brands/[brand]">) {
           <SectionHeading
             eyebrow="The line-up"
             title={`${brand.name} models on sale`}
-            description="Prices are indicative ex-showroom figures for demonstration and vary by city and variant."
+            description={
+              line[0]?.priceCity && line[0]?.dataAsOf
+                ? `Ex-showroom prices in ${line[0].priceCity}, as published by ${brand.name} (checked ${formatDate(line[0].dataAsOf)}). On-road prices vary by city and variant.`
+                : "Prices are indicative ex-showroom figures for demonstration and vary by city and variant."
+            }
           >
             {line.length > 1 && <TextLink href={`/compare?cars=${line.slice(0, 4).map((c) => c.slug).join(",")}`}>Compare the line-up</TextLink>}
           </SectionHeading>
           <div className="mt-12 md:mt-16">
             {line.length > 0 ? (
-              <BrandModels cars={line} />
+              <BrandModels cars={line.map(toCarLite)} />
             ) : (
               <p className="border border-dashed border-line px-6 py-14 text-center text-muted">No {brand.name} models are on sale right now.</p>
             )}

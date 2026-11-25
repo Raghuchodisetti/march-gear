@@ -1,11 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
 import { GitCompareArrows, Plus, Smartphone, X } from "lucide-react";
-import type { CarModel } from "@/types";
+import type { CarLite } from "@/types";
 import { formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { useCompare, useUI, useUser } from "@/components/providers/app-provider";
@@ -13,15 +12,16 @@ import { useCatalog } from "@/components/providers/catalog-provider";
 import { Button } from "@/components/ui/button";
 import { ConfirmDialog } from "@/components/portal/profile/kit";
 import { PopularComparisons } from "@/components/compare/popular-comparisons";
+import { CarImage } from "@/components/vehicle/car-image";
 
 /* /account/comparisons: the compare list (kept in this browser) and quick sets built from saved cars. */
 
 const compareHref = (slugs: string[]) => `/compare?cars=${slugs.join(",")}`;
 
-function Thumb({ car, className }: { car: CarModel; className?: string }) {
+function Thumb({ car, className }: { car: CarLite; className?: string }) {
   return (
     <div className={cn("relative overflow-hidden bg-mist", className)}>
-      <Image src={car.images[0]} alt="" fill sizes="160px" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
+      <CarImage car={car} alt="" sizes="160px" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
     </div>
   );
 }
@@ -33,7 +33,7 @@ export function CurrentCompare() {
   const { getCar, brandName } = useCatalog();
   const { toast } = useUI();
   const [confirm, setConfirm] = useState(false);
-  const list = slugs.map(getCar).filter((c): c is CarModel => c !== undefined);
+  const list = slugs.map(getCar).filter((c): c is CarLite => c !== undefined);
 
   if (!ready) {
     return (
@@ -166,7 +166,7 @@ export function QuickSets({ sets }: { sets: QuickSet[] }) {
   return (
     <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
       {sets.map((s) => {
-        const cars = s.slugs.map(getCar).filter((c): c is CarModel => c !== undefined);
+        const cars = s.slugs.map(getCar).filter((c): c is CarLite => c !== undefined);
         if (cars.length < 2) return null;
         return (
           <li key={s.key} className="flex min-w-0 flex-col border border-line bg-white">

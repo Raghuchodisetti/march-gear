@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import type { CarModel } from "@/types";
@@ -7,7 +6,11 @@ import { formatPriceRange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Stars } from "@/components/ui/rating";
-import { competitorsOf, maxOf } from "./utils";
+import { CarImage } from "@/components/vehicle/car-image";
+import { hasOwnerRating, known, powerBhp, topFigure, torqueNm } from "@/lib/specs";
+import { competitorsOf } from "./utils";
+
+const dash = <span className="text-muted">—</span>;
 
 /**
  * Compact side-by-side of the model against up to three rivals. The best
@@ -23,9 +26,10 @@ export async function CompareRivals({ car }: { car: CarModel }) {
 
   const rows: { label: string; render: (c: CarModel) => React.ReactNode; score?: (c: CarModel) => number; higherIsBetter?: boolean }[] = [
     { label: "Price (ex-showroom)", render: (c) => formatPriceRange(c.priceMin, c.priceMax), score: (c) => c.priceMin, higherIsBetter: false },
-    { label: "Max power", render: (c) => `${maxOf(c.power)} bhp`, score: (c) => maxOf(c.power) },
-    { label: "Max torque", render: (c) => `${maxOf(c.torque)} Nm`, score: (c) => maxOf(c.torque) },
-    { label: "Efficiency", render: (c) => c.efficiency },
+    // Unpublished figures show a dash and never count as "best".
+    { label: "Max power", render: (c) => topFigure(c.power)?.text ?? dash, score: (c) => powerBhp(c.power) ?? 0 },
+    { label: "Max torque", render: (c) => topFigure(c.torque, ["Nm", "kgm"])?.text ?? dash, score: (c) => torqueNm(c.torque) ?? 0 },
+    { label: "Efficiency", render: (c) => c.efficiency || dash },
     {
       label: "Safety",
       render: (c) =>
@@ -39,8 +43,9 @@ export async function CompareRivals({ car }: { car: CarModel }) {
         ),
       score: (c) => c.safetyRating,
     },
-    { label: "Boot space", render: (c) => `${c.bootSpace} L`, score: (c) => c.bootSpace },
-    { label: "Owner rating", render: (c) => `${c.rating.toFixed(1)} / 5`, score: (c) => c.rating },
+    { label: "Boot space", render: (c) => (known(c.bootSpace) ? `${c.bootSpace} L` : dash), score: (c) => c.bootSpace },
+    // Facts-only models have no owner rating: the row appears only when one of the cars has reviews.
+    ...(field.some(hasOwnerRating) ? [{ label: "Owner rating", render: (c: CarModel) => (hasOwnerRating(c) ? `${c.rating.toFixed(1)} / 5` : dash), score: (c: CarModel) => (hasOwnerRating(c) ? c.rating : 0) }] : []),
   ];
 
   return (
@@ -59,10 +64,9 @@ export async function CompareRivals({ car }: { car: CarModel }) {
                 <th key={c.slug} scope="col" className={cn("px-4 pb-5 align-top font-normal", i === 0 && "bg-mist pt-4")}>
                   <Link href={`/cars/${c.slug}`} className="group block">
                     <span className="relative block aspect-[16/10] overflow-hidden bg-mist">
-                      <Image
-                        src={c.images[0]}
-                        alt={cardPhotoAlt(c.images[0], `${brandName(c.brand)} ${c.name}`)}
-                        fill
+                      <CarImage
+                        car={c}
+                        alt={c.images[0] ? cardPhotoAlt(c.images[0], `${brandName(c.brand)} ${c.name}`) : ""}
                         sizes="240px"
                         className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover:scale-[1.04]"
                         style={{ objectPosition: c.focus ?? "50% 55%" }}
@@ -86,7 +90,7 @@ export async function CompareRivals({ car }: { car: CarModel }) {
                     {row.label}
                   </th>
                   {field.map((c, i) => {
-                    const best = target !== null && row.score && row.score(c) === target && new Set(scores).size > 1;
+                    const best = target !== null && row.score && row.score(c) === target && target > 0 && new Set(scores).size > 1;
                     return (
                       <td key={c.slug} className={cn("px-4 py-4 align-top num", i === 0 && "bg-mist font-medium")}>
                         <span className="inline-flex items-start gap-2">

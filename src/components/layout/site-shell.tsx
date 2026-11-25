@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { getCatalogData } from "@/server/catalog";
+import { getClientCatalogData } from "@/server/catalog";
 import { CatalogProvider } from "@/components/providers/catalog-provider";
 import { AppProvider } from "@/components/providers/app-provider";
 import { AnnouncementBar } from "@/components/layout/announcement-bar";
@@ -13,7 +13,7 @@ import { EnquiryModal } from "@/components/forms/enquiry-modal";
 
 /** Public-site chrome: catalogue, header, footer and the global overlays. */
 export async function SiteShell({ children }: { children: ReactNode }) {
-  const catalog = await getCatalogData();
+  const catalog = await getClientCatalogData();
   return (
     <CatalogProvider data={catalog}>
       <AppProvider>

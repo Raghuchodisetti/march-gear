@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { ArrowRight, Cog, Fuel, Gauge, ShieldCheck, Users, Zap } from "lucide-react";
-import type { CarModel } from "@/types";
+import type { CarLite } from "@/types";
 import { isElectric } from "@/lib/catalog";
 import { formatPriceRange } from "@/lib/format";
 import { Badge } from "@/components/ui/badge";
@@ -12,12 +11,14 @@ import { RatingInline } from "@/components/ui/rating";
 import { useCatalog } from "@/components/providers/catalog-provider";
 import { bestEfficiency, carHref, fuelSummary, transmissionSummary } from "@/components/vehicle/card-utils";
 import { CompareToggle, WishlistButton } from "@/components/vehicle/toggles";
+import { CarImage } from "@/components/vehicle/car-image";
+import { hasOwnerRating } from "@/lib/specs";
 
 /**
  * List-view row: a horizontal, magazine-style entry with a spec strip and a
  * price column. On mobile it collapses to a dense thumbnail + text row.
  */
-export function CarRow({ car }: { car: CarModel }) {
+export function CarRow({ car }: { car: CarLite }) {
   const { brandName } = useCatalog();
   const brand = brandName(car.brand);
   const title = `${brand} ${car.name}`;
@@ -28,10 +29,9 @@ export function CarRow({ car }: { car: CarModel }) {
   return (
     <article className="group/row relative grid grid-cols-[116px_minmax(0,1fr)] gap-4 border-b border-line py-5 sm:grid-cols-[200px_minmax(0,1fr)] sm:gap-6 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)_auto] md:gap-8 md:py-8">
       <div className="relative aspect-[4/3] self-start overflow-hidden bg-mist">
-        <Image
-          src={car.images[0]}
-          alt={cardPhotoAlt(car.images[0], title)}
-          fill
+        <CarImage
+          car={car}
+          alt={car.images[0] ? cardPhotoAlt(car.images[0], title) : ""}
           sizes="(min-width: 768px) 300px, (min-width: 640px) 200px, 116px"
           className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/row:scale-[1.04]"
           style={{ objectPosition: car.focus ?? "50% 55%" }}
@@ -63,7 +63,7 @@ export function CarRow({ car }: { car: CarModel }) {
         <dl className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[12.5px] md:mt-6">
           <RowSpec icon={<Fuel />} label="Fuel" value={fuelSummary(car)} />
           <RowSpec icon={<Cog />} label="Gearbox" value={transmissionSummary(car)} className="hidden sm:flex" />
-          <RowSpec icon={ev ? <Zap /> : <Gauge />} label={ev ? "Range" : "Mileage"} value={bestEfficiency(car)} />
+          <RowSpec icon={ev ? <Zap /> : <Gauge />} label={ev ? "Range" : "Mileage"} value={bestEfficiency(car) || "—"} />
           <RowSpec icon={<Users />} label="Seats" value={seats} className="hidden md:flex" />
           <RowSpec
             icon={<ShieldCheck />}
@@ -82,7 +82,7 @@ export function CarRow({ car }: { car: CarModel }) {
         <div>
           <p className="type-h4 num">{formatPriceRange(car.priceMin, car.priceMax)}</p>
           <p className="mt-1 text-[11.5px] text-muted">Ex-showroom · indicative</p>
-          <RatingInline value={car.rating} count={car.reviewCount} className="mt-3" />
+          {hasOwnerRating(car) && <RatingInline value={car.rating} count={car.reviewCount} className="mt-3" />}
         </div>
         <div className="flex items-center gap-4">
           <CompareToggle slug={car.slug} label={title} />

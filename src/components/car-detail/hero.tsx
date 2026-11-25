@@ -9,6 +9,8 @@ import { EASE } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { ImageGallery } from "@/components/vehicle/image-gallery";
+import { CarPlaceholder } from "@/components/vehicle/car-image";
+import { hasOwnerRating } from "@/lib/specs";
 import { CompareToggle, WishlistButton } from "@/components/vehicle/toggles";
 import { useUI } from "@/components/providers/app-provider";
 import { useCarDetail } from "./context";
@@ -18,6 +20,9 @@ import { emiFrom, sortedVariants } from "./utils";
 /** Model page opener: title row, large gallery and the buy panel. */
 export function CarHero({ expertScore }: { expertScore: number }) {
   const { car, brand, title, ev } = useCarDetail();
+  // Facts-only models have no owner rating or road-test score yet: those badges are left out, not shown as zeros.
+  const rated = hasOwnerRating(car);
+  const scored = expertScore > 0;
 
   return (
     <section aria-labelledby="car-title">
@@ -34,7 +39,9 @@ export function CarHero({ expertScore }: { expertScore: number }) {
             </h1>
             <p className="type-lead mt-4 max-w-xl text-muted">{car.tagline}</p>
           </div>
+          {(rated || scored) && (
           <div className="flex items-stretch gap-6 lg:col-span-4 lg:justify-end">
+            {rated && (
             <button
               type="button"
               onClick={() => scrollToSection("reviews")}
@@ -51,7 +58,9 @@ export function CarHero({ expertScore }: { expertScore: number }) {
                 <span className="text-[13px] text-muted num group-hover:text-ink">({car.reviewCount.toLocaleString("en-IN")})</span>
               </span>
             </button>
-            <span aria-hidden className="w-px bg-line" />
+            )}
+            {rated && scored && <span aria-hidden className="w-px bg-line" />}
+            {scored && (
             <button
               type="button"
               onClick={() => scrollToSection("reviews")}
@@ -64,19 +73,27 @@ export function CarHero({ expertScore }: { expertScore: number }) {
                 <span className="text-[13px] text-muted group-hover:text-ink">/ 10</span>
               </span>
             </button>
+            )}
           </div>
+          )}
         </div>
       </div>
 
       <div className="container-x mt-8 grid grid-cols-1 gap-8 pb-14 md:mt-10 md:pb-20 lg:grid-cols-12 lg:gap-10">
-        <ImageGallery
-          images={car.images}
-          alt={title}
-          focus={car.focus}
-          priority
-          aspect="aspect-[4/3] md:aspect-[16/10]"
-          className="min-w-0 lg:col-span-8"
-        />
+        {car.images.length ? (
+          <ImageGallery
+            images={car.images}
+            alt={title}
+            focus={car.focus}
+            priority
+            aspect="aspect-[4/3] md:aspect-[16/10]"
+            className="min-w-0 lg:col-span-8"
+          />
+        ) : (
+          <div className="relative aspect-[4/3] min-w-0 overflow-hidden md:aspect-[16/10] lg:col-span-8">
+            <CarPlaceholder bodyType={car.bodyType} name={title} />
+          </div>
+        )}
         <BuyPanel />
       </div>
     </section>
@@ -194,7 +211,7 @@ function VariantPicker() {
         <span className="min-w-0">
           <span className="block truncate text-[15px] font-medium">{variant.name}</span>
           <span className="mt-0.5 block truncate text-[12px] text-muted">
-            {variant.fuel} · {variant.transmission} · {variant.efficiency}
+            {[variant.fuel, variant.transmission, variant.efficiency].filter(Boolean).join(" · ")}
           </span>
         </span>
         <ChevronDown aria-hidden className={cn("size-4 shrink-0 transition-transform duration-[350ms]", open && "rotate-180")} />

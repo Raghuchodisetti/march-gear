@@ -3,7 +3,7 @@ import { and, asc, eq, ne } from "drizzle-orm";
 import { Layers } from "lucide-react";
 import { getDb } from "@/db";
 import { partnerBrands } from "@/db/schema";
-import { getCatalogData } from "@/server/catalog";
+import { getClientCatalogData } from "@/server/catalog";
 import { requirePartner } from "@/server/partner/context";
 import { PortalHeader } from "@/components/portal/ui";
 import { Button } from "@/components/ui/button";
@@ -21,7 +21,7 @@ export default async function ModelsPage(props: PageProps<"/dealer/models">) {
       .from(partnerBrands)
       .where(and(eq(partnerBrands.partnerId, ctx.partner.id), ne(partnerBrands.status, "rejected")))
       .orderBy(asc(partnerBrands.createdAt)),
-    getCatalogData(),
+    getClientCatalogData(),
   ]);
 
   // Only what the picker needs: this dealership's brands and their current models.

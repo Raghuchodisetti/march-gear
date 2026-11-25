@@ -4,8 +4,8 @@ import { useId, useMemo, useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { Check, ClipboardCheck, Download, Loader2 } from "lucide-react";
-import type { CarModel, FuelType } from "@/types";
-import type { Catalog } from "@/lib/catalog";
+import type { CarLite, FuelType } from "@/types";
+import type { ClientCatalog as Catalog } from "@/lib/catalog";
 import { PDI_FUELS } from "@/lib/pdi";
 import { createPersistentStore, useStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
@@ -64,7 +64,7 @@ const brandOptionsFor = ({ brands, cars }: Catalog) => [
   { value: OTHER, label: "Other brand" },
 ];
 
-const modelOptions = (brand: string, cars: CarModel[]) => [
+const modelOptions = (brand: string, cars: CarLite[]) => [
   ...cars
     .filter((c) => c.brand === brand)
     .map((c) => ({ value: c.slug, label: c.name }))

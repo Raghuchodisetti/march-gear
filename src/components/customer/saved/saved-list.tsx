@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CarPlaceholder, asBodyType } from "@/components/vehicle/car-image";
 import Link from "next/link";
 import { ArrowUpRight, Heart, Sparkles } from "lucide-react";
 import { formatPrice, formatPriceRange } from "@/lib/format";
@@ -39,6 +40,9 @@ function SavedCard({ item: s, priority }: { item: SavedCar; priority?: boolean }
             className={cn("object-cover transition-transform duration-[900ms] ease-[var(--ease-premium)]", live ? "group-hover/saved:scale-[1.03]" : "opacity-60 grayscale")}
             style={{ objectPosition: s.focus ?? "50% 55%" }}
           />
+        ) : s.kind === "cars" && live && s.bodyType ? (
+          // A catalogue model whose photos aren't uploaded yet.
+          <CarPlaceholder bodyType={asBodyType(s.bodyType)} />
         ) : (
           <div className="flex h-full items-center justify-center">
             <Heart aria-hidden className="size-7 text-ink/15" />

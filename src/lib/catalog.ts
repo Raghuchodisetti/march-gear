@@ -2,6 +2,8 @@ import type {
   Article,
   Author,
   Brand,
+  CarLite,
+  VariantLite,
   CarModel,
   CategorySlug,
   Dealer,
@@ -43,9 +45,13 @@ export interface DealerReview {
   repliedAt?: string;
 }
 
-export interface CatalogData {
+/**
+ * The catalogue. On the server `cars` are full CarModels (getCatalog); the browser gets
+ * CarLite models (ClientCatalogData, see toClientCatalog) to keep every page's payload small.
+ */
+export interface CatalogData<C extends CarLite = CarModel> {
   brands: Brand[];
-  cars: CarModel[];
+  cars: C[];
   upcoming: UpcomingCar[];
   dealers: Dealer[];
   dealerProfiles: Record<string, DealerProfile>;
@@ -77,7 +83,7 @@ export const carTitle = (car: Pick<CarModel, "brand" | "name">, brandNameFn: (s:
 
 export const isElectric = (car: Pick<CarModel, "fuelTypes">) => car.fuelTypes.includes("Electric");
 
-export function carCategories(car: CarModel): CategorySlug[] {
+export function carCategories(car: Pick<CarModel, "bodyType" | "isLuxury" | "fuelTypes">): CategorySlug[] {
   const out: CategorySlug[] = [];
   if (car.bodyType === "SUV") out.push("suv");
   if (car.bodyType === "Sedan") out.push("sedan");
@@ -88,7 +94,7 @@ export function carCategories(car: CarModel): CategorySlug[] {
   return out;
 }
 
-export const getVariant = (car: CarModel, variantSlug: string) => car.variants.find((x) => x.slug === variantSlug);
+export const getVariant = <V extends { slug: string }>(car: { variants: V[] }, variantSlug: string) => car.variants.find((x) => x.slug === variantSlug);
 
 export const BUDGETS = [
   { slug: "under-8", label: "Under ₹8 Lakh", min: 0, max: 8 * L },
@@ -172,7 +178,10 @@ export const FALLBACK_DEALER_PROFILE: DealerProfile = {
 const REVIEW_AUTHORS = ["kabir", "meera", "aditi", "arjun"];
 const REVIEW_DATES = ["2026-11-12", "2026-11-02", "2026-10-24", "2026-10-15", "2026-10-03", "2026-09-21"];
 
-/** Expert review derived from the model's own scores, so every car has one. */
+/** Expert review derived from the model's own score and verdict — only for models that have them and a photo (facts-only models don't). */
+const hasExpertReview = (car: CarLite): car is CarModel =>
+  "expertVerdict" in car && (car as CarModel).expertScore > 0 && Boolean((car as CarModel).expertVerdict.trim()) && car.images.length > 0;
+
 function expertReviewFor(car: CarModel, i: number): ExpertReview {
   const base = car.expertScore;
   const jitter = (n: number) => Math.max(5, Math.min(10, Number((base + n).toFixed(1))));
@@ -211,12 +220,12 @@ export interface BrandSummary {
 
 /* ── Catalogue-bound helpers ────────────────────────────────── */
 
-export function createCatalog(data: CatalogData) {
+export function createCatalog<C extends CarLite = CarModel>(data: CatalogData<C>) {
   const { brands, cars, upcoming, dealers, dealerProfiles, dealerReviews, usedCars, authors, articles, ownerReviews } = data;
 
   const brandBySlug = new Map(brands.map((b) => [b.slug, b]));
   const carBySlug = new Map(cars.map((c) => [c.slug, c]));
-  const expertReviews = cars.map(expertReviewFor);
+  const expertReviews = (cars as CarLite[]).filter(hasExpertReview).map(expertReviewFor);
 
   const getBrand = (slug: string) => brandBySlug.get(slug);
   const brandName = (slug: string) => brandBySlug.get(slug)?.name ?? LEGACY_BRANDS[slug] ?? slug;
@@ -303,4 +312,95 @@ export function createCatalog(data: CatalogData) {
   };
 }
 
-export type Catalog = ReturnType<typeof createCatalog>;
+export type Catalog<C extends CarLite = CarModel> = ReturnType<typeof createCatalog<C>>;
+
+/* ── The browser's catalogue ────────────────────────────────── */
+
+export type ClientCatalogData = CatalogData<CarLite>;
+export type ClientCatalog = Catalog<CarLite>;
+
+/** Only what client components need from each model (see CarLite) — keeps the per-page payload small. */
+export function toCarLite(c: CarModel | CarLite): CarLite {
+  const lite: CarLite = {
+    slug: c.slug,
+    brand: c.brand,
+    name: c.name,
+    bodyType: c.bodyType,
+    isLuxury: c.isLuxury,
+    priceMin: c.priceMin,
+    priceMax: c.priceMax,
+    fuelTypes: c.fuelTypes,
+    transmissions: c.transmissions,
+    efficiency: c.efficiency,
+    efficiencyValue: c.efficiencyValue,
+    engine: c.engine,
+    seats: c.seats,
+    images: c.images.slice(0, 1),
+    rating: c.rating,
+    reviewCount: c.reviewCount,
+    safetyRating: c.safetyRating,
+    safetyAgency: c.safetyAgency,
+    tagline: c.tagline,
+    bootSpace: c.bootSpace,
+    groundClearance: c.groundClearance,
+    topSpeed: c.topSpeed,
+    acceleration: c.acceleration,
+    expertScore: c.expertScore,
+    variants: c.variants.map((v) => ({ slug: v.slug, name: v.name, fuel: v.fuel, transmission: v.transmission, price: v.price })),
+  };
+  // Optional fields only when set: an `undefined` still costs bytes in the serialised page payload.
+  if (c.focus) lite.focus = c.focus;
+  if (c.trending) lite.trending = true;
+  if (c.launchedOn) lite.launchedOn = c.launchedOn;
+  if (c.ev) lite.ev = { rangeKm: c.ev.rangeKm, batteryKwh: c.ev.batteryKwh, dcCharge: c.ev.dcCharge, motorKw: c.ev.motorKw };
+  return lite;
+}
+
+export function toClientCatalog(data: CatalogData<CarModel | CarLite>): ClientCatalogData {
+  return { ...data, cars: data.cars.map(toCarLite) };
+}
+
+/* ── Wire format: what <CatalogProvider> receives ───────────────
+   With ~2,000 variants, their object keys alone would be a third of
+   the page payload, so variants travel as tuples and the slug is
+   left out when it's the usual slug of the name. */
+
+/** The usual variant slug for a name: "SX(O)+ 1.5 Turbo DCT" → "sx-o-plus-1-5-turbo-dct". */
+export function variantSlugOf(name: string) {
+  const out = name
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/\+/g, " plus ")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")
+    .slice(0, 110)
+    .replace(/-$/, "");
+  return out || "variant";
+}
+
+/** [name, fuel, transmission, price, slug — only when it isn't variantSlugOf(name)] */
+export type VariantWire = [string, VariantLite["fuel"], VariantLite["transmission"], number] | [string, VariantLite["fuel"], VariantLite["transmission"], number, string];
+export type CarLiteWire = Omit<CarLite, "variants"> & { variants: VariantWire[] };
+export type ClientCatalogWire = Omit<ClientCatalogData, "cars"> & { cars: CarLiteWire[] };
+
+export function encodeClientCatalog(data: ClientCatalogData): ClientCatalogWire {
+  return {
+    ...data,
+    cars: data.cars.map(({ variants, ...car }) => ({
+      ...car,
+      variants: variants.map((v): VariantWire => (v.slug === variantSlugOf(v.name) ? [v.name, v.fuel, v.transmission, v.price] : [v.name, v.fuel, v.transmission, v.price, v.slug])),
+    })),
+  };
+}
+
+export function decodeClientCatalog(wire: ClientCatalogWire): ClientCatalogData {
+  return {
+    ...wire,
+    cars: wire.cars.map(({ variants, ...car }) => ({
+      ...car,
+      variants: variants.map(([name, fuel, transmission, price, slug]) => ({ slug: slug ?? variantSlugOf(name), name, fuel, transmission, price })),
+    })),
+  };
+}

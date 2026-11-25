@@ -1,0 +1,155 @@
+{
+  "brand": {
+    "slug": "tesla",
+    "name": "Tesla",
+    "country": "United States",
+    "founded": 2003,
+    "tagline": "American electric-car maker, in India since 2025",
+    "description": "American electric-vehicle and energy company founded in 2003. Entered India in July 2025 with a showroom in Mumbai, followed by Delhi; cars are imported as completely built units and sold direct to customers online and through Tesla stores.",
+    "isLuxury": true,
+    "website": "https://www.tesla.com/en_in"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "tesla-model-y",
+      "name": "Model Y",
+      "bodyType": "SUV",
+      "bodyStyle": "Crossover",
+      "isLuxury": true,
+      "launchedOn": "2025-07-15",
+      "engine": "Electric motor",
+      "power": null,
+      "torque": null,
+      "seats": [5],
+      "airbags": null,
+      "safety": { "rating": 5, "agency": "Euro NCAP", "year": 2025 },
+      "bootSpaceL": null,
+      "groundClearanceMm": null,
+      "fuelTankL": null,
+      "topSpeedKmh": 201,
+      "acceleration": "0–100 km/h in 5.9 s",
+      "dimensions": { "length": 4790, "width": 1982, "height": 1624, "wheelbase": 2890 },
+      "ev": {
+        "rangeKm": 500,
+        "rangeStandard": "WLTP",
+        "batteryKwh": 64,
+        "dcCharge": "Up to 175 kW; 238 km added in 15 min (Supercharger)",
+        "acCharge": null,
+        "motorKw": null
+      },
+      "colors": [
+        { "name": "Stealth Grey", "hex": "#4a4d50" },
+        { "name": "Pearl White Multi-Coat", "hex": "#f2f2ef" },
+        { "name": "Diamond Black", "hex": "#111214" },
+        { "name": "Glacier Blue", "hex": "#7f9fb8" },
+        { "name": "Quicksilver", "hex": "#a7a9ab" },
+        { "name": "Ultra Red", "hex": "#a3141e" }
+      ],
+      "features": [
+        { "group": "Infotainment", "items": ["16-inch central touchscreen", "8-inch rear-passenger touchscreen", "Connected services and in-car streaming", "Dual wireless phone chargers"] },
+        { "group": "Comfort", "items": ["Heated and ventilated power front seats", "Power-reclining and folding rear seats", "Automatic climate control", "Powered tailgate"] },
+        { "group": "Safety", "items": ["Automatic emergency braking", "Forward collision warning", "Blind-spot warning", "Lane-departure avoidance", "Eight exterior cameras with surround view"] },
+        { "group": "Interior", "items": ["Fixed panoramic glass roof", "Multi-colour ambient lighting", "Acoustic glass", "All-black interior; Zen Grey optional at extra cost"] },
+        { "group": "Exterior", "items": ["Full-width LED light bars front and rear", "Rear-wheel drive, single rear motor"] }
+      ],
+      "highlights": [
+        "Imported fully built; sold direct by Tesla India",
+        "Claimed 500 km WLTP range",
+        "Claimed 0–100 km/h in 5.9 s",
+        "Full Self-Driving (Supervised) package optional at ₹6 lakh",
+        "Stealth Grey is the only no-cost paint colour"
+      ],
+      "variants": [
+        {
+          "name": "Premium RWD",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 5089000,
+          "efficiency": "500 km",
+          "features": ["Single rear motor, rear-wheel drive", "16-inch touchscreen", "8-inch rear screen", "Ventilated front seats", "Powered tailgate", "Panoramic glass roof"]
+        }
+      ],
+      "sources": [
+        "https://www.tesla.com/en_in/modely",
+        "https://www.autocarindia.com/car-news/tesla-model-y-premium-rwd-variant-price-revised-to-rs-5089-lakh-439830",
+        "https://www.autocarindia.com/cars/tesla/model-y",
+        "https://www.drivespark.com/four-wheelers/2026/tesla-model-y-premium-rwd-launched-at-rs-50-89-lakh-specs-features-images-085621.html",
+        "https://www.electrive.com/2026/06/02/india-tesla-announces-major-price-cut-for-the-model-y/",
+        "https://www.autocarindia.com/car-news/tesla-model-y-india-price-for-colours-and-options-revealed-436168"
+      ],
+      "notes": "tesla.com/en_in blocked automated reading (HTTP 403); price and specs taken from Autocar India / DriveSpark reports of Tesla's figures. 2026 Premium RWD priced at ₹50.89 lakh ex-showroom from 29 May 2026; the Long Range Premium RWD (₹67.89 lakh) was discontinued then. Ex-showroom is uniform nationally. Tesla does not publish battery size or motor output for India; 64 kWh is as reported by DriveSpark/Autocar (Team-BHP quotes 60 kWh). Airbag count conflicts between reports (7 vs 9) so left null. Boot: Tesla quotes up to 2,138 L total cargo with seats folded; reports cite 822 L + 117 L frunk seats-up. Paint options cost extra (₹95,000–₹1.85 lakh). Euro NCAP 5 stars (2025) is for the current-generation Model Y."
+    },
+    {
+      "slug": "tesla-model-y-l",
+      "name": "Model Y L",
+      "bodyType": "SUV",
+      "bodyStyle": "Crossover",
+      "isLuxury": true,
+      "launchedOn": "2026-04-22",
+      "engine": "Electric motor (dual motor)",
+      "power": null,
+      "torque": null,
+      "seats": [6],
+      "airbags": 9,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": 169,
+      "fuelTankL": null,
+      "topSpeedKmh": 201,
+      "acceleration": "0–100 km/h in 4.5 s",
+      "dimensions": { "length": 4969, "width": 1982, "height": 1668, "wheelbase": 3040 },
+      "ev": {
+        "rangeKm": 681,
+        "rangeStandard": "WLTP",
+        "batteryKwh": 88.2,
+        "dcCharge": "Up to 250 kW; 288 km added in 15 min (Supercharger)",
+        "acCharge": "11 kW",
+        "motorKw": null
+      },
+      "colors": [
+        { "name": "Stealth Grey", "hex": "#4a4d50" },
+        { "name": "Pearl White Multi-Coat", "hex": "#f2f2ef" },
+        { "name": "Diamond Black", "hex": "#111214" },
+        { "name": "Glacier Blue", "hex": "#7f9fb8" },
+        { "name": "Ultra Red", "hex": "#a3141e" },
+        { "name": "Cosmic Silver", "hex": "#b9bbbd" }
+      ],
+      "features": [
+        { "group": "Infotainment", "items": ["16-inch central touchscreen", "8-inch rear-passenger touchscreen", "18-speaker audio with subwoofer", "Connected services and in-car streaming"] },
+        { "group": "Comfort", "items": ["Second-row captain seats, heated and ventilated, with electric armrests", "Powered third-row recline and one-touch folding", "Third-row AC vents", "Heated and ventilated power front seats", "Heated steering wheel"] },
+        { "group": "Safety", "items": ["9 airbags", "Automatic emergency braking", "Blind-spot warning", "Lane-departure avoidance", "Eight exterior cameras", "Dashcam"] },
+        { "group": "Performance", "items": ["Dual-motor all-wheel drive", "Adaptive suspension with electronic damping"] },
+        { "group": "Exterior", "items": ["19-inch Machina wheels", "Longer rear doors and larger rear quarter glass", "Larger rear spoiler"] },
+        { "group": "Interior", "items": ["Fixed panoramic glass roof", "Multi-colour ambient lighting", "All-black interior; dual-tone black/grey optional at ₹95,000"] }
+      ],
+      "highlights": [
+        "Six seats in a 2+2+2 layout",
+        "First dual-motor all-wheel-drive Model Y sold in India",
+        "Claimed 681 km WLTP range",
+        "150 mm longer wheelbase than the five-seat Model Y",
+        "Claimed 0–100 km/h in 4.5 s for cars bought from 1 October 2026"
+      ],
+      "variants": [
+        {
+          "name": "Premium AWD",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": "Single-speed",
+          "price": 6199000,
+          "efficiency": "681 km",
+          "features": ["Dual-motor AWD", "Six seats with second-row captain chairs", "Adaptive suspension", "9 airbags", "19-inch wheels", "18-speaker audio with subwoofer"]
+        }
+      ],
+      "sources": [
+        "https://www.tesla.com/en_in/modelyl",
+        "https://www.autocarindia.com/car-news/tesla-introduces-new-model-y-long-wheelbase-variant-at-rs-6199-lakh-439524",
+        "https://www.autocarindia.com/car-news/tesla-model-y-l-powertrain-upgrade-brings-performance-boost-441075",
+        "https://www.autocarindia.com/auto-features/all-you-need-to-know-about-tesla-model-y-l-440456"
+      ],
+      "notes": "tesla.com/en_in blocked automated reading (HTTP 403); figures from Autocar India reports of Tesla's claims. Launched 22 April 2026 at ₹61.99 lakh ex-showroom, unchanged since. Battery capacity is not published by Tesla: 88.2 kWh is Autocar's estimate from the Australian-spec car. Power/torque not published (estimates of 514 hp / 590 Nm omitted). 0–100 km/h improved from 5.0 s to 4.5 s for cars bought on or after 1 Oct 2026. Ground clearance 169 mm and dimensions as reported by Autocar. Paint other than Stealth Grey costs extra. Listed as a separate model because Tesla markets it as 'Model Y L' with its own body and dimensions; check whether the site should merge it into tesla-model-y."
+    }
+  ]
+}

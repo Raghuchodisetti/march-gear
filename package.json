@@ -15,7 +15,8 @@
     "db:admin": "tsx --env-file=.env.local src/db/set-admin.ts",
     "db:seed-demo": "tsx --env-file=.env.local src/db/seed-demo-dealer.ts",
     "db:seed-insurance": "tsx --env-file=.env.local src/db/seed-demo-insurance.ts",
-    "db:catalogue-listings": "tsx --env-file=.env.local src/db/catalogue-listings.ts"
+    "db:catalogue-listings": "tsx --env-file=.env.local src/db/catalogue-listings.ts",
+    "db:import-catalogue": "tsx --env-file=.env.local src/db/import-catalogue.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

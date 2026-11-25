@@ -1,4 +1,4 @@
-import type { CarModel, UsedCar } from "@/types";
+import type { CarLite, CarModel, UsedCar } from "@/types";
 import { calculateEmi } from "@/lib/finance";
 
 /* Pure helpers shared by the vehicle cards and the pages around them —
@@ -11,20 +11,21 @@ export function carHref(car: Pick<CarModel, "slug">) {
 }
 
 /** Short transmission summary: "MT / AT", "Automatic" or "Manual". */
-export function transmissionSummary(car: CarModel) {
+export function transmissionSummary(car: Pick<CarLite, "transmissions">) {
   const auto = car.transmissions.some((t) => t !== "Manual");
   const manual = car.transmissions.includes("Manual");
   if (auto && manual) return "MT / AT";
   return auto ? "Automatic" : "Manual";
 }
 
-/** Best claimed figure: "21.8 kmpl" or "489 km" for EVs. */
-export function bestEfficiency(car: CarModel) {
+/** Best claimed figure: "21.8 kmpl" or "489 km" for EVs; "" when none is published. */
+export function bestEfficiency(car: Pick<CarLite, "ev" | "efficiency">) {
   if (car.ev) return `${car.ev.rangeKm} km`;
-  return car.efficiency.split("–").pop()!.trim();
+  // "17.4 – 21.8 kmpl · 26.1 km/kg CNG" → "21.8 kmpl"
+  return car.efficiency.split(" · ")[0].split("–").pop()!.trim();
 }
 
-export function fuelSummary(car: CarModel) {
+export function fuelSummary(car: Pick<CarLite, "fuelTypes">) {
   return car.fuelTypes.length > 2 ? `${car.fuelTypes[0]} + ${car.fuelTypes.length - 1}` : car.fuelTypes.join(" / ");
 }
 

@@ -2,7 +2,7 @@
  * Pure calculation models behind the March Gear tools. No React, no I/O —
  * safe to import from server pages (for sample figures) and client islands.
  */
-import type { BodyType, CarModel } from "@/types";
+import type { BodyType, CarLite } from "@/types";
 import type { SiteContent } from "@/content/registry";
 import { isElectric, type Catalog } from "@/lib/catalog";
 import { calculateEmi, principalForEmi } from "@/lib/finance";
@@ -189,22 +189,22 @@ export function loanEligibility({
 /* ── Energy ─────────────────────────────────────────────────── */
 
 /** Real-world EV consumption, kWh per km. */
-export function evKwhPerKm(car: CarModel, rates: CalcRates) {
+export function evKwhPerKm(car: CarLite, rates: CalcRates) {
   if (!car.ev) return 0;
   return (car.ev.batteryKwh / car.ev.rangeKm) * rates.evRealWorldFactor;
 }
 
 /** Real-world fuel economy, km per litre (km/kg for CNG figures). */
-export function iceKmpl(car: CarModel, rates: CalcRates) {
+export function iceKmpl(car: CarLite, rates: CalcRates) {
   return car.efficiencyValue * rates.iceRealWorldFactor;
 }
 
-export function primaryFuel(car: CarModel): IceFuel {
+export function primaryFuel(car: CarLite): IceFuel {
   return (car.fuelTypes.find((f) => f !== "Electric") ?? "Petrol") as IceFuel;
 }
 
 /** Running cost per km at the given energy prices. */
-export function runningCostPerKm(car: CarModel, rates: CalcRates, tariff = rates.homeTariff, fuelPrice?: number) {
+export function runningCostPerKm(car: CarLite, rates: CalcRates, tariff = rates.homeTariff, fuelPrice?: number) {
   if (isElectric(car)) return evKwhPerKm(car, rates) * tariff;
   return (fuelPrice ?? rates.fuelPrice[primaryFuel(car)]) / iceKmpl(car, rates);
 }
@@ -220,8 +220,8 @@ export function evVsIce({
   fuelPrice,
   rates,
 }: {
-  ev: CarModel;
-  ice: CarModel;
+  ev: CarLite;
+  ice: CarLite;
   dailyKm: number;
   years: number;
   tariff: number;
@@ -289,7 +289,7 @@ export interface OwnershipYear {
   value: number;
 }
 
-export function retainedValue(car: CarModel, age: number, rates: CalcRates) {
+export function retainedValue(car: CarLite, age: number, rates: CalcRates) {
   const curve = rates.resaleCurve;
   const base = curve[Math.min(age, curve.length - 1)];
   const luxury = car.isLuxury ? Math.pow(rates.luxuryDepreciationDrag, age) : 1;
@@ -306,7 +306,7 @@ export function ownershipCost({
   rates,
   onRoadPrice,
 }: {
-  car: CarModel;
+  car: CarLite;
   citySlug: string;
   kmPerYear: number;
   years: number;

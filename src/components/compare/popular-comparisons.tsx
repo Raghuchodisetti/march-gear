@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { cardPhotoAlt } from "@/lib/image-alt";
+import { CarImage } from "@/components/vehicle/car-image";
 import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
-import type { CarModel } from "@/types";
+import type { CarLite } from "@/types";
 import { useCatalog } from "@/components/providers/catalog-provider";
 import { formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -15,7 +15,7 @@ function usePopularComparisons(exclude?: string) {
   const { getCar, content } = useCatalog();
   return content.comparisons.items
     .map((p, i) => {
-      const models = p.cars.map(getCar).filter((c): c is CarModel => c !== undefined);
+      const models = p.cars.map(getCar).filter((c): c is CarLite => c !== undefined);
       return { ...p, id: `${i}-${p.theme}`, models, cars: models.map((c) => c.slug) };
     })
     .filter((p) => p.models.length >= 2 && p.cars.join(",") !== exclude);
@@ -55,10 +55,9 @@ export function PopularComparisons({ exclude, className }: { exclude?: string; c
                 {p.models.map((c, i) => (
                   <Fragment key={c.slug}>
                     <div className="relative aspect-[4/3] flex-1 overflow-hidden bg-mist">
-                      <Image
-                        src={c.images[0]}
-                        alt={cardPhotoAlt(c.images[0], `${brandName(c.brand)} ${c.name}`)}
-                        fill
+                      <CarImage
+                        car={c}
+                        alt={c.images[0] ? cardPhotoAlt(c.images[0], `${brandName(c.brand)} ${c.name}`) : ""}
                         sizes="(min-width: 768px) 16vw, 33vw"
                         className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/pc:scale-[1.05]"
                         style={{ objectPosition: c.focus ?? "50% 55%" }}

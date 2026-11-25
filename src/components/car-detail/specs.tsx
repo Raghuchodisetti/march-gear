@@ -3,11 +3,13 @@ import type { CarModel } from "@/types";
 import { getCatalog } from "@/server/catalog";
 import { formatNumber } from "@/lib/format";
 import { cn } from "@/lib/utils";
+import { NOT_PUBLISHED, accelText, known, powerBhp, specText } from "@/lib/specs";
 import { SpecRow } from "./section";
 import { Bar } from "./meters";
-import { competitorsOf, isEv, maxOf, seatsLabel } from "./utils";
+import { competitorsOf, isEv, seatsLabel } from "./utils";
 
-const mm = (n: number) => `${formatNumber(n)} mm`;
+/** Facts-only data stores unpublished figures as 0 / "": they read "—" here. */
+const mm = (n: number) => (known(n) ? `${formatNumber(n)} mm` : NOT_PUBLISHED);
 
 export function specGroups(car: CarModel) {
   const ev = isEv(car);
@@ -15,17 +17,17 @@ export function specGroups(car: CarModel) {
     {
       title: ev ? "Motor, battery & drive" : "Engine & transmission",
       rows: [
-        [ev ? "Powertrain" : "Engine", car.engine],
-        ["Max power", car.power],
-        ["Max torque", car.torque],
+        [ev ? "Powertrain" : "Engine", specText(car.engine)],
+        ["Max power", specText(car.power)],
+        ["Max torque", specText(car.torque)],
         ["Fuel type", car.fuelTypes.join(", ")],
         ["Transmission", car.transmissions.join(", ")],
         ...(ev && car.ev
           ? [
               ["Battery", `${car.ev.batteryKwh} kWh`],
-              ["Motor output", `${car.ev.motorKw} kW`],
-              ["DC fast charge", car.ev.dcCharge],
-              ["AC charge", car.ev.acCharge],
+              ["Motor output", specText(car.ev.motorKw, " kW")],
+              ["DC fast charge", specText(car.ev.dcCharge)],
+              ["AC charge", specText(car.ev.acCharge)],
             ]
           : car.fuelTank
             ? [["Fuel tank", `${car.fuelTank} litres`]]
@@ -40,17 +42,17 @@ export function specGroups(car: CarModel) {
         ["Height", mm(car.dimensions.height)],
         ["Wheelbase", mm(car.dimensions.wheelbase)],
         ["Ground clearance", mm(car.groundClearance)],
-        ["Boot space", `${car.bootSpace} litres`],
+        ["Boot space", specText(car.bootSpace, " litres")],
         ["Seating", `${seatsLabel(car.seats)} seats`],
       ] as [string, string][],
     },
     {
       title: "Performance & efficiency",
       rows: [
-        ["0–100 km/h", car.acceleration],
-        ["Top speed", `${car.topSpeed} km/h`],
-        [ev ? "Claimed range" : "Claimed efficiency", car.efficiency],
-        ["Airbags", `Up to ${car.airbags}`],
+        ["0–100 km/h", specText(accelText(car.acceleration))],
+        ["Top speed", specText(car.topSpeed, " km/h")],
+        [ev ? "Claimed range" : "Claimed efficiency", specText(car.efficiency && car.ev?.rangeStandard ? `${car.efficiency} (${car.ev.rangeStandard})` : car.efficiency)],
+        ["Airbags", known(car.airbags) ? `Up to ${car.airbags}` : NOT_PUBLISHED],
         ["Crash rating", car.safetyAgency === "Not tested" ? "Not tested" : `${car.safetyRating}-star, ${car.safetyAgency}`],
       ] as [string, string][],
     },
@@ -83,11 +85,13 @@ export async function SpecComparison({ car }: { car: CarModel }) {
   if (rivals.length === 0) return null;
   const field = [car, ...rivals];
 
+  // Only figures the makers publish; a metric needs this car and at least one rival to be worth drawing.
   const metrics = [
-    { title: "Max power", unit: "bhp", value: (c: CarModel) => maxOf(c.power) },
+    { title: "Max power", unit: "bhp", value: (c: CarModel) => powerBhp(c.power) ?? 0 },
     { title: "Boot space", unit: "litres", value: (c: CarModel) => c.bootSpace },
     { title: "Ground clearance", unit: "mm", value: (c: CarModel) => c.groundClearance },
-  ];
+  ].filter((m) => m.value(car) > 0 && rivals.some((r) => m.value(r) > 0));
+  if (metrics.length === 0) return null;
 
   return (
     <div className="mt-16 bg-mist p-6 md:mt-20 md:p-10">
@@ -102,7 +106,8 @@ export async function SpecComparison({ car }: { car: CarModel }) {
       </div>
       <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8 lg:gap-12">
         {metrics.map((m) => {
-          const best = Math.max(...field.map(m.value));
+          const shown = field.filter((c) => m.value(c) > 0);
+          const best = Math.max(...shown.map(m.value));
           return (
             <div key={m.title}>
               <p className="flex items-baseline justify-between border-b border-ink pb-3">
@@ -110,7 +115,7 @@ export async function SpecComparison({ car }: { car: CarModel }) {
                 <span className="text-[12px] text-muted">{m.unit}</span>
               </p>
               <ul className="mt-5 space-y-4">
-                {field.map((c, i) => {
+                {shown.map((c, i) => {
                   const self = c.slug === car.slug;
                   const v = m.value(c);
                   return (

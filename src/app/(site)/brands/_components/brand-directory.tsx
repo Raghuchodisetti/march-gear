@@ -106,7 +106,13 @@ function BrandTile({ summary }: { summary: BrandSummary }) {
       <div>
         <h3 className="type-h3">{brand.name}</h3>
         <p className="mt-1 text-[13px] text-muted">
-          {brand.country} · Est. <span className="num">{brand.founded}</span>
+          {brand.country}
+          {brand.founded > 0 && (
+            <>
+              {" "}
+              · Est. <span className="num">{brand.founded}</span>
+            </>
+          )}
         </p>
         <dl className="mt-5 flex items-baseline justify-between gap-4 border-t border-line pt-4 text-[13px]">
           <div className="flex items-baseline gap-3">

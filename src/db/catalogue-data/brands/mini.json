@@ -1,0 +1,947 @@
+{
+  "brand": {
+    "slug": "mini",
+    "name": "MINI",
+    "country": "United Kingdom",
+    "founded": 1959,
+    "tagline": "British premium small-car brand of the BMW Group, in India since 2012",
+    "description": "British premium small-car brand owned by the BMW Group. MINI has been sold in India since 2012 through BMW Group India; the line-up covers the Cooper hatchback and convertible and the Countryman SUV, including electric and John Cooper Works versions.",
+    "isLuxury": true,
+    "website": "https://www.mini.in"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "mini-cooper",
+      "name": "Cooper 3-Door",
+      "bodyType": "Hatchback",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1998 cc",
+      "power": "150 kW (204 hp)",
+      "torque": "300 Nm",
+      "seats": [
+        4
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 210,
+      "groundClearanceMm": 130,
+      "fuelTankL": 44,
+      "topSpeedKmh": 242,
+      "acceleration": "0–100 km/h in 6.6 s",
+      "dimensions": {
+        "length": 3876,
+        "width": 1744,
+        "height": 1452,
+        "wheelbase": 2495
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Legend Grey",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Ocean Wave Green",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Sunny Side Yellow",
+          "hex": "#e2b51b"
+        },
+        {
+          "name": "Blazing Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Icy Sunshine Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Indigo Sunset Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Nanuq White",
+          "hex": "#f2f2f0"
+        },
+        {
+          "name": "Melting Silver",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "Midnight Black",
+          "hex": "#0d0d0d"
+        },
+        {
+          "name": "British Racing Green",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Chilli Red",
+          "hex": "#9b1b24"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panorama glass roof",
+            "MINI Experience Modes",
+            "Automatic air conditioning"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Teleservices",
+            "Wireless charging tray",
+            "MINI Interaction Unit"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Parking Assistant",
+            "Interior and exterior mirror package",
+            "Interior rear-view mirror with automatic anti-dazzle function",
+            "LED headlights",
+            "Active protection for pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "17\" U-spoke grey"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Double cloth textile | Black/multitone",
+            "Vescin/cloth combination | Black/Blue",
+            "Vescin | Black",
+            "Vescin | Beige",
+            "Vescin/cord combination | JCW Black",
+            "Vescin/cloth combination | Grey/Blue",
+            "Vescin | Nightshade Blue"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Steptronic automatic transmission with double clutch"
+          ]
+        }
+      ],
+      "highlights": [
+        "Cooper S with a 2.0-litre four-cylinder turbo-petrol engine, 150 kW (204 hp) and 300 Nm",
+        "7-speed dual-clutch transmission, front-wheel drive",
+        "240 mm circular OLED display",
+        "Oxford Edition and JCW Pack versions"
+      ],
+      "variants": [
+        {
+          "name": "Cooper S",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed Steptronic dual-clutch",
+          "price": 4445000,
+          "efficiency": null,
+          "features": [
+            "150 kW (204 hp), 300 Nm",
+            "Front-wheel drive",
+            "17\" U-spoke grey",
+            "Teleservices",
+            "Wireless charging tray",
+            "MINI Interaction Unit",
+            "Parking Assistant",
+            "Panorama glass roof",
+            "MINI Experience Modes",
+            "Automatic air conditioning"
+          ]
+        },
+        {
+          "name": "Cooper Oxford Edition",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": null,
+          "price": 5550000,
+          "efficiency": null,
+          "features": [
+            "Union Jack roof graphic",
+            "Union Jack design on bonnet, rear and wheels",
+            "Edition-specific interior details",
+            "Edition-specific digital Personal Mode background"
+          ]
+        },
+        {
+          "name": "Cooper S JCW Pack",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": null,
+          "price": 5565000,
+          "efficiency": null,
+          "features": [
+            "150 kW (204 hp)",
+            "JCW front and rear bumpers, side skirts and rear spoiler",
+            "Piano Black accents",
+            "0–100 km/h in 6.6 s; top speed 242 km/h"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mini.in/en_IN/home/range/mini-cooper-3-door.html",
+        "https://configure.mini.in/en_IN/configure/F66/22GD",
+        "https://www.mini.in/en_IN/home/mini-editions/mini-cooper-oxford.html",
+        "https://www.mini.in/en_IN/home/range/mini-cooper-s-jcw-pack.html",
+        "https://www.autocarindia.com/car-news/mini-cooper-s-convertible-jcw-pack-launched-at-rs-6150-lakh-439581"
+      ],
+      "notes": "Cooper S price, specs and equipment from the MINI India configurator (ex-showroom, one all-India price). Oxford Edition price is from its official page ('From Rs 55,50,000'; available from September 2026); its powertrain is not stated there. Cooper S JCW Pack price not published by the brand; from Autocar India (Rs 55.65 lakh, April 2026; launched at Rs 55.90 lakh in January 2025) — check it is still available. The all-electric Cooper SE and the Paul Smith Editions are due to launch on 27 November 2026 and are not included."
+    },
+    {
+      "slug": "mini-cooper-convertible",
+      "name": "Cooper Convertible",
+      "bodyType": "Coupe",
+      "bodyStyle": "Convertible",
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1998 cc",
+      "power": "150 kW (204 hp)",
+      "torque": "300 Nm",
+      "seats": [
+        4
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 215,
+      "groundClearanceMm": 124,
+      "fuelTankL": 44,
+      "topSpeedKmh": 237,
+      "acceleration": "0–100 km/h in 6.9 s",
+      "dimensions": {
+        "length": 3879,
+        "width": 1744,
+        "height": 1431,
+        "wheelbase": 2495
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Legend Grey",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Ocean Wave Green",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Sunny Side Yellow",
+          "hex": "#e2b51b"
+        },
+        {
+          "name": "Blazing Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Icy Sunshine Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Indigo Sunset Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Nanuq White",
+          "hex": "#f2f2f0"
+        },
+        {
+          "name": "Melting Silver",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "Midnight Black",
+          "hex": "#0d0d0d"
+        },
+        {
+          "name": "British Racing Green",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Copper Grey",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Chilli Red",
+          "hex": "#9b1b24"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Steering wheel heating",
+            "Sport steering wheel",
+            "Active seat for driver",
+            "Seat adjustment, electric, for driver and front passenger, with memory function for driver",
+            "John Cooper Works sport seats",
+            "MINI Experience Modes",
+            "Automatic air conditioning",
+            "Comfort access system"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Harman Kardon surround sound system",
+            "Intelligent Emergency Call",
+            "MINI Head-Up Display",
+            "Teleservices",
+            "Wireless charging tray",
+            "Personal eSIM",
+            "MINI Interaction Unit"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "High-beam assistant",
+            "Parking Assistant",
+            "Tyre pressure monitoring system",
+            "Interior and exterior mirror package",
+            "Interior rear-view mirror with automatic anti-dazzle function",
+            "LED headlights with extended contents",
+            "Active protection for pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Comfort package",
+            "18\" Slide Spoke 2-tone"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Vescin | Beige",
+            "Vescin/cloth combination | Black/Blue",
+            "Vescin | Black",
+            "Vescin/cord combination | JCW Black",
+            "Vescin/cloth combination | Grey/Blue",
+            "Vescin | Nightshade Blue"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Steptronic automatic transmission with double clutch"
+          ]
+        }
+      ],
+      "highlights": [
+        "Four-seat convertible with a 3-in-1 electric soft top that opens in 18 seconds",
+        "2.0-litre four-cylinder turbo-petrol engine, 150 kW (204 hp) and 300 Nm",
+        "7-speed dual-clutch transmission",
+        "JCW Pack and Stardust Edition versions"
+      ],
+      "variants": [
+        {
+          "name": "Cooper S Convertible",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed Steptronic dual-clutch",
+          "price": 5900000,
+          "efficiency": null,
+          "features": [
+            "150 kW (204 hp), 300 Nm",
+            "Front-wheel drive",
+            "Comfort package",
+            "18\" Slide Spoke 2-tone",
+            "Harman Kardon surround sound system",
+            "Intelligent Emergency Call",
+            "MINI Head-Up Display",
+            "Teleservices",
+            "Wireless charging tray",
+            "Personal eSIM"
+          ]
+        },
+        {
+          "name": "Cooper S Convertible JCW Pack",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": null,
+          "price": 6150000,
+          "efficiency": null,
+          "features": [
+            "204 hp",
+            "JCW styling elements",
+            "Legend Grey or Midnight Black paint",
+            "Electric soft top"
+          ]
+        },
+        {
+          "name": "Cooper Convertible Stardust Edition",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": null,
+          "price": 6290000,
+          "efficiency": null,
+          "features": [
+            "150 kW (204 hp), 300 Nm",
+            "Exclusive Sparkling Copper Grey paint",
+            "Electric soft top opens in 18 seconds",
+            "0–100 km/h in 6.9 s"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mini.in/en_IN/home/range/mini-cooper-convertible.html",
+        "https://configure.mini.in/en_IN/configure/F67/22GX",
+        "https://www.mini.in/en_IN/home/range/mini-convertible-jcw-pack.html",
+        "https://www.mini.in/en_IN/home/range/mini-convertible-stardust-edition.html",
+        "https://www.autocarindia.com/car-news/mini-cooper-s-convertible-jcw-pack-launched-at-rs-6150-lakh-439581",
+        "https://www.autocarindia.com/car-news/mini-cooper-convertible-stardust-edition-launched-at-rs-62-9-lakh-440332"
+      ],
+      "notes": "Cooper S Convertible price, specs and equipment from the MINI India configurator. JCW Pack (Rs 61.50 lakh) and Stardust Edition (Rs 62.90 lakh) prices are not shown on mini.in; from launch coverage (Autocar India) quoting MINI India. Both are limited-run imports."
+    },
+    {
+      "slug": "mini-countryman",
+      "name": "Countryman C",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1499 cc",
+      "power": "115 kW (156 hp)",
+      "torque": "230 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 440,
+      "groundClearanceMm": 202,
+      "fuelTankL": 54,
+      "topSpeedKmh": 212,
+      "acceleration": "0–100 km/h in 9 s",
+      "dimensions": {
+        "length": 4444,
+        "width": 1843,
+        "height": 1661,
+        "wheelbase": 2692
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Slate Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Legend Grey",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Smokey Green",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Blazing Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Indigo Sunset Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Nanuq White",
+          "hex": "#f2f2f0"
+        },
+        {
+          "name": "Melting Silver",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "Midnight Black",
+          "hex": "#0d0d0d"
+        },
+        {
+          "name": "British Racing Green",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Chilli Red",
+          "hex": "#9b1b24"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Steering wheel heating",
+            "Sport steering wheel",
+            "Panorama glass roof",
+            "Active seat for driver",
+            "Seat adjustment, electric, for driver and front passenger, with memory function for driver",
+            "Headliner anthracite",
+            "Seat adjustment, rear seats",
+            "John Cooper Works sport seats",
+            "MINI Experience Modes",
+            "Automatic air conditioning",
+            "Automatic operation of tailgate",
+            "Comfort access system"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Interior camera",
+            "Harman Kardon surround sound system",
+            "Intelligent Emergency Call",
+            "MINI Head-Up Display",
+            "Teleservices",
+            "Wireless charging tray",
+            "Personal eSIM",
+            "MINI Interaction Unit"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "High-beam assistant",
+            "Parking Assistant Plus",
+            "Interior and exterior mirror package",
+            "Interior rear-view mirror with automatic anti-dazzle function",
+            "LED headlights with extended contents",
+            "Active protection for pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Comfort package",
+            "19\" Kaleido Spoke 2-tone",
+            "Roof rails",
+            "Roof in Black"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Vescin | Vintage Brown",
+            "Vescin/cloth combination | Black/Blue",
+            "Vescin | Black",
+            "Vescin | Beige",
+            "Vescin/cord combination | JCW Black",
+            "Vescin/cloth combination | Grey/Blue",
+            "Vescin | Dark Petrol",
+            "Double cloth textile | Black/multitone"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Larger-capacity fuel tank",
+            "Steptronic automatic transmission with double clutch"
+          ]
+        }
+      ],
+      "highlights": [
+        "1.5-litre three-cylinder turbo-petrol engine, 115 kW (156 hp) and 230 Nm",
+        "7-speed dual-clutch transmission, front-wheel drive",
+        "Harman Kardon surround sound system",
+        "MINI Head-Up Display"
+      ],
+      "variants": [
+        {
+          "name": "Countryman C",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed Steptronic dual-clutch",
+          "price": 4800000,
+          "efficiency": null,
+          "features": [
+            "115 kW (156 hp), 230 Nm",
+            "Front-wheel drive",
+            "Comfort package",
+            "19\" Kaleido Spoke 2-tone",
+            "Interior camera",
+            "Harman Kardon surround sound system",
+            "Intelligent Emergency Call",
+            "MINI Head-Up Display",
+            "Teleservices",
+            "Wireless charging tray"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mini.in/en_IN/home/range/mini-countryman-c.html",
+        "https://configure.mini.in/en_IN/configure/U25/12GA",
+        "https://www.mini.in/en_IN/home/range.html"
+      ],
+      "notes": "Prices from the MINI India configurator (ex-showroom, one all-India price). ARAI mileage not published by MINI India. Boot is the configurator technical-data figure (440 L); the range page quotes 505 L (up to 1,450 L)."
+    },
+    {
+      "slug": "mini-countryman-electric",
+      "name": "Countryman Electric",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "Electric motor",
+      "power": "150 – 230 kW (204 – 313 hp)",
+      "torque": "250 – 494 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 460,
+      "groundClearanceMm": 171,
+      "fuelTankL": null,
+      "topSpeedKmh": 180,
+      "acceleration": "0–100 km/h in 5.6–8.6 s",
+      "dimensions": {
+        "length": 4445,
+        "width": 1843,
+        "height": 1635,
+        "wheelbase": 2692
+      },
+      "ev": {
+        "rangeKm": 462,
+        "rangeStandard": "WLTP",
+        "batteryKwh": 64.8,
+        "dcCharge": "29 min (10–80%, up to 130 kW)",
+        "acCharge": "6 h 30 min (0–100%, 11 kW)",
+        "motorKw": 230
+      },
+      "colors": [
+        {
+          "name": "Slate Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Legend Grey",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Smokey Green",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Blazing Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Indigo Sunset Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Nanuq White",
+          "hex": "#f2f2f0"
+        },
+        {
+          "name": "Melting Silver",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "Midnight Black",
+          "hex": "#0d0d0d"
+        },
+        {
+          "name": "British Racing Green",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Chilli Red",
+          "hex": "#9b1b24"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Panorama glass roof",
+            "Seat adjustment, electric, for driver and front passenger, with memory function for driver",
+            "Automatic air conditioning",
+            "Automatic operation of tailgate"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Teleservices",
+            "Legal emergency call",
+            "Wireless charging tray",
+            "MINI Interaction Unit"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "Parking Assistant",
+            "Tyre pressure monitoring system",
+            "Interior and exterior mirror package",
+            "Interior rear-view mirror with automatic anti-dazzle function",
+            "Acoustic protection for pedestrians",
+            "LED headlights",
+            "Active protection for pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "17\" Profile Aero Spoke grey",
+            "Roof rails"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Double cloth textile | Black/multitone",
+            "Vescin/cloth combination | Black/Blue",
+            "Vescin | Black",
+            "Vescin | Beige",
+            "VESCIN VINTAGE BROWN (BLK)",
+            "Vescin | Dark Petrol",
+            "Vescin/cord combination | JCW Black",
+            "Vescin/cloth combination | Grey/Blue",
+            "Vescin | Vintage Brown"
+          ]
+        }
+      ],
+      "highlights": [
+        "Countryman E (150 kW, front-wheel drive) and Countryman SE ALL4 (230 kW, all-wheel drive)",
+        "64.8 kWh battery (net) with DC charging at up to 130 kW",
+        "Claimed WLTP range of 462 km (E) and 433 km (SE ALL4)",
+        "240 mm circular OLED display"
+      ],
+      "variants": [
+        {
+          "name": "Countryman E",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 5565000,
+          "efficiency": "462 km",
+          "features": [
+            "150 kW (204 hp), 250 Nm",
+            "Front-wheel drive",
+            "17\" Profile Aero Spoke grey",
+            "Teleservices",
+            "Legal emergency call",
+            "Wireless charging tray",
+            "MINI Interaction Unit",
+            "Parking Assistant",
+            "Panorama glass roof",
+            "Seat adjustment, electric, for driver and front passenger, with memory function for driver"
+          ]
+        },
+        {
+          "name": "Countryman SE ALL4",
+          "fuel": "Electric",
+          "transmission": "Automatic",
+          "transmissionDetail": null,
+          "price": 6940000,
+          "efficiency": "433 km",
+          "features": [
+            "230 kW (313 hp), 494 Nm",
+            "ALL4 all-wheel drive",
+            "17\" Profile Aero Spoke grey",
+            "Legal emergency call",
+            "MINI Interaction Unit",
+            "Parking Assistant",
+            "Automatic air conditioning",
+            "Tyre pressure monitoring system",
+            "Acoustic protection for pedestrians",
+            "LED headlights"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mini.in/en_IN/home/range/all-electric-mini-countryman.html",
+        "https://www.mini.in/en_IN/home/range/all-electric-mini-countryman/range-and-charging.html",
+        "https://configure.mini.in/en_IN/configure/U25E/82GA",
+        "https://www.mini.in/en_IN/home/range.html"
+      ],
+      "notes": "Prices, specs and equipment from the MINI India configurator; ranges from the official Range & Charging page (WLTP combined)."
+    },
+    {
+      "slug": "mini-jcw-countryman",
+      "name": "John Cooper Works Countryman ALL4",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": true,
+      "launchedOn": null,
+      "engine": "1998 cc",
+      "power": "221 kW (300 hp)",
+      "torque": "400 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": null,
+      "safety": null,
+      "bootSpaceL": 505,
+      "groundClearanceMm": 188,
+      "fuelTankL": 54,
+      "topSpeedKmh": 250,
+      "acceleration": "0–100 km/h in 5.4 s",
+      "dimensions": {
+        "length": 4447,
+        "width": 1843,
+        "height": 1645,
+        "wheelbase": 2692
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Slate Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Legend Grey",
+          "hex": "#7a7d80"
+        },
+        {
+          "name": "Smokey Green",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Blazing Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Indigo Sunset Blue",
+          "hex": "#24427a"
+        },
+        {
+          "name": "Nanuq White",
+          "hex": "#f2f2f0"
+        },
+        {
+          "name": "Melting Silver",
+          "hex": "#b5b7b9"
+        },
+        {
+          "name": "Midnight Black",
+          "hex": "#0d0d0d"
+        },
+        {
+          "name": "British Racing Green",
+          "hex": "#2f5a44"
+        },
+        {
+          "name": "Chilli Red",
+          "hex": "#9b1b24"
+        }
+      ],
+      "features": [
+        {
+          "group": "Comfort",
+          "items": [
+            "Steering wheel heating",
+            "John Cooper Works steering wheel",
+            "Panorama glass roof",
+            "Active seat for driver",
+            "Seat adjustment, electric, for driver and front passenger, with memory function for driver",
+            "Headliner anthracite",
+            "Seat adjustment, rear seats",
+            "John Cooper Works sport seats",
+            "MINI Experience Modes",
+            "Automatic air conditioning",
+            "Automatic operation of tailgate",
+            "Comfort access system"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Interior camera",
+            "Harman Kardon surround sound system",
+            "MINI Head-Up Display",
+            "Teleservices",
+            "Legal emergency call",
+            "Wireless charging tray",
+            "Personal eSIM",
+            "MINI Interaction Unit"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "High-beam assistant",
+            "Parking Assistant Plus",
+            "Tyre pressure monitoring system",
+            "Interior and exterior mirror package",
+            "Interior rear-view mirror with automatic anti-dazzle function",
+            "LED headlights with extended contents",
+            "Active protection for pedestrians"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Comfort package",
+            "19\" John Cooper Works Runway Spoke black",
+            "Roof rails"
+          ]
+        },
+        {
+          "group": "Interior",
+          "items": [
+            "Vescin/cord combination | JCW Black",
+            "Vescin | Black",
+            "VESCIN VINTAGE BROWN (BLK)",
+            "Vescin | Beige",
+            "Vescin | Dark Petrol"
+          ]
+        },
+        {
+          "group": "Performance",
+          "items": [
+            "Larger-capacity fuel tank",
+            "Adaptive suspension",
+            "Steptronic Sport automatic transmission with double clutch"
+          ]
+        }
+      ],
+      "highlights": [
+        "2.0-litre four-cylinder turbo-petrol engine, 221 kW (300 hp) and 400 Nm",
+        "ALL4 all-wheel drive",
+        "0–100 km/h in 5.4 s; top speed 250 km/h",
+        "7-speed dual-clutch transmission"
+      ],
+      "variants": [
+        {
+          "name": "JCW Countryman ALL4",
+          "fuel": "Petrol",
+          "transmission": "DCT",
+          "transmissionDetail": "7-speed Steptronic dual-clutch",
+          "price": 6690000,
+          "efficiency": null,
+          "features": [
+            "221 kW (300 hp), 400 Nm",
+            "ALL4 all-wheel drive",
+            "Comfort package",
+            "19\" John Cooper Works Runway Spoke black",
+            "Interior camera",
+            "Harman Kardon surround sound system",
+            "MINI Head-Up Display",
+            "Teleservices",
+            "Legal emergency call",
+            "Wireless charging tray"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.mini.in/en_IN/home/range/john-cooper-works.html",
+        "https://configure.mini.in/en_IN/configure/JCW/32GA",
+        "https://www.mini.in/en_IN/home/range.html"
+      ],
+      "notes": "Prices from the MINI India configurator (ex-showroom, one all-India price). ARAI mileage not published by MINI India."
+    }
+  ]
+}

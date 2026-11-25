@@ -1,0 +1,898 @@
+{
+  "brand": {
+    "slug": "jeep",
+    "name": "Jeep",
+    "country": "United States",
+    "founded": 1941,
+    "tagline": "American SUV brand, part of Stellantis; in India since 2016",
+    "description": "American SUV brand that began with the 1941 military Jeep and is now owned by Stellantis. Launched in India in 2016; the Compass, Meridian, Wrangler and Grand Cherokee are built or assembled at the Ranjangaon plant near Pune.",
+    "isLuxury": false,
+    "website": "https://www.jeep-india.com/"
+  },
+  "asOf": "2026-11-25",
+  "priceCity": "Delhi",
+  "models": [
+    {
+      "slug": "jeep-compass",
+      "name": "Compass",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2021-01-27",
+      "engine": "1956 cc",
+      "power": "170 hp",
+      "torque": "350 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": 178,
+      "fuelTankL": 60,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4405,
+        "width": 1818,
+        "height": 1640,
+        "wheelbase": 2636
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Galaxy Blue",
+          "hex": "#22355e"
+        },
+        {
+          "name": "Techno Metallic Green",
+          "hex": "#3f4a3c"
+        },
+        {
+          "name": "Pearl White",
+          "hex": "#eeeeea"
+        },
+        {
+          "name": "Bright White",
+          "hex": "#f5f5f3"
+        },
+        {
+          "name": "Exotica Red",
+          "hex": "#8e1b1f"
+        },
+        {
+          "name": "Grigio Magnesio",
+          "hex": "#5d6063"
+        },
+        {
+          "name": "Brilliant Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "Minimal Grey",
+          "hex": "#8d9093"
+        },
+        {
+          "name": "Silvery Moon",
+          "hex": "#b8babc"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "2.0-litre Multijet II turbo-diesel, 170 hp / 350 Nm",
+            "6-speed manual or 9-speed automatic",
+            "4x4 on Model S (O2) and Track Edition automatics",
+            "Engine stop-start"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Uconnect touchscreen: 21.3 cm (8.4-inch) or 25.6 cm (10.1-inch) by variant",
+            "Uconnect 5 with navigation on Longitude (O2)"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags",
+            "Traction control",
+            "ISOFIX child-seat anchors",
+            "Dashcam with ADAS functions",
+            "Tyre pressure monitoring on Model S (O2)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Ventilated front seats on Model S (O2)",
+            "8-way power driver seat with memory on Limited (O) and above",
+            "Powered tailgate on Limited (O) and above"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Black roof on Trail and Track Editions"
+          ]
+        }
+      ],
+      "highlights": [
+        "Made at Stellantis' Ranjangaon plant in Maharashtra",
+        "Sold only with the 2.0-litre diesel engine",
+        "4x4 available with the 9-speed automatic",
+        "Sport AT added in October 2026 as the lowest-priced automatic"
+      ],
+      "variants": [
+        {
+          "name": "Sport 2.0D MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 1829000,
+          "efficiency": null,
+          "features": [
+            "2.0 Multijet II turbo-diesel",
+            "Uconnect with 21.3 cm (8.4-inch) touchscreen",
+            "Black fabric seats",
+            "Driver seat height adjust",
+            "60/40 split rear seat"
+          ]
+        },
+        {
+          "name": "Sport 2.0D AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 2199000,
+          "efficiency": null,
+          "features": [
+            "2.0 Multijet II turbo-diesel",
+            "Uconnect with 21.3 cm (8.4-inch) touchscreen",
+            "Black fabric seats",
+            "Driver seat height adjust",
+            "60/40 split rear seat",
+            "9-speed automatic"
+          ]
+        },
+        {
+          "name": "Longitude (O2) 2.0D MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2363000,
+          "efficiency": null,
+          "features": [
+            "Uconnect 5 with 25.6 cm (10.1-inch) touchscreen and navigation",
+            "Digital instrument cluster",
+            "Black interior"
+          ]
+        },
+        {
+          "name": "Longitude (O2) 2.0D AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 2570000,
+          "efficiency": null,
+          "features": [
+            "Uconnect 5 with 25.6 cm (10.1-inch) touchscreen and navigation",
+            "Digital instrument cluster",
+            "Black interior"
+          ]
+        },
+        {
+          "name": "Trail Edition 2.0D MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2366000,
+          "efficiency": null,
+          "features": [
+            "Trail Edition styling with black roof",
+            "Black/Seal Grey interior",
+            "21.3 cm (8.4-inch) touchscreen"
+          ]
+        },
+        {
+          "name": "Trail Edition 2.0D AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 2552000,
+          "efficiency": null,
+          "features": [
+            "Trail Edition styling with black roof",
+            "Black/Seal Grey interior",
+            "21.3 cm (8.4-inch) touchscreen"
+          ]
+        },
+        {
+          "name": "Limited (O) 2.0D MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2483000,
+          "efficiency": null,
+          "features": [
+            "Uconnect with 25.6 cm (10.1-inch) touchscreen",
+            "Powered tailgate",
+            "8-way power driver seat with memory",
+            "Leather seats (steel grey with brown inserts)",
+            "Side and curtain airbags"
+          ]
+        },
+        {
+          "name": "Limited (O) 2.0D AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 2690000,
+          "efficiency": null,
+          "features": [
+            "Uconnect with 25.6 cm (10.1-inch) touchscreen",
+            "Powered tailgate",
+            "8-way power driver seat with memory",
+            "Leather seats (steel grey with brown inserts)",
+            "Side and curtain airbags"
+          ]
+        },
+        {
+          "name": "Model S (O2) 2.0D MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2670000,
+          "efficiency": null,
+          "features": [
+            "Ventilated front seats",
+            "8-way power front passenger seat",
+            "Black leather seats",
+            "Tyre pressure monitoring",
+            "Powered tailgate"
+          ]
+        },
+        {
+          "name": "Model S (O2) 2.0D AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 2876000,
+          "efficiency": null,
+          "features": [
+            "Ventilated front seats",
+            "8-way power front passenger seat",
+            "Black leather seats",
+            "Tyre pressure monitoring",
+            "Powered tailgate"
+          ]
+        },
+        {
+          "name": "Model S (O2) 4x4 2.0D AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 3070000,
+          "efficiency": null,
+          "features": [
+            "Ventilated front seats",
+            "8-way power front passenger seat",
+            "Black leather seats",
+            "Tyre pressure monitoring",
+            "Powered tailgate",
+            "4x4"
+          ]
+        },
+        {
+          "name": "Track Edition 2.0D MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2695000,
+          "efficiency": null,
+          "features": [
+            "Track Edition styling with black roof",
+            "Black/Seal Grey interior"
+          ]
+        },
+        {
+          "name": "Track Edition 2.0D AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 2901000,
+          "efficiency": null,
+          "features": [
+            "Track Edition styling with black roof",
+            "Black/Seal Grey interior"
+          ]
+        },
+        {
+          "name": "Track Edition 4x4 2.0D AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 3095000,
+          "efficiency": null,
+          "features": [
+            "Track Edition styling with black roof",
+            "Black/Seal Grey interior",
+            "4x4"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.jeep-india.com/new-compass.html",
+        "https://www.jeep-india.com/bmo-page.html#/vehicles",
+        "https://www.jeep-india.com/content/dam/cross-regional/apac/jeep/en_in/pdf/Compass-Brochure-26-Oct-26.pdf",
+        "https://www.autocarindia.com/cars/jeep/compass/specifications",
+        "https://www.cardekho.com/jeep/compass"
+      ],
+      "notes": "Prices from Jeep India's build-and-price tool (official API) for Delhi PIN 110001 on 2026-11-25. ARAI mileage left null: publications disagree (Autocar 15.3–17.3 kmpl; CarDekho 17.1 kmpl FWD, 14.9 kmpl 4x4) and the brochure is image-only. Dimensions, ground clearance and tank from Autocar India. Boot space not confirmed (CarDekho quotes 408–438 L). An 85th Anniversary Edition (₹26.70 lakh per CarDekho, Aug 2026) is not in Jeep's configurator and is left out. Euro NCAP rated the pre-facelift (2017) car 5 stars; no Bharat NCAP test. Per-variant features come from Jeep's compare data and should be spot-checked (that data shows Sport without side/curtain airbags)."
+    },
+    {
+      "slug": "jeep-meridian",
+      "name": "Meridian",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-05-19",
+      "engine": "1956 cc",
+      "power": "170 hp",
+      "torque": "350 Nm",
+      "seats": [
+        5,
+        7
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": 170,
+      "groundClearanceMm": 214,
+      "fuelTankL": 60,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4769,
+        "width": 1859,
+        "height": 1698,
+        "wheelbase": 2782
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Velvet Red",
+          "hex": "#7d1620"
+        },
+        {
+          "name": "Techno Metallic Green",
+          "hex": "#3f4a3c"
+        },
+        {
+          "name": "Magnesio Grey",
+          "hex": "#5d6063"
+        },
+        {
+          "name": "Pearl White",
+          "hex": "#eeeeea"
+        },
+        {
+          "name": "Brilliant Black",
+          "hex": "#111111"
+        },
+        {
+          "name": "Silvery Moon",
+          "hex": "#b8babc"
+        },
+        {
+          "name": "Galaxy Blue",
+          "hex": "#22355e"
+        },
+        {
+          "name": "Minimal Grey",
+          "hex": "#8d9093"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "2.0-litre Multijet diesel, 170 hp / 350 Nm",
+            "6-speed manual or 9-speed automatic",
+            "4x4 on Limited (O), Overland and Track Edition automatics"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags",
+            "Tyre pressure monitoring",
+            "360-degree camera (Limited (O) and Overland)",
+            "Level 2 ADAS with adaptive cruise control (Overland)"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Dual-zone automatic climate control",
+            "Ventilated front seats (Overland)",
+            "Recline in all three rows",
+            "Sliding middle row (added January 2026)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Uconnect with 25.6 cm (10.1-inch) touchscreen",
+            "9-speaker Alpine audio (Limited (O) and Overland)"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Dual-pane sunroof (Longitude Plus and above)",
+            "Black roof on most colours"
+          ]
+        }
+      ],
+      "highlights": [
+        "Three-row SUV made at Stellantis' Ranjangaon plant",
+        "Five-seat Longitude and seven-seat versions",
+        "Diesel only; 4x4 on top automatics",
+        "Boot: 170 L with all rows up, 481 L with the third row folded"
+      ],
+      "variants": [
+        {
+          "name": "Longitude 4x2 MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2333000,
+          "efficiency": null,
+          "features": [
+            "2.0 Multijet diesel",
+            "Uconnect with 25.6 cm (10.1-inch) touchscreen",
+            "Black/Seal Grey upholstery",
+            "Five-seat layout"
+          ]
+        },
+        {
+          "name": "Longitude 4x2 AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 2753000,
+          "efficiency": null,
+          "features": [
+            "2.0 Multijet diesel",
+            "Uconnect with 25.6 cm (10.1-inch) touchscreen",
+            "Black/Seal Grey upholstery",
+            "Five-seat layout"
+          ]
+        },
+        {
+          "name": "Longitude Plus 4x2 MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 2630000,
+          "efficiency": null,
+          "features": [
+            "Dual-pane sunroof",
+            "Seven seats with fold-flat third row",
+            "Wicker Beige vegan leather upholstery"
+          ]
+        },
+        {
+          "name": "Longitude Plus 4x2 AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 2939000,
+          "efficiency": null,
+          "features": [
+            "Dual-pane sunroof",
+            "Seven seats with fold-flat third row",
+            "Wicker Beige vegan leather upholstery"
+          ]
+        },
+        {
+          "name": "Trail Edition 4x2 MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 3039000,
+          "efficiency": null,
+          "features": [
+            "Trail Edition styling",
+            "Black/Seal Grey upholstery"
+          ]
+        },
+        {
+          "name": "Trail Edition 4x2 AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 3286000,
+          "efficiency": null,
+          "features": [
+            "Trail Edition styling",
+            "Black/Seal Grey upholstery"
+          ]
+        },
+        {
+          "name": "Limited (O) 4x2 MT",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "transmissionDetail": "6-speed MT",
+          "price": 3045000,
+          "efficiency": null,
+          "features": [
+            "360-degree camera",
+            "9-speaker Alpine audio",
+            "Dual-pane sunroof",
+            "Wicker Beige vegan leather upholstery"
+          ]
+        },
+        {
+          "name": "Limited (O) 4x2 AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 3419000,
+          "efficiency": null,
+          "features": [
+            "360-degree camera",
+            "9-speaker Alpine audio",
+            "Dual-pane sunroof",
+            "Wicker Beige vegan leather upholstery"
+          ]
+        },
+        {
+          "name": "Limited (O) 4x4 AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 3605000,
+          "efficiency": null,
+          "features": [
+            "360-degree camera",
+            "9-speaker Alpine audio",
+            "Dual-pane sunroof",
+            "Wicker Beige vegan leather upholstery",
+            "4x4"
+          ]
+        },
+        {
+          "name": "Overland 4x2 AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 3605000,
+          "efficiency": null,
+          "features": [
+            "Level 2 ADAS with adaptive cruise control",
+            "Ventilated front seats",
+            "Tupelo vegan leather with suede inserts",
+            "360-degree camera",
+            "9-speaker Alpine audio"
+          ]
+        },
+        {
+          "name": "Overland 4x4 AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 3792000,
+          "efficiency": null,
+          "features": [
+            "Level 2 ADAS with adaptive cruise control",
+            "Ventilated front seats",
+            "Tupelo vegan leather with suede inserts",
+            "360-degree camera",
+            "9-speaker Alpine audio",
+            "4x4"
+          ]
+        },
+        {
+          "name": "Track Edition 4x2 AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 3639000,
+          "efficiency": null,
+          "features": [
+            "Track Edition styling",
+            "Black/Wicker Beige upholstery"
+          ]
+        },
+        {
+          "name": "Track Edition 4x4 AT",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "transmissionDetail": "9-speed AT",
+          "price": 3826000,
+          "efficiency": null,
+          "features": [
+            "Track Edition styling",
+            "Black/Wicker Beige upholstery",
+            "4x4"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.jeep-india.com/new-jeep-meridian.html",
+        "https://www.jeep-india.com/bmo-page.html#/vehicles",
+        "https://www.jeep-india.com/content/dam/cross-regional/apac/jeep/en_in/meridian/product-page/New-Jeep-Meridian-Brochure-bakup-21al2026.pdf",
+        "https://www.autocarindia.com/cars/jeep/meridian/specifications",
+        "https://www.cardekho.com/jeep/meridian"
+      ],
+      "notes": "Prices from Jeep India's build-and-price tool (official API) for Delhi PIN 110001 on 2026-11-25. ARAI mileage left null: not in the brochure, and publications disagree (Autocar 16.25 kmpl single figure; CarDekho 8.2–14.1 kmpl). Dimensions, ground clearance, tank and boot from Autocar India. Longitude is five-seat only; others seven-seat. The configurator labels the Trail Edition automatic 'TRAIL 6MT 4X2' though it is priced as an automatic; name normalised. An 85-unit 85th Anniversary Edition (Overland-based, ₹36.05 lakh per CarDekho, Jul 2026) is not in the configurator and is left out. No crash-test result for this model."
+    },
+    {
+      "slug": "jeep-wrangler",
+      "name": "Wrangler",
+      "bodyType": "SUV",
+      "bodyStyle": "Off-roader",
+      "isLuxury": false,
+      "launchedOn": "2024-04-22",
+      "engine": "1995 cc",
+      "power": "200 kW (270 hp)",
+      "torque": "400 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 6,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": 237,
+      "fuelTankL": null,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4867,
+        "width": 1931,
+        "height": 1864,
+        "wheelbase": 3007
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Firecracker Red",
+          "hex": "#b3121b"
+        },
+        {
+          "name": "Sarge Green",
+          "hex": "#4b5040"
+        },
+        {
+          "name": "Black",
+          "hex": "#0f0f0f"
+        },
+        {
+          "name": "Bright White",
+          "hex": "#f5f5f3"
+        },
+        {
+          "name": "Anvil Clear Coat",
+          "hex": "#6d7174"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "2.0-litre GME T4 turbo-petrol, 200 kW / 400 Nm",
+            "8-speed automatic",
+            "Selec-Trac full-time 4WD (Unlimited)",
+            "Rock-Trac 4WD with Tru-Lok front and rear lockers and sway-bar disconnect (Rubicon)"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Uconnect 5 with 31.2 cm (12.3-inch) touchscreen",
+            "Wireless Android Auto and Apple CarPlay",
+            "Alpine audio with subwoofer"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "6 airbags",
+            "Adaptive cruise control with stop and go",
+            "Off-road camera",
+            "Rear camera",
+            "Trailer sway control",
+            "Hill start assist"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "12-way power heated front seats",
+            "Heated steering wheel",
+            "Nappa leather seats",
+            "Keyless entry"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Removable doors and roof",
+            "Corning Gorilla Glass windscreen",
+            "Rock rails (Rubicon)"
+          ]
+        }
+      ],
+      "highlights": [
+        "Assembled at Stellantis' Ranjangaon plant",
+        "2.0-litre turbo-petrol with 8-speed automatic and 4WD",
+        "Rubicon has front and rear locking differentials",
+        "Ground clearance up to 237 mm (Rubicon)"
+      ],
+      "variants": [
+        {
+          "name": "Unlimited",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 6620000,
+          "efficiency": "11.4 kmpl",
+          "features": [
+            "Selec-Trac full-time 4WD",
+            "255/70 R18 tyres",
+            "223 mm ground clearance",
+            "12.3-inch touchscreen",
+            "6 airbags"
+          ]
+        },
+        {
+          "name": "Rubicon",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 7080000,
+          "efficiency": "10.6 kmpl",
+          "features": [
+            "Rock-Trac 4WD, 4:1 crawl ratio",
+            "Tru-Lok front and rear lockers",
+            "Electronic sway-bar disconnect",
+            "255/75 R17 mud-terrain tyres",
+            "237 mm ground clearance",
+            "Off-road camera"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.jeep-india.com/wrangler-jl.html",
+        "https://www.jeep-india.com/bmo-page.html#/vehicles",
+        "https://www.jeep-india.com/content/dam/cross-regional/apac/jeep/en_in/wrangler-price-reveal/jeep_wrangler_brochure.pdf"
+      ],
+      "notes": "Prices from Jeep India's build-and-price tool (official API) for Delhi PIN 110001 on 2026-11-25. Specs from the official brochure spec sheet: Unlimited is 1,894 mm wide and 1,853 mm tall with 223 mm clearance; Rubicon 1,931 mm wide and 1,864 mm tall with 237 mm clearance (model-level figures show the Rubicon). Fuel economy is the brochure's km/L figure. Fuel tank and boot are not in the brochure."
+    },
+    {
+      "slug": "jeep-grand-cherokee",
+      "name": "Grand Cherokee",
+      "bodyType": "SUV",
+      "bodyStyle": null,
+      "isLuxury": false,
+      "launchedOn": "2022-11-17",
+      "engine": "1995 cc",
+      "power": "272 hp",
+      "torque": "400 Nm",
+      "seats": [
+        5
+      ],
+      "airbags": 8,
+      "safety": null,
+      "bootSpaceL": null,
+      "groundClearanceMm": 215,
+      "fuelTankL": 87,
+      "topSpeedKmh": null,
+      "acceleration": null,
+      "dimensions": {
+        "length": 4914,
+        "width": 1979,
+        "height": 1792,
+        "wheelbase": 2964
+      },
+      "ev": null,
+      "colors": [
+        {
+          "name": "Bright White",
+          "hex": "#f5f5f3"
+        },
+        {
+          "name": "Diamond Black Crystal",
+          "hex": "#141518"
+        },
+        {
+          "name": "Rocky Mountain",
+          "hex": "#6e6a63"
+        },
+        {
+          "name": "Velvet Red",
+          "hex": "#7d1620"
+        }
+      ],
+      "features": [
+        {
+          "group": "Performance",
+          "items": [
+            "2.0-litre turbo-petrol, 272 hp / 400 Nm",
+            "8-speed automatic",
+            "Quadra-Trac I 4x4 with Selec-Terrain"
+          ]
+        },
+        {
+          "group": "Infotainment",
+          "items": [
+            "Uconnect 5 with 10.1-inch touchscreen and navigation",
+            "10.25-inch digital instrument cluster",
+            "9-speaker Alpine audio with subwoofer",
+            "Head-up display"
+          ]
+        },
+        {
+          "group": "Safety",
+          "items": [
+            "8 airbags",
+            "Level 2 ADAS with adaptive cruise control (stop and go)",
+            "Blind-spot monitoring",
+            "Intersection collision assist",
+            "Off-road camera"
+          ]
+        },
+        {
+          "group": "Comfort",
+          "items": [
+            "Ventilated and heated front seats",
+            "Heated rear seats and steering wheel",
+            "Dual-zone climate control",
+            "Wireless charging",
+            "Powered tailgate"
+          ]
+        },
+        {
+          "group": "Exterior",
+          "items": [
+            "Dual-pane panoramic sunroof"
+          ]
+        }
+      ],
+      "highlights": [
+        "Fifth-generation Grand Cherokee assembled at Ranjangaon",
+        "Single Limited (O) variant",
+        "2.0-litre turbo-petrol with 4x4",
+        "8 airbags and Level 2 ADAS"
+      ],
+      "variants": [
+        {
+          "name": "Limited (O)",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "transmissionDetail": "8-speed AT",
+          "price": 6300000,
+          "efficiency": null,
+          "features": [
+            "Quadra-Trac I 4x4",
+            "Head-up display",
+            "Dual-pane panoramic sunroof",
+            "Alpine audio",
+            "Ventilated front seats",
+            "Level 2 ADAS"
+          ]
+        }
+      ],
+      "sources": [
+        "https://www.jeep-india.com/new-grand-cherokee.html",
+        "https://www.jeep-india.com/bmo-page.html#/vehicles",
+        "https://www.autocarindia.com/cars/jeep/grand-cherokee/specifications",
+        "https://www.cardekho.com/jeep/grand-cherokee"
+      ],
+      "notes": "Price from Jeep India's build-and-price tool (official API) for Delhi PIN 110001 on 2026-11-25 (the model page's meta text still says ₹67.50 lakh). Brochure is image-only; dimensions, clearance and tank from Autocar India, features from CarDekho. ARAI figure not confirmed (CarDekho lists 7.2 kmpl). Marked non-luxury to match the brand; check whether the site wants it flagged luxury."
+    }
+  ]
+}

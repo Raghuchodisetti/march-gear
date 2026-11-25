@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { CarImage } from "@/components/vehicle/car-image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
@@ -163,7 +164,7 @@ export default async function OfferPage(props: PageProps<"/offers/[ref]">) {
                     <li key={c.slug}>
                       <Link href={`/cars/${c.slug}`} className="group/car flex items-center gap-4 border border-line p-3 transition-colors duration-300 hover:border-ink/30">
                         <span className="relative aspect-[4/3] w-20 shrink-0 overflow-hidden bg-mist">
-                          <Image src={c.images[0]} alt="" fill sizes="80px" className="object-cover" />
+                          <CarImage car={c} alt="" sizes="80px" className="object-cover" />
                         </span>
                         <span className="min-w-0 flex-1">
                           <span className="block text-[12px] text-muted">{cat.brandName(c.brand)}</span>
