@@ -25,29 +25,29 @@
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.45.4",
     "jspdf": "^4.2.1",
-    "lucide-react": "^1.76.0",
+    "lucide-react": "^1.80.0",
     "motion": "^14.14.0",
     "mysql2": "^3.24.6",
     "next": "16.4.6",
-    "react": "19.3.0",
-    "react-dom": "19.3.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "server-only": "^0.0.1",
-    "tailwind-merge": "^3.7.0",
+    "tailwind-merge": "^3.7.1",
     "unpdf": "1.6.0",
     "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "4.3.3",
+    "@tailwindcss/postcss": "4.3.5",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^19.3.2",
+    "@types/react-dom": "^19.3.0",
     "dotenv": "^18.0.10",
     "drizzle-kit": "^0.31.11",
     "eslint": "^9",
     "eslint-config-next": "16.4.6",
     "playwright-core": "^1.65.1",
-    "tailwindcss": "4.3.3",
+    "tailwindcss": "4.3.5",
     "tsx": "^4.23.15",
-    "typescript": "^5"
+    "typescript": "^6.0.3"
   }
 }
