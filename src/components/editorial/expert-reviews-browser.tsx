@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowUpRight, SearchX } from "lucide-react";
@@ -77,7 +78,7 @@ export function ExpertReviewsBrowser({ entries }: { entries: ReviewEntry[] }) {
             if (!count) return null;
             return (
               <Chip key={b} selected={body === b} onClick={() => setBody(b)}>
-                {BODY_LABEL[b]} <span className="text-[11.5px] opacity-50 num">{count}</span>
+                {BODY_LABEL[b]} <span className="text-[11.5px] opacity-75 num">{count}</span>
               </Chip>
             );
           })}
@@ -156,7 +157,7 @@ function ReviewRow({ entry }: { entry: ReviewEntry }) {
       <div className="relative aspect-[4/3] overflow-hidden bg-mist">
         <Image
           src={entry.image}
-          alt={`${entry.brandLabel} ${entry.carName}`}
+          alt={cardPhotoAlt(entry.image, `${entry.brandLabel} ${entry.carName}`)}
           fill
           sizes="(min-width: 1024px) 240px, (min-width: 640px) 200px, 96px"
           className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/rv:scale-[1.05]"
@@ -168,7 +169,7 @@ function ReviewRow({ entry }: { entry: ReviewEntry }) {
           {entry.brandLabel} <span className="text-ink/25">/</span> {entry.bodyType}
         </p>
         <h3 className="type-h4 mt-2 sm:type-h3">
-          <Link href={href} className="after:absolute after:inset-0 focus-visible:outline-none">
+          <Link href={href} className="after:absolute after:inset-0 stretched-focus">
             {entry.carName}
           </Link>
         </h3>

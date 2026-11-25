@@ -125,7 +125,7 @@ export function PublicProfileForm({
             <span className="inline-flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-[4px] border border-line bg-mist">
               {/* Vendor-uploaded logo from /media. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              {v.logo ? <img src={v.logo} alt="" className="size-full object-contain p-1" /> : <ShieldCheck aria-hidden className="size-6 text-muted" />}
+              {v.logo ? <img loading="lazy" decoding="async" src={v.logo} alt="" className="size-full object-contain p-1" /> : <ShieldCheck aria-hidden className="size-6 text-muted" />}
             </span>
             <div className="min-w-0">
               <p className="truncate text-[15px] font-semibold">{company?.name ?? name}</p>

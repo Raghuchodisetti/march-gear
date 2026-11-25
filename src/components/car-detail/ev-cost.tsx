@@ -88,7 +88,7 @@ export function EvCostCalculator({ batteryKwh, rangeKm, name }: { batteryKwh: nu
             <p className="mt-2 text-[12px] text-white/45 num">₹{(PETROL / PETROL_KMPL).toFixed(2)} per km</p>
           </div>
         </div>
-        <p className="mt-auto pt-10 text-[11.5px] text-white/40">
+        <p className="mt-auto pt-10 text-[11.5px] text-white/50">
           Illustrative energy costs only. Public DC charging typically costs ₹18–25 per kWh; excludes maintenance, insurance and depreciation.
         </p>
       </div>

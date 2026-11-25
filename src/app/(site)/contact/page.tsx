@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Headphones, Mail, Newspaper } from "lucide-react";
 import { getCatalog } from "@/server/catalog";
 import { PageHeader } from "@/components/ui/page-header";
@@ -8,11 +9,15 @@ import { Badge } from "@/components/ui/badge";
 import { Accordion } from "@/components/ui/accordion";
 import { ContactForm } from "@/components/editorial/contact-form";
 import { CopyButton } from "@/components/editorial/copy-button";
+import { businessFacts, grievanceContact } from "@/components/editorial/legal-text";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Get in touch with March Gear — reader support, dealer partnerships, press enquiries and editorial corrections.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Contact MarchGear — Support, Partners & Press",
+  description: "Get in touch with MarchGear: reader support, dealer and insurer partnerships, press enquiries and editorial corrections. Phone, email and office details.",
+  path: "/contact",
+  absoluteTitle: true,
+});
 
 export default async function ContactPage() {
   const { site } = (await getCatalog()).content;
@@ -24,6 +29,8 @@ export default async function ContactPage() {
     { icon: Newspaper, label: "Press & media", value: site.pressEmail, copy: "Copy press email" },
   ];
   const homeCity = (offices.find((o) => o.hq) ?? offices[0]).city;
+  const facts = businessFacts(site);
+  const grievance = grievanceContact(site);
   return (
     <>
       <PageHeader
@@ -73,6 +80,36 @@ export default async function ContactPage() {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            <div>
+              <p className="type-eyebrow text-muted">Company &amp; grievances</p>
+              <dl className="mt-5 border-t border-line text-[14px]">
+                {facts.map((f) => (
+                  <div key={f.label} className="border-b border-line py-3.5">
+                    <dt className="text-[12.5px] text-muted">{f.label}</dt>
+                    <dd className="mt-0.5 break-words font-medium num">{f.value}</dd>
+                  </div>
+                ))}
+                <div className="border-b border-line py-3.5">
+                  <dt className="text-[12.5px] text-muted">{grievance.named ? "Grievance Officer" : "Privacy & grievances"}</dt>
+                  <dd className="mt-0.5 min-w-0">
+                    {grievance.named && <span className="block font-medium">{site.grievanceOfficer.name}</span>}
+                    <a href={`mailto:${grievance.email}`} className="break-words font-medium underline decoration-ink/30 underline-offset-4 hover:text-red">
+                      {grievance.email}
+                    </a>
+                    {site.grievanceOfficer.email && site.grievanceOfficer.phone && <span className="block num">{site.grievanceOfficer.phone}</span>}
+                    {!grievance.named && <span className="mt-1 block text-[12.5px] text-muted">A Grievance Officer will be named here shortly.</span>}
+                  </dd>
+                </div>
+              </dl>
+              <p className="mt-3 text-[12px] leading-relaxed text-muted">
+                Complaints about your personal data or content on the site are acknowledged within 24 hours. See our{" "}
+                <Link href="/privacy#grievance" className="text-ink underline underline-offset-4 hover:text-red">
+                  Privacy Policy
+                </Link>
+                .
+              </p>
             </div>
 
             <div className="bg-ink p-7 text-white md:p-8">

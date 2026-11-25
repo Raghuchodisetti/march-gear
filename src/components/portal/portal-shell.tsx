@@ -167,7 +167,7 @@ export function PortalShell({ dealership, user, groups, unread, variant = "deale
             {dealership.logo ? (
               // Dealer-uploaded logo from /media — plain <img> keeps the sidebar light.
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={dealership.logo} alt="" className="size-full object-contain" />
+              <img decoding="async" src={dealership.logo} alt="" className="size-full object-contain" />
             ) : (
               dealership.name.slice(0, 2).toUpperCase()
             )}
@@ -185,7 +185,7 @@ export function PortalShell({ dealership, user, groups, unread, variant = "deale
       <div className="flex-1 space-y-5 overflow-y-auto px-3 py-4">
         {groups.map((g, gi) => (
           <div key={gi}>
-            {g.title && <p className="mb-1.5 px-3 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-muted/80">{g.title}</p>}
+            {g.title && <p className="mb-1.5 px-3 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-muted">{g.title}</p>}
             <ul className="space-y-0.5">
               {g.items.map(({ href, label, icon, locked, badge }) => {
                 const Icon = ICONS[icon];
@@ -243,12 +243,12 @@ export function PortalShell({ dealership, user, groups, unread, variant = "deale
 
   return (
     <div className="min-h-dvh bg-[#F6F6F6]">
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-[264px] border-r border-line bg-white lg:block">{nav}</aside>
+      <aside aria-label="Portal menu" className="fixed inset-y-0 left-0 z-40 hidden w-[264px] border-r border-line bg-white lg:block">{nav}</aside>
 
       {open && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <button type="button" aria-label="Close menu" className="absolute inset-0 bg-ink/40" onClick={() => setOpen(false)} />
-          <aside className="absolute inset-y-0 left-0 w-[280px] max-w-[85vw] bg-white shadow-lift">{nav}</aside>
+          <aside aria-label="Portal menu" className="absolute inset-y-0 left-0 w-[280px] max-w-[85vw] bg-white shadow-lift">{nav}</aside>
         </div>
       )}
 

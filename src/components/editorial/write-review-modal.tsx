@@ -7,6 +7,8 @@ import { Modal } from "@/components/ui/overlay";
 import { SelectField, TextArea, TextField } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Honeypot } from "@/components/forms/honeypot";
+import { ConsentCheckbox, PolicyLink, PrivacyLink } from "@/components/forms/consent";
+import { LiveRegion } from "@/components/forms/form-a11y";
 import { useUser } from "@/components/providers/app-provider";
 import { cn } from "@/lib/utils";
 import { StarInput } from "./star-input";
@@ -21,8 +23,8 @@ const OWNED_FOR = ["Less than 6 months", "6 – 12 months", "1 – 2 years", "2 
 const MIN_BODY = 40;
 const MIN_TITLE = 4; // matches the server rule and the car-page review form
 
-type Field = "car" | "variant" | "rating" | "title" | "body" | "name" | "city" | "km";
-const ORDER: Field[] = ["car", "variant", "rating", "title", "body", "km", "name", "city"];
+type Field = "car" | "variant" | "rating" | "title" | "body" | "name" | "city" | "km" | "consent";
+const ORDER: Field[] = ["car", "variant", "rating", "title", "body", "km", "name", "city", "consent"];
 /** Server field → form field (the detailed ratings follow the overall one). */
 const FIELD_FOR: Record<string, Field> = {
   carSlug: "car",
@@ -37,6 +39,7 @@ const FIELD_FOR: Record<string, Field> = {
   kmDriven: "km",
   name: "name",
   city: "city",
+  consent: "consent",
 };
 
 /**
@@ -73,6 +76,8 @@ function ReviewForm({ cars, defaultCar, onClose }: { cars: CarOption[]; defaultC
   const [name, setName] = useState(user?.name ?? "");
   const [city, setCity] = useState(user?.city ?? "");
   const [website, setWebsite] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [announcement, setAnnouncement] = useState("");
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -94,10 +99,15 @@ function ReviewForm({ cars, defaultCar, onClose }: { cars: CarOption[]; defaultC
     setVariant("");
     setErrors({});
     setFormError(null);
+    setConsent(false);
   };
 
   const focusFirst = (errs: Partial<Record<Field, string>>) => {
     const first = ORDER.find((f) => errs[f]);
+    const count = ORDER.filter((f) => errs[f]).length;
+    // A trailing no-break space on repeats, so the same message is announced again.
+    const text = `${count === 1 ? "One field needs" : `${count} fields need`} your attention.`;
+    if (count) setAnnouncement((prev) => (prev === text ? `${text}\u00a0` : text));
     const target =
       first === "rating"
         ? document.querySelector<HTMLElement>('#wr-rating [role="radio"][tabindex="0"]')
@@ -121,6 +131,7 @@ function ReviewForm({ cars, defaultCar, onClose }: { cars: CarOption[]; defaultC
     if (!Number.isInteger(kmValue) || kmValue < 0 || kmValue > 999_999) next.km = "Enter kilometres as a whole number, e.g. 12500";
     if (name.trim().length < 2) next.name = "Add your name as you’d like it to appear";
     if (city.trim().length < 2) next.city = "Enter your city";
+    if (!consent) next.consent = "Please confirm this is your own experience and that we may publish it";
     setErrors(next);
     setFormError(null);
     if (focusFirst(next) || !carOption) return;
@@ -142,6 +153,7 @@ function ReviewForm({ cars, defaultCar, onClose }: { cars: CarOption[]; defaultC
         name: reviewer,
         city: city.trim(),
         ratings: { exterior: rating, comfort: rating, performance: rating, value: rating },
+        consent: true,
       });
       if (!res.ok) {
         const mapped: Partial<Record<Field, string>> = {};
@@ -186,6 +198,7 @@ function ReviewForm({ cars, defaultCar, onClose }: { cars: CarOption[]; defaultC
 
   return (
     <form onSubmit={submit} noValidate className="space-y-6 px-6 py-6 sm:px-8 sm:py-8">
+      <LiveRegion message={announcement} />
       <Honeypot value={website} onChange={setWebsite} />
       {formError && (
         <p role="alert" className="border-l-2 border-red bg-red-50 px-3 py-2.5 text-[13.5px] text-red">
@@ -307,6 +320,19 @@ function ReviewForm({ cars, defaultCar, onClose }: { cars: CarOption[]; defaultC
         />
       </div>
 
+      <ConsentCheckbox
+        id="wr-consent"
+        checked={consent}
+        onChange={(v) => {
+          setConsent(v);
+          clearError("consent");
+        }}
+        error={errors.consent}
+      >
+        I confirm this is my own, honest experience of owning this car, and I agree that MarchGear may publish it with my display name and city, as set out in the{" "}
+          <PolicyLink href="/terms#user-content">Terms &amp; Conditions</PolicyLink> and the <PrivacyLink />.
+      </ConsentCheckbox>
+
       <div className="flex flex-col-reverse gap-3 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-[12px] leading-relaxed text-muted">Every review is read by the MarchGear team before it&apos;s published.</p>
         <Button type="submit" variant="primary" className="shrink-0" disabled={busy}>
@@ -315,7 +341,7 @@ function ReviewForm({ cars, defaultCar, onClose }: { cars: CarOption[]; defaultC
               <Loader2 aria-hidden className="size-4 animate-spin" /> Sending…
             </>
           ) : (
-            "Submit review"
+            "Send my review"
           )}
         </Button>
       </div>

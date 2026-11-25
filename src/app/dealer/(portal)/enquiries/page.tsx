@@ -129,7 +129,7 @@ export default async function Page({ searchParams }: PageProps<"/dealer/enquirie
         <details open={moreOpen} className="group border-t border-line">
           <summary className="flex cursor-pointer list-none items-center gap-2 px-4 py-2.5 text-[12.5px] font-medium text-muted hover:text-ink [&::-webkit-details-marker]:hidden">
             <SlidersHorizontal aria-hidden className="size-3.5" /> More filters
-            <span className="text-muted/70 group-open:hidden">· source, offer, vehicle, dates, overdue</span>
+            <span className="text-muted group-open:hidden">· source, offer, vehicle, dates, overdue</span>
           </summary>
           <div className="grid grid-cols-1 gap-2 px-3 pb-3 sm:grid-cols-2 lg:grid-cols-[repeat(3,minmax(0,1fr))_auto_auto_auto]">
             <select name="source" defaultValue={f.source ?? ""} aria-label="Source" className={cn(filterInput, "cursor-pointer")}>

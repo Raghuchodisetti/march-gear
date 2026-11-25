@@ -480,7 +480,7 @@ function SearchBox({ value, onCommit }: { value: string; onCommit: (q: string) =
         onChange={(e) => setText(e.target.value)}
         placeholder="Model or brand"
         aria-label="Search new cars by model or brand"
-        className="h-10 w-full rounded-full border border-line bg-white pl-10 pr-9 text-[14px] text-ink outline-none transition-[border-color] duration-[250ms] placeholder:text-muted/70 hover:border-ink/30 focus:border-ink [&::-webkit-search-cancel-button]:hidden"
+        className="h-10 w-full rounded-full border border-line bg-white pl-10 pr-9 text-[14px] text-ink outline-none transition-[border-color] duration-[250ms] placeholder:text-muted hover:border-ink/30 focus:border-ink [&::-webkit-search-cancel-button]:hidden"
       />
       {text && (
         <button

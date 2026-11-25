@@ -86,7 +86,7 @@ function DocTile({ label, file, review, onPreview }: { label: string; file: File
         {image ? (
           // Private document thumbnail served by /insurance-vendor/files/<id> (members + staff only).
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={insFileUrl(file)} alt="" className="size-full object-cover" loading="lazy" />
+          <img decoding="async" src={insFileUrl(file)} alt="" className="size-full object-cover" loading="lazy" />
         ) : (
           <FileText aria-hidden className="size-5" />
         )}
@@ -239,7 +239,7 @@ export function ReviewSummary({
             {preview.file.mime.startsWith("image/") ? (
               // Private document preview served by /insurance-vendor/files/<id>.
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={insFileUrl(preview.file)} alt={preview.label} className="max-h-[60vh] w-full border border-line bg-mist object-contain" />
+              <img loading="lazy" decoding="async" src={insFileUrl(preview.file)} alt={preview.label} className="max-h-[60vh] w-full border border-line bg-mist object-contain" />
             ) : (
               <iframe src={insFileUrl(preview.file)} title={preview.label} className="h-[60vh] w-full border border-line bg-mist" />
             )}

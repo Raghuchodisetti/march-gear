@@ -182,5 +182,5 @@ export function StatusBadge({ label, tone }: { label: string; tone: BadgeTone })
 }
 
 export function Dot({ unread }: { unread: boolean }) {
-  return unread ? <span aria-label="Unread" className="mt-[7px] size-1.5 shrink-0 rounded-full bg-red" /> : <Circle aria-hidden className="mt-[5px] size-2 shrink-0 text-line" />;
+  return unread ? <span role="img" aria-label="Unread" className="mt-[7px] size-1.5 shrink-0 rounded-full bg-red" /> : <Circle aria-hidden className="mt-[5px] size-2 shrink-0 text-line" />;
 }

@@ -576,7 +576,7 @@ export function CompareExperience({ products, initialRefs, initialSearch, initia
                       <span className="type-eyebrow text-muted">Comparing</span>
                       <span className="mt-3 block font-display text-[36px] font-semibold leading-none tracking-[-0.04em] num">
                         {cols.length}
-                        <span className="text-ink/20">/{MAX_COMPARE}</span>
+                        <span className="text-ink/50">/{MAX_COMPARE}</span>
                       </span>
                     </th>
                     {cols.map((c) => (
@@ -632,7 +632,7 @@ export function CompareExperience({ products, initialRefs, initialSearch, initia
                               {marked && <span aria-hidden className="mt-[7px] size-1.5 shrink-0 rounded-full bg-red" />}
                               <span className="min-w-0">{r.label}</span>
                             </span>
-                            {r.hint && <span className="mt-1 hidden text-[11px] leading-snug text-muted/80 md:block">{r.hint}</span>}
+                            {r.hint && <span className="mt-1 hidden text-[11px] leading-snug text-muted md:block">{r.hint}</span>}
                           </th>
                           {r.cells.map((cell, i) => (
                             <td key={cols[i]?.p.id ?? i} className="break-words border-b border-l border-line px-3 py-4 align-top text-ink md:px-5">

@@ -65,7 +65,7 @@ export function CarPicker({
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by model or brand"
             aria-label="Search cars"
-            className="h-12 w-full rounded-[3px] border border-line bg-white pl-11 pr-4 text-[15px] text-ink outline-none transition-[border-color] duration-[250ms] placeholder:text-muted/70 hover:border-ink/30 focus:border-ink"
+            className="h-12 w-full rounded-[3px] border border-line bg-white pl-11 pr-4 text-[15px] text-ink outline-none transition-[border-color] duration-[250ms] placeholder:text-muted hover:border-ink/30 focus:border-ink"
           />
         </div>
         <div className="no-scrollbar -mx-5 mt-4 flex gap-2 overflow-x-auto px-5 sm:-mx-8 sm:px-8">

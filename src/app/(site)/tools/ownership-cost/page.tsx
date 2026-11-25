@@ -4,12 +4,13 @@ import { calcRates } from "@/components/tools/calc";
 import { PageHeader } from "@/components/ui/page-header";
 import { OwnershipCost } from "@/components/tools/ownership-cost";
 import { HowItWorks, RelatedTools, ToolDisclaimer, ToolFaqs, ToolMetaRow } from "@/components/tools/tool-sections";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Car Ownership Cost Calculator",
-  description:
-    "See the true cost of owning a car in your city over 3, 5 or 7 years — depreciation, fuel, insurance, servicing, taxes and loan interest, per km and per month.",
-};
+  description: "See the true cost of owning a car in your city over 3, 5 or 7 years: depreciation, fuel, insurance, servicing, taxes and loan interest, per km and month.",
+  path: "/tools/ownership-cost",
+});
 
 const pct = (n: number) => `${Math.round(n * 100)}%`;
 

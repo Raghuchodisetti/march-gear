@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { carPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { getCatalog } from "@/server/catalog";
@@ -40,7 +41,7 @@ export async function UpcomingCars() {
                   <div className="relative aspect-[4/5] overflow-hidden bg-ink text-white">
                     <Image
                       src={car.image}
-                      alt={`${brandName(car.brand)} ${car.name} teaser`}
+                      alt={carPhotoAlt(car.image, `${brandName(car.brand)} ${car.name}`, "teaser")}
                       fill
                       sizes="(min-width: 1280px) 24vw, (min-width: 640px) 44vw, 78vw"
                       className="object-cover opacity-80 grayscale-[35%] transition-[transform,filter,opacity] duration-[900ms] ease-[var(--ease-premium)] group-hover/up:scale-[1.05] group-hover/up:opacity-95 group-hover/up:grayscale-0"

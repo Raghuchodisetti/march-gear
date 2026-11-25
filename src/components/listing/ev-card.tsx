@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRight, BatteryCharging, PlugZap, Zap } from "lucide-react";
@@ -29,7 +30,7 @@ export function EvCard({ car, maxRange, priority = false }: { car: CarModel; max
       <div className="relative aspect-[16/10] overflow-hidden bg-mist">
         <Image
           src={car.images[0]}
-          alt={title}
+          alt={cardPhotoAlt(car.images[0], title)}
           fill
           preload={priority}
           sizes="(min-width: 1280px) 30vw, (min-width: 640px) 45vw, 92vw"
@@ -49,7 +50,7 @@ export function EvCard({ car, maxRange, priority = false }: { car: CarModel; max
           <div className="min-w-0">
             <p className="type-eyebrow text-muted">{brandName(car.brand)}</p>
             <h3 className="type-h3 mt-2">
-              <Link href={evHref(car)} className="after:absolute after:inset-0 focus-visible:outline-none">
+              <Link href={evHref(car)} className="after:absolute after:inset-0 stretched-focus">
                 {car.name}
               </Link>
             </h3>

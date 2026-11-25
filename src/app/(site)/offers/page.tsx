@@ -6,11 +6,13 @@ import { PageHeader, EmptyState } from "@/components/ui/page-header";
 import { Button } from "@/components/ui/button";
 import { OfferCard, categoryLabel, toCardData } from "@/components/offers/offer-card";
 import { OfferFilters } from "@/components/offers/offer-filters";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Dealer offers — festival, exchange & finance deals from verified showrooms",
-  description: "Live offers from MarchGear dealer partners: festival discounts, exchange and corporate bonuses, finance and insurance benefits. Every offer is approved before it goes live.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car Offers & Discounts from Verified Dealers",
+  description: "Live car offers from MarchGear dealer partners: festival discounts, exchange and corporate bonuses, finance and insurance benefits, each approved by our team.",
+  path: "/offers",
+});
 
 const one = (v: string | string[] | undefined) => (typeof v === "string" && v.trim() ? v.trim().slice(0, 80) : undefined);
 

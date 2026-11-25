@@ -3,9 +3,10 @@
 import { useId, type ComponentProps, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { radioGroupKeyDown, rovingTabIndex } from "@/components/forms/form-a11y";
 
 const control =
-  "h-12 w-full rounded-[3px] border border-line bg-white px-4 text-[15px] text-ink placeholder:text-muted/70 transition-[border-color,box-shadow] duration-[250ms] outline-none hover:border-ink/30 focus:border-ink focus:ring-0 focus-visible:outline-none aria-[invalid=true]:border-red";
+  "h-12 w-full rounded-[3px] border border-line bg-white px-4 text-[15px] text-ink placeholder:text-muted transition-[border-color,box-shadow] duration-[250ms] outline-none hover:border-ink/30 focus:border-ink focus:ring-0 focus-visible:outline-none aria-[invalid=true]:border-red";
 
 export function Label({ children, htmlFor, className }: { children: ReactNode; htmlFor?: string; className?: string }) {
   return (
@@ -91,13 +92,24 @@ export function SelectField({
   );
 }
 
-export function TextArea({ label, className, ...props }: ComponentProps<"textarea"> & { label?: string }) {
+export function TextArea({ label, className, error, hint, ...props }: ComponentProps<"textarea"> & { label?: string; error?: string; hint?: string }) {
   const id = useId();
   const areaId = props.id ?? id;
   return (
     <div className={className}>
       {label && <Label htmlFor={areaId}>{label}</Label>}
-      <textarea id={areaId} {...props} className={cn(control, "h-auto min-h-28 py-3 leading-relaxed")} />
+      <textarea
+        id={areaId}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={error || hint ? `${areaId}-msg` : undefined}
+        {...props}
+        className={cn(control, "h-auto min-h-28 py-3 leading-relaxed")}
+      />
+      {(error || hint) && (
+        <p id={`${areaId}-msg`} className={cn("mt-1.5 text-xs", error ? "text-red" : "text-muted")}>
+          {error ?? hint}
+        </p>
+      )}
     </div>
   );
 }
@@ -178,13 +190,15 @@ export function Segmented<T extends string>({
   tone?: "dark" | "light";
   ariaLabel?: string;
 }) {
+  const anyActive = options.some((o) => o.value === value);
   return (
     <div
       role="radiogroup"
       aria-label={ariaLabel}
+      onKeyDown={radioGroupKeyDown}
       className={cn("inline-flex rounded-[3px] p-1", tone === "dark" ? "bg-mist" : "bg-white/10", className)}
     >
-      {options.map((o) => {
+      {options.map((o, i) => {
         const active = o.value === value;
         return (
           <button
@@ -192,6 +206,7 @@ export function Segmented<T extends string>({
             type="button"
             role="radio"
             aria-checked={active}
+            tabIndex={rovingTabIndex(active, i, anyActive)}
             onClick={() => onChange(o.value)}
             className={cn(
               "h-9 min-w-0 flex-1 whitespace-nowrap rounded-[2px] px-2 text-[13px] sm:px-4 font-medium transition-[background-color,color,box-shadow] duration-[250ms]",

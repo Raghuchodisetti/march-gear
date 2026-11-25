@@ -32,6 +32,7 @@ import { BOTTOM_BAR_PADDING, competitorsOf, isEv, maxOf, similarCars } from "@/c
 import { DealerStock } from "@/components/car-detail/dealer-stock";
 import { getModelStock } from "@/server/partner/inventory";
 import { CarOffersPanel } from "@/components/offers/page-sections";
+import { fitDescription, fitTitle, pageMetadata } from "@/components/seo/metadata";
 
 export async function generateStaticParams() {
   const { cars } = await getCatalog();
@@ -44,11 +45,17 @@ export async function generateMetadata(props: PageProps<"/cars/[slug]">): Promis
   const car = getCar(slug);
   if (!car) return { title: "Car not found" };
   const brand = brandName(car.brand);
-  return {
-    title: `${brand} ${car.name} Price, Specs & Reviews`,
-    description: `${brand} ${car.name} price starts at ${formatPrice(car.priceMin)} (ex-showroom, indicative). ${car.tagline} Compare ${car.variants.length} variants, specifications, ${isEv(car) ? "range" : "mileage"}, safety and owner reviews.`,
-    openGraph: { images: [{ url: car.images[0] }] },
-  };
+  const name = `${brand} ${car.name}`;
+  return pageMetadata({
+    title: fitTitle([`${name} Price, Specs & Review`, `${name} Price & Specs`, `${name} Price in India`, name]),
+    description: fitDescription(
+      `${name} price in India starts at ${formatPrice(car.priceMin)} (indicative ex-showroom).`,
+      `Compare ${car.variants.length} ${car.variants.length === 1 ? "variant" : "variants"}, specs, ${isEv(car) ? "range" : "mileage"}, safety and reviews.`,
+      car.tagline,
+    ),
+    path: `/cars/${car.slug}`,
+    images: "segment",
+  });
 }
 
 export default async function CarPage(props: PageProps<"/cars/[slug]">) {

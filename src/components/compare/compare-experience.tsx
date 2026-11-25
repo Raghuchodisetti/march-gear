@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -233,7 +234,7 @@ export function CompareExperience() {
                 <Eyebrow className="text-muted">Comparing</Eyebrow>
                 <p className="mt-4 font-display text-[44px] font-semibold leading-none tracking-[-0.045em] [font-stretch:108%] num">
                   {filled}
-                  <span className="text-ink/20">/{MAX_COMPARE}</span>
+                  <span className="text-ink/50">/{MAX_COMPARE}</span>
                 </p>
                 <p className="mt-4 text-[12px] leading-relaxed text-muted">Ex-showroom and on-road prices are indicative demo data.</p>
               </div>
@@ -372,7 +373,7 @@ function SlotCard({ car, onRemove, onTestDrive }: { car: CarModel; onRemove: () 
       <div className="relative aspect-[4/3] overflow-hidden bg-mist">
         <Image
           src={car.images[0]}
-          alt={title}
+          alt={cardPhotoAlt(car.images[0], title)}
           fill
           sizes="(min-width: 1024px) 20vw, (min-width: 768px) 22vw, 45vw"
           className="object-cover"
@@ -504,7 +505,7 @@ function RowView({
             {marked && <span aria-hidden className="mt-[7px] size-1.5 shrink-0 rounded-full bg-red" />}
             {row.label}
           </p>
-          {row.hint && <p className="mt-1 text-[11.5px] leading-snug text-muted/80">{row.hint}</p>}
+          {row.hint && <p className="mt-1 text-[11.5px] leading-snug text-muted">{row.hint}</p>}
         </div>
         {slots.map((car, i) =>
           car ? (

@@ -6,10 +6,14 @@ import { IMG } from "@/data/images";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { AuthPanel } from "@/components/account/auth-panel";
+import { PRIVATE_ROBOTS } from "@/components/seo/metadata";
 
 export const metadata: Metadata = {
   title: "Sign in or create an account",
-  description: "Sign in to March Gear to sync saved cars, comparisons, price alerts and test-drive bookings across devices.",
+  description: "Sign in to MarchGear to sync saved cars, comparisons, price alerts and test-drive bookings across devices.",
+  alternates: { canonical: "/login" },
+  // Account pages stay out of search (robots.txt also disallows /login).
+  robots: PRIVATE_ROBOTS,
 };
 
 const BENEFITS = [

@@ -79,7 +79,7 @@ export function SectionTitle({
     <header className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:items-end lg:gap-10">
       <div className="lg:col-span-7">
         <p className={cn("type-eyebrow flex items-center gap-3", dark ? "text-white" : "text-ink")}>
-          {index && <span className="num text-red">{index}</span>}
+          {index && <span className={cn("num", dark ? "text-red-400" : "text-red-600")}>{index}</span>}
           <span aria-hidden className={cn("h-px w-6", dark ? "bg-white/30" : "bg-ink/25")} />
           {eyebrow}
         </p>

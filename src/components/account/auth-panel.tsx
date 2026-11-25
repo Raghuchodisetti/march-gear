@@ -14,6 +14,8 @@ import { Tabs } from "@/components/ui/tabs";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { useCity, useUI, useUser } from "@/components/providers/app-provider";
 import { useCatalog } from "@/components/providers/catalog-provider";
+import { PolicyLink } from "@/components/forms/consent";
+import { useFormFeedback } from "@/components/forms/form-a11y";
 import { Avatar } from "./avatar";
 import { StateCityFields } from "./state-city-fields";
 import { EMAIL_RE, MOBILE_RE, greetingName } from "./validation";
@@ -159,15 +161,15 @@ export function AuthPanel() {
       </div>
 
       <p className="mt-10 text-[12px] leading-relaxed text-muted">
-        By continuing you agree to our{" "}
+        Using your account is covered by our{" "}
         <Link href="/terms" className="text-ink underline underline-offset-4 hover:text-red">
-          Terms
+          Terms &amp; Conditions
         </Link>{" "}
         and{" "}
         <Link href="/privacy" className="text-ink underline underline-offset-4 hover:text-red">
           Privacy Policy
         </Link>
-        . Passwords are stored encrypted and we never share your details.
+        . Passwords are stored as one-way hashes, never in plain text, and we never sell your details.
       </p>
     </div>
   );
@@ -183,16 +185,17 @@ function EmailSignIn({ onSuccess }: { onSuccess: OnSuccess }) {
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const feedback = useFormFeedback();
 
-  const submit = async (e: FormEvent) => {
+  const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formEl = e.currentTarget;
     const next = {
       email: EMAIL_RE.test(email.trim()) ? undefined : "Enter a valid email address",
       password: password.length >= 8 ? undefined : password ? "Passwords are at least 8 characters" : "Enter your password",
     };
     setErrors(next);
-    if (next.email) return document.getElementById("signin-email")?.focus();
-    if (next.password) return document.getElementById("signin-password")?.focus();
+    if (feedback.report(next, formEl)) return;
     setBusy(true);
     setFormError(null);
     try {
@@ -212,6 +215,7 @@ function EmailSignIn({ onSuccess }: { onSuccess: OnSuccess }) {
 
   return (
     <form noValidate onSubmit={submit} className="space-y-5">
+      {feedback.live}
       {formError && (
         <p role="alert" className="border-l-2 border-red bg-red-50 px-3 py-2.5 text-[13.5px] text-red">
           {formError}
@@ -283,6 +287,7 @@ function Register({ defaultCity, onSuccess }: { defaultCity: string; onSuccess: 
   const stateValue = place.state ?? preferred.state;
   const cityValue = place.city ?? preferred.name;
   const [terms, setTerms] = useState(false);
+  const feedback = useFormFeedback();
   const [errors, setErrors] = useState<RegisterErrors>({});
   const [busy, setBusy] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
@@ -293,23 +298,21 @@ function Register({ defaultCity, onSuccess }: { defaultCity: string; onSuccess: 
     if (errors[key as keyof RegisterErrors]) setErrors((p) => ({ ...p, [key]: undefined }));
   };
 
-  const submit = async (e: FormEvent) => {
+  const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formEl = e.currentTarget;
     const next: RegisterErrors = {
       name: form.name.trim().length >= 2 ? undefined : "Enter your full name",
       email: EMAIL_RE.test(form.email.trim()) ? undefined : "Enter a valid email address",
-      mobile: MOBILE_RE.test(form.mobile) ? undefined : "Enter a valid 10-digit mobile number",
+      // Optional: only checked when given.
+      mobile: !form.mobile || MOBILE_RE.test(form.mobile) ? undefined : "Enter a valid 10-digit mobile number, or leave it empty",
       state: stateValue ? undefined : "Choose your state",
       city: cityValue.trim().length >= 2 ? undefined : "Enter your city",
       password: form.password.length < 8 ? "Use at least 8 characters" : strength.score < 2 ? "Add a number, symbol or mixed case" : undefined,
-      terms: terms ? undefined : "Please accept the terms to continue",
+      terms: terms ? undefined : "Please accept the Terms & Conditions and the Privacy Policy to create an account",
     };
     setErrors(next);
-    const first = (["name", "email", "mobile", "state", "city", "password", "terms"] as const).find((k) => next[k]);
-    if (first) {
-      document.getElementById(`reg-${first}`)?.focus();
-      return;
-    }
+    if (feedback.report(next, formEl)) return;
     setBusy(true);
     setFormError(null);
     try {
@@ -321,10 +324,13 @@ function Register({ defaultCity, onSuccess }: { defaultCity: string; onSuccess: 
         city: cityValue.trim(),
         password: form.password,
         wishlist: wishlistStore.get(),
+        acceptTerms: terms,
       });
       if (!res.ok) {
         const f = res.fieldErrors ?? {};
-        setErrors({ name: f.name, email: f.email, mobile: f.phone, state: f.state, city: f.city, password: f.password });
+        const mapped = { name: f.name, email: f.email, mobile: f.phone, state: f.state, city: f.city, password: f.password, terms: f.acceptTerms };
+        setErrors(mapped);
+        feedback.report(mapped, formEl);
         setFormError(res.fieldErrors ? null : (res.error ?? "Couldn't create your account."));
         setBusy(false);
         return;
@@ -338,6 +344,7 @@ function Register({ defaultCity, onSuccess }: { defaultCity: string; onSuccess: 
 
   return (
     <form noValidate onSubmit={submit} className="space-y-5">
+      {feedback.live}
       {formError && (
         <p role="alert" className="border-l-2 border-red bg-red-50 px-3 py-2.5 text-[13.5px] text-red">
           {formError}
@@ -356,7 +363,8 @@ function Register({ defaultCity, onSuccess }: { defaultCity: string; onSuccess: 
         />
         <TextField
           id="reg-mobile"
-          label="Mobile"
+          label="Mobile (optional)"
+          hint="Fills in your enquiry forms for you"
           prefix="+91"
           type="tel"
           inputMode="numeric"
@@ -394,10 +402,11 @@ function Register({ defaultCity, onSuccess }: { defaultCity: string; onSuccess: 
       </div>
 
       <div>
-        <label className="flex cursor-pointer items-start gap-3 text-[13.5px] leading-relaxed text-muted">
+        <div className="flex items-start gap-3 text-[13.5px] leading-relaxed text-muted">
           <input
             id="reg-terms"
             type="checkbox"
+            required
             checked={terms}
             aria-invalid={errors.terms ? true : undefined}
             aria-describedby={errors.terms ? "reg-terms-msg" : undefined}
@@ -407,18 +416,14 @@ function Register({ defaultCity, onSuccess }: { defaultCity: string; onSuccess: 
             }}
             className="mt-[3px] size-4 shrink-0 cursor-pointer accent-ink"
           />
-          <span>
-            I agree to the{" "}
-            <Link href="/terms" className="text-ink underline underline-offset-4 hover:text-red">
-              Terms of use
-            </Link>{" "}
-            and{" "}
-            <Link href="/privacy" className="text-ink underline underline-offset-4 hover:text-red">
-              Privacy Policy
-            </Link>
-            , and to be contacted about my enquiries.
-          </span>
-        </label>
+          <label htmlFor="reg-terms" className="cursor-pointer">
+            I agree to the <PolicyLink href="/terms">Terms &amp; Conditions</PolicyLink>, and that MarchGear may use my details to run my account as described in the{" "}
+            <PolicyLink href="/privacy">Privacy Policy</PolicyLink>.
+          </label>
+        </div>
+        <p className="mt-2 pl-7 text-[12px] leading-relaxed text-muted">
+          Creating an account doesn&apos;t sign you up for the newsletter or any marketing. You can choose alerts in your account preferences.
+        </p>
         {errors.terms && (
           <p id="reg-terms-msg" className="mt-1.5 pl-7 text-xs text-red">
             {errors.terms}

@@ -6,7 +6,8 @@ import { WishlistView } from "@/components/account/wishlist-view";
 
 export const metadata: Metadata = {
   title: "Saved cars",
-  description: "Your March Gear shortlist — saved new and used cars, ready to compare side by side.",
+  description: "Your MarchGear shortlist — saved new and used cars, ready to compare side by side.",
+  alternates: { canonical: "/wishlist" },
   robots: { index: false, follow: true },
 };
 

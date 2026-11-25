@@ -243,7 +243,7 @@ export function AdminShell({
                   type="button"
                   onClick={() => setFolded((f) => ({ ...f, [g.title!]: isOpen(g) }))}
                   aria-expanded={isOpen(g)}
-                  className="mb-2 flex w-full items-center justify-between px-3 text-left text-[10.5px] font-semibold uppercase tracking-[0.12em] text-white/35 hover:text-white/60"
+                  className="mb-2 flex w-full items-center justify-between px-3 text-left text-[10.5px] font-semibold uppercase tracking-[0.12em] text-white/50 hover:text-white/60"
                 >
                   <span className="flex items-center gap-2">
                     {g.title}
@@ -252,7 +252,7 @@ export function AdminShell({
                   <ChevronDown aria-hidden className={cn("size-3.5 transition-transform", isOpen(g) ? "rotate-180" : "")} />
                 </button>
               ) : (
-                <p className="mb-2 px-3 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-white/35">{g.title}</p>
+                <p className="mb-2 px-3 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-white/50">{g.title}</p>
               ))}
             <ul className={cn("space-y-0.5", !isOpen(g) && "hidden")}>
               {g.items

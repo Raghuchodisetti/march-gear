@@ -12,6 +12,8 @@ import { Modal } from "@/components/ui/overlay";
 import { RangeField, TextField } from "@/components/ui/field";
 import { Chip } from "@/components/ui/chip";
 import { Honeypot } from "@/components/forms/honeypot";
+import { CONSENT_REQUIRED, ConsentCheckbox, RequestConsentText } from "@/components/forms/consent";
+import { useFormFeedback } from "@/components/forms/form-a11y";
 import { WishlistButton } from "@/components/vehicle/toggles";
 import { usedEmi } from "@/components/vehicle/card-utils";
 import { useUI, useUser } from "@/components/providers/app-provider";
@@ -145,20 +147,26 @@ function OfferForm({
   const [pct, setPct] = useState(95);
   const [phone, setPhone] = useState("");
   const [error, setError] = useState<string | undefined>();
+  const [consent, setConsent] = useState(false);
+  const [consentError, setConsentError] = useState<string | undefined>();
   const [sending, setSending] = useState(false);
   const [website, setWebsite] = useState("");
+  const feedback = useFormFeedback();
+  const sellerName = car.seller.name.replace(/\.$/, "");
 
   const offer = Math.round((car.price * pct) / 100 / 5000) * 5000;
   const below = car.price - offer;
   const inFair = offer >= fairLow && offer <= fairHigh;
 
-  const submit = async (e: FormEvent) => {
+  const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (sending) return;
-    if (!/^[6-9]\d{9}$/.test(phone.replace(/\D/g, ""))) {
-      setError("Enter a valid 10-digit mobile number");
-      return;
-    }
+    const form = e.currentTarget;
+    const phoneError = /^[6-9]\d{9}$/.test(phone.replace(/\D/g, "")) ? undefined : "Enter a valid 10-digit mobile number";
+    const optInError = consent ? undefined : CONSENT_REQUIRED;
+    setError(phoneError);
+    setConsentError(optInError);
+    if (feedback.report({ phone: phoneError, consent: optInError }, form)) return;
     setSending(true);
     try {
       const res = await submitLeadAction({
@@ -170,16 +178,19 @@ function OfferForm({
         source: pathname,
         website,
         details: { offer, askingPrice: Math.round(car.price) },
+        consent: true,
       });
       setSending(false);
       if (!res.ok) {
         const fieldErrors = res.fieldErrors ?? {};
         if (fieldErrors.phone) setError(fieldErrors.phone);
-        const note = Object.entries(fieldErrors).find(([key]) => key !== "phone")?.[1] ?? res.error;
+        if (fieldErrors.consent) setConsentError(fieldErrors.consent);
+        feedback.report({ phone: fieldErrors.phone, consent: fieldErrors.consent }, form);
+        const note = Object.entries(fieldErrors).find(([key]) => key !== "phone" && key !== "consent")?.[1] ?? res.error;
         if (note) toast(note, { tone: "error" });
         return;
       }
-      toast(`Offer of ${formatPrice(offer)} received (ref ${res.reference}). We'll pass it to ${car.seller.name.replace(/\.$/, "")} and get back to you within 24 hours.`, {
+      toast(`Offer of ${formatPrice(offer)} received (ref ${res.reference}). We'll pass it to ${sellerName} and get back to you within 24 hours.`, {
         tone: "success",
       });
       onDone();
@@ -192,6 +203,7 @@ function OfferForm({
   return (
     <form onSubmit={submit} className="px-6 pb-7 pt-6 sm:px-8" noValidate>
       <Honeypot value={website} onChange={setWebsite} />
+      {feedback.live}
       <div className="flex items-end justify-between gap-6">
         <div>
           <p className="text-[12.5px] text-muted">Your offer</p>
@@ -223,7 +235,7 @@ function OfferForm({
         maxLabel="100%"
       />
 
-      <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label="Quick offers">
+      <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label="Quick offers, as a share of the asking price">
         {QUICK.map((q) => (
           <Chip key={q} selected={pct === q} onClick={() => setPct(q)} className="h-8 px-3.5 text-[12.5px]">
             {q}%
@@ -255,8 +267,21 @@ function OfferForm({
           setError(undefined);
         }}
         error={error}
-        hint="The seller replies through March Gear — your number stays private."
+        hint="Shared only with MarchGear and this car's seller, so they can reply to your offer."
       />
+
+      <ConsentCheckbox
+        id={`offer-consent-${car.id}`}
+        className="mt-5"
+        checked={consent}
+        onChange={(v) => {
+          setConsent(v);
+          setConsentError(undefined);
+        }}
+        error={consentError}
+      >
+        <RequestConsentText party={{ kind: "seller", name: sellerName }} about="my offer" />
+      </ConsentCheckbox>
 
       <Button
         type="submit"

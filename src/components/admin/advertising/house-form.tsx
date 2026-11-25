@@ -28,7 +28,7 @@ function LibraryImage({ slot, value, onChange, error, aspectClass }: ImageSlotPr
         {value ? (
           // Media-library preview.
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={value} alt="" className="absolute inset-0 size-full object-cover" />
+          <img loading="lazy" decoding="async" src={value} alt="" className="absolute inset-0 size-full object-cover" />
         ) : (
           <span className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 text-[12px] text-muted">
             <ImageIcon aria-hidden className="size-5" /> No {slot} banner yet

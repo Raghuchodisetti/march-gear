@@ -323,7 +323,7 @@ export function DialogNotice({ tone = "neutral", children }: { tone?: "neutral" 
     neutral: "border-line bg-mist/60 text-ink",
     amber: "border-[#e09200]/30 bg-[#fdf3e1] text-[#7a4800]",
     green: "border-[#1e7a3c]/20 bg-[#e8f5ec] text-[#1e7a3c]",
-    red: "border-red/20 bg-red-50 text-red",
+    red: "border-red/20 bg-red-50 text-red-600",
   }[tone];
   return <div className={cn("rounded-[3px] border px-4 py-3 text-[13px]", cls)}>{children}</div>;
 }

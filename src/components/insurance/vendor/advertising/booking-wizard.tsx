@@ -554,7 +554,7 @@ export function BookingWizard({
                           <span className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
                             {creative.desktopImage && (
                               // eslint-disable-next-line @next/next/no-img-element
-                              <img src={creative.desktopImage} alt="" className="aspect-[4/1] w-full max-w-[180px] shrink-0 rounded-[2px] object-cover ring-1 ring-line sm:w-36" />
+                              <img loading="lazy" decoding="async" src={creative.desktopImage} alt="" className="aspect-[4/1] w-full max-w-[180px] shrink-0 rounded-[2px] object-cover ring-1 ring-line sm:w-36" />
                             )}
                             <span className="min-w-0">
                               <span className="block break-words">{creative.headline || creative.alt || "Banner"}</span>

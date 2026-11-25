@@ -89,7 +89,7 @@ export function LocationPicker({ lat, lng, city, onChange, error }: { lat: numbe
             title="Showroom location map"
             src={embedUrl(lat!, lng!, ZOOMS[zoom])}
             loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+            referrerPolicy="strict-origin-when-cross-origin"
             className="block h-[260px] w-full border-0 md:h-[300px]"
           />
         ) : (

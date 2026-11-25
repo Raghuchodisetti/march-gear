@@ -175,7 +175,7 @@ export function AreaField({ label, error, hint, className, ...props }: Component
         aria-invalid={error ? true : undefined}
         aria-describedby={error || hint ? `${id}-msg` : undefined}
         {...props}
-        className="min-h-[88px] w-full resize-y rounded-[3px] border border-line bg-white px-4 py-3 text-[15px] leading-relaxed text-ink outline-none transition-[border-color] duration-[250ms] placeholder:text-muted/70 hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red"
+        className="min-h-[88px] w-full resize-y rounded-[3px] border border-line bg-white px-4 py-3 text-[15px] leading-relaxed text-ink outline-none transition-[border-color] duration-[250ms] placeholder:text-muted hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red"
       />
       {(error || hint) && (
         <p id={`${id}-msg`} className={cn("mt-1.5 text-xs", error ? "text-red" : "text-muted")}>

@@ -39,10 +39,13 @@ export function CarHero({ expertScore }: { expertScore: number }) {
               type="button"
               onClick={() => scrollToSection("reviews")}
               className="group text-left"
-              aria-label={`Owner rating ${car.rating.toFixed(1)} out of 5 from ${car.reviewCount.toLocaleString("en-IN")} reviews — read reviews`}
             >
               <span className="type-eyebrow block text-muted">Owners</span>
-              <span className="mt-2 flex items-center gap-1.5">
+              <span className="sr-only">
+                {" "}
+                rate it {car.rating.toFixed(1)} out of 5 from {car.reviewCount.toLocaleString("en-IN")} reviews. Read reviews
+              </span>
+              <span aria-hidden className="mt-2 flex items-center gap-1.5">
                 <Star aria-hidden className="size-4 fill-ink text-ink" strokeWidth={0} />
                 <span className="text-[19px] font-semibold num">{car.rating.toFixed(1)}</span>
                 <span className="text-[13px] text-muted num group-hover:text-ink">({car.reviewCount.toLocaleString("en-IN")})</span>
@@ -53,10 +56,10 @@ export function CarHero({ expertScore }: { expertScore: number }) {
               type="button"
               onClick={() => scrollToSection("reviews")}
               className="group text-left"
-              aria-label={`Expert score ${expertScore.toFixed(1)} out of 10 — read the expert review`}
             >
               <span className="type-eyebrow block text-muted">Expert score</span>
-              <span className="mt-2 flex items-baseline gap-1">
+              <span className="sr-only"> {expertScore.toFixed(1)} out of 10. Read the expert review</span>
+              <span aria-hidden className="mt-2 flex items-baseline gap-1">
                 <span className="text-[19px] font-semibold num">{expertScore.toFixed(1)}</span>
                 <span className="text-[13px] text-muted group-hover:text-ink">/ 10</span>
               </span>

@@ -15,6 +15,8 @@ import { Chip } from "@/components/ui/chip";
 import { DemoNote } from "@/components/ui/badge";
 import { Label, RangeField, Segmented, SelectField, TextField } from "@/components/ui/field";
 import { Honeypot } from "@/components/forms/honeypot";
+import { CONSENT_REQUIRED, ConsentCheckbox, RequestConsentText } from "@/components/forms/consent";
+import { focusFirstInvalid } from "@/components/forms/form-a11y";
 import { useUI } from "@/components/providers/app-provider";
 import { useCatalog } from "@/components/providers/catalog-provider";
 import {
@@ -36,7 +38,7 @@ const STEPS = [
   { key: "fuel", label: "Fuel & gearbox", title: "Fuel and gearbox" },
   { key: "km", label: "Kilometres", title: "How far has it been driven?" },
   { key: "city", label: "City", title: "Where is the car right now?" },
-  { key: "contact", label: "Contact", title: "Where should we send your price?" },
+  { key: "contact", label: "Contact", title: "How can we reach you about selling it?" },
 ] as const;
 
 const RESULT = STEPS.length;
@@ -68,6 +70,7 @@ interface Draft {
   city: string;
   name: string;
   phone: string;
+  consent: boolean;
 }
 
 const EMPTY: Draft = {
@@ -81,6 +84,7 @@ const EMPTY: Draft = {
   city: "",
   name: "",
   phone: "",
+  consent: false,
 };
 
 const digits = (s: string) => s.replace(/\D/g, "");
@@ -100,7 +104,19 @@ const STEP_FOR: Record<string, number> = {
   city: 5,
   name: 6,
   phone: 6,
+  consent: 6,
 };
+
+type ContactErrors = Partial<Record<"name" | "phone" | "consent", string>>;
+
+/** The contact step's field errors (the other steps have one choice each, so one message). */
+function contactErrors(d: Draft): ContactErrors {
+  const out: ContactErrors = {};
+  if (d.name.trim().length < 2) out.name = "Enter your name";
+  if (!/^[6-9]\d{9}$/.test(digits(d.phone))) out.phone = "Enter a valid 10-digit mobile number";
+  if (!d.consent) out.consent = CONSENT_REQUIRED;
+  return out;
+}
 
 /** The instant valuation shown on the result screen. */
 const valuationFor = (d: Draft, catalog: Catalog) =>
@@ -131,10 +147,10 @@ function validate(step: number, d: Draft): string | undefined {
       return d.fuel && d.transmission ? undefined : "Choose both fuel and gearbox";
     case "city":
       return d.city ? undefined : "Choose a city";
-    case "contact":
-      if (d.name.trim().length < 2) return "Enter your name";
-      if (!/^[6-9]\d{9}$/.test(digits(d.phone))) return "Enter a valid 10-digit mobile number";
-      return undefined;
+    case "contact": {
+      const errs = Object.values(contactErrors(d));
+      return errs.length ? (errs.length === 1 ? "One field needs your attention." : `${errs.length} fields need your attention.`) : undefined;
+    }
     default:
       return undefined;
   }
@@ -180,7 +196,9 @@ export function SellFlow({ className, prefill }: { className?: string; prefill?:
   const [dir, setDir] = useState(1);
   const [draft, setDraft] = useState<Draft>(seed.draft);
   const [error, setError] = useState<string | undefined>();
+  const [fieldErrors, setFieldErrors] = useState<ContactErrors>({});
   const [sending, setSending] = useState(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [website, setWebsite] = useState("");
   const interacted = useRef(false);
   const advanceTimer = useRef<number | undefined>(undefined);
@@ -195,12 +213,17 @@ export function SellFlow({ className, prefill }: { className?: string; prefill?:
     interacted.current = true;
     setDir(target > step ? 1 : -1);
     setError(undefined);
+    setFieldErrors({});
     setStep(target);
   };
 
   const update = (patch: Partial<Draft>) => {
     setDraft((d) => ({ ...d, ...patch }));
     setError(undefined);
+    setFieldErrors((prev) => {
+      const keys = Object.keys(patch).filter((k) => k in prev);
+      return keys.length ? Object.fromEntries(Object.entries(prev).filter(([k]) => !keys.includes(k))) : prev;
+    });
   };
 
   /** Select a tile and move on after a beat, so the choice registers visually. */
@@ -227,6 +250,7 @@ export function SellFlow({ className, prefill }: { className?: string; prefill?:
         subject: `${brand} ${model} ${year}`,
         carSlug: draft.modelSlug || undefined,
         source: pathname,
+        consent: true,
         website,
         details: {
           brand,
@@ -246,6 +270,10 @@ export function SellFlow({ className, prefill }: { className?: string; prefill?:
       if (placed.length) {
         const [key, msg] = placed[0];
         if (STEP_FOR[key] !== step) go(STEP_FOR[key]);
+        if (key === "name" || key === "phone" || key === "consent") {
+          setFieldErrors({ [key]: msg });
+          focusFirstInvalid(formRef.current);
+        }
         setError(msg);
       }
       const note = problems.find(([key]) => !(key in STEP_FOR))?.[1] ?? res.error;
@@ -264,6 +292,10 @@ export function SellFlow({ className, prefill }: { className?: string; prefill?:
     const problem = validate(step, draft);
     if (problem) {
       setError(problem);
+      if (STEPS[step].key === "contact") {
+        setFieldErrors(contactErrors(draft));
+        focusFirstInvalid(formRef.current);
+      }
       return;
     }
     if (step === RESULT - 1) {
@@ -381,6 +413,7 @@ export function SellFlow({ className, prefill }: { className?: string; prefill?:
             exit="exit"
             transition={{ duration: 0.35, ease: EASE }}
             onSubmit={next}
+            ref={formRef}
             noValidate
             className="flex flex-1 flex-col px-6 pb-6 pt-7 md:px-8 md:pb-8"
           >
@@ -527,6 +560,7 @@ export function SellFlow({ className, prefill }: { className?: string; prefill?:
                         autoComplete="name"
                         value={draft.name}
                         onChange={(e) => update({ name: e.target.value })}
+                        error={fieldErrors.name}
                         placeholder="Full name"
                       />
                       <TextField
@@ -537,16 +571,18 @@ export function SellFlow({ className, prefill }: { className?: string; prefill?:
                         placeholder="98765 43210"
                         value={draft.phone}
                         onChange={(e) => update({ phone: e.target.value.replace(/[^\d ]/g, "").slice(0, 11) })}
+                        error={fieldErrors.phone}
                       />
-                      <p className="text-[12px] leading-relaxed text-muted">
-                        We&apos;ll only use your number to talk about this sale. No spam, ever.
-                      </p>
+                      <ConsentCheckbox id="sell-consent" checked={draft.consent} onChange={(consent) => update({ consent })} error={fieldErrors.consent}>
+                        <RequestConsentText party={{ kind: "dealers" }} about="selling this car (an inspection and offers for it)" />
+                      </ConsentCheckbox>
+                      <p className="text-[12px] leading-relaxed text-muted">We&apos;ll only use your number to talk about this sale. No spam, ever.</p>
                     </div>
                   )}
                 </div>
 
                 <div className="mt-8">
-                  <p className="min-h-5 text-[12.5px] text-red" role="alert">
+                  <p className="min-h-5 text-[12.5px] text-red" aria-live="assertive" aria-atomic="true">
                     {error}
                   </p>
                   <Button

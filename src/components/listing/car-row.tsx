@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { ArrowRight, Cog, Fuel, Gauge, ShieldCheck, Users, Zap } from "lucide-react";
 import type { CarModel } from "@/types";
@@ -29,7 +30,7 @@ export function CarRow({ car }: { car: CarModel }) {
       <div className="relative aspect-[4/3] self-start overflow-hidden bg-mist">
         <Image
           src={car.images[0]}
-          alt={title}
+          alt={cardPhotoAlt(car.images[0], title)}
           fill
           sizes="(min-width: 768px) 300px, (min-width: 640px) 200px, 116px"
           className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/row:scale-[1.04]"
@@ -52,7 +53,7 @@ export function CarRow({ car }: { car: CarModel }) {
           )}
         </p>
         <h3 className="type-h3 mt-2">
-          <Link href={carHref(car)} className="after:absolute after:inset-0 focus-visible:outline-none">
+          <Link href={carHref(car)} className="after:absolute after:inset-0 stretched-focus">
             {car.name}
           </Link>
         </h3>

@@ -7,7 +7,7 @@ export function Thumb({ src, className }: { src?: string | null; className?: str
       {src ? (
         // Arbitrary admin-entered URLs — plain <img> on purpose.
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={src.includes("images.unsplash.com") ? `${src.split("?")[0]}?w=160&q=60&auto=format` : src} alt="" className="size-full object-cover" loading="lazy" />
+        <img decoding="async" src={src.includes("images.unsplash.com") ? `${src.split("?")[0]}?w=160&q=60&auto=format` : src} alt="" className="size-full object-cover" loading="lazy" />
       ) : null}
     </span>
   );

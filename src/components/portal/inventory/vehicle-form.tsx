@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect, useId, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useId, useState, type ReactNode } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { AlertTriangle, Check, Circle, Eye, History, Loader2, Plus, Save, Send, Sparkles, Trash2, X } from "lucide-react";
+import { AlertTriangle, ArrowUpRight, Check, Circle, CirclePause, Eye, History, Library, Loader2, Rocket, Save, Send } from "lucide-react";
 import type { PartnerVehicleStatus } from "@/db/enums";
-import type { CarModel, Variant } from "@/types";
+import type { CarModel } from "@/types";
+import type { ActionFailure } from "@/lib/action-result";
 import { cn } from "@/lib/utils";
-import { formatPrice } from "@/lib/format";
-import { LEGACY_BRANDS } from "@/lib/catalog";
+import { formatINR, formatPrice } from "@/lib/format";
 import { Button } from "@/components/ui/button";
 import { Segmented } from "@/components/ui/field";
 import { formatDateTime } from "@/components/portal/ui";
@@ -17,33 +19,34 @@ import { useUI } from "@/components/providers/app-provider";
 import { saveVehicleAction } from "@/server/actions/partner-inventory";
 import { ConfirmDialog, HistoryDrawer, PreviewModal, RemarksCallout, StatusBadge } from "./dialogs";
 import {
-  BODY_TYPES,
-  FUELS,
+  CONDITION_GRADES,
   INDIAN_STATES,
   INSURANCE_OPTIONS,
   LIVE,
-  MAX_FEATURES,
+  MAX_CONDITION_NOTES,
   MAX_IMAGES,
-  MAX_SPECS,
-  MAX_VIDEOS,
-  MIN_DESCRIPTION,
+  MAX_WAITING_WEEKS,
+  MIN_CONDITION_NOTES,
   MIN_YEAR,
-  TRANSMISSIONS,
-  VIN_PATTERN,
+  PRICE_BAND,
+  REQUEST_MODEL_HREF,
+  catalogueSpecs,
   currentYear,
   emptyUsed,
   formToPublic,
-  parseVideo,
+  priceBand,
   type PublicVehicle,
   type UsedFormValue,
   type VehicleFormValue,
 } from "./shared";
 
 /* ──────────────────────────────────────────────────────────────
-   Add / edit a vehicle. Brand → model → variant come from the
-   catalogue and prefill the specification (all editable); models
-   that aren't in the catalogue can be typed in. "Save draft" works
-   any time; "Submit for approval" needs everything MarchGear checks.
+   Add / edit a vehicle. The car is always picked from MarchGear's
+   catalogue (brand → model → variant → colour) — its names, specs,
+   features and new-car photos come from there, never from here.
+   New cars: the dealer adds price, availability and showroom, and
+   publishing puts the listing live at once. Used cars: the dealer
+   adds that car's own facts and photos, and MarchGear reviews it.
    ────────────────────────────────────────────────────────────── */
 
 export interface VehicleFormProps {
@@ -55,50 +58,26 @@ export interface VehicleFormProps {
     updatedAt: string;
     submittedAt: string | null;
     publicHref: string | null;
+    /** Set when the stored model or variant is no longer in the catalogue: what the listing said. */
+    listedAs: string | null;
   };
   initial: VehicleFormValue;
   showrooms: { id: number; name: string; city: string; address: string; isPrimary: boolean }[];
-  authorisedBrands: string[];
+  /** Approved brand authorisations and the line-up ticked on /dealer/models. */
+  lineups: { brand: string; models: string[]; variants: string[] }[];
   partnerId: number;
   dealer: PublicVehicle["dealer"];
 }
 
+type Intent = "draft" | "submit" | "publish" | "pause";
+
 const OTHER = "__other";
 const control =
-  "h-12 w-full rounded-[3px] border border-line bg-white px-4 text-[15px] text-ink placeholder:text-muted/70 outline-none transition-[border-color] duration-[250ms] hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red disabled:cursor-not-allowed disabled:bg-mist disabled:text-muted";
+  "h-12 w-full rounded-[3px] border border-line bg-white px-4 text-[15px] text-ink placeholder:text-muted outline-none transition-[border-color] duration-[250ms] hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red disabled:cursor-not-allowed disabled:bg-mist disabled:text-muted";
 
-/** Specification rows from a catalogue model (and variant, when chosen). */
-function catalogueSpecs(car: CarModel, variant?: Variant): { label: string; value: string }[] {
-  const d = car.dimensions;
-  const rows: [string, string | number | undefined | null][] = [
-    ["Engine", car.engine],
-    ["Power", car.power],
-    ["Torque", car.torque],
-    [car.ev ? "Range" : "Mileage", variant?.efficiency ?? car.efficiency],
-    ["Seating", car.seats.length ? `${car.seats.join(" / ")} seats` : ""],
-    ["Airbags", car.airbags ? String(car.airbags) : ""],
-    ["Safety rating", car.safetyAgency !== "Not tested" ? `${car.safetyRating}-star ${car.safetyAgency}` : ""],
-    ["Boot space", car.bootSpace ? `${car.bootSpace} litres` : ""],
-    ["Ground clearance", car.groundClearance ? `${car.groundClearance} mm` : ""],
-    ["Fuel tank", car.fuelTank ? `${car.fuelTank} litres` : ""],
-    ["Length × width × height", d ? `${d.length} × ${d.width} × ${d.height} mm` : ""],
-    ["Wheelbase", d?.wheelbase ? `${d.wheelbase} mm` : ""],
-    ["0–100 km/h", car.acceleration],
-    ["Top speed", car.topSpeed ? `${car.topSpeed} km/h` : ""],
-    ...(car.ev
-      ? ([
-          ["Battery", `${car.ev.batteryKwh} kWh`],
-          ["DC fast charging", car.ev.dcCharge],
-          ["AC charging", car.ev.acCharge],
-        ] as [string, string][])
-      : []),
-  ];
-  return rows.filter(([, v]) => v !== undefined && v !== null && String(v).trim() !== "").map(([label, value]) => ({ label, value: String(value) }));
-}
-
-const priceHint = (v: string) => {
+const toInt = (v: string) => {
   const n = Number(v.replace(/[,\s₹]/g, ""));
-  return v.trim() && Number.isFinite(n) && n > 0 ? formatPrice(n) : undefined;
+  return v.trim() && Number.isFinite(n) && n > 0 ? Math.round(n) : null;
 };
 
 /* ── Small building blocks ──────────────────────────────────── */
@@ -160,27 +139,24 @@ function Select({
   placeholder,
   error,
   disabled,
-  groups,
 }: {
   id: string;
   value: string;
   onChange: (v: string) => void;
-  options?: { value: string; label: string }[];
-  groups?: { label: string; options: { value: string; label: string }[] }[];
+  options: { value: string; label: string }[];
   placeholder?: string;
   error?: string;
   disabled?: boolean;
 }) {
-  const opt = (o: { value: string; label: string }) => (
-    <option key={o.value} value={o.value}>
-      {o.label}
-    </option>
-  );
   return (
     <div className="relative">
-      <select id={id} value={value} onChange={(e) => onChange(e.target.value)} disabled={disabled} aria-invalid={error ? true : undefined} className={cn(control, "cursor-pointer appearance-none pr-10")}>
+      <select id={id} value={value} onChange={(e) => onChange(e.target.value)} disabled={disabled} aria-invalid={error ? true : undefined} className={cn(control, "cursor-pointer appearance-none truncate pr-10")}>
         {placeholder !== undefined && <option value="">{placeholder}</option>}
-        {groups ? groups.filter((g) => g.options.length).map((g) => <optgroup key={g.label} label={g.label}>{g.options.map(opt)}</optgroup>) : options?.map(opt)}
+        {options.map((o) => (
+          <option key={o.value} value={o.value}>
+            {o.label}
+          </option>
+        ))}
       </select>
       <svg aria-hidden viewBox="0 0 16 16" className="pointer-events-none absolute right-3.5 top-1/2 size-4 -translate-y-1/2 text-muted" fill="none" stroke="currentColor" strokeWidth="1.6">
         <path d="m4 6 4 4 4-4" />
@@ -189,9 +165,123 @@ function Select({
   );
 }
 
+function Money({ id, value, onChange, error, placeholder }: { id: string; value: string; onChange: (v: string) => void; error?: string; placeholder: string }) {
+  return (
+    <div className="relative">
+      <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-muted">₹</span>
+      <input id={id} inputMode="numeric" className={cn(control, "pl-9 num")} value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} aria-invalid={error ? true : undefined} />
+    </div>
+  );
+}
+
+/** The one rule of the inventory, said plainly wherever the dealer picks a car. */
+function CatalogueRule({ isUsed }: { isUsed: boolean }) {
+  return (
+    <div className="flex gap-3 border border-line bg-[#fafafa] px-4 py-3.5 text-[13.5px] leading-relaxed text-ink/85" role="note">
+      <Library aria-hidden className="mt-0.5 size-4 shrink-0 text-red" />
+      <p>
+        <span className="font-semibold text-ink">Cars come from MarchGear&rsquo;s catalogue.</span>{" "}
+        {isUsed
+          ? "The model's specifications and features are filled in from it — you add this car's own history, condition and photos."
+          : "Names, specifications, features and photos are filled in from it — you add your colour, price, stock and showroom."}{" "}
+        Can&rsquo;t find a model?{" "}
+        <Link href={REQUEST_MODEL_HREF} className="font-medium text-red underline-offset-4 hover:underline">
+          Ask MarchGear support to add it
+        </Link>
+        .
+      </p>
+    </div>
+  );
+}
+
+/** What the catalogue says about the chosen car — read-only, so the dealer sees exactly what buyers will. */
+function CatalogueCard({ car, variantSlug, brandName, isUsed }: { car: CarModel; variantSlug: string; brandName: string; isUsed: boolean }) {
+  const variant = car.variants.find((x) => x.slug === variantSlug);
+  const specs = catalogueSpecs(car, variant)
+    .filter((s) => ["Engine", "Power", "Mileage", "Range", "Seating", "Safety rating"].includes(s.label))
+    .slice(0, 4);
+  return (
+    <div className="mt-5 grid grid-cols-1 overflow-hidden border border-line sm:grid-cols-[200px_minmax(0,1fr)]">
+      <div className="relative aspect-[16/10] bg-mist sm:aspect-auto sm:min-h-[150px]">
+        {car.images[0] && <Image src={car.images[0]} alt={`${brandName} ${car.name}`} fill sizes="(min-width: 640px) 200px, 100vw" className="object-cover" style={car.focus ? { objectPosition: car.focus } : undefined} />}
+      </div>
+      <div className="min-w-0 p-4 sm:p-5">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted">From the MarchGear catalogue</p>
+        <p className="mt-1.5 text-[16px] font-semibold leading-snug">
+          {brandName} {car.name}
+          <span className="font-normal text-muted">{variant ? ` · ${variant.name}` : ""}</span>
+        </p>
+        <p className="mt-1 text-[13px] text-ink/75">
+          {variant ? `${variant.fuel} · ${variant.transmission} · ${car.bodyType}` : `${car.bodyType} · ${car.variants.length} variant${car.variants.length === 1 ? "" : "s"} — choose one`}
+          {variant ? (
+            <span className="text-muted">
+              {" "}
+              · {isUsed ? "new today " : "ex-showroom "}
+              <span className="num">{formatPrice(variant.price)}</span>
+            </span>
+          ) : null}
+        </p>
+        {specs.length > 0 && (
+          <dl className="mt-3 grid grid-cols-2 gap-x-5 gap-y-2 text-[12.5px]">
+            {specs.map((s) => (
+              <div key={s.label} className="min-w-0">
+                <dt className="text-muted">{s.label}</dt>
+                <dd className="truncate font-medium num">{s.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+        <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] text-muted">
+          <span>{isUsed ? "Specs and features shown from the catalogue" : "Specs, features and photos shown from the catalogue"}</span>
+          <a href={`/cars/${car.slug}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-medium text-ink underline-offset-4 hover:underline">
+            Model page <ArrowUpRight aria-hidden className="size-3.5 text-red" />
+            <span className="sr-only">(opens in a new tab)</span>
+          </a>
+        </p>
+      </div>
+    </div>
+  );
+}
+
+const isLight = (hex: string) => {
+  const m = hex.replace("#", "").match(/^([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
+  if (!m) return false;
+  const [r, g, b] = m.slice(1).map((x) => parseInt(x, 16));
+  return 0.299 * r + 0.587 * g + 0.114 * b > 170;
+};
+
+/** Factory colours as a radio group of swatches. */
+function ColourPicker({ car, value, onChange, error, id }: { car: CarModel; value: string; onChange: (v: string) => void; error?: string; id: string }) {
+  return (
+    <div role="radiogroup" aria-labelledby={id} aria-invalid={error ? true : undefined} className="flex flex-wrap gap-2">
+      {car.colors.map((c) => {
+        const on = value === c.name;
+        return (
+          <button
+            key={c.name}
+            type="button"
+            role="radio"
+            aria-checked={on}
+            onClick={() => onChange(c.name)}
+            className={cn(
+              "inline-flex h-11 items-center gap-2.5 rounded-[3px] border bg-white pl-2.5 pr-3.5 text-[13.5px] transition-[border-color,box-shadow] duration-[250ms]",
+              on ? "border-ink shadow-[inset_0_0_0_1px_var(--color-ink)]" : error ? "border-red/60 hover:border-ink/40" : "border-line hover:border-ink/40",
+            )}
+          >
+            <span aria-hidden className="relative inline-flex size-6 shrink-0 items-center justify-center rounded-full border border-black/10" style={{ backgroundColor: c.hex }}>
+              {on && <Check className={cn("size-3.5", isLight(c.hex) ? "text-ink" : "text-white")} strokeWidth={3} />}
+            </span>
+            <span className={cn("whitespace-nowrap", on && "font-medium")}>{c.name}</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 /* ── The form ───────────────────────────────────────────────── */
 
-export function VehicleForm({ vehicle, initial, showrooms, authorisedBrands, partnerId, dealer }: VehicleFormProps) {
+export function VehicleForm({ vehicle, initial, showrooms, lineups, partnerId, dealer }: VehicleFormProps) {
   const router = useRouter();
   const { toast } = useUI();
   const cat = useCatalog();
@@ -199,34 +289,31 @@ export function VehicleForm({ vehicle, initial, showrooms, authorisedBrands, par
   const fid = (k: string) => `${uid}-${k}`;
 
   const [v, setV] = useState<VehicleFormValue>(() => {
-    const car = initial.modelSlug ? cat.getCar(initial.modelSlug) : undefined;
-    const variant = car?.variants.find((x) => x.name === initial.variant);
     const room = !vehicle && !initial.showroomId && showrooms.length ? String((showrooms.find((s) => s.isPrimary) ?? showrooms[0]).id) : initial.showroomId;
-    return { ...initial, variantSlug: variant?.slug ?? "", showroomId: room };
+    return { ...initial, showroomId: room };
   });
-  const [modes, setModes] = useState(() => {
+  // A used car's colour may be one the model no longer comes in.
+  const [customColour, setCustomColour] = useState(() => {
     const car = initial.modelSlug ? cat.getCar(initial.modelSlug) : undefined;
-    return {
-      model: initial.modelSlug || !initial.model ? ("catalogue" as const) : ("custom" as const),
-      variant: car && initial.variant && !car.variants.some((x) => x.name === initial.variant) ? ("custom" as const) : ("catalogue" as const),
-      colour: car?.colors.length && initial.colour && !car.colors.some((c) => c.name === initial.colour) ? ("custom" as const) : ("catalogue" as const),
-    };
+    return initial.kind === "used" && Boolean(initial.colour) && !car?.colors.some((c) => c.name === initial.colour);
   });
-  const [touched, setTouched] = useState({ specs: initial.specs.length > 0, features: initial.features.length > 0 });
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [videoErrors, setVideoErrors] = useState<Record<number, string>>({});
-  const [saving, setSaving] = useState<"draft" | "submit" | null>(null);
+  const [saving, setSaving] = useState<Intent | null>(null);
   const [confirm, setConfirm] = useState<"draft" | "submit" | null>(null);
   const [dirty, setDirty] = useState(false);
   const [preview, setPreview] = useState<PublicVehicle | null>(null);
   const [history, setHistory] = useState(false);
-  const [feature, setFeature] = useState("");
 
   const status = vehicle?.status;
-  const live = status ? LIVE.includes(status) : false;
   const isUsed = v.kind === "used";
-  const car = v.modelSlug ? cat.getCar(v.modelSlug) : undefined;
-  const brandHasCars = v.brand ? cat.carsByBrand(v.brand).length > 0 : false;
+  const usedLive = isUsed && status ? LIVE.includes(status) : false;
+  const isLiveNew = !isUsed && status === "published";
+  // Published but hidden from the website until the dealer picks a catalogue model.
+  const hiddenLegacy = Boolean(vehicle?.listedAs);
+  const staffPaused = !isUsed && status === "unpublished" && Boolean(vehicle?.adminRemarks);
+  const found = v.modelSlug ? cat.getCar(v.modelSlug) : undefined;
+  const car = found && found.brand === v.brand ? found : undefined;
+  const variant = car?.variants.find((x) => x.slug === v.variantSlug);
   const year = currentYear();
 
   // Leaving with unsaved changes asks first.
@@ -256,142 +343,89 @@ export function VehicleForm({ vehicle, initial, showrooms, authorisedBrands, par
   };
   const err = (k: string) => errors[k];
 
-  /* Catalogue cascade */
-  const brandGroups = useMemo(() => {
-    const all = [...cat.brands].sort((a, b) => a.name.localeCompare(b.name)).map((b) => ({ value: b.slug, label: b.name }));
-    const mine = all.filter((b) => authorisedBrands.includes(b.value));
-    const others = all.filter((b) => !authorisedBrands.includes(b.value));
-    const legacy = Object.entries(LEGACY_BRANDS)
-      .filter(([slug]) => slug !== "multi-brand" && !cat.getBrand(slug))
-      .map(([value, label]) => ({ value, label }));
-    return [
-      ...(mine.length ? [{ label: "Your authorised brands", options: mine }] : []),
-      { label: mine.length ? "Other brands" : "Brands", options: others },
-      ...(isUsed ? [{ label: "No longer sold new (pre-owned only)", options: legacy }] : []),
-    ];
-  }, [cat, authorisedBrands, isUsed]);
+  /* Catalogue cascade — new cars are limited to the approved brands and the dealer's line-up. */
+  const lineup = lineups.find((l) => l.brand === v.brand);
+  const withCars = cat.brands.filter((b) => cat.carsByBrand(b.slug).length > 0);
+  const brandOptions = (isUsed ? withCars : withCars.filter((b) => lineups.some((l) => l.brand === b.slug)))
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((b) => ({ value: b.slug, label: b.name }));
+  // A listing keeps its own model and variant even if the dealer has since narrowed the line-up.
+  const narrowedModels = !isUsed && lineup?.models.length ? lineup.models : null;
+  const modelOptions = !v.brand
+    ? []
+    : cat
+        .carsByBrand(v.brand)
+        .filter((c) => !narrowedModels || narrowedModels.includes(c.slug) || c.slug === initial.modelSlug)
+        .map((c) => ({ value: c.slug, label: narrowedModels && !narrowedModels.includes(c.slug) ? `${c.name} (not in your line-up)` : c.name }));
+  const tickedVariants = car && !isUsed && lineup ? lineup.variants.filter((k) => k.startsWith(`${car.slug}/`)) : [];
+  const variantOptions = !car
+    ? []
+    : car.variants
+        .filter((x) => !tickedVariants.length || tickedVariants.includes(`${car.slug}/${x.slug}`) || (car.slug === initial.modelSlug && x.slug === initial.variantSlug))
+        .map((x) => ({ value: x.slug, label: `${x.name} · ${x.fuel} ${x.transmission} · ${formatPrice(x.price)}` }));
+  const noBrands = !isUsed && brandOptions.length === 0;
 
+  const onKind = (kind: "new" | "used") => {
+    if (vehicle || kind === v.kind) return;
+    const keepBrand = kind === "used" || lineups.some((l) => l.brand === v.brand);
+    patch({
+      kind,
+      year: "",
+      used: emptyUsed(),
+      images: [],
+      stock: "1",
+      availability: "in_stock",
+      ...(keepBrand ? {} : { brand: "", modelSlug: "", variantSlug: "", colour: "" }),
+    });
+    setCustomColour(false);
+  };
   const onBrand = (brand: string) => {
     if (brand === v.brand) return;
-    const hasCars = cat.carsByBrand(brand).length > 0;
-    patch({ brand, modelSlug: "", model: "", variantSlug: "", variant: "", colour: "" });
-    setModes({ model: hasCars ? "catalogue" : "custom", variant: hasCars ? "catalogue" : "custom", colour: "catalogue" });
+    patch({ brand, modelSlug: "", variantSlug: "", colour: "" });
+    setCustomColour(false);
   };
-
   const onModel = (slug: string) => {
-    if (slug === OTHER) {
-      patch({ modelSlug: "", model: "", variantSlug: "", variant: "" });
-      setModes((m) => ({ ...m, model: "custom", variant: "custom", colour: "custom" }));
-      return;
-    }
     const c = cat.getCar(slug);
-    if (!c) {
-      patch({ modelSlug: "", model: "", variantSlug: "", variant: "" });
-      return;
-    }
-    const keepColour = c.colors.some((x) => x.name === v.colour);
-    patch({
-      modelSlug: c.slug,
-      model: c.name,
-      variantSlug: "",
-      variant: "",
-      bodyType: c.bodyType,
-      colour: keepColour ? v.colour : "",
-      ...(touched.specs ? {} : { specs: catalogueSpecs(c) }),
-    });
-    setModes({ model: "catalogue", variant: "catalogue", colour: c.colors.length ? "catalogue" : "custom" });
+    const keepColour = !!c && (customColour || c.colors.some((x) => x.name === v.colour));
+    patch({ modelSlug: c ? c.slug : "", variantSlug: "", colour: keepColour ? v.colour : "" });
+    if (!keepColour) setCustomColour(false);
   };
 
-  const onVariant = (slug: string) => {
-    if (slug === OTHER) {
-      patch({ variantSlug: "", variant: "" });
-      setModes((m) => ({ ...m, variant: "custom" }));
-      return;
-    }
-    const x = car?.variants.find((y) => y.slug === slug);
-    if (!car || !x) {
-      patch({ variantSlug: "", variant: "" });
-      return;
-    }
-    patch({
-      variantSlug: x.slug,
-      variant: x.name,
-      fuel: x.fuel,
-      transmission: x.transmission,
-      bodyType: car.bodyType,
-      exShowroom: String(x.price),
-      ...(touched.specs ? {} : { specs: catalogueSpecs(car, x) }),
-      ...(touched.features || !x.features.length ? {} : { features: [...x.features] }),
-    });
-    setModes((m) => ({ ...m, variant: "catalogue" }));
-  };
+  /* Price check (mirrors the server) */
+  const price = toInt(v.sellingPrice);
+  const band = variant ? priceBand(variant.price) : null;
+  const outOfBand = Boolean(!isUsed && price && band && (price < band.min || price > band.max));
+  const diff = price && variant ? price - variant.price : null;
 
-  const loadCatalogueSpecs = () => {
-    if (!car) return;
-    const x = car.variants.find((y) => y.slug === v.variantSlug);
-    patch({ specs: catalogueSpecs(car, x) });
-    setTouched((t) => ({ ...t, specs: false }));
-  };
-  const loadCatalogueFeatures = () => {
-    if (!car) return;
-    const x = car.variants.find((y) => y.slug === v.variantSlug);
-    patch({ features: x?.features.length ? [...x.features] : car.highlights.slice(0, 8) });
-    setTouched((t) => ({ ...t, features: false }));
-  };
-
-  const addFeature = () => {
-    const f = feature.trim();
-    if (!f) return;
-    if (v.features.some((x) => x.toLowerCase() === f.toLowerCase())) {
-      setFeature("");
-      return;
-    }
-    if (v.features.length >= MAX_FEATURES) return toast(`Up to ${MAX_FEATURES} features.`, { tone: "error" });
-    patch({ features: [...v.features, f.slice(0, 120)] });
-    setTouched((t) => ({ ...t, features: true }));
-    setFeature("");
-  };
-
-  /* Readiness (mirrors the server's submit check) */
-  const checks = useMemo(() => {
-    const u = v.used;
-    const list = [
-      { label: "Brand, model and variant", ok: Boolean(v.brand && v.model && v.variant && v.year) },
-      { label: "Body, fuel, gearbox and colour", ok: Boolean(v.bodyType && v.fuel && v.transmission && v.colour) },
-      { label: "Price and stock", ok: Boolean(v.sellingPrice && (isUsed || v.exShowroom) && Number(v.stock) >= 1) },
-      ...(showrooms.length ? [{ label: "Showroom", ok: Boolean(v.showroomId) }] : []),
-      { label: `Description (${MIN_DESCRIPTION}+ characters)`, ok: v.description.trim().length >= MIN_DESCRIPTION },
-      { label: "At least one photo", ok: v.images.length > 0 },
-      ...(isUsed
-        ? [
-            { label: "Registration and odometer", ok: Boolean(u.registrationYear && u.km !== "" && u.owners && u.registrationNumber && u.registrationState) },
-            {
-              label: "Accident and insurance",
-              ok: Boolean(
-                u.accident &&
-                  (u.accident === "no" || u.accidentDetails.trim().length >= 10) &&
-                  u.insuranceStatus &&
-                  (u.insuranceStatus === "expired" || u.insuranceStatus === "none" || u.insuranceValidUntil),
-              ),
-            },
-          ]
-        : []),
-    ];
-    return list;
-  }, [v, isUsed, showrooms.length]);
+  /* Readiness (mirrors the server's checks) */
+  const u = v.used;
+  const checks = !isUsed
+    ? [
+        { label: "Catalogue car — brand, model and variant", ok: Boolean(car && variant) },
+        { label: "Factory colour", ok: Boolean(car && (car.colors.length ? car.colors.some((c) => c.name === v.colour) : true)) },
+        { label: "Selling price within the allowed range", ok: Boolean(price && !outOfBand && variant) },
+        { label: v.availability === "on_order" ? "Expected waiting period" : "Units in stock", ok: v.availability === "on_order" ? Boolean(toInt(v.waitingWeeks)) : (toInt(v.stock) ?? 0) >= 1 },
+        ...(showrooms.length ? [{ label: "Showroom", ok: Boolean(v.showroomId) }] : []),
+      ]
+    : [
+        { label: "Catalogue car and manufacturing year", ok: Boolean(car && variant && v.year) },
+        { label: "Asking price and colour", ok: Boolean(price && v.colour) },
+        ...(showrooms.length ? [{ label: "Showroom", ok: Boolean(v.showroomId) }] : []),
+        { label: "Registration and odometer", ok: Boolean(u.registrationYear && u.km !== "" && u.owners && u.registrationNumber && u.registrationState) },
+        {
+          label: "Accident and insurance",
+          ok: Boolean(u.accident && (u.accident === "no" || u.accidentDetails.trim().length >= 10) && u.insuranceStatus && (u.insuranceStatus === "expired" || u.insuranceStatus === "none" || u.insuranceValidUntil)),
+        },
+        { label: "Condition grade and notes", ok: Boolean(u.condition && u.conditionNotes.trim().length >= MIN_CONDITION_NOTES) },
+        { label: "At least one photo of the car", ok: v.images.length > 0 },
+      ];
   const ready = checks.every((c) => c.ok);
 
   /* Saving */
-  const save = async (intent: "draft" | "submit", acknowledgeLive = false) => {
-    const bad = v.videos.map((x, i) => (x.trim() && !parseVideo(x) ? i : -1)).filter((i) => i >= 0);
-    if (bad.length) {
-      setVideoErrors(Object.fromEntries(bad.map((i) => [i, "Paste a YouTube or Vimeo link"])));
-      document.querySelector(`[data-field="videos.${bad[0]}"]`)?.scrollIntoView({ behavior: "smooth", block: "center" });
-      return;
-    }
+  const save = async (intent: Intent, acknowledgeLive = false) => {
     setSaving(intent);
     setConfirm(null);
-    const res = await saveVehicleAction({ id: vehicle?.id, intent, acknowledgeLive, values: v });
+    const res = await saveVehicleAction({ id: vehicle?.id, intent, acknowledgeLive, values: v }).catch((): ActionFailure => ({ ok: false, error: "Couldn't reach the server. Please try again." }));
     setSaving(null);
     if (!res.ok) {
       const fe = res.fieldErrors ?? {};
@@ -408,47 +442,118 @@ export function VehicleForm({ vehicle, initial, showrooms, authorisedBrands, par
     }
     setDirty(false);
     setErrors({});
+    if (intent === "publish") {
+      toast(isLiveNew ? `Changes to ${res.reference} are live` : `${res.reference} is live on MarchGear`, { tone: "success" });
+      if (!vehicle) {
+        router.push("/dealer/inventory?tab=new&status=published");
+        return;
+      }
+      router.refresh();
+      return;
+    }
     if (intent === "submit") {
       toast(`${res.reference} sent to MarchGear for approval`, { tone: "success" });
       router.push("/dealer/inventory?status=pending_approval");
       router.refresh();
       return;
     }
-    toast(vehicle ? `${res.reference} saved as a draft` : `Draft ${res.reference} created`, { tone: "success" });
+    toast(
+      intent === "pause"
+        ? isLiveNew
+          ? `${res.reference} is paused — hidden from the website`
+          : vehicle
+            ? `${res.reference} saved, not published`
+            : `${res.reference} saved without publishing`
+        : vehicle
+          ? `${res.reference} saved as a draft`
+          : `Draft ${res.reference} created`,
+      { tone: "success" },
+    );
     if (!vehicle) router.replace(`/dealer/inventory/${res.id}`);
     router.refresh();
   };
 
-  const request = (intent: "draft" | "submit") => {
-    if (live || (status === "pending_approval" && intent === "draft")) setConfirm(intent);
+  const request = (intent: Intent) => {
+    if (isUsed && (usedLive || (status === "pending_approval" && intent === "draft"))) setConfirm(intent === "submit" ? "submit" : "draft");
     else save(intent);
   };
 
   const openPreview = () => {
     const room = showrooms.find((s) => String(s.id) === v.showroomId);
-    setPreview(formToPublic(v, { id: vehicle?.id, partnerId, reference: vehicle?.reference, dealer, showroom: room ? { name: room.name, city: room.city, address: room.address } : null }));
+    setPreview(formToPublic(v, car, { id: vehicle?.id, partnerId, reference: vehicle?.reference, dealer, showroom: room ? { name: room.name, city: room.city, address: room.address } : null, year }));
   };
 
   /* Options */
-  const modelOptions = v.brand ? [...cat.carsByBrand(v.brand).map((c) => ({ value: c.slug, label: c.name })), { value: OTHER, label: "Another model (not in the catalogue)" }] : [];
-  const variantOptions = car
-    ? [...car.variants.map((x) => ({ value: x.slug, label: `${x.name} · ${x.fuel} ${x.transmission} · ${formatPrice(x.price)}` })), { value: OTHER, label: "Another variant" }]
-    : [];
-  const yearOptions = (isUsed ? Array.from({ length: year - 1995 + 1 }, (_, i) => year - i) : [year + 1, year, year - 1]).map((y) => ({ value: String(y), label: String(y) }));
+  const yearOptions = Array.from({ length: year - 1995 + 1 }, (_, i) => String(year - i)).map((y) => ({ value: y, label: y }));
   if (v.year && !yearOptions.some((o) => o.value === v.year)) yearOptions.push({ value: v.year, label: v.year });
   const regYears = Array.from({ length: year - MIN_YEAR + 1 }, (_, i) => String(year - i)).filter((y) => !v.year || Number(y) >= Number(v.year) || y === v.used.registrationYear);
-  const unauthorised = v.kind === "new" && v.brand && authorisedBrands.length > 0 && !authorisedBrands.includes(v.brand);
   const busy = saving !== null;
-  const order = ["type", "vehicle", "price", ...(isUsed ? ["used"] : []), "description", "specs", "features", "photos", "videos"];
+  const order = isUsed ? ["type", "car", "price", "facts", "condition", "photos"] : ["type", "car", "colour", "price", "availability"];
   const idx = (k: string) => String(order.indexOf(k) + 1).padStart(2, "0");
+  const brandName = v.brand ? cat.brandName(v.brand) : "";
+  const weeks = toInt(v.waitingWeeks);
+
+  const showroomField = (
+    <Field name="showroomId" label="Showroom" htmlFor={fid("room")} error={err("showroomId")} hint={showrooms.length ? (isUsed ? "Where buyers can see the car." : "The showroom that sells and delivers it.") : "Add your showrooms under Showrooms to pick one."}>
+      <Select
+        id={fid("room")}
+        value={v.showroomId}
+        onChange={(showroomId) => patch({ showroomId })}
+        placeholder={showrooms.length ? "Choose a showroom" : "No showrooms yet"}
+        options={showrooms.map((s) => ({ value: String(s.id), label: `${s.name} · ${s.city}` }))}
+        disabled={!showrooms.length}
+        error={err("showroomId")}
+      />
+    </Field>
+  );
+  const stockNoField = (
+    <Field name="vin" label="Stock number or VIN" htmlFor={fid("vin")} optional error={err("vin")} hint="For your own records. Only your team and MarchGear see it — never shown on the website.">
+      <input
+        id={fid("vin")}
+        className={cn(control, "font-mono uppercase tracking-[0.06em]")}
+        value={v.vin}
+        onChange={(e) => patch({ vin: e.target.value.toUpperCase() })}
+        maxLength={32}
+        placeholder="e.g. STK-2041 or MALPC81DLSM104732"
+        autoComplete="off"
+        spellCheck={false}
+        aria-invalid={err("vin") ? true : undefined}
+      />
+    </Field>
+  );
 
   return (
-    // Enter in a field must never submit for approval, so the buttons act directly.
+    // Enter in a field must never publish or submit, so the buttons act directly.
     <form noValidate onSubmit={(e) => e.preventDefault()} className="pb-32">
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
         <div className="min-w-0 space-y-6">
+          {vehicle?.listedAs && (
+            <div className="flex gap-3 border-l-2 border-red bg-red-50 px-4 py-3" role="alert">
+              <AlertTriangle aria-hidden className="mt-0.5 size-4 shrink-0 text-red" />
+              <div className="min-w-0 text-[13.5px]">
+                <p className="font-semibold text-red">Needs a catalogue model — pick the model to keep this listing</p>
+                <p className="mt-0.5 text-ink/85">
+                  It was listed as &ldquo;{vehicle.listedAs}&rdquo;, which isn&rsquo;t in MarchGear&rsquo;s catalogue. It&rsquo;s hidden from the website until you choose the model and variant below. Not in the list?{" "}
+                  <Link href={REQUEST_MODEL_HREF} className="font-medium text-red underline-offset-4 hover:underline">
+                    Ask MarchGear to add it
+                  </Link>
+                  .
+                </p>
+              </div>
+            </div>
+          )}
           {status && <RemarksCallout status={status} remarks={vehicle?.adminRemarks ?? null} />}
-          {live && (
+          {staffPaused && (
+            <div className="flex gap-3 border-l-2 border-[#c98a1b] bg-[#fdf3e1] px-4 py-3" role="note">
+              <CirclePause aria-hidden className="mt-0.5 size-4 shrink-0 text-[#9a5b00]" />
+              <div className="min-w-0 text-[13.5px]">
+                <p className="font-semibold text-[#9a5b00]">Paused by MarchGear</p>
+                <p className="mt-0.5 whitespace-pre-line text-ink/85">{vehicle?.adminRemarks}</p>
+                <p className="mt-1 text-[12.5px] text-muted">Fix what&rsquo;s needed, then publish again.</p>
+              </div>
+            </div>
+          )}
+          {usedLive && (
             <div className="flex gap-3 border-l-2 border-ink bg-white px-4 py-3 text-[13.5px]" role="note">
               <AlertTriangle aria-hidden className="mt-0.5 size-4 shrink-0 text-red" />
               <p>
@@ -457,204 +562,274 @@ export function VehicleForm({ vehicle, initial, showrooms, authorisedBrands, par
               </p>
             </div>
           )}
+          {isLiveNew && !hiddenLegacy && (
+            <p className="flex gap-3 border-l-2 border-[#1e7a3c] bg-white px-4 py-3 text-[13.5px]" role="note">
+              <Check aria-hidden className="mt-0.5 size-4 shrink-0 text-[#1e7a3c]" strokeWidth={2.5} />
+              <span>
+                <span className="font-semibold">This listing is live.</span> Changes to price, stock or showroom go live as soon as you save.
+              </span>
+            </p>
+          )}
           {status === "archived" && (
             <p className="border-l-2 border-line bg-white px-4 py-3 text-[13.5px] text-muted" role="note">
-              This vehicle is archived. Saving restores it as a draft.
+              This vehicle is archived. {isUsed ? "Saving restores it as a draft." : "Publishing restores it to your live stock."}
             </p>
           )}
 
-          <Section index={idx("type")} title="Listing type" description={vehicle ? "A listing can't switch between new and used — duplicate it from the list instead." : "New-car stock shows on your dealer page; pre-owned cars also appear on /used-cars."}>
+          <Section index={idx("type")} title="Listing type" description={vehicle ? "A listing can't switch between new and used — add another vehicle instead." : "New-car stock goes live when you publish. Used cars are checked by MarchGear first, then also appear on /used-cars."}>
             <Segmented
               ariaLabel="Listing type"
               className="w-full sm:w-80"
               value={v.kind}
-              onChange={(kind) => {
-                if (vehicle || kind === v.kind) return;
-                patch({ kind, year: kind === "new" ? String(year) : "", used: emptyUsed() });
-                if (kind === "new" && v.brand && !cat.getBrand(v.brand)) onBrand("");
-              }}
+              onChange={onKind}
               options={[
                 { value: "new", label: "New car" },
                 { value: "used", label: "Used car" },
               ]}
             />
+            <div className="mt-5">
+              <CatalogueRule isUsed={isUsed} />
+            </div>
           </Section>
 
-          <Section index={idx("vehicle")} title="Vehicle" description="Pick from the MarchGear catalogue to prefill the specification — everything stays editable.">
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <Field
-                name="brand"
-                label="Brand"
-                htmlFor={fid("brand")}
-                error={err("brand")}
-                hint={unauthorised ? <span className="text-[#9a5b00]">Your dealership isn&rsquo;t authorised for this brand yet — add it under Brands, or MarchGear may reject the listing.</span> : undefined}
-              >
-                <Select id={fid("brand")} value={v.brand} onChange={onBrand} placeholder="Choose a brand" groups={brandGroups} error={err("brand")} />
-              </Field>
+          <Section index={idx("car")} title="Car" description={isUsed ? "Choose the model and variant this car is, from the MarchGear catalogue." : "Choose from your authorised brands and the line-up you sell."}>
+            {noBrands ? (
+              <div className="border border-dashed border-ink/15 px-5 py-8 text-center">
+                <p className="text-[14.5px] font-semibold">No approved brand authorisation yet</p>
+                <p className="mx-auto mt-1 max-w-md text-[13px] text-muted">New cars can be listed for brands MarchGear has authorised your dealership to sell. You can still list used cars of any catalogue brand.</p>
+                <div className="mt-4 flex flex-wrap justify-center gap-2">
+                  <Button href="/dealer/brands" size="sm" variant="dark">
+                    Go to Brands
+                  </Button>
+                  {!vehicle && (
+                    <Button size="sm" variant="outline" onClick={() => onKind("used")}>
+                      List a used car
+                    </Button>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <>
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <Field name="brand" label="Brand" htmlFor={fid("brand")} error={err("brand")}>
+                    <Select id={fid("brand")} value={brandOptions.some((b) => b.value === v.brand) ? v.brand : ""} onChange={onBrand} placeholder="Choose a brand" options={brandOptions} error={err("brand")} />
+                  </Field>
+                  <Field
+                    name="modelSlug"
+                    label="Model"
+                    htmlFor={fid("model")}
+                    error={err("modelSlug")}
+                    hint={
+                      !isUsed && v.brand && !lineup?.models.length ? (
+                        <>
+                          Every {brandName} model is shown.{" "}
+                          <Link href={`/dealer/models?brand=${encodeURIComponent(v.brand)}`} className="font-medium text-ink underline-offset-4 hover:underline">
+                            Pick your line-up
+                          </Link>{" "}
+                          to shorten the list.
+                        </>
+                      ) : undefined
+                    }
+                  >
+                    <Select id={fid("model")} value={car ? car.slug : ""} onChange={onModel} placeholder={v.brand ? "Choose a model" : "Choose a brand first"} options={modelOptions} disabled={!v.brand || !modelOptions.length} error={err("modelSlug")} />
+                  </Field>
+                  <Field name="variantSlug" label="Variant" htmlFor={fid("variant")} error={err("variantSlug")} wide={!isUsed}>
+                    <Select id={fid("variant")} value={variant ? variant.slug : ""} onChange={(variantSlug) => patch({ variantSlug })} placeholder={car ? "Choose a variant" : "Choose a model first"} options={variantOptions} disabled={!car} error={err("variantSlug")} />
+                  </Field>
+                  {isUsed && (
+                    <Field name="year" label="Manufacturing year" htmlFor={fid("year")} error={err("year")}>
+                      <Select id={fid("year")} value={v.year} onChange={(y) => patch({ year: y })} placeholder="Choose the year" options={yearOptions} error={err("year")} />
+                    </Field>
+                  )}
+                </div>
+                {v.brand && modelOptions.length === 0 && <p className="mt-3 text-[13px] text-muted">No {brandName} models in your line-up yet.</p>}
+                {car && <CatalogueCard car={car} variantSlug={v.variantSlug} brandName={brandName} isUsed={isUsed} />}
+              </>
+            )}
+          </Section>
 
-              <Field name="model" label="Model" htmlFor={fid("model")} error={modes.model === "catalogue" || !brandHasCars ? err("model") : undefined}>
-                {brandHasCars ? (
-                  <Select
-                    id={fid("model")}
-                    value={modes.model === "custom" ? OTHER : v.modelSlug}
-                    onChange={onModel}
-                    placeholder={v.brand ? "Choose a model" : "Choose a brand first"}
-                    options={modelOptions}
-                    disabled={!v.brand}
-                    error={modes.model === "catalogue" ? err("model") : undefined}
-                  />
+          {!isUsed && !noBrands && (
+            <Section index={idx("colour")} title="Colour" description={car ? (car.colors.length ? `${car.colors.length} factory colours for the ${car.name}.` : undefined) : "Choose the model first."}>
+              <div data-field="colour">
+                <p id={fid("colour")} className="sr-only">
+                  Colour
+                </p>
+                {car?.colors.length ? (
+                  <ColourPicker id={fid("colour")} car={car} value={v.colour} onChange={(colour) => patch({ colour })} error={err("colour")} />
+                ) : car ? (
+                  <p className="text-[13.5px] text-muted">
+                    The catalogue doesn&rsquo;t list colours for this model yet, so buyers will be told to ask the showroom.{" "}
+                    <Link href={REQUEST_MODEL_HREF} className="font-medium text-ink underline-offset-4 hover:underline">
+                      Ask MarchGear to add them
+                    </Link>
+                  </p>
                 ) : (
-                  <input id={fid("model")} className={control} value={v.model} onChange={(e) => patch({ model: e.target.value })} placeholder={v.brand ? "Model name, e.g. EcoSport" : "Choose a brand first"} disabled={!v.brand} maxLength={120} aria-invalid={err("model") ? true : undefined} />
+                  <p className="text-[13.5px] text-muted">The model&rsquo;s factory colours appear here.</p>
                 )}
-              </Field>
+                {err("colour") && <p className="mt-2 text-xs text-red">{err("colour")}</p>}
+              </div>
+            </Section>
+          )}
 
-              {brandHasCars && modes.model === "custom" && (
-                <Field name="model" label="Model name" htmlFor={fid("modelName")} error={err("model")} hint="Shown as typed. Catalogue models get richer public pages.">
-                  <input id={fid("modelName")} className={control} value={v.model} onChange={(e) => patch({ model: e.target.value })} placeholder="e.g. Creta N Line" maxLength={120} aria-invalid={err("model") ? true : undefined} />
+          {!noBrands && (
+            <Section index={idx("price")} title={isUsed ? "Price & showroom" : "Price"} description={isUsed ? "Buyers see your asking price." : "Buyers see your selling price, with the catalogue ex-showroom price beside it."}>
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <Field
+                  name="sellingPrice"
+                  label={isUsed ? "Asking price" : "Your selling price"}
+                  htmlFor={fid("price")}
+                  error={err("sellingPrice")}
+                  hint={price ? formatPrice(price) : isUsed ? "Your price to the buyer" : "Your price to the buyer, before on-road charges"}
+                >
+                  <Money id={fid("price")} value={v.sellingPrice} onChange={(sellingPrice) => patch({ sellingPrice })} error={err("sellingPrice")} placeholder={variant ? String(variant.price) : "e.g. 1199000"} />
                 </Field>
-              )}
 
-              <Field name="variant" label="Variant" htmlFor={fid("variant")} error={!car || modes.variant === "catalogue" ? err("variant") : undefined}>
-                {car ? (
-                  <Select id={fid("variant")} value={modes.variant === "custom" ? OTHER : v.variantSlug} onChange={onVariant} placeholder="Choose a variant" options={variantOptions} error={modes.variant === "catalogue" ? err("variant") : undefined} />
+                {isUsed ? (
+                  <div className="min-w-0 self-start border border-line bg-[#fafafa] px-4 py-3 text-[13px]">
+                    <p className="text-[12px] text-muted">New price today (catalogue)</p>
+                    <p className="mt-0.5 text-[16px] font-semibold num">{variant ? formatINR(variant.price) : "—"}</p>
+                    {price && variant ? (
+                      <p className={cn("mt-1 text-[12.5px] num", price >= variant.price ? "text-[#9a5b00]" : "text-muted")}>
+                        {price >= variant.price ? "At or above the new-car price — MarchGear will ask about it" : `${Math.round((1 - price / variant.price) * 100)}% below the new-car price`}
+                      </p>
+                    ) : (
+                      <p className="mt-1 text-[12.5px] text-muted">{variant ? "For reference only." : "Choose the variant to compare."}</p>
+                    )}
+                  </div>
                 ) : (
-                  <input id={fid("variant")} className={control} value={v.variant} onChange={(e) => patch({ variant: e.target.value })} placeholder="e.g. SX(O) 1.5 Turbo DCT" maxLength={120} disabled={!v.brand} aria-invalid={err("variant") ? true : undefined} />
-                )}
-              </Field>
-
-              {car && modes.variant === "custom" && (
-                <Field name="variant" label="Variant name" htmlFor={fid("variantName")} error={err("variant")}>
-                  <input id={fid("variantName")} className={control} value={v.variant} onChange={(e) => patch({ variant: e.target.value })} placeholder="e.g. Signature edition" maxLength={120} aria-invalid={err("variant") ? true : undefined} />
-                </Field>
-              )}
-
-              <Field name="year" label={isUsed ? "Manufacturing year" : "Model year"} htmlFor={fid("year")} error={err("year")}>
-                <Select id={fid("year")} value={v.year} onChange={(year) => patch({ year })} placeholder="Choose the year" options={yearOptions} error={err("year")} />
-              </Field>
-
-              <Field name="bodyType" label="Body type" htmlFor={fid("body")} error={err("bodyType")}>
-                <Select id={fid("body")} value={v.bodyType} onChange={(bodyType) => patch({ bodyType })} placeholder="Choose" options={BODY_TYPES.map((b) => ({ value: b, label: b }))} error={err("bodyType")} />
-              </Field>
-
-              <Field name="fuel" label="Fuel" htmlFor={fid("fuel")} error={err("fuel")}>
-                <Select id={fid("fuel")} value={v.fuel} onChange={(fuel) => patch({ fuel })} placeholder="Choose" options={FUELS.map((f) => ({ value: f, label: f }))} error={err("fuel")} />
-              </Field>
-
-              <Field name="transmission" label="Transmission" htmlFor={fid("gear")} error={err("transmission")}>
-                <Select id={fid("gear")} value={v.transmission} onChange={(transmission) => patch({ transmission })} placeholder="Choose" options={TRANSMISSIONS.map((t) => ({ value: t, label: t }))} error={err("transmission")} />
-              </Field>
-
-              <Field name="colour" label="Colour" htmlFor={fid("colour")} error={err("colour")} hint={car?.colors.length && modes.colour === "catalogue" ? `${car.colors.length} factory colours for the ${car.name}` : undefined}>
-                {car?.colors.length && modes.colour === "catalogue" ? (
-                  <Select
-                    id={fid("colour")}
-                    value={v.colour}
-                    onChange={(c) => {
-                      if (c === OTHER) {
-                        setModes((m) => ({ ...m, colour: "custom" }));
-                        patch({ colour: "" });
-                      } else patch({ colour: c });
-                    }}
-                    placeholder="Choose a colour"
-                    options={[...car.colors.map((c) => ({ value: c.name, label: c.name })), { value: OTHER, label: "Another colour" }]}
-                    error={err("colour")}
-                  />
-                ) : (
-                  <div className="flex gap-2">
-                    <input id={fid("colour")} className={control} value={v.colour} onChange={(e) => patch({ colour: e.target.value })} placeholder="e.g. Abyss Black" maxLength={60} aria-invalid={err("colour") ? true : undefined} />
-                    {car?.colors.length ? (
-                      <button type="button" onClick={() => setModes((m) => ({ ...m, colour: "catalogue" }))} className="shrink-0 px-2 text-[12.5px] font-medium text-muted hover:text-ink">
-                        List
-                      </button>
-                    ) : null}
+                  <div className={cn("min-w-0 self-start border px-4 py-3 text-[13px] transition-colors duration-300", outOfBand ? "border-red/40 bg-red-50/60" : "border-line bg-[#fafafa]")}>
+                    <p className="text-[12px] text-muted">Catalogue ex-showroom</p>
+                    <p className="mt-0.5 text-[16px] font-semibold num">{variant ? formatINR(variant.price) : "—"}</p>
+                    {band ? (
+                      <p className="mt-1 text-[12.5px] text-muted num">
+                        Allowed: {formatINR(band.min)} – {formatINR(band.max)}
+                      </p>
+                    ) : (
+                      <p className="mt-1 text-[12.5px] text-muted">Choose the variant to see it.</p>
+                    )}
+                    {diff !== null && variant && !outOfBand && (
+                      <p className={cn("mt-1 text-[12.5px] font-medium num", diff < 0 ? "text-[#1e7a3c]" : diff > 0 ? "text-[#9a5b00]" : "text-muted")}>
+                        {diff === 0 ? "Same as ex-showroom" : `${formatINR(Math.abs(diff))} ${diff < 0 ? "below" : "above"} ex-showroom (${diff > 0 ? "+" : "−"}${Math.abs((diff / variant.price) * 100).toFixed(1)}%)`}
+                      </p>
+                    )}
+                    {outOfBand && <p className="mt-1 text-[12.5px] font-medium text-red">Outside the allowed range</p>}
                   </div>
                 )}
-              </Field>
+                {!isUsed && (
+                  <p className="text-[12.5px] leading-relaxed text-muted sm:col-span-2">
+                    <span className="font-medium text-ink">The price rule:</span> your selling price must be between {PRICE_BAND.min * 100}% and {PRICE_BAND.max * 100}% of the catalogue ex-showroom price of the variant. It catches
+                    typing mistakes like a missing zero — any discount or premium inside that range is fine.
+                  </p>
+                )}
+                {isUsed && showroomField}
+                {isUsed && vehicle && (
+                  <div data-field="stock" className="min-w-0">
+                    <p className="mb-2 block text-[12.5px] font-medium text-ink">Availability</p>
+                    <Segmented
+                      ariaLabel="Availability"
+                      className="w-full"
+                      value={v.stock === "0" ? "0" : "1"}
+                      onChange={(stock) => patch({ stock })}
+                      options={[
+                        { value: "1", label: "Available" },
+                        { value: "0", label: "Sold" },
+                      ]}
+                    />
+                    {err("stock") ? <p className="mt-1.5 text-xs text-red">{err("stock")}</p> : <p className="mt-1.5 text-xs text-muted">A sold car shows as sold on /used-cars.</p>}
+                  </div>
+                )}
+                {isUsed && stockNoField}
+              </div>
+            </Section>
+          )}
 
-              {car?.colors.length && modes.colour === "catalogue" && v.colour ? (
-                <div className="flex items-end pb-3 sm:col-span-2">
-                  <ul className="flex flex-wrap gap-2" aria-label="Factory colours">
-                    {car.colors.map((c) => (
-                      <li key={c.name}>
-                        <button
-                          type="button"
-                          title={c.name}
-                          aria-label={c.name}
-                          aria-pressed={v.colour === c.name}
-                          onClick={() => patch({ colour: c.name })}
-                          className={cn("block size-7 rounded-full border transition-[box-shadow,transform] duration-300 hover:scale-105", v.colour === c.name ? "border-ink ring-2 ring-ink ring-offset-2" : "border-line")}
-                          style={{ backgroundColor: c.hex }}
-                        />
-                      </li>
-                    ))}
-                  </ul>
+          {!isUsed && !noBrands && (
+            <Section index={idx("availability")} title="Availability & showroom" description="Tell buyers whether the car is ready for delivery or on order.">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div data-field="availability" className="min-w-0 sm:col-span-2">
+                  <p className="mb-2 block text-[12.5px] font-medium text-ink">Availability</p>
+                  <Segmented
+                    ariaLabel="Availability"
+                    className="w-full sm:w-96"
+                    value={v.availability}
+                    onChange={(availability) => patch({ availability, ...(availability === "in_stock" && !toInt(v.stock) ? { stock: "1" } : {}) })}
+                    options={[
+                      { value: "in_stock", label: "In stock" },
+                      { value: "on_order", label: "On order" },
+                    ]}
+                  />
                 </div>
-              ) : null}
-            </div>
-          </Section>
-
-          <Section index={idx("price")} title="Price & stock" description="Buyers see the selling price. Ex-showroom is shown for reference.">
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <Field
-                name="exShowroom"
-                label={isUsed ? "Original ex-showroom price" : "Ex-showroom price"}
-                htmlFor={fid("exs")}
-                optional={isUsed}
-                error={err("exShowroom")}
-                hint={priceHint(v.exShowroom) ?? (car ? "Prefilled from the catalogue variant" : undefined)}
-              >
-                <div className="relative">
-                  <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-muted">₹</span>
-                  <input id={fid("exs")} inputMode="numeric" className={cn(control, "pl-9 num")} value={v.exShowroom} onChange={(e) => patch({ exShowroom: e.target.value })} placeholder="e.g. 1250000" aria-invalid={err("exShowroom") ? true : undefined} />
-                </div>
-              </Field>
-              <Field name="sellingPrice" label={isUsed ? "Asking price" : "Selling price"} htmlFor={fid("price")} error={err("sellingPrice")} hint={priceHint(v.sellingPrice) ?? "Your price to the buyer"}>
-                <div className="relative">
-                  <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-muted">₹</span>
-                  <input id={fid("price")} inputMode="numeric" className={cn(control, "pl-9 num")} value={v.sellingPrice} onChange={(e) => patch({ sellingPrice: e.target.value })} placeholder="e.g. 1199000" aria-invalid={err("sellingPrice") ? true : undefined} />
-                </div>
-              </Field>
-              <Field name="stock" label="Units in stock" htmlFor={fid("stock")} error={err("stock")} hint={isUsed ? "Usually 1 for a pre-owned car. 0 marks it sold." : "Update it any time from the vehicle list."}>
-                <input id={fid("stock")} type="number" min={0} max={999} inputMode="numeric" className={cn(control, "num")} value={v.stock} onChange={(e) => patch({ stock: e.target.value })} aria-invalid={err("stock") ? true : undefined} />
-              </Field>
-              <Field name="showroomId" label="Showroom" htmlFor={fid("room")} error={err("showroomId")} hint={showrooms.length ? undefined : "Add your showrooms under Showrooms to pick where the car is."}>
-                <Select
-                  id={fid("room")}
-                  value={v.showroomId}
-                  onChange={(showroomId) => patch({ showroomId })}
-                  placeholder={showrooms.length ? "Choose a showroom" : "No showrooms yet"}
-                  options={showrooms.map((s) => ({ value: String(s.id), label: `${s.name} · ${s.city}` }))}
-                  disabled={!showrooms.length}
-                  error={err("showroomId")}
-                />
-              </Field>
-              <Field
-                name="vin"
-                label="VIN / chassis number"
-                htmlFor={fid("vin")}
-                optional
-                wide
-                error={err("vin") ?? (v.vin && v.vin.replace(/[\s-]/g, "").length === 17 && !VIN_PATTERN.test(v.vin.toUpperCase().replace(/[\s-]/g, "")) ? "A VIN has no I, O or Q" : undefined)}
-                hint="17 characters. Only you and MarchGear see it — it's never shown on the website."
-              >
-                <input
-                  id={fid("vin")}
-                  className={cn(control, "font-mono uppercase tracking-[0.08em]")}
-                  value={v.vin}
-                  onChange={(e) => patch({ vin: e.target.value.toUpperCase() })}
-                  maxLength={20}
-                  placeholder="MA3EWDE1S00123456"
-                  autoComplete="off"
-                  spellCheck={false}
-                  aria-invalid={err("vin") ? true : undefined}
-                />
-              </Field>
-            </div>
-          </Section>
+                {v.availability === "in_stock" ? (
+                  <Field name="stock" label="Units in stock" htmlFor={fid("stock")} error={err("stock")} hint="Update it any time from the vehicle list. 0 hides the car until it's back.">
+                    <input id={fid("stock")} type="number" min={0} max={999} inputMode="numeric" className={cn(control, "num")} value={v.stock} onChange={(e) => patch({ stock: e.target.value })} aria-invalid={err("stock") ? true : undefined} />
+                  </Field>
+                ) : (
+                  <Field
+                    name="waitingWeeks"
+                    label="Expected waiting period"
+                    htmlFor={fid("wait")}
+                    error={err("waitingWeeks")}
+                    hint={weeks ? `Buyers see “On order · about ${weeks} week${weeks === 1 ? "" : "s"}”.` : `In weeks, from 1 to ${MAX_WAITING_WEEKS}.`}
+                  >
+                    <div className="relative">
+                      <input
+                        id={fid("wait")}
+                        type="number"
+                        min={1}
+                        max={MAX_WAITING_WEEKS}
+                        inputMode="numeric"
+                        className={cn(control, "pr-20 num")}
+                        value={v.waitingWeeks}
+                        onChange={(e) => patch({ waitingWeeks: e.target.value })}
+                        placeholder="e.g. 6"
+                        aria-invalid={err("waitingWeeks") ? true : undefined}
+                      />
+                      <span className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-sm text-muted">weeks</span>
+                    </div>
+                  </Field>
+                )}
+                {showroomField}
+                {stockNoField}
+              </div>
+            </Section>
+          )}
 
           {isUsed && (
-            <Section index={idx("used")} title="Pre-owned details" description="Be specific — MarchGear checks these before the car goes live.">
+            <Section index={idx("facts")} title="This car" description="Its own history — be specific, MarchGear checks these before the car goes live.">
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <Field name="colour" label="Colour" htmlFor={fid("ucolour")} error={err("colour")} wide hint={car?.colors.length && !customColour ? undefined : "As it appears on the registration certificate."}>
+                  {car?.colors.length && !customColour ? (
+                    <Select
+                      id={fid("ucolour")}
+                      value={v.colour}
+                      onChange={(c) => {
+                        if (c === OTHER) {
+                          setCustomColour(true);
+                          patch({ colour: "" });
+                        } else patch({ colour: c });
+                      }}
+                      placeholder="Choose the colour"
+                      options={[...car.colors.map((c) => ({ value: c.name, label: c.name })), { value: OTHER, label: "Another colour (no longer offered)" }]}
+                      error={err("colour")}
+                    />
+                  ) : (
+                    <div className="flex gap-2">
+                      <input id={fid("ucolour")} className={control} value={v.colour} onChange={(e) => patch({ colour: e.target.value })} placeholder="e.g. Stardust Silver" maxLength={60} aria-invalid={err("colour") ? true : undefined} />
+                      {car?.colors.length ? (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setCustomColour(false);
+                            patch({ colour: "" });
+                          }}
+                          className="shrink-0 px-2 text-[12.5px] font-medium text-muted hover:text-ink"
+                        >
+                          Factory list
+                        </button>
+                      ) : null}
+                    </div>
+                  )}
+                </Field>
                 <Field name="used.registrationYear" label="Registration year" htmlFor={fid("ry")} error={err("used.registrationYear")}>
                   <Select id={fid("ry")} value={v.used.registrationYear} onChange={(registrationYear) => patchUsed({ registrationYear })} placeholder="Choose" options={regYears.map((y) => ({ value: y, label: y }))} error={err("used.registrationYear")} />
                 </Field>
@@ -671,7 +846,7 @@ export function VehicleForm({ vehicle, initial, showrooms, authorisedBrands, par
                     error={err("used.owners")}
                   />
                 </Field>
-                <Field name="used.registrationNumber" label="Registration number" htmlFor={fid("reg")} error={err("used.registrationNumber")} hint="Not shown publicly — buyers only see the state.">
+                <Field name="used.registrationNumber" label="Registration number" htmlFor={fid("reg")} error={err("used.registrationNumber")} hint="Not shown publicly — buyers only see the RTO (e.g. AP-31).">
                   <input
                     id={fid("reg")}
                     className={cn(control, "font-mono uppercase tracking-[0.06em]")}
@@ -752,218 +927,73 @@ export function VehicleForm({ vehicle, initial, showrooms, authorisedBrands, par
             </Section>
           )}
 
-          <Section index={idx("description")} title="Description" description="What makes this car worth a visit: condition, warranty, accessories, offers included.">
-            <div data-field="description">
-              <textarea
-                aria-label="Description"
-                className={cn(control, "h-auto min-h-40 py-3 leading-relaxed")}
-                value={v.description}
-                onChange={(e) => patch({ description: e.target.value })}
-                maxLength={5000}
-                placeholder={isUsed ? "Single owner, full service history at the authorised workshop, new tyres in 2026…" : "Ready for immediate delivery. Includes the accessories pack and extended warranty…"}
-                aria-invalid={err("description") ? true : undefined}
-              />
-              <div className="mt-1.5 flex justify-between gap-4 text-xs">
-                <span className={err("description") ? "text-red" : "text-muted"}>{err("description") ?? `At least ${MIN_DESCRIPTION} characters to submit.`}</span>
-                <span className={cn("shrink-0 num", v.description.trim().length >= MIN_DESCRIPTION ? "text-muted" : "text-ink")}>{v.description.trim().length} / 5000</span>
+          {isUsed && (
+            <Section index={idx("condition")} title="Condition" description="Your honest overall grade, and a few words on anything a buyer should know.">
+              <div data-field="used.condition" role="radiogroup" aria-label="Condition grade" className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                {CONDITION_GRADES.map((g) => {
+                  const on = v.used.condition === g.value;
+                  return (
+                    <button
+                      key={g.value}
+                      type="button"
+                      role="radio"
+                      aria-checked={on}
+                      onClick={() => patchUsed({ condition: g.value })}
+                      className={cn(
+                        "flex items-start gap-3 rounded-[3px] border px-4 py-3 text-left transition-[border-color,box-shadow] duration-[250ms]",
+                        on ? "border-ink shadow-[inset_0_0_0_1px_var(--color-ink)]" : err("used.condition") ? "border-red/60 hover:border-ink/40" : "border-line hover:border-ink/40",
+                      )}
+                    >
+                      <span aria-hidden className={cn("mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full border", on ? "border-ink bg-ink" : "border-ink/30")}>
+                        {on && <span className="size-1.5 rounded-full bg-white" />}
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block text-[14px] font-medium">{g.label}</span>
+                        <span className="block text-[12.5px] text-muted">{g.hint}</span>
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
-            </div>
-          </Section>
-
-          <Section
-            index={idx("specs")}
-            title="Specifications"
-            description="Label and value rows, shown as a table on the listing."
-            action={
-              car && touched.specs ? (
-                <button type="button" onClick={loadCatalogueSpecs} className="inline-flex shrink-0 items-center gap-1.5 text-[12.5px] font-medium text-muted transition-colors hover:text-ink">
-                  <Sparkles aria-hidden className="size-3.5" /> <span className="hidden sm:inline">Reload from</span> catalogue
-                </button>
-              ) : undefined
-            }
-          >
-            <div data-field="specs" className="space-y-2">
-              {v.specs.length === 0 && <p className="text-[13.5px] text-muted">{car ? "Choose a variant to prefill the specification, or add rows." : "Add rows such as Engine, Power or Mileage."}</p>}
-              {v.specs.map((s, i) => (
-                <div key={i} className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)_auto] gap-2">
-                  <div data-field={`specs.${i}.label`}>
-                    <input
-                      aria-label={`Specification ${i + 1} label`}
-                      className={cn(control, "h-11 text-[14px]")}
-                      value={s.label}
-                      maxLength={60}
-                      placeholder="Label"
-                      onChange={(e) => {
-                        patch({ specs: v.specs.map((x, j) => (j === i ? { ...x, label: e.target.value } : x)) });
-                        setTouched((t) => ({ ...t, specs: true }));
-                      }}
-                      aria-invalid={err(`specs.${i}.label`) ? true : undefined}
-                    />
-                    {err(`specs.${i}.label`) && <p className="mt-1 text-xs text-red">{err(`specs.${i}.label`)}</p>}
-                  </div>
-                  <div data-field={`specs.${i}.value`}>
-                    <input
-                      aria-label={`Specification ${i + 1} value`}
-                      className={cn(control, "h-11 text-[14px]")}
-                      value={s.value}
-                      maxLength={160}
-                      placeholder="Value"
-                      onChange={(e) => {
-                        patch({ specs: v.specs.map((x, j) => (j === i ? { ...x, value: e.target.value } : x)) });
-                        setTouched((t) => ({ ...t, specs: true }));
-                      }}
-                      aria-invalid={err(`specs.${i}.value`) ? true : undefined}
-                    />
-                    {err(`specs.${i}.value`) && <p className="mt-1 text-xs text-red">{err(`specs.${i}.value`)}</p>}
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      patch({ specs: v.specs.filter((_, j) => j !== i) });
-                      setTouched((t) => ({ ...t, specs: true }));
-                      setErrors((e) => Object.fromEntries(Object.entries(e).filter(([k]) => !k.startsWith("specs."))));
-                    }}
-                    aria-label={`Remove ${s.label || `row ${i + 1}`}`}
-                    className="inline-flex size-11 items-center justify-center rounded-full text-muted transition-colors hover:bg-mist hover:text-red"
-                  >
-                    <Trash2 className="size-4" />
-                  </button>
-                </div>
-              ))}
-              {err("specs") && <p className="text-xs text-red">{err("specs")}</p>}
-              <Button
-                variant="ghost"
-                size="sm"
-                icon={<Plus aria-hidden className="size-4" />}
-                disabled={v.specs.length >= MAX_SPECS}
-                onClick={() => {
-                  patch({ specs: [...v.specs, { label: "", value: "" }] });
-                  setTouched((t) => ({ ...t, specs: true }));
-                }}
-              >
-                Add row
-              </Button>
-            </div>
-          </Section>
-
-          <Section
-            index={idx("features")}
-            title="Features"
-            description="Equipment buyers care about — one per line."
-            action={
-              car && touched.features ? (
-                <button type="button" onClick={loadCatalogueFeatures} className="inline-flex shrink-0 items-center gap-1.5 text-[12.5px] font-medium text-muted transition-colors hover:text-ink">
-                  <Sparkles aria-hidden className="size-3.5" /> <span className="hidden sm:inline">Reload from</span> catalogue
-                </button>
-              ) : undefined
-            }
-          >
-            <div data-field="features">
-              {v.features.length > 0 && (
-                <ul className="mb-4 flex flex-wrap gap-2">
-                  {v.features.map((f) => (
-                    <li key={f} className="inline-flex max-w-full items-center gap-1 rounded-full border border-line bg-[#fafafa] py-1 pl-3 pr-1 text-[13px]">
-                      <span className="truncate">{f}</span>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          patch({ features: v.features.filter((x) => x !== f) });
-                          setTouched((t) => ({ ...t, features: true }));
-                        }}
-                        aria-label={`Remove ${f}`}
-                        className="inline-flex size-6 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:bg-white hover:text-red"
-                      >
-                        <X className="size-3.5" />
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              <div className="flex gap-2">
-                <input
-                  aria-label="Add a feature"
-                  className={control}
-                  value={feature}
-                  onChange={(e) => setFeature(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      e.preventDefault();
-                      addFeature();
-                    }
-                  }}
-                  maxLength={120}
-                  placeholder="e.g. Ventilated front seats"
+              {err("used.condition") && <p className="mt-1.5 text-xs text-red">{err("used.condition")}</p>}
+              <div data-field="used.conditionNotes" className="mt-5">
+                <label htmlFor={fid("notes")} className="mb-2 block text-[12.5px] font-medium text-ink">
+                  Condition notes
+                </label>
+                <textarea
+                  id={fid("notes")}
+                  className={cn(control, "h-auto min-h-28 py-3 leading-relaxed")}
+                  value={v.used.conditionNotes}
+                  onChange={(e) => patchUsed({ conditionNotes: e.target.value })}
+                  maxLength={MAX_CONDITION_NOTES}
+                  placeholder="e.g. Full service history at the authorised workshop, new tyres at 30,000 km, small scratch on the rear bumper."
+                  aria-invalid={err("used.conditionNotes") ? true : undefined}
                 />
-                <Button variant="outline" className="h-12 shrink-0" onClick={addFeature} disabled={!feature.trim()}>
-                  Add
-                </Button>
+                <div className="mt-1.5 flex justify-between gap-4 text-xs">
+                  <span className={err("used.conditionNotes") ? "text-red" : "text-muted"}>{err("used.conditionNotes") ?? "About this car only — the model's specs and features come from the catalogue."}</span>
+                  <span className={cn("shrink-0 num", v.used.conditionNotes.trim().length >= MIN_CONDITION_NOTES ? "text-muted" : "text-ink")}>
+                    {v.used.conditionNotes.length} / {MAX_CONDITION_NOTES}
+                  </span>
+                </div>
               </div>
-              <p className={cn("mt-1.5 text-xs", err("features") ? "text-red" : "text-muted")}>{err("features") ?? `${v.features.length} of ${MAX_FEATURES}. Press Enter to add.`}</p>
-            </div>
-          </Section>
+            </Section>
+          )}
 
-          <Section index={idx("photos")} title="Photos" description="The first photo is the cover. Daylight exterior shots from the front three-quarter work best.">
-            <div data-field="images">
-              <ImageUploader
-                multiple
-                max={MAX_IMAGES}
-                value={v.images}
-                onChange={(images) => patch({ images })}
-                label="Add photos"
-                hint={`${v.images.length} of ${MAX_IMAGES}. Listings with 6 or more photos get noticeably more enquiries. Uploads also appear in your media library.`}
-                error={err("images")}
-              />
-            </div>
-          </Section>
-
-          <Section index={idx("videos")} title="Videos" description="Walkarounds or test drives on YouTube or Vimeo." action={<span className="shrink-0 text-[12px] text-muted">Optional</span>}>
-            <div className="space-y-2">
-              {v.videos.map((url, i) => {
-                const parsed = url.trim() ? parseVideo(url) : null;
-                const e = videoErrors[i] ?? err(`videos.${i}`);
-                return (
-                  <div key={i} data-field={`videos.${i}`}>
-                    <div className="flex gap-2">
-                      <input
-                        aria-label={`Video link ${i + 1}`}
-                        className={control}
-                        type="url"
-                        value={url}
-                        onChange={(ev) => {
-                          patch({ videos: v.videos.map((x, j) => (j === i ? ev.target.value : x)) });
-                          setVideoErrors((m) => {
-                            const n2 = { ...m };
-                            delete n2[i];
-                            return n2;
-                          });
-                        }}
-                        onBlur={() => url.trim() && !parseVideo(url) && setVideoErrors((m) => ({ ...m, [i]: "Paste a YouTube or Vimeo link, e.g. https://youtu.be/…" }))}
-                        placeholder="https://www.youtube.com/watch?v=…"
-                        aria-invalid={e ? true : undefined}
-                      />
-                      <button
-                        type="button"
-                        onClick={() => {
-                          patch({ videos: v.videos.filter((_, j) => j !== i) });
-                          setVideoErrors({});
-                          setErrors((x) => Object.fromEntries(Object.entries(x).filter(([k]) => !k.startsWith("videos"))));
-                        }}
-                        aria-label={`Remove video ${i + 1}`}
-                        className="inline-flex size-12 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:bg-mist hover:text-red"
-                      >
-                        <Trash2 className="size-4" />
-                      </button>
-                    </div>
-                    {e ? <p className="mt-1.5 text-xs text-red">{e}</p> : parsed ? <p className="mt-1.5 text-xs text-[#1e7a3c]">{parsed.provider === "vimeo" ? "Vimeo" : "YouTube"} video · {parsed.id}</p> : null}
-                  </div>
-                );
-              })}
-              {err("videos") && <p className="text-xs text-red">{err("videos")}</p>}
-              <Button variant="ghost" size="sm" icon={<Plus aria-hidden className="size-4" />} disabled={v.videos.length >= MAX_VIDEOS} onClick={() => patch({ videos: [...v.videos, ""] })}>
-                Add video link
-              </Button>
-            </div>
-          </Section>
+          {isUsed && (
+            <Section index={idx("photos")} title="Photos of this car" description="Real photos of the car you're selling. The first photo is the cover — daylight, front three-quarter works best.">
+              <div data-field="images">
+                <ImageUploader
+                  multiple
+                  max={MAX_IMAGES}
+                  value={v.images}
+                  onChange={(images) => patch({ images })}
+                  label="Add photos"
+                  hint={`${v.images.length} of ${MAX_IMAGES}. Include the odometer, interior and any marks you've noted. Uploads also appear in your media library.`}
+                  error={err("images")}
+                />
+              </div>
+            </Section>
+          )}
         </div>
 
         {/* Status & readiness */}
@@ -974,7 +1004,7 @@ export function VehicleForm({ vehicle, initial, showrooms, authorisedBrands, par
               {status ? <StatusBadge status={status} /> : <span className="text-[12px] text-muted">Not saved yet</span>}
             </div>
             {vehicle && <p className="mt-2 text-[12.5px] text-muted">Last saved {formatDateTime(vehicle.updatedAt)}</p>}
-            <h2 className="mt-5 text-[13px] font-semibold">Ready for review</h2>
+            <h2 className="mt-5 text-[13px] font-semibold">{isUsed ? "Ready for review" : "Ready to publish"}</h2>
             <ul className="mt-3 space-y-2">
               {checks.map((c) => (
                 <li key={c.label} className={cn("flex items-start gap-2 text-[13px] transition-colors duration-300", c.ok ? "text-ink" : "text-muted")}>
@@ -986,7 +1016,9 @@ export function VehicleForm({ vehicle, initial, showrooms, authorisedBrands, par
                 </li>
               ))}
             </ul>
-            <p className={cn("mt-4 text-[12.5px]", ready ? "font-medium text-[#1e7a3c]" : "text-muted")}>{ready ? "Everything MarchGear needs is filled in." : "Drafts can be saved at any time."}</p>
+            <p className={cn("mt-4 text-[12.5px]", ready ? "font-medium text-[#1e7a3c]" : "text-muted")}>
+              {ready ? (isUsed ? "Everything MarchGear needs is filled in." : "Everything is set — publish when you're ready.") : isUsed ? "Drafts can be saved at any time." : "You can save without publishing at any time."}
+            </p>
             <div className="mt-5 grid grid-cols-2 gap-2">
               <Button variant="outline" size="sm" icon={<Eye aria-hidden className="size-4" />} onClick={openPreview}>
                 Preview
@@ -1003,7 +1035,11 @@ export function VehicleForm({ vehicle, initial, showrooms, authorisedBrands, par
               </a>
             )}
           </section>
-          <p className="px-1 text-[12px] leading-relaxed text-muted">Only MarchGear staff publish listings. You&rsquo;ll get a notification when yours is approved, or if changes are needed.</p>
+          <p className="px-1 text-[12px] leading-relaxed text-muted">
+            {isUsed
+              ? "Used cars are checked by MarchGear before they go live. You'll get a notification when yours is approved, or if changes are needed."
+              : "New-car listings go live as soon as you publish — no approval needed. MarchGear may pause a listing that breaks the listing rules, and you'll be notified if it does."}
+          </p>
         </aside>
       </div>
 
@@ -1017,12 +1053,45 @@ export function VehicleForm({ vehicle, initial, showrooms, authorisedBrands, par
             <Button variant="ghost" size="sm" className="hidden md:inline-flex" icon={<Eye aria-hidden className="size-4" />} onClick={openPreview}>
               Preview
             </Button>
-            <Button variant="outline" size="sm" className="flex-1 sm:flex-none" disabled={busy} onClick={() => request("draft")} icon={saving === "draft" ? <Loader2 aria-hidden className="size-4 animate-spin" /> : <Save aria-hidden className="size-4" />}>
-              Save draft
-            </Button>
-            <Button size="sm" className="flex-1 sm:flex-none" disabled={busy} onClick={() => request("submit")} icon={saving === "submit" ? <Loader2 aria-hidden className="size-4 animate-spin" /> : <Send aria-hidden className="size-4" />}>
-              {live || status === "pending_approval" ? "Resubmit" : "Submit for approval"}
-            </Button>
+            {isUsed ? (
+              <>
+                <Button variant="outline" size="sm" className="flex-1 sm:flex-none" disabled={busy} onClick={() => request("draft")} icon={saving === "draft" ? <Loader2 aria-hidden className="size-4 animate-spin" /> : <Save aria-hidden className="size-4" />}>
+                  Save draft
+                </Button>
+                <Button size="sm" className="flex-1 sm:flex-none" disabled={busy} onClick={() => request("submit")} icon={saving === "submit" ? <Loader2 aria-hidden className="size-4 animate-spin" /> : <Send aria-hidden className="size-4" />}>
+                  {usedLive || status === "pending_approval" ? "Resubmit" : "Submit for approval"}
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="flex-1 sm:flex-none"
+                  disabled={busy || noBrands}
+                  onClick={() => request("pause")}
+                  icon={saving === "pause" ? <Loader2 aria-hidden className="size-4 animate-spin" /> : isLiveNew ? <CirclePause aria-hidden className="size-4" /> : <Save aria-hidden className="size-4" />}
+                >
+                  {isLiveNew ? (
+                    "Pause listing"
+                  ) : (
+                    <>
+                      <span className="sm:hidden">Save</span>
+                      <span className="hidden sm:inline">Save without publishing</span>
+                    </>
+                  )}
+                </Button>
+                <Button
+                  size="sm"
+                  className="flex-1 sm:flex-none"
+                  disabled={busy || noBrands}
+                  onClick={() => request("publish")}
+                  icon={saving === "publish" ? <Loader2 aria-hidden className="size-4 animate-spin" /> : isLiveNew ? <Save aria-hidden className="size-4" /> : <Rocket aria-hidden className="size-4" />}
+                >
+                  {isLiveNew ? "Save changes" : status && status !== "draft" ? "Publish again" : "Publish now"}
+                </Button>
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -1032,11 +1101,11 @@ export function VehicleForm({ vehicle, initial, showrooms, authorisedBrands, par
         onClose={() => setConfirm(null)}
         onConfirm={() => confirm && save(confirm, true)}
         busy={busy}
-        tone={live ? "danger" : "dark"}
-        title={live ? (confirm === "submit" ? "Resubmit this live listing?" : "Take this listing offline?") : "Withdraw from review?"}
-        confirmLabel={live ? (confirm === "submit" ? "Save and resubmit" : "Save as draft") : "Save as draft"}
+        tone={usedLive ? "danger" : "dark"}
+        title={usedLive ? (confirm === "submit" ? "Resubmit this live listing?" : "Take this listing offline?") : "Withdraw from review?"}
+        confirmLabel={usedLive ? (confirm === "submit" ? "Save and resubmit" : "Save as draft") : "Save as draft"}
       >
-        {live ? (
+        {usedLive ? (
           <>
             <p>
               Your changes go back to MarchGear for approval.{" "}
@@ -1045,7 +1114,7 @@ export function VehicleForm({ vehicle, initial, showrooms, authorisedBrands, par
             {confirm === "draft" && <p>Saving as a draft keeps it offline until you submit it.</p>}
           </>
         ) : (
-          <p>This vehicle is waiting for MarchGear&rsquo;s review. Saving it as a draft takes it out of the queue — submit it again when you&rsquo;re ready.</p>
+          <p>This car is waiting for MarchGear&rsquo;s review. Saving it as a draft takes it out of the queue — submit it again when you&rsquo;re ready.</p>
         )}
       </ConfirmDialog>
 

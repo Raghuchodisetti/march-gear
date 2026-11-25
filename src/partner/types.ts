@@ -106,6 +106,10 @@ export interface PartnerProfile {
   socials: { website: string; instagram: string; facebook: string; youtube: string; whatsapp: string };
 }
 
+/** The dealer's overall grade for a pre-owned car; the short condition notes are the listing's description. */
+export type UsedConditionGrade = "excellent" | "very_good" | "good" | "fair";
+
+/** A pre-owned car's own facts — everything else (specs, features) comes from the catalogue variant. */
 export interface UsedVehicleDetails {
   registrationYear: number | null;
   km: number | null;
@@ -115,7 +119,25 @@ export interface UsedVehicleDetails {
   accident: { hadAccident: boolean; details: string };
   insurance: { status: "comprehensive" | "third_party" | "expired" | "none" | ""; validUntil: string };
   inspection: FileRef | null;
+  /** Catalogue variant slug (listings saved before catalogue-only listing only have the variant name). */
+  variantSlug?: string;
+  condition?: UsedConditionGrade | "";
 }
+
+/**
+ * A new-car listing's own facts. The car itself — names, specs, features, photos — always comes from the
+ * MarchGear catalogue; the dealer only sets colour, price, availability and showroom.
+ */
+export interface NewVehicleDetails {
+  /** Catalogue variant slug. */
+  variantSlug: string;
+  /** In stock (partner_vehicles.stock units) or on order with an expected waiting period. */
+  availability: "in_stock" | "on_order";
+  waitingWeeks: number | null;
+}
+
+/** partner_vehicles.used holds the kind's details: UsedVehicleDetails for used cars, NewVehicleDetails for new. */
+export type VehicleDetails = UsedVehicleDetails | NewVehicleDetails;
 
 export interface OfferScope {
   vehicleType: "new" | "used" | "both";

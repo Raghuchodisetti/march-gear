@@ -18,7 +18,7 @@ export function LogoMark({ className, tone = "dark" }: { className?: string; ton
 
 export function Logo({ tone = "dark", className, compact = false }: { tone?: "dark" | "light"; className?: string; compact?: boolean }) {
   return (
-    <Link href="/" aria-label="March Gear — home" className={cn("inline-flex items-center gap-2.5", className)}>
+    <Link href="/" aria-label="MarchGear — home" className={cn("inline-flex items-center gap-2.5", className)}>
       <LogoMark tone={tone} />
       {!compact && (
         <span

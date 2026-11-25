@@ -8,6 +8,9 @@ import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { SearchLauncher } from "@/components/account/search-launcher";
 import { SiteShell } from "@/components/layout/site-shell";
+import { ConsentManager } from "@/components/consent/consent-banner";
+import { measurementId } from "@/components/consent/consent";
+import { getCatalog } from "@/server/catalog";
 
 export const metadata: Metadata = {
   title: "Page not found",
@@ -21,10 +24,26 @@ const DESTINATIONS = [
   { href: "/tools", title: "Tools", body: "EMI, loan, mileage and true-cost calculators." },
 ];
 
+/** More places people usually look for — a quick second row of links under the cards. */
+const QUICK_LINKS = [
+  { href: "/compare", label: "Compare cars" },
+  { href: "/brands", label: "Car brands" },
+  { href: "/upcoming-cars", label: "Upcoming launches" },
+  { href: "/reviews", label: "Expert reviews" },
+  { href: "/news", label: "Car news" },
+  { href: "/offers", label: "Dealer offers" },
+  { href: "/insurance", label: "Car insurance" },
+  { href: "/dealers", label: "Find a dealer" },
+  { href: "/sell-car", label: "Sell your car" },
+  { href: "/contact", label: "Contact us" },
+];
+
 const READING = "000404";
 
-// Handles unmatched URLs too, so it brings its own site chrome.
-export default function NotFound() {
+// Handles unmatched URLs too, so it brings its own site chrome (and the cookie banner, so the footer's
+// "Cookie settings" works here as well). Next adds <meta name="robots" content="noindex"> and a 404 status.
+export default async function NotFound() {
+  const { site } = (await getCatalog()).content;
   return (
     <SiteShell>
       <section className="border-b border-line">
@@ -106,8 +125,16 @@ export default function NotFound() {
               </li>
             ))}
           </ul>
+          <nav aria-label="More destinations" className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-[14px]">
+            {QUICK_LINKS.map((l) => (
+              <Link key={l.href} href={l.href} className="text-ink/70 underline-offset-4 transition-colors duration-[250ms] hover:text-ink hover:underline">
+                {l.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </section>
+      <ConsentManager gaId={measurementId(site.gaMeasurementId)} />
     </SiteShell>
   );
 }

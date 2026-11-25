@@ -4,7 +4,7 @@ import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { getDb } from "@/db";
 import { users } from "@/db/schema";
-import type { ActionResult, WishlistData } from "@/lib/action-result";
+import type { ActionResult, UserPreferences, WishlistData } from "@/lib/action-result";
 import {
   REALM_LOGIN,
   createSession,
@@ -35,6 +35,14 @@ const state = z.string({ error: "Choose your state" }).refine(isIndianState, "Ch
 
 type AuthResult = ActionResult<{ user: SessionUser; wishlist: WishlistData }>;
 
+/** Stored under `users.preferences.consent` when a customer signs up. */
+interface SignUpConsent {
+  termsAccepted: true;
+  /** The policies' "last updated" date at the time (content block `legal`). */
+  policiesVersion: string;
+  acceptedAt: string;
+}
+
 const TOO_MANY = "Too many attempts. Please wait 15 minutes and try again.";
 
 /* Website (customer) sign-in. Staff, dealer and insurance vendor accounts each have their own login. */
@@ -50,7 +58,17 @@ async function signedIn(userId: number, local: Partial<WishlistData> | undefined
   };
 }
 
-const signUpSchema = z.object({ name, email, phone: optionalMobile, state, city, password, wishlist: localWishlist });
+const signUpSchema = z.object({
+  name,
+  email,
+  phone: optionalMobile,
+  state,
+  city,
+  password,
+  wishlist: localWishlist,
+  /** The unticked "I agree to the Terms & Conditions and the Privacy Policy" box. */
+  acceptTerms: z.literal(true, { error: "Please accept the Terms & Conditions and the Privacy Policy to create an account" }),
+});
 
 const EMAIL_TAKEN: AuthResult = { ok: false, fieldErrors: { email: "An account with this email already exists — sign in instead." } };
 
@@ -58,13 +76,19 @@ export async function signUpAction(input: unknown): Promise<AuthResult> {
   if (!(await allowFromIp("signup", 5, HOUR))) return { ok: false, error: TOO_MANY };
   const parsed = signUpSchema.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
-  const { wishlist, password: pw, ...data } = parsed.data;
+  const { wishlist, password: pw, acceptTerms, ...data } = parsed.data;
   const db = getDb();
   const [existing] = await db.select({ id: users.id }).from(users).where(eq(users.email, data.email));
   if (existing) return EMAIL_TAKEN;
 
+  // Which versions of the terms and privacy policy were accepted, and when (kept beside the account's preferences;
+  // the preferences page keeps it when it saves).
+  const { legal } = (await getCatalogData()).content;
+  const consent: SignUpConsent = { termsAccepted: acceptTerms, policiesVersion: legal.updated, acceptedAt: new Date().toISOString() };
   try {
-    const [res] = await db.insert(users).values({ ...data, phone: data.phone ?? null, passwordHash: await hashPassword(pw) });
+    const [res] = await db
+      .insert(users)
+      .values({ ...data, phone: data.phone ?? null, passwordHash: await hashPassword(pw), preferences: { consent } as unknown as UserPreferences });
     return signedIn(res.insertId, wishlist);
   } catch (err) {
     // Two sign-ups with the same email at the same moment.

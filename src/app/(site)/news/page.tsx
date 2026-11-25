@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import { Suspense } from "react";
 import { getCatalog } from "@/server/catalog";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { NewsHub, NewsHubSkeleton } from "@/components/editorial/news-hub";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Car News & Reviews",
-  description: "The latest car launches, honest reviews, test drives, electric car news and buying tips — explained simply.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car News: Launches, Reviews & Buying Advice",
+  description: "The latest car launches in India, honest reviews and first drives, electric car news and practical buying advice from the MarchGear newsroom.",
+  path: "/news",
+});
 
 export default async function NewsPage() {
+  // Render per request so the filterable listing (it reads the URL's query) is server-rendered into the HTML, not a client-only skeleton.
+  await connection();
   const cat = await getCatalog();
   return (
     <>

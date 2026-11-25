@@ -6,12 +6,14 @@ import { getCatalog } from "@/server/catalog";
 import { Button } from "@/components/ui/button";
 import { CategoryAd, CtaBand, LandingHero } from "@/components/insurance/public/landing";
 import { GuidesIndex } from "@/components/insurance/public/guides-index";
+import { INSURANCE_OG_IMAGE, pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Car insurance guides — IDV, NCB, add-ons, claims and renewals",
-  description: "Plain-language guides to car insurance in India: how IDV and the no-claim bonus work, which add-ons matter, how to claim, insuring new cars and EVs, and renewing a lapsed policy.",
-  alternates: { canonical: "/insurance/guides" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car Insurance Guides: IDV, NCB, Claims & More",
+  description: "Plain-language guides to car insurance in India: how IDV and the no-claim bonus work, which add-ons matter, how to claim, and renewing a lapsed policy.",
+  path: "/insurance/guides",
+  images: [INSURANCE_OG_IMAGE],
+});
 
 export default async function GuidesPage() {
   const { content } = await getCatalog();

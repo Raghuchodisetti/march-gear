@@ -18,6 +18,9 @@ export default function imageLoader({ src, width, quality }: LoaderArgs) {
     return asIs(); // A relative path such as /media/12/photo.webp.
   }
   if (url.protocol !== "https:" || !UNSPLASH.test(url.hostname)) return asIs();
+  // auto=format serves AVIF or WebP to browsers that accept them (JPEG otherwise). A pasted URL's
+  // explicit fm=jpg/png would override that, so it's dropped.
+  url.searchParams.delete("fm");
   url.searchParams.set("auto", "format");
   url.searchParams.set("fit", "max");
   url.searchParams.set("w", String(width));

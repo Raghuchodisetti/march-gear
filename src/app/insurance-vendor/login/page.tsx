@@ -15,13 +15,13 @@ export default async function InsuranceVendorLoginPage() {
   const supportEmail = content.insuranceSettings.vendorSupportEmail || content.site.supportEmail;
 
   return (
-    <div className="grid min-h-dvh grid-cols-1 bg-[#F6F6F6] lg:grid-cols-[1.1fr_1fr]">
+    <main className="grid min-h-dvh grid-cols-1 bg-[#F6F6F6] lg:grid-cols-[1.1fr_1fr]">
       <div className="relative hidden flex-col justify-between overflow-hidden bg-ink p-12 text-white lg:flex">
         <Link href="/insurance-vendor" className="font-display text-[22px] tracking-[-0.02em]">
           <span className="font-semibold">March</span>Gear <span className="text-white/50">Insurance</span>
         </Link>
         <div className="max-w-lg">
-          <p className="type-eyebrow text-red">Insurance vendor portal</p>
+          <p className="type-eyebrow text-red-400">Insurance vendor portal</p>
           <p className="mt-4 font-display text-[44px] font-semibold leading-[1.04] tracking-[-0.03em]">Your motor products, quote requests and renewals — in one place.</p>
           <ul className="mt-8 space-y-3 text-[14.5px] text-white/70">
             {["List products, coverage and add-ons — each reviewed before it goes live", "Answer quote requests with indicative or insurer-authorised quotations", "Track renewals, campaigns and performance for your whole team"].map((t) => (
@@ -32,7 +32,7 @@ export default async function InsuranceVendorLoginPage() {
             ))}
           </ul>
         </div>
-        <p className="text-[12.5px] text-white/40">For registered insurers and insurance intermediaries in India.</p>
+        <p className="text-[12.5px] text-white/50">For registered insurers and insurance intermediaries in India.</p>
       </div>
       <div className="flex items-center justify-center px-4 py-14">
         <div className="w-full max-w-sm">
@@ -55,6 +55,6 @@ export default async function InsuranceVendorLoginPage() {
           </p>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

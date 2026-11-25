@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { carPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check, Plus } from "lucide-react";
@@ -18,6 +19,7 @@ import { OnRoadBreakdown } from "@/components/car-detail/on-road-breakdown";
 import { EnquiryButtons, VariantBuyPanel } from "@/components/car-detail/variant-buy";
 import { BottomActionBar } from "@/components/car-detail/bottom-bar";
 import { BOTTOM_BAR_PADDING, competitorsOf, efficiencyOf, isEv, pad2, sortedVariants } from "@/components/car-detail/utils";
+import { fitDescription, fitTitle, pageMetadata } from "@/components/seo/metadata";
 
 export async function generateStaticParams() {
   const { cars } = await getCatalog();
@@ -31,11 +33,20 @@ export async function generateMetadata(props: PageProps<"/cars/[slug]/[variant]"
   const variant = car && getVariant(car, variantSlug);
   if (!car || !variant) return { title: "Variant not found" };
   const brand = brandName(car.brand);
-  return {
-    title: `${brand} ${car.name} ${variant.name} Price & Specs`,
-    description: `${brand} ${car.name} ${variant.name}: ${variant.fuel}, ${variant.transmission}, ${variant.efficiency}. Ex-showroom ${formatPrice(variant.price)} (indicative) with an on-road price breakdown by city, features and full specifications.`,
-    openGraph: { images: [{ url: car.images[0] }] },
-  };
+  const full = `${brand} ${car.name} ${variant.name}`;
+  return pageMetadata({
+    title: fitTitle([`${full} Price & Specs`, `${full} Price`, `${car.name} ${variant.name} Price & Specs`, `${car.name} ${variant.name} Price`, `${car.name} ${variant.name}`]),
+    description: fitDescription(
+      `${full}: ${variant.fuel}, ${variant.transmission}, ${variant.efficiency}.`,
+      [
+        `Ex-showroom ${formatPrice(variant.price)} (indicative), with the on-road price by city, features and full specifications.`,
+        `Ex-showroom ${formatPrice(variant.price)} (indicative), on-road price by city, features and specs.`,
+        `${formatPrice(variant.price)} ex-showroom (indicative), features and specs.`,
+      ],
+    ),
+    path: `/cars/${car.slug}/${variant.slug}`,
+    images: "segment",
+  });
 }
 
 /** What the next trim up adds (or, for the flagship, what it adds over the previous one). */
@@ -101,7 +112,7 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
           <div className="relative aspect-[4/3] overflow-hidden bg-mist md:aspect-[16/10] lg:col-span-7">
             <Image
               src={car.images[0]}
-              alt={`${title} ${variant.name}`}
+              alt={carPhotoAlt(car.images[0], `${title} ${variant.name}`)}
               fill
               preload
               sizes="(min-width: 1024px) 56vw, 100vw"
@@ -285,13 +296,13 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
                       current ? "bg-mist max-md:-mx-5 max-md:px-5 md:px-4" : "hover:bg-mist/60 md:px-4",
                     )}
                   >
-                    <span className={cn("text-[12px] font-medium num", current ? "text-red" : "text-muted")}>{pad2(i + 1)}</span>
+                    <span className={cn("text-[12px] font-medium num", current ? "text-red-600" : "text-muted")}>{pad2(i + 1)}</span>
                     <span className="min-w-0">
                       <span className="block truncate text-[15px] font-medium">{v.name}</span>
                       <span className="block truncate text-[12.5px] text-muted md:hidden">
                         {v.fuel} · {v.transmission} · {v.efficiency}
                       </span>
-                      {current && <span className="mt-1 block text-[11.5px] font-medium text-red">You are viewing this variant</span>}
+                      {current && <span className="mt-1 block text-[11.5px] font-medium text-red-600">You are viewing this variant</span>}
                     </span>
                     <span className="hidden text-[13px] text-muted md:block">
                       {v.fuel} · {v.transmission} · {v.efficiency}

@@ -62,7 +62,7 @@ const slugify = (v: string) =>
     .replace(/^-+|-+$/g, "")
     .slice(0, 80);
 
-const input = "h-11 w-full rounded-[3px] border border-line bg-white px-3.5 text-[14px] outline-none transition-colors placeholder:text-muted/70 hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red";
+const input = "h-11 w-full rounded-[3px] border border-line bg-white px-3.5 text-[14px] outline-none transition-colors placeholder:text-muted hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red";
 
 function Field({ label, error, hint, children, wide, htmlFor, optional }: { label: string; error?: string; hint?: ReactNode; children: ReactNode; wide?: boolean; htmlFor: string; optional?: boolean }) {
   return (
@@ -212,7 +212,7 @@ export function CompanyForm({
                 <span className="flex size-20 shrink-0 items-center justify-center overflow-hidden rounded-[3px] border border-line bg-white">
                   {v.logo ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={v.logo} alt="Logo preview" className="max-h-full max-w-full object-contain p-2" />
+                    <img loading="lazy" decoding="async" src={v.logo} alt="Logo preview" className="max-h-full max-w-full object-contain p-2" />
                   ) : (
                     <Building2 aria-hidden className="size-6 text-muted" />
                   )}

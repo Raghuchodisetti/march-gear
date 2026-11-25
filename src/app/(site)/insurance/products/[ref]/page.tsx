@@ -17,15 +17,22 @@ import { CampaignCard } from "@/components/insurance/public/market/campaign-card
 import { eligibilitySummary, pricingBasisLabel } from "@/components/insurance/public/market/display";
 import { fileSize, inr } from "@/components/insurance/public/market/money";
 import { idParam, listParam, pricingConfig, termLabel } from "@/components/insurance/public/market/engine";
+import { INSURANCE_OG_IMAGE, fitDescription, fitTitle, pageMetadata } from "@/components/seo/metadata";
 
 export async function generateMetadata(props: PageProps<"/insurance/products/[ref]">): Promise<Metadata> {
   const { ref } = await props.params;
   const p = await getPublicProduct(ref);
   if (!p) return { title: "Plan not found" };
-  return {
-    title: `${p.name} — ${p.company.name}`,
-    description: p.tagline ?? p.description.slice(0, 160),
-  };
+  return pageMetadata({
+    title: fitTitle([`${p.name}: ${p.company.name}`, `${p.name}: ${p.company.shortName ?? p.company.name}`, p.name]),
+    description: fitDescription(
+      p.tagline ? `${p.name} from ${p.company.name}: ${p.tagline.replace(/\.?$/, ".")}` : `${p.name}, a car insurance plan from ${p.company.name}.`,
+      "Cover, add-ons, IDV, indicative premiums, garages and documents.",
+      p.description,
+    ),
+    path: `/insurance/products/${p.reference}`,
+    images: [INSURANCE_OG_IMAGE],
+  });
 }
 
 const first = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";

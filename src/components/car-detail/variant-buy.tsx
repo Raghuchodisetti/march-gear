@@ -40,7 +40,7 @@ export function VariantBuyPanel({
         <div className={cn("p-5", dark ? "bg-ink" : "bg-white")}>
           <p className={cn("text-[12px]", dark ? "text-white/55" : "text-muted")}>Ex-showroom</p>
           <p className="mt-1.5 text-[clamp(1.375rem,1.1rem+1vw,1.875rem)] font-semibold leading-tight num">{formatPrice(price)}</p>
-          <p className={cn("mt-1 text-[11px]", dark ? "text-white/40" : "text-muted")}>Indicative</p>
+          <p className={cn("mt-1 text-[11px]", dark ? "text-white/50" : "text-muted")}>Indicative</p>
         </div>
         <div className={cn("p-5", dark ? "bg-ink" : "bg-white")}>
           <p className={cn("truncate text-[12px]", dark ? "text-white/55" : "text-muted")}>On-road · {city.name}</p>

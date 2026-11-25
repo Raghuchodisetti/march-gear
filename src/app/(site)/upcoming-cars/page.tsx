@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import { Suspense } from "react";
 import { getCatalog } from "@/server/catalog";
 import { IMG } from "@/data/images";
@@ -9,14 +10,17 @@ import { Counter } from "@/components/ui/reveal";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { ListingSkeleton } from "@/components/listing/listing-skeleton";
 import { UpcomingTimeline } from "./_components/upcoming-timeline";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Upcoming cars in India — launch calendar",
-  description:
-    "Expected car launches in India, month by month: teaser images, indicative prices and the highlights that matter. Set a launch alert for the ones you're waiting on.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Upcoming Cars in India: Launch Calendar",
+  description: "Expected car launches in India, month by month: teaser images, indicative prices and the highlights that matter. Set a launch alert for the cars you want.",
+  path: "/upcoming-cars",
+});
 
 export default async function UpcomingCarsPage() {
+  // Render per request so the filterable listing (it reads the URL's query) is server-rendered into the HTML, not a client-only skeleton.
+  await connection();
   const { upcoming: upcomingCars } = await getCatalog();
   const months = Array.from(new Set(upcomingCars.map((c) => c.expectedLaunch))).sort();
   const electricCount = upcomingCars.filter((c) => c.fuel === "Electric").length;

@@ -28,7 +28,7 @@ export function OnRoadHint({ exShowroom, ev }: { exShowroom: number; ev: boolean
         {city.name}
       </button>{" "}
       from <span className="font-medium text-ink num">{formatPrice(onRoadPrice(exShowroom, city.slug, ev))}</span>
-      <span className="text-muted/80"> · indicative</span>
+      <span className="text-muted"> · indicative</span>
     </p>
   );
 }

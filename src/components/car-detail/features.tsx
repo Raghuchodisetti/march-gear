@@ -23,7 +23,7 @@ export function FeatureTabs() {
           onChange={setGroup}
         />
         <AnimatePresence mode="wait" initial={false}>
-          <motion.ul
+          <motion.div
             key={current.group}
             role="tabpanel"
             aria-label={`${current.group} features`}
@@ -31,17 +31,18 @@ export function FeatureTabs() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.35, ease: EASE }}
-            className="mt-8 grid grid-cols-1 gap-x-10 sm:grid-cols-2"
           >
-            {current.items.map((item) => (
-              <li key={item} className="flex items-start gap-3.5 border-b border-ink/10 py-4 text-[15px]">
-                <span aria-hidden className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-ink text-white">
-                  <Check className="size-3" strokeWidth={3} />
-                </span>
-                {item}
-              </li>
-            ))}
-          </motion.ul>
+            <ul className="mt-8 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
+              {current.items.map((item) => (
+                <li key={item} className="flex items-start gap-3.5 border-b border-ink/10 py-4 text-[15px]">
+                  <span aria-hidden className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-ink text-white">
+                    <Check className="size-3" strokeWidth={3} />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </AnimatePresence>
         <p className="mt-5 text-[12.5px] text-muted">Equipment varies by variant. Top-spec availability shown.</p>
       </div>

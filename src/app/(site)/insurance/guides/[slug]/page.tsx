@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { CategoryAd, RelatedGuides } from "@/components/insurance/public/landing";
 import { ExpertCallbackButton } from "@/components/insurance/public/callback-forms";
 import { GuideToc, type TocItem } from "@/components/insurance/public/guide-toc";
+import { INSURANCE_OG_IMAGE, fitDescription, fitTitle, pageMetadata, shareImage } from "@/components/seo/metadata";
 
 const anchor = (text: string, used: Set<string>) => {
   const base =
@@ -55,12 +56,14 @@ export async function generateMetadata(props: PageProps<"/insurance/guides/[slug
   const { slug } = await props.params;
   const { guide } = await load(slug);
   if (!guide) return { title: "Guide not found" };
-  return {
-    title: `${guide.title} — car insurance guide`,
-    description: guide.summary,
-    alternates: { canonical: `/insurance/guides/${guide.slug}` },
-    openGraph: { type: "article", title: guide.title, description: guide.summary, images: guide.image ? [{ url: guide.image }] : undefined },
-  };
+  return pageMetadata({
+    title: fitTitle([`${guide.title}: Car Insurance Guide`, guide.title]),
+    description: fitDescription(guide.summary, "A plain-language car insurance guide from MarchGear."),
+    path: `/insurance/guides/${guide.slug}`,
+    type: "article",
+    article: { section: "Car insurance" },
+    images: guide.image ? [shareImage(guide.image, guide.title)] : [INSURANCE_OG_IMAGE],
+  });
 }
 
 export default async function GuidePage(props: PageProps<"/insurance/guides/[slug]">) {

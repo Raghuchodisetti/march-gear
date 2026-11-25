@@ -36,7 +36,7 @@ export function ProvidersDirectory({ providers }: { providers: PublicProvider[] 
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search insurers"
             aria-label="Search insurers"
-            className="h-12 w-full rounded-[3px] border border-line bg-white pl-11 pr-4 text-[15px] outline-none transition-colors placeholder:text-muted/70 hover:border-ink/30 focus:border-ink"
+            className="h-12 w-full rounded-[3px] border border-line bg-white pl-11 pr-4 text-[15px] outline-none transition-colors placeholder:text-muted hover:border-ink/30 focus:border-ink"
           />
         </div>
         <div className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 lg:mx-0 lg:flex-wrap lg:justify-end lg:px-0" role="group" aria-label="Filter by policy type">

@@ -9,12 +9,14 @@ import { getInsuranceArticles } from "@/server/insurance/public-content";
 import { Button } from "@/components/ui/button";
 import { CategoryAd, LandingHero, RelatedGuides } from "@/components/insurance/public/landing";
 import { storyHref, topicLabel } from "@/components/editorial/primitives";
+import { INSURANCE_OG_IMAGE, pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Insurance stories — from the MarchGear newsroom",
-  description: "Editorial articles and ownership stories from MarchGear that cover car insurance, claims and protecting your car.",
-  alternates: { canonical: "/insurance/articles" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car Insurance News & Ownership Stories",
+  description: "Articles and ownership stories from the MarchGear newsroom on car insurance, claims, renewals and protecting your car — explained in plain language.",
+  path: "/insurance/articles",
+  images: [INSURANCE_OG_IMAGE],
+});
 
 export default async function InsuranceArticlesPage() {
   const [{ content, getAuthor }, matches] = await Promise.all([getCatalog(), getInsuranceArticles()]);

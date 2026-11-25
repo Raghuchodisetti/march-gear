@@ -362,7 +362,7 @@ function Company({ d }: { d: InsVendorDetail }) {
             <span className="flex size-24 items-center justify-center overflow-hidden rounded-[3px] border border-line bg-white">
               {profile.logo ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={profile.logo} alt={`${d.name} logo`} className="max-h-full max-w-full object-contain p-2" />
+                <img decoding="async" src={profile.logo} alt={`${d.name} logo`} className="max-h-full max-w-full object-contain p-2" />
               ) : (
                 <Building2 aria-hidden className="size-7 text-muted" />
               )}

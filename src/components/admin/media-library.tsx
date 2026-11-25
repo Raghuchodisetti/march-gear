@@ -230,7 +230,7 @@ function MediaDetails({
     <div className="grid grid-cols-1 gap-6 p-5 sm:p-6 md:grid-cols-[minmax(0,1fr)_300px]">
       <div className="flex min-h-48 items-center justify-center border border-line" style={checkerboard}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={item.url} alt={alt} className="max-h-[56vh] w-auto max-w-full object-contain" />
+        <img loading="lazy" decoding="async" src={item.url} alt={alt} className="max-h-[56vh] w-auto max-w-full object-contain" />
       </div>
 
       <div className="min-w-0 space-y-5">

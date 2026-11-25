@@ -69,11 +69,12 @@ export function MonthBars({ points, names, money = false, empty, caption }: { po
             return (
               <div
                 key={p.key}
-                className="relative flex h-full min-w-0 flex-1 cursor-default items-end justify-center gap-[2px] outline-none"
+                className="relative flex h-full min-w-0 flex-1 cursor-default items-end justify-center gap-[2px]"
                 onMouseEnter={() => setActive(i)}
                 onFocus={() => setActive(i)}
                 onBlur={() => setActive(null)}
                 tabIndex={0}
+                role="img"
                 aria-label={label}
               >
                 {p.values.map((v, j) => {

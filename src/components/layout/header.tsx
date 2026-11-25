@@ -64,6 +64,9 @@ export function Header() {
   const [phase, setPhase] = useState<"top" | "hero" | "page">("page");
   const openTimer = useRef<number | undefined>(undefined);
   const closeTimer = useRef<number | undefined>(undefined);
+  const headerRef = useRef<HTMLElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const triggers = useRef<Record<string, HTMLButtonElement | null>>({});
 
   const overHero = pathname === "/";
 
@@ -109,6 +112,37 @@ export function Header() {
     setActive(null);
   };
 
+  /* Keyboard: the mega panel sits after the whole bar in the DOM, so Tab is steered as if it followed
+     its trigger — trigger → panel links → the next item in the bar. Escape closes and returns focus. */
+  const focusPanel = () => panelRef.current?.querySelector<HTMLElement>("a[href]")?.focus();
+  const barAfter = (el: HTMLElement | null | undefined) => {
+    const all = Array.from(headerRef.current?.querySelectorAll<HTMLElement>("a[href], button:not([disabled])") ?? []).filter(
+      (n) => !panelRef.current?.contains(n) && n.offsetParent !== null,
+    );
+    return el ? all[all.indexOf(el) + 1] : undefined;
+  };
+  const onPanelKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key !== "Tab" || !active) return;
+    const links = Array.from(e.currentTarget.querySelectorAll<HTMLElement>("a[href]"));
+    const trigger = triggers.current[active];
+    if (e.shiftKey && document.activeElement === links[0]) {
+      e.preventDefault();
+      trigger?.focus();
+    } else if (!e.shiftKey && document.activeElement === links[links.length - 1]) {
+      e.preventDefault();
+      const next = barAfter(trigger);
+      closeNow();
+      next?.focus();
+    }
+  };
+  const onHeaderKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.key !== "Escape" || !active) return;
+    const trigger = triggers.current[active];
+    const inside = panelRef.current?.contains(document.activeElement);
+    closeNow();
+    if (inside) trigger?.focus();
+  };
+
   // Light (white-on-dark) treatment whenever the header sits over the dark hero.
   const transparent = overHero && phase !== "page" && !active;
   const glass = transparent && phase === "hero";
@@ -117,6 +151,7 @@ export function Header() {
   return (
     <>
       <header
+        ref={headerRef}
         className={cn(
           "sticky top-0 z-50 transition-[background-color,border-color,color] duration-[350ms] ease-[var(--ease-premium)]",
           !transparent
@@ -126,7 +161,11 @@ export function Header() {
               : "border-b border-transparent bg-transparent text-white",
         )}
         onMouseLeave={scheduleClose}
-        onKeyDown={(e) => e.key === "Escape" && closeNow()}
+        onKeyDown={onHeaderKeyDown}
+        onBlur={(e) => {
+          // Close the mega menu once keyboard focus leaves the header altogether.
+          if (active && !e.currentTarget.contains(e.relatedTarget as Node | null)) closeNow();
+        }}
       >
         {transparent && !glass && <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 h-32 bg-gradient-to-b from-ink/50 to-transparent" />}
         <div className="container-x flex h-[72px] items-center gap-4 xl:gap-8 3xl:gap-12">
@@ -139,7 +178,12 @@ export function Header() {
                 const current = isActive(pathname, item);
                 const expanded = active === item.key;
                 return (
-                  <li key={item.key} className="relative flex items-stretch" onMouseEnter={() => (item.mega ? open(item.key) : open(null, 60))}>
+                  <li
+                    key={item.key}
+                    className="relative flex items-stretch"
+                    onMouseEnter={() => (item.mega ? open(item.key) : open(null, 60))}
+                    onFocus={() => active && active !== item.key && closeNow()}
+                  >
                     {item.mega ? (
                       <>
                         {/* The label navigates; hover (or the chevron) opens the mega menu */}
@@ -154,10 +198,19 @@ export function Header() {
                         </Link>
                         <button
                           type="button"
+                          ref={(el) => {
+                            triggers.current[item.key] = el;
+                          }}
                           aria-expanded={expanded}
-                          aria-haspopup="true"
-                          aria-label={`${expanded ? "Close" : "Open"} ${item.label} menu`}
+                          aria-controls={expanded ? "mega-panel" : undefined}
+                          aria-label={`${item.label} menu`}
                           onClick={() => (expanded ? closeNow() : open(item.key, 0))}
+                          onKeyDown={(e) => {
+                            if (e.key === "Tab" && !e.shiftKey && expanded && panelRef.current) {
+                              e.preventDefault();
+                              focusPanel();
+                            }
+                          }}
                           className={cn(
                             "flex items-center pr-(--nav-px) transition-colors duration-[250ms]",
                             transparent ? "text-white/80 hover:text-white" : "text-ink/70 hover:text-ink",
@@ -216,6 +269,11 @@ export function Header() {
           {activeItem?.mega && (
             <motion.div
               key="mega"
+              ref={panelRef}
+              id="mega-panel"
+              role="region"
+              aria-label={`${activeItem.label} menu`}
+              onKeyDown={onPanelKeyDown}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6, transition: { duration: 0.2 } }}
@@ -377,6 +435,29 @@ function ProfileMenu({ transparent, unread, onOpen }: { transparent: boolean; un
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const focusFirst = useRef(false);
+  const isMenu = Boolean(user);
+
+  // Opened from the keyboard: move focus to the first item (menu-button pattern).
+  useEffect(() => {
+    if (!open || !focusFirst.current) return;
+    focusFirst.current = false;
+    const raf = requestAnimationFrame(() => menuRef.current?.querySelector<HTMLElement>('[role="menuitem"], a[href], button')?.focus());
+    return () => cancelAnimationFrame(raf);
+  }, [open]);
+
+  const onMenuKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Tab") return setOpen(false);
+    if (!isMenu || !["ArrowDown", "ArrowUp", "Home", "End"].includes(e.key)) return;
+    const items = Array.from(e.currentTarget.querySelectorAll<HTMLElement>('[role="menuitem"]'));
+    if (!items.length) return;
+    e.preventDefault();
+    const i = items.indexOf(document.activeElement as HTMLElement);
+    const next = e.key === "Home" ? 0 : e.key === "End" ? items.length - 1 : e.key === "ArrowDown" ? (i + 1) % items.length : (i - 1 + items.length) % items.length;
+    items[next].focus();
+  };
 
   const signOut = async () => {
     setOpen(false);
@@ -392,7 +473,12 @@ function ProfileMenu({ transparent, unread, onOpen }: { transparent: boolean; un
     const onDown = (e: MouseEvent) => {
       if (!ref.current?.contains(e.target as Node)) setOpen(false);
     };
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      const inside = ref.current?.contains(document.activeElement);
+      setOpen(false);
+      if (inside) buttonRef.current?.focus();
+    };
     document.addEventListener("mousedown", onDown);
     document.addEventListener("keydown", onKey);
     return () => {
@@ -410,13 +496,24 @@ function ProfileMenu({ transparent, unread, onOpen }: { transparent: boolean; un
   return (
     <div ref={ref} className="relative hidden md:block">
       <button
+        ref={buttonRef}
         type="button"
         aria-expanded={open}
-        aria-haspopup="menu"
-        aria-label={user ? `Account: ${user.name}${unread ? ` (${unread} unread notification${unread === 1 ? "" : "s"})` : ""}` : "Account"}
-        onClick={() => {
+        aria-haspopup={isMenu ? "menu" : "dialog"}
+        aria-label={user ? `Account: ${user.name}${unread ? ` (${unread} unread notification${unread === 1 ? "" : "s"})` : ""}` : "Account: sign in or register"}
+        onClick={(e) => {
           if (!open) onOpen();
+          // detail is 0 for Enter/Space — keyboard users land on the first item.
+          if (!open && e.detail === 0) focusFirst.current = true;
           setOpen((o) => !o);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "ArrowDown" && !open) {
+            e.preventDefault();
+            onOpen();
+            focusFirst.current = true;
+            setOpen(true);
+          }
         }}
         className="relative inline-flex size-10 items-center justify-center rounded-full transition-colors duration-[250ms] hover:bg-current/5"
       >
@@ -436,7 +533,10 @@ function ProfileMenu({ transparent, unread, onOpen }: { transparent: boolean; un
       <AnimatePresence>
         {open && (
           <motion.div
-            role="menu"
+            ref={menuRef}
+            role={isMenu ? "menu" : "dialog"}
+            aria-label={isMenu ? "Your account" : "Sign in or register"}
+            onKeyDown={onMenuKeyDown}
             initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}

@@ -9,6 +9,8 @@ import { Modal } from "@/components/ui/overlay";
 import { SelectField, TextArea, TextField, Segmented } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Honeypot } from "@/components/forms/honeypot";
+import { CONSENT_REQUIRED, ConsentCheckbox, RequestConsentText, type ConsentParty } from "@/components/forms/consent";
+import { useFormFeedback } from "@/components/forms/form-a11y";
 import { useCity, useUI, useUser, type EnquiryKind } from "@/components/providers/app-provider";
 import { useCatalog } from "@/components/providers/catalog-provider";
 
@@ -16,35 +18,35 @@ const COPY: Record<EnquiryKind, { title: string; intro: string; cta: string; ico
   "test-drive": {
     title: "Book a test drive",
     intro: "Choose a slot and a product expert will confirm within two working hours.",
-    cta: "Request test drive",
+    cta: "Request a test drive",
     icon: <CalendarCheck className="size-5" />,
     done: "A dealer will call to confirm your slot and location.",
   },
   "best-price": {
     title: "Get the best price",
     intro: "Receive the lowest on-road quote from up to three verified dealers.",
-    cta: "Get my quote",
+    cta: "Get my on-road price",
     icon: <Tag className="size-5" />,
-    done: "Expect quotes by SMS and email within 24 hours.",
+    done: "A dealer will call you with an on-road quote, usually within one working day.",
   },
   "contact-dealer": {
     title: "Contact the dealer",
     intro: "Share your details and the dealership will reach out directly.",
-    cta: "Send enquiry",
+    cta: "Send my enquiry",
     icon: <PhoneCall className="size-5" />,
     done: "The dealer has been notified and will call you shortly.",
   },
   callback: {
     title: "Request a callback",
     intro: "One of our advisors will call you at a time that suits you.",
-    cta: "Request callback",
+    cta: "Request a callback",
     icon: <PhoneCall className="size-5" />,
     done: "An advisor will call you within your preferred window.",
   },
   inspection: {
     title: "Book a free inspection",
     intro: "Our engineer will visit you for a 200-point inspection and an instant offer.",
-    cta: "Book inspection",
+    cta: "Request an inspection",
     icon: <Wrench className="size-5" />,
     done: "Your inspection is booked. We'll send the engineer's details on the day.",
   },
@@ -75,7 +77,7 @@ const LEAD_TYPE = {
 } as const satisfies Record<EnquiryKind, LeadInput["type"]>;
 
 /** Server field paths → this form's error slots. */
-const FIELD_FOR: Record<string, string> = { name: "name", phone: "phone", city: "city", "details.date": "date" };
+const FIELD_FOR: Record<string, string> = { name: "name", phone: "phone", city: "city", message: "message", "details.date": "date", consent: "consent" };
 
 const NETWORK_ERROR = "Couldn't send — check your connection and try again.";
 
@@ -107,23 +109,39 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
   const [timeline, setTimeline] = useState<"week" | "month" | "later">("month");
   // Only a car makes sense in "I'm interested in the …" — dealers, advisors and loan offers start blank.
   const [message, setMessage] = useState(enquiry?.subject && enquiry.carSlug ? `I'm interested in the ${enquiry.subject}.` : "");
-  const [consent, setConsent] = useState(true);
+  const [consent, setConsent] = useState(false);
+  const feedback = useFormFeedback();
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [reference, setReference] = useState("");
   const [website, setWebsite] = useState("");
   const days = useState(() => nextDays(7))[0];
 
-  const submit = async (e: React.FormEvent) => {
+  // Who the consent text names: the dealer or seller the visitor picked, our partner dealers, or MarchGear itself.
+  const party: ConsentParty =
+    kind === "callback" || kind === "inspection"
+      ? { kind: "marchgear" }
+      : kind === "contact-dealer"
+        ? { kind: "dealer", name: enquiry?.subject }
+        : enquiry?.usedCarId
+          ? { kind: "seller" }
+          : enquiry?.dealerId
+            ? { kind: "dealer" }
+            : { kind: "dealers" };
+
+  const clear = (key: string) => setErrors((prev) => (prev[key] ? Object.fromEntries(Object.entries(prev).filter(([k]) => k !== key)) : prev));
+
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (status === "sending") return;
+    const form = e.currentTarget;
     const next: Record<string, string> = {};
     if (name.trim().length < 2) next.name = "Please enter your full name";
     if (!/^[6-9]\d{9}$/.test(phone.replace(/\D/g, "").slice(-10))) next.phone = "Enter a valid 10-digit mobile number";
     if ((kind === "test-drive" || kind === "inspection") && !date) next.date = "Pick a preferred date";
-    if (!consent) next.consent = "Please accept to continue";
+    if (!consent) next.consent = CONSENT_REQUIRED;
     setErrors(next);
-    if (Object.keys(next).length) return;
+    if (feedback.report(next, form)) return;
 
     const subject = enquiry?.subject ? `${enquiry.subject}${enquiry.detail ? ` · ${enquiry.detail}` : ""}`.slice(0, 200) : undefined;
     const common = {
@@ -135,6 +153,7 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
       usedCarId: enquiry?.usedCarId,
       dealerId: enquiry?.dealerId,
       source: pathname,
+      consent: true as const,
       website,
     };
     const type = LEAD_TYPE[kind];
@@ -158,6 +177,7 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
         }
         setErrors(mapped);
         const note = unplaced ?? res.error;
+        feedback.report(mapped, form, unplaced);
         if (note) toast(note, { tone: "error" });
         return;
       }
@@ -199,6 +219,7 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
   return (
     <form onSubmit={submit} noValidate>
       <Honeypot value={website} onChange={setWebsite} />
+      {feedback.live}
       <div className="flex items-start justify-between gap-6 border-b border-line px-6 py-5 sm:px-8">
         <div className="flex gap-4">
           <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-full bg-mist text-ink">{copy.icon}</span>
@@ -222,13 +243,27 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
       <div className="space-y-5 px-6 py-6 sm:px-8">
         <p className="text-[14px] text-muted">{copy.intro}</p>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <TextField data-autofocus label="Full name" value={name} onChange={(e) => setName(e.target.value)} error={errors.name} autoComplete="name" placeholder="Your name" />
+          <TextField
+            data-autofocus
+            label="Full name"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+              clear("name");
+            }}
+            error={errors.name}
+            autoComplete="name"
+            placeholder="Your name"
+          />
           <TextField
             label="Mobile number"
             prefix="+91"
             inputMode="numeric"
             value={phone}
-            onChange={(e) => setPhone(e.target.value.replace(/[^\d]/g, "").slice(0, 10))}
+            onChange={(e) => {
+              setPhone(e.target.value.replace(/[^\d]/g, "").slice(0, 10));
+              clear("phone");
+            }}
             error={errors.phone}
             autoComplete="tel-national"
             placeholder="98765 43210"
@@ -238,10 +273,21 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
 
         {(kind === "test-drive" || kind === "inspection") && (
           <>
-            <SelectField label="Preferred date" placeholder="Select a date" value={date} onChange={(e) => setDate(e.target.value)} options={days} />
-            {errors.date && <p className="-mt-3 text-xs text-red">{errors.date}</p>}
+            <SelectField
+              label="Preferred date"
+              placeholder="Select a date"
+              value={date}
+              onChange={(e) => {
+                setDate(e.target.value);
+                clear("date");
+              }}
+              options={days}
+              error={errors.date}
+            />
             <div>
-              <p className="mb-2 text-[12.5px] font-medium">Preferred time</p>
+              <p className="mb-2 text-[12.5px] font-medium" aria-hidden>
+                Preferred time
+              </p>
               <Segmented
                 className="flex w-full"
                 ariaLabel="Preferred time"
@@ -259,10 +305,12 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
 
         {kind === "best-price" && (
           <div>
-            <p className="mb-2 text-[12.5px] font-medium">When are you planning to buy?</p>
+            <p className="mb-2 text-[12.5px] font-medium" aria-hidden>
+              When are you planning to buy?
+            </p>
             <Segmented
               className="flex w-full"
-              ariaLabel="Purchase timeline"
+              ariaLabel="When are you planning to buy?"
               value={timeline}
               onChange={setTimeline}
               options={[
@@ -275,21 +323,25 @@ function EnquiryForm({ onClose }: { onClose: () => void }) {
         )}
 
         {(kind === "contact-dealer" || kind === "callback") && (
-          <TextArea label="Message (optional)" value={message} onChange={(e) => setMessage(e.target.value)} rows={3} />
+          <TextArea label="Message (optional)" value={message} onChange={(e) => setMessage(e.target.value)} rows={3} maxLength={2000} error={errors.message} />
         )}
 
-        <label className="flex cursor-pointer items-start gap-3 text-[12.5px] text-muted">
-          <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-0.5 size-4 accent-[var(--color-red)]" />
-          <span>
-            I agree to be contacted by March Gear and its partners about this enquiry.
-            {errors.consent && <span className="block text-red">{errors.consent}</span>}
-          </span>
-        </label>
+        <ConsentCheckbox
+          id="enquiry-consent"
+          checked={consent}
+          onChange={(v) => {
+            setConsent(v);
+            clear("consent");
+          }}
+          error={errors.consent}
+        >
+          <RequestConsentText party={party} about={kind === "inspection" ? "arranging this inspection" : kind === "test-drive" ? "this test drive" : "this request"} />
+        </ConsentCheckbox>
       </div>
 
       <div className="flex flex-col gap-3 border-t border-line bg-mist/60 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <p className="flex items-center gap-2 text-[12px] text-muted">
-          <ShieldCheck className="size-4 text-ink" aria-hidden /> Your number is never shared without consent.
+          <ShieldCheck className="size-4 shrink-0 text-ink" aria-hidden /> Shared only with who you&apos;ve agreed to above.
         </p>
         <Button type="submit" variant="primary" disabled={status === "sending"} className="sm:min-w-44">
           {status === "sending" ? <Loader2 className="size-4 animate-spin" aria-hidden /> : null}

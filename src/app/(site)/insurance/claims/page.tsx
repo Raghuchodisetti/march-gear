@@ -12,13 +12,14 @@ import { ClaimCallbackForm } from "@/components/insurance/public/callback-forms"
 import { ClaimChecklist } from "@/components/insurance/public/claim-checklist";
 import { CategoryAd, LandingHero, RelatedGuides, Section, Steps, pickGuides } from "@/components/insurance/public/landing";
 import { ProviderMark } from "@/components/insurance/public/provider-mark";
+import { INSURANCE_OG_IMAGE, pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Car insurance claims — cashless vs reimbursement, documents and what to do",
-  description:
-    "What to do at the accident spot, how cashless and reimbursement car insurance claims work, a documents checklist and insurer claim contacts. MarchGear doesn't process claims — your insurer does.",
-  alternates: { canonical: "/insurance/claims" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car Insurance Claims: Cashless or Reimbursement",
+  description: "What to do after an accident, how cashless and reimbursement car insurance claims work, and the documents you need. Your insurer settles the claim.",
+  path: "/insurance/claims",
+  images: [INSURANCE_OG_IMAGE],
+});
 
 const AT_SPOT_DO = [
   { Icon: Siren, text: "Check everyone is safe. If anyone is hurt, call 112 first." },

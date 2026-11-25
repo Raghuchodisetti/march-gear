@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import { Suspense } from "react";
 import { getCatalog } from "@/server/catalog";
 import { formatPrice } from "@/lib/format";
 import { PageHeader } from "@/components/ui/page-header";
 import { UsedListing } from "@/components/used/used-listing";
 import { SellBanner, UsedListingSkeleton, VerifiedStrip } from "@/components/used/listing-sections";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Used cars for sale",
-  description:
-    "Browse verified pre-owned cars across India with 200-point inspection reports, fair-price analysis and transparent EMI estimates.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Used Cars for Sale: Inspected & Fairly Priced",
+  description: "Browse pre-owned cars across India with 200-point inspection reports, a fair-price check and transparent EMI estimates. Filter by city, budget and body type.",
+  path: "/used-cars",
+});
 
 export default async function UsedCarsPage() {
+  // Render per request so the filterable listing (it reads the URL's query) is server-rendered into the HTML, not a client-only skeleton.
+  await connection();
   const { usedCars } = await getCatalog();
   const verified = usedCars.filter((c) => c.verified).length;
   const cities = new Set(usedCars.map((c) => c.city)).size;

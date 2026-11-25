@@ -176,7 +176,7 @@ export const overdue = (since: Date | string | null | undefined, now = Date.now(
 
 const PILL: Record<Tone, string> = {
   neutral: "bg-mist text-ink/75 ring-ink/10",
-  red: "bg-red-50 text-red ring-red/20",
+  red: "bg-red-50 text-red-600 ring-red/20",
   green: "bg-[#e8f5ec] text-[#1e7a3c] ring-[#1e7a3c]/20",
   amber: "bg-[#fdf3e1] text-[#9a5b00] ring-[#9a5b00]/20",
   blue: "bg-[#e9f0fb] text-[#2456a6] ring-[#2456a6]/20",
@@ -288,7 +288,7 @@ export function LinkTabs({ items, active, className }: { items: { key: string; l
             className={cn("relative shrink-0 whitespace-nowrap pb-3 text-[14px] font-medium transition-colors", on ? "text-ink" : "text-muted hover:text-ink")}
           >
             {t.label}
-            {t.count !== undefined && <span className={cn("ml-1.5 text-[12px] num", on ? "text-red" : "opacity-60")}>{t.count}</span>}
+            {t.count !== undefined && <span className={cn("ml-1.5 text-[12px] num", on && "text-red-600")}>{t.count}</span>}
             {on && <span aria-hidden className="absolute inset-x-0 -bottom-px h-[2px] bg-red" />}
           </Link>
         );

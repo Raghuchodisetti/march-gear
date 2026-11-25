@@ -79,6 +79,7 @@ export function MobileNav({ open, onClose, unread = 0 }: { open: boolean; onClos
                   }}
                   icon={<MapPin className="size-4 text-red" />}
                   label={city.name}
+                  ariaLabel={`${city.name}: change city`}
                 />
                 <QuickAction href={user ? "/account/saved" : "/wishlist"} onClick={onClose} icon={<Heart className="size-4" />} label={`Saved${count ? ` · ${count}` : ""}`} />
                 <QuickAction href="/compare" onClick={onClose} icon={<GitCompareArrows className="size-4" />} label={`Compare${slugs.length ? ` · ${slugs.length}` : ""}`} />
@@ -179,7 +180,7 @@ export function MobileNav({ open, onClose, unread = 0 }: { open: boolean; onClos
               {user ? (
                 <Link href="/account" onClick={onClose} className="relative inline-flex h-12 items-center justify-center gap-2 rounded-[3px] border border-line text-sm font-medium">
                   My account
-                  {unread > 0 && <span aria-label={`${unread} unread`} className="size-2 rounded-full bg-red" />}
+                  {unread > 0 && <span role="img" aria-label={`${unread} unread`} className="size-2 rounded-full bg-red" />}
                 </Link>
               ) : (
                 // Before the session is confirmed, link to the account — it sends signed-out visitors to sign in.
@@ -203,7 +204,7 @@ export function MobileNav({ open, onClose, unread = 0 }: { open: boolean; onClos
   );
 }
 
-function QuickAction({ icon, label, href, onClick }: { icon: React.ReactNode; label: string; href?: string; onClick?: () => void }) {
+function QuickAction({ icon, label, href, onClick, ariaLabel }: { icon: React.ReactNode; label: string; href?: string; onClick?: () => void; ariaLabel?: string }) {
   const cls = "flex h-[72px] flex-col items-start justify-between rounded-[3px] border border-line p-3 text-left text-[12.5px] font-medium";
   if (href)
     return (
@@ -213,7 +214,7 @@ function QuickAction({ icon, label, href, onClick }: { icon: React.ReactNode; la
       </Link>
     );
   return (
-    <button type="button" onClick={onClick} className={cls}>
+    <button type="button" onClick={onClick} aria-label={ariaLabel} className={cls}>
       {icon}
       <span className="w-full truncate">{label}</span>
     </button>

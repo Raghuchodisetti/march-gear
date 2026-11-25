@@ -39,7 +39,7 @@ export function PrimaryContactForm({ initial, editable }: { initial: PrimaryCont
         <div className="flex items-center gap-4">
           <span className="inline-flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-full bg-mist">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            {initial.photo ? <img src={initial.photo} alt="" className="size-full object-cover" /> : <UserRound aria-hidden className="size-7 text-muted" />}
+            {initial.photo ? <img loading="lazy" decoding="async" src={initial.photo} alt="" className="size-full object-cover" /> : <UserRound aria-hidden className="size-7 text-muted" />}
           </span>
           <div className="min-w-0">
             <p className="text-[16px] font-semibold">{initial.fullName}</p>

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -344,7 +345,7 @@ function Result({ results, answers, onRestart }: { results: { car: CarModel; mat
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-[1.1fr_1fr]">
         <Link href={`/cars/${best.car.slug}`} className="group relative block aspect-[4/3] overflow-hidden bg-mist">
-          <Image src={best.car.images[0]} alt={title} fill sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover transition-transform duration-[900ms] ease-[var(--ease-premium)] group-hover:scale-[1.04]" style={{ objectPosition: best.car.focus ?? "50% 55%" }} />
+          <Image src={best.car.images[0]} alt={cardPhotoAlt(best.car.images[0], title)} fill sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover transition-transform duration-[900ms] ease-[var(--ease-premium)] group-hover:scale-[1.04]" style={{ objectPosition: best.car.focus ?? "50% 55%" }} />
           <span className="absolute left-3 top-3 bg-ink px-3 py-1.5 text-[12px] font-semibold text-white num">{best.match}% match</span>
         </Link>
         <div className="flex flex-col">

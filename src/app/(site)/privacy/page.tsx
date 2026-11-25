@@ -1,22 +1,32 @@
 import type { Metadata } from "next";
 import { getCatalog } from "@/server/catalog";
+import { pageMetadata } from "@/components/seo/metadata";
 import { LegalDocument } from "@/components/editorial/legal-document";
+import { legalVars } from "@/components/editorial/legal-text";
+import { PrivacyChoices } from "@/components/editorial/privacy-choices";
 
-export const metadata: Metadata = {
-  title: "Privacy policy",
-  description: "How March Gear collects, uses and protects your information. Sample text for a demonstration product.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Privacy Policy",
+  description: "How MarchGear collects, uses, shares and protects your personal data under India's DPDP Act, 2023 — and how to access, correct or delete it.",
+  path: "/privacy",
+});
 
 export default async function PrivacyPage() {
-  const { legal } = (await getCatalog()).content;
+  const { legal, site } = (await getCatalog()).content;
+  const { vars, plain } = legalVars(site);
   return (
     <LegalDocument
-      eyebrow="Privacy policy"
+      eyebrow="Privacy Policy"
       title="Your data, handled with care"
-      intro="What we collect, why we collect it and the choices you have — written to be read, not skimmed past."
+      intro="What we collect, why we collect it, who sees it and the choices you have — in plain language."
       sections={legal.privacy}
+      summary={legal.privacySummary}
       updated={legal.updated}
-      sibling={{ label: "Read the terms of use", href: "/terms" }}
+      current="/privacy"
+      site={site}
+      vars={vars}
+      plain={plain}
+      attachments={{ "use-your-rights": <PrivacyChoices supportEmail={site.supportEmail} /> }}
     />
   );
 }

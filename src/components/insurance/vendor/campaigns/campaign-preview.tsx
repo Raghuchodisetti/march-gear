@@ -26,7 +26,7 @@ export function CampaignArt({ banner, type, className }: { banner: string | null
       {banner ? (
         // Vendor-uploaded banner from /media.
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={banner} alt="" className="absolute inset-0 size-full object-cover" />
+        <img loading="lazy" decoding="async" src={banner} alt="" className="absolute inset-0 size-full object-cover" />
       ) : (
         <>
           <div aria-hidden className="absolute inset-0 bg-[radial-gradient(120%_90%_at_100%_0%,#2a2a2a_0%,#111111_60%)]" />

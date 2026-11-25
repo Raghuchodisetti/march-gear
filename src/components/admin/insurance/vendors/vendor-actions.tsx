@@ -348,7 +348,7 @@ export function InsDocumentReview({ docs }: { docs: InsDocItem[] }) {
               {doc.mime.startsWith("image/") ? (
                 // Private file served from our own origin to staff only.
                 // eslint-disable-next-line @next/next/no-img-element
-                <img key={doc.id} src={fileUrl(doc.id)} alt={`${doc.kindLabel} uploaded by the vendor`} className="max-h-full max-w-full object-contain" />
+                <img loading="lazy" decoding="async" key={doc.id} src={fileUrl(doc.id)} alt={`${doc.kindLabel} uploaded by the vendor`} className="max-h-full max-w-full object-contain" />
               ) : doc.mime === "application/pdf" ? (
                 <object key={doc.id} data={fileUrl(doc.id)} type="application/pdf" className="size-full" aria-label={`${doc.kindLabel} (PDF)`}>
                   <p className="p-6 text-center text-[13px] text-muted">

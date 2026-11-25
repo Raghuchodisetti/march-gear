@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { AlertTriangle, CheckCircle2 } from "lucide-react";
+import { AlertTriangle, CheckCircle2, Clock } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { IMG } from "@/data/images";
 import { formatINR } from "@/lib/format";
 import { checklistCount, startingPrice } from "@/lib/pdi";
@@ -15,19 +16,23 @@ import { PdiChecklist } from "@/components/pdi/pdi-checklist";
 import { PdiPlans } from "@/components/pdi/pdi-plans";
 import { ChecklistCtaButton, ChecklistGateModal } from "@/components/pdi/checklist-gate";
 import { PDI_ICON } from "@/components/pdi/icons";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "PDI Check — new car pre-delivery inspection",
-  description:
-    "Get your new car inspected before you take delivery. A March Gear expert checks 200+ points at the dealership, or use our free PDI checklist.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "PDI Check: New Car Pre-Delivery Inspection",
+  description: "Get your new car inspected before you take delivery: a MarchGear expert checks 200+ points at the dealership. Or download our free PDI checklist.",
+  path: "/pdi-check",
+});
 
 export default async function PdiCheckPage() {
   const { content } = await getCatalog();
   const page = content.pdiPage;
   const report = page.report;
-  // The last stat is always the cheapest plan's price.
-  const stats = [...page.heroStats, { value: formatINR(startingPrice(content.pdiPlans.plans)), label: page.startingPriceLabel }];
+  // Until PDI inspection partners are registered (admin → Site content → PDI page → Bookings), plans, prices and
+  // the booking form stay hidden and the booking buttons say "Coming soon".
+  const open = page.bookingOpen;
+  // The last stat is the cheapest plan's price — only while bookings are open.
+  const stats = open ? [...page.heroStats, { value: formatINR(startingPrice(content.pdiPlans.plans)), label: page.startingPriceLabel }] : page.heroStats;
   const problems = page.problems.map((p) => ({ ...p, Icon: PDI_ICON[p.icon] }));
   return (
     <>
@@ -39,12 +44,16 @@ export default async function PdiCheckPage() {
         crumbs={[{ label: "PDI Check" }]}
       >
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Button href="#book" size="lg" arrow>
-            Book a PDI expert
-          </Button>
+          {open ? (
+            <Button href="#book" size="lg" arrow>
+              Book a PDI expert
+            </Button>
+          ) : (
+            <ComingSoonButton />
+          )}
           <ChecklistCtaButton />
         </div>
-        <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-px bg-white/10 sm:grid-cols-4">
+        <dl className={cn("mt-12 grid max-w-3xl grid-cols-2 gap-px bg-white/10", stats.length === 4 ? "sm:grid-cols-4" : "sm:grid-cols-3")}>
           {stats.map(({ value, label }, i) => (
             <div key={i} className="bg-ink/60 px-4 py-4 backdrop-blur-sm">
               <dt className="sr-only">{label}</dt>
@@ -99,6 +108,7 @@ export default async function PdiCheckPage() {
       </section>
 
       {/* Plans */}
+      {open && (
       <section aria-labelledby="plans-title" className="py-14 md:py-20">
         <div className="container-x">
           <SectionHeading
@@ -111,8 +121,10 @@ export default async function PdiCheckPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* Book + sample report */}
+      {open && (
       <section id="book" aria-labelledby="book-title" className="scroll-mt-24 border-t border-line bg-mist py-14 md:py-20">
         <div className="container-x grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
@@ -167,6 +179,7 @@ export default async function PdiCheckPage() {
           </Reveal>
         </div>
       </section>
+      )}
 
       {/* DIY checklist */}
       <section id="checklist" aria-labelledby="checklist-title" className="scroll-mt-24 py-14 md:py-20">
@@ -205,13 +218,35 @@ export default async function PdiCheckPage() {
           <p className="type-h2 max-w-2xl text-balance">
             Taking delivery soon? <span className="type-editorial font-normal text-white/85">Let an expert check it first.</span>
           </p>
-          <Button href="#book" size="lg" arrow>
-            Book a PDI expert
-          </Button>
+          {open ? (
+            <Button href="#book" size="lg" arrow>
+              Book a PDI expert
+            </Button>
+          ) : (
+            <ComingSoonButton tone="dark" />
+          )}
         </div>
       </section>
 
       <ChecklistGateModal />
     </>
+  );
+}
+
+/** "Book a PDI expert" while bookings aren't open yet: a disabled button that says so. */
+function ComingSoonButton({ tone = "light" }: { tone?: "light" | "dark" }) {
+  return (
+    <span
+      role="button"
+      aria-disabled="true"
+      className={cn(
+        "inline-flex h-13 cursor-not-allowed select-none items-center justify-center gap-2.5 whitespace-nowrap rounded-[3px] px-7 text-[15px] font-medium",
+        tone === "dark" ? "border border-white/25 text-white/80" : "border border-white/30 bg-white/10 text-white backdrop-blur-sm",
+      )}
+    >
+      <Clock aria-hidden className="size-4" />
+      Book a PDI expert
+      <span className="rounded-full bg-red px-2 py-0.5 text-[10.5px] font-semibold uppercase tracking-[0.08em] text-white">Coming soon</span>
+    </span>
   );
 }

@@ -82,7 +82,7 @@ import type {
   OfferScope,
   PartnerApplication,
   PartnerProfile,
-  UsedVehicleDetails,
+  VehicleDetails,
 } from "@/partner/types";
 import type {
   CompanyClaimInfo,
@@ -784,7 +784,8 @@ export const partnerVehicles = mysqlTable(
     images: json<string[]>("images").notNull(),
     videos: json<string[]>("videos").notNull(),
     showroomId: int("showroom_id").references(() => partnerShowrooms.id, { onDelete: "set null" }),
-    used: json<UsedVehicleDetails | null>("used"),
+    /** The kind's own facts (name is historical): UsedVehicleDetails for used cars, NewVehicleDetails (variant, availability) for new. */
+    used: json<VehicleDetails | null>("used"),
     status: mysqlEnum("status", PARTNER_VEHICLE_STATUS).notNull().default("draft"),
     adminRemarks: text("admin_remarks"),
     /** used_cars row mirrored on publish (used vehicles appear on /used-cars). */

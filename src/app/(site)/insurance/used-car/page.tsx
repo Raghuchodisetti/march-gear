@@ -5,13 +5,14 @@ import { IMG } from "@/data/images";
 import { getCatalog } from "@/server/catalog";
 import { Button } from "@/components/ui/button";
 import { CategoryAd, CtaBand, HeroFacts, LandingHero, QuoteSection, RelatedGuides, Section, Steps, pickGuides } from "@/components/insurance/public/landing";
+import { INSURANCE_OG_IMAGE, pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Used car insurance — transferring the policy and your NCB",
-  description:
-    "Bought a pre-owned car? How to transfer the existing insurance policy to your name, why the seller's no-claim bonus doesn't come with the car, and what happens if the policy has lapsed.",
-  alternates: { canonical: "/insurance/used-car" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Used Car Insurance: Policy and NCB Transfer",
+  description: "Bought a used car? How to transfer the insurance policy to your name, why the seller's no-claim bonus stays with them, and what to do if cover has lapsed.",
+  path: "/insurance/used-car",
+  images: [INSURANCE_OG_IMAGE],
+});
 
 const BEFORE_YOU_BUY = [
   "The policy is current — check the expiry date on the schedule, not just the sticker on the windscreen",

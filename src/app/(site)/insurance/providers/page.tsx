@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import { getPublicProviders } from "@/server/insurance/public";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { ProvidersDirectory } from "@/components/insurance/public/market/providers-directory";
+import { INSURANCE_OG_IMAGE, pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Car insurance providers",
-  description: "Insurers listed on MarchGear: their plans, cashless garage networks, claim process and verified claim figures.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car Insurance Providers and Their Plans",
+  description: "Insurers listed on MarchGear with their car insurance plans, cashless garage networks, claim process and staff-verified claim figures where available.",
+  path: "/insurance/providers",
+  images: [INSURANCE_OG_IMAGE],
+});
 
 export default async function InsuranceProvidersPage() {
   const providers = await getPublicProviders();

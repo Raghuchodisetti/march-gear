@@ -40,7 +40,7 @@ export function LegalToc({ sections }: { sections: { id: string; title: string }
                   current ? "border-red font-medium text-ink" : "border-transparent text-muted hover:text-ink",
                 )}
               >
-                <span className="w-5 shrink-0 text-[11.5px] num opacity-60">{String(i + 1).padStart(2, "0")}</span>
+                <span className="w-5 shrink-0 text-[11.5px] num">{String(i + 1).padStart(2, "0")}</span>
                 {s.title}
               </a>
             </li>

@@ -128,7 +128,7 @@ export function BannerView({
         ) : (D ? ad.desktopImage : ad.mobileImage) ? (
           // Preview of an uploaded creative.
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={(D ? ad.desktopImage : ad.mobileImage) ?? ""} alt={ad.alt} className="absolute inset-0 size-full object-cover" />
+          <img decoding="async" src={(D ? ad.desktopImage : ad.mobileImage) ?? ""} alt={ad.alt} className="absolute inset-0 size-full object-cover" />
         ) : (
           <span className="absolute inset-0">
             <Placeholder label={D ? "Upload the desktop banner" : "Upload the mobile banner"} />

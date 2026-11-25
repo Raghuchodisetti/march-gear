@@ -79,7 +79,7 @@ const HEADLINE: Record<PartnerStatus, { title: string; body: string }> = {
   under_review: { title: "Our team is reviewing your application", body: "A partner specialist is verifying your details and documents. We'll contact you here if anything needs clarifying." },
   documents_required: { title: "We need more documents", body: "Upload the documents listed below, then resubmit your application. Everything else you entered is kept." },
   changes_requested: { title: "A few changes are needed", body: "Update the items listed below, then resubmit your application. Everything else you entered is kept." },
-  approved: { title: "You're a verified MarchGear partner", body: "Your dealership is approved and the full portal is unlocked. Vehicle listings and offers are reviewed separately before they go live." },
+  approved: { title: "You're a verified MarchGear partner", body: "Your dealership is approved and the full portal is unlocked. New-car listings go live when you publish them; used cars and offers are reviewed by MarchGear before they go live." },
   rejected: { title: "Your application wasn't approved", body: "We couldn't approve this application. The reason is below — contact partner support if you'd like to discuss it." },
   suspended: { title: "Your partner account is suspended", body: "Your public listings and offers are hidden while the account is suspended. The reason is below — contact partner support to resolve it." },
   deactivated: { title: "Your partner account is deactivated", body: "This dealership is no longer active on MarchGear. Contact partner support if you think this is a mistake." },
@@ -126,7 +126,7 @@ function targetLabel(target: string, action: string): string | null {
 
 const UNLOCKS: { icon: LucideIcon; title: string; body: string }[] = [
   { icon: Store, title: "Public dealer page", body: "Your showrooms, brands and reviews on MarchGear" },
-  { icon: CarFront, title: "New & used inventory", body: "List stock — each listing is approved before going live" },
+  { icon: CarFront, title: "New & used inventory", body: "List stock from the MarchGear catalogue — new cars go live when you publish, used cars after review" },
   { icon: Sparkles, title: "Offers & campaigns", body: "Festival, finance and exchange offers" },
   { icon: Inbox, title: "Enquiries & test drives", body: "Leads, follow-ups and bookings for your team" },
   { icon: Users, title: "Staff accounts", body: "Invite your team with role-based access" },

@@ -4,12 +4,13 @@ import { calcRates } from "@/components/tools/calc";
 import { PageHeader } from "@/components/ui/page-header";
 import { EvVsPetrol } from "@/components/tools/ev-vs-petrol";
 import { HowItWorks, RelatedTools, ToolDisclaimer, ToolFaqs, ToolMetaRow } from "@/components/tools/tool-sections";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "EV vs Petrol Cost Calculator",
-  description:
-    "Compare an electric car with a petrol, diesel or hybrid rival. See cumulative costs year by year, the break-even point, total savings and CO₂ avoided.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "EV vs Petrol Cost Calculator: Break-Even Point",
+  description: "Compare an electric car with a petrol, diesel or hybrid rival: cumulative running costs year by year, the break-even point, total savings and CO2 avoided.",
+  path: "/tools/ev-vs-petrol",
+});
 
 export default async function EvVsPetrolPage() {
   const rates = calcRates((await getCatalog()).content.toolRates);

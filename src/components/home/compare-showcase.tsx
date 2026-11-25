@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -122,7 +123,7 @@ export function CompareShowcase() {
                     <div className="relative aspect-[16/10] overflow-hidden bg-mist">
                       <AnimatePresence mode="popLayout" initial={false}>
                         <motion.div key={car.slug} className="absolute inset-0" initial={{ opacity: 0, scale: 1.04 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6, ease: EASE }}>
-                          <Image src={car.images[0]} alt={`${brandName(car.brand)} ${car.name}`} fill sizes="(min-width: 1024px) 22vw, 40vw" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
+                          <Image src={car.images[0]} alt={cardPhotoAlt(car.images[0], `${brandName(car.brand)} ${car.name}`)} fill sizes="(min-width: 1024px) 22vw, 40vw" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
                         </motion.div>
                       </AnimatePresence>
                       {selected.length > 2 && (

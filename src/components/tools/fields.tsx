@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 /** Mirrors the shared field control so bespoke inputs sit flush with TextField/SelectField. */
 const control =
-  "h-12 w-full rounded-[3px] border border-line bg-white px-4 text-[16px] font-medium text-ink num placeholder:font-normal placeholder:text-muted/70 transition-[border-color] duration-[250ms] outline-none hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red";
+  "h-12 w-full rounded-[3px] border border-line bg-white px-4 text-[16px] font-medium text-ink num placeholder:font-normal placeholder:text-muted transition-[border-color] duration-[250ms] outline-none hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red";
 
 /**
  * Numeric input with a leading symbol and trailing unit — "₹ 105 /L".

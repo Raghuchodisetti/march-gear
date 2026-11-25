@@ -21,7 +21,6 @@ import {
   partnerVehicles,
   partners,
   users,
-  variants,
   type ApprovalTarget,
   type OfferStatus,
   type PartnerStatus,
@@ -31,7 +30,10 @@ import { PATTERNS } from "@/partner/application";
 import { DOC_KIND_LABEL } from "@/partner/labels";
 import type { PartnerApplication } from "@/partner/types";
 import { requireStaff } from "@/server/auth";
+import { getCatalog } from "@/server/catalog";
 import { maskAccount } from "@/server/partner/crypto";
+import { catalogueOf } from "@/server/partner/inventory";
+import { catalogueFeatures, catalogueSpecs, isUsedDetails, newDetailsOf } from "@/components/portal/inventory/shared";
 import { todayISO } from "@/server/validation";
 import { IN_REVIEW, KYC_DOC_KINDS, WITH_DEALER, isBankPath, partnerName, requiredDocKinds } from "@/components/admin/partner-ui";
 
@@ -64,7 +66,7 @@ export async function partnerNetworkStats() {
   const [byStatus, [vehiclesPending], [offersPending], [activeCampaigns], [scheduledCampaigns], [enquiries], [enquiries30], [changes], [docs], dealerQueue, vehicleQueue, offerQueue, changeQueue, recent] =
     await Promise.all([
       db.select({ status: partners.status, n: count() }).from(partners).groupBy(partners.status),
-      db.select({ n: count() }).from(partnerVehicles).where(eq(partnerVehicles.status, "pending_approval")),
+      db.select({ n: count() }).from(partnerVehicles).where(and(eq(partnerVehicles.kind, "used"), eq(partnerVehicles.status, "pending_approval"))),
       db.select({ n: count() }).from(partnerOffers).where(inArray(partnerOffers.status, ["submitted", "pending_approval"])),
       // Live / upcoming on the website: approved offers of approved dealerships only (a suspended dealer's offers are hidden).
       db.select({ n: count() }).from(partnerOffers).innerJoin(partners, eq(partners.id, partnerOffers.partnerId)).where(and(eq(partnerOffers.status, "approved"), lte(partnerOffers.startsAt, now), gte(partnerOffers.endsAt, now), eq(partners.status, "approved"))),
@@ -88,7 +90,7 @@ export async function partnerNetworkStats() {
         .select({ id: partnerVehicles.id, reference: partnerVehicles.reference, brand: partnerVehicles.brand, model: partnerVehicles.model, variant: partnerVehicles.variant, kind: partnerVehicles.kind, price: partnerVehicles.sellingPrice, image: sql<string | null>`json_unquote(json_extract(${partnerVehicles.images}, '$[0]'))`, submittedAt: partnerVehicles.submittedAt, createdAt: partnerVehicles.createdAt, partnerName: sql<string | null>`coalesce(nullif(${partners.tradeName}, ''), ${partners.legalName})` })
         .from(partnerVehicles)
         .innerJoin(partners, eq(partners.id, partnerVehicles.partnerId))
-        .where(eq(partnerVehicles.status, "pending_approval"))
+        .where(and(eq(partnerVehicles.kind, "used"), eq(partnerVehicles.status, "pending_approval")))
         .orderBy(sql`${partnerVehicles.submittedAt} is null`, asc(partnerVehicles.submittedAt), asc(partnerVehicles.id))
         .limit(6),
       db
@@ -269,7 +271,7 @@ export async function getPartnerDetail(id: number) {
     db.select().from(partnerBrands).where(eq(partnerBrands.partnerId, id)).orderBy(asc(partnerBrands.brand)),
     db.select(fileColumns).from(partnerFiles).where(eq(partnerFiles.partnerId, id)).orderBy(desc(partnerFiles.createdAt), desc(partnerFiles.id)),
     db
-      .select({ id: partnerVehicles.id, reference: partnerVehicles.reference, kind: partnerVehicles.kind, brand: partnerVehicles.brand, model: partnerVehicles.model, variant: partnerVehicles.variant, year: partnerVehicles.year, sellingPrice: partnerVehicles.sellingPrice, status: partnerVehicles.status, images: partnerVehicles.images, views: partnerVehicles.views, enquiries: partnerVehicles.enquiries, updatedAt: partnerVehicles.updatedAt, submittedAt: partnerVehicles.submittedAt })
+      .select({ id: partnerVehicles.id, reference: partnerVehicles.reference, kind: partnerVehicles.kind, brand: partnerVehicles.brand, modelSlug: partnerVehicles.modelSlug, model: partnerVehicles.model, variant: partnerVehicles.variant, year: partnerVehicles.year, sellingPrice: partnerVehicles.sellingPrice, status: partnerVehicles.status, images: partnerVehicles.images, used: partnerVehicles.used, views: partnerVehicles.views, enquiries: partnerVehicles.enquiries, updatedAt: partnerVehicles.updatedAt, submittedAt: partnerVehicles.submittedAt })
       .from(partnerVehicles)
       .where(eq(partnerVehicles.partnerId, id))
       .orderBy(desc(partnerVehicles.updatedAt)),
@@ -308,7 +310,7 @@ export async function getPartnerDetail(id: number) {
   const brandName = new Map(brandNames.map((b) => [b.slug, b.name]));
   const app = p.application;
   const partner = { ...p, application: safeApplication(app) };
-  const labelledHistory = await withTargetLabels(history);
+  const [labelledHistory, cat] = await Promise.all([withTargetLabels(history), getCatalog()]);
   return {
     partner,
     name: partnerName({ ...p, ownerName: row.owner.name }),
@@ -317,7 +319,11 @@ export async function getPartnerDetail(id: number) {
     showrooms,
     brands: brandRows.map((b) => ({ ...b, brandName: brandName.get(b.brand) ?? b.brand, modelNames: b.models.map((m) => modelName.get(m) ?? m) })),
     files: files as PartnerFileRow[],
-    vehicles: vehicles.map(({ images, ...v }) => ({ ...v, image: images[0] ?? null })),
+    // New cars show the catalogue's photo; used cars the dealer's own.
+    vehicles: vehicles.map(({ images, used, modelSlug, ...v }) => {
+      const { car, ok } = catalogueOf({ ...v, modelSlug, used }, cat);
+      return { ...v, image: (v.kind === "new" ? car?.images[0] : images[0]) ?? null, needsCatalogue: !ok };
+    }),
     offers,
     // The dealer's reason is on their "submitted" approval entry for the request.
     changes: changes.map((c) => ({ ...c, fields: safeFields(c.fields), reason: history.find((h) => h.target === "profile_change" && h.targetId === c.id && h.action === "submitted")?.remarks ?? null })),
@@ -443,7 +449,8 @@ export async function verificationQueue(view: "review" | "dealer" | "decided") {
 /* ── Vehicles ───────────────────────────────────────────────── */
 
 export interface VehicleFilters {
-  view?: "queue" | "all";
+  /** queue: used cars waiting for review · new: new-car stock (live and paused) · all: every listing. */
+  view?: "queue" | "new" | "all";
   status?: string;
   kind?: string;
   q?: string;
@@ -455,18 +462,24 @@ export async function listPartnerVehicles(f: VehicleFilters) {
   await requireStaff();
   const db = getDb();
   const conds: SQL[] = [];
-  if (f.view !== "all") conds.push(eq(partnerVehicles.status, "pending_approval"));
-  else if (isOneOf(PARTNER_VEHICLE_STATUS, f.status)) conds.push(eq(partnerVehicles.status, f.status));
-  if (f.kind === "new" || f.kind === "used") conds.push(eq(partnerVehicles.kind, f.kind));
+  const view = f.view === "all" || f.view === "new" ? f.view : "queue";
+  // Only used cars are reviewed; new-car listings go live when the dealer publishes them.
+  if (view === "queue") conds.push(eq(partnerVehicles.kind, "used"), eq(partnerVehicles.status, "pending_approval"));
+  else if (view === "new") {
+    conds.push(eq(partnerVehicles.kind, "new"));
+    conds.push(isOneOf(PARTNER_VEHICLE_STATUS, f.status) ? eq(partnerVehicles.status, f.status) : inArray(partnerVehicles.status, ["published", "unpublished"]));
+  } else if (isOneOf(PARTNER_VEHICLE_STATUS, f.status)) conds.push(eq(partnerVehicles.status, f.status));
+  if (view === "all" && (f.kind === "new" || f.kind === "used")) conds.push(eq(partnerVehicles.kind, f.kind));
   if (f.partner) conds.push(eq(partnerVehicles.partnerId, f.partner));
   if (f.q) {
     const t = term(f.q);
     conds.push(or(like(partnerVehicles.reference, t), like(partnerVehicles.brand, t), like(partnerVehicles.model, t), like(partnerVehicles.variant, t), like(partnerVehicles.vin, t), like(partners.tradeName, t), like(partners.legalName, t), like(partners.reference, t))!);
   }
   const w = conds.length ? and(...conds) : undefined;
-  const [[{ total }], [{ queue }], byStatus] = await Promise.all([
+  const [[{ total }], [{ queue }], [{ liveNew }], byStatus] = await Promise.all([
     db.select({ total: count() }).from(partnerVehicles).innerJoin(partners, eq(partners.id, partnerVehicles.partnerId)).where(w),
-    db.select({ queue: count() }).from(partnerVehicles).where(eq(partnerVehicles.status, "pending_approval")),
+    db.select({ queue: count() }).from(partnerVehicles).where(and(eq(partnerVehicles.kind, "used"), eq(partnerVehicles.status, "pending_approval"))),
+    db.select({ liveNew: count() }).from(partnerVehicles).where(and(eq(partnerVehicles.kind, "new"), inArray(partnerVehicles.status, ["published", "unpublished"]))),
     db.select({ status: partnerVehicles.status, n: count() }).from(partnerVehicles).groupBy(partnerVehicles.status),
   ]);
   const page = pageOf(f.page, total, VEHICLES_PAGE_SIZE);
@@ -484,6 +497,10 @@ export async function listPartnerVehicles(f: VehicleFilters) {
       transmission: partnerVehicles.transmission,
       sellingPrice: partnerVehicles.sellingPrice,
       exShowroom: partnerVehicles.exShowroom,
+      colour: partnerVehicles.colour,
+      stock: partnerVehicles.stock,
+      used: partnerVehicles.used,
+      adminRemarks: partnerVehicles.adminRemarks,
       status: partnerVehicles.status,
       image: sql<string | null>`json_unquote(json_extract(${partnerVehicles.images}, '$[0]'))`,
       imageCount: sql<number>`json_length(${partnerVehicles.images})`.mapWith(Number),
@@ -498,38 +515,36 @@ export async function listPartnerVehicles(f: VehicleFilters) {
     .from(partnerVehicles)
     .innerJoin(partners, eq(partners.id, partnerVehicles.partnerId))
     .where(w)
-    .orderBy(...(f.view !== "all" ? [sql`${partnerVehicles.submittedAt} is null`, asc(partnerVehicles.submittedAt), asc(partnerVehicles.id)] : [desc(partnerVehicles.updatedAt), desc(partnerVehicles.id)]))
+    .orderBy(...(view === "queue" ? [sql`${partnerVehicles.submittedAt} is null`, asc(partnerVehicles.submittedAt), asc(partnerVehicles.id)] : [desc(partnerVehicles.updatedAt), desc(partnerVehicles.id)]))
     .limit(VEHICLES_PAGE_SIZE)
     .offset((page - 1) * VEHICLES_PAGE_SIZE);
-  const prices = await cataloguePrices(rows);
+  const cat = await getCatalog();
   return {
-    rows: rows.map((r) => ({ ...r, catalogue: prices.get(r.id) ?? null })),
+    rows: rows.map(({ used, ...r }) => {
+      const c = catalogueOf({ ...r, used }, cat);
+      const nd = newDetailsOf(used);
+      return {
+        ...r,
+        catalogue: catalogueRef(c),
+        // A new car's photo is the catalogue's; a used car's the dealer's.
+        image: r.kind === "new" ? (c.car?.images[0] ?? null) : r.image,
+        availability: r.kind === "new" ? nd.availability : ("in_stock" as const),
+        waitingWeeks: r.kind === "new" ? nd.waitingWeeks : null,
+      };
+    }),
     total,
     page,
     queue,
+    liveNew,
     byStatus: Object.fromEntries(byStatus.map((b) => [b.status, b.n])) as Partial<Record<PartnerVehicleStatus, number>>,
     now: Date.now(),
   };
 }
 
-/** Catalogue ex-showroom price for each vehicle's variant (matched by slug or name), when the model is in the catalogue. */
-async function cataloguePrices(rows: { id: number; modelSlug: string | null; variant: string }[]) {
-  const out = new Map<number, { carName: string; variantName: string | null; price: number | null; priceMin: number; priceMax: number; slug: string }>();
-  const slugs = [...new Set(rows.map((r) => r.modelSlug).filter((s): s is string => Boolean(s)))];
-  if (!slugs.length) return out;
-  const db = getDb();
-  const carRows = await db.select({ id: cars.id, slug: cars.slug, name: cars.name, priceMin: cars.priceMin, priceMax: cars.priceMax }).from(cars).where(inArray(cars.slug, slugs));
-  if (!carRows.length) return out;
-  const variantRows = await db.select({ carId: variants.carId, slug: variants.slug, name: variants.name, price: variants.price }).from(variants).where(inArray(variants.carId, carRows.map((c) => c.id)));
-  const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "");
-  for (const r of rows) {
-    const car = carRows.find((c) => c.slug === r.modelSlug);
-    if (!car) continue;
-    const key = norm(r.variant.includes("/") ? r.variant.split("/").pop()! : r.variant);
-    const v = variantRows.find((x) => x.carId === car.id && (norm(x.slug) === key || norm(x.name) === key));
-    out.set(r.id, { carName: car.name, variantName: v?.name ?? null, price: v?.price ?? null, priceMin: car.priceMin, priceMax: car.priceMax, slug: car.slug });
-  }
-  return out;
+/** What the reviewer compares a listing with: the catalogue model and its variant's ex-showroom price. */
+function catalogueRef({ car, variant }: ReturnType<typeof catalogueOf>) {
+  if (!car) return null;
+  return { carName: car.name, variantName: variant?.name ?? null, price: variant?.price ?? null, priceMin: car.priceMin, priceMax: car.priceMax, slug: car.slug };
 }
 
 export async function getVehicleReview(id: number) {
@@ -542,7 +557,8 @@ export async function getVehicleReview(id: number) {
     .where(eq(partnerVehicles.id, id));
   if (!row) return null;
   const v = row.vehicle;
-  const [room, history, prices, inspection, brandRow] = await Promise.all([
+  const used = isUsedDetails(v.used) ? v.used : null;
+  const [room, history, cat, inspection, brandRow] = await Promise.all([
     v.showroomId ? db.select({ name: partnerShowrooms.name, city: partnerShowrooms.city }).from(partnerShowrooms).where(eq(partnerShowrooms.id, v.showroomId)) : Promise.resolve([]),
     db
       .select({ ...historyColumns })
@@ -551,16 +567,23 @@ export async function getVehicleReview(id: number) {
       .leftJoin(actor, eq(actor.id, partnerApprovals.actorUserId))
       .where(and(eq(partnerApprovals.target, "vehicle"), eq(partnerApprovals.targetId, id)))
       .orderBy(desc(partnerApprovals.createdAt), desc(partnerApprovals.id)),
-    cataloguePrices([v]),
-    v.used?.inspection?.id ? db.select(fileColumns).from(partnerFiles).where(and(eq(partnerFiles.id, v.used.inspection.id), eq(partnerFiles.partnerId, v.partnerId))) : Promise.resolve([]),
+    getCatalog(),
+    used?.inspection?.id ? db.select(fileColumns).from(partnerFiles).where(and(eq(partnerFiles.id, used.inspection.id), eq(partnerFiles.partnerId, v.partnerId))) : Promise.resolve([]),
     db.select({ name: brands.name }).from(brands).where(eq(brands.slug, v.brand)),
   ]);
+  const c = catalogueOf(v, cat);
   return {
     vehicle: v,
+    used,
+    newDetails: v.kind === "new" ? newDetailsOf(v.used) : null,
     partner: { id: v.partnerId, name: row.partnerName ?? row.partnerRef, reference: row.partnerRef, status: row.partnerStatus, city: row.partnerCity, publicDealerId: row.publicDealerId },
     showroom: room[0] ?? null,
     history,
-    catalogue: prices.get(v.id) ?? null,
+    catalogue: catalogueRef(c),
+    /** What the listing shows from the catalogue (all of a new car; the specs of a used car). */
+    fromCatalogue: c.car
+      ? { images: c.car.images, specs: catalogueSpecs(c.car, c.variant), features: catalogueFeatures(c.car, c.variant), colourHex: c.car.colors.find((x) => x.name === v.colour)?.hex ?? null, ok: c.ok }
+      : null,
     inspection: (inspection[0] as PartnerFileRow | undefined) ?? null,
     brandName: brandRow[0]?.name ?? v.brand,
   };

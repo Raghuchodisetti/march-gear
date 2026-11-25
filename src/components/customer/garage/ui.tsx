@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight, ArrowUpRight, BadgeCheck, CarFront, ClipboardCheck, IndianRupee, ShieldCheck, Star, Tag, Wind, Wrench, type LucideIcon } from "lucide-react";
@@ -44,13 +45,13 @@ export function CarVisual({ car, image, sizes, className, priority }: { car: Pic
   return (
     <div className={cn("relative overflow-hidden bg-[#1b1b1b]", className)}>
       {image ? (
-        <Image src={image.src} alt={carTitle(car)} fill sizes={sizes} preload={priority} className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/card:scale-[1.03]" style={{ objectPosition: image.focus ?? "50% 55%" }} />
+        <Image src={image.src} alt={cardPhotoAlt(image.src, carTitle(car))} fill sizes={sizes} preload={priority} className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/card:scale-[1.03]" style={{ objectPosition: image.focus ?? "50% 55%" }} />
       ) : (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-white">
           <span aria-hidden className="absolute inset-0 bg-[repeating-linear-gradient(135deg,transparent_0_22px,rgba(255,255,255,0.025)_22px_23px)]" />
           <span aria-hidden className="absolute left-5 top-5 h-px w-8 bg-red" />
           <CarFront aria-hidden strokeWidth={1.1} className="relative size-14 text-white/25" />
-          <span className="relative text-[11px] font-medium uppercase tracking-[0.14em] text-white/40">
+          <span className="relative text-[11px] font-medium uppercase tracking-[0.14em] text-white/50">
             <span className="sr-only">{carTitle(car)} — </span>No catalogue photo
           </span>
         </div>
@@ -95,7 +96,7 @@ export function VehicleCard({ car, image, today, insuranceWindow, quotesHref, no
           <div className="min-w-0">
             <p className="truncate text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">{car.nickname ? carTitle(car) : car.brandName}</p>
             <h3 className="mt-1 truncate font-display text-[19px] font-semibold leading-tight tracking-[-0.02em]">
-              <Link href={garageHref(car.id)} className="after:absolute after:inset-0 focus-visible:outline-none">
+              <Link href={garageHref(car.id)} className="after:absolute after:inset-0 stretched-focus">
                 {car.nickname ? name : car.modelName}
               </Link>
             </h3>

@@ -409,7 +409,7 @@ export function QuoteBuilder({
                       maxLength={300}
                       rows={2}
                       onChange={(e) => setLine(i, { detail: e.target.value })}
-                      className="mt-2 block w-full resize-y rounded-[3px] border border-line bg-white px-3 py-2 text-[13px] leading-relaxed text-ink outline-none transition-[border-color] duration-300 placeholder:text-muted/70 hover:border-ink/30 focus:border-ink"
+                      className="mt-2 block w-full resize-y rounded-[3px] border border-line bg-white px-3 py-2 text-[13px] leading-relaxed text-ink outline-none transition-[border-color] duration-300 placeholder:text-muted hover:border-ink/30 focus:border-ink"
                     />
                     {errors[`coverage.${i}.detail`] && <p className="mt-1.5 text-[12px] text-red">{errors[`coverage.${i}.detail`]}</p>}
                   </li>

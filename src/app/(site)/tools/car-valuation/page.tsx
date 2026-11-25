@@ -7,12 +7,13 @@ import { Eyebrow } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { ValuationTool } from "@/components/valuation/valuation-tool";
 import { readCarPrefill } from "@/components/valuation/prefill";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Car valuation — what is my car worth?",
-  description:
-    "Get an indicative market value for your car in under a minute, with a range by condition, the factors behind it and a ten-year depreciation curve.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car Valuation: What Is My Car Worth?",
+  description: "Get an indicative market value for your car in under a minute, with a price range by condition, the factors behind it and a ten-year depreciation curve.",
+  path: "/tools/car-valuation",
+});
 
 const METHOD = [
   {

@@ -14,7 +14,11 @@ export function useIsClient() {
   return useSyncExternalStore(noop, () => true, () => false);
 }
 
-const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])';
+
+/** Open dialogs, newest last — only the top one answers Escape and traps Tab (a modal opened from a drawer). */
+const dialogStack: symbol[] = [];
+let headingIds = 0;
 
 /** Escape-to-close, scroll lock, focus capture/restore and a simple focus trap. */
 export function useDialogBehaviour(open: boolean, onClose: () => void, panelRef: RefObject<HTMLElement | null>) {
@@ -25,31 +29,49 @@ export function useDialogBehaviour(open: boolean, onClose: () => void, panelRef:
 
   useEffect(() => {
     if (!open) return;
+    const token = Symbol("dialog");
+    dialogStack.push(token);
     const previouslyFocused = document.activeElement as HTMLElement | null;
     const { overflow } = document.body.style;
     document.body.style.overflow = "hidden";
 
     const raf = requestAnimationFrame(() => {
       const panel = panelRef.current;
+      // A dialog without a label is named by its first heading.
+      if (panel && !panel.hasAttribute("aria-label") && !panel.hasAttribute("aria-labelledby")) {
+        const heading = panel.querySelector<HTMLElement>("h1, h2, h3");
+        if (heading) {
+          heading.id ||= `dialog-heading-${++headingIds}`;
+          panel.setAttribute("aria-labelledby", heading.id);
+        }
+      }
       const target = panel?.querySelector<HTMLElement>("[data-autofocus]") ?? panel;
       target?.focus({ preventScroll: true });
     });
 
     const onKey = (e: KeyboardEvent) => {
+      if (dialogStack[dialogStack.length - 1] !== token) return;
       if (e.key === "Escape") {
         e.stopPropagation();
         onCloseRef.current();
         return;
       }
-      if (e.key !== "Tab" || !panelRef.current) return;
-      const nodes = Array.from(panelRef.current.querySelectorAll<HTMLElement>(FOCUSABLE)).filter((n) => n.offsetParent !== null);
-      if (nodes.length === 0) return;
+      const panel = panelRef.current;
+      if (e.key !== "Tab" || !panel) return;
+      const nodes = Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE)).filter((n) => n.offsetParent !== null);
+      if (nodes.length === 0) {
+        e.preventDefault();
+        return;
+      }
       const first = nodes[0];
       const last = nodes[nodes.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
+      const active = document.activeElement;
+      // Focus on the panel itself (just opened) or somewhere outside it also wraps around.
+      const loose = active === panel || !panel.contains(active);
+      if (e.shiftKey && (active === first || loose)) {
         e.preventDefault();
         last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
+      } else if (!e.shiftKey && (active === last || (loose && active !== panel))) {
         e.preventDefault();
         first.focus();
       }
@@ -59,6 +81,8 @@ export function useDialogBehaviour(open: boolean, onClose: () => void, panelRef:
     return () => {
       cancelAnimationFrame(raf);
       document.removeEventListener("keydown", onKey);
+      const i = dialogStack.indexOf(token);
+      if (i >= 0) dialogStack.splice(i, 1);
       document.body.style.overflow = overflow;
       previouslyFocused?.focus?.({ preventScroll: true });
     };

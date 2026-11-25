@@ -8,8 +8,9 @@ import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { useUI } from "@/components/providers/app-provider";
 import type { PublicVehicle } from "@/components/portal/inventory/shared";
+import { availabilityText } from "@/components/dealer/stock-detail";
 
-/* "Available at MarchGear dealers" on a model page: the cheapest published stock across partner dealers. */
+/* "Available at MarchGear dealers" on a model page: published dealer stock across partner dealers — in stock first, then cheapest. */
 
 export function DealerStock({ items, dealers, carName, carSlug }: { items: PublicVehicle[]; dealers: number; carName: string; carSlug: string }) {
   const { openEnquiry } = useUI();
@@ -19,13 +20,13 @@ export function DealerStock({ items, dealers, carName, carSlug }: { items: Publi
       <div className="container-x">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <Eyebrow>In stock now</Eyebrow>
+            <Eyebrow>Dealer stock</Eyebrow>
             <h2 id="dealer-stock-title" className="type-h3 mt-4">
               Available at MarchGear dealers
             </h2>
           </div>
           <p className="max-w-md text-[14px] text-muted md:text-right">
-            {dealers === 1 ? "One partner dealer has" : `${dealers} partner dealers have`} the {carName} ready for delivery. Dealer prices, verified listings.
+            {dealers === 1 ? "One partner dealer lists" : `${dealers} partner dealers list`} the {carName}. Prices and availability are the dealers&rsquo; own.
           </p>
         </div>
 
@@ -49,7 +50,7 @@ export function DealerStock({ items, dealers, carName, carSlug }: { items: Publi
                 <div className="mt-auto flex items-center justify-between gap-3 border-t border-line px-4 py-3">
                   <div className="min-w-0">
                     <p className="text-[16px] font-semibold num">{formatPrice(v.sellingPrice)}</p>
-                    <p className="text-[11.5px] text-muted num">{v.stock} in stock</p>
+                    <p className={`text-[11.5px] num ${v.availability === "on_order" ? "text-[#9a5b00]" : "text-muted"}`}>{availabilityText(v)}</p>
                   </div>
                   <div className="flex shrink-0 items-center gap-1">
                     {v.dealer.id && (
@@ -66,7 +67,7 @@ export function DealerStock({ items, dealers, carName, carSlug }: { items: Publi
                         openEnquiry({
                           kind: "contact-dealer",
                           subject: `${carName} ${v.variant}`.trim(),
-                          detail: `${v.colour ? `${v.colour} · ` : ""}${v.dealer.name} · ${v.reference}`,
+                          detail: `${v.colour ? `${v.colour} · ` : ""}${v.availability === "on_order" ? "On order · " : ""}${v.dealer.name} · ${v.reference}`,
                           dealerId: v.dealer.id ?? undefined,
                           carSlug,
                         })

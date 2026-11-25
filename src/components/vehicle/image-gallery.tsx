@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { carPhotoAlt } from "@/lib/image-alt";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, type PanInfo } from "motion/react";
@@ -80,7 +81,7 @@ export function ImageGallery({
           >
             <Image
               src={images[index]}
-              alt={`${alt} — view ${index + 1}`}
+              alt={carPhotoAlt(images[index], alt, `view ${index + 1}`)}
               fill
               preload={priority && index === 0}
               sizes="(min-width: 1024px) 66vw, 100vw"
@@ -214,7 +215,7 @@ function Lightbox({
                 transition={{ duration: 0.5, ease: EASE }}
                 className="absolute inset-0 mx-4 md:mx-20"
               >
-                <Image src={images[index]} alt={`${alt} — view ${index + 1}`} fill sizes="100vw" className="object-contain" />
+                <Image src={images[index]} alt={carPhotoAlt(images[index], alt, `view ${index + 1}`)} fill sizes="100vw" className="object-contain" />
               </motion.div>
             </AnimatePresence>
             <button type="button" onClick={() => onIndex(index - 1)} aria-label="Previous image" className="absolute left-3 top-1/2 inline-flex size-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 md:left-6">

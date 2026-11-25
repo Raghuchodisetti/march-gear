@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 /* Compact form controls for dense portal panels, drawers and modals. */
 
 const control =
-  "w-full rounded-[3px] border border-line bg-white px-3 text-[13.5px] text-ink outline-none transition-[border-color] duration-300 placeholder:text-muted/70 hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red disabled:cursor-not-allowed disabled:bg-mist disabled:text-muted";
+  "w-full rounded-[3px] border border-line bg-white px-3 text-[13.5px] text-ink outline-none transition-[border-color] duration-300 placeholder:text-muted hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red disabled:cursor-not-allowed disabled:bg-mist disabled:text-muted";
 
 function Shell({ id, label, error, hint, className, children }: { id: string; label?: ReactNode; error?: string; hint?: ReactNode; className?: string; children: ReactNode }) {
   return (

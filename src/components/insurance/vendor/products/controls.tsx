@@ -13,7 +13,7 @@ import { Modal } from "@/components/ui/overlay";
    ────────────────────────────────────────────────────────────── */
 
 export const control =
-  "h-11 w-full rounded-[3px] border border-line bg-white px-3.5 text-[14px] text-ink placeholder:text-muted/70 outline-none transition-[border-color] duration-200 hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red disabled:cursor-not-allowed disabled:bg-mist disabled:text-muted";
+  "h-11 w-full rounded-[3px] border border-line bg-white px-3.5 text-[14px] text-ink placeholder:text-muted outline-none transition-[border-color] duration-200 hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red disabled:cursor-not-allowed disabled:bg-mist disabled:text-muted";
 
 export function Field({
   name,

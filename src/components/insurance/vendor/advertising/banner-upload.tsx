@@ -36,7 +36,7 @@ export function BannerUpload({ slot, value, onChange, error, aspectClass, size }
       <figure className={cn("relative overflow-hidden rounded-[4px] border bg-mist", aspectClass, error ? "border-red" : "border-line")}>
         {/* Vendor-uploaded banner preview. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={value} alt="" className="size-full object-cover" />
+        <img loading="lazy" decoding="async" src={value} alt="" className="size-full object-cover" />
         {progress !== null && (
           <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-white/80 text-[12px] text-muted">
             <Loader2 aria-hidden className="size-4 animate-spin" /> Uploading… {Math.round(progress * 100)}%

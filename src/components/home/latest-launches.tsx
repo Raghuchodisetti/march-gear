@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { getCatalog } from "@/server/catalog";
@@ -34,7 +35,7 @@ export async function LatestLaunches() {
               <Link href={`/cars/${lead.slug}`} className="relative block aspect-[16/10] overflow-hidden bg-ink">
                 <Image
                   src={lead.images[0]}
-                  alt={leadTitle}
+                  alt={cardPhotoAlt(lead.images[0], leadTitle)}
                   fill
                   sizes="(min-width: 1024px) 60vw, 100vw"
                   className="object-cover transition-transform duration-[1200ms] ease-[var(--ease-premium)] group-hover/lead:scale-[1.03]"
@@ -73,7 +74,7 @@ export async function LatestLaunches() {
                       <p className="mt-1 text-xl font-semibold num">{formatPriceRange(lead.priceMin, lead.priceMax)}</p>
                     </div>
                     <Button href={`/cars/${lead.slug}`} variant="dark" size="sm" arrow>
-                      View details
+                      View details<span className="sr-only"> of the {leadTitle}</span>
                     </Button>
                   </div>
                 </div>

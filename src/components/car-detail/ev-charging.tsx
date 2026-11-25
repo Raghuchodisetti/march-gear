@@ -61,7 +61,7 @@ export function EvChargingTimeline({ ev }: { ev: EvSpec }) {
           {ticks.map((t) => (
             <span
               key={t}
-              className="absolute top-0 -translate-x-1/2 text-[11px] text-white/40 num first:translate-x-0 last:-translate-x-full"
+              className="absolute top-0 -translate-x-1/2 text-[11px] text-white/50 num first:translate-x-0 last:-translate-x-full"
               style={{ left: `${(t / axisHours) * 100}%` }}
             >
               {t}h

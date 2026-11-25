@@ -160,12 +160,21 @@ export function SearchOverlay() {
                   onKeyDown={onKeyDown}
                   placeholder="Search a model, brand, city or story"
                   aria-label="Search March Gear"
-                  className="min-w-0 flex-1 bg-transparent font-display text-2xl font-medium tracking-[-0.02em] outline-none placeholder:text-muted/60 md:text-4xl"
+                  role="combobox"
+                  aria-autocomplete="list"
+                  aria-controls="search-results"
+                  aria-expanded={results.length > 0}
+                  aria-activedescendant={results[cursor] ? `search-option-${results[cursor].id}` : undefined}
+                  className="min-w-0 flex-1 bg-transparent font-display text-2xl font-medium tracking-[-0.02em] outline-none placeholder:text-muted md:text-4xl"
                 />
                 <button type="button" onClick={close} aria-label="Close search" className="inline-flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-mist">
                   <X className="size-5" />
                 </button>
               </div>
+
+              <p className="sr-only" aria-live="polite">
+                {query.trim().length < 2 ? "" : results.length ? `${results.length} result${results.length === 1 ? "" : "s"}. Use the up and down arrows to choose, Enter to open.` : "No matches."}
+              </p>
 
               {query.trim().length < 2 ? (
                 <div className="grid grid-cols-1 gap-10 py-8 md:grid-cols-[1fr_1.2fr]">
@@ -212,18 +221,24 @@ export function SearchOverlay() {
                   </Link>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 gap-8 py-8 md:grid-cols-2" role="listbox" aria-label="Search results">
+                <div id="search-results" className="grid grid-cols-1 gap-8 py-8 md:grid-cols-2" role="listbox" aria-label="Search results">
                   {groups.map(([group, items]) => (
-                    <div key={group}>
-                      <p className="type-eyebrow text-muted">{group}</p>
-                      <ul className="mt-3">
+                    <div key={group} role="group" aria-labelledby={`search-group-${group.replace(/\W+/g, "-")}`}>
+                      <p id={`search-group-${group.replace(/\W+/g, "-")}`} className="type-eyebrow text-muted">
+                        {group}
+                      </p>
+                      <ul role="none" className="mt-3">
                         {items.map((r) => {
                           flatIndex += 1;
                           const idx = flatIndex;
                           const activeRow = idx === cursor;
                           return (
-                            <li key={r.id} role="option" aria-selected={activeRow}>
+                            <li key={r.id} role="none">
                               <Link
+                                id={`search-option-${r.id}`}
+                                role="option"
+                                aria-selected={activeRow}
+                                tabIndex={-1}
                                 href={r.href}
                                 onClick={close}
                                 onMouseEnter={() => setCursor(idx)}

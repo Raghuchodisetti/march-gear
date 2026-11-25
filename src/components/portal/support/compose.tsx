@@ -33,7 +33,7 @@ export function MessageBox({ id, label, value, onChange, error, placeholder, row
         placeholder={placeholder}
         aria-invalid={error ? true : undefined}
         className={cn(
-          "w-full rounded-[3px] border bg-white px-4 py-3 text-[14.5px] leading-relaxed outline-none transition-colors placeholder:text-muted/70 hover:border-ink/30 focus:border-ink",
+          "w-full rounded-[3px] border bg-white px-4 py-3 text-[14.5px] leading-relaxed outline-none transition-colors placeholder:text-muted hover:border-ink/30 focus:border-ink",
           error ? "border-red" : "border-line",
         )}
       />
@@ -78,14 +78,31 @@ export function Attachments({ value, onChange, error }: { value: FileRef[]; onCh
   );
 }
 
-export function NewTicketButton({ defaultCategory, label = "New ticket" }: { defaultCategory?: string; label?: string }) {
+/**
+ * "New ticket" and its compose modal. `prefill` opens it straight away with a category, subject and message —
+ * e.g. /dealer/support?new=catalogue for "Request a new model" from the vehicle form.
+ */
+export function NewTicketButton({
+  defaultCategory,
+  label = "New ticket",
+  prefill,
+}: {
+  defaultCategory?: string;
+  label?: string;
+  prefill?: { category: string; subject: string; message: string; closeHref: string };
+}) {
   const router = useRouter();
   const { toast } = useUI();
-  const [open, setOpen] = useState(false);
-  const [subject, setSubject] = useState("");
-  const [category, setCategory] = useState(defaultCategory ?? "");
+  const [open, setOpenState] = useState(Boolean(prefill));
+  const [subject, setSubject] = useState(prefill?.subject ?? "");
+  const [category, setCategory] = useState(prefill?.category ?? defaultCategory ?? "");
   const [priority, setPriority] = useState<TicketPriority>("normal");
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(prefill?.message ?? "");
+  // Closing a prefilled form drops the ?new= link so a refresh doesn't reopen it.
+  const setOpen = (next: boolean) => {
+    setOpenState(next);
+    if (!next && prefill) router.replace(prefill.closeHref, { scroll: false });
+  };
   const [files, setFiles] = useState<FileRef[]>([]);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [busy, setBusy] = useState(false);
@@ -106,7 +123,7 @@ export function NewTicketButton({ defaultCategory, label = "New ticket" }: { def
       setErrors(res.fieldErrors ?? {});
       return toast(res.error ?? "Couldn't create the ticket", { tone: "error" });
     }
-    setOpen(false);
+    setOpenState(false);
     setSubject("");
     setMessage("");
     setFiles([]);

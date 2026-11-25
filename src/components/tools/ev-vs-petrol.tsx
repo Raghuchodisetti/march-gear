@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { useMemo, useState, type ReactNode } from "react";
 import { ArrowUpRight, Zap } from "lucide-react";
@@ -216,7 +217,7 @@ function Contender({
         <Image
           key={car.slug}
           src={car.images[0]}
-          alt={title(car)}
+          alt={cardPhotoAlt(car.images[0], title(car))}
           fill
           loading="eager"
           sizes="(min-width: 768px) 45vw, 100vw"

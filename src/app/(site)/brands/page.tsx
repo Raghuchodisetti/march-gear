@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { describePhoto } from "@/lib/image-alt";
 import { getCatalog } from "@/server/catalog";
 import { FEATURED_BRAND, SEGMENTS } from "@/data/brands-listing";
 import { formatPrice } from "@/lib/format";
@@ -8,11 +9,13 @@ import { BrandMonogram, PageHeader } from "@/components/ui/page-header";
 import { Reveal } from "@/components/ui/reveal";
 import { Eyebrow, TextLink } from "@/components/ui/section-heading";
 import { BrandDirectory } from "./_components/brand-directory";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Car brands in India",
-  description: "Every carmaker selling new cars in India — from everyday hatchbacks to Stuttgart sports cars. Compare line-ups, starting prices and electric models by brand.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car Brands in India: Models & Prices",
+  description: "Every carmaker selling new cars in India, from everyday hatchbacks to sports cars. Compare line-ups, starting prices and electric models by brand.",
+  path: "/brands",
+});
 
 export default async function BrandsPage() {
   const { brandSummaries, brandSummary, getBrand, carsByBrand } = await getCatalog();
@@ -41,7 +44,7 @@ export default async function BrandsPage() {
           <div className="relative aspect-[16/10] overflow-hidden lg:aspect-auto lg:min-h-[520px]">
             <Image
               src={featuredBrand.heroImage}
-              alt={`${featuredBrand.name} — featured marque`}
+              alt={describePhoto(featuredBrand.heroImage, `${featuredBrand.name} — featured marque`)}
               fill
               preload
               sizes="(min-width: 1024px) 58vw, 100vw"

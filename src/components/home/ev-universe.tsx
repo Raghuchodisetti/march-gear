@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { carPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -11,6 +12,7 @@ import { EASE } from "@/lib/motion";
 import { Counter } from "@/components/ui/reveal";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
+import { onTablistKeyDown } from "@/components/ui/tabs";
 import { useCatalog } from "@/components/providers/catalog-provider";
 
 const MAX_RANGE = 700;
@@ -41,11 +43,11 @@ export function EvUniverse() {
         <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
           {/* Selector */}
           <div className="lg:col-span-4">
-            <ul role="tablist" aria-label="Electric models" aria-orientation="vertical" className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 lg:mx-0 lg:block lg:space-y-0 lg:overflow-visible lg:px-0">
+            <ul role="tablist" aria-label="Electric models" aria-orientation="vertical" onKeyDown={onTablistKeyDown} className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 lg:mx-0 lg:block lg:space-y-0 lg:overflow-visible lg:px-0">
               {evs.map((c, i) => {
                 const on = i === active;
                 return (
-                  <li key={c.slug} className="shrink-0 lg:border-b lg:border-white/10">
+                  <li key={c.slug} role="none" className="shrink-0 lg:border-b lg:border-white/10">
                     <button
                       type="button"
                       role="tab"
@@ -83,7 +85,7 @@ export function EvUniverse() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.9, ease: EASE }}
                 >
-                  <Image src={car.images[0]} alt={`${brandName(car.brand)} ${car.name}`} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
+                  <Image src={car.images[0]} alt={carPhotoAlt(car.images[0], `${brandName(car.brand)} ${car.name}`)} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
                 </motion.div>
               </AnimatePresence>
               <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />
@@ -135,7 +137,7 @@ export function EvUniverse() {
           <Fact value={<Counter to={25000} suffix="+" />} label="public charging points nationwide" />
           <Fact value={<Counter to={1.2} decimals={1} prefix="₹" suffix="/km" />} label="typical home-charging running cost" />
         </div>
-        <p className="mt-6 text-[11.5px] text-white/35">Market figures are illustrative demo data.</p>
+        <p className="mt-6 text-[11.5px] text-white/50">Market figures are illustrative demo data.</p>
       </div>
     </section>
   );

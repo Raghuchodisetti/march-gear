@@ -24,7 +24,7 @@ import type { CrmStatus, LeadEventKind, LeadSource, OfferStatus, PartnerRole, Pa
 import { IMG } from "@/data/images";
 import { CRM_STATUS_LABEL, LEAD_SOURCE_LABEL } from "@/partner/labels";
 import { formatIstDateTime } from "@/components/portal/crm/pipeline";
-import type { DayHours, OfferDiscount, OfferLocations, OfferMedia, OfferScope, PartnerApplication, PartnerProfile, UsedVehicleDetails } from "@/partner/types";
+import type { DayHours, NewVehicleDetails, OfferDiscount, OfferLocations, OfferMedia, OfferScope, PartnerApplication, PartnerProfile, UsedConditionGrade, UsedVehicleDetails } from "@/partner/types";
 import type { BodyType, FuelType, Transmission } from "@/types";
 
 /* ── Run server modules outside Next.js ─────────────────────────
@@ -508,7 +508,9 @@ async function createDemo(email: string, password: string) {
     ...brandIds.map((id): Approval => ({ target: "brand", targetId: id, action: "approved", fromStatus: "pending", toStatus: "approved", remarks: "Approved with the application", actorUserId: staffId, actorSide: "admin", createdAt: plusMin(approvedAt, 1) })),
   ];
 
-  /* Vehicles */
+  /* Vehicles — picked from the catalogue. New cars carry only the dealer's colour, price, availability and showroom
+     (their photos, specs and features are the catalogue's) and go live when the dealer publishes them. Used cars add
+     the car's own history, condition and photos, and go through MarchGear's approval. */
   type VehicleSpec = {
     key: string;
     kind: "new" | "used";
@@ -521,9 +523,14 @@ async function createDemo(email: string, password: string) {
     status: PartnerVehicleStatus;
     room: number;
     days: number; // listed this many days ago
+    /** Staff remarks (used cars sent back, or a new car MarchGear paused). */
     remarks?: string;
+    /** New cars: on order with this many weeks' wait instead of in stock. */
+    onOrderWeeks?: number;
     used?: UsedVehicleDetails;
-    blurb: string;
+    /** Used cars: the dealer's condition notes (max 500 characters). */
+    notes?: string;
+    condition?: UsedConditionGrade;
     vin?: string;
   };
   const thisYear = Number(istDay().slice(0, 4));
@@ -535,12 +542,12 @@ async function createDemo(email: string, password: string) {
     ...u,
   });
   const VEHICLES: VehicleSpec[] = [
-    { key: "creta", kind: "new", car: "hyundai-creta", variant: "sx-o-turbo-dct", year: thisYear, colour: "Racing Red", price: 2045000, stock: 3, status: "published", room: primaryRoom, days: 40, vin: "MALPC81DLSM104732", blurb: "Top-spec Creta SX(O) with the 160 PS turbo-petrol and 7-speed DCT. Level 2 ADAS, panoramic sunroof and ventilated seats. Ready for immediate delivery with registration and insurance handled in-house." },
-    { key: "verna", kind: "new", car: "hyundai-verna", variant: "sx-turbo-mt", year: thisYear, colour: "Lunar Silver", price: 1519000, stock: 2, status: "published", room: primaryRoom, days: 34, vin: "MALBN51BLSM208815", blurb: "Verna SX Turbo with the six-speed manual — the enthusiast's pick. Ventilated seats, BOSE audio and a 528-litre boot. Demo car available for test drives at Dwaraka Nagar." },
-    { key: "i20", kind: "new", car: "hyundai-i20", variant: "sportz-ivt", year: thisYear, colour: "Polar White", price: 962000, stock: 4, status: "published", room: branchRoom, days: 29, vin: "MALBB51CLSM311204", blurb: "i20 Sportz IVT: smooth automatic, wireless Android Auto and Apple CarPlay, and six airbags as standard. Four units in stock at Gajuwaka in white and red." },
-    { key: "nexon", kind: "new", car: "tata-nexon", variant: "creative-petrol-dct", year: thisYear, colour: "Deep Ocean Blue", price: 1165000, stock: 5, status: "published", room: primaryRoom, days: 26, vin: "MAT627145SLA40921", blurb: "Nexon Creative 1.2 turbo-petrol with the 6-speed DCA. 5-star Bharat NCAP safety, 10.25-inch touchscreen and connected-car tech. Exchange and finance benefits available." },
-    { key: "xuv700", kind: "new", car: "mahindra-xuv700", variant: "ax7-petrol-at", year: thisYear, colour: "Midnight Black", price: 2225000, stock: 2, status: "published", room: primaryRoom, days: 22, vin: "MA1TA2GZXS2K51806", blurb: "XUV700 AX7 7-seater petrol automatic with ADAS, dual 10.25-inch screens and Sony 3D sound. The family SUV that does everything — book a weekend test drive." },
-    { key: "nexonev", kind: "new", car: "tata-nexon-ev", variant: "empowered-plus-45", year: thisYear, colour: "Tidal Teal", price: 1715000, stock: 2, status: "pending_approval", room: primaryRoom, days: 2, vin: "MAT612009SLB77314", blurb: "Nexon EV Empowered+ 45 kWh with up to 489 km claimed range, V2L and a 7.2 kW home charger installed free during the launch period." },
+    { key: "creta", kind: "new", car: "hyundai-creta", variant: "sx-o-turbo-dct", year: thisYear, colour: "Racing Red", price: 2045000, stock: 3, status: "published", room: primaryRoom, days: 40, vin: "MALPC81DLSM104732" },
+    { key: "verna", kind: "new", car: "hyundai-verna", variant: "sx-turbo-mt", year: thisYear, colour: "Lunar Silver", price: 1519000, stock: 2, status: "published", room: primaryRoom, days: 34, vin: "MALBN51BLSM208815" },
+    { key: "i20", kind: "new", car: "hyundai-i20", variant: "sportz-ivt", year: thisYear, colour: "Polar White", price: 962000, stock: 4, status: "published", room: branchRoom, days: 29, vin: "STK-GJW-0412" },
+    { key: "nexon", kind: "new", car: "tata-nexon", variant: "creative-petrol-dct", year: thisYear, colour: "Deep Ocean Blue", price: 1165000, stock: 5, status: "published", room: primaryRoom, days: 26 },
+    { key: "xuv700", kind: "new", car: "mahindra-xuv700", variant: "ax7-petrol-at", year: thisYear, colour: "Midnight Black", price: 2225000, stock: 2, status: "published", room: primaryRoom, days: 22, vin: "MA1TA2GZXS2K51806" },
+    { key: "nexonev", kind: "new", car: "tata-nexon-ev", variant: "empowered-plus-45", year: thisYear, colour: "Tidal Teal", price: 1715000, stock: 0, onOrderWeeks: 6, status: "published", room: primaryRoom, days: 2 },
     {
       key: "altroz",
       kind: "new",
@@ -548,16 +555,14 @@ async function createDemo(email: string, password: string) {
       variant: "creative-dca",
       year: thisYear,
       colour: "Graphite Grey",
-      price: 1005000,
+      price: 0, // ex-showroom + ₹6,000 — see below
       stock: 3,
-      status: "changes_requested",
+      status: "unpublished",
       room: branchRoom,
       days: 9,
-      vin: "MAT608117SLC12508",
-      remarks: "Please add photos of the actual car in stock — the current images look like brochure shots. Also check the selling price: it's above the ex-showroom price for this variant.",
-      blurb: "Altroz Creative DCA, the premium hatch with a dual-clutch automatic, 5-star safety and a 7-inch digital cluster. Three units at Gajuwaka.",
+      remarks: "Paused while you confirm the price: it's above the catalogue ex-showroom price for the Creative DCA. If it's right (e.g. it includes accessories), publish it again.",
     },
-    { key: "xev9e", kind: "new", car: "mahindra-xev-9e", variant: "pack-two-79", year: thisYear, colour: "Polar White", price: 2690000, stock: 1, status: "draft", room: primaryRoom, days: 1, blurb: "XEV 9e Pack Two with the 79 kWh battery — coupe-SUV styling, triple screens and up to 656 km claimed range. Draft: waiting for the delivery photos." },
+    { key: "xev9e", kind: "new", car: "mahindra-xev-9e", variant: "pack-two-79", year: thisYear, colour: "Polar White", price: 2690000, stock: 1, status: "draft", room: primaryRoom, days: 1 },
     {
       key: "u-swift",
       kind: "used",
@@ -570,8 +575,9 @@ async function createDemo(email: string, password: string) {
       status: "published",
       room: branchRoom,
       days: 18,
+      condition: "very_good",
       used: usedDetails({ registrationYear: 2021, km: 32400, owners: 1, registrationNumber: "AP 31 DX 4471" }),
-      blurb: "Single-owner Swift ZXi AMT with full Maruti service history. 32,400 km, new tyres at 30,000 km, comprehensive insurance and a 140-point check done at our Gajuwaka workshop.",
+      notes: "Single owner with full Maruti service history. New tyres at 30,000 km, comprehensive insurance and a 140-point check done at our Gajuwaka workshop.",
     },
     {
       key: "u-creta",
@@ -585,8 +591,9 @@ async function createDemo(email: string, password: string) {
       status: "published",
       room: primaryRoom,
       days: 14,
+      condition: "good",
       used: usedDetails({ registrationYear: 2020, km: 58200, owners: 2, registrationNumber: "AP 39 BQ 2208", accident: { hadAccident: true, details: "Minor rear bumper scrape in 2023, repainted at the authorised Hyundai workshop. No structural damage." } }),
-      blurb: "Creta SX diesel automatic — the frugal, torquey family SUV. Panoramic sunroof, Bose audio, two keys and the original invoice. Finance available at 9.25%.",
+      notes: "Two keys and the original invoice. Normal wear for its kilometres; the rear bumper was repainted in 2023 (declared above). Finance available.",
     },
     {
       key: "u-xuv700",
@@ -600,8 +607,9 @@ async function createDemo(email: string, password: string) {
       status: "pending_approval",
       room: primaryRoom,
       days: 3,
+      condition: "excellent",
       used: usedDetails({ registrationYear: 2022, km: 41000, owners: 1, registrationNumber: "AP 31 EK 9003", insurance: { status: "comprehensive", validUntil: addMonths(istDay(), 4) } }),
-      blurb: "XUV700 AX5 7-seater diesel automatic, one owner, 41,000 km. Extended warranty valid until 2027 and all services at Mahindra. Just in — inspection photos coming.",
+      notes: "One owner, all services at Mahindra, extended warranty valid until 2027. Interior like new; no marks on the body.",
     },
     {
       key: "u-dzire",
@@ -615,42 +623,37 @@ async function createDemo(email: string, password: string) {
       status: "draft",
       room: branchRoom,
       days: 1,
+      condition: "fair",
       used: usedDetails({ registrationYear: 2019, km: 86500, owners: 1, registrationNumber: "AP 35 AB 6120", insurance: { status: "third_party", validUntil: addMonths(istDay(), 2) } }),
-      blurb: "Factory-fitted CNG Dzire VXi — very low running costs, ideal for daily city commutes or a taxi permit. Draft listing.",
+      notes: "Factory-fitted CNG, very low running costs. Seat covers worn and a dent on the left rear door — priced accordingly.",
     },
   ];
 
-  const SPECS: Record<string, { label: string; value: string }[]> = {
-    "hyundai-creta": [{ label: "Engine", value: "1.5 T-GDi turbo-petrol / 1.5 CRDi diesel" }, { label: "Power", value: "158 bhp (turbo-petrol)" }, { label: "Torque", value: "253 Nm" }, { label: "Claimed mileage", value: "18.4 kmpl" }, { label: "Boot space", value: "433 litres" }, { label: "Ground clearance", value: "190 mm" }, { label: "Airbags", value: "6" }],
-    "hyundai-verna": [{ label: "Engine", value: "1.5 T-GDi turbo-petrol" }, { label: "Power", value: "158 bhp" }, { label: "Torque", value: "253 Nm" }, { label: "Claimed mileage", value: "20.0 kmpl" }, { label: "Boot space", value: "528 litres" }, { label: "Airbags", value: "6" }],
-    "hyundai-i20": [{ label: "Engine", value: "1.2 Kappa petrol" }, { label: "Power", value: "87 bhp" }, { label: "Torque", value: "115 Nm" }, { label: "Claimed mileage", value: "19.6 kmpl" }, { label: "Boot space", value: "311 litres" }, { label: "Airbags", value: "6" }],
-    "tata-nexon": [{ label: "Engine", value: "1.2 Revotron turbo-petrol" }, { label: "Power", value: "118 bhp" }, { label: "Torque", value: "170 Nm" }, { label: "Claimed mileage", value: "17.4 kmpl" }, { label: "Boot space", value: "382 litres" }, { label: "Ground clearance", value: "208 mm" }, { label: "Bharat NCAP", value: "5 stars" }],
-    "tata-nexon-ev": [{ label: "Battery", value: "45 kWh" }, { label: "Claimed range", value: "489 km (MIDC)" }, { label: "Power", value: "143 bhp" }, { label: "Torque", value: "215 Nm" }, { label: "DC fast charge", value: "40 min (10–80%)" }, { label: "AC charge", value: "6.5 h (7.2 kW)" }],
-    "tata-altroz": [{ label: "Engine", value: "1.2 Revotron petrol" }, { label: "Power", value: "87 bhp" }, { label: "Torque", value: "115 Nm" }, { label: "Gearbox", value: "6-speed DCA" }, { label: "Boot space", value: "345 litres" }, { label: "Global NCAP", value: "5 stars" }],
-    "mahindra-xuv700": [{ label: "Engine", value: "2.0 mStallion turbo-petrol / 2.2 mHawk diesel" }, { label: "Power", value: "197 bhp (petrol) / 182 bhp (diesel)" }, { label: "Torque", value: "380 Nm (petrol) / 450 Nm (diesel)" }, { label: "Seating", value: "7" }, { label: "Ground clearance", value: "200 mm" }, { label: "Global NCAP", value: "5 stars" }],
-    "mahindra-xev-9e": [{ label: "Battery", value: "79 kWh" }, { label: "Claimed range", value: "656 km (MIDC)" }, { label: "Power", value: "282 bhp" }, { label: "Torque", value: "380 Nm" }, { label: "DC fast charge", value: "20 min (20–80%, 175 kW)" }, { label: "Boot space", value: "663 litres" }],
-    "maruti-swift": [{ label: "Engine", value: "1.2 DualJet petrol" }, { label: "Power", value: "89 bhp" }, { label: "Torque", value: "113 Nm" }, { label: "Gearbox", value: "5-speed AMT" }, { label: "Claimed mileage", value: "23.8 kmpl" }],
-    "maruti-dzire": [{ label: "Engine", value: "1.2 K-series petrol + factory CNG" }, { label: "Power", value: "76 bhp (CNG)" }, { label: "Torque", value: "98 Nm (CNG)" }, { label: "Claimed mileage", value: "31.1 km/kg" }, { label: "Boot space", value: "378 litres" }],
-  };
-
   const vehicleIds: Record<string, number> = {};
   const touched = new Map<number, Date>();
-  const vehicleUpdated = (v: VehicleSpec, submitted: Date, reviewedAt: Date) =>
-    past(v.status === "changes_requested" ? at(-v.days + 2, 16, 40) : v.status === "published" || v.status === "approved" ? reviewedAt : submitted);
   const vehicleLabels: Record<string, string> = {};
   const vehicleRows: { id: number; spec: VehicleSpec }[] = [];
   for (const v of VEHICLES) {
     const car: CarRow = cat.car(v.car);
     const variant: VariantRow = cat.variant(v.car, v.variant);
-    const imgs = (car.images as string[]).slice(0, 3);
+    const isNew = v.kind === "new";
+    const colours = (car.colors as { name: string }[] | null) ?? [];
+    if (isNew && colours.length && !colours.some((c) => c.name === v.colour)) throw new Error(`${v.colour} isn't a catalogue colour of ${car.slug}`);
+    // Photos of the actual car — used cars only (a new car shows the catalogue's photos).
     const images: string[] = [];
-    for (const [i, src] of imgs.entries()) images.push(await mediaFor.image(src, `${v.key}-${car.slug}-${i + 1}`, `${cat.brandName(car.brand)} ${car.name} ${variant.name}`));
-    const groups = (car.features as { group: string; items: string[] }[] | null) ?? [];
-    const features = [...(car.highlights as string[]), ...groups.flatMap((g) => g.items)].filter((f, i, all) => all.indexOf(f) === i).slice(0, 14);
+    if (!isNew) {
+      for (const [i, src] of (car.images as string[]).slice(0, 3).entries()) images.push(await mediaFor.image(src, `${v.key}-${car.slug}-${i + 1}`, `${cat.brandName(car.brand)} ${car.name} ${variant.name}`));
+    }
     const listed = at(-v.days, 11, 30);
     const submitted = plusMin(listed, 25);
-    const isLive = v.status === "published" || v.status === "approved";
     const reviewedAt = past(at(-v.days + 1, 12, 10));
+    const pausedAt = past(at(-v.days + 2, 16, 40));
+    const updated = past(
+      isNew
+        ? v.status === "unpublished" ? pausedAt : submitted
+        : v.status === "changes_requested" ? pausedAt : v.status === "published" || v.status === "approved" ? reviewedAt : submitted,
+    );
+    const newDetails: NewVehicleDetails = { variantSlug: variant.slug, availability: v.onOrderWeeks ? "on_order" : "in_stock", waitingWeeks: v.onOrderWeeks ?? null };
     const ref = await freshRef("VEH", "partner_vehicles");
     const [res] = await db.insert(s.partnerVehicles).values({
       partnerId: pid,
@@ -667,36 +670,42 @@ async function createDemo(email: string, password: string) {
       colour: v.colour,
       exShowroom: variant.price,
       sellingPrice: v.key === "altroz" ? variant.price + 6000 : v.price,
-      stock: v.stock,
+      stock: v.onOrderWeeks ? 0 : v.stock,
       vin: v.vin ?? null,
-      description: v.blurb,
-      specs: SPECS[v.car] ?? [],
-      features,
+      description: isNew ? "" : (v.notes ?? "").slice(0, 500),
+      specs: [],
+      features: [],
       images,
       videos: [],
       showroomId: v.room,
-      used: v.used ?? null,
+      used: isNew ? newDetails : { ...v.used!, variantSlug: variant.slug, condition: v.condition ?? "" },
       status: v.status,
       adminRemarks: v.remarks ?? null,
       views: 0,
       enquiries: 0,
-      submittedAt: v.status === "draft" ? null : submitted,
-      approvedAt: isLive ? reviewedAt : null,
-      publishedAt: v.status === "published" ? reviewedAt : null,
+      submittedAt: isNew || v.status === "draft" ? null : submitted,
+      approvedAt: !isNew && (v.status === "published" || v.status === "approved") ? reviewedAt : null,
+      publishedAt: v.status === "published" ? (isNew ? submitted : reviewedAt) : v.status === "unpublished" ? submitted : null,
       createdAt: listed,
-      updatedAt: vehicleUpdated(v, submitted, reviewedAt),
+      updatedAt: updated,
     });
     const id = res.insertId;
     vehicleIds[v.key] = id;
     vehicleLabels[v.key] = `${cat.brandName(car.brand)} ${car.name} ${variant.name}${v.kind === "used" ? ` (${v.year})` : ""}`;
     vehicleRows.push({ id, spec: v });
-    touched.set(id, vehicleUpdated(v, submitted, reviewedAt));
-    if (v.status !== "draft") approvals.push({ target: "vehicle", targetId: id, action: "submitted", fromStatus: "draft", toStatus: "pending_approval", actorUserId: members.owner.userId, actorSide: "dealer", createdAt: submitted });
-    if (v.status === "published") approvals.push({ target: "vehicle", targetId: id, action: "approved_published", fromStatus: "pending_approval", toStatus: "published", actorUserId: staffId, actorSide: "admin", createdAt: reviewedAt });
-    if (v.status === "changes_requested")
-      approvals.push({ target: "vehicle", targetId: id, action: "changes_requested", fromStatus: "pending_approval", toStatus: "changes_requested", remarks: v.remarks ?? null, actorUserId: staffId, actorSide: "admin", createdAt: at(-v.days + 2, 16, 40) });
+    touched.set(id, updated);
+    if (isNew) {
+      if (v.status !== "draft") approvals.push({ target: "vehicle", targetId: id, action: "published", fromStatus: "draft", toStatus: "published", actorUserId: members.owner.userId, actorSide: "dealer", createdAt: submitted });
+      if (v.status === "unpublished")
+        approvals.push({ target: "vehicle", targetId: id, action: "unpublished", fromStatus: "published", toStatus: "unpublished", remarks: v.remarks ?? null, actorUserId: staffId, actorSide: "admin", createdAt: pausedAt });
+    } else {
+      if (v.status !== "draft") approvals.push({ target: "vehicle", targetId: id, action: "submitted", fromStatus: "draft", toStatus: "pending_approval", actorUserId: members.owner.userId, actorSide: "dealer", createdAt: submitted });
+      if (v.status === "published") approvals.push({ target: "vehicle", targetId: id, action: "approved_published", fromStatus: "pending_approval", toStatus: "published", actorUserId: staffId, actorSide: "admin", createdAt: reviewedAt });
+      if (v.status === "changes_requested")
+        approvals.push({ target: "vehicle", targetId: id, action: "changes_requested", fromStatus: "pending_approval", toStatus: "changes_requested", remarks: v.remarks ?? null, actorUserId: staffId, actorSide: "admin", createdAt: pausedAt });
+    }
   }
-  log(`✓ ${VEHICLES.length} vehicles (${VEHICLES.filter((v) => v.kind === "new").length} new, ${VEHICLES.filter((v) => v.kind === "used").length} used)`);
+  log(`✓ ${VEHICLES.length} vehicles from the catalogue (${VEHICLES.filter((v) => v.kind === "new").length} new, ${VEHICLES.filter((v) => v.kind === "used").length} used)`);
 
   /* Offers */
   const emptyDiscount: OfferDiscount = { flat: null, percentage: null, cash: null, exchangeBonus: null, corporateBonus: null, loyaltyBonus: null, freeAccessories: "", freeInsurance: false, financeBenefit: "", maxDiscount: null, minPurchase: "" };
@@ -1306,7 +1315,16 @@ async function createDemo(email: string, password: string) {
     { who: "owner", action: "submit", entity: "application", id: pid, summary: `Resubmitted application ${reference} with the requested changes`, when: resubmit },
     ...STAFF.map((m, i) => ({ who: "owner", action: "invite", entity: "staff", id: members[m.key].memberId, summary: `Added ${m.name} as ${m.role.replace(/_/g, " ")}`, when: at(approvedOffset + 1 + i, 11, 30) })),
     { who: "owner", action: "update", entity: "profile", id: pid, summary: "Updated the public dealership profile", when: at(approvedOffset + 1, 17, 0) },
-    ...vehicleRows.filter((v) => v.spec.status !== "draft").map((v) => ({ who: "owner", action: "submit", entity: "vehicle", id: v.id, summary: `Submitted ${vehicleLabels[v.spec.key]} for approval`, when: plusMin(at(-v.spec.days, 11, 30), 25) })),
+    ...vehicleRows
+      .filter((v) => v.spec.status !== "draft")
+      .map((v) => ({
+        who: "owner",
+        action: v.spec.kind === "new" ? "publish" : "submit",
+        entity: "vehicle",
+        id: v.id,
+        summary: v.spec.kind === "new" ? `Published ${vehicleLabels[v.spec.key]}` : `Submitted ${vehicleLabels[v.spec.key]} for approval`,
+        when: plusMin(at(-v.spec.days, 11, 30), 25),
+      })),
     ...OFFERS.filter((o) => o.status !== "draft").map((o) => ({ who: "harika", action: "submit", entity: "offer", id: offerIds[o.key], summary: `Submitted offer ${offerRefs[o.key]} “${o.title}” for approval`, when: past(plusMin(at(-o.createdDays, 10, 15), 40)) })),
     { who: "harika", action: "pause", entity: "offer", id: offerIds.corporate, summary: `Paused offer ${offerRefs.corporate}`, when: at(-2, 18, 0) },
     { who: "kiran", action: "assign", entity: "lead", id: null, summary: "Assigned 2 enquiries to Lakshmi Prasanna", when: at(-2, 10, 0) },

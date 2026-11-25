@@ -28,7 +28,8 @@ export default async function AdminPanelLayout({ children }: LayoutProps<"/admin
       n(db.select({ n: count() }).from(leads).where(eq(leads.status, "new"))),
       n(db.select({ n: count() }).from(ownerReviews).where(eq(ownerReviews.status, "pending"))),
       n(db.select({ n: count() }).from(partners).where(inArray(partners.status, ["submitted", "pending_approval", "under_review"]))),
-      n(db.select({ n: count() }).from(partnerVehicles).where(eq(partnerVehicles.status, "pending_approval"))),
+      // Only used cars wait for review — new-car listings go live when the dealer publishes them.
+      n(db.select({ n: count() }).from(partnerVehicles).where(and(eq(partnerVehicles.kind, "used"), eq(partnerVehicles.status, "pending_approval")))),
       n(db.select({ n: count() }).from(partnerOffers).where(inArray(partnerOffers.status, ["submitted", "pending_approval"]))),
       n(db.select({ n: count() }).from(insVendors).where(inArray(insVendors.status, ["submitted", "pending_approval", "under_review"]))),
       n(db.select({ n: count() }).from(insProducts).where(inArray(insProducts.status, ["submitted", "pending_approval"]))),

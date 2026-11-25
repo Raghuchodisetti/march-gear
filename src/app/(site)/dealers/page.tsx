@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import { Suspense } from "react";
 import { getCatalog } from "@/server/catalog";
 import { PageHeader } from "@/components/ui/page-header";
@@ -6,12 +7,13 @@ import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { DealerDirectory } from "@/components/dealer/dealer-directory";
 import { EnquiryButton } from "@/components/used/enquiry-button";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Car dealers & showrooms near you",
-  description:
-    "Find authorised and multi-brand car showrooms across India. Compare ratings, hours and services, then contact the dealer or book a visit.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car Dealers & Showrooms Near You",
+  description: "Find authorised and multi-brand car showrooms across India. Compare ratings, opening hours and services, then contact the dealer or book a visit.",
+  path: "/dealers",
+});
 
 function DirectorySkeleton() {
   return (
@@ -47,6 +49,8 @@ function DirectorySkeleton() {
 }
 
 export default async function DealersPage() {
+  // Render per request so the filterable listing (it reads the URL's query) is server-rendered into the HTML, not a client-only skeleton.
+  await connection();
   const { dealers } = await getCatalog();
   const cities = new Set(dealers.map((d) => d.city)).size;
   const avg = dealers.reduce((sum, d) => sum + d.rating, 0) / dealers.length;

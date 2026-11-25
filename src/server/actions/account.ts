@@ -28,6 +28,13 @@ export async function savePreferencesAction(input: unknown): Promise<ActionResul
   if (!me) return { ok: false, error: "Please sign in again." };
   const parsed = preferencesSchema.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
-  await getDb().update(users).set({ preferences: parsed.data }).where(eq(users.id, me.id));
+  const db = getDb();
+  // Keep what else lives in the column — e.g. the sign-up consent record (`consent`).
+  const [row] = await db.select({ preferences: users.preferences }).from(users).where(eq(users.id, me.id));
+  const kept = row?.preferences && typeof row.preferences === "object" ? row.preferences : {};
+  await db
+    .update(users)
+    .set({ preferences: { ...kept, ...parsed.data } })
+    .where(eq(users.id, me.id));
   return { ok: true };
 }

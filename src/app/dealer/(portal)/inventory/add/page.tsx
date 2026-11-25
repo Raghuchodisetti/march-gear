@@ -13,7 +13,7 @@ export default async function AddVehiclePage(props: PageProps<"/dealer/inventory
     <>
       <PortalHeader
         title="Add a vehicle"
-        description="List new-car stock or a pre-owned car. Save a draft at any point; MarchGear reviews it once you submit."
+        description="Pick the car from MarchGear's catalogue, then add your price, stock and showroom. New cars go live when you publish; used cars are reviewed by MarchGear first."
         back={{ href: "/dealer/inventory", label: "Vehicles" }}
       />
       <VehicleFormPage ctx={ctx} initial={emptyVehicle(kind === "used" ? "used" : "new")} />

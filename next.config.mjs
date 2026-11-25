@@ -20,6 +20,12 @@ const nextConfig = {
         destination: "https://:domain/:path*",
         permanent: true,
       },
+      // Moved routes (permanent, 308 — browsers and search engines update their links). Keep this list as the
+      // single record of renamed public URLs. Trailing slashes are handled by Next itself (/x/ → /x, 308).
+      // /profile → /account: the customer area moved (the old page also permanentRedirects as a fallback).
+      { source: "/profile", destination: "/account", permanent: true },
+      // /cars has no index of its own — the catalogue lives at /new-cars (car pages stay at /cars/<slug>).
+      { source: "/cars", destination: "/new-cars", permanent: true },
     ];
   },
   async headers() {

@@ -10,13 +10,14 @@ import { getAddOnOffers } from "@/server/insurance/public-content";
 import { Button } from "@/components/ui/button";
 import { ADDON_DETAILS, eligibilityText, pricingText } from "@/components/insurance/public/addon-details";
 import { CategoryAd, CtaBand, HeroFacts, LandingHero, QuoteSection, RelatedGuides, pickGuides } from "@/components/insurance/public/landing";
+import { INSURANCE_OG_IMAGE, pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Car insurance add-ons explained — zero dep, engine protection, RTI and more",
-  description:
-    "Every common car insurance add-on explained in plain language: what it pays for, which cars typically qualify, how it's priced and how many listed plans offer it.",
-  alternates: { canonical: "/insurance/add-ons" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car Insurance Add-ons: Zero Dep, RTI & More",
+  description: "Car insurance add-ons explained: zero depreciation, engine protection, return to invoice and more — what each pays for, who qualifies and how it's priced.",
+  path: "/insurance/add-ons",
+  images: [INSURANCE_OG_IMAGE],
+});
 
 const compareHref = (key: string) => `/insurance/compare?addons=${encodeURIComponent(key)}`;
 

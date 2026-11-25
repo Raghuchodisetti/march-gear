@@ -110,12 +110,13 @@ export function Hero() {
                   role="tab"
                   aria-selected={on}
                   onClick={() => (on ? router.push(s.href) : setIndex(i))}
-                  aria-label={on ? `Explore ${s.title}` : `Show ${s.title}`}
                   className={cn(
                     "relative overflow-hidden border px-4 pb-4 pt-3.5 text-left backdrop-blur-md transition-[background-color,border-color] duration-[400ms]",
                     on ? "border-white/40 bg-white/20" : "border-white/15 bg-white/[0.07] hover:bg-white/15",
                   )}
                 >
+                  {/* The accessible name keeps the visible text (label in name) behind a short verb. */}
+                  <span className="sr-only">{on ? "Explore: " : "Show: "}</span>
                   <span className="flex items-center justify-between text-[11px] font-medium text-white/70 num">
                     <span>{String(i + 1).padStart(2, "0")}</span>
                     {on && <ArrowUpRight className="size-3.5 text-white" aria-hidden />}

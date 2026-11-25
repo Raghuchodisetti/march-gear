@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowRight, CircleAlert } from "lucide-react";
@@ -289,7 +290,7 @@ function AffordRow({ car, budget, emi, ltv, years }: { car: CarModel; budget: nu
         <div className="relative aspect-[4/3] overflow-hidden bg-mist">
           <Image
             src={car.images[0]}
-            alt={title}
+            alt={cardPhotoAlt(car.images[0], title)}
             fill
             sizes="112px"
             className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/row:scale-[1.05]"

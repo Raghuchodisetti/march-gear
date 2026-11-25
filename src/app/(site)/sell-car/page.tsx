@@ -14,12 +14,13 @@ import { Counter, Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal
 import { Eyebrow, SectionHeading } from "@/components/ui/section-heading";
 import { SellFlow } from "@/components/valuation/sell-flow";
 import { EnquiryButton } from "@/components/used/enquiry-button";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Sell your car — instant price, paid in 24 hours",
-  description:
-    "Get an instant indicative price for your car, book a free 200-point doorstep inspection and get paid before pick-up. RC transfer and loan closure handled.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Sell Your Car: Instant Price, Paid in 24 Hours",
+  description: "Get an instant indicative price for your car, book a free 200-point doorstep inspection and get paid before pick-up. RC transfer and loan closure handled.",
+  path: "/sell-car",
+});
 
 const BENEFIT_ICONS: Record<SellIcon, LucideIcon> = {
   banknote: Banknote,
@@ -200,7 +201,7 @@ export default async function SellCarPage({ searchParams }: PageProps<"/sell-car
                     </p>
                   </div>
                   <div className="shrink-0 text-right">
-                    <p className="text-[11px] uppercase tracking-[0.14em] text-white/40">Sold for</p>
+                    <p className="text-[11px] uppercase tracking-[0.14em] text-white/50">Sold for</p>
                     <p className="mt-0.5 text-[15px] font-semibold num">{formatPrice(t.soldFor)}</p>
                   </div>
                 </figcaption>

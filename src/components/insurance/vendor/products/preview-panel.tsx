@@ -220,7 +220,7 @@ function Row({ k, v, note }: { k: string; v: string; note?: string }) {
     <div className="flex items-baseline justify-between gap-3">
       <dt className="min-w-0 truncate text-muted">
         {k}
-        {note && <span className="ml-1 text-[11px] text-muted/80">· {note}</span>}
+        {note && <span className="ml-1 text-[11px] text-muted">· {note}</span>}
       </dt>
       <dd className="shrink-0 font-medium num">{v}</dd>
     </div>

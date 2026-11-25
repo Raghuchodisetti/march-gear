@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { describePhoto } from "@/lib/image-alt";
 import Link from "next/link";
 import { Fragment } from "react";
 import { notFound } from "next/navigation";
@@ -15,6 +16,7 @@ import { VideoPlayer } from "@/components/editorial/video-player";
 import { ScoreDial } from "@/components/editorial/score-dial";
 import { NewsletterForm } from "@/components/editorial/newsletter-form";
 import { CategoryLabel, InitialsAvatar, StoryMeta, shortTitle, storyHref, tagHref } from "@/components/editorial/primitives";
+import { fitDescription, fitTitle, pageMetadata } from "@/components/seo/metadata";
 
 export async function generateStaticParams() {
   const cat = await getCatalog();
@@ -28,17 +30,15 @@ export async function generateMetadata(props: PageProps<"/news/[slug]">): Promis
   if (!article) return { title: "Story not found" };
   const author = cat.getAuthor(article.authorId);
   return {
-    title: article.title,
-    description: article.dek,
-    authors: [{ name: author.name }],
-    openGraph: {
+    ...pageMetadata({
+      title: fitTitle([article.title]),
+      description: fitDescription(article.dek, `${article.category} from the MarchGear newsroom.`),
+      path: `/news/${article.slug}`,
       type: "article",
-      title: article.title,
-      description: article.dek,
-      publishedTime: article.publishedOn,
-      authors: [author.name],
-      images: [{ url: article.image }],
-    },
+      article: { publishedTime: article.publishedOn, authors: [author.name], section: article.category, tags: article.tags },
+      images: "segment",
+    }),
+    authors: [{ name: author.name }],
   };
 }
 
@@ -101,7 +101,7 @@ export default async function ArticlePage(props: PageProps<"/news/[slug]">) {
             />
           ) : (
             <div className="relative -mx-5 aspect-[4/3] overflow-hidden bg-mist sm:mx-0 md:aspect-[16/9]">
-              <Image src={article.image} alt={article.title} fill preload sizes="(min-width: 1400px) 1304px, 100vw" className="object-cover" />
+              <Image src={article.image} alt={describePhoto(article.image, article.title)} fill preload sizes="(min-width: 1400px) 1304px, 100vw" className="object-cover" />
             </div>
           )}
           <figcaption className="mt-3 text-[12px] text-muted">
@@ -231,7 +231,7 @@ export default async function ArticlePage(props: PageProps<"/news/[slug]">) {
                     <div className="min-w-0 md:mt-6">
                       <CategoryLabel category={a.category} />
                       <h3 className="type-h4 mt-3 text-pretty md:type-h3">
-                        <Link href={storyHref(a)} className="after:absolute after:inset-0 focus-visible:outline-none">
+                        <Link href={storyHref(a)} className="after:absolute after:inset-0 stretched-focus">
                           {a.title}
                         </Link>
                       </h3>

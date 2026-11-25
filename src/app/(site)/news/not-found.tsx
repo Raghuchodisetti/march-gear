@@ -30,7 +30,7 @@ export default async function StoryNotFound() {
           <li key={a.slug} className="relative border-b border-line py-6">
             <CategoryLabel category={a.category} />
             <h2 className="type-h4 mt-3">
-              <Link href={storyHref(a)} className="after:absolute after:inset-0 hover:text-ink/70 focus-visible:outline-none">
+              <Link href={storyHref(a)} className="after:absolute after:inset-0 hover:text-ink/70 stretched-focus">
                 {a.title}
               </Link>
             </h2>

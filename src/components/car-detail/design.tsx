@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { carPhotoAlt } from "@/lib/image-alt";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Check } from "lucide-react";
@@ -32,7 +33,7 @@ export function CarDesign() {
           <div className="relative aspect-[4/3] overflow-hidden bg-mist">
             <Image
               src={exteriorImage}
-              alt={`${title} — exterior detail`}
+              alt={carPhotoAlt(exteriorImage, title, "exterior detail")}
               fill
               sizes="(min-width: 1024px) 56vw, 100vw"
               className="object-cover"
@@ -110,7 +111,7 @@ export function CarDesign() {
       <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:order-2 lg:col-span-7">
           <div className="relative aspect-[4/3] overflow-hidden bg-mist lg:aspect-[5/4]">
-            <Image src={interiorImage} alt={`${title} — cabin`} fill sizes="(min-width: 1024px) 56vw, 100vw" className="object-cover" />
+            <Image src={interiorImage} alt={carPhotoAlt(interiorImage, title, "cabin")} fill sizes="(min-width: 1024px) 56vw, 100vw" className="object-cover" />
           </div>
         </Reveal>
         <Reveal delay={0.1} className="lg:order-1 lg:col-span-5">

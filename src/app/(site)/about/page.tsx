@@ -10,12 +10,14 @@ import { Eyebrow } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { Counter, Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
 import { InitialsAvatar, shortTitle, storyHref } from "@/components/editorial/primitives";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "March Gear is an independent automotive discovery platform for India — expert road tests, moderated owner reviews and clear tools to help you choose with confidence.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "About MarchGear — Independent Car Research",
+  description: "MarchGear is an independent car research platform for India: road-tested expert reviews, moderated owner reviews and clear tools to help you choose well.",
+  path: "/about",
+  absoluteTitle: true,
+});
 
 const NUMBER_WORDS = ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
 

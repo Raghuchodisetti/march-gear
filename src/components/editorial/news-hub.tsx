@@ -111,7 +111,7 @@ export function NewsHub({ stories }: { stories: Article[] }) {
               }}
               placeholder="Search news, e.g. Creta or mileage"
               aria-label="Search news"
-              className="h-11 w-full rounded-full border border-line bg-white pl-11 pr-10 text-[14px] outline-none transition-colors placeholder:text-muted/80 hover:border-ink/30 focus:border-ink [&::-webkit-search-cancel-button]:hidden"
+              className="h-11 w-full rounded-full border border-line bg-white pl-11 pr-10 text-[14px] outline-none transition-colors placeholder:text-muted hover:border-ink/30 focus:border-ink [&::-webkit-search-cancel-button]:hidden"
             />
             {query && (
               <button
@@ -280,7 +280,7 @@ function StoryCard({ article, eager = false }: { article: Article; eager?: boole
           <TopicPill category={article.category} />
         </div>
         <h3 className="mt-3 text-[18px] font-semibold leading-snug tracking-[-0.01em]">
-          <Link href={storyHref(article)} className="after:absolute after:inset-0 group-hover/card:text-red focus-visible:outline-none">
+          <Link href={storyHref(article)} className="after:absolute after:inset-0 group-hover/card:text-red stretched-focus">
             {article.title.replace(/^Video: /, "")}
           </Link>
         </h3>

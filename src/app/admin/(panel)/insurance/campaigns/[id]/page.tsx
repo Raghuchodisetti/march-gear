@@ -73,7 +73,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
               {c.banner ? (
                 // Vendor-uploaded media — plain <img> on purpose.
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={c.banner} alt={`Banner for ${c.title}`} className="size-full object-cover" />
+                <img decoding="async" src={c.banner} alt={`Banner for ${c.title}`} className="size-full object-cover" />
               ) : (
                 <div className="flex size-full flex-col items-center justify-center gap-2 text-[13px] text-muted">
                   <ImageOff aria-hidden className="size-6" /> No banner uploaded

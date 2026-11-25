@@ -214,14 +214,14 @@ function PreviewCard({ profile, listing }: { profile: PartnerProfile; listing: L
         {cover ? (
           // Dealer-uploaded banner from /media (live preview).
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={cover} alt="" className="size-full object-cover" />
+          <img loading="lazy" decoding="async" src={cover} alt="" className="size-full object-cover" />
         ) : (
           <div className="flex size-full items-center justify-center bg-[radial-gradient(circle_at_30%_20%,#2c2c2c,#111111_70%)] px-8 text-center text-[12.5px] text-white/50">Add a banner to replace the default showroom photo</div>
         )}
         <span className="absolute -bottom-7 left-5 inline-flex size-16 items-center justify-center overflow-hidden border border-line bg-white text-[15px] font-semibold shadow-soft">
           {profile.logo ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={profile.logo} alt="" className="size-full object-contain p-1" />
+            <img loading="lazy" decoding="async" src={profile.logo} alt="" className="size-full object-contain p-1" />
           ) : (
             listing.name.slice(0, 2).toUpperCase()
           )}
@@ -255,7 +255,7 @@ function PreviewCard({ profile, listing }: { profile: PartnerProfile; listing: L
           <div className="mt-4 grid grid-cols-4 gap-1.5">
             {profile.gallery.slice(0, 4).map((g, i) => (
               // eslint-disable-next-line @next/next/no-img-element
-              <img key={`${g}-${i}`} src={g} alt="" className="aspect-square w-full object-cover" />
+              <img loading="lazy" decoding="async" key={`${g}-${i}`} src={g} alt="" className="aspect-square w-full object-cover" />
             ))}
           </div>
         )}

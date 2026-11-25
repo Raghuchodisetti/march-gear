@@ -23,6 +23,7 @@ import {
 } from "@/components/used/detail-sections";
 import { TrackView } from "@/components/portal/track";
 import { getUsedMirrorRef } from "@/server/partner/inventory";
+import { fitDescription, fitTitle, pageMetadata, shareImage } from "@/components/seo/metadata";
 
 export async function generateStaticParams() {
   const { usedCars } = await getCatalog();
@@ -34,10 +35,17 @@ export async function generateMetadata(props: PageProps<"/used-cars/[id]">): Pro
   const { getUsedCar, brandName } = await getCatalog();
   const car = getUsedCar(id);
   if (!car) return { title: "Used car not found" };
-  return {
-    title: `${usedTitle(car, brandName)} ${car.variant} in ${car.city}`,
-    description: `${formatKm(car.km)}, ${car.fuel}, ${car.transmission}, ${car.owners === 1 ? "first owner" : `${car.owners} owners`}. Asking ${formatPrice(car.price)} (indicative) with inspection report and fair-price analysis.`,
-  };
+  const name = usedTitle(car, brandName); // "2023 Hyundai Creta"
+  const model = `${brandName(car.brand)} ${car.name}`;
+  return pageMetadata({
+    title: fitTitle([`Used ${name} ${car.variant} in ${car.city}`, `Used ${name} in ${car.city}`, `Used ${model} in ${car.city}`, `Used ${name}`]),
+    description: fitDescription(
+      `Used ${name} ${car.variant} for sale in ${car.city}: ${formatKm(car.km)}, ${car.fuel}, ${car.transmission}, ${car.owners === 1 ? "first owner" : `${car.owners} owners`}.`,
+      [`Asking ${formatPrice(car.price)} (indicative), with inspection report and fair-price check.`, `Asking ${formatPrice(car.price)} (indicative).`],
+    ),
+    path: `/used-cars/${car.id}`,
+    images: car.images[0] ? [shareImage(car.images[0], `Used ${name}`)] : undefined,
+  });
 }
 
 export default async function UsedCarPage(props: PageProps<"/used-cars/[id]">) {

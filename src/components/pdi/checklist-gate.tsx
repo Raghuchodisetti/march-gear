@@ -3,7 +3,7 @@
 import { useId, useMemo, useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
-import { Check, ClipboardCheck, Download, Loader2, Mail } from "lucide-react";
+import { Check, ClipboardCheck, Download, Loader2 } from "lucide-react";
 import type { CarModel, FuelType } from "@/types";
 import type { Catalog } from "@/lib/catalog";
 import { PDI_FUELS } from "@/lib/pdi";
@@ -14,13 +14,16 @@ import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/overlay";
 import { SelectField, TextField } from "@/components/ui/field";
 import { Honeypot } from "@/components/forms/honeypot";
+import { CONSENT_REQUIRED, ConsentCheckbox, PrivacyLink } from "@/components/forms/consent";
+import { radioGroupKeyDown, rovingTabIndex, useFormFeedback } from "@/components/forms/form-a11y";
 import { useUI, useUser } from "@/components/providers/app-provider";
 import { useCatalog } from "@/components/providers/catalog-provider";
 import { downloadChecklistPdf, pdfCheckCount } from "./checklist-pdf";
 
 /* ──────────────────────────────────────────────────────────────
    Lead capture for the free DIY checklist: details in, checklist
-   "emailed" and unlocked on the page.
+   downloaded and unlocked on the page. Nothing is emailed (no email
+   service is connected), so the email address is optional.
    ────────────────────────────────────────────────────────────── */
 
 export interface ChecklistLead {
@@ -127,7 +130,8 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
   const [modelOther, setModelOther] = useState(initial.modelOther);
   const [fuel, setFuel] = useState<FuelType | "">(existing?.fuel ?? "");
   const [delivery, setDelivery] = useState(existing?.delivery ?? "");
-  const [consent, setConsent] = useState(true);
+  const [consent, setConsent] = useState(false);
+  const feedback = useFormFeedback();
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState<ChecklistLead | null>(null);
@@ -162,12 +166,13 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
     setFuel(car?.fuelTypes.length === 1 ? car.fuelTypes[0] : "");
   };
 
-  const submit = async (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (sending) return;
+    const form = e.currentTarget;
     const next: Record<string, string> = {};
     if (name.trim().length < 2) next.name = "Enter your full name";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) next.email = "Enter a valid email address";
+    if (email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) next.email = "Enter a valid email address, or leave it empty";
     if (!/^[6-9]\d{9}$/.test(phone)) next.phone = "Enter a valid 10-digit mobile number";
     if (!brand) next.brand = "Choose your car's brand";
     else if (otherBrand && brandOther.trim().length < 2) next.brandOther = "Enter the brand name";
@@ -176,9 +181,9 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
     if (!fuel) next.fuel = "Choose the fuel type";
     if (!delivery) next.delivery = "Choose your delivery date";
     else if (delivery < todayISO()) next.delivery = "Pick a date from today onwards";
-    if (!consent) next.consent = "Please accept to receive the checklist";
+    if (!consent) next.consent = CONSENT_REQUIRED;
     setErrors(next);
-    if (Object.keys(next).length || !fuel) return;
+    if (feedback.report(next, form) || !fuel) return;
 
     setSending(true);
     const brandLabel = otherBrand ? brandOther.trim() : brandName(brand);
@@ -199,11 +204,12 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
       const res = await submitLeadAction({
         type: "pdi_checklist",
         name: saved.name,
-        email: saved.email,
+        email: saved.email || undefined,
         phone: saved.phone,
         subject: `${saved.car} (${saved.fuel})`,
         carSlug: knownCar?.slug,
         source: pathname,
+        consent: true,
         website,
         details: { brand: saved.brand, model: saved.model, fuel: saved.fuel, deliveryDate: saved.delivery },
       });
@@ -218,6 +224,7 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
           "details.model": typedModel ? "modelOther" : "model",
           "details.fuel": "fuel",
           "details.deliveryDate": "delivery",
+          consent: "consent",
         };
         const mapped: Record<string, string> = {};
         let unplaced: string | undefined;
@@ -227,6 +234,7 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
         }
         setErrors(mapped);
         const note = unplaced ?? res.error;
+        feedback.report(mapped, form, unplaced);
         if (note) toast(note, { tone: "error" });
         return;
       }
@@ -239,7 +247,7 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
     pdiLeadStore.set(saved);
     setSent(saved);
     setSending(false);
-    toast(`Checklist PDF sent to ${saved.email}`, { tone: "success" });
+    toast("Checklist ready — the PDF is downloading", { tone: "success" });
     try {
       await downloadChecklistPdf(pdf, saved);
     } catch {
@@ -256,17 +264,17 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
           transition={{ type: "spring", stiffness: 260, damping: 18 }}
           className="mx-auto inline-flex size-16 items-center justify-center rounded-full bg-red text-white"
         >
-          <Mail className="size-7" />
+          <ClipboardCheck className="size-7" aria-hidden />
         </motion.span>
         <h2 id="gate-title" className="type-h2 mt-6">
-          Checklist sent!
+          Your checklist is ready
         </h2>
         <p className="mx-auto mt-3 max-w-sm text-[15px] text-muted">
-          We&apos;ve emailed the {pdfCheckCount(pdf.checklist, sent.fuel)}-point PDI checklist for your{" "}
+          The {pdfCheckCount(pdf.checklist, sent.fuel)}-point PDI checklist for your{" "}
           <span className="font-medium text-ink">
             {sent.car} ({sent.fuel})
           </span>{" "}
-          to <span className="font-medium text-ink">{sent.email}</span>. A copy has also been downloaded to this device.
+          has been downloaded to this device.
         </p>
         <p className="mt-3 text-[12px] text-muted">The full checklist is unlocked on this page too.</p>
         <div className="mt-8 flex flex-col gap-2 sm:flex-row sm:justify-center">
@@ -291,13 +299,14 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
   return (
     <form onSubmit={submit} noValidate>
       <Honeypot value={website} onChange={setWebsite} />
+      {feedback.live}
       <div className="border-b border-line px-6 py-5 sm:px-8">
         <p className="type-eyebrow text-red">Free download</p>
         <h2 id="gate-title" className="type-h3 mt-2">
-          Get the PDI checklist in your inbox
+          Get the free PDI checklist
         </h2>
         <p className="mt-1.5 text-[14px] text-muted">
-          A ready-to-print PDF of every check to do before you accept your new car — with extra checks for your car&apos;s fuel type. All fields are required.
+          A ready-to-print PDF of every check to do before you accept your new car — with extra checks for your car&apos;s fuel type. It downloads straight to this device. Email is optional.
         </p>
       </div>
 
@@ -306,7 +315,7 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
           <legend className="type-eyebrow text-muted">Your details</legend>
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <TextField data-autofocus label="Full name" autoComplete="name" value={name} onChange={(e) => { fix("name"); setName(e.target.value); }} error={errors.name} placeholder="Your name" className="sm:col-span-2" />
-            <TextField label="Email" type="email" autoComplete="email" value={email} onChange={(e) => { fix("email"); setEmail(e.target.value); }} error={errors.email} placeholder="you@example.com" />
+            <TextField label="Email (optional)" type="email" autoComplete="email" value={email} onChange={(e) => { fix("email"); setEmail(e.target.value); }} error={errors.email} placeholder="you@example.com" />
             <TextField
               label="Mobile number"
               prefix="+91"
@@ -380,13 +389,18 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
           </fieldset>
         </div>
 
-        <label className="flex cursor-pointer items-start gap-3 text-[12.5px] text-muted">
-          <input type="checkbox" checked={consent} onChange={(e) => { fix("consent"); setConsent(e.target.checked); }} className="mt-0.5 size-4 accent-[var(--color-red)]" />
-          <span>
-            Email me the checklist and a few delivery-day tips. We never share your details.
-            {errors.consent && <span className="block text-red">{errors.consent}</span>}
-          </span>
-        </label>
+        <ConsentCheckbox
+          id="gate-consent"
+          checked={consent}
+          onChange={(v) => {
+            fix("consent");
+            setConsent(v);
+          }}
+          error={errors.consent}
+        >
+          I agree that MarchGear may contact me by phone, WhatsApp or email about my car&apos;s delivery and its PDI inspection service, using the details I&apos;ve entered here. We
+          don&apos;t share them with the dealer. See the <PrivacyLink />.
+        </ConsentCheckbox>
       </div>
 
       <div className="sticky bottom-0 flex flex-col-reverse gap-3 border-t border-line bg-mist px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
@@ -394,7 +408,7 @@ function GateForm({ existing, onClose }: { existing: ChecklistLead | null; onClo
           Not now
         </button>
         <Button type="submit" disabled={sending} icon={sending ? <Loader2 className="size-4 animate-spin" aria-hidden /> : <Check className="size-4" aria-hidden />}>
-          {sending ? "Sending…" : "Send me the PDF"}
+          {sending ? "Preparing…" : "Get the checklist PDF"}
         </Button>
       </div>
     </form>
@@ -418,8 +432,16 @@ function FuelPicker({
       <p id={id} className="mb-2 block text-[12.5px] font-medium text-ink">
         Fuel type
       </p>
-      <div role="radiogroup" aria-labelledby={id} aria-describedby={error ? `${id}-msg` : undefined} className="flex flex-wrap gap-2">
-        {options.map((f) => {
+      <div
+        role="radiogroup"
+        aria-labelledby={id}
+        aria-describedby={error ? `${id}-msg` : undefined}
+        aria-invalid={error ? true : undefined}
+        aria-required="true"
+        onKeyDown={radioGroupKeyDown}
+        className="flex flex-wrap gap-2"
+      >
+        {options.map((f, i) => {
           const on = f === value;
           return (
             <button
@@ -427,6 +449,7 @@ function FuelPicker({
               type="button"
               role="radio"
               aria-checked={on}
+              tabIndex={rovingTabIndex(on, i, Boolean(value))}
               onClick={() => onChange(f)}
               className={cn(
                 "inline-flex h-10 items-center gap-1.5 rounded-full border px-4 text-[13.5px] font-medium transition-colors duration-[250ms]",

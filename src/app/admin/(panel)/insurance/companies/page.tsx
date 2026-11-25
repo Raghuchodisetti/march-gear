@@ -55,7 +55,7 @@ export default async function InsuranceCompaniesPage({ searchParams }: PageProps
                 <span className="flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-[3px] border border-line bg-white">
                   {c.logo ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={c.logo} alt="" className="max-h-full max-w-full object-contain p-1.5" loading="lazy" />
+                    <img decoding="async" src={c.logo} alt="" className="max-h-full max-w-full object-contain p-1.5" loading="lazy" />
                   ) : (
                     <Building2 aria-hidden className="size-5 text-muted" />
                   )}

@@ -7,6 +7,8 @@ import { comparisons } from "./blocks/comparisons";
 import { about } from "./blocks/about";
 import { sell } from "./blocks/sell";
 import { legal } from "./blocks/legal";
+import { cookiePolicy } from "./blocks/cookie-policy";
+import { refundPolicy } from "./blocks/refund-policy";
 import { pdiPlans } from "./blocks/pdi-plans";
 import { pdiChecklist } from "./blocks/pdi-checklist";
 import { pdiPage } from "./blocks/pdi-page";
@@ -30,6 +32,8 @@ export const BLOCKS = { site, announcements, homeHero, homeCategories, compariso
   insurancePricing,
   insuranceSettings,
   insurerPlans,
+  cookiePolicy,
+  refundPolicy,
 } as const;
 
 export type BlockKey = keyof typeof BLOCKS;

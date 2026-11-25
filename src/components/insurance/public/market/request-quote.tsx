@@ -9,6 +9,8 @@ import { Modal } from "@/components/ui/overlay";
 import { Button } from "@/components/ui/button";
 import { TextArea, TextField } from "@/components/ui/field";
 import { Honeypot } from "@/components/forms/honeypot";
+import { CONSENT_REQUIRED, ConsentCheckbox, RequestConsentText } from "@/components/forms/consent";
+import { useFormFeedback } from "@/components/forms/form-a11y";
 import { useUI, useUser } from "@/components/providers/app-provider";
 import type { InsuranceSearch } from "@/insurance/types";
 import { isSearchReady, searchQuery } from "@/insurance/search";
@@ -67,6 +69,7 @@ function RequestForm({ items, search, addOns, idv, source, campaignId, adCampaig
   const [expiry, setExpiry] = useState(search?.expiry ?? "");
   const [previousInsurer, setPreviousInsurer] = useState("");
   const [consent, setConsent] = useState(false);
+  const feedback = useFormFeedback();
   const [website, setWebsite] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState("");
@@ -83,19 +86,20 @@ function RequestForm({ items, search, addOns, idv, source, campaignId, adCampaig
   const renewal = vehicle.intent === "renewal";
   const plural = items.length > 1;
 
-  const submit = async (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (sending) return;
+    const form = e.currentTarget;
     const next: Record<string, string> = {};
     if (needsVehicle && !isSearchReady(vehicle)) next.vehicle = "Choose your car's brand and model";
     if (name.trim().length < 2) next.name = "Enter your full name";
     if (!/^[6-9]\d{9}$/.test(mobile)) next.mobile = "Enter a valid 10-digit mobile number";
     if (email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) next.email = "Enter a valid email address";
     if (renewal && !expiry) next.expiry = "Enter your current policy's expiry date";
-    if (!consent) next.consent = "Please agree so the insurer can contact you";
+    if (!consent) next.consent = CONSENT_REQUIRED;
     setErrors(next);
     setFormError("");
-    if (Object.keys(next).length) return;
+    if (feedback.report(next, form)) return;
 
     const params = Object.fromEntries(new URLSearchParams(searchQuery({ ...vehicle, expiry: renewal ? expiry : "" })));
     const sponsored: Record<string, number> = {};
@@ -123,15 +127,11 @@ function RequestForm({ items, search, addOns, idv, source, campaignId, adCampaig
       setSending(false);
       if (!res.ok) {
         const fe = res.fieldErrors ?? {};
-        setErrors({
-          name: fe.name,
-          mobile: fe.mobile,
-          email: fe.email,
-          message: fe.message,
-          expiry: fe.expiry,
-          consent: fe.consent,
-          vehicle: fe.vehicle,
-        } as Record<string, string>);
+        const mapped = Object.fromEntries(
+          Object.entries({ name: fe.name, mobile: fe.mobile, email: fe.email, message: fe.message, expiry: fe.expiry, consent: fe.consent, vehicle: fe.vehicle }).filter(([, v]) => v),
+        ) as Record<string, string>;
+        setErrors(mapped);
+        feedback.report(mapped, form);
         setFormError(res.error ?? "Please check the highlighted fields.");
         return;
       }
@@ -207,6 +207,7 @@ function RequestForm({ items, search, addOns, idv, source, campaignId, adCampaig
   return (
     <form onSubmit={submit} noValidate className="relative">
       <Honeypot value={website} onChange={setWebsite} />
+      {feedback.live}
       <div className="flex items-start justify-between gap-6 border-b border-line px-6 py-5 sm:px-8">
         <div className="min-w-0">
           <p className="type-eyebrow text-muted">{plural ? `${items.length} plans` : "Request a quote"}</p>
@@ -245,7 +246,6 @@ function RequestForm({ items, search, addOns, idv, source, campaignId, adCampaig
           <fieldset>
             <legend className="mb-3 text-[13px] font-semibold text-ink">Your car</legend>
             <VehiclePicker value={vehicle} onChange={setVehicle} thisYear={thisYear} maxAgeYears={maxAgeYears} errors={{ vehicle: errors.vehicle ?? "" }} />
-            {errors.vehicle && <p className="mt-2 text-xs text-red">{errors.vehicle}</p>}
           </fieldset>
         )}
 
@@ -269,19 +269,28 @@ function RequestForm({ items, search, addOns, idv, source, campaignId, adCampaig
               <TextField label="Current insurer (optional)" value={previousInsurer} onChange={(e) => setPreviousInsurer(e.target.value.slice(0, 160))} placeholder="e.g. your insurer's name" />
             </>
           )}
-          <div className="sm:col-span-2">
-            <TextArea label="Message (optional)" value={message} onChange={(e) => setMessage(e.target.value.slice(0, 1000))} rows={3} placeholder="Anything the insurer should know — preferred time to call, accessories fitted…" />
-            {errors.message && <p className="mt-1.5 text-xs text-red">{errors.message}</p>}
-          </div>
+          <TextArea
+            className="sm:col-span-2"
+            label="Message (optional)"
+            value={message}
+            onChange={(e) => setMessage(e.target.value.slice(0, 1000))}
+            rows={3}
+            placeholder="Anything the insurer should know — preferred time to call, accessories fitted…"
+            error={errors.message}
+          />
         </fieldset>
 
-        <label className="flex cursor-pointer items-start gap-3 text-[13px] leading-relaxed text-ink">
-          <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-1 size-4 shrink-0 accent-[var(--color-red)]" aria-invalid={errors.consent ? true : undefined} />
-          <span>
-            I agree that the selected insurer{plural ? "(s)" : ""} may contact me about this request.
-            {errors.consent && <span className="mt-1 block text-[12px] text-red">{errors.consent}</span>}
-          </span>
-        </label>
+        <ConsentCheckbox
+          id="rq-consent"
+          checked={consent}
+          onChange={(v) => {
+            setConsent(v);
+            if (errors.consent) setErrors((x) => Object.fromEntries(Object.entries(x).filter(([k]) => k !== "consent")));
+          }}
+          error={errors.consent}
+        >
+          <RequestConsentText party={{ kind: "insurers", plural }} about="a quote for this car" />
+        </ConsentCheckbox>
 
         <p className="flex gap-2.5 text-[12px] leading-relaxed text-muted">
           <FileText className="mt-0.5 size-3.5 shrink-0 text-ink/60" aria-hidden />
@@ -301,7 +310,7 @@ function RequestForm({ items, search, addOns, idv, source, campaignId, adCampaig
         </p>
         <Button type="submit" variant="primary" disabled={sending} className="sm:min-w-48">
           {sending && <Loader2 className="size-4 animate-spin" aria-hidden />}
-          {sending ? "Sending…" : plural ? `Request ${items.length} quotes` : "Request quote"}
+          {sending ? "Sending…" : plural ? `Request ${items.length} quotes` : "Request a quote"}
         </Button>
       </div>
     </form>

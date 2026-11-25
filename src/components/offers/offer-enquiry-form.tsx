@@ -7,6 +7,8 @@ import { submitLeadAction } from "@/server/actions/leads";
 import { Segmented, SelectField, TextField } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Honeypot } from "@/components/forms/honeypot";
+import { CONSENT_REQUIRED, ConsentCheckbox, RequestConsentText } from "@/components/forms/consent";
+import { useFormFeedback } from "@/components/forms/form-a11y";
 import { useCity, useUI, useUser } from "@/components/providers/app-provider";
 import { useCatalog } from "@/components/providers/catalog-provider";
 import { Countdown } from "./countdown";
@@ -30,21 +32,24 @@ export function OfferEnquiryForm({
   const [citySlug, setCitySlug] = useState(() => cities.find((c) => c.name === offer.dealerCity)?.slug ?? city.slug);
   const [model, setModel] = useState(models.length === 1 ? models[0].slug : "");
   const [timeline, setTimeline] = useState<"week" | "month" | "later">("month");
-  const [consent, setConsent] = useState(true);
+  const [consent, setConsent] = useState(false);
+  const feedback = useFormFeedback();
+  const clear = (key: string) => setErrors((prev) => (prev[key] ? Object.fromEntries(Object.entries(prev).filter(([k]) => k !== key)) : prev));
   const [website, setWebsite] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [ref, setRef] = useState("");
 
-  const submit = async (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (status === "sending") return;
+    const form = e.currentTarget;
     const next: Record<string, string> = {};
     if (name.trim().length < 2) next.name = "Please enter your full name";
     if (!/^[6-9]\d{9}$/.test(phone)) next.phone = "Enter a valid 10-digit mobile number";
-    if (!consent) next.consent = "Please accept to continue";
+    if (!consent) next.consent = CONSENT_REQUIRED;
     setErrors(next);
-    if (Object.keys(next).length) return;
+    if (feedback.report(next, form)) return;
 
     const modelName = models.find((m) => m.slug === model)?.name;
     setStatus("sending");
@@ -60,12 +65,15 @@ export function OfferEnquiryForm({
         message: `Offer ${offer.reference} — ${offer.title}${modelName ? ` · Interested in the ${modelName}` : ""}`.slice(0, 2000),
         source: `/offers/${offer.reference}`,
         details: { timeline },
+        consent: true,
         website,
       });
       if (!res.ok) {
         setStatus("idle");
         const fe = res.fieldErrors ?? {};
-        setErrors({ name: fe.name, phone: fe.phone, city: fe.city } as Record<string, string>);
+        const mapped = Object.fromEntries(Object.entries({ name: fe.name, phone: fe.phone, city: fe.city, consent: fe.consent }).filter(([, v]) => v)) as Record<string, string>;
+        setErrors(mapped);
+        feedback.report(mapped, form);
         toast(res.error ?? "Please check the highlighted fields.", { tone: "error" });
         return;
       }
@@ -103,6 +111,7 @@ export function OfferEnquiryForm({
   return (
     <form onSubmit={submit} noValidate className="relative">
       <Honeypot value={website} onChange={setWebsite} />
+      {feedback.live}
       <div className="border-b border-line px-6 py-5">
         <p className="type-eyebrow text-muted">Get this offer</p>
         <p className="mt-2 font-display text-[24px] font-semibold leading-tight tracking-[-0.02em] text-red">{offer.headline}</p>
@@ -111,13 +120,26 @@ export function OfferEnquiryForm({
         </div>
       </div>
       <div className="space-y-4 px-6 py-5">
-        <TextField label="Full name" value={name} onChange={(e) => setName(e.target.value)} error={errors.name} autoComplete="name" placeholder="Your name" />
+        <TextField
+          label="Full name"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+            clear("name");
+          }}
+          error={errors.name}
+          autoComplete="name"
+          placeholder="Your name"
+        />
         <TextField
           label="Mobile number"
           prefix="+91"
           inputMode="numeric"
           value={phone}
-          onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))}
+          onChange={(e) => {
+            setPhone(e.target.value.replace(/\D/g, "").slice(0, 10));
+            clear("phone");
+          }}
           error={errors.phone}
           autoComplete="tel-national"
           placeholder="98765 43210"
@@ -127,10 +149,12 @@ export function OfferEnquiryForm({
           <SelectField label="Car you're interested in (optional)" placeholder="Not sure yet" value={model} onChange={(e) => setModel(e.target.value)} options={models.map((m) => ({ value: m.slug, label: m.name }))} />
         )}
         <div>
-          <p className="mb-2 text-[12.5px] font-medium">When are you planning to buy?</p>
+          <p className="mb-2 text-[12.5px] font-medium" aria-hidden>
+            When are you planning to buy?
+          </p>
           <Segmented
             className="flex w-full"
-            ariaLabel="Purchase timeline"
+            ariaLabel="When are you planning to buy?"
             value={timeline}
             onChange={setTimeline}
             options={[
@@ -140,13 +164,17 @@ export function OfferEnquiryForm({
             ]}
           />
         </div>
-        <label className="flex cursor-pointer items-start gap-3 text-[12.5px] text-muted">
-          <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-0.5 size-4 accent-[var(--color-red)]" />
-          <span>
-            I agree to be contacted by {offer.dealerName} and MarchGear about this offer.
-            {errors.consent && <span className="block text-red">{errors.consent}</span>}
-          </span>
-        </label>
+        <ConsentCheckbox
+          id={`offer-consent-${offer.reference}`}
+          checked={consent}
+          onChange={(v) => {
+            setConsent(v);
+            clear("consent");
+          }}
+          error={errors.consent}
+        >
+          <RequestConsentText party={{ kind: "dealer", name: offer.dealerName }} about="this offer" />
+        </ConsentCheckbox>
         <Button type="submit" className="w-full" disabled={status === "sending"} icon={status === "sending" ? <Loader2 className="size-4 animate-spin" aria-hidden /> : undefined}>
           {status === "sending" ? "Sending…" : "Request a call back"}
         </Button>

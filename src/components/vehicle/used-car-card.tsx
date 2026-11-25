@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { ArrowRight, Cog, Fuel, Gauge, MapPin } from "lucide-react";
 import type { UsedCar } from "@/types";
@@ -35,7 +36,7 @@ export function UsedCarCard({
       <div className="relative aspect-[3/2] overflow-hidden bg-mist">
         <Image
           src={car.images[0]}
-          alt={title}
+          alt={cardPhotoAlt(car.images[0], title)}
           fill
           sizes={sizes}
           preload={priority}
@@ -56,7 +57,7 @@ export function UsedCarCard({
           {car.year} · {car.owners === 1 ? "1st owner" : `${car.owners} owners`}
         </p>
         <h3 className="type-h4 mt-1.5">
-          <Link href={usedHref(car)} className="after:absolute after:inset-0 focus-visible:outline-none">
+          <Link href={usedHref(car)} className="after:absolute after:inset-0 stretched-focus">
             {brandName(car.brand)} {car.name}
           </Link>
         </h3>

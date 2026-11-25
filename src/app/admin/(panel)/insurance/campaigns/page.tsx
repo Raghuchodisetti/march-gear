@@ -63,7 +63,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
                   {c.banner ? (
                     // Vendor-uploaded media — plain <img> on purpose.
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={c.banner} alt="" className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+                    <img decoding="async" src={c.banner} alt="" className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
                   ) : (
                     <span className="flex size-full flex-col items-center justify-center gap-1 text-[12px] text-muted">
                       <Megaphone aria-hidden className="size-6" /> No banner

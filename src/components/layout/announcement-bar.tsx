@@ -45,7 +45,7 @@ export function AnnouncementBar() {
               className="flex min-w-0 items-center"
             >
               <Link href={item.href} className="group flex min-w-0 items-center gap-3 text-[12.5px]">
-                <span className="shrink-0 text-[10px] font-semibold uppercase tracking-[0.16em] text-red">{item.tag}</span>
+                <span className="shrink-0 text-[10px] font-semibold uppercase tracking-[0.16em] text-red-400">{item.tag}</span>
                 <span aria-hidden className="h-3 w-px shrink-0 bg-white/20" />
                 <span className="truncate text-white/80 transition-colors group-hover:text-white">{item.text}</span>
                 <ArrowRight aria-hidden className="hidden size-3.5 shrink-0 text-white/60 transition-transform group-hover:translate-x-0.5 sm:block" />

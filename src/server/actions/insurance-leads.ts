@@ -85,7 +85,6 @@ export async function submitInsuranceLeadAction(input: InsuranceLeadInput): Prom
   const parsed = insuranceLeadSchema.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const { website, consent, ...lead } = parsed.data;
-  void consent;
   // Bots get a convincing success and nothing is stored.
   if (website) return { ok: true, reference: reference() };
   // Per-number limit too (the IP limit is a no-op where the client IP can't be trusted).
@@ -110,6 +109,8 @@ export async function submitInsuranceLeadAction(input: InsuranceLeadInput): Prom
     subject = `Insurance help — ${HELP_TOPIC_LABEL[d.topic]}`;
     details = { topic: HELP_TOPIC_LABEL[d.topic], bestTimeToCall: CALL_TIME_LABEL[d.callTime], car: d.car ?? null };
   }
+  // Consent record (DPDP Act): the box was ticked, and when.
+  details = { ...details, consent, consentAt: new Date().toISOString() };
 
   const user = await getSessionUser("customer");
   const db = getDb();

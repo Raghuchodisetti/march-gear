@@ -29,6 +29,8 @@ export function CompareTray() {
     <AnimatePresence>
       {visible && (
         <motion.div
+          role="region"
+          aria-label="Compare tray"
           initial={{ y: 120, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 120, opacity: 0 }}
@@ -93,7 +95,7 @@ export function CompareTray() {
                       const car = cars[i];
                       if (!car)
                         return (
-                          <Link key={`empty-${i}`} href="/new-cars" className="flex h-20 items-center justify-center gap-2 bg-ink text-[12.5px] text-white/40 transition-colors hover:text-white">
+                          <Link key={`empty-${i}`} href="/new-cars" className="flex h-20 items-center justify-center gap-2 bg-ink text-[12.5px] text-white/55 transition-colors hover:text-white">
                             <Plus className="size-4" aria-hidden /> Add a car
                           </Link>
                         );

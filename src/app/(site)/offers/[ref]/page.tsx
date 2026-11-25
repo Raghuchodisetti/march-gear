@@ -14,6 +14,7 @@ import { Countdown } from "@/components/offers/countdown";
 import { OfferEnquiryForm } from "@/components/offers/offer-enquiry-form";
 import { categoryLabel } from "@/components/offers/offer-card";
 import { benefitList, discountHeadline, formatIst, money, videoHost } from "@/components/offers/offer-utils";
+import { fitDescription, fitTitle, pageMetadata } from "@/components/seo/metadata";
 
 const fileSize = (n: number) => (n < 1024 * 1024 ? `${Math.max(1, Math.round(n / 1024))} KB` : `${(n / 1024 / 1024).toFixed(1)} MB`);
 
@@ -24,11 +25,16 @@ export async function generateMetadata(props: PageProps<"/offers/[ref]">): Promi
   const { ref } = await props.params;
   const offer = await load(ref);
   if (!offer) return { title: "Offer not found" };
-  return {
-    title: `${offer.title} — ${offer.dealer.name}, ${offer.dealer.city}`,
-    description: `${discountHeadline(offer.discount)}. ${offer.tagline} Valid till ${formatIst(offer.endsAt, false)}.`,
-    openGraph: offer.media.desktopBanner ? { images: [{ url: offer.media.desktopBanner }] } : undefined,
-  };
+  return pageMetadata({
+    title: fitTitle([`${offer.title}: ${offer.dealer.name}, ${offer.dealer.city}`, `${offer.title}, ${offer.dealer.city}`, offer.title]),
+    description: fitDescription(
+      `${discountHeadline(offer.discount)} at ${offer.dealer.name}, ${offer.dealer.city}.`,
+      offer.tagline,
+      `Valid till ${formatIst(offer.endsAt, false)}.`,
+    ),
+    path: `/offers/${offer.reference}`,
+    images: offer.media.desktopBanner ? [{ url: offer.media.desktopBanner, alt: offer.title }] : undefined,
+  });
 }
 
 export default async function OfferPage(props: PageProps<"/offers/[ref]">) {
@@ -77,7 +83,7 @@ export default async function OfferPage(props: PageProps<"/offers/[ref]">) {
           <picture>
             <source media="(max-width: 639px)" srcSet={mobile} />
             {/* Dealer-uploaded banner, served as-is from /media (art-directed for mobile). */}
-            <img src={desktop} alt="" className="absolute inset-0 -z-10 size-full animate-kenburns object-cover opacity-60" />
+            <img decoding="async" src={desktop} alt="" className="absolute inset-0 -z-10 size-full animate-kenburns object-cover opacity-60" />
           </picture>
         )}
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/55 to-ink/20" />

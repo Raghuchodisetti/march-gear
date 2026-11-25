@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { ArrowRight, Cog, Fuel, Gauge, Zap } from "lucide-react";
 import type { CarModel } from "@/types";
@@ -44,7 +45,7 @@ export function CarCard({
       <div className="relative aspect-[4/3] overflow-hidden bg-mist">
         <Image
           src={car.images[0]}
-          alt={title}
+          alt={cardPhotoAlt(car.images[0], title)}
           fill
           sizes={sizes}
           preload={priority}
@@ -67,7 +68,7 @@ export function CarCard({
       <div className="flex flex-1 flex-col p-5">
         <p className="type-eyebrow text-muted">{brandName(car.brand)}</p>
         <h3 className="type-h3 mt-2">
-          <Link href={carHref(car)} className="after:absolute after:inset-0 focus-visible:outline-none">
+          <Link href={carHref(car)} className="after:absolute after:inset-0 stretched-focus">
             {car.name}
           </Link>
         </h3>

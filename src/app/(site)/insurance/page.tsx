@@ -16,13 +16,14 @@ import {
   StagesSection,
 } from "@/components/insurance/public/home-sections";
 import { FaqSection, GuidesSection } from "@/components/insurance/public/guides";
+import { INSURANCE_OG_IMAGE, pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Car insurance — compare plans, buy or renew",
-  description:
-    "Compare car insurance plans from listed insurers and registered intermediaries: cover, add-ons, IDV and indicative premiums. Buy a new policy or renew yours, then request quotations from the providers you choose.",
-  alternates: { canonical: "/insurance" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car Insurance: Compare Plans, Buy or Renew",
+  description: "Compare car insurance plans from listed insurers: cover, add-ons, IDV and indicative premiums. Buy or renew, then request quotes from the providers you choose.",
+  path: "/insurance",
+  images: [INSURANCE_OG_IMAGE],
+});
 
 export default async function InsurancePage() {
   // Providers, campaigns and plan counts change as staff approve them — render per request.

@@ -16,12 +16,13 @@ import { Reveal } from "@/components/ui/reveal";
 import { ScoreDial } from "@/components/editorial/score-dial";
 import { CategoryLabel, InitialsAvatar, StoryMeta, storyHref } from "@/components/editorial/primitives";
 import { ExpertReviewsBrowser, type ReviewEntry } from "@/components/editorial/expert-reviews-browser";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Expert car reviews",
-  description:
-    "Independent, road-tested reviews of every new car in India — scored out of ten on design, comfort, performance, technology and value.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Expert Car Reviews: Road Tests & Verdicts",
+  description: "Independent, road-tested reviews of new cars in India, scored out of ten on design, comfort, performance, technology and value, with a clear verdict.",
+  path: "/reviews",
+});
 
 const byScore = (a: ExpertReview, b: ExpertReview) => b.score - a.score;
 
@@ -172,7 +173,7 @@ export default async function ReviewsPage() {
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-white/60">
               The highest-scoring cars we have tested this year, across every price point and body style.
             </p>
-            <p className="mt-8 text-[12px] text-white/40 num">Expert scores out of 10 · Updated {formatDate(lastUpdated)}</p>
+            <p className="mt-8 text-[12px] text-white/50 num">Expert scores out of 10 · Updated {formatDate(lastUpdated)}</p>
           </Reveal>
 
           <ol className="lg:col-span-8 md:grid md:grid-flow-col md:grid-cols-2 md:grid-rows-5 md:gap-x-10">
@@ -261,7 +262,7 @@ export default async function ReviewsPage() {
                 </div>
                 <div className="mt-6">
                   <h3 className="type-h3 text-balance">
-                    <Link href={storyHref(a)} className="after:absolute after:inset-0 focus-visible:outline-none">
+                    <Link href={storyHref(a)} className="after:absolute after:inset-0 stretched-focus">
                       {a.title}
                     </Link>
                   </h3>

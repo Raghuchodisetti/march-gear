@@ -121,7 +121,7 @@ export default async function UserPage({ params }: PageProps<"/admin/users/[id]"
                     Signed in {formatDateTime(s.createdAt)} · expires {formatDateTime(s.expiresAt)}
                     {s.ip && <> · IP {s.ip}</>}
                   </p>
-                  {s.userAgent && <p className="mt-0.5 truncate text-[11.5px] text-muted/80">{s.userAgent}</p>}
+                  {s.userAgent && <p className="mt-0.5 truncate text-[11.5px] text-muted">{s.userAgent}</p>}
                 </li>
               ))}
             </ul>

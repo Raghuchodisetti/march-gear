@@ -25,6 +25,14 @@ const extraDetails = z
   .optional();
 const TOO_MANY = "Too many requests from your network. Please try again in a little while.";
 
+/**
+ * Consent at the point of collection (DPDP Act, 2023): every form sends `consent: true` from an unticked checkbox
+ * whose text names who may contact the visitor and why. Requests without it are refused; the time it was given is
+ * stored with the lead (`details.consentAt`).
+ */
+const CONSENT_REQUIRED = "Please tick the consent box so we can act on your request";
+const consent = z.literal(true, { error: CONSENT_REQUIRED });
+
 const common = {
   name,
   phone: mobile,
@@ -36,6 +44,7 @@ const common = {
   dealerId: optionalText(64),
   message: optionalText(2000),
   source: optionalText(200),
+  consent,
   /** Honeypot — real people never fill this in; filled-in submissions are silently dropped. */
   website: z.string().max(500).optional(),
 };
@@ -60,7 +69,7 @@ const leadSchema = z.discriminatedUnion("type", [
   z.object({
     type: z.literal("pdi_checklist"),
     ...common,
-    email,
+    // Optional: the checklist downloads in the browser — no email is sent, so we don't insist on an address.
     details: z.object({
       brand: z.string().trim().min(2, "Enter the brand name").max(80),
       model: z.string().trim().min(1, "Enter the model name").max(120),
@@ -109,8 +118,10 @@ export async function submitLeadAction(input: LeadInput): Promise<ActionResult<{
   if (!(await allowFromIp("lead", 20, HOUR))) return { ok: false, error: TOO_MANY };
   const parsed = leadSchema.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
-  const { website, ...rest } = parsed.data;
+  const { website, consent: agreed, ...rest } = parsed.data;
   const { details, ...lead } = rest as typeof rest & { details?: Record<string, string | number | boolean | null> };
+  // The consent record is kept with the lead: staff see it in /admin/leads, the customer on their request page.
+  const recorded = { ...(details ?? {}), consent: agreed, consentAt: new Date().toISOString() };
   // Bots get a convincing success and nothing is stored.
   if (website) return { ok: true, reference: reference(lead.type) };
 
@@ -132,7 +143,7 @@ export async function submitLeadAction(input: LeadInput): Promise<ActionResult<{
         dealerId: lead.dealerId ?? null,
         message: lead.message ?? null,
         source: lead.source ?? null,
-        details: details ?? null,
+        details: recorded,
         userId: user?.id ?? null,
       });
       // Enquiries about a dealer partner's page, listing or offer also go to that dealer's CRM (never throws).
@@ -148,14 +159,32 @@ export async function submitLeadAction(input: LeadInput): Promise<ActionResult<{
 
 /* ── Newsletter ─────────────────────────────────────────────── */
 
+/**
+ * Newsletter sign-up. A separate, explicit opt-in (`consent: true` from its own unticked checkbox) — never bundled
+ * into a lead or an account. The subscriber row's `created_at` is the time the opt-in was given.
+ */
 export async function subscribeAction(input: unknown): Promise<ActionResult> {
   if (!(await allowFromIp("subscribe", 10, HOUR))) return { ok: false, error: TOO_MANY };
-  const parsed = z.object({ email, source: optionalText(200) }).safeParse(input);
+  const parsed = z
+    .object({ email, source: optionalText(200), consent: z.literal(true, { error: "Tick the box to confirm you'd like the newsletter" }) })
+    .safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   await getDb()
     .insert(subscribers)
     .ignore()
     .values({ email: parsed.data.email, source: parsed.data.source ?? null });
+  return { ok: true };
+}
+
+/**
+ * Withdraws newsletter consent. Always answers the same way, so it can't be used to find out whether an address
+ * is subscribed; removing someone else's address only stops emails they'd be able to opt back into.
+ */
+export async function unsubscribeAction(input: unknown): Promise<ActionResult> {
+  if (!(await allowFromIp("unsubscribe", 10, HOUR))) return { ok: false, error: TOO_MANY };
+  const parsed = z.object({ email }).safeParse(input);
+  if (!parsed.success) return invalid(parsed.error);
+  await getDb().delete(subscribers).where(eq(subscribers.email, parsed.data.email));
   return { ok: true };
 }
 
@@ -177,6 +206,8 @@ const reviewSchema = z.object({
     performance: z.number().min(1).max(5),
     value: z.number().min(1).max(5),
   }),
+  /** "This is my own experience, and MarchGear may publish it with my display name and city." */
+  consent: z.literal(true, { error: "Please confirm this is your own experience and that we may publish it" }),
 });
 
 export async function submitOwnerReviewAction(input: unknown): Promise<ActionResult<{ id: string }>> {
@@ -192,6 +223,9 @@ export async function submitOwnerReviewAction(input: unknown): Promise<ActionRes
   if (!car) return { ok: false, fieldErrors: { carSlug: "Choose your car" } };
   const user = await getSessionUser("customer");
   const id = `or-${Date.now().toString(36)}${randomInt(36 ** 3).toString(36)}`;
-  await db.insert(ownerReviews).values({ ...parsed.data, id, date: todayISO(), status: "pending", userId: user?.id ?? null });
+  // The confirmation is required above; the review row itself has no column for it.
+  const { consent, ...review } = parsed.data;
+  void consent;
+  await db.insert(ownerReviews).values({ ...review, id, date: todayISO(), status: "pending", userId: user?.id ?? null });
   return { ok: true, id };
 }

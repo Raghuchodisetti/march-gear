@@ -4,12 +4,13 @@ import { calcRates } from "@/components/tools/calc";
 import { PageHeader } from "@/components/ui/page-header";
 import { LoanEligibility } from "@/components/tools/loan-eligibility";
 import { HowItWorks, RelatedTools, ToolDisclaimer, ToolFaqs, ToolMetaRow } from "@/components/tools/tool-sections";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Car Loan Eligibility Calculator",
-  description:
-    "Find out how much car loan you can get from your monthly income and existing EMIs, and see every new car that fits your budget.",
-};
+  description: "Find out how much car loan you could get from your monthly income and existing EMIs, and see every new car that fits the budget it gives you.",
+  path: "/tools/car-loan",
+});
 
 const pct = (n: number) => `${Math.round(n * 100)}%`;
 

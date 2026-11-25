@@ -1,11 +1,20 @@
 import "server-only";
 import { unstable_cache } from "next/cache";
-import { and, asc, count, countDistinct, desc, eq, gt, inArray, isNotNull, like, lt, ne, or } from "drizzle-orm";
+import { and, asc, count, countDistinct, desc, eq, gt, inArray, isNotNull, like, lt, ne, or, sql } from "drizzle-orm";
 import { getDb } from "@/db";
 import { dealers, media, partnerApprovals, partnerBrands, partnerFiles, partnerOffers, partnerShowrooms, partnerVehicles, partners, users } from "@/db/schema";
 import { PARTNER_VEHICLE_STATUS, type PartnerVehicleStatus } from "@/db/enums";
-import { CATALOG_TAG } from "@/server/catalog";
-import type { InventorySort, InventoryTab, PublicVehicle, VehicleHistoryEntry } from "@/components/portal/inventory/shared";
+import { CATALOG_TAG, getCatalog } from "@/server/catalog";
+import {
+  findVariant,
+  isUsedDetails,
+  newDetailsOf,
+  publicFromCatalogue,
+  type InventorySort,
+  type InventoryTab,
+  type PublicVehicle,
+  type VehicleHistoryEntry,
+} from "@/components/portal/inventory/shared";
 
 /* ──────────────────────────────────────────────────────────────
    Dealer inventory and media library — reads.
@@ -14,9 +23,22 @@ import type { InventorySort, InventoryTab, PublicVehicle, VehicleHistoryEntry } 
    page) only ever return published vehicles of approved partners,
    and are cached under the catalogue tag so expireCatalog()
    (called whenever a listing goes live or offline) refreshes them.
+   What a listing shows about the car itself is always read from the
+   live catalogue; a listing whose model or variant has left the
+   catalogue is kept for the dealer but hidden from the public.
    ────────────────────────────────────────────────────────────── */
 
 export type VehicleRow = typeof partnerVehicles.$inferSelect;
+type Catalog = Awaited<ReturnType<typeof getCatalog>>;
+
+/** The catalogue model and variant a stored listing refers to (undefined when they've left the catalogue). */
+export function catalogueOf(v: Pick<VehicleRow, "kind" | "brand" | "modelSlug" | "variant" | "used">, cat: Catalog) {
+  const found = v.modelSlug ? cat.getCar(v.modelSlug) : undefined;
+  const car = found && found.brand === v.brand ? found : undefined;
+  const slug = v.kind === "new" ? newDetailsOf(v.used).variantSlug : isUsedDetails(v.used) ? v.used.variantSlug : undefined;
+  const variant = findVariant(car, slug, v.variant);
+  return { car, variant, ok: Boolean(car && variant) };
+}
 
 const term = (q: string) => `%${q.replace(/[%_\\]/g, (c) => `\\${c}`)}%`;
 
@@ -82,6 +104,8 @@ export async function listPartnerVehicles(partnerId: number, f: InventoryFilters
           views: partnerVehicles.views,
           enquiries: partnerVehicles.enquiries,
           images: partnerVehicles.images,
+          modelSlug: partnerVehicles.modelSlug,
+          used: partnerVehicles.used,
           publicUsedCarId: partnerVehicles.publicUsedCarId,
           updatedAt: partnerVehicles.updatedAt,
           submittedAt: partnerVehicles.submittedAt,
@@ -115,7 +139,20 @@ export async function listPartnerVehicles(partnerId: number, f: InventoryFilters
     tabCounts: { all: sumActive(), new: sumActive("new"), used: sumActive("used") },
     statusCounts: byStatus(f.tab === "all" ? undefined : f.tab),
     summary: byStatus(),
+    byKind: { new: byStatus("new"), used: byStatus("used") },
   };
+}
+
+/** Active listings whose model or variant isn't in the catalogue any more (hidden from the website until fixed). */
+export async function needsCatalogueCount(partnerId: number) {
+  const [rows, cat] = await Promise.all([
+    getDb()
+      .select({ kind: partnerVehicles.kind, brand: partnerVehicles.brand, modelSlug: partnerVehicles.modelSlug, variant: partnerVehicles.variant, used: partnerVehicles.used })
+      .from(partnerVehicles)
+      .where(and(eq(partnerVehicles.partnerId, partnerId), ne(partnerVehicles.status, "archived"))),
+    getCatalog(),
+  ]);
+  return rows.filter((r) => !catalogueOf(r, cat).ok).length;
 }
 
 export async function getPartnerVehicle(partnerId: number, id: number) {
@@ -146,11 +183,36 @@ export async function listShowroomOptions(partnerId: number) {
 
 /** Brand slugs MarchGear has authorised this dealership to sell new. */
 export async function approvedBrandSlugs(partnerId: number) {
-  const rows = await getDb()
-    .select({ brand: partnerBrands.brand })
+  return (await brandLineups(partnerId)).map((r) => r.brand);
+}
+
+export interface BrandLineup {
+  brand: string;
+  /** Catalogue model slugs ticked on /dealer/models — empty means the dealer hasn't narrowed the line-up yet. */
+  models: string[];
+  /** "model-slug/variant-slug" keys ticked on /dealer/models. */
+  variants: string[];
+}
+
+/** The approved brand authorisations and the line-up chosen for each — what a dealer may list as new cars. */
+export async function brandLineups(partnerId: number): Promise<BrandLineup[]> {
+  return getDb()
+    .select({ brand: partnerBrands.brand, models: partnerBrands.models, variants: partnerBrands.variants })
     .from(partnerBrands)
     .where(and(eq(partnerBrands.partnerId, partnerId), eq(partnerBrands.status, "approved")));
-  return rows.map((r) => r.brand);
+}
+
+/**
+ * Whether a new car fits the dealership's authorisations: an approved brand and, once the dealer has ticked
+ * models (and variants) on /dealer/models, one of those. Null when it fits, else the field and a message.
+ */
+export function lineupError(lineups: BrandLineup[], brand: string, modelSlug: string, variantSlug: string): { field: "brand" | "modelSlug" | "variantSlug"; message: string } | null {
+  const line = lineups.find((l) => l.brand === brand);
+  if (!line) return { field: "brand", message: "Your dealership isn't authorised to sell this brand new — add it under Brands first" };
+  if (line.models.length && !line.models.includes(modelSlug)) return { field: "modelSlug", message: "This model isn't in your line-up — tick it on Models & variants first" };
+  const ticked = line.variants.filter((k) => k.startsWith(`${modelSlug}/`));
+  if (ticked.length && !ticked.includes(`${modelSlug}/${variantSlug}`)) return { field: "variantSlug", message: "This variant isn't in your line-up — tick it on Models & variants first" };
+  return null;
 }
 
 /** Which of these /media ids belong to the dealership (vehicle photos must be its own uploads). */
@@ -204,30 +266,28 @@ type PublicRow = {
   dealer: { id: string; name: string; city: string; area: string } | null;
 };
 
-export function toPublicVehicle({ v, partnerName, legalName, room, dealer }: PublicRow): PublicVehicle {
-  const u = v.used;
-  return {
+/** The listing as buyers see it: catalogue data for the car, the dealer's own facts for the rest. */
+export function toPublicVehicle({ v, partnerName, legalName, room, dealer }: PublicRow, cat: Catalog): PublicVehicle {
+  const { car, variant } = catalogueOf(v, cat);
+  const u = isUsedDetails(v.used) ? v.used : null;
+  const nd = newDetailsOf(v.used);
+  return publicFromCatalogue(car, variant, {
     id: v.id,
     partnerId: v.partnerId,
     reference: v.reference,
     kind: v.kind,
     brand: v.brand,
-    modelSlug: v.modelSlug,
     model: v.model,
     variant: v.variant,
     year: v.year,
-    bodyType: v.bodyType,
-    fuel: v.fuel,
-    transmission: v.transmission,
     colour: v.colour,
-    exShowroom: v.exShowroom,
     sellingPrice: v.sellingPrice,
     stock: v.stock,
-    description: v.description,
-    specs: v.specs,
-    features: v.features,
+    availability: nd.availability,
+    waitingWeeks: nd.waitingWeeks,
     images: v.images,
-    videos: v.videos,
+    notes: v.description,
+    fallback: { bodyType: v.bodyType, fuel: v.fuel, transmission: v.transmission, exShowroom: v.exShowroom },
     showroom: room?.name ? room : null,
     dealer: {
       id: dealer?.id ?? null,
@@ -245,9 +305,10 @@ export function toPublicVehicle({ v, partnerName, legalName, room, dealer }: Pub
             accident: u.accident,
             insurance: u.insurance,
             hasInspection: Boolean(u.inspection),
+            condition: u.condition ?? "",
           }
         : null,
-  };
+  });
 }
 
 const publicSelect = {
@@ -260,27 +321,35 @@ const publicSelect = {
 
 /** For the portal's preview: the vehicle exactly as the public pages would render it. */
 export async function previewVehicle(partnerId: number, id: number) {
-  const [row] = await getDb()
-    .select(publicSelect)
-    .from(partnerVehicles)
-    .innerJoin(partners, eq(partners.id, partnerVehicles.partnerId))
-    .leftJoin(partnerShowrooms, eq(partnerShowrooms.id, partnerVehicles.showroomId))
-    .leftJoin(dealers, eq(dealers.id, partners.publicDealerId))
-    .where(and(eq(partnerVehicles.id, id), eq(partnerVehicles.partnerId, partnerId)))
-    .limit(1);
-  return row ? toPublicVehicle(row as PublicRow) : null;
+  const [[row], cat] = await Promise.all([
+    getDb()
+      .select(publicSelect)
+      .from(partnerVehicles)
+      .innerJoin(partners, eq(partners.id, partnerVehicles.partnerId))
+      .leftJoin(partnerShowrooms, eq(partnerShowrooms.id, partnerVehicles.showroomId))
+      .leftJoin(dealers, eq(dealers.id, partners.publicDealerId))
+      .where(and(eq(partnerVehicles.id, id), eq(partnerVehicles.partnerId, partnerId)))
+      .limit(1),
+    getCatalog(),
+  ]);
+  return row ? toPublicVehicle(row as PublicRow, cat) : null;
 }
+
+/** A new car on order: no units yet, but buyers can book it with a waiting period. */
+const onOrder = sql`json_unquote(json_extract(${partnerVehicles.used}, '$.availability')) = 'on_order'`;
 
 const liveNew = and(
   eq(partnerVehicles.kind, "new"),
   eq(partnerVehicles.status, "published"),
-  gt(partnerVehicles.stock, 0),
+  or(gt(partnerVehicles.stock, 0), onOrder),
   eq(partners.status, "approved"),
 );
 
-/** Published new-car stock of the partner behind a public /dealers/<id> page. */
-export const getDealerStock = unstable_cache(
-  async (dealerId: string): Promise<PublicVehicle[]> => {
+/** Only listings whose catalogue model and variant still exist are shown — the rest wait for the dealer to fix them. */
+const visible = (rows: PublicRow[], cat: Catalog) => rows.filter((r) => catalogueOf(r.v, cat).ok).map((r) => toPublicVehicle(r, cat));
+
+const dealerStockRows = unstable_cache(
+  async (dealerId: string): Promise<PublicRow[]> => {
     const rows = await getDb()
       .select(publicSelect)
       .from(partnerVehicles)
@@ -288,18 +357,24 @@ export const getDealerStock = unstable_cache(
       .innerJoin(dealers, and(eq(dealers.id, partners.publicDealerId), eq(dealers.isActive, true)))
       .leftJoin(partnerShowrooms, eq(partnerShowrooms.id, partnerVehicles.showroomId))
       .where(and(liveNew, eq(partners.publicDealerId, dealerId)))
-      .orderBy(desc(partnerVehicles.publishedAt), desc(partnerVehicles.id))
+      // In stock first, then the newest.
+      .orderBy(desc(gt(partnerVehicles.stock, 0)), desc(partnerVehicles.publishedAt), desc(partnerVehicles.id))
       .limit(48);
-    return rows.map((r) => toPublicVehicle(r as PublicRow));
+    return rows as PublicRow[];
   },
-  ["partner-dealer-stock", "v1"],
+  ["partner-dealer-stock", "v2"],
   // The catalogue tag refreshes it the moment a listing changes; the timer is a safety net.
   { tags: [CATALOG_TAG], revalidate: 600 },
 );
 
-/** Published new-car stock of one catalogue model across approved dealers, cheapest first. */
-export const getModelStock = unstable_cache(
-  async (modelSlug: string): Promise<{ items: PublicVehicle[]; dealers: number }> => {
+/** Published new-car stock (in stock or on order) of the partner behind a public /dealers/<id> page. */
+export async function getDealerStock(dealerId: string): Promise<PublicVehicle[]> {
+  const [rows, cat] = await Promise.all([dealerStockRows(dealerId), getCatalog()]);
+  return visible(rows, cat);
+}
+
+const modelStockRows = unstable_cache(
+  async (modelSlug: string): Promise<{ rows: PublicRow[]; dealers: number }> => {
     const db = getDb();
     const where = and(liveNew, eq(partnerVehicles.modelSlug, modelSlug), isNotNull(partners.publicDealerId));
     const [rows, [{ n }]] = await Promise.all([
@@ -310,8 +385,9 @@ export const getModelStock = unstable_cache(
         .innerJoin(dealers, and(eq(dealers.id, partners.publicDealerId), eq(dealers.isActive, true)))
         .leftJoin(partnerShowrooms, eq(partnerShowrooms.id, partnerVehicles.showroomId))
         .where(where)
-        .orderBy(asc(partnerVehicles.sellingPrice), desc(partnerVehicles.publishedAt))
-        .limit(3),
+        // In stock first, then cheapest. A few spare rows in case a variant has left the catalogue.
+        .orderBy(desc(gt(partnerVehicles.stock, 0)), asc(partnerVehicles.sellingPrice), desc(partnerVehicles.publishedAt))
+        .limit(8),
       db
         .select({ n: countDistinct(partnerVehicles.partnerId) })
         .from(partnerVehicles)
@@ -319,11 +395,17 @@ export const getModelStock = unstable_cache(
         .innerJoin(dealers, and(eq(dealers.id, partners.publicDealerId), eq(dealers.isActive, true)))
         .where(where),
     ]);
-    return { items: rows.map((r) => toPublicVehicle(r as PublicRow)), dealers: n };
+    return { rows: rows as PublicRow[], dealers: n };
   },
-  ["partner-model-stock", "v1"],
+  ["partner-model-stock", "v2"],
   { tags: [CATALOG_TAG], revalidate: 600 },
 );
+
+/** Published new-car stock of one catalogue model across approved dealers: in stock first, then cheapest. */
+export async function getModelStock(modelSlug: string): Promise<{ items: PublicVehicle[]; dealers: number }> {
+  const [{ rows, dealers: n }, cat] = await Promise.all([modelStockRows(modelSlug), getCatalog()]);
+  return { items: visible(rows, cat).slice(0, 3), dealers: n };
+}
 
 /** For a mirrored used car (id "pv-<n>"): which partner and vehicle it is, for view tracking. */
 export const getUsedMirrorRef = unstable_cache(

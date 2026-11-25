@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { carPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
@@ -20,6 +21,7 @@ import { Bar } from "@/components/car-detail/meters";
 import { EvRangeJourneys } from "@/components/car-detail/ev-range";
 import { EvChargingTimeline } from "@/components/car-detail/ev-charging";
 import { EvCostCalculator } from "@/components/car-detail/ev-cost";
+import { fitDescription, fitTitle, pageMetadata } from "@/components/seo/metadata";
 import {
   BOTTOM_BAR_PADDING,
   REAL_WORLD_FACTOR,
@@ -43,11 +45,16 @@ export async function generateMetadata(props: PageProps<"/electric-cars/[slug]">
   const car = getCar(slug);
   if (!car || !isEv(car) || !car.ev) return { title: "Electric car not found" };
   const brand = brandName(car.brand);
-  return {
-    title: `${brand} ${car.name} Range, Battery & Charging`,
-    description: `${brand} ${car.name}: up to ${car.ev.rangeKm} km claimed range, ${car.ev.batteryKwh} kWh battery and DC fast charging in ${car.ev.dcCharge}. Running costs, charging times and variants.`,
-    openGraph: { images: [{ url: car.images[0] }] },
-  };
+  const name = `${brand} ${car.name}`;
+  return pageMetadata({
+    title: fitTitle([`${name} Range, Battery & Charging`, `${name} Range & Charging`, `${car.name} Range & Charging`, `${name} EV`]),
+    description: fitDescription(
+      `${name}: up to ${car.ev.rangeKm} km claimed range, a ${car.ev.batteryKwh} kWh battery and DC fast charging in ${car.ev.dcCharge}.`,
+      "Real-world range, charging times, running costs and variants.",
+    ),
+    path: `/electric-cars/${car.slug}`,
+    images: "segment",
+  });
 }
 
 export default async function ElectricCarPage(props: PageProps<"/electric-cars/[slug]">) {
@@ -85,7 +92,7 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
       <section aria-labelledby="ev-title" className="relative isolate flex min-h-[88svh] flex-col overflow-hidden">
         <Image
           src={car.images[0]}
-          alt={`${title}, electric ${car.bodyType.toLowerCase()}`}
+          alt={carPhotoAlt(car.images[0], title)}
           fill
           preload
           sizes="100vw"
@@ -197,7 +204,7 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12">
           <Reveal className="lg:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden bg-ink-2 max-lg:aspect-[4/3]">
-              <Image src={techImage} alt={`${title} — charging and technology detail`} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover opacity-90" />
+              <Image src={techImage} alt={carPhotoAlt(techImage, title, "charging and technology detail")} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover opacity-90" />
             </div>
             <dl className="mt-px grid grid-cols-3 gap-px bg-white/10">
               {[

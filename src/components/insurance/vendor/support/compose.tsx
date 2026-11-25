@@ -38,7 +38,7 @@ function MessageBox({ id, label, value, onChange, error, placeholder, rows = 6 }
         placeholder={placeholder}
         aria-invalid={error ? true : undefined}
         className={cn(
-          "w-full rounded-[3px] border bg-white px-4 py-3 text-[14.5px] leading-relaxed outline-none transition-colors placeholder:text-muted/70 hover:border-ink/30 focus:border-ink",
+          "w-full rounded-[3px] border bg-white px-4 py-3 text-[14.5px] leading-relaxed outline-none transition-colors placeholder:text-muted hover:border-ink/30 focus:border-ink",
           error ? "border-red" : "border-line",
         )}
       />

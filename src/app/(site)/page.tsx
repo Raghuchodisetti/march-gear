@@ -14,6 +14,16 @@ import { ToolsSection } from "@/components/home/tools-section";
 import { DealerNetwork } from "@/components/home/dealer-network";
 import { Newsletter } from "@/components/home/newsletter";
 import { AdSlot } from "@/components/ads/ad-slot";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/components/seo/metadata";
+
+export const metadata: Metadata = pageMetadata({
+  title: "MarchGear: New & Used Cars, Prices and Reviews",
+  description:
+    "Research new and used cars in India: prices, specs, expert and owner reviews, EV guides, dealer offers, car insurance and calculators — all in one place.",
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function HomePage() {
   return (

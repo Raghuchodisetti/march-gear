@@ -84,7 +84,7 @@ export default async function OfferApprovalsPage({ searchParams }: PageProps<"/a
                 <span className="relative block aspect-[3/1] overflow-hidden bg-mist">
                   {o.thumbnail ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={o.thumbnail} alt="" className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+                    <img decoding="async" src={o.thumbnail} alt="" className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
                   ) : (
                     <span className="flex size-full items-center justify-center text-muted">
                       <BadgePercent aria-hidden className="size-6" />
@@ -202,7 +202,7 @@ function OfferReviewBody({ r, now }: { r: OfferReview; now: number }) {
             {o.media.gallery.slice(0, 8).map((src) => (
               <a key={src} href={src} target="_blank" rel="noreferrer" className="block aspect-square overflow-hidden bg-mist">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={src} alt="" className="size-full object-cover" loading="lazy" />
+                <img decoding="async" src={src} alt="" className="size-full object-cover" loading="lazy" />
               </a>
             ))}
           </div>

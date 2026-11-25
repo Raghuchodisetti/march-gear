@@ -174,7 +174,7 @@ export function PageTabs({ items, panels, initial }: { items: { value: string; l
 
 /** Compact text input for dense portal forms (same look as TextField, smaller). */
 export const inputCls =
-  "h-11 w-full rounded-[3px] border border-line bg-white px-3.5 text-[14px] text-ink placeholder:text-muted/70 outline-none transition-colors duration-200 hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red disabled:bg-mist disabled:text-muted";
+  "h-11 w-full rounded-[3px] border border-line bg-white px-3.5 text-[14px] text-ink placeholder:text-muted outline-none transition-colors duration-200 hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red disabled:bg-mist disabled:text-muted";
 
 export function FieldError({ msg, id }: { msg?: string; id?: string }) {
   if (!msg) return null;

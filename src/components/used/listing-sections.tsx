@@ -71,7 +71,7 @@ export function VerifiedStrip() {
               Verified inventory
             </h2>
           </div>
-          <ul className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 md:mx-0 md:grid md:grid-cols-3 md:gap-0 md:overflow-visible md:px-0 lg:flex-1">
+          <ul tabIndex={0} aria-label="Our promises" className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 md:mx-0 md:grid md:grid-cols-3 md:gap-0 md:overflow-visible md:px-0 lg:flex-1">
             {PROMISES.map(({ icon: Icon, title, body }) => (
               <li
                 key={title}

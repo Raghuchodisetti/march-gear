@@ -82,7 +82,7 @@ export function InspectionReportPanel({ car, title }: { car: UsedCar; title: str
           </h2>
           <p className="mt-7 flex items-baseline gap-1 font-display font-semibold leading-none tracking-[-0.04em] [font-stretch:110%]">
             <span className="text-[5.25rem] num">{report.overall.toFixed(1)}</span>
-            <span className="text-[1.375rem] text-white/40">/10</span>
+            <span className="text-[1.375rem] text-white/50">/10</span>
           </p>
           <p className="type-h4 mt-4">{report.grade}</p>
           <p className="mt-1 text-[13px] text-white/55 num">

@@ -68,7 +68,8 @@ export function EmiPlanner() {
               Custom
             </Chip>
             {picks.map((c) => (
-              <Chip key={c.slug} selected={pick === c.slug} onClick={() => choose(c.slug)} aria-label={`${brandName(c.brand)} ${c.name}, from ${formatPrice(c.priceMin)}`}>
+              <Chip key={c.slug} selected={pick === c.slug} onClick={() => choose(c.slug)}>
+                <span className="sr-only">{brandName(c.brand)} </span>
                 {c.name}
                 <span className={cn("num text-[12px]", pick === c.slug ? "text-white/60" : "text-muted")}>{formatPriceShort(c.priceMin)}</span>
               </Chip>
@@ -125,7 +126,8 @@ export function EmiPlanner() {
             <ScheduleChart rows={schedule.rows} className="min-w-0 lg:col-span-7" />
 
             <div className="min-w-0 lg:col-span-5">
-              <div className="overflow-x-auto">
+              {/* Focusable so the table can be scrolled sideways from the keyboard on small screens. */}
+              <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Repayment schedule">
                 <table className="w-full min-w-[400px] text-[13.5px]">
                   <caption className="sr-only">
                     Yearly amortisation for a loan of {formatINR(principal)} at {inputs.rate.toFixed(2)}% over {inputs.years} years

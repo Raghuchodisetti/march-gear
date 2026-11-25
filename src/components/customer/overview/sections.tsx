@@ -194,7 +194,7 @@ export function LatestUpdates({ updates, unread, now }: { updates: Overview["upd
                 <Row href={n.href ?? "/account/notifications"}>
                   <span className="relative mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-mist text-ink/70">
                     <Icon aria-hidden className="size-3.5" />
-                    {!n.read && <span aria-label="Unread" className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full border-2 border-white bg-red" />}
+                    {!n.read && <span role="img" aria-label="Unread" className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full border-2 border-white bg-red" />}
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className={cn("block text-[13.5px] leading-snug", n.read ? "text-ink/80" : "font-semibold text-ink")}>{n.title}</span>

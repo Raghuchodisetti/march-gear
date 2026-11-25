@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cardPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import type { CarModel } from "@/types";
 import { getCatalog } from "@/server/catalog";
@@ -60,7 +61,7 @@ export async function CompareRivals({ car }: { car: CarModel }) {
                     <span className="relative block aspect-[16/10] overflow-hidden bg-mist">
                       <Image
                         src={c.images[0]}
-                        alt={`${brandName(c.brand)} ${c.name}`}
+                        alt={cardPhotoAlt(c.images[0], `${brandName(c.brand)} ${c.name}`)}
                         fill
                         sizes="240px"
                         className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover:scale-[1.04]"
@@ -69,7 +70,7 @@ export async function CompareRivals({ car }: { car: CarModel }) {
                     </span>
                     <span className="mt-3 block text-[11.5px] uppercase tracking-[0.14em] text-muted">{brandName(c.brand)}</span>
                     <span className="mt-1 block text-[15px] font-semibold group-hover:text-red">{c.name}</span>
-                    {i === 0 && <span className="mt-1 block text-[11.5px] font-medium text-red">This car</span>}
+                    {i === 0 && <span className="mt-1 block text-[11.5px] font-medium text-red-600">This car</span>}
                   </Link>
                 </th>
               ))}

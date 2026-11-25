@@ -30,7 +30,6 @@ export async function BrowseByBrand() {
             <RevealItem key={b.slug}>
               <Link
                 href={`/new-cars?brand=${b.slug}`}
-                aria-label={`${b.name}: ${b.count} ${b.count === 1 ? "model" : "models"}, from ${formatPriceShort(b.from)}`}
                 className="group/brand relative flex h-full flex-col items-center border border-transparent bg-white px-1.5 pb-3.5 pt-4 text-center transition-[border-color,box-shadow] duration-[400ms] ease-[var(--ease-premium)] hover:border-ink hover:shadow-soft md:px-3 md:pb-5 md:pt-6"
               >
                 <span className="flex h-11 w-full items-center justify-center md:h-16">

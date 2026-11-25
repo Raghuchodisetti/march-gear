@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import Image from "next/image";
+import { carPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { Suspense } from "react";
 import { ArrowUpRight, Home, PlugZap, Route, Zap } from "lucide-react";
@@ -15,12 +17,13 @@ import { Eyebrow, SectionHeading } from "@/components/ui/section-heading";
 import { dcMinutes } from "@/components/listing/ev-utils";
 import { ListingSkeleton } from "@/components/listing/listing-skeleton";
 import { EvExplorer } from "./_components/ev-explorer";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Electric cars in India — range, charging & prices",
-  description:
-    "Every electric car on sale in India, compared by claimed range, battery size and DC fast-charging time. Plus a plain-English guide to AC vs DC charging.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Electric Cars in India: Range, Charging & Prices",
+  description: "Every electric car on sale in India compared by claimed range, battery size and DC fast-charging time, with a plain-English guide to AC vs DC charging.",
+  path: "/electric-cars",
+});
 
 
 /* Running-cost teaser — indicative assumptions, stated on the page. */
@@ -49,6 +52,8 @@ function duration(min: number) {
 }
 
 export default async function ElectricCarsPage() {
+  // Render per request so the filterable listing (it reads the URL's query) is server-rendered into the HTML, not a client-only skeleton.
+  await connection();
   const { electricCars, upcoming, brandName } = await getCatalog();
   const EVS = electricCars();
   const longest = Math.max(...EVS.map((c) => c.ev?.rangeKm ?? 0));
@@ -238,7 +243,7 @@ export default async function ElectricCarsPage() {
                   <div className="relative aspect-[4/5] overflow-hidden bg-ink">
                     <Image
                       src={car.image}
-                      alt={`${brandName(car.brand)} ${car.name} (representative image)`}
+                      alt={carPhotoAlt(car.image, `${brandName(car.brand)} ${car.name}`)}
                       fill
                       sizes="(min-width: 1280px) 24vw, (min-width: 1024px) 30vw, (min-width: 640px) 44vw, 78vw"
                       className="object-cover opacity-90 transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/up:scale-[1.04]"

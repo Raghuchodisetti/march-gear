@@ -3,12 +3,13 @@ import { getCatalog } from "@/server/catalog";
 import { PageHeader } from "@/components/ui/page-header";
 import { MileageCalculator } from "@/components/tools/mileage-calculator";
 import { HowItWorks, RelatedTools, ToolDisclaimer, ToolFaqs, ToolMetaRow, ToolTips } from "@/components/tools/tool-sections";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Mileage Calculator",
-  description:
-    "Work out your car's real-world mileage with the tank-to-tank method, see your cost per km and monthly fuel bill, and compare it against the claimed figure.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car Mileage Calculator: Real-World Fuel Economy",
+  description: "Work out your car's real-world mileage with the tank-to-tank method, see your cost per km and monthly fuel bill, and compare it with the claimed figure.",
+  path: "/tools/mileage-calculator",
+});
 
 export default async function MileagePage() {
   const { iceRealWorldFactor } = (await getCatalog()).content.toolRates;

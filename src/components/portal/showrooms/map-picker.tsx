@@ -95,7 +95,7 @@ export function MapPicker({
     <div>
       <div className="relative aspect-[16/9] overflow-hidden border border-line bg-mist">
         {has ? (
-          <iframe key={`${lat},${lng}`} title="Showroom location map" src={osmEmbed(lat, lng)} className="size-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+          <iframe key={`${lat},${lng}`} title="Showroom location map" src={osmEmbed(lat, lng)} className="size-full border-0" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" />
         ) : (
           <div className="flex size-full flex-col items-center justify-center gap-2 px-6 text-center">
             <MapPin aria-hidden className="size-6 text-muted" />

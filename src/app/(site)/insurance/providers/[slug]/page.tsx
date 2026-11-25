@@ -13,15 +13,21 @@ import { termLabel } from "@/components/insurance/public/market/engine";
 import { INS_PRODUCT_CATEGORY_LABEL } from "@/insurance/labels";
 import { STANDARD_COVER_BY_KEY } from "@/insurance/covers";
 import { formatDate, formatNumber } from "@/lib/format";
+import { INSURANCE_OG_IMAGE, fitDescription, fitTitle, pageMetadata } from "@/components/seo/metadata";
 
 export async function generateMetadata(props: PageProps<"/insurance/providers/[slug]">): Promise<Metadata> {
   const { slug } = await props.params;
   const c = await getPublicCompany(slug);
   if (!c) return { title: "Provider not found" };
-  return {
-    title: `${c.name} — car insurance plans`,
-    description: c.about?.slice(0, 160) ?? `Car insurance plans from ${c.name} on MarchGear: cover, add-ons, garages and how claims work.`,
-  };
+  return pageMetadata({
+    title: fitTitle([`${c.name} Car Insurance Plans`, `${c.shortName ?? c.name} Car Insurance`, c.name]),
+    description: fitDescription(
+      `Car insurance plans from ${c.name} on MarchGear: cover, add-ons, cashless garages and how claims work.`,
+      c.about,
+    ),
+    path: `/insurance/providers/${c.slug}`,
+    images: [INSURANCE_OG_IMAGE],
+  });
 }
 
 export default async function ProviderPage(props: PageProps<"/insurance/providers/[slug]">) {
@@ -158,7 +164,7 @@ export default async function ProviderPage(props: PageProps<"/insurance/provider
             </div>
             <div className="lg:col-span-8">
               <h3 className="type-eyebrow text-ink">Add-on covers offered</h3>
-              <div className="relative mt-4 overflow-x-auto border border-line bg-white">
+              <div className="relative mt-4 overflow-x-auto border border-line bg-white" tabIndex={0} role="region" aria-label="Add-on covers offered">
                 <table className="w-full min-w-[520px] text-[13.5px]">
                   <thead>
                     <tr className="border-b border-line text-left text-[12px] text-muted">

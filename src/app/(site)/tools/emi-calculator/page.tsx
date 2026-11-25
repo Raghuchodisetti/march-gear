@@ -4,12 +4,13 @@ import { PageHeader } from "@/components/ui/page-header";
 import { EmiPlanner } from "@/components/tools/emi-planner";
 import { amortise } from "@/components/tools/calc";
 import { HowItWorks, RelatedTools, ToolDisclaimer, ToolFaqs, ToolMetaRow, ToolTips } from "@/components/tools/tool-sections";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Car EMI Calculator",
-  description:
-    "Calculate your car loan EMI instantly. Adjust price, down payment, interest rate and tenure, quick-pick popular cars, and see a year-by-year principal vs interest schedule.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car EMI Calculator: Monthly Loan Payment",
+  description: "Calculate your car loan EMI: set price, down payment, interest rate and tenure, pick a popular car, and see a year-by-year principal and interest schedule.",
+  path: "/tools/emi-calculator",
+});
 
 // Worked example for the tenure tip, from the same model as the calculator.
 const five = amortise(960_000, 9.25, 5);

@@ -197,7 +197,7 @@ export function MediaLibrary({ initial }: { initial: Page }) {
                   <span className="relative block aspect-square overflow-hidden bg-mist">
                     {/* Dealer upload from /media, shown as-is. */}
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={m.url} alt={m.alt ?? ""} loading="lazy" className="size-full object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/tile:scale-[1.04]" />
+                    <img decoding="async" src={m.url} alt={m.alt ?? ""} loading="lazy" className="size-full object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/tile:scale-[1.04]" />
                     {!m.alt && <span className="absolute left-2 top-2 rounded-full bg-white/90 px-2 py-0.5 text-[10.5px] font-semibold text-[#9a5b00]">No description</span>}
                   </span>
                   <span className="block px-3 py-2.5">
@@ -332,7 +332,7 @@ function MediaDrawer({ item, onClose, onSaved, onDeleted }: { item: PartnerMedia
           <div className="p-5">
             <div className="flex aspect-[4/3] items-center justify-center overflow-hidden border border-line bg-[repeating-conic-gradient(#f5f5f5_0%_25%,#fff_0%_50%)] bg-[length:20px_20px]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={item.url} alt={item.alt ?? ""} className="max-h-full max-w-full object-contain" />
+              <img loading="lazy" decoding="async" src={item.url} alt={item.alt ?? ""} className="max-h-full max-w-full object-contain" />
             </div>
             <p className="mt-4 break-all text-[14px] font-semibold">{item.filename}</p>
             <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-[12.5px]">

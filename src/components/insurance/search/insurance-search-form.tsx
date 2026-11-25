@@ -305,7 +305,7 @@ export function InsuranceSearchForm({ defaultIntent, initial, variant = "panel",
                   aria-invalid={errors.reg ? true : undefined}
                   aria-describedby={`${idBase}-reg-msg`}
                   className={cn(
-                    "h-12 w-full rounded-[3px] border border-line bg-white px-4 font-mono text-[15px] uppercase tracking-[0.08em] text-ink outline-none transition-[border-color] duration-[250ms] placeholder:font-sans placeholder:normal-case placeholder:tracking-normal placeholder:text-muted/70 hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red disabled:cursor-not-allowed disabled:bg-mist disabled:hover:border-line",
+                    "h-12 w-full rounded-[3px] border border-line bg-white px-4 font-mono text-[15px] uppercase tracking-[0.08em] text-ink outline-none transition-[border-color] duration-[250ms] placeholder:font-sans placeholder:normal-case placeholder:tracking-normal placeholder:text-muted hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red disabled:cursor-not-allowed disabled:bg-mist disabled:hover:border-line",
                   )}
                 />
                 <p id={`${idBase}-reg-msg`} className={cn("mt-1.5 flex items-start gap-1.5 text-xs", errors.reg ? "text-red" : "text-muted")}>
@@ -592,7 +592,7 @@ function GroupTitle({ n, children, aside }: { n: string; children: ReactNode; as
       <span className="text-red num">{n}</span>
       <span>{children}</span>
       <span aria-hidden className="h-px flex-1 bg-line" />
-      {aside && <span className="font-medium normal-case tracking-normal text-muted/80">{aside}</span>}
+      {aside && <span className="font-medium normal-case tracking-normal text-muted">{aside}</span>}
     </legend>
   );
 }

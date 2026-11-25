@@ -19,6 +19,7 @@ import { VALUATION_YEAR } from "@/components/valuation/valuation";
 import { StockSection } from "@/components/dealer/stock-section";
 import { getDealerStock } from "@/server/partner/inventory";
 import { DealerOffersSection } from "@/components/offers/page-sections";
+import { fitDescription, fitTitle, pageMetadata, shareImage } from "@/components/seo/metadata";
 
 export async function generateStaticParams() {
   const { dealers } = await getCatalog();
@@ -30,10 +31,17 @@ export async function generateMetadata(props: PageProps<"/dealers/[id]">): Promi
   const { getDealer, brandName } = await getCatalog();
   const dealer = getDealer(id);
   if (!dealer) return { title: "Dealer not found" };
-  return {
-    title: `${dealer.name}, ${dealer.area} — ${dealer.brand === "multi-brand" ? "pre-owned cars" : `${brandName(dealer.brand)} dealer`} in ${dealer.city}`,
-    description: `${dealer.address}. Rated ${dealer.rating.toFixed(1)} from ${dealer.reviewCount.toLocaleString("en-IN")} reviews. ${dealer.hours}.`,
-  };
+  const kind = dealer.brand === "multi-brand" ? "Used Car Dealer" : `${brandName(dealer.brand)} Dealer`;
+  return pageMetadata({
+    title: fitTitle([`${dealer.name}, ${dealer.area}: ${kind} in ${dealer.city}`, `${dealer.name}: ${kind} in ${dealer.city}`, `${dealer.name}, ${dealer.city}`, dealer.name]),
+    description: fitDescription(
+      `${dealer.name}: ${kind} in ${dealer.area}, ${dealer.city}.`,
+      `${dealer.address}.`,
+      [`Open ${dealer.hours}. Services, stock, offers and directions.`, "Services, stock, offers and directions."],
+    ),
+    path: `/dealers/${dealer.id}`,
+    images: [shareImage(dealer.image, dealer.name)],
+  });
 }
 
 export default async function DealerPage(props: PageProps<"/dealers/[id]">) {

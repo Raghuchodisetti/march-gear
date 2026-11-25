@@ -100,7 +100,7 @@ export function OfferCard({ offer, renderedAt, className, compact, priority }: {
         <p className={cn("font-display font-semibold leading-tight tracking-[-0.02em] text-red", compact ? "text-[18px]" : "text-[21px]")}>{offer.headline}</p>
         <h3 className={cn("mt-2 font-display font-semibold leading-snug tracking-[-0.01em] text-ink", compact ? "text-[15px]" : "text-[17px]")}>
           {offer.href ? (
-            <Link href={offer.href} className="after:absolute after:inset-0 after:z-[1] focus-visible:outline-none">
+            <Link href={offer.href} className="after:absolute after:inset-0 after:z-[1] stretched-focus">
               {offer.title || "Untitled offer"}
             </Link>
           ) : (

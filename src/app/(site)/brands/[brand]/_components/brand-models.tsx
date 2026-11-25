@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { carPhotoAlt } from "@/lib/image-alt";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Cog, Fuel, Gauge, ShieldCheck, Zap } from "lucide-react";
@@ -69,7 +70,7 @@ function ModelFeature({ car }: { car: CarModel }) {
   return (
     <article className="grid grid-cols-1 border border-line lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
       <div className="relative aspect-[16/10] overflow-hidden bg-mist lg:aspect-auto lg:min-h-[460px]">
-        <Image src={car.images[0]} alt={title} fill sizes="(min-width: 1024px) 56vw, 100vw" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
+        <Image src={car.images[0]} alt={carPhotoAlt(car.images[0], title)} fill sizes="(min-width: 1024px) 56vw, 100vw" className="object-cover" style={{ objectPosition: car.focus ?? "50% 55%" }} />
       </div>
       <div className="flex flex-col p-6 sm:p-8 xl:p-12">
         <p className="type-eyebrow text-muted">{car.bodyType}</p>

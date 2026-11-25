@@ -17,7 +17,7 @@ export const metadata: Metadata = { title: "Become a dealer partner" };
 
 const BENEFITS = [
   { icon: BadgeCheck, title: "A verified partner listing", body: "Your showrooms, brands, hours and contact details on a public MarchGear dealer page." },
-  { icon: CarFront, title: "New and used inventory", body: "List your stock. Every listing is reviewed by our team before it goes live." },
+  { icon: CarFront, title: "New and used inventory", body: "Pick cars from the MarchGear catalogue and add your price and stock. New cars go live when you publish; used cars after our review." },
   { icon: Sparkles, title: "Offers with approval built in", body: "Festival, finance and exchange offers, shown on the models they apply to." },
   { icon: Inbox, title: "Enquiries to sales", body: "Leads, test-drive requests and follow-ups for your whole team in one place." },
 ];

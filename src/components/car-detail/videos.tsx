@@ -55,7 +55,6 @@ function VideoCard({ video, large, onPlay, className }: { video: CarVideo; large
       <button
         type="button"
         onClick={onPlay}
-        aria-label={`Play video: ${video.title} (${video.duration})`}
         className={cn("relative block w-full overflow-hidden bg-ink-2", large ? "aspect-[16/9]" : "aspect-[16/9] lg:aspect-[16/8]")}
       >
         <Image
@@ -75,6 +74,7 @@ function VideoCard({ video, large, onPlay, className }: { video: CarVideo; large
         >
           <Play className={cn("translate-x-0.5 fill-ink", large ? "size-6" : "size-5")} />
         </span>
+        <span className="sr-only">Play video: {video.title}. </span>
         <span className="absolute bottom-4 left-4 flex items-center gap-2">
           <Badge tone="glass-dark">{video.kind}</Badge>
           <span className="bg-ink/70 px-2 py-1 text-[11px] font-medium text-white num">{video.duration}</span>

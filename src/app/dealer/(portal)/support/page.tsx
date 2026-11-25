@@ -46,7 +46,24 @@ export default async function Page({ searchParams }: PageProps<"/dealer/support"
 
   return (
     <>
-      <PortalHeader title="Support" description="Questions about your account, listings, offers or billing — the MarchGear partner team replies here." actions={<NewTicketButton />} />
+      <PortalHeader
+        title="Support"
+        description="Questions about your account, listings, offers or billing — the MarchGear partner team replies here."
+        actions={
+          <NewTicketButton
+            prefill={
+              strParam(sp.new) === "catalogue"
+                ? {
+                    category: "catalogue",
+                    subject: "Please add a model to the catalogue",
+                    message: "Brand:\nModel:\nVariant(s):\nNew or used car:\nAnything else (launch date, colours, a link to the manufacturer's page):\n",
+                    closeHref: "/dealer/support",
+                  }
+                : undefined
+            }
+          />
+        }
+      />
 
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <StatCard label="In progress" value={n(TICKET_ACTIVE)} href="/dealer/support?status=active" />

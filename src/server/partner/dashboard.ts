@@ -19,6 +19,8 @@ import type { CrmStatus } from "@/db/enums";
 import { CRM_WON, offerDisplayStatus } from "@/partner/labels";
 import type { PartnerContext } from "@/server/partner/context";
 import { testDriveScope } from "@/server/partner/crm";
+import { getCatalog } from "@/server/catalog";
+import { needsCatalogueCount } from "@/server/partner/inventory";
 import { todayISO } from "@/server/validation";
 import { CRM_FINISHED } from "@/components/portal/crm/pipeline";
 import { categoryOf, notificationVisible, type DealerNotificationPrefs } from "@/components/portal/notifications/categories";
@@ -142,7 +144,8 @@ export async function getDashboard(ctx: PartnerContext, range: 14 | 30): Promise
       ? db.select({ day: istDate, n: count() }).from(partnerLeads).where(leadWhere(ctx, gte(partnerLeads.createdAt, periodStart))).groupBy(istDate)
       : Promise.resolve([] as { day: string; n: number }[]),
     show.inventory ? db.select({ n: count() }).from(partnerVehicles).where(and(eq(partnerVehicles.partnerId, pid), eq(partnerVehicles.status, "published"))) : zero,
-    show.inventory ? db.select({ n: count() }).from(partnerVehicles).where(and(eq(partnerVehicles.partnerId, pid), eq(partnerVehicles.status, "pending_approval"))) : zero,
+    // Only used cars wait for MarchGear's approval.
+    show.inventory ? db.select({ n: count() }).from(partnerVehicles).where(and(eq(partnerVehicles.partnerId, pid), eq(partnerVehicles.kind, "used"), eq(partnerVehicles.status, "pending_approval"))) : zero,
     show.offers
       ? db
           .select({
@@ -182,6 +185,7 @@ export async function getDashboard(ctx: PartnerContext, range: 14 | 30): Promise
             views: partnerVehicles.views,
             enquiries: partnerVehicles.enquiries,
             images: partnerVehicles.images,
+            modelSlug: partnerVehicles.modelSlug,
           })
           .from(partnerVehicles)
           .where(and(eq(partnerVehicles.partnerId, pid), inArray(partnerVehicles.status, ["published", "approved", "unpublished"])))
@@ -221,7 +225,7 @@ export async function getDashboard(ctx: PartnerContext, range: 14 | 30): Promise
   const ran = withStatus.filter((o) => o.display === "active" || o.display === "expired" || o.display === "paused");
   const campaigns = [...withStatus.filter((o) => o.display === "scheduled"), ...live.sort((a, b) => a.endsAt.getTime() - b.endsAt.getTime())].slice(0, 4);
 
-  const [pending, activity, notifications, setup] = await Promise.all([pendingActions(ctx, show, now), recentActivity(ctx), latestNotifications(ctx), setupChecklist(ctx, show)]);
+  const [pending, activity, notifications, setup, cat] = await Promise.all([pendingActions(ctx, show, now), recentActivity(ctx), latestNotifications(ctx), setupChecklist(ctx, show), getCatalog()]);
 
   return {
     range,
@@ -257,7 +261,8 @@ export async function getDashboard(ctx: PartnerContext, range: 14 | 30): Promise
       status: v.status,
       views: v.views,
       enquiries: v.enquiries,
-      image: v.images[0] ?? null,
+      // A new car's photo is the catalogue's.
+      image: (v.kind === "new" ? (v.modelSlug ? cat.getCar(v.modelSlug)?.images[0] : undefined) : v.images[0]) ?? null,
     })),
     recentLeads,
     campaigns: campaigns.map((o) => ({ id: o.id, reference: o.reference, title: o.title, campaignName: o.campaignName, status: o.display, startsAt: o.startsAt, endsAt: o.endsAt, views: o.views, enquiries: o.enquiries })),
@@ -274,7 +279,7 @@ async function pendingActions(ctx: PartnerContext, show: DashboardData["show"], 
   const today = todayISO();
   const soon = new Date(Date.now() + 30 * DAY + 5.5 * 3_600_000).toISOString().slice(0, 10);
   const zero = Promise.resolve([{ n: 0 }]);
-  const [[{ n: vehicles }], [{ n: offers }], certs, [{ n: overdue }], [{ n: drives }], [{ n: invoices }], [{ n: unassigned }]] = await Promise.all([
+  const [[{ n: vehicles }], [{ n: offers }], certs, [{ n: overdue }], [{ n: drives }], [{ n: invoices }], [{ n: unassigned }], uncatalogued] = await Promise.all([
     // Only people who can fix them are asked to.
     ctx.can("inventory.manage") ? db.select({ n: count() }).from(partnerVehicles).where(and(eq(partnerVehicles.partnerId, pid), eq(partnerVehicles.status, "changes_requested"))) : zero,
     ctx.can("offers.manage") ? db.select({ n: count() }).from(partnerOffers).where(and(eq(partnerOffers.partnerId, pid), eq(partnerOffers.status, "changes_requested"))) : zero,
@@ -297,10 +302,13 @@ async function pendingActions(ctx: PartnerContext, show: DashboardData["show"], 
     ctx.can("leads.assign") && leadScope(ctx) === "all"
       ? db.select({ n: count() }).from(partnerLeads).where(and(eq(partnerLeads.partnerId, pid), isNull(partnerLeads.assignedMemberId), notInArray(partnerLeads.status, CRM_FINISHED)))
       : zero,
+    ctx.can("inventory.manage") ? needsCatalogueCount(pid) : Promise.resolve(0),
   ]);
 
   const out: PendingAction[] = [];
   const plural = (n: number, one: string, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
+  if (uncatalogued)
+    out.push({ key: "catalogue", tone: "red", count: uncatalogued, title: "Listings need a catalogue model", detail: `Pick the catalogue model for ${plural(uncatalogued, "listing")} — hidden from the website until then.`, href: "/dealer/inventory" });
   if (vehicles) out.push({ key: "vehicles", tone: "amber", count: vehicles, title: "Vehicle changes requested", detail: `MarchGear asked for changes on ${plural(vehicles, "listing")}.`, href: "/dealer/inventory?status=changes_requested" });
   if (offers) out.push({ key: "offers", tone: "amber", count: offers, title: "Offer changes requested", detail: `Update ${plural(offers, "offer")} and resubmit for approval.`, href: "/dealer/offers?status=changes_requested" });
   const expired = certs.filter((c) => c.validUntil! < today);

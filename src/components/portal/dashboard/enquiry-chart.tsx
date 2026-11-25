@@ -60,6 +60,7 @@ export function EnquiryChart({ series }: { series: { day: string; count: number 
                 onFocus={() => setActive(i)}
                 onBlur={() => setActive(null)}
                 tabIndex={0}
+                role="img"
                 aria-label={`${dayLabel(d.day)}: ${d.count} ${d.count === 1 ? "enquiry" : "enquiries"}`}
               >
                 <span

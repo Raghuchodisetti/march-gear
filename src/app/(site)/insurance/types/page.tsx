@@ -11,13 +11,14 @@ import { getCatalog } from "@/server/catalog";
 import { getPublicCategoryCounts } from "@/server/insurance/public";
 import { Button } from "@/components/ui/button";
 import { CategoryAd, CtaBand, LandingHero, PlansListed, QuoteSection, RelatedGuides, Section, pickGuides } from "@/components/insurance/public/landing";
+import { INSURANCE_OG_IMAGE, pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Types of car insurance — comprehensive, third-party, own-damage and more",
-  description:
-    "Every kind of private car insurance policy in India explained: comprehensive, third-party, standalone own-damage, bundled new-car policies, used-car, EV and long-term cover — and what each one covers.",
-  alternates: { canonical: "/insurance/types" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Types of Car Insurance Explained",
+  description: "Every kind of private car insurance in India explained: comprehensive, third-party, standalone own-damage, bundled new-car, used-car, EV and long-term cover.",
+  path: "/insurance/types",
+  images: [INSURANCE_OG_IMAGE],
+});
 
 const ANCHOR: Record<InsProductCategory, string> = {
   comprehensive: "comprehensive",
@@ -157,7 +158,7 @@ export default async function InsuranceTypesPage() {
                         {v === true ? (
                           <Check aria-label="Included" className="size-4 text-red" strokeWidth={2.5} />
                         ) : v === false ? (
-                          <Minus aria-label="Not included" className="size-4 text-muted/60" />
+                          <Minus aria-label="Not included" className="size-4 text-muted" />
                         ) : (
                           <span className="text-muted">{v}</span>
                         )}

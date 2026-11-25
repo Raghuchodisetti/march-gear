@@ -168,7 +168,7 @@ function Week({ from, today, byDay, href }: { from: string; today: string; byDay
                     </Link>
                   ))
                 ) : (
-                  <p className="pt-2 text-[12.5px] text-muted/70">No test drives</p>
+                  <p className="pt-2 text-[12.5px] text-muted">No test drives</p>
                 )}
               </div>
             </li>

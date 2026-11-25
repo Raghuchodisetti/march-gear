@@ -35,7 +35,7 @@ export function HowItWorks({ intro, steps, title = "How it's calculated" }: { in
                 <h3 className="type-h4">{step.title}</h3>
                 <div className="mt-2 max-w-2xl text-[15px] leading-relaxed text-muted">{step.body}</div>
                 {step.formula && (
-                  <pre className="no-scrollbar mt-4 overflow-x-auto border-l-2 border-red bg-mist px-4 py-3 font-mono text-[12.5px] leading-relaxed text-ink">
+                  <pre tabIndex={0} aria-label="Formula" className="no-scrollbar mt-4 overflow-x-auto border-l-2 border-red bg-mist px-4 py-3 font-mono text-[12.5px] leading-relaxed text-ink">
                     {step.formula}
                   </pre>
                 )}

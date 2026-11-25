@@ -8,6 +8,8 @@ import { formatDate, formatKm } from "@/lib/format";
 import { cn, initials } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { submitOwnerReviewAction } from "@/server/actions/leads";
+import { ConsentCheckbox, PolicyLink, PrivacyLink } from "@/components/forms/consent";
+import { radioGroupKeyDown, rovingTabIndex, useFormFeedback } from "@/components/forms/form-a11y";
 import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/overlay";
 import { Segmented, SelectField, TextArea, TextField } from "@/components/ui/field";
@@ -174,6 +176,7 @@ function ReviewCard({ review, voted, onVote }: { review: OwnerReview; voted: boo
         {long && (
           <button type="button" onClick={() => setExpanded((e) => !e)} aria-expanded={expanded} className="mt-2 text-[13px] font-medium underline underline-offset-4">
             {expanded ? "Show less" : "Read more"}
+            <span className="sr-only">: {review.title}</span>
           </button>
         )}
         <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-[12.5px] text-muted">
@@ -213,6 +216,7 @@ interface FormState {
   rating: number;
   title: string;
   body: string;
+  consent: boolean;
 }
 type FormErrors = Partial<Record<keyof FormState, string>>;
 
@@ -230,6 +234,7 @@ const FIELD_FOR: Record<string, keyof FormState> = {
   body: "body",
   name: "name",
   city: "city",
+  consent: "consent",
 };
 
 function WriteReviewModal({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -260,7 +265,9 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
     rating: 0,
     title: "",
     body: "",
+    consent: false,
   });
+  const feedback = useFormFeedback();
   const [submitted, setSubmitted] = useState(false);
   const [serverErrors, setServerErrors] = useState<FormErrors>({});
   const [formError, setFormError] = useState<string | null>(null);
@@ -276,6 +283,7 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
   if (form.title.trim().length < 4) errors.title = "Add a short headline (at least 4 characters).";
   if (form.body.trim().length < 40) errors.body = `Tell us a little more — at least 40 characters (${form.body.trim().length}/40).`;
   if (!Number.isInteger(kmValue) || kmValue < 0 || kmValue > 999_999) errors.km = "Enter kilometres as a whole number, e.g. 12500.";
+  if (!form.consent) errors.consent = "Please confirm this is your own experience and that we may publish it.";
   const show = (k: keyof FormState) => (submitted ? errors[k] : undefined) ?? serverErrors[k];
 
   const set = <K extends keyof FormState>(key: K, value: FormState[K]) => {
@@ -283,12 +291,13 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
     setServerErrors((e) => (e[key] ? { ...e, [key]: undefined } : e));
   };
 
-  const submit = async (e: FormEvent) => {
+  const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (busy) return;
+    const formEl = e.currentTarget;
     setSubmitted(true);
     setFormError(null);
-    if (Object.keys(errors).length) return;
+    if (feedback.report(errors, formEl)) return;
 
     const reviewer = form.name.trim().replace(/\s+/g, " ");
     // Bots fill the hidden field: pretend it worked and send nothing.
@@ -307,6 +316,7 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
         name: reviewer,
         city: form.city.trim(),
         ratings: { exterior: form.rating, comfort: form.rating, performance: form.rating, value: form.rating },
+        consent: true,
       });
       if (!res.ok) {
         const mapped: FormErrors = {};
@@ -316,6 +326,7 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
           else unplaced ??= msg;
         }
         setServerErrors(mapped);
+        feedback.report(mapped, formEl);
         if (!Object.keys(mapped).length || unplaced) setFormError(unplaced ?? res.error ?? "We couldn't send your review. Please try again.");
         return;
       }
@@ -347,6 +358,7 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
   return (
     <form onSubmit={submit} noValidate className="space-y-6 p-6 sm:p-8">
       <Honeypot value={website} onChange={setWebsite} />
+      {feedback.live}
       {formError && (
         <p role="alert" className="border-l-2 border-red bg-red-50 px-3 py-2.5 text-[13.5px] text-red">
           {formError}
@@ -356,8 +368,12 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
         <p className="mb-2 text-[12.5px] font-medium" id="rating-label">
           Your rating
         </p>
-        <StarInput value={form.rating} onChange={(v) => set("rating", v)} labelledBy="rating-label" invalid={Boolean(show("rating"))} />
-        {show("rating") && <p className="mt-1.5 text-xs text-red">{show("rating")}</p>}
+        <StarInput value={form.rating} onChange={(v) => set("rating", v)} labelledBy="rating-label" invalid={Boolean(show("rating"))} describedBy={show("rating") ? "rating-msg" : undefined} />
+        {show("rating") && (
+          <p id="rating-msg" className="mt-1.5 text-xs text-red">
+            {show("rating")}
+          </p>
+        )}
       </div>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <TextField label="Your name" value={form.name} onChange={(e) => set("name", e.target.value)} error={show("name")} autoComplete="name" data-autofocus />
@@ -394,11 +410,15 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
           value={form.body}
           onChange={(e) => set("body", e.target.value)}
           rows={5}
-          aria-invalid={show("body") ? true : undefined}
+          maxLength={5000}
+          error={show("body")}
           placeholder="Comfort, efficiency, service experience, what you'd change…"
         />
-        {show("body") && <p className="mt-1.5 text-xs text-red">{show("body")}</p>}
       </div>
+      <ConsentCheckbox id="car-review-consent" checked={form.consent} onChange={(v) => set("consent", v)} error={show("consent")}>
+        I confirm this is my own, honest experience of owning this car, and I agree that MarchGear may publish it with my display name and city, as set out in the{" "}
+          <PolicyLink href="/terms#user-content">Terms &amp; Conditions</PolicyLink> and the <PrivacyLink />.
+      </ConsentCheckbox>
       <div className="flex flex-col-reverse gap-3 border-t border-line pt-6 sm:flex-row sm:justify-end">
         <Button variant="ghost" onClick={onClose} disabled={busy}>
           Cancel
@@ -409,7 +429,7 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
               <Loader2 aria-hidden className="size-4 animate-spin" /> Sending…
             </>
           ) : (
-            "Submit review"
+            "Send my review"
           )}
         </Button>
       </div>
@@ -417,19 +437,29 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
   );
 }
 
-function StarInput({ value, onChange, labelledBy, invalid }: { value: number; onChange: (v: number) => void; labelledBy: string; invalid?: boolean }) {
+function StarInput({ value, onChange, labelledBy, invalid, describedBy }: { value: number; onChange: (v: number) => void; labelledBy: string; invalid?: boolean; describedBy?: string }) {
   const [hover, setHover] = useState(0);
   const shown = hover || value;
   const words = ["", "Poor", "Below average", "Good", "Very good", "Excellent"];
   return (
     <div className="flex items-center gap-4">
-      <div role="radiogroup" aria-labelledby={labelledBy} aria-invalid={invalid || undefined} className="flex gap-1" onMouseLeave={() => setHover(0)}>
+      <div
+        role="radiogroup"
+        aria-labelledby={labelledBy}
+        aria-invalid={invalid || undefined}
+        aria-describedby={describedBy}
+        aria-required="true"
+        onKeyDown={radioGroupKeyDown}
+        className="flex gap-1"
+        onMouseLeave={() => setHover(0)}
+      >
         {[1, 2, 3, 4, 5].map((n) => (
           <button
             key={n}
             type="button"
             role="radio"
             aria-checked={value === n}
+            tabIndex={rovingTabIndex(value === n, n - 1, value > 0)}
             aria-label={`${n} star${n > 1 ? "s" : ""} — ${words[n]}`}
             onMouseEnter={() => setHover(n)}
             onFocus={() => setHover(n)}

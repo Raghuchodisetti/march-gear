@@ -113,7 +113,7 @@ function DocTile({ label, file, review, onPreview }: { label: string; file: File
         {image ? (
           // Private document thumbnail served by /dealer/files/<id> (members + staff only).
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={fileUrl(file)} alt="" className="size-full object-cover" loading="lazy" />
+          <img decoding="async" src={fileUrl(file)} alt="" className="size-full object-cover" loading="lazy" />
         ) : (
           <FileText aria-hidden className="size-5" />
         )}
@@ -162,7 +162,7 @@ export function ReviewStep({
           {p.photo ? (
             // Dealer-uploaded photo from /media.
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={p.photo} alt="Profile photograph" className="size-24 shrink-0 border border-line object-cover" />
+            <img loading="lazy" decoding="async" src={p.photo} alt="Profile photograph" className="size-24 shrink-0 border border-line object-cover" />
           ) : (
             <span className="inline-flex size-24 shrink-0 items-center justify-center border border-dashed border-line text-[12px] text-muted">No photo</span>
           )}
@@ -242,7 +242,7 @@ export function ReviewStep({
                   {r.photos.slice(0, 5).map((src) => (
                     // Dealer-uploaded showroom photo from /media.
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img key={src} src={src} alt="" className="h-14 w-20 shrink-0 border border-line object-cover" loading="lazy" />
+                    <img decoding="async" key={src} src={src} alt="" className="h-14 w-20 shrink-0 border border-line object-cover" loading="lazy" />
                   ))}
                   {r.photos.length > 5 && <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center bg-mist text-[12px] text-muted">+{r.photos.length - 5}</span>}
                 </div>
@@ -313,7 +313,7 @@ export function ReviewStep({
             <p className="font-semibold text-ink">MarchGear dealer partner terms — summary</p>
             <ol className="mt-3 list-decimal space-y-2 pl-5">
               <li>You confirm that the information and documents you provide are genuine and current. MarchGear may verify them with the issuing authorities, manufacturers or your bank.</li>
-              <li>Every vehicle listing and offer you publish is reviewed by MarchGear before it goes live. Prices, stock and offers must be accurate and honoured as published.</li>
+              <li>Vehicles are listed from MarchGear&apos;s catalogue, which only MarchGear maintains. New-car listings go live when you publish them; used cars and offers are reviewed by MarchGear before they go live. Prices, stock and offers must be accurate and honoured as published.</li>
               <li>Customer enquiries and test-drive requests are shared with you only to respond to that customer. Don&apos;t use them for anything else, and handle them in line with applicable data-protection law.</li>
               <li>Only list brands you&apos;re entitled to sell, and use manufacturer names and logos according to their guidelines.</li>
               <li>MarchGear may pause listings, or suspend or close a partner account, for misleading content, fraud, or a breach of these terms. You&apos;ll be told why on your status page.</li>
@@ -379,7 +379,7 @@ export function ReviewStep({
             {preview.file.mime.startsWith("image/") ? (
               // Private document preview served by /dealer/files/<id>.
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={fileUrl(preview.file)} alt={preview.label} className="max-h-[60vh] w-full border border-line bg-mist object-contain" />
+              <img loading="lazy" decoding="async" src={fileUrl(preview.file)} alt={preview.label} className="max-h-[60vh] w-full border border-line bg-mist object-contain" />
             ) : (
               <div className="flex flex-col items-center gap-3 border border-line bg-mist px-6 py-12 text-center">
                 <FileText aria-hidden className="size-10 text-red" />

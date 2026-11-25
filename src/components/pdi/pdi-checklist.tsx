@@ -127,7 +127,7 @@ export function PdiChecklist() {
             </button>
           </div>
           <p className="mt-4 text-[12px] text-muted">
-            PDF{lead?.car && ` for your ${lead.car}${lead.fuel ? ` (${lead.fuel})` : ""}`} sent to <span className="text-ink">{lead?.email}</span>. Your ticks are saved on this device, so you can use it at the dealership.
+            PDF{lead?.car && ` for your ${lead.car}${lead.fuel ? ` (${lead.fuel})` : ""}`} downloaded to this device. Your ticks are saved on this device too, so you can use it at the dealership.
           </p>
         </div>
         )}

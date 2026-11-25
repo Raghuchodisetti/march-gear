@@ -8,17 +8,18 @@ import { submitLeadAction } from "@/server/actions/leads";
 import { SelectField, TextArea, TextField } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Honeypot } from "@/components/forms/honeypot";
+import { CONSENT_REQUIRED, ConsentCheckbox, PrivacyLink } from "@/components/forms/consent";
+import { useFormFeedback } from "@/components/forms/form-a11y";
 import { useUI, useUser } from "@/components/providers/app-provider";
 import { useCatalog } from "@/components/providers/catalog-provider";
 import { cn } from "@/lib/utils";
 import { EMAIL_RE } from "./newsletter-form";
 
-type Field = "name" | "email" | "phone" | "topic" | "message";
+type Field = "name" | "email" | "phone" | "topic" | "message" | "consent";
 const MIN_MESSAGE = 10;
-const ORDER: Field[] = ["name", "email", "phone", "topic", "message"];
-const EMPTY: Record<Field, string> = { name: "", email: "", phone: "", topic: "", message: "" };
+const EMPTY: Record<Exclude<Field, "consent">, string> = { name: "", email: "", phone: "", topic: "", message: "" };
 /** Server field → form field. */
-const FIELD_FOR: Record<string, Field> = { name: "name", email: "email", phone: "phone", subject: "topic", message: "message" };
+const FIELD_FOR: Record<string, Field> = { name: "name", email: "email", phone: "phone", subject: "topic", message: "message", consent: "consent" };
 const NETWORK_ERROR = "Couldn't reach the server. Check your connection and try again.";
 
 /** "+91 98765 43210" / "098765 43210" → "9876543210" */
@@ -36,14 +37,16 @@ export function ContactForm() {
   const { toast } = useUI();
   const { user } = useUser();
   const { contactTopics } = useCatalog().content.site;
-  const [values, setValues] = useState<Record<Field, string>>(EMPTY);
+  const [values, setValues] = useState(EMPTY);
+  const [consent, setConsent] = useState(false);
+  const feedback = useFormFeedback();
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [website, setWebsite] = useState("");
   const [busy, setBusy] = useState(false);
   const [sent, setSent] = useState<{ ref: string; name: string; email: string; topic: string } | null>(null);
 
-  const set = (field: Field, value: string) => {
+  const set = (field: keyof typeof EMPTY, value: string) => {
     setValues((v) => ({ ...v, [field]: value }));
     if (errors[field]) setErrors((e) => ({ ...e, [field]: undefined }));
   };
@@ -53,24 +56,20 @@ export function ContactForm() {
     setValues((v) => ({ ...v, name: v.name || user.name, email: v.email || user.email, phone: v.phone || user.phone }));
   };
 
-  const focusFirst = (errs: Partial<Record<Field, string>>) => {
-    const first = ORDER.find((f) => errs[f]);
-    if (first) document.getElementById(`contact-${first}`)?.focus();
-    return Boolean(first);
-  };
-
-  const submit = async (e: FormEvent) => {
+  const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (busy) return;
+    const form = e.currentTarget;
     const next: Partial<Record<Field, string>> = {};
     if (values.name.trim().length < 2) next.name = "Please tell us your name";
     if (!EMAIL_RE.test(values.email.trim())) next.email = "Enter a valid email address so we can reply";
     if (values.phone.trim() && !validPhone(values.phone)) next.phone = "Enter a 10-digit Indian mobile number, or leave blank";
     if (!values.topic) next.topic = "Choose what your message is about";
     if (values.message.trim().length < MIN_MESSAGE) next.message = `A little more detail helps — at least ${MIN_MESSAGE} characters`;
+    if (!consent) next.consent = CONSENT_REQUIRED;
     setErrors(next);
     setFormError(null);
-    if (focusFirst(next)) return;
+    if (feedback.report(next, form)) return;
 
     const topic = contactTopics.find((t) => t.value === values.topic)?.label ?? "Something else";
     setBusy(true);
@@ -83,6 +82,7 @@ export function ContactForm() {
         subject: topic,
         message: values.message.trim(),
         source: pathname,
+        consent: true,
         website,
       });
       if (!res.ok) {
@@ -93,7 +93,8 @@ export function ContactForm() {
           else unplaced ??= msg;
         }
         setErrors(mapped);
-        if (!focusFirst(mapped) || unplaced) setFormError(unplaced ?? res.error ?? "We couldn't send your message. Please try again.");
+        const placed = feedback.report(mapped, form);
+        if (!placed || unplaced) setFormError(unplaced ?? res.error ?? "We couldn't send your message. Please try again.");
         return;
       }
       setSent({ ref: res.reference, name: values.name.trim().split(" ")[0], email: values.email.trim(), topic });
@@ -134,6 +135,7 @@ export function ContactForm() {
             onClick={() => {
               setSent(null);
               setValues(EMPTY);
+              setConsent(false);
               setWebsite("");
             }}
           >
@@ -159,6 +161,7 @@ export function ContactForm() {
   return (
     <form onSubmit={submit} noValidate aria-labelledby="contact-form-heading">
       <Honeypot value={website} onChange={setWebsite} />
+      {feedback.live}
       <div className="flex flex-wrap items-end justify-between gap-4">
         <h2 id="contact-form-heading" className="type-h3">
           Send us a message
@@ -219,6 +222,7 @@ export function ContactForm() {
         <div className="sm:col-span-2">
           <TextArea
             id="contact-message"
+            maxLength={2000}
             label="Message"
             rows={6}
             placeholder="How can we help?"
@@ -234,14 +238,21 @@ export function ContactForm() {
         </div>
       </div>
 
+      <ConsentCheckbox
+        id="contact-consent"
+        className="mt-6"
+        checked={consent}
+        onChange={(v) => {
+          setConsent(v);
+          if (errors.consent) setErrors((x) => ({ ...x, consent: undefined }));
+        }}
+        error={errors.consent}
+      >
+        I agree that MarchGear may use these details to reply to my message, by email or by phone if I&apos;ve given a number. See the <PrivacyLink />.
+      </ConsentCheckbox>
+
       <div className="mt-8 flex flex-col-reverse gap-5 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
-        <p className="max-w-sm text-[12px] leading-relaxed text-muted">
-          We use your details only to reply. See our{" "}
-          <Link href="/privacy" className="text-ink underline underline-offset-4 hover:text-red">
-            privacy policy
-          </Link>
-          .
-        </p>
+        <p className="max-w-sm text-[12px] leading-relaxed text-muted">We use your details only to reply, and keep them as the Privacy Policy describes.</p>
         <Button type="submit" variant="primary" size="lg" arrow={!busy} className="shrink-0" disabled={busy}>
           {busy ? (
             <>

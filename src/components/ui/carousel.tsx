@@ -31,6 +31,8 @@ export function Carousel({
 }) {
   const track = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState({ start: true, end: false, ratio: 0, visible: 1 });
+  // A track whose slides hold nothing focusable is made focusable itself, so keyboard users can scroll it.
+  const [focusableTrack, setFocusableTrack] = useState(false);
   const drag = useRef<{ x: number; left: number; moved: boolean } | null>(null);
 
   const measure = useCallback(() => {
@@ -43,6 +45,7 @@ export function Carousel({
       ratio: max > 0 ? el.scrollLeft / max : 0,
       visible: el.scrollWidth > 0 ? Math.min(1, el.clientWidth / el.scrollWidth) : 1,
     });
+    setFocusableTrack(el.scrollWidth > el.clientWidth && !el.querySelector('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'));
   }, []);
 
   useEffect(() => {
@@ -110,6 +113,7 @@ export function Carousel({
       )}
       <div
         ref={track}
+        tabIndex={focusableTrack ? 0 : undefined}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}

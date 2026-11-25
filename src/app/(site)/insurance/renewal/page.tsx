@@ -5,13 +5,14 @@ import { cn } from "@/lib/utils";
 import { getCatalog } from "@/server/catalog";
 import { Button } from "@/components/ui/button";
 import { CategoryAd, CtaBand, HeroFacts, LandingHero, QuoteSection, RelatedGuides, Section, Steps, pickGuides } from "@/components/insurance/public/landing";
+import { INSURANCE_OG_IMAGE, pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Car insurance renewal — keep your no-claim bonus",
-  description:
-    "Renew your car insurance on time: how the no-claim bonus grows from 20% to 50%, what happens when a policy lapses (NCB lost after 90 days, inspection), and how to switch insurers.",
-  alternates: { canonical: "/insurance/renewal" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car Insurance Renewal: Keep Your No-Claim Bonus",
+  description: "Renew your car insurance on time: how the no-claim bonus grows to 50%, what happens when a policy lapses past 90 days, and how to switch insurers.",
+  path: "/insurance/renewal",
+  images: [INSURANCE_OG_IMAGE],
+});
 
 const SLABS = [
   { years: "1 claim-free year", pct: 20 },

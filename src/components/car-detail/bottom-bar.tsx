@@ -59,14 +59,14 @@ export function BottomActionBar({
           type="button"
           onClick={() => setLocationOpen(true)}
           className="min-w-0 flex-1 text-left"
-          aria-label={`On-road price in ${city.name}: ${formatPriceShort(onRoad)}. Change city`}
         >
           <span className={cn("flex items-center gap-1 text-[11px]", dark ? "text-white/55" : "text-muted")}>
             <span className="truncate">On-road · {city.name}</span>
             <ChevronDown aria-hidden className="size-3 shrink-0" />
           </span>
           <span className="block text-[17px] font-semibold leading-tight num">{formatPriceShort(onRoad)}</span>
-          <span className={cn("block truncate text-[11px]", dark ? "text-white/45" : "text-muted")}>{detail}</span>
+          <span className={cn("block truncate text-[11px]", dark ? "text-white/55" : "text-muted")}>{detail}</span>
+          <span className="sr-only">. Change city</span>
         </button>
         <Button
           variant={dark ? "outline-light" : "outline"}

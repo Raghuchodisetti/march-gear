@@ -15,12 +15,13 @@ import { buttonClasses } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { calcRates, evVsIce, formatYears, loanEligibility, ownershipCost, splitPrice } from "@/components/tools/calc";
+import { pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Car Tools & Calculators",
-  description:
-    "Six precision calculators for Indian car buyers — EMI, loan eligibility, real-world mileage, EV vs petrol break-even, car valuation and the true cost of ownership.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car Calculators: EMI, Loan, Mileage & More",
+  description: "Six calculators for Indian car buyers: EMI, loan eligibility, real-world mileage, EV vs petrol break-even, car valuation and the true cost of ownership.",
+  path: "/tools",
+});
 
 const CATEGORY: Record<string, string> = {
   "emi-calculator": "Finance",
@@ -285,7 +286,7 @@ export default async function ToolsPage() {
             ))}
           </ul>
 
-          <p className="mt-10 text-[12px] text-white/40">
+          <p className="mt-10 text-[12px] text-white/50">
             All results are illustrative estimates from indicative demo data and simplified assumptions — not quotes, offers of credit or financial advice.
           </p>
         </div>

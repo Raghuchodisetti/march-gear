@@ -7,6 +7,7 @@ export const TICKET_CATEGORIES = [
   { value: "account", label: "Account & verification" },
   { value: "billing", label: "Subscription & invoices" },
   { value: "inventory", label: "Vehicle listings" },
+  { value: "catalogue", label: "Request a new model" },
   { value: "offers", label: "Offers & campaigns" },
   { value: "leads", label: "Enquiries & test drives" },
   { value: "profile", label: "Dealer profile & showrooms" },

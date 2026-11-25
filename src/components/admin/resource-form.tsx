@@ -16,7 +16,7 @@ type SaveAction = (values: FormValues) => Promise<ActionResult<{ id: string | nu
 const HEX = /^#[0-9a-f]{6}$/i;
 
 const inputClass =
-  "w-full rounded-[3px] border border-line bg-white px-3.5 text-[14px] text-ink placeholder:text-muted/70 outline-none transition-[border-color] duration-200 hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red";
+  "w-full rounded-[3px] border border-line bg-white px-3.5 text-[14px] text-ink placeholder:text-muted outline-none transition-[border-color] duration-200 hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red";
 
 function emptyValue(f: Field): unknown {
   switch (f.type) {
@@ -579,7 +579,7 @@ function Preview({ src }: { src: string }) {
       {ok ? (
         // Admin preview of arbitrary URLs — plain <img> on purpose.
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt="" className="size-full object-cover" onError={() => setFailed(src)} />
+        <img loading="lazy" decoding="async" src={src} alt="" className="size-full object-cover" onError={() => setFailed(src)} />
       ) : (
         <ImageOff aria-hidden className="size-4 text-muted" />
       )}

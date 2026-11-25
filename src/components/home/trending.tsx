@@ -61,8 +61,8 @@ export function TrendingCars() {
             className="mt-10"
           >
             <Carousel label="trending cars" controls="bottom" itemClassName="w-[82%] sm:w-[46%] lg:w-[31.5%] xl:w-[24%]">
-              {list.map((car, i) => (
-                <CarCard key={car.slug} car={car} priority={i < 2 && filter === "all"} />
+              {list.map((car) => (
+                <CarCard key={car.slug} car={car} />
               ))}
             </Carousel>
           </motion.div>

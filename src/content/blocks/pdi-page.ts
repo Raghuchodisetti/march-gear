@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { pdiFaqs, pdiHeroStats, pdiProblems, pdiSampleReport, pdiStartingPriceLabel, pdiSteps, pdiStepsTitle } from "@/data/pdi";
 import { PDI_ICONS, PDI_ICON_NAMES } from "@/lib/pdi";
-import { defineBlock, number, rows, text } from "../define";
+import { defineBlock, flag, number, rows, text } from "../define";
 
 const score = (label: string) => number(label, 0, 100).int("Use a whole number from 0 to 100");
 
@@ -13,6 +13,9 @@ export const pdiPage = defineBlock({
   description: "Why a PDI matters, how it works, the sample report and the FAQs.",
   usedOn: ["/pdi-check"],
   schema: z.object({
+    /** Off until PDI inspection partners are registered: plans, prices and the booking form stay hidden and the
+     * "Book a PDI expert" buttons say "Coming soon". */
+    bookingOpen: flag,
     heroStats: rows(z.object({ value: text("value", 24), label: text("label", 40) }), "stat").max(3, "Up to three — the starting price is added as the fourth"),
     startingPriceLabel: text("starting price label", 40),
     problems: rows(z.object({ icon: z.enum(PDI_ICON_NAMES, { error: "Choose an icon" }), title: text("title", 80), text: text("text", 300) }), "issue"),
@@ -37,6 +40,7 @@ export const pdiPage = defineBlock({
     faqs: rows(z.object({ q: text("question", 200), a: text("answer", 1500) }), "question"),
   }),
   defaults: {
+    bookingOpen: false,
     heroStats: pdiHeroStats.map((s) => ({ ...s })),
     startingPriceLabel: pdiStartingPriceLabel,
     problems: pdiProblems.map((p) => ({ ...p })),
@@ -50,6 +54,11 @@ export const pdiPage = defineBlock({
     faqs: pdiFaqs.map((f) => ({ ...f })),
   },
   sections: [
+    {
+      title: "Bookings",
+      description: "Keep this off until PDI inspection partners are registered. While it's off, the plans, prices and booking form are hidden and the “Book a PDI expert” buttons show “Coming soon”. The free DIY checklist always stays available.",
+      fields: [{ name: "bookingOpen", label: "Bookings open — show plans, prices and the booking form", type: "checkbox" }],
+    },
     {
       title: "Hero stats",
       description: "The strip under the buttons at the top of the page. The cheapest plan's price is added automatically as the last stat.",

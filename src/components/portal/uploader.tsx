@@ -130,7 +130,7 @@ export function ImageUploader({
           <figure key={`${src}-${i}`} className={cn("group relative overflow-hidden rounded-[4px] border border-line bg-mist", aspect)}>
             {/* Dealer-uploaded image preview. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={src} alt="" className="size-full object-cover" />
+            <img loading="lazy" decoding="async" src={src} alt="" className="size-full object-cover" />
             {multiple && i === 0 && <span className="absolute left-2 top-2 rounded-full bg-ink px-2 py-0.5 text-[10.5px] font-semibold text-white">Cover</span>}
             <div className="absolute inset-x-0 bottom-0 flex justify-end gap-1 bg-gradient-to-t from-ink/70 to-transparent p-2 opacity-100 transition-opacity sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-within:opacity-100">
               {multiple && i > 0 && (

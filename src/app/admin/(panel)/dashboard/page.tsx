@@ -120,7 +120,7 @@ export default async function PartnerDashboardPage() {
               <Link href={`/admin/vehicle-approvals?review=${v.id}`} className="flex items-center gap-3 px-5 py-3 transition-colors hover:bg-mist/50">
                 <span className="block h-10 w-14 shrink-0 overflow-hidden rounded-[2px] bg-mist">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  {v.image && <img src={v.image} alt="" className="size-full object-cover" loading="lazy" />}
+                  {v.image && <img decoding="async" src={v.image} alt="" className="size-full object-cover" loading="lazy" />}
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-[13.5px] font-medium">

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { carPhotoAlt } from "@/lib/image-alt";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
@@ -35,9 +36,11 @@ export function GalleryGrid() {
             key={src + i}
             type="button"
             onClick={() => setOpen(i)}
-            aria-label={`Open ${title} image ${i + 1} of ${images.length}`}
             className={cn("group/tile relative overflow-hidden bg-mist", spanFor(i, images.length))}
           >
+            <span className="sr-only">
+              Open {title} image {i + 1} of {images.length}
+            </span>
             <Image
               src={src}
               alt=""
@@ -47,9 +50,9 @@ export function GalleryGrid() {
               style={{ objectPosition: i === 0 ? (car.focus ?? "50% 55%") : "50% 50%" }}
             />
             <span aria-hidden className="absolute inset-0 bg-ink/0 transition-colors duration-[400ms] group-hover/tile:bg-ink/15" />
-            <span className="absolute bottom-3 left-3 bg-white/90 px-2 py-1 text-[11px] font-medium text-ink backdrop-blur-sm num">{pad2(i + 1)}</span>
+            <span aria-hidden className="absolute bottom-3 left-3 bg-white/90 px-2 py-1 text-[11px] font-medium text-ink backdrop-blur-sm num">{pad2(i + 1)}</span>
             {i === 0 && (
-              <span className="absolute bottom-3 right-3 inline-flex items-center gap-2 bg-ink/75 px-3 py-2 text-[12px] font-medium text-white backdrop-blur-sm">
+              <span aria-hidden className="absolute bottom-3 right-3 inline-flex items-center gap-2 bg-ink/75 px-3 py-2 text-[12px] font-medium text-white backdrop-blur-sm">
                 <Expand aria-hidden className="size-3.5" /> {images.length} photos
               </span>
             )}
@@ -131,7 +134,7 @@ function Lightbox({
                 transition={{ duration: 0.5, ease: EASE }}
                 className="absolute inset-0 mx-4 md:mx-24"
               >
-                <Image src={images[index]} alt={`${title} — photo ${index + 1}`} fill sizes="100vw" className="object-contain" />
+                <Image src={images[index]} alt={carPhotoAlt(images[index], title, `photo ${index + 1}`)} fill sizes="100vw" className="object-contain" />
               </motion.div>
             </AnimatePresence>
             {images.length > 1 && (

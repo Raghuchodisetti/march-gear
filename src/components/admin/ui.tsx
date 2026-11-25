@@ -88,7 +88,7 @@ export function StatCard({ label, value, note, href, tone }: { label: string; va
 
 const BADGE_TONES = {
   neutral: "bg-mist text-ink",
-  red: "bg-red-50 text-red",
+  red: "bg-red-50 text-red-600",
   green: "bg-[#e8f5ec] text-[#1e7a3c]",
   amber: "bg-[#fdf3e1] text-[#9a5b00]",
   blue: "bg-[#e9f0fb] text-[#2456a6]",

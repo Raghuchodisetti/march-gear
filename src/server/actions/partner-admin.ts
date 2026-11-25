@@ -22,9 +22,10 @@ import { BRAND_STATUS_LABEL, DOC_KIND_LABEL, OFFER_STATUS_LABEL, PARTNER_STATUS_
 import type { PartnerApplication } from "@/partner/types";
 import { audit } from "@/server/audit";
 import { requireStaff } from "@/server/auth";
-import { expireCatalog } from "@/server/catalog";
+import { expireCatalog, getCatalog } from "@/server/catalog";
 import { decryptField, encryptField } from "@/server/partner/crypto";
 import { syncPartnerEverywhere, syncPublicDealer, syncPublicVehicle } from "@/server/partner/public-sync";
+import { catalogueOf } from "@/server/partner/inventory";
 import { notifyPartner, recordApproval } from "@/server/partner/records";
 import { invalid, isoDate, todayISO } from "@/server/validation";
 import { KYC_DOC_KINDS, fieldLabel, isBankPath, partnerName, splitCorrection } from "@/components/admin/partner-ui";
@@ -468,6 +469,14 @@ const VEHICLE_TO: Record<VehicleOp, PartnerVehicleStatus> = {
   reject: "rejected",
   request_changes: "changes_requested",
 };
+/**
+ * New-car listings don't go through approval — the dealer publishes them. Staff can unpublish (pause) a live one,
+ * with remarks the dealer sees (required), and put a paused one back live.
+ */
+const NEW_CAR_FROM: Partial<Record<VehicleOp, PartnerVehicleStatus[]>> = {
+  unpublish: ["published"],
+  publish: ["unpublished", "approved", "pending_approval", "changes_requested", "rejected"],
+};
 const VEHICLE_ACTION: Record<VehicleOp, string> = {
   approve: "approved",
   approve_publish: "approved_published",
@@ -492,9 +501,15 @@ export async function vehicleDecisionAction(vehicleId: unknown, input: unknown):
   if (!row) return { ok: false, error: "This vehicle no longer exists." };
   const v = row.v;
   const { op, remarks } = parsed.data;
-  if (!VEHICLE_FROM[op].includes(v.status)) return { ok: false, error: `This listing is ${VEHICLE_STATUS_LABEL[v.status].toLowerCase()}, so that action isn't available. Refresh to see the latest.` };
+  const isNew = v.kind === "new";
+  const from = isNew ? NEW_CAR_FROM[op] : VEHICLE_FROM[op];
+  if (!from) return { ok: false, error: "New-car listings don't need approval — you can unpublish (pause) a live one, with remarks for the dealer." };
+  if (!from.includes(v.status)) return { ok: false, error: `This listing is ${VEHICLE_STATUS_LABEL[v.status].toLowerCase()}, so that action isn't available. Refresh to see the latest.` };
+  if (isNew && op === "unpublish" && !remarks) return { ok: false, error: "Tell the dealer why the listing is paused.", fieldErrors: { remarks: "Tell the dealer why the listing is paused" } };
   const to = VEHICLE_TO[op];
   if (to === "published" && row.partnerStatus !== "approved") return { ok: false, error: `The dealership is ${PARTNER_STATUS_LABEL[row.partnerStatus].toLowerCase()}, so its listings can't go live. Approve it first, or just approve the listing for now.` };
+  if (to === "published" && !catalogueOf(v, await getCatalog()).ok)
+    return { ok: false, error: "This listing's model or variant isn't in the MarchGear catalogue, so it can't go live. Add the model in the catalogue, or ask the dealer to pick it again." };
   const now = new Date();
   const set: Partial<typeof partnerVehicles.$inferInsert> = { status: to, adminRemarks: remarks };
   if (op === "approve" || op === "approve_publish") set.approvedAt = now;
@@ -511,11 +526,16 @@ export async function vehicleDecisionAction(vehicleId: unknown, input: unknown):
     approve: `${v.model} ${v.variant} approved`,
     approve_publish: `${v.model} ${v.variant} is live on MarchGear`,
     publish: `${v.model} ${v.variant} is live on MarchGear`,
-    unpublish: `${v.model} ${v.variant} was unpublished`,
+    unpublish: isNew ? `MarchGear paused ${v.reference} · ${v.model} ${v.variant}` : `${v.model} ${v.variant} was unpublished`,
     reject: `${v.model} ${v.variant} was rejected`,
     request_changes: `Changes needed on ${v.model} ${v.variant}`,
   };
-  await notifyPartner(v.partnerId, { kind: "vehicle", title: titles[op], body: remarks ?? `Listing ${v.reference} is now ${VEHICLE_STATUS_LABEL[to].toLowerCase()}.`, href: "/dealer/inventory" });
+  await notifyPartner(v.partnerId, {
+    kind: "vehicle",
+    title: titles[op],
+    body: remarks ?? `Listing ${v.reference} is now ${VEHICLE_STATUS_LABEL[to].toLowerCase()}.`,
+    href: isNew || op === "request_changes" || op === "reject" ? `/dealer/inventory/${v.id}` : "/dealer/inventory",
+  });
   await audit(me.id, "status", "partner_vehicle", v.id, `${VEHICLE_STATUS_LABEL[v.status]} → ${VEHICLE_STATUS_LABEL[to]}: ${label} (${nameOf(row)})`);
   touchAdmin();
   return { ok: true, status: to, publicUsedCarId: publicUsedCarId ?? null };

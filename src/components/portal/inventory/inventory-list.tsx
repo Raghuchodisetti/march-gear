@@ -5,12 +5,14 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
+  AlertTriangle,
   Archive,
   ArchiveRestore,
   ArrowDown,
   ArrowUp,
   ArrowUpDown,
   Check,
+  CirclePause,
   Copy,
   ExternalLink,
   Eye,
@@ -20,6 +22,7 @@ import {
   MessageSquareWarning,
   MoreHorizontal,
   PencilLine,
+  Rocket,
   Search,
   Send,
   Undo2,
@@ -33,14 +36,16 @@ import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/overlay";
 import { formatDateTime } from "@/components/portal/ui";
 import { useUI } from "@/components/providers/app-provider";
-import { archiveVehiclesAction, duplicateVehicleAction, restoreVehicleAction, submitVehiclesAction, updateStockAction, withdrawVehicleAction } from "@/server/actions/partner-inventory";
+import { archiveVehiclesAction, duplicateVehicleAction, pauseVehiclesAction, restoreVehicleAction, submitVehiclesAction, updateStockAction, withdrawVehicleAction } from "@/server/actions/partner-inventory";
 import { ConfirmDialog, HistoryDrawer, PreviewModal, StatusBadge } from "./dialogs";
-import { NEEDS_ATTENTION, SORTS, SUBMITTABLE, WITHDRAWABLE, vehicleTitle, type InventorySort, type InventoryTab, type VehicleListRow } from "./shared";
+import { NEEDS_ATTENTION, PUBLISHABLE, SORTS, SUBMITTABLE, WITHDRAWABLE, vehicleTitle, type InventorySort, type InventoryTab, type VehicleListRow } from "./shared";
 
 /* ──────────────────────────────────────────────────────────────
    /dealer/inventory: tabs, search, status filter, sortable table
    (cards on phones), inline stock, row actions and bulk actions.
    Filters live in the URL so the server renders each page.
+   New cars publish and pause straight from here; used cars are
+   submitted to MarchGear for approval.
    ────────────────────────────────────────────────────────────── */
 
 export interface InventoryFiltersState {
@@ -222,15 +227,22 @@ function StockCell({ row, canManage }: { row: VehicleListRow; canManage: boolean
     router.refresh();
   };
 
+  const onOrder = row.kind === "new" && row.availability === "on_order";
   if (!editing)
     return (
       <div className="flex items-center gap-2">
-        <span className={cn("font-semibold num", row.stock === 0 && "text-red")}>{row.stock}</span>
+        {onOrder ? (
+          <span className="whitespace-nowrap font-semibold text-[#9a5b00]" title={row.waitingWeeks ? `On order — about ${row.waitingWeeks} weeks` : "On order"}>
+            On order{row.waitingWeeks ? <span className="font-normal num"> · {row.waitingWeeks} wk</span> : null}
+          </span>
+        ) : (
+          <span className={cn("font-semibold num", row.stock === 0 && "text-red")}>{row.stock}</span>
+        )}
         {canManage && row.status !== "archived" && (
           <button
             type="button"
             onClick={() => {
-              setValue(String(row.stock));
+              setValue(onOrder ? "" : String(row.stock));
               setEditing(true);
             }}
             className="rounded-[3px] px-1.5 py-0.5 text-[12px] font-medium text-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
@@ -256,6 +268,7 @@ function StockCell({ row, canManage }: { row: VehicleListRow; canManage: boolean
             if (e.key === "Escape") setEditing(false);
           }}
           aria-label={`Units in stock for ${row.reference}`}
+          placeholder={onOrder ? "Units" : undefined}
           aria-invalid={error ? true : undefined}
           className={cn(control, "h-9 w-16 px-2 num", error && "border-red")}
         />
@@ -278,7 +291,7 @@ function Thumb({ src, alt }: { src: string | null; alt: string }) {
     <span className="relative inline-flex aspect-[4/3] w-[72px] shrink-0 self-start items-center justify-center overflow-hidden rounded-[3px] border border-line bg-mist text-muted">
       {/* Dealer-uploaded photo from /media. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      {src ? <img src={src} alt={alt} loading="lazy" className="size-full object-cover" /> : <ImageOff aria-hidden className="size-4" />}
+      {src ? <img decoding="async" src={src} alt={alt} loading="lazy" className="size-full object-cover" /> : <ImageOff aria-hidden className="size-4" />}
     </span>
   );
 }
@@ -304,7 +317,30 @@ function SortHeader({ label, sort, filters, go, className }: { label: string; so
   );
 }
 
-function Remarks({ row, onOpen }: { row: VehicleListRow; onOpen: () => void }) {
+function Remarks({ row, onOpen, canManage }: { row: VehicleListRow; onOpen: () => void; canManage: boolean }) {
+  if (row.needsCatalogue)
+    return canManage ? (
+      <Link href={`/dealer/inventory/${row.id}`} className="mt-2 flex w-full max-w-md items-start gap-1.5 rounded-[3px] bg-red-50 px-2 py-1.5 text-left text-[12.5px] text-red">
+        <AlertTriangle aria-hidden className="mt-0.5 size-3.5 shrink-0" />
+        <span className="min-w-0">
+          <span className="font-semibold">Needs a catalogue model</span> — pick the model to keep this listing. Hidden from the website meanwhile.
+        </span>
+      </Link>
+    ) : (
+      <p className="mt-2 flex max-w-md items-start gap-1.5 rounded-[3px] bg-red-50 px-2 py-1.5 text-[12.5px] text-red">
+        <AlertTriangle aria-hidden className="mt-0.5 size-3.5 shrink-0" /> Needs a catalogue model — hidden from the website.
+      </p>
+    );
+  if (row.kind === "new" && row.status === "unpublished" && row.adminRemarks)
+    return (
+      <button type="button" onClick={onOpen} className="mt-2 flex w-full max-w-md items-start gap-1.5 rounded-[3px] bg-[#fdf3e1] px-2 py-1.5 text-left text-[12.5px] text-[#9a5b00]">
+        <CirclePause aria-hidden className="mt-0.5 size-3.5 shrink-0" />
+        <span className="line-clamp-2 min-w-0">
+          <span className="font-semibold">Paused by MarchGear: </span>
+          {row.adminRemarks}
+        </span>
+      </button>
+    );
   if (!NEEDS_ATTENTION.includes(row.status)) return null;
   const rejected = row.status === "rejected";
   return (
@@ -332,9 +368,9 @@ export function InventoryList({ rows, total, pageSize, filters, tabCounts, statu
   const [selected, setSelected] = useState<Set<number>>(new Set());
   const [history, setHistory] = useState<number | null>(null);
   const [preview, setPreview] = useState<number | null>(null);
-  const [confirm, setConfirm] = useState<{ kind: "archive" | "withdraw" | "submit"; ids: number[]; label: string; live?: boolean } | null>(null);
+  const [confirm, setConfirm] = useState<{ kind: "archive" | "withdraw" | "submit" | "pause"; ids: number[]; label: string; live?: boolean } | null>(null);
   const [busy, setBusy] = useState(false);
-  const [report, setReport] = useState<{ submitted: string[]; skipped: { reference: string; reason: string }[] } | null>(null);
+  const [report, setReport] = useState<{ published: string[]; submitted: string[]; skipped: { reference: string; reason: string }[] } | null>(null);
   const [lastRows, setLastRows] = useState(rows);
 
   // A new page of rows (filters changed, or a refresh) clears selections that no longer show.
@@ -375,14 +411,16 @@ export function InventoryList({ rows, total, pageSize, filters, tabCounts, statu
       return n;
     });
 
+  /** Publishes new cars and submits used cars for approval — each by its own rule. */
   const runSubmit = async (ids: number[]) => {
     setBusy(true);
     const res = await submitVehiclesAction(ids);
     setBusy(false);
     setConfirm(null);
-    if (!res.ok) return toast(res.error ?? "Couldn't submit.", { tone: "error" });
+    if (!res.ok) return toast(res.error ?? "Couldn't publish or submit.", { tone: "error" });
     setSelected(new Set());
-    if (res.skipped.length || ids.length > 1) setReport({ submitted: res.submitted, skipped: res.skipped });
+    if (res.skipped.length || ids.length > 1) setReport({ published: res.published, submitted: res.submitted, skipped: res.skipped });
+    else if (res.published.length) toast(`${res.published[0]} is live on MarchGear`, { tone: "success" });
     else toast(`${res.submitted[0]} sent to MarchGear for approval`, { tone: "success" });
     router.refresh();
   };
@@ -401,6 +439,12 @@ export function InventoryList({ rows, total, pageSize, filters, tabCounts, statu
     if (confirm.kind === "archive") {
       const res = await archiveVehiclesAction(confirm.ids);
       message = res.ok ? `Archived ${res.archived.length === 1 ? res.archived[0] : `${res.archived.length} vehicles`}` : (res.error ?? "Couldn't archive. Please try again.");
+      if (!res.ok) return finish(message, true);
+    } else if (confirm.kind === "pause") {
+      const res = await pauseVehiclesAction(confirm.ids);
+      message = res.ok
+        ? `${res.paused.length === 1 ? res.paused[0] : `${res.paused.length} listings`} paused — hidden from the website${res.skipped.length ? ` (${res.skipped.length} skipped: not live new cars)` : ""}`
+        : (res.error ?? "Couldn't pause. Please try again.");
       if (!res.ok) return finish(message, true);
     } else {
       const res = await withdrawVehicleAction(confirm.ids[0]);
@@ -433,12 +477,18 @@ export function InventoryList({ rows, total, pageSize, filters, tabCounts, statu
     if (canManage) items.push({ label: row.status === "archived" ? "Open" : "Edit", icon: <PencilLine className="size-4" />, href: `/dealer/inventory/${row.id}` });
     items.push({ label: "Preview", icon: <Eye className="size-4" />, onSelect: () => setPreview(row.id) });
     if (row.publicHref) items.push({ label: "View on website", icon: <ExternalLink className="size-4" />, href: row.publicHref, external: true });
-    items.push({ label: "Approval history", icon: <History className="size-4" />, onSelect: () => setHistory(row.id) });
+    items.push({ label: "Listing history", icon: <History className="size-4" />, onSelect: () => setHistory(row.id) });
     if (canManage) {
       items.push("divider");
-      if (SUBMITTABLE.includes(row.status)) items.push({ label: "Submit for approval", icon: <Send className="size-4" />, onSelect: () => runSubmit([row.id]) });
-      if (WITHDRAWABLE.includes(row.status))
-        items.push({ label: "Withdraw to draft", icon: <Undo2 className="size-4" />, onSelect: () => setConfirm({ kind: "withdraw", ids: [row.id], label, live: row.status === "published" }) });
+      if (row.kind === "new") {
+        if (PUBLISHABLE.includes(row.status) && !row.needsCatalogue)
+          items.push({ label: row.status === "draft" ? "Publish" : "Publish again", icon: <Rocket className="size-4" />, onSelect: () => runSubmit([row.id]) });
+        if (row.status === "published") items.push({ label: "Pause listing", icon: <CirclePause className="size-4" />, onSelect: () => setConfirm({ kind: "pause", ids: [row.id], label }) });
+      } else {
+        if (SUBMITTABLE.includes(row.status) && !row.needsCatalogue) items.push({ label: "Submit for approval", icon: <Send className="size-4" />, onSelect: () => runSubmit([row.id]) });
+        if (WITHDRAWABLE.includes(row.status))
+          items.push({ label: "Withdraw to draft", icon: <Undo2 className="size-4" />, onSelect: () => setConfirm({ kind: "withdraw", ids: [row.id], label, live: row.status === "published" }) });
+      }
       items.push({ label: "Duplicate", icon: <Copy className="size-4" />, onSelect: () => duplicate(row) });
       if (row.status === "archived") items.push({ label: "Restore to draft", icon: <ArchiveRestore className="size-4" />, onSelect: () => restore(row) });
       else items.push({ label: "Archive", icon: <Archive className="size-4" />, tone: "danger", onSelect: () => setConfirm({ kind: "archive", ids: [row.id], label, live: row.status === "published" }) });
@@ -455,6 +505,10 @@ export function InventoryList({ rows, total, pageSize, filters, tabCounts, statu
   const hasFilters = Boolean(filters.q || filters.status);
   const selectedRows = [...selected].map((id) => byId.get(id)).filter((r): r is VehicleListRow => Boolean(r));
   const selLive = selectedRows.some((r) => r.status === "published");
+  const selNew = selectedRows.some((r) => r.kind === "new");
+  const selUsed = selectedRows.some((r) => r.kind === "used");
+  const selPausable = selectedRows.some((r) => r.kind === "new" && r.status === "published");
+  const goLiveLabel = selNew && selUsed ? "Publish / submit" : selUsed ? "Submit for approval" : "Publish";
 
   return (
     <div>
@@ -547,9 +601,14 @@ export function InventoryList({ rows, total, pageSize, filters, tabCounts, statu
             {selected.size} selected
           </p>
           <div className="flex flex-wrap gap-2 sm:ml-auto">
-            <Button size="sm" variant="light" icon={<Send className="size-4" />} disabled={busy} onClick={() => setConfirm({ kind: "submit", ids: [...selected], label: `${selected.size} vehicles` })}>
-              Submit for approval
+            <Button size="sm" variant="light" icon={selUsed && !selNew ? <Send className="size-4" /> : <Rocket className="size-4" />} disabled={busy} onClick={() => setConfirm({ kind: "submit", ids: [...selected], label: `${selected.size} vehicles` })}>
+              {goLiveLabel}
             </Button>
+            {selPausable && (
+              <Button size="sm" variant="outline-light" icon={<CirclePause className="size-4" />} disabled={busy} onClick={() => setConfirm({ kind: "pause", ids: [...selected], label: `${selected.size} vehicles` })}>
+                Pause
+              </Button>
+            )}
             <Button size="sm" variant="outline-light" icon={<Archive className="size-4" />} disabled={busy} onClick={() => setConfirm({ kind: "archive", ids: [...selected], label: `${selected.size} vehicles`, live: selLive })}>
               Archive
             </Button>
@@ -565,7 +624,7 @@ export function InventoryList({ rows, total, pageSize, filters, tabCounts, statu
           <div className="border border-line bg-white px-6 py-16 text-center">
             <p className="text-[15px] font-semibold">{hasFilters || filters.tab !== "all" ? "No vehicles match" : "No vehicles yet"}</p>
             <p className="mx-auto mt-1.5 max-w-sm text-[13.5px] text-muted">
-              {hasFilters ? "Try a different search or status." : "Add new-car stock or a pre-owned car. MarchGear reviews every listing before it goes live."}
+              {hasFilters ? "Try a different search or status." : "Pick a car from MarchGear's catalogue and add your price and stock. New cars go live when you publish; MarchGear reviews used cars first."}
             </p>
             {canManage && !hasFilters && (
               <Button href="/dealer/inventory/add" className="mt-6" arrow>
@@ -593,7 +652,7 @@ export function InventoryList({ rows, total, pageSize, filters, tabCounts, statu
                     )}
                     <th className="border-b border-line bg-[#fafafa] px-4 py-3 text-[12px] font-semibold text-muted">Vehicle</th>
                     <SortHeader label="Price" sort="price" filters={filters} go={go} className="w-32" />
-                    <SortHeader label="Stock" sort="stock" filters={filters} go={go} className="w-36" />
+                    <SortHeader label="Stock" sort="stock" filters={filters} go={go} className="w-40" />
                     <th className="w-[8.75rem] border-b border-line bg-[#fafafa] px-4 py-3 text-[12px] font-semibold text-muted">Status</th>
                     <th className="w-28 border-b border-line bg-[#fafafa] px-4 py-3 text-[12px] font-semibold text-muted max-xl:hidden">
                       <span className="inline-flex gap-1.5">
@@ -638,7 +697,7 @@ export function InventoryList({ rows, total, pageSize, filters, tabCounts, statu
                                 <p className="mt-1 truncate font-semibold">{title}</p>
                               )}
                               <p className="truncate text-[12.5px] text-muted">{[row.variant, row.colour, row.showroom].filter(Boolean).join(" · ") || "Details not filled in yet"}</p>
-                              <Remarks row={row} onOpen={() => setHistory(row.id)} />
+                              <Remarks row={row} canManage={canManage} onOpen={() => setHistory(row.id)} />
                             </div>
                           </div>
                         </td>
@@ -700,7 +759,7 @@ export function InventoryList({ rows, total, pageSize, filters, tabCounts, statu
                         <RowMenu label={row.reference} items={menuFor(row)} />
                       </div>
                     </div>
-                    <Remarks row={row} onOpen={() => setHistory(row.id)} />
+                    <Remarks row={row} canManage={canManage} onOpen={() => setHistory(row.id)} />
                     <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-line pt-3">
                       <StatusBadge status={row.status} />
                       <span className="text-[14px] font-semibold num">{row.sellingPrice > 0 ? formatINR(row.sellingPrice) : "No price"}</span>
@@ -747,8 +806,16 @@ export function InventoryList({ rows, total, pageSize, filters, tabCounts, statu
         onConfirm={runConfirmed}
         busy={busy}
         tone={confirm?.kind === "archive" ? "danger" : "dark"}
-        title={confirm?.kind === "archive" ? `Archive ${confirm.label}?` : confirm?.kind === "withdraw" ? `Withdraw ${confirm.label}?` : `Submit ${confirm?.label ?? ""} for approval?`}
-        confirmLabel={confirm?.kind === "archive" ? "Archive" : confirm?.kind === "withdraw" ? "Withdraw to draft" : "Submit for approval"}
+        title={
+          confirm?.kind === "archive"
+            ? `Archive ${confirm.label}?`
+            : confirm?.kind === "withdraw"
+              ? `Withdraw ${confirm.label}?`
+              : confirm?.kind === "pause"
+                ? `Pause ${confirm.label}?`
+                : `${goLiveLabel} ${confirm?.label ?? ""}?`
+        }
+        confirmLabel={confirm?.kind === "archive" ? "Archive" : confirm?.kind === "withdraw" ? "Withdraw to draft" : confirm?.kind === "pause" ? "Pause" : goLiveLabel}
       >
         {confirm?.kind === "archive" && (
           <>
@@ -762,14 +829,29 @@ export function InventoryList({ rows, total, pageSize, filters, tabCounts, statu
             {confirm.live && <p className="font-medium text-ink">This listing is live — it will be removed from the website until MarchGear approves it again.</p>}
           </>
         )}
-        {confirm?.kind === "submit" && <p>MarchGear checks each listing before it goes live. Incomplete vehicles are skipped and listed with what&rsquo;s missing.</p>}
+        {confirm?.kind === "submit" && (
+          <p>
+            {selNew && "New cars go live straight away. "}
+            {selUsed && "Used cars go to MarchGear for approval. "}
+            Incomplete vehicles are skipped and listed with what&rsquo;s missing.
+          </p>
+        )}
+        {confirm?.kind === "pause" && <p>Paused new-car listings leave your dealer page and the model pages straight away. Publish them again whenever you&rsquo;re ready — no approval needed.</p>}
       </ConfirmDialog>
 
-      <Modal open={Boolean(report)} onClose={() => setReport(null)} title="Submission summary" size="md">
+      <Modal open={Boolean(report)} onClose={() => setReport(null)} title="Summary" size="md">
         {report && (
           <div className="px-6 pb-6 pt-5 sm:px-8">
-            {report.submitted.length > 0 && (
+            {report.published.length > 0 && (
               <p className="flex items-start gap-2 text-[14px]">
+                <Check aria-hidden className="mt-0.5 size-4 shrink-0 text-[#1e7a3c]" />
+                <span>
+                  <span className="font-semibold">{report.published.length}</span> live on MarchGear: <span className="num">{report.published.join(", ")}</span>
+                </span>
+              </p>
+            )}
+            {report.submitted.length > 0 && (
+              <p className={cn("flex items-start gap-2 text-[14px]", report.published.length > 0 && "mt-2")}>
                 <Check aria-hidden className="mt-0.5 size-4 shrink-0 text-[#1e7a3c]" />
                 <span>
                   <span className="font-semibold">{report.submitted.length}</span> sent for approval: <span className="num">{report.submitted.join(", ")}</span>
@@ -777,8 +859,8 @@ export function InventoryList({ rows, total, pageSize, filters, tabCounts, statu
               </p>
             )}
             {report.skipped.length > 0 && (
-              <div className={cn(report.submitted.length > 0 && "mt-5")}>
-                <p className="text-[13.5px] font-semibold">Not submitted ({report.skipped.length})</p>
+              <div className={cn((report.submitted.length > 0 || report.published.length > 0) && "mt-5")}>
+                <p className="text-[13.5px] font-semibold">Skipped ({report.skipped.length})</p>
                 <ul className="mt-2 divide-y divide-line border border-line">
                   {report.skipped.map((s) => {
                     const row = rows.find((r) => r.reference === s.reference);

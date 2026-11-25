@@ -48,6 +48,8 @@ const DETAIL_LABEL: Record<string, string> = {
   estimate: "Our estimate",
   offer: "Offer",
   askingPrice: "Asking price",
+  consent: "Consent to be contacted",
+  consentAt: "Consent given",
 };
 
 export const detailLabel = (key: string) =>
@@ -61,6 +63,8 @@ export function detailValue(key: string, value: unknown): string {
   if (key === "slot") return String(value).replace(/^./, (c) => c.toUpperCase());
   if ((key === "offer" || key === "askingPrice") && typeof value === "number") return `₹${value.toLocaleString("en-IN")}`;
   if (key === "km" && typeof value === "number") return `${value.toLocaleString("en-IN")} km`;
+  if (key === "consentAt" && typeof value === "string" && !Number.isNaN(Date.parse(value)))
+    return `${new Date(value).toLocaleString("en-IN", { timeZone: "Asia/Kolkata", day: "numeric", month: "short", year: "numeric", hour: "numeric", minute: "2-digit" })} IST`;
   if (typeof value === "boolean") return value ? "Yes" : "No";
   return String(value);
 }

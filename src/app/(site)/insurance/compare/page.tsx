@@ -6,11 +6,14 @@ import { parseSearch } from "@/insurance/search";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { CompareExperience } from "@/components/insurance/public/market/compare-experience";
 import { FILTER_ADDON_KEYS, idParam, listParam, pricingConfig } from "@/components/insurance/public/market/engine";
+import { INSURANCE_OG_IMAGE, pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Compare car insurance plans side by side",
-  description: "Compare up to four car insurance plans: indicative premium, IDV, own-damage and third-party cover, add-ons, deductibles, cashless garages, exclusions and documents — with differences highlighted.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Compare Car Insurance Plans Side by Side",
+  description: "Compare up to four car insurance plans on indicative premium, IDV, own-damage and third-party cover, add-ons, deductibles, cashless garages and exclusions.",
+  path: "/insurance/compare",
+  images: [INSURANCE_OG_IMAGE],
+});
 
 const first = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";
 

@@ -52,10 +52,26 @@ function encode(canvas: HTMLCanvasElement, type: string, quality: number) {
   return new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, type, quality));
 }
 
+type OutputType = "image/webp" | "image/jpeg" | "image/png";
+const OUTPUT_EXT: Record<OutputType, string> = { "image/webp": "webp", "image/jpeg": "jpg", "image/png": "png" };
+
+let webpSupport: Promise<boolean> | undefined;
+/** Whether this browser's canvas can write WebP (some, e.g. older Safari, quietly write PNG instead). Checked once. */
+function canEncodeWebp() {
+  webpSupport ??= new Promise<boolean>((resolve) => {
+    const c = document.createElement("canvas");
+    c.width = c.height = 1;
+    c.toBlob((b) => resolve(b?.type === "image/webp"), "image/webp", 0.8);
+  });
+  return webpSupport;
+}
+
 /**
- * Checks a file and makes it fit: photos are scaled so the longest side is ≤ 2000 px and
- * re-encoded as WebP (falling back to lower quality / smaller sizes until under the limit).
- * GIFs are kept byte-for-byte so animations survive.
+ * Checks a file and makes it fit: JPEG and PNG images are converted to WebP (scaled so the longest
+ * side is ≤ 2000 px, falling back to lower quality / smaller sizes until under the limit).
+ * Small WebP/AVIF files are already efficient and go up untouched, and so does a converted file's
+ * original when the WebP would be bigger. Browsers that can't write WebP keep JPEG/PNG (PNG stays
+ * PNG while it fits, so transparency survives). GIFs are kept byte-for-byte so animations survive.
  */
 export async function prepareImage(file: File): Promise<PreparedFile> {
   const type = await headerType(file);
@@ -81,10 +97,15 @@ export async function prepareImage(file: File): Promise<PreparedFile> {
     const { width, height } = bitmap;
     const longest = Math.max(width, height);
     const original = { blob: file, filename: rename(file.name, MEDIA_TYPES[type]), width, height };
-    if (longest <= MEDIA_RESIZE_TO && file.size <= KEEP_ORIGINAL_UNDER) return original;
+    const small = longest <= MEDIA_RESIZE_TO && file.size <= KEEP_ORIGINAL_UNDER;
+    const fits = longest <= MEDIA_RESIZE_TO && file.size <= MEDIA_MAX_BYTES;
+    if (small && (type === "image/webp" || type === "image/avif")) return original;
+    const webp = await canEncodeWebp();
+    if (small && !webp) return original;
 
+    // WebP where the browser can write it; otherwise the source's own family (PNG keeps transparency, then JPEG).
+    const formats: OutputType[] = webp ? ["image/webp"] : type === "image/png" ? ["image/png", "image/jpeg"] : ["image/jpeg"];
     let scale = Math.min(1, MEDIA_RESIZE_TO / longest);
-    let format: "image/webp" | "image/jpeg" = "image/webp";
     for (let attempt = 0; attempt < 5; attempt++) {
       const w = Math.max(1, Math.round(width * scale));
       const h = Math.max(1, Math.round(height * scale));
@@ -93,7 +114,7 @@ export async function prepareImage(file: File): Promise<PreparedFile> {
       canvas.height = h;
       const ctx = canvas.getContext("2d");
       if (!ctx) throw new Error("Your browser couldn't resize this image.");
-      const draw = () => {
+      for (const format of formats) {
         ctx.clearRect(0, 0, w, h);
         if (format === "image/jpeg") {
           ctx.fillStyle = "#fff"; // JPEG has no transparency
@@ -102,21 +123,13 @@ export async function prepareImage(file: File): Promise<PreparedFile> {
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = "high";
         ctx.drawImage(bitmap, 0, 0, w, h);
-      };
-      draw();
-      for (const q of QUALITIES) {
-        let blob = await encode(canvas, format, q);
-        if (blob && blob.type !== format && format === "image/webp") {
-          // This browser can't write WebP (it fell back to PNG) — use JPEG instead.
-          format = "image/jpeg";
-          draw();
-          blob = await encode(canvas, format, q);
-        }
-        if (!blob) continue;
-        if (blob.size <= MEDIA_MAX_BYTES) {
-          // Re-encoding a small file can make it bigger; keep the original when that happens.
-          if (scale === 1 && file.size <= MEDIA_MAX_BYTES && blob.size >= file.size) return original;
-          return { blob, filename: rename(file.name, format === "image/webp" ? "webp" : "jpg"), width: w, height: h, originalSize: file.size };
+        // PNG is lossless, so quality doesn't apply: one try per size.
+        for (const q of format === "image/png" ? [1] : QUALITIES) {
+          const blob = await encode(canvas, format, q);
+          if (!blob || blob.type !== format || blob.size > MEDIA_MAX_BYTES) continue;
+          // Re-encoding an already compact file can make it bigger; keep the original when that happens and it fits as is.
+          if (scale === 1 && fits && blob.size >= file.size) return original;
+          return { blob, filename: rename(file.name, OUTPUT_EXT[format]), width: w, height: h, originalSize: file.size };
         }
       }
       scale *= 0.8;
@@ -305,7 +318,7 @@ export function MediaDropzone({ onFiles, compact, className }: { onFiles: (files
         <div>
           <p className="text-[14px] font-medium">{over ? "Drop to upload" : "Drag images here to upload"}</p>
           <p className="mt-0.5 text-[12.5px] text-muted">
-            {MEDIA_FORMATS_LABEL}. Big photos are resized to {MEDIA_RESIZE_TO} px and saved as WebP; each file must end up under {formatBytes(MEDIA_MAX_BYTES)}.
+            {MEDIA_FORMATS_LABEL}. Photos are saved as WebP and big ones resized to {MEDIA_RESIZE_TO} px; each file must end up under {formatBytes(MEDIA_MAX_BYTES)}.
           </p>
         </div>
       </div>

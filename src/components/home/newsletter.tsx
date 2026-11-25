@@ -7,6 +7,8 @@ import { EASE } from "@/lib/motion";
 import { subscribeAction } from "@/server/actions/leads";
 import { Chip } from "@/components/ui/chip";
 import { Honeypot } from "@/components/forms/honeypot";
+import { ConsentCheckbox, PolicyLink, PrivacyLink } from "@/components/forms/consent";
+import { LiveRegion } from "@/components/forms/form-a11y";
 import { useUI } from "@/components/providers/app-provider";
 
 const TOPICS = ["New launches", "Electric", "Reviews", "Used car deals"];
@@ -17,27 +19,34 @@ export function Newsletter() {
   const [topics, setTopics] = useState<string[]>(["New launches", "Reviews"]);
   const [website, setWebsite] = useState("");
   const [error, setError] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [consentError, setConsentError] = useState("");
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
 
-  const submit = async (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (busy) return;
+    const form = e.currentTarget;
     const value = email.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
-      setError("Please enter a valid email address");
+    const emailError = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value) ? "" : "Please enter a valid email address";
+    const optInError = consent ? "" : "Tick the box to confirm you'd like the newsletter";
+    setError(emailError);
+    setConsentError(optInError);
+    if (emailError || optInError) {
+      requestAnimationFrame(() => form.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus());
       return;
     }
-    setError("");
     // Bots fill the hidden field: pretend it worked and send nothing.
     if (website) return setDone(true);
 
     const chosen = TOPICS.filter((t) => topics.includes(t));
     setBusy(true);
     try {
-      const res = await subscribeAction({ email: value, source: `home${chosen.length ? `: ${chosen.join(", ")}` : ""}`.slice(0, 200) });
+      const res = await subscribeAction({ email: value, consent: true, source: `home${chosen.length ? `: ${chosen.join(", ")}` : ""}`.slice(0, 200) });
       if (!res.ok) {
-        setError(res.fieldErrors?.email ?? res.error ?? "We couldn't subscribe you. Please try again.");
+        if (res.fieldErrors?.consent) setConsentError(res.fieldErrors.consent);
+        setError(res.fieldErrors?.email ?? (res.fieldErrors?.consent ? "" : (res.error ?? "We couldn't subscribe you. Please try again.")));
         return;
       }
       setDone(true);
@@ -66,14 +75,15 @@ export function Newsletter() {
             {done ? (
               <motion.div key="done" role="status" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE }} className="flex items-start gap-4">
                 <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-red text-white">
-                  <Check className="size-5" strokeWidth={2.5} />
+                  <Check className="size-5" strokeWidth={2.5} aria-hidden />
                 </span>
                 <div className="min-w-0">
                   <p className="type-h3">You&apos;re on the list.</p>
                   <p className="mt-1 break-words text-[15px] text-muted">
-                    The next issue lands in <span className="text-ink">{email.trim()}</span> on Friday morning.
+                    We&apos;ve added <span className="text-ink">{email.trim()}</span> to The Weekly Gear. Change your mind?{" "}
+                    <PolicyLink href="/privacy#your-choices">Unsubscribe here</PolicyLink>.
                   </p>
-                  <button type="button" onClick={() => { setDone(false); setEmail(""); }} className="mt-4 text-[13px] font-medium underline-offset-4 hover:underline">
+                  <button type="button" onClick={() => { setDone(false); setEmail(""); setConsent(false); }} className="mt-4 text-[13px] font-medium underline-offset-4 hover:underline">
                     Use a different email
                   </button>
                 </div>
@@ -81,10 +91,11 @@ export function Newsletter() {
             ) : (
               <motion.form key="form" onSubmit={submit} noValidate initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                 <Honeypot value={website} onChange={setWebsite} />
+                <LiveRegion message={[error, consentError].filter(Boolean).join(" ")} />
                 <p className="max-w-md text-[15px] leading-relaxed text-muted">
                   Launches, first drives, price moves and the occasional long read — curated by our editors, never sponsored.
                 </p>
-                <div className="mt-6 flex flex-wrap gap-2" role="group" aria-label="Topics">
+                <div className="mt-6 flex flex-wrap gap-2" role="group" aria-label="Topics you'd like to hear about">
                   {TOPICS.map((t) => (
                     <Chip key={t} showCheck selected={topics.includes(t)} onClick={() => setTopics((prev) => (prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]))}>
                       {t}
@@ -107,7 +118,8 @@ export function Newsletter() {
                     autoComplete="email"
                     aria-invalid={error ? true : undefined}
                     aria-describedby={error ? "newsletter-error" : undefined}
-                    className="h-14 min-w-0 flex-1 bg-transparent text-lg outline-none placeholder:text-muted/60"
+                    required
+                    className="h-14 min-w-0 flex-1 bg-transparent text-lg outline-none placeholder:text-muted"
                   />
                   <button
                     type="submit"
@@ -123,11 +135,22 @@ export function Newsletter() {
                   </button>
                 </div>
                 {error && (
-                  <p id="newsletter-error" role="alert" className="mt-2 text-[13px] text-red">
+                  <p id="newsletter-error" className="mt-2 text-[13px] text-red">
                     {error}
                   </p>
                 )}
-                <p className="mt-4 text-[12px] text-muted">Unsubscribe anytime. We never share your email.</p>
+                <ConsentCheckbox
+                  id="newsletter-consent"
+                  className="mt-5"
+                  checked={consent}
+                  onChange={(v) => {
+                    setConsent(v);
+                    if (consentError) setConsentError("");
+                  }}
+                  error={consentError}
+                >
+                  Yes, email me The Weekly Gear newsletter. I can unsubscribe at any time. We never sell or share your email — see the <PrivacyLink />.
+                </ConsentCheckbox>
               </motion.form>
             )}
           </AnimatePresence>

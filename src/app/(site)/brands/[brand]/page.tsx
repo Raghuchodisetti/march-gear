@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { carPhotoAlt } from "@/lib/image-alt";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, ArrowUpRight, Clock, MapPin, Star } from "lucide-react";
@@ -15,6 +16,7 @@ import { Counter, Reveal } from "@/components/ui/reveal";
 import { Eyebrow, SectionHeading, TextLink } from "@/components/ui/section-heading";
 import { EnquiryButton } from "@/components/listing/enquiry-button";
 import { BrandModels } from "./_components/brand-models";
+import { fitDescription, fitTitle, pageMetadata, shareImage } from "@/components/seo/metadata";
 
 export async function generateStaticParams() {
   const { brands } = await getCatalog();
@@ -27,10 +29,20 @@ export async function generateMetadata(props: PageProps<"/brands/[brand]">): Pro
   const brand = cat.getBrand(slug);
   if (!brand) return { title: "Brand not found" };
   const line = cat.carsByBrand(brand.slug);
-  return {
-    title: `${brand.name} cars in India — models, prices & dealers`,
-    description: `${brand.tagline}. Explore ${line.length} ${brand.name} ${line.length === 1 ? "model" : "models"} on sale in India, upcoming launches, latest stories and dealers.`,
-  };
+  const prices = line.map((c) => c.priceMin);
+  const names = line.slice(0, 4).map((c) => c.name);
+  return pageMetadata({
+    title: fitTitle([`${brand.name} Cars in India: Models & Prices`, `${brand.name} Cars: Models & Prices`, `${brand.name} Cars in India`]),
+    description: fitDescription(
+      line.length
+        ? `${line.length} ${brand.name} ${line.length === 1 ? "model" : "models"} on sale in India from ${formatPriceRange(Math.min(...prices), Math.max(...line.map((c) => c.priceMax)))} (indicative ex-showroom).`
+        : `${brand.name} in India: ${brand.tagline}.`,
+      names.length ? `Compare the ${names.join(", ")}${line.length > names.length ? " and more" : ""}.` : null,
+      "Specs, upcoming launches, stories and dealers.",
+    ),
+    path: `/brands/${brand.slug}`,
+    images: [shareImage(brand.heroImage, `${brand.name} cars`)],
+  });
 }
 
 function storiesFor(brand: Brand, cat: Catalog): Article[] {
@@ -155,7 +167,7 @@ export default async function BrandPage(props: PageProps<"/brands/[brand]">) {
                     <div className="relative aspect-[16/10] overflow-hidden bg-white">
                       <Image
                         src={car.image}
-                        alt={`${brand.name} ${car.name} — representative image`}
+                        alt={carPhotoAlt(car.image, `${brand.name} ${car.name}`)}
                         fill
                         sizes="(min-width: 768px) 280px, (min-width: 640px) 200px, 92vw"
                         className="object-cover transition-transform duration-[700ms] ease-[var(--ease-premium)] group-hover/up:scale-[1.04]"
@@ -321,7 +333,7 @@ function BrandStat({ label, note, children }: { label: string; note?: string; ch
     <div className="border-b border-white/15 py-7 even:border-l even:pl-5 [&:nth-child(n+3)]:border-b-0 lg:border-b-0 lg:border-l lg:py-10 lg:pl-8 lg:first:border-l-0 lg:first:pl-0">
       <dt className="text-[12.5px] text-white/55">
         {label}
-        {note && <span className="ml-2 text-white/35">{note}</span>}
+        {note && <span className="ml-2 text-white/50">{note}</span>}
       </dt>
       <dd className="mt-2 font-display text-[32px] font-semibold leading-none tracking-[-0.035em] [font-stretch:108%] num md:text-[48px]">{children}</dd>
     </div>

@@ -99,7 +99,7 @@ export function ProductPicker({
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search plans or insurers"
             aria-label="Search plans or insurers"
-            className="h-11 w-full rounded-[3px] border border-line bg-white pl-10 pr-3 text-[14px] outline-none transition-colors placeholder:text-muted/70 hover:border-ink/30 focus:border-ink"
+            className="h-11 w-full rounded-[3px] border border-line bg-white pl-10 pr-3 text-[14px] outline-none transition-colors placeholder:text-muted hover:border-ink/30 focus:border-ink"
           />
         </div>
         <button type="button" onClick={() => setShowFilters((v) => !v)} aria-expanded={showFilters} className="inline-flex items-center gap-2 text-[13px] font-medium text-ink hover:text-red">

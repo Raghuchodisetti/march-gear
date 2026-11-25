@@ -78,7 +78,7 @@ export default async function AdCampaignsPage({ searchParams }: PageProps<"/admi
                   <span className="relative block h-12 w-28 shrink-0 overflow-hidden rounded-[3px] bg-mist ring-1 ring-line">
                     {cr.desktopImage ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={cr.desktopImage} alt="" className="size-full object-cover" loading="lazy" />
+                      <img decoding="async" src={cr.desktopImage} alt="" className="size-full object-cover" loading="lazy" />
                     ) : (
                       <ImageIcon aria-hidden className="absolute inset-0 m-auto size-4 text-muted" />
                     )}

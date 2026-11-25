@@ -86,7 +86,7 @@ export default async function DashboardPage(props: PageProps<"/dealer/dashboard"
 
   const minis = [
     show.inventory && <MiniStat key="live" icon={<CarFront className="size-4" />} label="Active listings" value={kpi.activeListings} href="/dealer/inventory?status=published" />,
-    show.inventory && <MiniStat key="pv" icon={<Clock3 className="size-4" />} label="Vehicles in approval" value={kpi.pendingVehicles} href="/dealer/inventory?status=pending_approval" />,
+    show.inventory && <MiniStat key="pv" icon={<Clock3 className="size-4" />} label="Used cars in review" value={kpi.pendingVehicles} href="/dealer/inventory?tab=used&status=pending_approval" />,
     show.offers && <MiniStat key="ao" icon={<Sparkles className="size-4" />} label="Active offers" value={kpi.activeOffers} href="/dealer/offers" />,
     show.offers && <MiniStat key="po" icon={<Timer className="size-4" />} label="Offers in approval" value={kpi.pendingOffers} href="/dealer/offers?status=pending_approval" />,
     show.offers && (
@@ -245,7 +245,7 @@ export default async function DashboardPage(props: PageProps<"/dealer/dashboard"
               </Card>
             )}
 
-            <Card title="Notifications" action={<CardLink href="/dealer/notifications">View all</CardLink>}>
+            <Card title="Notifications" action={<CardLink href="/dealer/notifications">All notifications</CardLink>}>
               {d.notifications.length ? (
                 <ul className="space-y-3.5">
                   {d.notifications.map((n) => (
@@ -320,7 +320,7 @@ function VehicleBars({ vehicles }: { vehicles: { id: number; reference: string; 
             <span className="block aspect-[4/3] overflow-hidden bg-mist">
               {/* Dealer-uploaded listing photo from /media. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              {v.image ? <img src={v.image} alt="" className="size-full object-cover transition-transform duration-700 group-hover:scale-105" /> : <CarFront aria-hidden className="m-auto mt-3 size-5 text-muted" />}
+              {v.image ? <img loading="lazy" decoding="async" src={v.image} alt="" className="size-full object-cover transition-transform duration-700 group-hover:scale-105" /> : <CarFront aria-hidden className="m-auto mt-3 size-5 text-muted" />}
             </span>
             <span className="min-w-0">
               <span className="flex items-center gap-2">

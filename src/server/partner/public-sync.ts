@@ -5,7 +5,9 @@ import { dealerReviews, dealers, partnerBrands, partnerShowrooms, partnerVehicle
 import { IMG } from "@/data/images";
 import { DAY_LABEL } from "@/partner/application";
 import type { DayHours } from "@/partner/types";
-import { expireCatalog } from "@/server/catalog";
+import { expireCatalog, getCatalog } from "@/server/catalog";
+import { catalogueFeatures, isUsedDetails } from "@/components/portal/inventory/shared";
+import { catalogueOf } from "@/server/partner/inventory";
 
 /* ──────────────────────────────────────────────────────────────
    Keeps the public site in step with the dealer portal:
@@ -158,7 +160,9 @@ const INSURANCE_LABEL: Record<string, string> = {
 
 /**
  * Mirrors a dealer's used car into the public used-car listings while it is published
- * (and the dealership approved); otherwise hides the mirror. New-car stock isn't mirrored —
+ * (and the dealership approved, and its model still in the catalogue); otherwise hides the mirror.
+ * The car's names, body, fuel, gearbox, new price and highlights come from the catalogue variant;
+ * photos, price and the car's own history from the dealer. New-car stock isn't mirrored —
  * the public dealer page reads partner_vehicles directly.
  */
 export async function syncPublicVehicle(vehicleId: number) {
@@ -170,9 +174,10 @@ export async function syncPublicVehicle(vehicleId: number) {
     expireCatalog();
     return null;
   }
-  const [p] = await db.select().from(partners).where(eq(partners.id, v.partnerId));
+  const [[p], cat] = await Promise.all([db.select().from(partners).where(eq(partners.id, v.partnerId)), getCatalog()]);
   const mirrorId = v.publicUsedCarId ?? `pv-${v.id}`;
-  const live = v.status === "published" && p?.status === "approved" && v.stock > 0;
+  const { car, variant, ok: inCatalogue } = catalogueOf(v, cat);
+  const live = v.status === "published" && p?.status === "approved" && v.stock > 0 && inCatalogue;
 
   if (!live) {
     if (v.publicUsedCarId) {
@@ -183,7 +188,7 @@ export async function syncPublicVehicle(vehicleId: number) {
   }
 
   const [room] = v.showroomId ? await db.select().from(partnerShowrooms).where(eq(partnerShowrooms.id, v.showroomId)) : [];
-  const used = v.used;
+  const used = isUsedDetails(v.used) ? v.used : null;
   const until = used?.insurance.validUntil
     ? new Date(`${used.insurance.validUntil}T00:00:00+05:30`).toLocaleDateString("en-IN", { month: "short", year: "numeric", timeZone: "Asia/Kolkata" })
     : "";
@@ -191,19 +196,19 @@ export async function syncPublicVehicle(vehicleId: number) {
   // "KA-01" from "KA 01 AB 1234" when a number is given, else the state.
   const rto = used?.registrationNumber.toUpperCase().match(/^([A-Z]{2})[\s-]?(\d{1,2})/);
   const values = {
-    modelSlug: v.modelSlug,
-    brand: v.brand,
-    name: v.model,
-    variant: v.variant,
+    modelSlug: car?.slug ?? v.modelSlug,
+    brand: car?.brand ?? v.brand,
+    name: car?.name ?? v.model,
+    variant: variant?.name ?? v.variant,
     year: used?.registrationYear ?? v.year,
     km: used?.km ?? 0,
-    fuel: v.fuel,
-    transmission: v.transmission,
+    fuel: variant?.fuel ?? v.fuel,
+    transmission: variant?.transmission ?? v.transmission,
     owners: Math.max(1, used?.owners ?? 1),
     city: (room?.city || p.city || "India").slice(0, 64),
     price: v.sellingPrice,
-    newPrice: v.exShowroom,
-    bodyType: v.bodyType,
+    newPrice: variant?.price ?? v.exShowroom,
+    bodyType: car?.bodyType ?? v.bodyType,
     images: v.images.length ? v.images : [IMG.showroomRed],
     focus: null,
     verified: false,
@@ -214,7 +219,7 @@ export async function syncPublicVehicle(vehicleId: number) {
     sellerName: (p.tradeName || p.legalName || "Dealer partner").slice(0, 120),
     sellerType: "Dealer" as const,
     dealerId: p.publicDealerId,
-    highlights: v.features.slice(0, 5),
+    highlights: car ? catalogueFeatures(car, variant).slice(0, 5) : [],
     postedOn: (v.publishedAt ?? new Date()).toISOString().slice(0, 10),
     status: "active" as const,
   };

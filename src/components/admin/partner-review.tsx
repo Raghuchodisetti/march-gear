@@ -48,7 +48,7 @@ export function Gallery({ images, alt }: { images: string[]; alt: string }) {
       <div className="relative aspect-[16/9] max-h-[440px] w-full overflow-hidden bg-mist">
         {/* Dealer-uploaded media — plain <img> on purpose. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={unsplash(current, 1200)} alt={`${alt} — photo ${i + 1} of ${images.length}`} className="size-full object-cover" />
+        <img loading="lazy" decoding="async" src={unsplash(current, 1200)} alt={`${alt} — photo ${i + 1} of ${images.length}`} className="size-full object-cover" />
         <span className="absolute bottom-3 right-3 rounded-full bg-ink/75 px-2.5 py-1 text-[11.5px] font-medium text-white num">
           {i + 1} / {images.length}
         </span>
@@ -58,7 +58,7 @@ export function Gallery({ images, alt }: { images: string[]; alt: string }) {
           {images.map((src, n) => (
             <button key={`${src}-${n}`} type="button" onClick={() => setI(n)} aria-label={`Show photo ${n + 1}`} aria-pressed={n === i} className={cn("h-14 w-20 shrink-0 overflow-hidden rounded-[2px] ring-2 ring-offset-1 transition", n === i ? "ring-red" : "ring-transparent opacity-70 hover:opacity-100")}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={unsplash(src, 200)} alt="" className="size-full object-cover" loading="lazy" />
+              <img decoding="async" src={unsplash(src, 200)} alt="" className="size-full object-cover" loading="lazy" />
             </button>
           ))}
         </div>
@@ -69,14 +69,30 @@ export function Gallery({ images, alt }: { images: string[]; alt: string }) {
 
 /* ── Vehicles ───────────────────────────────────────────────── */
 
-export function VehicleActions({ id, status, partnerApproved, label }: { id: number; status: PartnerVehicleStatus; partnerApproved: boolean; label: string }) {
+/**
+ * Staff decisions on a dealer listing. Used cars go through review (approve, publish, corrections, reject).
+ * New cars don't — the dealer publishes them — so staff can only pause a live one (remarks required) or put it back.
+ */
+export function VehicleActions({ id, status, partnerApproved, label, kind = "used" }: { id: number; status: PartnerVehicleStatus; partnerApproved: boolean; label: string; kind?: "new" | "used" }) {
   const dialog = useDecisionDialog();
+  const isNew = kind === "new";
   const open = (op: "approve" | "approve_publish" | "publish" | "unpublish" | "reject" | "request_changes") => {
     const specs = {
       approve_publish: { title: "Approve & publish", description: "The listing goes live on MarchGear straight away (used cars appear on /used-cars).", submitLabel: "Approve & publish", icon: <Rocket aria-hidden className="size-4" />, done: "Approved and published", optional: true },
       approve: { title: "Approve listing", description: "Approves the listing without publishing it. You or the dealer can publish it later.", submitLabel: "Approve", icon: <Check aria-hidden className="size-4" />, done: "Listing approved", optional: true },
-      publish: { title: "Publish listing", description: "Puts the listing live on the website.", submitLabel: "Publish", icon: <Eye aria-hidden className="size-4" />, done: "Listing published", optional: true },
-      unpublish: { title: "Unpublish listing", description: "Takes the listing off the website. The dealer keeps it in their inventory.", submitLabel: "Unpublish", icon: <EyeOff aria-hidden className="size-4" />, done: "Listing unpublished", optional: true },
+      publish: isNew
+        ? { title: "Publish again", description: "Puts the new-car listing back on the dealer's page and the model page.", submitLabel: "Publish", icon: <Eye aria-hidden className="size-4" />, done: "Listing published", optional: true }
+        : { title: "Publish listing", description: "Puts the listing live on the website.", submitLabel: "Publish", icon: <Eye aria-hidden className="size-4" />, done: "Listing published", optional: true },
+      unpublish: isNew
+        ? {
+            title: "Pause listing",
+            description: "Takes the listing off the website straight away. The dealer is notified with your remarks and can fix it and publish again.",
+            submitLabel: "Pause listing",
+            icon: <EyeOff aria-hidden className="size-4" />,
+            done: "Listing paused — the dealer has been notified",
+            optional: false,
+          }
+        : { title: "Unpublish listing", description: "Takes the listing off the website. The dealer keeps it in their inventory.", submitLabel: "Unpublish", icon: <EyeOff aria-hidden className="size-4" />, done: "Listing unpublished", optional: true },
       request_changes: { title: "Request corrections", description: "The dealer sees your remarks, edits the listing and resubmits it.", submitLabel: "Send corrections", icon: <ClipboardList aria-hidden className="size-4" />, done: "Corrections requested", optional: false },
       reject: { title: "Reject listing", description: "The listing is closed and taken off the website if it was live.", submitLabel: "Reject listing", icon: <Ban aria-hidden className="size-4" />, done: "Listing rejected", optional: false },
     }[op];
@@ -87,10 +103,10 @@ export function VehicleActions({ id, status, partnerApproved, label }: { id: num
         {
           name: "remarks",
           kind: "textarea",
-          label: specs.optional ? "Remarks to the dealer" : op === "reject" ? "Reason (shown to the dealer)" : "What should the dealer change?",
+          label: specs.optional ? "Remarks to the dealer" : op === "reject" ? "Reason (shown to the dealer)" : op === "unpublish" ? "Why is it paused? (shown to the dealer)" : "What should the dealer change?",
           optional: specs.optional,
           rows: 3,
-          placeholder: op === "request_changes" ? "e.g. Add photos of the odometer and the service book." : undefined,
+          placeholder: op === "request_changes" ? "e.g. Add photos of the odometer and the service book." : op === "unpublish" && isNew ? "e.g. The price looks wrong for this variant — please check it and publish again." : undefined,
         },
       ],
       submitLabel: specs.submitLabel,
@@ -106,6 +122,17 @@ export function VehicleActions({ id, status, partnerApproved, label }: { id: num
     </button>
   );
   const items: ReactNode[] = [];
+  if (isNew) {
+    if (status === "published") items.push(btn("unpublish", "Pause listing", <EyeOff aria-hidden className="size-4" />, "dark"));
+    else if (status !== "draft" && status !== "archived") items.push(btn("publish", "Publish again", <Eye aria-hidden className="size-4" />, "primary", !partnerApproved));
+    return (
+      <div>
+        {items.length ? <div className="flex flex-wrap gap-2">{items}</div> : <p className="text-[13px] text-muted">This listing is {status === "draft" ? "a draft the dealer hasn't published" : "archived"} — there&apos;s nothing to do.</p>}
+        <p className="mt-2 text-[12px] text-muted">New-car listings go live when the dealer publishes them — no approval step. Pausing notifies the dealer with your remarks.</p>
+        {dialog.element}
+      </div>
+    );
+  }
   if (status === "pending_approval" || status === "changes_requested" || status === "rejected") {
     items.push(btn("approve_publish", "Approve & publish", <Rocket aria-hidden className="size-4" />, "primary", !partnerApproved));
     items.push(btn("approve", "Approve", <Check aria-hidden className="size-4" />, "dark"));
@@ -295,7 +322,7 @@ export function BannerPreview({ media, title }: { media: { desktopBanner: string
         <div className={cn("overflow-hidden bg-white shadow-soft", frame)}>
           {src ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={unsplash(src, view === "desktop" ? 1400 : 600)} alt={`${title} — ${view} banner`} className="size-full object-cover" />
+            <img loading="lazy" decoding="async" src={unsplash(src, view === "desktop" ? 1400 : 600)} alt={`${title} — ${view} banner`} className="size-full object-cover" />
           ) : (
             <div className="flex size-full flex-col items-center justify-center gap-1.5 text-center text-[12.5px] text-muted">
               <ImageOff aria-hidden className="size-5" /> No {view} banner uploaded

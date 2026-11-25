@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { carPhotoAlt } from "@/lib/image-alt";
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Bell, CalendarClock, Check, Droplet, Fuel, Leaf, RotateCcw, Wind, Zap } from "lucide-react";
@@ -192,7 +193,7 @@ function UpcomingEntry({ car, nextUp, notified, onNotify }: { car: UpcomingCar; 
       <div className="relative aspect-[4/3] self-start overflow-hidden bg-mist">
         <Image
           src={car.image}
-          alt={`${title} — representative image`}
+          alt={carPhotoAlt(car.image, title)}
           fill
           sizes="(min-width: 1280px) 340px, (min-width: 640px) 36vw, 90vw"
           className="object-cover"

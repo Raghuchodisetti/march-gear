@@ -74,9 +74,9 @@ export function ConfirmDialog({
 
 const statusText = (s: string | null) => (s && s in VEHICLE_STATUS_LABEL ? VEHICLE_STATUS_LABEL[s as PartnerVehicleStatus] : s);
 
-/** Every submission and decision for one vehicle, with MarchGear's remarks. */
+/** Every publish, submission and decision for one vehicle, with MarchGear's remarks. */
 export function HistoryDrawer({ vehicleId, onClose }: { vehicleId: number | null; onClose: () => void }) {
-  const [data, setData] = useState<{ id: number; entries: VehicleHistoryEntry[]; status: PartnerVehicleStatus; remarks: string | null; reference: string; title: string } | null>(null);
+  const [data, setData] = useState<{ id: number; entries: VehicleHistoryEntry[]; status: PartnerVehicleStatus; kind: "new" | "used"; remarks: string | null; reference: string; title: string } | null>(null);
   const [error, setError] = useState<{ id: number; message: string } | null>(null);
 
   useEffect(() => {
@@ -96,7 +96,7 @@ export function HistoryDrawer({ vehicleId, onClose }: { vehicleId: number | null
   const failed = error?.id === vehicleId ? error.message : null;
 
   return (
-    <Drawer open={vehicleId !== null} onClose={onClose} title="Approval history" className="sm:max-w-lg">
+    <Drawer open={vehicleId !== null} onClose={onClose} title="Listing history" className="sm:max-w-lg">
       <div className="p-5">
         {!current && !failed && (
           <p className="flex items-center gap-2 text-[13.5px] text-muted">
@@ -112,9 +112,17 @@ export function HistoryDrawer({ vehicleId, onClose }: { vehicleId: number | null
             </div>
             <p className="mt-2 text-[15px] font-semibold">{current.title || "Untitled vehicle"}</p>
             <RemarksCallout status={current.status} remarks={current.remarks} className="mt-4" />
+            {current.kind === "new" && current.status === "unpublished" && current.remarks && (
+              <p className="mt-4 border-l-2 border-[#c98a1b] bg-[#fdf3e1] px-4 py-3 text-[13.5px]">
+                <span className="font-semibold text-[#9a5b00]">Paused by MarchGear: </span>
+                {current.remarks}
+              </p>
+            )}
             {current.entries.length === 0 ? (
               <p className="mt-8 border border-dashed border-line px-4 py-10 text-center text-[13.5px] text-muted">
-                Not submitted yet. When you submit it for approval, every step and MarchGear&rsquo;s remarks appear here.
+                {current.kind === "new"
+                  ? "Not published yet. When you publish or pause it — or MarchGear pauses it — each step appears here."
+                  : "Not submitted yet. When you submit it for approval, every step and MarchGear\u2019s remarks appear here."}
               </p>
             ) : (
               <ol className="relative mt-8 space-y-6 before:absolute before:inset-y-1 before:left-[7px] before:w-px before:bg-line">
@@ -149,9 +157,10 @@ function PreviewBody({ vehicle, brandName }: { vehicle: PublicVehicle; brandName
       <p className="mb-6 flex items-start gap-2 bg-mist px-4 py-3 text-[13px] text-ink/80">
         <Eye aria-hidden className="mt-0.5 size-4 shrink-0" />
         <span>
-          This is how buyers will see the listing once MarchGear publishes it —{" "}
-          {vehicle.kind === "used" ? "on /used-cars and your dealer page" : "in “In stock at this showroom” on your dealer page and on the model's page"}. Buyers also get
-          enquiry buttons here.
+          {vehicle.kind === "used"
+            ? "This is how buyers will see the car once MarchGear approves it — on /used-cars and your dealer page. Specifications come from the catalogue; the photos and history are yours."
+            : "This is how buyers will see the listing once you publish it — on your dealer page and on the model's page. The car's photos, specifications and features come from the MarchGear catalogue."}{" "}
+          Buyers also get enquiry buttons here.
         </span>
       </p>
       <StockVehicleDetail vehicle={vehicle} brandName={brandName} />

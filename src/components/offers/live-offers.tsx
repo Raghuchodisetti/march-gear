@@ -98,7 +98,7 @@ export function LiveOfferPanel({ offers, renderedAt, title, link }: { offers: Of
                 <p className="font-display text-[16px] font-semibold leading-tight tracking-[-0.01em] text-red">{o.headline}</p>
                 <p className="mt-1 truncate text-[14px] font-medium text-ink">
                   {o.href ? (
-                    <Link href={o.href} className="after:absolute after:inset-0 focus-visible:outline-none">
+                    <Link href={o.href} className="after:absolute after:inset-0 stretched-focus">
                       {o.title}
                     </Link>
                   ) : (

@@ -115,7 +115,7 @@ export function ShowroomManager({ rooms, states, limit, planName }: { rooms: Sho
                 {r.photos[0] ? (
                   // Dealer-uploaded showroom photo from /media.
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={r.photos[0]} alt={`${r.name} showroom`} className="absolute inset-0 size-full object-cover" />
+                  <img loading="lazy" decoding="async" src={r.photos[0]} alt={`${r.name} showroom`} className="absolute inset-0 size-full object-cover" />
                 ) : (
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-muted">
                     <Store aria-hidden className="size-6" />

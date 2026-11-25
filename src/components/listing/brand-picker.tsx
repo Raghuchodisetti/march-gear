@@ -45,7 +45,6 @@ export function BrandPicker({ onSelect, onShowAll }: { onSelect: (slug: string) 
                   <button
                     type="button"
                     onClick={() => onSelect(brand.slug)}
-                    aria-label={`${brand.name}: ${s.count} ${s.count === 1 ? "model" : "models"}, from ${formatPrice(s.from)}`}
                     className="group/brand flex h-full w-full flex-col border border-line bg-white text-left transition-[border-color] duration-[400ms] ease-[var(--ease-premium)] hover:border-ink"
                   >
                     <span className="relative flex h-32 items-center justify-center bg-mist transition-[background-color] duration-[400ms] ease-[var(--ease-premium)] group-hover/brand:bg-white md:h-36">
@@ -56,7 +55,7 @@ export function BrandPicker({ onSelect, onShowAll }: { onSelect: (slug: string) 
                           logoFit(brand.slug),
                         )}
                       />
-                      <span className="absolute left-3 top-3 text-[11px] font-medium text-muted num">
+                      <span aria-hidden className="absolute left-3 top-3 text-[11px] font-medium text-muted num">
                         {s.count} {s.count === 1 ? "model" : "models"}
                       </span>
                       <ArrowUpRight
@@ -65,7 +64,12 @@ export function BrandPicker({ onSelect, onShowAll }: { onSelect: (slug: string) 
                       />
                     </span>
                     <span className="flex flex-1 flex-col p-4 md:p-5">
-                      <span className="type-h4 block text-[15px] leading-snug md:text-lg">{brand.name}</span>
+                      <span className="type-h4 block text-[15px] leading-snug md:text-lg">
+                        {brand.name}
+                        <span className="sr-only">
+                          , {s.count} {s.count === 1 ? "model" : "models"},
+                        </span>
+                      </span>
                       <span className="mt-1 block text-[12.5px] text-muted">
                         from <span className="font-medium text-ink num">{formatPrice(s.from)}</span>
                       </span>

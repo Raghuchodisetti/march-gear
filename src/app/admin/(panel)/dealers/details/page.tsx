@@ -33,6 +33,7 @@ import {
   splitCorrection,
 } from "@/components/admin/partner-ui";
 import { cn } from "@/lib/utils";
+import { MapEmbed } from "@/components/ui/map-embed";
 
 export const metadata: Metadata = { title: "Dealer details" };
 
@@ -65,10 +66,10 @@ function Hours({ hours }: { hours: DayHours[] }) {
   );
 }
 
-function mapSrc(r: { lat: number | null; lng: number | null; address: string; city: string; pin: string }) {
-  const q = r.lat !== null && r.lng !== null ? `${r.lat},${r.lng}` : `${r.address}, ${r.city} ${r.pin}`;
-  return `https://maps.google.com/maps?q=${encodeURIComponent(q)}&z=15&output=embed`;
-}
+type MapPlace = { lat: number | null; lng: number | null; address: string; city: string; pin: string };
+const mapQuery = (r: MapPlace) => (r.lat !== null && r.lng !== null ? `${r.lat},${r.lng}` : `${r.address}, ${r.city} ${r.pin}`);
+const mapSrc = (r: MapPlace) => `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery(r))}&z=15&output=embed`;
+const mapLink = (r: MapPlace) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery(r))}`;
 
 export default async function DealerDetailsPage({ searchParams }: PageProps<"/admin/dealers/details">) {
   const me = await requireStaff();
@@ -99,7 +100,7 @@ export default async function DealerDetailsPage({ searchParams }: PageProps<"/ad
             <div className="flex items-start gap-4">
               {app.personal.photo ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={app.personal.photo} alt={`Photo of ${app.personal.fullName}`} className="size-16 shrink-0 rounded-full object-cover" />
+                <img decoding="async" src={app.personal.photo} alt={`Photo of ${app.personal.fullName}`} className="size-16 shrink-0 rounded-full object-cover" />
               ) : (
                 <span className="inline-flex size-16 shrink-0 items-center justify-center rounded-full bg-mist text-[18px] font-semibold text-muted">{app.personal.fullName.slice(0, 1) || "?"}</span>
               )}
@@ -472,7 +473,7 @@ function Showrooms({ d }: { d: PartnerDetail }) {
                     {r.photos.slice(0, 9).map((src) => (
                       <a key={src} href={src} target="_blank" rel="noreferrer" className="block aspect-[4/3] overflow-hidden bg-mist">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={src} alt={`${r.name} showroom`} loading="lazy" className="size-full object-cover transition-transform duration-300 hover:scale-105" />
+                        <img decoding="async" src={src} alt={`${r.name} showroom`} loading="lazy" className="size-full object-cover transition-transform duration-300 hover:scale-105" />
                       </a>
                     ))}
                   </div>
@@ -480,13 +481,7 @@ function Showrooms({ d }: { d: PartnerDetail }) {
               )}
             </div>
             <div className="min-w-0">
-              <iframe
-                title={`Map of ${r.name}`}
-                src={mapSrc(r)}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="h-[280px] w-full border-0 bg-mist lg:h-full lg:min-h-[320px]"
-              />
+              <MapEmbed title={`Map of ${r.name}`} src={mapSrc(r)} href={mapLink(r)} className="h-[280px] lg:h-full lg:min-h-[320px]" />
             </div>
           </div>
         </Panel>
@@ -616,7 +611,7 @@ function Listings({ d }: { d: PartnerDetail }) {
                 <Link href={`/admin/vehicle-approvals?view=all&review=${v.id}`} className="flex items-center gap-3 px-5 py-3 transition-colors hover:bg-mist/50">
                   <span className="block h-11 w-16 shrink-0 overflow-hidden rounded-[2px] bg-mist">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    {v.image && <img src={v.image} alt="" className="size-full object-cover" loading="lazy" />}
+                    {v.image && <img decoding="async" src={v.image} alt="" className="size-full object-cover" loading="lazy" />}
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-[13.5px] font-medium">

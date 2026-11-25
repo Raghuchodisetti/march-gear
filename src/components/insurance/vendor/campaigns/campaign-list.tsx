@@ -232,7 +232,7 @@ function CampaignTile({ item, canManage, run }: { item: CampaignListItem; canMan
       </div>
       <footer className="flex items-center justify-between gap-2 border-t border-line px-5 py-3">
         <Link href={`/insurance-vendor/campaigns/${item.id}`} className="truncate text-[12.5px] font-medium text-ink underline-offset-4 hover:underline">
-          View details
+          View details<span className="sr-only">: {item.title}</span>
         </Link>
         <CampaignActions item={item} canManage={canManage} run={run} compact />
       </footer>

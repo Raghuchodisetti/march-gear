@@ -170,7 +170,7 @@ export function CompareSection({ intro }: { intro: Intro }) {
                     {r.label}
                   </dt>
                   <dd className="pl-8 text-[14px] leading-relaxed text-muted sm:pl-0">
-                    {i === 0 && <span className="mr-2 rounded-[2px] bg-red-50 px-1.5 py-0.5 align-[1px] text-[10px] font-semibold uppercase tracking-[0.1em] text-red">Indicative</span>}
+                    {i === 0 && <span className="mr-2 rounded-[2px] bg-red-50 px-1.5 py-0.5 align-[1px] text-[10px] font-semibold uppercase tracking-[0.1em] text-red-600">Indicative</span>}
                     {r.text}
                   </dd>
                 </div>
@@ -353,7 +353,7 @@ export function CoverTypesSection({ intro }: { intro: Intro }) {
                     {v === true ? (
                       <Check aria-label="Included" className="size-4 text-red" strokeWidth={2.5} />
                     ) : v === false ? (
-                      <Minus aria-label="Not included" className="size-4 text-muted/60" />
+                      <Minus aria-label="Not included" className="size-4 text-muted" />
                     ) : (
                       <span className="text-[12.5px] text-muted">{v}</span>
                     )}

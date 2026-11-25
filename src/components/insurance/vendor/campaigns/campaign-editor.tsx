@@ -34,7 +34,7 @@ import {
 
 const OFFLINE: ActionFailure = { ok: false, error: "Couldn't reach the server. Check your connection and try again." };
 const area =
-  "w-full rounded-[3px] border border-line bg-white px-4 py-3 text-[14.5px] leading-relaxed text-ink outline-none transition-colors placeholder:text-muted/70 hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red";
+  "w-full rounded-[3px] border border-line bg-white px-4 py-3 text-[14.5px] leading-relaxed text-ink outline-none transition-colors placeholder:text-muted hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red";
 
 function Counter({ value, max }: { value: string; max: number }) {
   return <span className={cn("text-[11.5px] num", value.length > max * 0.9 ? "text-[#9a5b00]" : "text-muted")}>{value.length} / {max}</span>;

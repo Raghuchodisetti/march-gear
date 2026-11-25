@@ -8,13 +8,14 @@ import { getCatalog } from "@/server/catalog";
 import { Button } from "@/components/ui/button";
 import { CategoryAd, CtaBand, HeroFacts, LandingHero, QuoteSection, RelatedGuides, Section, pickGuides } from "@/components/insurance/public/landing";
 import { TP_NOTE, TpRateTable } from "@/components/insurance/public/tp-rates";
+import { INSURANCE_OG_IMAGE, pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "New car insurance — bundled 1 + 3 year policies explained",
-  description:
-    "Insuring a new car in India: three years of third-party cover from day one, how bundled policies work in years two and three, invoice cover, and how to compare against the dealer's offer.",
-  alternates: { canonical: "/insurance/new-car" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "New Car Insurance: Bundled 1+3 Year Policies",
+  description: "Insuring a new car in India: three years of third-party cover from day one, how bundled 1+3 policies work, invoice cover and comparing the dealer's offer.",
+  path: "/insurance/new-car",
+  images: [INSURANCE_OG_IMAGE],
+});
 
 const YEARS = [
   { year: "Year 1", od: "Own damage (in the bundled policy)", tp: true, note: "Bought with the car, before registration." },

@@ -213,7 +213,7 @@ export function VehicleForm({
             aria-invalid={errors.notes ? true : undefined}
             placeholder="Optional"
             className={cn(
-              "min-h-24 w-full rounded-[3px] border border-line bg-white px-4 py-3 text-[15px] leading-relaxed text-ink outline-none transition-[border-color] duration-[250ms] placeholder:text-muted/70 hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red",
+              "min-h-24 w-full rounded-[3px] border border-line bg-white px-4 py-3 text-[15px] leading-relaxed text-ink outline-none transition-[border-color] duration-[250ms] placeholder:text-muted hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red",
             )}
           />
           <p className={cn("mt-1.5 text-xs", errors.notes ? "text-red" : "text-muted")}>{errors.notes ?? `${f.notes.length}/500`}</p>

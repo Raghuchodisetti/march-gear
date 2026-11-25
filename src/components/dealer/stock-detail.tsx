@@ -2,17 +2,26 @@
 
 import { useState, type ReactNode } from "react";
 import Image from "next/image";
-import { Check, CirclePlay, MapPin, ShieldCheck } from "lucide-react";
+import { Check, MapPin, ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { formatDate, formatINR, formatKm, formatPrice } from "@/lib/format";
-import { INSURANCE_OPTIONS, parseVideo, type PublicVehicle } from "@/components/portal/inventory/shared";
+import { INSURANCE_OPTIONS, conditionLabel, waitingLabel, type PublicVehicle } from "@/components/portal/inventory/shared";
 
 /* ──────────────────────────────────────────────────────────────
    A dealer's vehicle as buyers see it: gallery, price, key facts,
    specifications and features. Used by the public dealer page's
-   "In stock" details and by the dealer portal's preview, so the
-   preview is exactly what goes live.
+   stock details and by the dealer portal's preview, so the
+   preview is exactly what goes live. A new car's photos, specs
+   and features are the catalogue's; a used car shows its own
+   photos and history with the catalogue's specs.
    ────────────────────────────────────────────────────────────── */
+
+/** "3 in stock", "On order · about 6 weeks", "Available", "Out of stock". */
+export function availabilityText(v: Pick<PublicVehicle, "kind" | "stock" | "availability" | "waitingWeeks">) {
+  if (v.kind === "used") return v.stock > 0 ? "Available" : "Sold";
+  if (v.availability === "on_order") return `On order · ${waitingLabel(v.waitingWeeks)}`;
+  return v.stock > 0 ? `${v.stock} in stock` : "Out of stock";
+}
 
 export const stockTitle = (v: Pick<PublicVehicle, "year" | "model">, brandName: string) => [v.year > 0 ? v.year : null, brandName, v.model].filter(Boolean).join(" ");
 
@@ -75,9 +84,22 @@ export function StockVehicleDetail({ vehicle: v, brandName, actions, className }
     { label: "Fuel", value: v.fuel },
     { label: "Transmission", value: v.transmission },
     { label: "Body type", value: v.bodyType },
-    { label: "Colour", value: v.colour },
+    {
+      label: "Colour",
+      value: v.colour ? (
+        <span className="inline-flex max-w-full items-center gap-1.5">
+          {v.colourHex && <span aria-hidden className="size-3 shrink-0 rounded-full border border-black/10" style={{ backgroundColor: v.colourHex }} />}
+          <span className="truncate">{v.colour}</span>
+        </span>
+      ) : v.kind === "new" ? (
+        "Ask the showroom"
+      ) : (
+        ""
+      ),
+    },
     ...(used
       ? [
+          { label: "Condition", value: conditionLabel(used.condition) },
           { label: "Odometer", value: used.km !== null ? formatKm(used.km) : "" },
           { label: "Owners", value: used.owners ? (used.owners === 1 ? "1st owner" : `${used.owners} owners`) : "" },
           { label: "Registered", value: [used.registrationYear, used.registrationState].filter(Boolean).join(" · ") },
@@ -93,10 +115,11 @@ export function StockVehicleDetail({ vehicle: v, brandName, actions, className }
     <article className={cn("grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:gap-10", className)}>
       <div className="min-w-0">
         <StockGallery images={v.images} alt={title} />
+        {v.kind === "new" && v.images.length > 0 && <p className="mt-2 text-[11.5px] text-muted">Photos from the MarchGear catalogue — colours and equipment may differ by variant.</p>}
         {v.description && (
           <section className="mt-8">
-            <h3 className="type-eyebrow text-ink">About this car</h3>
-            <p className="mt-3 whitespace-pre-line text-[14.5px] leading-relaxed text-ink/80">{v.description}</p>
+            <h3 className="type-eyebrow text-ink">{v.kind === "used" ? "Condition notes" : `About the ${v.model}`}</h3>
+            <p className={cn("mt-3 whitespace-pre-line text-[14.5px] leading-relaxed text-ink/80", v.kind === "new" && "line-clamp-6")}>{v.description}</p>
           </section>
         )}
         {v.features.length > 0 && (
@@ -117,7 +140,7 @@ export function StockVehicleDetail({ vehicle: v, brandName, actions, className }
       <div className="min-w-0">
         <p className="type-eyebrow inline-flex items-center gap-3 text-muted">
           <span aria-hidden className="h-px w-6 bg-red" />
-          {v.kind === "used" ? "Pre-owned · Dealer certified listing" : "New car · In stock"}
+          {v.kind === "used" ? "Pre-owned · Dealer certified listing" : v.availability === "on_order" ? "New car · On order" : "New car · In stock"}
         </p>
         <h2 className="mt-4 font-display text-[26px] font-semibold leading-tight tracking-[-0.02em] text-balance md:text-[30px]">{title}</h2>
         <p className="mt-1.5 text-[14.5px] text-muted">{[v.variant, v.colour].filter(Boolean).join(" · ") || "Variant not set"}</p>
@@ -136,8 +159,8 @@ export function StockVehicleDetail({ vehicle: v, brandName, actions, className }
             )}
           </p>
           <p className="mt-3 inline-flex items-center gap-2 text-[13px] font-medium">
-            <span aria-hidden className={cn("size-2 rounded-full", v.stock > 0 ? "bg-[#1e7a3c]" : "bg-muted")} />
-            {v.stock > 0 ? (v.kind === "used" ? "Available" : `${v.stock} in stock`) : "Out of stock"}
+            <span aria-hidden className={cn("size-2 rounded-full", v.stock > 0 ? "bg-[#1e7a3c]" : v.kind === "new" && v.availability === "on_order" ? "bg-[#c98a1b]" : "bg-muted")} />
+            {availabilityText(v)}
           </p>
         </div>
 
@@ -165,7 +188,7 @@ export function StockVehicleDetail({ vehicle: v, brandName, actions, className }
 
         {v.specs.length > 0 && (
           <section className="mt-8">
-            <h3 className="type-eyebrow text-ink">Specifications</h3>
+            <h3 className="type-eyebrow text-ink">{v.variant ? `Specifications · ${v.variant}` : "Specifications"}</h3>
             <dl className="mt-3 border-t border-line">
               {v.specs.map((s, i) => (
                 <div key={`${s.label}-${i}`} className="flex items-baseline justify-between gap-4 border-b border-line py-2.5 text-[13.5px]">
@@ -174,31 +197,6 @@ export function StockVehicleDetail({ vehicle: v, brandName, actions, className }
                 </div>
               ))}
             </dl>
-          </section>
-        )}
-
-        {v.videos.length > 0 && (
-          <section className="mt-8">
-            <h3 className="type-eyebrow text-ink">Videos</h3>
-            <ul className="mt-3 space-y-2">
-              {v.videos.map((url, i) => {
-                const video = parseVideo(url);
-                return (
-                  <li key={url}>
-                    <a
-                      href={video?.url ?? url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group/v inline-flex items-center gap-2 text-[13.5px] font-medium text-ink underline-offset-4 hover:underline"
-                    >
-                      <CirclePlay aria-hidden className="size-4 text-red transition-transform duration-300 group-hover/v:scale-110" />
-                      Watch video {i + 1} on {video?.provider === "vimeo" ? "Vimeo" : "YouTube"}
-                      <span className="sr-only">(opens in a new tab)</span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
           </section>
         )}
 

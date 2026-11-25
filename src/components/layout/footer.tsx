@@ -4,6 +4,7 @@ import { footerColumns, footerLegal } from "@/data/navigation";
 import { getCatalog } from "@/server/catalog";
 import { Logo } from "@/components/ui/logo";
 import { socials } from "@/components/ui/social-icons";
+import { CookieSettingsButton } from "@/components/consent/cookie-settings-button";
 import { BackToTop, CallbackButton } from "./footer-actions";
 
 /** "+91 91283 33777" → "tel:+919128333777" */
@@ -12,6 +13,13 @@ const telHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, "")}`;
 export async function Footer() {
   const { site } = (await getCatalog()).content;
   const links = socials.map((s) => ({ ...s, href: site.socials[s.key] })).filter((s) => s.href);
+  // Company identity line — only the details the owner has filled in (content block "site").
+  const business = [
+    site.legalName,
+    site.cin && `${site.cin.includes("-") ? "LLPIN" : "CIN"} ${site.cin}`,
+    site.gstin && `GSTIN ${site.gstin}`,
+    site.registeredAddress && `Registered office: ${site.registeredAddress}`,
+  ].filter(Boolean);
   return (
     <footer className="bg-ink text-white">
       <div className="container-x">
@@ -100,10 +108,11 @@ export async function Footer() {
 
         {/* 3 · Legal */}
         <div className="border-t border-white/10 py-8">
-          <p className="max-w-4xl text-[12px] leading-relaxed text-white/40">
+          <p className="max-w-4xl text-[12px] leading-relaxed text-white/55">
             All vehicle prices, specifications, listings, reviews and dealer details on this site are demonstration data and do not constitute an offer.
             Photography is representative, sourced from Unsplash, and may not depict the exact model or variant described.
           </p>
+          {business.length > 0 && <p className="mt-3 max-w-4xl break-words text-[12px] leading-relaxed text-white/50">{business.join(" · ")}</p>}
           <div className="mt-6 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div className="flex flex-col gap-3 text-[12.5px] sm:flex-row sm:items-center sm:gap-6">
               <p className="text-white/50">© 2026 MarchGear. All rights reserved.</p>
@@ -115,6 +124,9 @@ export async function Footer() {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <CookieSettingsButton className="text-white/60 transition-colors hover:text-white" />
+                </li>
               </ul>
             </div>
             <BackToTop />

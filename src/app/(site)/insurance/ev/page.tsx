@@ -10,13 +10,14 @@ import { getAddOnOffers } from "@/server/insurance/public-content";
 import { Button } from "@/components/ui/button";
 import { CategoryAd, CtaBand, LandingHero, QuoteSection, RelatedGuides, Section, pickGuides } from "@/components/insurance/public/landing";
 import { EvSlabFinder } from "@/components/insurance/public/ev-slab-finder";
+import { INSURANCE_OG_IMAGE, pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Electric car insurance — battery, charger and third-party rates by kW",
-  description:
-    "What's different about insuring an electric car in India: third-party premiums by motor kW, the battery's share of the value, water-ingress and short-circuit cover, charging equipment and EV-capable garages.",
-  alternates: { canonical: "/insurance/ev" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Electric Car Insurance: Battery & Charger Cover",
+  description: "Insuring an electric car in India: third-party premiums by motor kW, battery and charger cover, water-ingress and short-circuit risks, and EV-ready garages.",
+  path: "/insurance/ev",
+  images: [INSURANCE_OG_IMAGE],
+});
 
 const DIFFERENCES = [
   { Icon: Zap, title: "Third party by motor power", text: "No engine capacity, so third-party premiums are set in slabs by the motor's kilowatts — and have generally been set lower than for comparable petrol cars." },

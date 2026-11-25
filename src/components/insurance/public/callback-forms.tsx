@@ -8,9 +8,11 @@ import { EASE } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import { submitInsuranceLeadAction, type InsuranceLeadInput } from "@/server/actions/insurance-leads";
 import { Button } from "@/components/ui/button";
-import { Label, SelectField, TextArea, TextField } from "@/components/ui/field";
+import { SelectField, TextArea, TextField } from "@/components/ui/field";
 import { Modal } from "@/components/ui/overlay";
 import { Honeypot } from "@/components/forms/honeypot";
+import { CONSENT_REQUIRED, ConsentCheckbox, PrivacyLink } from "@/components/forms/consent";
+import { radioGroupKeyDown, rovingTabIndex, useFormFeedback } from "@/components/forms/form-a11y";
 import { useUI, useUser } from "@/components/providers/app-provider";
 import { useCatalog } from "@/components/providers/catalog-provider";
 import {
@@ -75,7 +77,7 @@ function checkContact(c: Contact, e: Record<string, string>) {
   if (!/^[6-9]\d{9}$/.test(c.phone)) e.phone = "Enter a valid 10-digit mobile number";
   if (c.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email.trim())) e.email = "Enter a valid email address";
   if (c.city.trim() && !PLACE.test(c.city.trim())) e.city = "Enter a valid city name";
-  if (!c.consent) e.consent = "Please agree so we can call you";
+  if (!c.consent) e.consent = CONSENT_REQUIRED;
 }
 
 /** Sends the request and maps server errors back onto the form. */
@@ -84,7 +86,8 @@ function useSubmit() {
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [reference, setReference] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const send = async (input: InsuranceLeadInput, success: string) => {
+  const feedback = useFormFeedback();
+  const send = async (input: InsuranceLeadInput, success: string, form: HTMLFormElement) => {
     setStatus("sending");
     try {
       const res = await submitInsuranceLeadAction(input);
@@ -98,6 +101,7 @@ function useSubmit() {
         }
         setErrors(mapped);
         const note = unplaced ?? res.error;
+        feedback.report(mapped, form, unplaced);
         if (note) toast(note, { tone: "error" });
         return;
       }
@@ -109,7 +113,7 @@ function useSubmit() {
       toast(NETWORK_ERROR, { tone: "error" });
     }
   };
-  return { status, setStatus, reference, errors, setErrors, send };
+  return { status, setStatus, reference, errors, setErrors, send, feedback };
 }
 
 function ContactFields({ c, errors, clear, idPrefix, withEmail = false }: { c: Contact; errors: Record<string, string>; clear: (k: string) => void; idPrefix: string; withEmail?: boolean }) {
@@ -174,23 +178,20 @@ function ContactFields({ c, errors, clear, idPrefix, withEmail = false }: { c: C
   );
 }
 
-function Consent({ c, error, clear, children }: { c: Contact; error?: string; clear: () => void; children: ReactNode }) {
+function Consent({ id, c, error, clear, children }: { id: string; c: Contact; error?: string; clear: () => void; children: ReactNode }) {
   return (
-    <label className="flex cursor-pointer items-start gap-3 text-[12.5px] leading-relaxed text-muted sm:col-span-2">
-      <input
-        type="checkbox"
-        checked={c.consent}
-        onChange={(e) => {
-          c.setConsent(e.target.checked);
-          clear();
-        }}
-        className="mt-0.5 size-4 shrink-0 accent-[var(--color-red)]"
-      />
-      <span>
-        {children}
-        {error && <span className="mt-0.5 block text-red">{error}</span>}
-      </span>
-    </label>
+    <ConsentCheckbox
+      id={id}
+      className="sm:col-span-2"
+      checked={c.consent}
+      onChange={(v) => {
+        c.setConsent(v);
+        clear();
+      }}
+      error={error}
+    >
+      {children} See the <PrivacyLink />.
+    </ConsentCheckbox>
   );
 }
 
@@ -225,20 +226,21 @@ export function HelpCallbackForm({ defaultTopic = "new", onDone }: { defaultTopi
   const pathname = usePathname();
   const { hours } = useCatalog().content.site;
   const c = useContact();
-  const { status, setStatus, reference, errors, setErrors, send } = useSubmit();
+  const { status, setStatus, reference, errors, setErrors, send, feedback } = useSubmit();
   const [topic, setTopic] = useState<HelpTopic>(defaultTopic);
   const [callTime, setCallTime] = useState<CallTime>("anytime");
   const [car, setCar] = useState("");
   const [message, setMessage] = useState("");
   const clear = (k: string) => setErrors((e) => (e[k] ? Object.fromEntries(Object.entries(e).filter(([x]) => x !== k)) : e));
 
-  const submit = async (ev: React.FormEvent) => {
+  const submit = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
     if (status === "sending") return;
+    const form = ev.currentTarget;
     const e: Record<string, string> = {};
     checkContact(c, e);
     setErrors(e);
-    if (Object.keys(e).length) return;
+    if (feedback.report(e, form)) return;
     await send(
       {
         type: "insurance_help",
@@ -252,6 +254,7 @@ export function HelpCallbackForm({ defaultTopic = "new", onDone }: { defaultTopi
         details: { topic, callTime, car: car.trim() },
       },
       "Request sent — we'll call you back",
+      form,
     );
   };
 
@@ -275,16 +278,20 @@ export function HelpCallbackForm({ defaultTopic = "new", onDone }: { defaultTopi
   return (
     <form onSubmit={submit} noValidate className="relative">
       <Honeypot value={c.website} onChange={c.setWebsite} />
+      {feedback.live}
       <div className="grid grid-cols-1 gap-5 p-6 sm:grid-cols-2 sm:p-8">
         <div className="sm:col-span-2">
-          <Label>What would you like help with?</Label>
-          <div role="radiogroup" aria-label="Topic" className="flex flex-wrap gap-2">
-            {HELP_TOPICS.map((t) => (
+          <p id="help-topic-label" className="mb-2 block text-[12.5px] font-medium text-ink">
+            What would you like help with?
+          </p>
+          <div role="radiogroup" aria-labelledby="help-topic-label" onKeyDown={radioGroupKeyDown} className="flex flex-wrap gap-2">
+            {HELP_TOPICS.map((t, i) => (
               <button
                 key={t}
                 type="button"
                 role="radio"
                 aria-checked={topic === t}
+                tabIndex={rovingTabIndex(topic === t, i, true)}
                 onClick={() => setTopic(t)}
                 className={cn(
                   "rounded-full border px-3.5 py-1.5 text-[13px] transition-colors duration-[250ms]",
@@ -306,8 +313,8 @@ export function HelpCallbackForm({ defaultTopic = "new", onDone }: { defaultTopi
         />
         <TextField className="sm:col-span-2" label="Your car (optional)" value={car} onChange={(e) => setCar(e.target.value)} placeholder="e.g. 2022 Hyundai Creta SX petrol" maxLength={160} error={errors.car} />
         <TextArea className="sm:col-span-2" label="Anything we should know? (optional)" rows={3} value={message} onChange={(e) => setMessage(e.target.value)} maxLength={2000} />
-        <Consent c={c} error={errors.consent} clear={() => clear("consent")}>
-          I agree to be called by MarchGear about this request. MarchGear doesn&apos;t sell or issue policies.
+        <Consent id="help-consent" c={c} error={errors.consent} clear={() => clear("consent")}>
+          I agree that MarchGear may call me about this request, using the details I&apos;ve entered here. MarchGear doesn&apos;t sell or issue policies.
         </Consent>
       </div>
       <div className="flex flex-col gap-3 border-t border-line bg-mist/60 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
@@ -362,7 +369,7 @@ export function ClaimCallbackForm() {
   const pathname = usePathname();
   const { hours } = useCatalog().content.site;
   const c = useContact();
-  const { status, setStatus, reference, errors, setErrors, send } = useSubmit();
+  const { status, setStatus, reference, errors, setErrors, send, feedback } = useSubmit();
   const [kind, setKind] = useState<ClaimKind | "">("");
   const [where, setWhere] = useState<CarWhere | "">("");
   const [incidentDate, setIncidentDate] = useState("");
@@ -373,9 +380,10 @@ export function ClaimCallbackForm() {
   const clear = (k: string) => setErrors((e) => (e[k] ? Object.fromEntries(Object.entries(e).filter(([x]) => x !== k)) : e));
   const today = localISO();
 
-  const submit = async (ev: React.FormEvent) => {
+  const submit = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
     if (status === "sending") return;
+    const form = ev.currentTarget;
     const e: Record<string, string> = {};
     if (!kind) e.kind = "Choose what happened";
     if (!where) e.where = "Tell us where the car is now";
@@ -384,7 +392,7 @@ export function ClaimCallbackForm() {
     if (!informed) e.informed = "Let us know";
     checkContact(c, e);
     setErrors(e);
-    if (Object.keys(e).length) return;
+    if (feedback.report(e, form)) return;
     await send(
       {
         type: "insurance_claim",
@@ -399,6 +407,7 @@ export function ClaimCallbackForm() {
         details: { kind: kind as ClaimKind, where: where as CarWhere, incidentDate, insurer: insurer.trim(), policyNumber: policyNumber.trim(), informedInsurer: informed === "yes" },
       },
       "Request sent — we'll call you back",
+      form,
     );
   };
 
@@ -420,6 +429,7 @@ export function ClaimCallbackForm() {
   return (
     <form onSubmit={submit} noValidate className="relative border border-line bg-white">
       <Honeypot value={c.website} onChange={c.setWebsite} />
+      {feedback.live}
       <div className="flex items-start gap-3 border-b border-line bg-mist/60 px-6 py-4 text-[13px] leading-relaxed text-muted sm:px-8">
         <AlertTriangle aria-hidden className="mt-0.5 size-4 shrink-0 text-red" />
         <p>
@@ -465,14 +475,25 @@ export function ClaimCallbackForm() {
           error={errors.where}
         />
         <div>
-          <Label>Have you informed your insurer?</Label>
-          <div role="radiogroup" aria-label="Have you informed your insurer?" className="grid h-12 grid-cols-2 gap-1 rounded-[3px] bg-mist p-1">
-            {(["yes", "no"] as const).map((v) => (
+          <p id="claim-informed-label" className="mb-2 block text-[12.5px] font-medium text-ink">
+            Have you informed your insurer?
+          </p>
+          <div
+            role="radiogroup"
+            aria-labelledby="claim-informed-label"
+            aria-invalid={errors.informed ? true : undefined}
+            aria-describedby={errors.informed ? "claim-informed-msg" : undefined}
+            aria-required="true"
+            onKeyDown={radioGroupKeyDown}
+            className="grid h-12 grid-cols-2 gap-1 rounded-[3px] bg-mist p-1"
+          >
+            {(["yes", "no"] as const).map((v, i) => (
               <button
                 key={v}
                 type="button"
                 role="radio"
                 aria-checked={informed === v}
+                tabIndex={rovingTabIndex(informed === v, i, informed !== "")}
                 onClick={() => {
                   setInformed(v);
                   clear("informed");
@@ -483,15 +504,19 @@ export function ClaimCallbackForm() {
               </button>
             ))}
           </div>
-          {errors.informed && <p className="mt-1.5 text-xs text-red">{errors.informed}</p>}
+          {errors.informed && (
+            <p id="claim-informed-msg" className="mt-1.5 text-xs text-red">
+              {errors.informed}
+            </p>
+          )}
           {informed === "no" && <p className="mt-1.5 text-xs text-ink">Please call your insurer&apos;s claims line now — the number is on your policy.</p>}
         </div>
         <TextField id="claim-insurer" label="Your insurer (optional)" value={insurer} onChange={(e) => setInsurer(e.target.value)} placeholder="As printed on your policy" maxLength={120} error={errors.insurer} />
         <TextField id="claim-policy" label="Policy number (optional)" value={policyNumber} onChange={(e) => setPolicyNumber(e.target.value)} maxLength={60} error={errors.policyNumber} />
         <ContactFields c={c} errors={errors} clear={clear} idPrefix="claim" withEmail />
         <TextArea className="sm:col-span-2" label="What would you like help with? (optional)" rows={3} value={message} onChange={(e) => setMessage(e.target.value)} maxLength={2000} placeholder="e.g. The garage says the bumper isn't covered — is that right?" />
-        <Consent c={c} error={errors.consent} clear={() => clear("consent")}>
-          I agree to be called by MarchGear about this request. I understand MarchGear doesn&apos;t process claims.
+        <Consent id="claim-consent" c={c} error={errors.consent} clear={() => clear("consent")}>
+          I agree that MarchGear may call me about this request, using the details I&apos;ve entered here. I understand MarchGear doesn&apos;t process claims.
         </Consent>
       </div>
       <div className="flex flex-col gap-3 border-t border-line px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">

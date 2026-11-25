@@ -11,20 +11,24 @@ import { useCatalog } from "@/components/providers/catalog-provider";
 import { useUI } from "@/components/providers/app-provider";
 import { TrackView } from "@/components/portal/track";
 import type { PublicVehicle } from "@/components/portal/inventory/shared";
-import { StockVehicleDetail, stockTitle } from "./stock-detail";
+import { StockVehicleDetail, availabilityText, stockTitle } from "./stock-detail";
 
-/* "In stock at this showroom" on a partner dealer's public page: published new-car stock. */
+/*
+ * "In stock at this showroom" on a partner dealer's public page: published new-car stock, in stock or on order.
+ * The car (photos, names, specs) is the MarchGear catalogue's; colour, price and availability are the dealer's.
+ */
 
 export function StockSection({ items, dealerId, dealerName }: { items: PublicVehicle[]; dealerId: string; dealerName: string }) {
   const { brandName } = useCatalog();
   const { openEnquiry } = useUI();
   const [open, setOpen] = useState<PublicVehicle | null>(null);
 
+  const onOrder = items.filter((v) => v.availability === "on_order").length;
   const enquire = (v: PublicVehicle) =>
     openEnquiry({
       kind: "contact-dealer",
       subject: `${stockTitle(v, brandName(v.brand))} ${v.variant}`.trim(),
-      detail: `${v.colour ? `${v.colour} · ` : ""}${dealerName} · ${v.reference}`,
+      detail: `${v.colour ? `${v.colour} · ` : ""}${v.availability === "on_order" ? "On order · " : ""}${dealerName} · ${v.reference}`,
       dealerId,
       carSlug: v.modelSlug ?? undefined,
     });
@@ -34,13 +38,15 @@ export function StockSection({ items, dealerId, dealerName }: { items: PublicVeh
       <div className="container-x">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <Eyebrow>Ready for delivery</Eyebrow>
+            <Eyebrow>New-car stock</Eyebrow>
             <h2 id="stock-title" className="type-h2 mt-5">
               In stock at this showroom
             </h2>
           </div>
           <p className="max-w-sm text-[14px] text-muted sm:text-right">
-            {items.length} {items.length === 1 ? "car" : "cars"} listed by {dealerName} and checked by MarchGear. Prices are the dealer&rsquo;s own.
+            {items.length - onOrder > 0 && `${items.length - onOrder} ready for delivery`}
+            {items.length - onOrder > 0 && onOrder > 0 && " · "}
+            {onOrder > 0 && `${onOrder} on order`}. Specifications and photos from the MarchGear catalogue; prices and availability are {dealerName}&rsquo;s own.
           </p>
         </div>
 
@@ -62,8 +68,8 @@ export function StockSection({ items, dealerId, dealerName }: { items: PublicVeh
                       />
                     )}
                     <span className="absolute left-3 top-3 inline-flex h-6 items-center rounded-full bg-white/95 px-2.5 text-[11px] font-semibold text-ink num">
-                      <span aria-hidden className="mr-1.5 size-1.5 rounded-full bg-[#1e7a3c]" />
-                      {v.stock} in stock
+                      <span aria-hidden className={`mr-1.5 size-1.5 rounded-full ${v.availability === "on_order" ? "bg-[#c98a1b]" : "bg-[#1e7a3c]"}`} />
+                      {availabilityText(v)}
                     </span>
                   </button>
                   <div className="flex flex-1 flex-col p-5">
@@ -72,7 +78,7 @@ export function StockSection({ items, dealerId, dealerName }: { items: PublicVeh
                     <p className="mt-0.5 truncate text-[13px] text-muted">{v.variant}</p>
                     {v.colour && (
                       <p className="mt-3 inline-flex items-center gap-1.5 text-[12.5px] text-ink/80">
-                        <Palette aria-hidden className="size-3.5 text-muted" /> {v.colour}
+                        {v.colourHex ? <span aria-hidden className="size-3 rounded-full border border-black/10" style={{ backgroundColor: v.colourHex }} /> : <Palette aria-hidden className="size-3.5 text-muted" />} {v.colour}
                       </p>
                     )}
                     <div className="mt-auto pt-5">

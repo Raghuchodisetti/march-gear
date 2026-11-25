@@ -127,7 +127,7 @@ export function AccountShell({
             <nav aria-label="My account" className="space-y-5 px-3 py-4">
               {NAV.map((g, gi) => (
                 <div key={gi}>
-                  {g.title && <p className="mb-1.5 px-3 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-muted/80">{g.title}</p>}
+                  {g.title && <p className="mb-1.5 px-3 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-muted">{g.title}</p>}
                   <ul className="space-y-0.5">
                     {g.items.map(({ key, href, label, icon: Icon }) => {
                       const on = key === active;

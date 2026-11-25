@@ -12,11 +12,14 @@ import { InsuranceSearchForm } from "@/components/insurance/search/insurance-sea
 import { QuotesExperience } from "@/components/insurance/public/market/quotes-experience";
 import { CustomerRequests } from "@/components/insurance/public/market/customer-requests";
 import { FILTER_ADDON_KEYS, idParam, listParam, pricingConfig, resolveVehicle, type SortKey } from "@/components/insurance/public/market/engine";
+import { INSURANCE_OG_IMAGE, pageMetadata } from "@/components/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Car insurance quotes — compare indicative premiums",
-  description: "Indicative premiums, IDV, cover and add-ons from listed insurers for your car. Compare plans side by side and ask several insurers for a quote in one go.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Car Insurance Quotes: Indicative Premiums",
+  description: "Indicative car insurance premiums, IDV, cover and add-ons from listed insurers for your car. Compare plans side by side and ask several insurers for a quote.",
+  path: "/insurance/quotes",
+  images: [INSURANCE_OG_IMAGE],
+});
 
 const SORTS: SortKey[] = ["premium", "idv", "garages"];
 const first = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";

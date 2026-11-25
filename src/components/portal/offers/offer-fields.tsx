@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 /* Form primitives for the offer editor (consistent with src/components/ui/field). */
 
 const control =
-  "w-full rounded-[3px] border border-line bg-white text-[15px] text-ink placeholder:text-muted/70 outline-none transition-[border-color] duration-[250ms] hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red";
+  "w-full rounded-[3px] border border-line bg-white text-[15px] text-ink placeholder:text-muted outline-none transition-[border-color] duration-[250ms] hover:border-ink/30 focus:border-ink aria-[invalid=true]:border-red";
 
 export function FieldShell({ label, htmlFor, hint, error, counter, optional, children, className }: { label?: string; htmlFor?: string; hint?: ReactNode; error?: string; counter?: string; optional?: boolean; children: ReactNode; className?: string }) {
   return (
