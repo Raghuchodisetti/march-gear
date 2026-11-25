@@ -91,8 +91,11 @@ export function expireGuides() {
 
 /* ── The stored PDF ─────────────────────────────────────────── */
 
-/** 512 KB pieces: each insert stays well under MySQL's default 1 MB max_allowed_packet. */
-const PIECE = 512 * 1024;
+/**
+ * 256 KB pieces: each insert stays well under MySQL's 1 MB max_allowed_packet — also in a SQL export, where
+ * mysqldump --hex-blob writes each piece at twice its size.
+ */
+export const GUIDE_PIECE = 256 * 1024;
 
 const pool = () => (getDb() as Database & { $client: Pool }).$client;
 
@@ -106,8 +109,8 @@ export async function writeGuidePdf(guideId: number, pdf: Buffer) {
   try {
     await conn.beginTransaction();
     await conn.execute("DELETE FROM `guide_files` WHERE `guide_id` = ?", [guideId]);
-    for (let seq = 0, at = 0; at < data.length; seq++, at += PIECE) {
-      await conn.execute<ResultSetHeader>("INSERT INTO `guide_files` (`guide_id`, `seq`, `data`) VALUES (?, ?, ?)", [guideId, seq, data.subarray(at, at + PIECE)]);
+    for (let seq = 0, at = 0; at < data.length; seq++, at += GUIDE_PIECE) {
+      await conn.execute<ResultSetHeader>("INSERT INTO `guide_files` (`guide_id`, `seq`, `data`) VALUES (?, ?, ?)", [guideId, seq, data.subarray(at, at + GUIDE_PIECE)]);
     }
     await conn.execute("UPDATE `guides` SET `pdf_encoding` = ? WHERE `id` = ?", [encoding, guideId]);
     await conn.commit();

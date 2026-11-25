@@ -43,3 +43,6 @@ next-env.d.ts
 
 # Database exports (contain account data) — never commit
 /backups/
+
+# Images exported for the cloud folder (npm run media:export)
+/media-export/

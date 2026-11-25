@@ -228,7 +228,8 @@ function webpWidth(buf: Buffer | null) {
  * changed), from the stored photo. Reads only the first bytes of each rendition to check it.
  */
 async function refreshThumbs() {
-  const [rows] = await pool().query<RowDataPacket[]>("SELECT `id`, `width`, SUBSTRING(`thumb`, 1, 40) AS head FROM `media` WHERE `source_url` IS NOT NULL");
+  // Images moved to the cloud folder (npm run media:export) keep their card copy there.
+  const [rows] = await pool().query<RowDataPacket[]>("SELECT `id`, `width`, SUBSTRING(`thumb`, 1, 40) AS head FROM `media` WHERE `source_url` IS NOT NULL AND `storage` = 'db'");
   let rebuilt = 0;
   for (const r of rows as { id: number; width: number | null; head: Buffer | null }[]) {
     const expected = Math.min(THUMB_WIDTH, r.width ?? THUMB_WIDTH);

@@ -18,7 +18,8 @@
     "db:catalogue-listings": "tsx --env-file=.env.local src/db/catalogue-listings.ts",
     "db:import-catalogue": "tsx --env-file=.env.local src/db/import-catalogue.ts",
     "db:import-images": "tsx --env-file=.env.local src/db/import-images.ts",
-    "db:compress-stored": "tsx --env-file=.env.local src/db/compress-stored.ts"
+    "db:compress-stored": "tsx --env-file=.env.local src/db/compress-stored.ts",
+    "media:export": "tsx --env-file=.env.local src/db/export-media.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

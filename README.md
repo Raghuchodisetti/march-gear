@@ -40,7 +40,18 @@ Next.js 16 (App Router, Turbopack, Server Actions) · React 19 · TypeScript · 
 - **Insurance marketplace** — public `/insurance` (indicative premiums, compare, providers, quote requests), the insurance vendor portal `/insurance-vendor` (7-step registration, products, coverage and add-ons, enquiries CRM, quotations, renewals, promotions, advertising, billing) and `/admin/insurance` (vendor verification, product/cover/campaign approvals, revenue). Premiums the site calculates are always labelled indicative; quotations are labelled indicative or insurer-authorised. See [docs/insurance-marketplace.md](docs/insurance-marketplace.md).
 - **Advertising** — site-wide ad placements (`src/ads/placements.ts`) booked by insurance vendors and approved in `/admin/advertising` (campaigns and creatives separately); impressions and clicks are counted per day in `ad_stats`.
 - **Guides** (`/guides`, linked from the footer) — topic pages made from PDFs. In **Admin → Guides → New guide**, staff enter a subject and topic name and upload a PDF (up to 15 MB / 150 pages, with selectable text). `src/server/guides/extract.ts` reads its text with PDF.js (`unpdf`, pure JavaScript) and rebuilds headings, paragraphs, lists and tables, dropping running headers, footers and page numbers. Each topic gets its own page at `/guides/<slug>`, and `/guides` groups the topics by subject. The text can be edited afterwards in a simple format (`## heading`, `- bullet`, `1. item`, `| table | row |`), and the original PDF can be offered as a download. The PDF is stored in MySQL in 512 KB pieces (`guide_files`), so it fits the default 1 MB `max_allowed_packet`. Pictures inside a PDF aren't carried over to the page. Scanned PDFs (pictures of text) are refused, because there's no text to read.
-- **Images and files** — everything is stored in MySQL in compressed form.
+- **Where photos live** — public photos (car photos, dealer and vendor uploads, banners) are kept as plain files in a "cloud folder", not in the database, so the database stays a few MB. Each photo is stored as two files:
+  - `media/<id>/<filename>` — the photo;
+  - `media/<id>/960/<filename>` — its 960 px card copy.
+
+  Settings (see `src/server/media-store.ts`):
+  - `MEDIA_CLOUD_URL` — the folder's public address, for example `https://cloud.marchgear.in`. `/media/<id>/<name>` redirects there, and browsers cache the redirect for a year.
+  - `MEDIA_CLOUD_DIR` — the same folder on the server's disk, if the site can reach it. New uploads are written there, and without `MEDIA_CLOUD_URL` the site reads photos from it directly (local development uses `./media-export`). Without `MEDIA_CLOUD_DIR`, new uploads are kept in the database and served from there.
+
+  To move photos out of the database, run `npm run media:export -- --offload`. It writes them to the folder, checks each file, and only then empties the photos from the database.
+
+  Private files (dealer and vendor documents, guide PDFs) always stay in the database, behind their access checks.
+- **Images and files** — everything is stored in compressed form.
   - **Photos** uploaded in the admin or the dealer and vendor portals, including photos of documents, are compressed in the browser before upload: converted to WebP, longest side at most 2,000 px, under 900 KB.
   - **Card copies:** each photo also gets a 960 px card copy, which the media route serves at `?w=960` and which listing cards and thumbnails load.
   - **PDFs:** guide PDFs and dealer and vendor documents are stored deflated when that saves 10% or more (`src/server/stored-files.ts`). Most PDFs are already compressed inside.

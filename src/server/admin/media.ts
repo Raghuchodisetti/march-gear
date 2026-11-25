@@ -5,6 +5,7 @@ import { getDb, type Database } from "@/db";
 import { articles, brands, cars, dealers, media, siteContent, upcomingCars, usedCars, users } from "@/db/schema";
 import { BLOCKS, isBlockKey } from "@/content/registry";
 import { requireStaff } from "@/server/auth";
+import { MEDIA_CLOUD_DIR, removeCloudFiles, uploadsToCloud, writeCloudFiles } from "@/server/media-store";
 import { MEDIA_PAGE_SIZE, MEDIA_THUMB_MAX_BYTES, MEDIA_THUMB_WIDTH, MEDIA_TYPES, mediaUrl, type MediaItem, type MediaMime, type MediaPage, type MediaUsage } from "@/components/admin/media-shared";
 
 const term = (q: string) => `%${q.replace(/[%_\\]/g, (c) => `\\${c}`)}%`;
@@ -28,7 +29,8 @@ const columns = {
   license: media.license,
   licenseUrl: media.licenseUrl,
   creditNote: media.creditNote,
-  hasThumb: sql<number>`(${media.thumb} IS NOT NULL)`.mapWith(Number),
+  // Cloud images always have a card copy file (the image itself when there's no smaller one).
+  hasThumb: sql<number>`(${media.thumb} IS NOT NULL OR ${media.storage} = 'cloud')`.mapWith(Number),
 };
 
 type Row = {
@@ -128,11 +130,53 @@ export async function insertMedia(
   file: { filename: string; mime: MediaMime; data: Buffer; width: number | null; height: number | null; thumb?: Buffer | null; alt?: string | null },
   userId: number,
 ) {
+  return storeMedia({ ...file, createdBy: userId });
+}
+
+/**
+ * Stores a public image (admin, dealer or vendor upload) with its card copy: in the cloud folder when this server
+ * writes to one (MEDIA_CLOUD_DIR — see src/server/media-store.ts), otherwise in the database. Returns its id.
+ */
+export async function storeMedia(file: {
+  filename: string;
+  mime: string;
+  data: Buffer;
+  width: number | null;
+  height: number | null;
+  thumb?: Buffer | null;
+  alt?: string | null;
+  createdBy: number | null;
+  partnerId?: number | null;
+  insVendorId?: number | null;
+}) {
   const pool = (getDb() as Database & { $client: Pool }).$client;
+  const thumb = cardCopy({ width: file.width }, file.thumb);
+  const cloud = uploadsToCloud();
   const [res] = await pool.execute<ResultSetHeader>(
-    "INSERT INTO `media` (`filename`, `mime`, `size`, `width`, `height`, `alt`, `data`, `thumb`, `created_by`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-    [file.filename, file.mime, file.data.length, file.width, file.height, file.alt ?? null, file.data, cardCopy({ width: file.width }, file.thumb), userId],
+    "INSERT INTO `media` (`filename`, `mime`, `size`, `width`, `height`, `alt`, `data`, `thumb`, `storage`, `created_by`, `partner_id`, `ins_vendor_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    [
+      file.filename,
+      file.mime,
+      file.data.length,
+      file.width,
+      file.height,
+      file.alt ?? null,
+      cloud ? null : file.data,
+      cloud ? null : thumb,
+      cloud ? "cloud" : "db",
+      file.createdBy,
+      file.partnerId ?? null,
+      file.insVendorId ?? null,
+    ],
   );
+  if (cloud) {
+    try {
+      await writeCloudFiles(MEDIA_CLOUD_DIR, res.insertId, file.filename, file.data, thumb);
+    } catch (err) {
+      await pool.execute("DELETE FROM `media` WHERE `id` = ?", [res.insertId]);
+      throw err;
+    }
+  }
   return res.insertId;
 }
 
@@ -156,6 +200,7 @@ export async function setMediaAlt(id: number, alt: string | null) {
 export async function removeMedia(id: number) {
   await requireStaff();
   const res = await getDb().delete(media).where(eq(media.id, id));
+  if (res[0].affectedRows) await removeCloudFiles(id);
   return res[0].affectedRows > 0;
 }
 

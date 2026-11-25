@@ -3,7 +3,7 @@ import type { Pool, ResultSetHeader, RowDataPacket } from "mysql2/promise";
 import { getDb, type Database } from "@/db";
 import type { InsDocKind } from "@/db/enums";
 import type { FileRef } from "@/insurance/types";
-import { cardCopy, sniffImage } from "@/server/admin/media";
+import { sniffImage, storeMedia } from "@/server/admin/media";
 import { packPdf, unpack } from "@/server/stored-files";
 import { safeFilename, type DocMime } from "@/server/partner/files";
 
@@ -55,11 +55,8 @@ export async function saveInsurerMedia(f: { vendorId: number; userId: number; fi
   const img = sniffImage(f.data);
   if (!img) return null;
   const filename = safeFilename(f.filename, img.mime);
-  const [res] = await pool().execute<ResultSetHeader>(
-    "INSERT INTO `media` (`filename`, `mime`, `size`, `width`, `height`, `alt`, `data`, `thumb`, `created_by`, `ins_vendor_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-    [filename, img.mime, f.data.length, img.width, img.height, f.alt ?? null, f.data, cardCopy(img, f.thumb), f.userId, f.vendorId],
-  );
-  return { id: res.insertId, url: `/media/${res.insertId}/${filename}`, width: img.width, height: img.height, mime: img.mime, size: f.data.length };
+  const id = await storeMedia({ filename, mime: img.mime, data: f.data, width: img.width, height: img.height, thumb: f.thumb, alt: f.alt, createdBy: f.userId, insVendorId: f.vendorId });
+  return { id, url: `/media/${id}/${filename}`, width: img.width, height: img.height, mime: img.mime, size: f.data.length };
 }
 
 /** Response headers for serving a private file (images locked down; PDFs in the browser's own viewer). */

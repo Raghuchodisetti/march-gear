@@ -603,7 +603,13 @@ export const media = mysqlTable(
     width: int("width"),
     height: int("height"),
     alt: varchar("alt", { length: 300 }),
-    data: longblob("data").notNull(),
+    /** The image itself while it's kept in the database (storage "db"); null once it's in the cloud folder. */
+    data: longblob("data"),
+    /**
+     * Where the image is: "db" (this row's `data`/`thumb`) or "cloud" (files media/<id>/<name> and
+     * media/<id>/960/<name> in the cloud folder, served from MEDIA_CLOUD_URL — see src/server/media-store.ts).
+     */
+    storage: varchar("storage", { length: 8 }).notNull().default("db"),
     createdBy: int("created_by").references(() => users.id, { onDelete: "set null" }),
     /** Set for uploads from the dealer portal (each dealer sees only its own). */
     partnerId: int("partner_id").references((): AnyMySqlColumn => partners.id, { onDelete: "set null" }),
@@ -1906,7 +1912,7 @@ export const guides = mysqlTable(
   (t) => [index("guides_subject_idx").on(t.subject), index("guides_status_idx").on(t.status)],
 );
 
-/** A guide's PDF in 512 KB pieces, so each insert stays under MySQL's default 1 MB max_allowed_packet. */
+/** A guide's PDF in 256 KB pieces, so each row stays under MySQL's 1 MB max_allowed_packet — also hex-encoded in SQL exports. */
 export const guideFiles = mysqlTable(
   "guide_files",
   {

@@ -81,12 +81,15 @@ function canEncodeWebp() {
 export async function prepareImage(file: File): Promise<PreparedFile> {
   const main = await prepareMain(file);
   // GIFs stay as they are (animation); everything else wider than a card also gets a small card copy.
-  const thumb = /\.gif$/i.test(main.filename) ? undefined : await cardCopyOf(main.blob, main.width, main.height);
+  const thumb = /\.gif$/i.test(main.filename) ? undefined : await cardCopyOf(main.blob, main.width, main.height, /\.jpe?g$/i.test(main.filename));
   return thumb ? { ...main, thumb } : main;
 }
 
-/** The card copy: MEDIA_THUMB_WIDTH wide, WebP where the browser can write it, under MEDIA_THUMB_MAX_BYTES. */
-async function cardCopyOf(blob: Blob, width: number, height: number): Promise<Blob | undefined> {
+/**
+ * The card copy: MEDIA_THUMB_WIDTH wide, under MEDIA_THUMB_MAX_BYTES — JPEG for a JPEG image (it's stored under the
+ * image's own name, and static hosts label files by extension), else WebP where the browser can write it.
+ */
+async function cardCopyOf(blob: Blob, width: number, height: number, jpeg = false): Promise<Blob | undefined> {
   if (!width || width <= MEDIA_THUMB_WIDTH) return undefined;
   let bitmap: ImageBitmap;
   try {
@@ -102,7 +105,7 @@ async function cardCopyOf(blob: Blob, width: number, height: number): Promise<Bl
     canvas.height = h;
     const ctx = canvas.getContext("2d");
     if (!ctx) return undefined;
-    const format: OutputType = (await canEncodeWebp()) ? "image/webp" : "image/jpeg";
+    const format: OutputType = !jpeg && (await canEncodeWebp()) ? "image/webp" : "image/jpeg";
     if (format === "image/jpeg") {
       ctx.fillStyle = "#fff";
       ctx.fillRect(0, 0, w, h);
@@ -253,7 +256,7 @@ export function useMediaUploads(onUploaded: (item: MediaItem) => void) {
         patch(key, { status: "error", error: err instanceof Error ? err.message : "Upload failed." });
       }
     },
-    [patch, dismiss],
+    [patch, dismiss, uploadUrl],
   );
 
   const add = useCallback(

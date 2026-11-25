@@ -4,6 +4,7 @@ import { ImageResponse } from "next/og";
 import type { ReactElement, ReactNode } from "react";
 import { eq } from "drizzle-orm";
 import { getDb } from "@/db";
+import { imageBytes } from "@/server/media-store";
 import { media } from "@/db/schema";
 
 /* ──────────────────────────────────────────────────────────────
@@ -68,13 +69,16 @@ async function mediaPhoto(src: string, width: number, height: number): Promise<s
   if (!m) return null;
   try {
     const [row] = await getDb()
-      .select({ filename: media.filename, data: media.data })
+      .select({ id: media.id, filename: media.filename, storage: media.storage, data: media.data })
       .from(media)
       .where(eq(media.id, Number(m[1])))
       .limit(1);
     if (!row || row.filename !== m[2]) return null;
+    // In the database, or in the cloud folder (read from disk or fetched from MEDIA_CLOUD_URL).
+    const bytes = await imageBytes(row);
+    if (!bytes) return null;
     const { default: sharp } = await import("sharp");
-    const jpeg = await sharp(row.data).rotate().resize(width, height, { fit: "cover", position: "attention" }).jpeg({ quality: 80, mozjpeg: true }).toBuffer();
+    const jpeg = await sharp(bytes).rotate().resize(width, height, { fit: "cover", position: "attention" }).jpeg({ quality: 80, mozjpeg: true }).toBuffer();
     return `data:image/jpeg;base64,${jpeg.toString("base64")}`;
   } catch {
     return null;

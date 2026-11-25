@@ -36,7 +36,7 @@ async function cardCopy(data: Buffer): Promise<Buffer | null> {
 
 async function photos() {
   const [rows] = await pool().query<RowDataPacket[]>(
-    "SELECT `id`, `filename`, `width` FROM `media` WHERE `thumb` IS NULL AND `mime` <> 'image/gif' AND `width` > ? ORDER BY `id`",
+    "SELECT `id`, `filename`, `width` FROM `media` WHERE `storage` = 'db' AND `thumb` IS NULL AND `mime` <> 'image/gif' AND `width` > ? ORDER BY `id`",
     [MEDIA_THUMB_WIDTH],
   );
   let made = 0;
@@ -101,13 +101,13 @@ async function guidePdfs() {
     changed++;
     saved += data.length - packed.length;
     if (DRY) continue;
-    // Same 512 KB pieces as writeGuidePdf (each insert stays under MySQL's 1 MB packet limit), in one transaction.
+    // Same 256 KB pieces as writeGuidePdf (GUIDE_PIECE — small enough for MySQL's packet limit, also in exports), in one transaction.
     const conn = await pool().getConnection();
     try {
       await conn.beginTransaction();
       await conn.execute("DELETE FROM `guide_files` WHERE `guide_id` = ?", [g.id]);
-      for (let seq = 0, at = 0; at < packed.length; seq++, at += 512 * 1024) {
-        await conn.execute("INSERT INTO `guide_files` (`guide_id`, `seq`, `data`) VALUES (?, ?, ?)", [g.id, seq, packed.subarray(at, at + 512 * 1024)]);
+      for (let seq = 0, at = 0; at < packed.length; seq++, at += 256 * 1024) {
+        await conn.execute("INSERT INTO `guide_files` (`guide_id`, `seq`, `data`) VALUES (?, ?, ?)", [g.id, seq, packed.subarray(at, at + 256 * 1024)]);
       }
       await conn.execute("UPDATE `guides` SET `pdf_encoding` = 'deflate' WHERE `id` = ?", [g.id]);
       await conn.commit();

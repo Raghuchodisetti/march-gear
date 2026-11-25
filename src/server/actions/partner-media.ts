@@ -7,6 +7,7 @@ import { media } from "@/db/schema";
 import type { ActionResult } from "@/lib/action-result";
 import { isActionError, partnerAction } from "@/server/partner/context";
 import { logPartnerActivity } from "@/server/partner/records";
+import { removeCloudFiles } from "@/server/media-store";
 import {
   getPartnerMediaItem,
   listPartnerMedia,
@@ -88,6 +89,7 @@ export async function deletePartnerMediaAction(id: unknown): Promise<ActionResul
     .delete(media)
     .where(and(eq(media.id, mid.data), eq(media.partnerId, ctx.partner.id)));
   if (!res.affectedRows) return { ok: false, error: "That image was already deleted." };
+  await removeCloudFiles(mid.data);
   await logPartnerActivity(
     ctx.partner.id,
     ctx.user.id,
