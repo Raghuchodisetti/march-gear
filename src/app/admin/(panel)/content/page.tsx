@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { ChevronRight } from "lucide-react";
 import { BLOCKS, BLOCK_KEYS } from "@/content/registry";
 import type { BlockGroup } from "@/content/define";

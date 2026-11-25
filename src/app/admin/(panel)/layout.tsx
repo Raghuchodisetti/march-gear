@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { and, count, eq, inArray } from "drizzle-orm";
 import { getDb } from "@/db";
 import {
@@ -15,12 +16,20 @@ import {
   partnerVehicles,
   partners,
 } from "@/db/schema";
-import { requireStaff } from "@/server/auth";
+import { headers } from "next/headers";
+import { getDesk, getSessionUser, staffSections } from "@/server/auth";
+import { SECTION_KEYS, accessForPath, allows } from "@/lib/staff-access";
 import { AdminShell } from "@/components/admin/admin-shell";
+import { NoAccess } from "@/components/admin/no-access";
 
-// Each page and action re-checks access too; this only builds the chrome.
+// Each page and action re-checks access too; this builds the chrome and keeps staff out of sections they don't have.
 export default async function AdminPanelLayout({ children }: LayoutProps<"/admin">) {
-  const user = await requireStaff();
+  const desk = await getDesk();
+  const user = await getSessionUser(desk);
+  if (!user) redirect(desk === "staff" ? "/staff/login" : "/admin/login");
+  const sections = desk === "admin" ? [...SECTION_KEYS] : await staffSections(user.id);
+  const path = (await headers()).get("x-mg-path") ?? "/admin";
+  const allowed = allows(desk, sections, accessForPath(path));
   const db = getDb();
   const n = (q: Promise<{ n: number }[]>) => q.then((r) => r[0]?.n ?? 0);
   const [newLeads, pendingReviews, pendingDealers, pendingVehicles, pendingOffers, vendors, products, coverage, addOns, campaigns, payments, tickets, adCampaignsPending, adCreativesPending] =
@@ -43,13 +52,15 @@ export default async function AdminPanelLayout({ children }: LayoutProps<"/admin
     ]);
   return (
     <AdminShell
+      desk={desk}
+      sections={sections}
       user={{ name: user.name, email: user.email, role: user.role }}
       newLeads={newLeads}
       pendingReviews={pendingReviews}
       partnerQueue={{ dealers: pendingDealers, vehicles: pendingVehicles, offers: pendingOffers }}
       insuranceQueue={{ vendors, products, coverage, addOns, campaigns, payments, tickets, ads: adCampaignsPending + adCreativesPending }}
     >
-      {children}
+      {allowed ? children : <NoAccess />}
     </AdminShell>
   );
 }

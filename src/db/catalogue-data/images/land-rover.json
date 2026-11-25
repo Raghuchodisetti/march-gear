@@ -1,0 +1,301 @@
+{
+  "brand": "land-rover",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "range-rover": [
+      {
+        "file": "File:2022 Land Rover Range Rover SE P440e AWD Automatic 3.0 Front.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2022_Land_Rover_Range_Rover_SE_P440e_AWD_Automatic_3.0_Front.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/2022_Land_Rover_Range_Rover_SE_P440e_AWD_Automatic_3.0_Front.jpg/1920px-2022_Land_Rover_Range_Rover_SE_P440e_AWD_Automatic_3.0_Front.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 3976,
+        "height": 2242,
+        "author": "Vauxford",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Vauxford",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Range Rover (L460, standard wheelbase) in a light gold metallic, front three-quarter view",
+        "note": "Fifth-generation L460 Range Rover (current model): slim headlamps, flush glazing and vertical side 'gills'. UK-market car; the CBU/locally assembled Indian L460 looks the same. Standard-wheelbase body (India sells SWB and LWB)."
+      },
+      {
+        "file": "File:2022 Land Rover Range Rover SE P440e AWD Automatic 3.0 Rear.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2022_Land_Rover_Range_Rover_SE_P440e_AWD_Automatic_3.0_Rear.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/2022_Land_Rover_Range_Rover_SE_P440e_AWD_Automatic_3.0_Rear.jpg/1920px-2022_Land_Rover_Range_Rover_SE_P440e_AWD_Automatic_3.0_Rear.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4279,
+        "height": 2341,
+        "author": "Vauxford",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Vauxford",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Range Rover (L460, standard wheelbase) in a light gold metallic, rear three-quarter view",
+        "note": "Same L460 car: hidden-until-lit vertical tail lamps and the black tailgate band of the current Range Rover."
+      },
+      {
+        "file": "File:2022 Land Rover Range Rover SE P440e AWD Automatic 3.0 Side.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2022_Land_Rover_Range_Rover_SE_P440e_AWD_Automatic_3.0_Side.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/2022_Land_Rover_Range_Rover_SE_P440e_AWD_Automatic_3.0_Side.jpg/1920px-2022_Land_Rover_Range_Rover_SE_P440e_AWD_Automatic_3.0_Side.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5377,
+        "height": 2199,
+        "author": "Vauxford",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Vauxford",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "side",
+        "alt": "Range Rover (L460, standard wheelbase) in a light gold metallic, side profile",
+        "note": "Same L460 car in profile; standard wheelbase (the LWB has a longer rear door)."
+      },
+      {
+        "file": "File:Land Rover Range Rover Autobiography L460 Deep Garnet (12).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Land_Rover_Range_Rover_Autobiography_L460_Deep_Garnet_(12).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Land_Rover_Range_Rover_Autobiography_L460_Deep_Garnet_%2812%29.jpg/1920px-Land_Rover_Range_Rover_Autobiography_L460_Deep_Garnet_%2812%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4000,
+        "height": 3000,
+        "author": "Damian B Oh",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Damian_B_Oh",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "Range Rover (L460) Autobiography interior with dark red leather front seats and dashboard",
+        "note": "L460 Autobiography cabin with the floating 13.1-inch touchscreen and current steering wheel; same interior design as Indian-market cars."
+      }
+    ],
+    "range-rover-sport": [
+      {
+        "file": "File:Range Rover Sport Series III IMG 9456.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Range_Rover_Sport_Series_III_IMG_9456.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Range_Rover_Sport_Series_III_IMG_9456.jpg/1920px-Range_Rover_Sport_Series_III_IMG_9456.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4756,
+        "height": 2853,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Range Rover Sport (L461, third generation) in grey metallic, front three-quarter view",
+        "note": "Third-generation L461 Range Rover Sport (2022-on, current in India): slim headlamps, flush door handles, side vent. European car; design identical to the Indian model."
+      },
+      {
+        "file": "File:Range Rover Sport Series III IMG 9449.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Range_Rover_Sport_Series_III_IMG_9449.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Range_Rover_Sport_Series_III_IMG_9449.jpg/1920px-Range_Rover_Sport_Series_III_IMG_9449.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4603,
+        "height": 3064,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Range Rover Sport (L461) in grey metallic, rear three-quarter view",
+        "note": "L461 rear with full-width light bar and 'SPORT' badge on the tailgate. Dealer plate holder visible."
+      },
+      {
+        "file": "File:Range Rover Sport Series III 1X7A7025.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Range_Rover_Sport_Series_III_1X7A7025.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Range_Rover_Sport_Series_III_1X7A7025.jpg/1920px-Range_Rover_Sport_Series_III_1X7A7025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 6114,
+        "height": 4079,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "Range Rover Sport (L461) dashboard with tan leather and floating touchscreen",
+        "note": "L461 interior with the 13.1-inch curved touchscreen and current steering wheel. Photographed at a motor show; other stands are visible only blurred through the windscreen."
+      }
+    ],
+    "range-rover-velar": [
+      {
+        "file": "File:2023 Land Rover Range Rover Velar S in Varesine Blue Metallic, front right.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_Land_Rover_Range_Rover_Velar_S_in_Varesine_Blue_Metallic,_front_right.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/2023_Land_Rover_Range_Rover_Velar_S_in_Varesine_Blue_Metallic%2C_front_right.jpg/1920px-2023_Land_Rover_Range_Rover_Velar_S_in_Varesine_Blue_Metallic%2C_front_right.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4800,
+        "height": 3086,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Range Rover Velar (2023 facelift) in Varesine Blue, front three-quarter view",
+        "note": "Facelifted Velar (MY2024 on, the version sold in India): new geometric grille, simplified bumper without corner blades, Varesine Blue launched with the facelift. Philippine-registered car; Indian CBU design is the same."
+      }
+    ],
+    "range-rover-evoque": [
+      {
+        "file": "File:2023 Range Rover Evoque (L551) IMG 3588.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_Range_Rover_Evoque_(L551)_IMG_3588.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/2023_Range_Rover_Evoque_%28L551%29_IMG_3588.jpg/1920px-2023_Range_Rover_Evoque_%28L551%29_IMG_3588.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4988,
+        "height": 3222,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Range Rover Evoque (L551 facelift) in silver-grey, front three-quarter view",
+        "note": "Facelifted second-generation Evoque (MY2024 on): new geometric grille pattern replacing the earlier hexagonal mesh, checked on a crop. German car; same design as the Indian model."
+      },
+      {
+        "file": "File:2023 Range Rover Evoque (L551) IMG 3586.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_Range_Rover_Evoque_(L551)_IMG_3586.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/2023_Range_Rover_Evoque_%28L551%29_IMG_3586.jpg/1920px-2023_Range_Rover_Evoque_%28L551%29_IMG_3586.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4885,
+        "height": 3016,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Range Rover Evoque (L551 facelift) in silver-grey, rear three-quarter view",
+        "note": "Same facelifted car (plate S RR 206) from the rear."
+      },
+      {
+        "file": "File:Land Rover Range Rover Evoque S L551 Cloud Ebony (6).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Land_Rover_Range_Rover_Evoque_S_L551_Cloud_Ebony_(6).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Land_Rover_Range_Rover_Evoque_S_L551_Cloud_Ebony_%286%29.jpg/1920px-Land_Rover_Range_Rover_Evoque_S_L551_Cloud_Ebony_%286%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4000,
+        "height": 3000,
+        "author": "Damian B Oh",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Damian_B_Oh",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "Range Rover Evoque (L551 facelift) cabin with light grey leather, seen through the driver's door",
+        "note": "Korean-market MY2025+ Evoque S: new steering wheel and single curved touchscreen layout of the facelift."
+      }
+    ],
+    "land-rover-defender": [
+      {
+        "file": "File:Land Rover Defender (L663) DSC 9062.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Land_Rover_Defender_(L663)_DSC_9062.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Land_Rover_Defender_%28L663%29_DSC_9062.jpg/1920px-Land_Rover_Defender_%28L663%29_DSC_9062.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4342,
+        "height": 2687,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Land Rover Defender 110 (L663) in blue-grey, front three-quarter view",
+        "note": "Current L663 Defender 110 (five-door). European car; the Defender 110 sold in India is the same body. The 2025 model-year update changed only headlamp graphics and the screen."
+      },
+      {
+        "file": "File:Land Rover Defender (L663) DSC 9063.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Land_Rover_Defender_(L663)_DSC_9063.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Land_Rover_Defender_%28L663%29_DSC_9063.jpg/1920px-Land_Rover_Defender_%28L663%29_DSC_9063.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5079,
+        "height": 3095,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Land Rover Defender 110 (L663) in blue-grey, rear three-quarter view",
+        "note": "Same Defender 110 from the rear: side-hinged tailgate with spare wheel."
+      },
+      {
+        "file": "File:2025 Land Rover Defender - 02.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2025_Land_Rover_Defender_-_02.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/2025_Land_Rover_Defender_-_02.jpg/1920px-2025_Land_Rover_Defender_-_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4032,
+        "height": 3024,
+        "author": "Oleg Yunakov",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Oleg_Yunakov",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "side",
+        "alt": "Land Rover Defender 110 (L663) in satin green with black wheels, side profile",
+        "note": "2025 Defender 110 (V8 trim, red calipers) in profile; the 110 body and side glazing are the same as on Indian 110 variants."
+      }
+    ],
+    "land-rover-discovery": [
+      {
+        "file": "File:2024 Land Rover Discovery P300 S, front left, 09-12-2026.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_Land_Rover_Discovery_P300_S,_front_left,_09-12-2026.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/2024_Land_Rover_Discovery_P300_S%2C_front_left%2C_09-12-2026.jpg/1920px-2024_Land_Rover_Discovery_P300_S%2C_front_left%2C_09-12-2026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 3905,
+        "height": 3103,
+        "author": "MercurySable99",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:MercurySable99",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Land Rover Discovery (L462 facelift) in dark blue metallic, front three-quarter view",
+        "note": "Facelifted fifth-generation Discovery (2021 on): slimmer headlamps with new DRL signature and reshaped bumper. US car (2024 model year); same exterior as the Indian Discovery."
+      },
+      {
+        "file": "File:2024 Land Rover Discovery P300 S, rear left, 09-12-2026.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_Land_Rover_Discovery_P300_S,_rear_left,_09-12-2026.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/2024_Land_Rover_Discovery_P300_S%2C_rear_left%2C_09-12-2026.jpg/1920px-2024_Land_Rover_Discovery_P300_S%2C_rear_left%2C_09-12-2026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4278,
+        "height": 3210,
+        "author": "MercurySable99",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:MercurySable99",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Land Rover Discovery (L462 facelift) in dark blue metallic, rear three-quarter view",
+        "note": "Same car: facelift tail lamps joined by the black tailgate panel with 'DISCOVERY' lettering."
+      },
+      {
+        "file": "File:Land Rover Discovery Dynamic HSE L462 FL Fuji White (3).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Land_Rover_Discovery_Dynamic_HSE_L462_FL_Fuji_White_(3).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Land_Rover_Discovery_Dynamic_HSE_L462_FL_Fuji_White_%283%29.jpg/1920px-Land_Rover_Discovery_Dynamic_HSE_L462_FL_Fuji_White_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 3849,
+        "height": 2887,
+        "author": "Damian B Oh",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Damian_B_Oh",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "side",
+        "alt": "Land Rover Discovery Dynamic HSE (L462 facelift) in Fuji White, side profile",
+        "note": "Facelifted Discovery in Dynamic trim (black accents), photographed in Korea."
+      }
+    ],
+    "land-rover-discovery-sport": [
+      {
+        "file": "File:Land Rover Discovery Sport Dynamic SE P250 (2024) (front) in Osaka.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Land_Rover_Discovery_Sport_Dynamic_SE_P250_(2024)_(front)_in_Osaka.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Land_Rover_Discovery_Sport_Dynamic_SE_P250_%282024%29_%28front%29_in_Osaka.jpg/1920px-Land_Rover_Discovery_Sport_Dynamic_SE_P250_%282024%29_%28front%29_in_Osaka.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 2245,
+        "height": 1262,
+        "author": "Aos.1905",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Aos.1905",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Land Rover Discovery Sport (2024 model) in Firenze Red, front three-quarter view",
+        "note": "2024-model Discovery Sport (current L550 design, per the uploader's trim note) in Dynamic SE trim, Japan. Same exterior as the Discovery Sport sold in India."
+      },
+      {
+        "file": "File:Land Rover Discovery Sport Dynamic SE P250 (2024) (rear) in Osaka.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Land_Rover_Discovery_Sport_Dynamic_SE_P250_(2024)_(rear)_in_Osaka.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Land_Rover_Discovery_Sport_Dynamic_SE_P250_%282024%29_%28rear%29_in_Osaka.jpg/1920px-Land_Rover_Discovery_Sport_Dynamic_SE_P250_%282024%29_%28rear%29_in_Osaka.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 2506,
+        "height": 1409,
+        "author": "Aos.1905",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Aos.1905",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Land Rover Discovery Sport (2024 model) in Firenze Red, rear three-quarter view",
+        "note": "Same 2024-model car from the rear."
+      },
+      {
+        "file": "File:Land Rover Discovery Sport Dynamic SE P250 (2024) (side) in Osaka.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Land_Rover_Discovery_Sport_Dynamic_SE_P250_(2024)_(side)_in_Osaka.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Land_Rover_Discovery_Sport_Dynamic_SE_P250_%282024%29_%28side%29_in_Osaka.jpg/1920px-Land_Rover_Discovery_Sport_Dynamic_SE_P250_%282024%29_%28side%29_in_Osaka.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 2741,
+        "height": 1541,
+        "author": "Aos.1905",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Aos.1905",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "side",
+        "alt": "Land Rover Discovery Sport (2024 model) in Firenze Red, side profile",
+        "note": "Same 2024-model car in profile."
+      }
+    ]
+  },
+  "missing": {}
+}

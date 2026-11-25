@@ -1,0 +1,111 @@
+{
+  "brand": "lamborghini",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "lamborghini-urus": [
+      {
+        "file": "File:Lamborghini Urus SE DSC 9097.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lamborghini_Urus_SE_DSC_9097.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Lamborghini_Urus_SE_DSC_9097.jpg/1920px-Lamborghini_Urus_SE_DSC_9097.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4617,
+        "height": 3086,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Lamborghini Urus SE in green with black wheels, front three-quarter view",
+        "note": "Urus SE plug-in hybrid (2024 on), the only Urus now sold in India: SE front bumper and headlamp signature. Photographed in Böblingen, Germany; CBU design is identical."
+      },
+      {
+        "file": "File:Lamborghini Urus SE DSC 8521.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lamborghini_Urus_SE_DSC_8521.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Lamborghini_Urus_SE_DSC_8521.jpg/1920px-Lamborghini_Urus_SE_DSC_8521.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4173,
+        "height": 2270,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Lamborghini Urus SE in green with bronze wheels, rear three-quarter view",
+        "note": "Urus SE rear with the redesigned light graphic and diffuser; plate LEO-SE 800 (SE-specific)."
+      }
+    ],
+    "lamborghini-temerario": [
+      {
+        "file": "File:Lamborghini Temerario IMG 5364.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lamborghini_Temerario_IMG_5364.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Lamborghini_Temerario_IMG_5364.jpg/1920px-Lamborghini_Temerario_IMG_5364.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5146,
+        "height": 3425,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Lamborghini Temerario in yellow with black roof and wheels, front three-quarter view",
+        "note": "Temerario (2024 on, Huracán replacement): hexagonal DRL inserts in the bumper and the side air intake behind the door. Photographed in Böblingen, Germany."
+      },
+      {
+        "file": "File:Lamborghini Temerario IMG 5367.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lamborghini_Temerario_IMG_5367.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Lamborghini_Temerario_IMG_5367.jpg/1920px-Lamborghini_Temerario_IMG_5367.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5112,
+        "height": 2698,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Lamborghini Temerario in yellow with black engine cover, rear three-quarter view",
+        "note": "Same Temerario from the rear: hexagonal tail lamps and central exhaust, not the Huracán."
+      }
+    ],
+    "lamborghini-revuelto": [
+      {
+        "file": "File:Lamborghini Revuelto DSC 6984.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_DSC_6984.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Lamborghini_Revuelto_DSC_6984.jpg/1920px-Lamborghini_Revuelto_DSC_6984.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4437,
+        "height": 2608,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Lamborghini Revuelto in white, front three-quarter view",
+        "note": "Revuelto V12 plug-in hybrid (2023 on): Y-shaped headlamp graphics and arrow-shaped bumper intakes."
+      },
+      {
+        "file": "File:Lamborghini Revuelto DSC 6986.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_DSC_6986.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Lamborghini_Revuelto_DSC_6986.jpg/1920px-Lamborghini_Revuelto_DSC_6986.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 3918,
+        "height": 2619,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Lamborghini Revuelto in white, rear three-quarter view",
+        "note": "Same Revuelto (plate BB-LR 1015) from the rear: hexagonal twin exhausts and exposed V12 cover."
+      },
+      {
+        "file": "File:Lamborghini Revuelto intérieur 01.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_int%C3%A9rieur_01.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Lamborghini_Revuelto_int%C3%A9rieur_01.jpg/1920px-Lamborghini_Revuelto_int%C3%A9rieur_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 3968,
+        "height": 2232,
+        "author": "Y.Leclercq",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Y.Leclercq",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "Lamborghini Revuelto cabin with orange and black trim, seen through the open door",
+        "note": "Revuelto interior with the passenger display and Y-themed dashboard; the two people outside the windscreen are distant and not the subject."
+      }
+    ]
+  },
+  "missing": {}
+}

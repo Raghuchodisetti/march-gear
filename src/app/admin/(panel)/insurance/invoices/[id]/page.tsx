@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { notFound } from "next/navigation";
 import { Paperclip } from "lucide-react";
 import { INS_INVOICE_KIND_LABEL } from "@/insurance/labels";

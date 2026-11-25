@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { notFound } from "next/navigation";
 import { ExternalLink, Mail, Phone } from "lucide-react";
 import { LEAD_STATUS_LABEL, LEAD_STATUS_TONE, LEAD_TYPE_LABEL, detailLabel, detailValue } from "@/lib/leads";
 import { getLead } from "@/server/admin/leads";
-import { getSessionUser } from "@/server/auth";
+import { getDeskUser } from "@/server/auth";
 import { AdminHeader, Badge, Panel, formatDateTime } from "@/components/admin/ui";
 import { LeadManager } from "@/components/admin/lead-manager";
 
@@ -15,7 +15,7 @@ export default async function LeadPage({ params }: PageProps<"/admin/leads/[id]"
   const data = /^\d+$/.test(id) ? await getLead(Number(id)) : null;
   if (!data) notFound();
   const { lead, notes, staff, account } = data;
-  const me = await getSessionUser("staff");
+  const me = await getDeskUser();
   const details = Object.entries(lead.details ?? {});
 
   const rows: [string, React.ReactNode][] = [

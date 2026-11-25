@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { ArrowUpRight, Landmark, LayoutTemplate, RotateCcw, SlidersHorizontal } from "lucide-react";
 import { BLOCKS } from "@/content/registry";
 import { resetContentAction, saveContentAction } from "@/server/actions/content";

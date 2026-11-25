@@ -127,7 +127,7 @@ const staffReplySchema = z.object({
 });
 
 export async function staffReplyTicketAction(ticketId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("dealers");
   const tid = id.safeParse(ticketId);
   const parsed = staffReplySchema.safeParse(input);
   if (!tid.success) return { ok: false, error: "Ticket not found." };
@@ -151,7 +151,7 @@ export async function staffReplyTicketAction(ticketId: unknown, input: unknown):
 }
 
 export async function staffUpdateTicketAction(ticketId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("dealers");
   const tid = id.safeParse(ticketId);
   const parsed = z.object({ status: z.enum(TICKET_STATUS), priority: z.enum(TICKET_PRIORITY) }).safeParse(input);
   if (!tid.success) return { ok: false, error: "Ticket not found." };

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useId, useState, type ReactNode } from "react";
-import { useRouter } from "next/navigation";
+import { createContext, useContext, useEffect, useId, useState, type ReactNode } from "react";
+import { useDeskRouter as useRouter } from "@/components/admin/desk";
 import { ArrowDown, ArrowUp, Check, ImageOff, Loader2, Plus, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { ActionResult } from "@/lib/action-result";
@@ -10,6 +10,12 @@ import { Label, SelectField, TextField } from "@/components/ui/field";
 import { useUI } from "@/components/providers/app-provider";
 import { slugify, type Field, type FormValues, type Section } from "./fields";
 import { MediaPickerButton } from "./media-picker";
+import { MEDIA_THUMB_WIDTH } from "./media-shared";
+import { PhotoCreditLine } from "@/components/vehicle/photo-credit";
+import type { CreditMap } from "@/lib/photo-credits";
+
+/** Licence credits of third-party photos (imported catalogue photos), shown under their rows in "images" fields. */
+const ImageCredits = createContext<CreditMap>({});
 
 type SaveAction = (values: FormValues) => Promise<ActionResult<{ id: string | number }>>;
 
@@ -44,6 +50,7 @@ export function ResourceForm({
   createdHref,
   submitLabel = "Save changes",
   aside,
+  imageCredits,
 }: {
   sections: Section[];
   initial: FormValues;
@@ -54,6 +61,8 @@ export function ResourceForm({
   createdHref?: string;
   submitLabel?: string;
   aside?: ReactNode;
+  /** Credits of imported photos in the record's image fields, keyed by URL (read-only). */
+  imageCredits?: CreditMap;
 }) {
   const router = useRouter();
   const { toast } = useUI();
@@ -133,55 +142,59 @@ export function ResourceForm({
   };
 
   return (
-    <form onSubmit={submit} noValidate className="pb-28">
-      <div className={cn("grid grid-cols-1 gap-6", aside && "xl:grid-cols-[minmax(0,1fr)_320px]")}>
-        <div className="min-w-0 space-y-6">
-          {sections.map((s) => (
-            <section key={s.title} className="border border-line bg-white">
-              <header className="border-b border-line px-5 py-4 md:px-6">
-                <h2 className="text-[15px] font-semibold">{s.title}</h2>
-                {s.description && <p className="mt-0.5 text-[13px] text-muted">{s.description}</p>}
-              </header>
-              <div className="grid grid-cols-1 gap-5 p-5 sm:grid-cols-2 md:p-6">
-                {s.fields.map((f) => (
-                  <FieldInput
-                    key={f.name}
-                    field={f}
-                    path={f.name}
-                    value={values[f.name]}
-                    errors={errors}
-                    clearError={clearError}
-                    onChange={(v) => {
-                      if (f.name === slugField) setSlugTouched(true);
-                      set(f.name, v);
-                    }}
-                  />
-                ))}
-              </div>
-            </section>
-          ))}
+    <ImageCredits.Provider value={imageCredits ?? NO_CREDITS}>
+      <form onSubmit={submit} noValidate className="pb-28">
+        <div className={cn("grid grid-cols-1 gap-6", aside && "xl:grid-cols-[minmax(0,1fr)_320px]")}>
+          <div className="min-w-0 space-y-6">
+            {sections.map((s) => (
+              <section key={s.title} className="border border-line bg-white">
+                <header className="border-b border-line px-5 py-4 md:px-6">
+                  <h2 className="text-[15px] font-semibold">{s.title}</h2>
+                  {s.description && <p className="mt-0.5 text-[13px] text-muted">{s.description}</p>}
+                </header>
+                <div className="grid grid-cols-1 gap-5 p-5 sm:grid-cols-2 md:p-6">
+                  {s.fields.map((f) => (
+                    <FieldInput
+                      key={f.name}
+                      field={f}
+                      path={f.name}
+                      value={values[f.name]}
+                      errors={errors}
+                      clearError={clearError}
+                      onChange={(v) => {
+                        if (f.name === slugField) setSlugTouched(true);
+                        set(f.name, v);
+                      }}
+                    />
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+          {aside && <aside className="space-y-6">{aside}</aside>}
         </div>
-        {aside && <aside className="space-y-6">{aside}</aside>}
-      </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-white/95 backdrop-blur lg:left-64">
-        <div className="flex items-center justify-between gap-4 px-4 py-3 md:px-8">
-          <p className="text-[13px] text-muted" aria-live="polite">
-            {saving ? "Saving…" : dirty ? <span className="text-ink">Unsaved changes</span> : "All changes saved"}
-          </p>
-          <div className="flex gap-2">
-            <Button href={listHref} variant="ghost" size="sm">
-              Cancel
-            </Button>
-            <Button type="submit" size="sm" disabled={saving} icon={saving ? <Loader2 className="size-4 animate-spin" aria-hidden /> : <Check className="size-4" aria-hidden />}>
-              {submitLabel}
-            </Button>
+        <div className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-white/95 backdrop-blur lg:left-64">
+          <div className="flex items-center justify-between gap-4 px-4 py-3 md:px-8">
+            <p className="text-[13px] text-muted" aria-live="polite">
+              {saving ? "Saving…" : dirty ? <span className="text-ink">Unsaved changes</span> : "All changes saved"}
+            </p>
+            <div className="flex gap-2">
+              <Button href={listHref} variant="ghost" size="sm">
+                Cancel
+              </Button>
+              <Button type="submit" size="sm" disabled={saving} icon={saving ? <Loader2 className="size-4 animate-spin" aria-hidden /> : <Check className="size-4" aria-hidden />}>
+                {submitLabel}
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </ImageCredits.Provider>
   );
 }
+
+const NO_CREDITS: CreditMap = {};
 
 /** The element for a field error key; nested keys (e.g. "images.1") fall back to the closest field on screen. */
 function fieldElement(key: string): Element | null {
@@ -218,6 +231,7 @@ function FieldInput({
   onChange: (v: unknown) => void;
 }) {
   const id = useId();
+  const credits = useContext(ImageCredits);
   const wide = f.wide || f.type === "textarea" || f.type === "lines" || f.type === "images" || f.type === "rows" || f.type === "group" || f.type === "multi";
   const err = errors[path];
   const errId = err ? `${id}-err` : undefined;
@@ -442,6 +456,7 @@ function FieldInput({
                     <RowTools index={i} count={list.length} onMove={(to) => reshape(move(list, i, to))} onRemove={() => reshape(list.filter((_, j) => j !== i))} />
                   </div>
                   <ErrorText id={`${id}-${i}-err`} path={`${path}.${i}`} errors={errors} className="pl-15" />
+                  {credits[src] && <PhotoCreditLine credit={credits[src]} allCredits={false} className="mt-1 pl-15" />}
                 </li>
               );
             })}
@@ -571,6 +586,10 @@ function RowTools({ index, count, onMove, onRemove }: { index: number; count: nu
   );
 }
 
+/** Imported catalogue photos have a card rendition (see src/lib/image-loader.ts) — lighter for a 48 px preview. */
+/** Stored photos have a small card copy at ?w=960 (the media route serves the image itself when there isn't one). */
+const STORED_PHOTO = /^\/media\/\d{1,10}\/[^/?#]+\.(?:webp|jpe?g|png|avif)$/i;
+
 function Preview({ src }: { src: string }) {
   const [failed, setFailed] = useState<string | null>(null);
   const ok = /^(https?:\/\/|\/)/.test(src) && failed !== src;
@@ -579,7 +598,7 @@ function Preview({ src }: { src: string }) {
       {ok ? (
         // Admin preview of arbitrary URLs — plain <img> on purpose.
         // eslint-disable-next-line @next/next/no-img-element
-        <img loading="lazy" decoding="async" src={src} alt="" className="size-full object-cover" onError={() => setFailed(src)} />
+        <img loading="lazy" decoding="async" src={STORED_PHOTO.test(src) ? `${src}?w=${MEDIA_THUMB_WIDTH}` : src} alt="" className="size-full object-cover" onError={() => setFailed(src)} />
       ) : (
         <ImageOff aria-hidden className="size-4 text-muted" />
       )}

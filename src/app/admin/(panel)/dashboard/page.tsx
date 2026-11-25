@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { ArrowRight, BadgePercent, CarFront, ClipboardCheck, FileText, GitPullRequest } from "lucide-react";
 import { PARTNER_STATUS, type PartnerStatus } from "@/db/enums";
 import { OFFER_CATEGORY_LABEL, PARTNER_STATUS_LABEL } from "@/partner/labels";

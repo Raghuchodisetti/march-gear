@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { BadgePercent, CalendarClock, FileText, PlayCircle } from "lucide-react";
 import { OFFER_STATUS } from "@/db/enums";
 import { OFFER_CATEGORY_LABEL, OFFER_STATUS_LABEL, PARTNER_STATUS_LABEL, offerDisplayStatus } from "@/partner/labels";

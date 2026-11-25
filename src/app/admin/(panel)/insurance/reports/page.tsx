@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { INS_PRODUCT_CATEGORY_LABEL, INS_RENEWAL_STATUS_LABEL, AD_STATUS_LABEL, adDisplayStatus, INS_CAMPAIGN_STATUS_LABEL, campaignDisplayStatus } from "@/insurance/labels";
 import type { InsProductCategory } from "@/db/enums";
 import { requireStaff } from "@/server/auth";

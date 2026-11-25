@@ -1,0 +1,141 @@
+{
+  "brand": "rolls-royce",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "rolls-royce-ghost": [
+      {
+        "file": "File:2025 Rolls-Royce Ghost.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2025_Rolls-Royce_Ghost.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/2025_Rolls-Royce_Ghost.jpg/1920px-2025_Rolls-Royce_Ghost.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5712,
+        "height": 4284,
+        "author": "Oleg Yunakov",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Oleg_Yunakov",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Rolls-Royce Ghost Series II (2025) in a light bronze-taupe, front three-quarter view",
+        "note": "Second-generation Ghost Series II (2024 facelift), the version now sold in India: L-shaped DRL running over and down the headlamp, and twin chrome blades in the lower intake (checked on a crop). New York auto show 2025; the Rolls-Royce/Bentley stand is in the background."
+      },
+      {
+        "file": "File:Rolls-Royce Ghost II (2025) (54873234496).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Rolls-Royce_Ghost_II_(2025)_(54873234496).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Rolls-Royce_Ghost_II_%282025%29_%2854873234496%29.jpg/1920px-Rolls-Royce_Ghost_II_%282025%29_%2854873234496%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 6000,
+        "height": 4000,
+        "author": "Charles from Port Chester, New York",
+        "authorUrl": "https://www.flickr.com/people/43494963@N03",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "angle": "interior",
+        "alt": "Rolls-Royce Ghost Series II dashboard with wood veneer, glass fascia panel and white leather",
+        "note": "Second-generation Ghost Series II cabin (uploader: 2025 Ghost II): the clock sits in the glass panel that runs across to the passenger side, with GHOST lettering."
+      }
+    ],
+    "rolls-royce-cullinan": [
+      {
+        "file": "File:2025 Rolls-Royce Cullinan Series II - 01.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2025_Rolls-Royce_Cullinan_Series_II_-_01.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/2025_Rolls-Royce_Cullinan_Series_II_-_01.jpg/1920px-2025_Rolls-Royce_Cullinan_Series_II_-_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4032,
+        "height": 3024,
+        "author": "Oleg Yunakov",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Oleg_Yunakov",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Rolls-Royce Cullinan Series II in white, front three-quarter view",
+        "note": "Cullinan Series II (2024 facelift), as sold in India: vertical DRL strips running down from the headlamps and the new lower bumper. New York auto show 2025."
+      },
+      {
+        "file": "File:Rolls-Royce Cullinan Series II DSC 9680.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Rolls-Royce_Cullinan_Series_II_DSC_9680.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Rolls-Royce_Cullinan_Series_II_DSC_9680.jpg/1920px-Rolls-Royce_Cullinan_Series_II_DSC_9680.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5199,
+        "height": 3195,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Rolls-Royce Cullinan Series II in pale blue-green, rear three-quarter view",
+        "note": "Cullinan Series II displayed at BMW Welt, Munich (same car shown front-on in the set has the Series II vertical DRLs). Clean showroom background."
+      }
+    ],
+    "rolls-royce-phantom": [
+      {
+        "file": "File:2024 Rolls-Royce Phantom VIII Series II Extended Wheelbase.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_Rolls-Royce_Phantom_VIII_Series_II_Extended_Wheelbase.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/2024_Rolls-Royce_Phantom_VIII_Series_II_Extended_Wheelbase.jpg/1920px-2024_Rolls-Royce_Phantom_VIII_Series_II_Extended_Wheelbase.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4032,
+        "height": 3024,
+        "author": "Oleg Yunakov",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Oleg_Yunakov",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Rolls-Royce Phantom Extended Series II in a dark green-black, front three-quarter view",
+        "note": "Phantom VIII Series II (2022 facelift): illuminated Pantheon grille, current wheel design. Extended-wheelbase body, which India sells as Phantom Extended Series II."
+      },
+      {
+        "file": "File:Rolls-Royce Phantom VIII Series II Scivaro Grey Peony Pink Iceland Moss (1).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Rolls-Royce_Phantom_VIII_Series_II_Scivaro_Grey_Peony_Pink_Iceland_Moss_(1).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Rolls-Royce_Phantom_VIII_Series_II_Scivaro_Grey_Peony_Pink_Iceland_Moss_%281%29.jpg/1920px-Rolls-Royce_Phantom_VIII_Series_II_Scivaro_Grey_Peony_Pink_Iceland_Moss_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4032,
+        "height": 3024,
+        "author": "Damian B Oh",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Damian_B_Oh",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "Rolls-Royce Phantom Series II dashboard with the glass Gallery panel, grey leather and bespoke pink accents",
+        "note": "Phantom Series II launch car in Korea: Gallery dashboard and current steering wheel. The pink accents are a bespoke colour choice."
+      }
+    ],
+    "rolls-royce-spectre": [
+      {
+        "file": "File:2023 Rolls-Royce Spectre EV - 102kWh (585PS) Electric - Wittering Blue - 06-2024, Front Quarter.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_Rolls-Royce_Spectre_EV_-_102kWh_(585PS)_Electric_-_Wittering_Blue_-_06-2024,_Front_Quarter.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/2023_Rolls-Royce_Spectre_EV_-_102kWh_%28585PS%29_Electric_-_Wittering_Blue_-_06-2024%2C_Front_Quarter.jpg/1920px-2023_Rolls-Royce_Spectre_EV_-_102kWh_%28585PS%29_Electric_-_Wittering_Blue_-_06-2024%2C_Front_Quarter.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4604,
+        "height": 2641,
+        "author": "Harvey Bold",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Harvey_Bold",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "angle": "front",
+        "alt": "Rolls-Royce Spectre in Wittering Blue, front three-quarter view",
+        "note": "Spectre electric coupé (2023 on, the only generation): split headlamps and widest-ever Pantheon grille. UK car on a dealer display plate; identical to Indian cars."
+      },
+      {
+        "file": "File:2023 Rolls-Royce Spectre EV - 102kWh (585PS) Electric - Wittering Blue - 06-2024, Rear.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_Rolls-Royce_Spectre_EV_-_102kWh_(585PS)_Electric_-_Wittering_Blue_-_06-2024,_Rear.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/2023_Rolls-Royce_Spectre_EV_-_102kWh_%28585PS%29_Electric_-_Wittering_Blue_-_06-2024%2C_Rear.jpg/1920px-2023_Rolls-Royce_Spectre_EV_-_102kWh_%28585PS%29_Electric_-_Wittering_Blue_-_06-2024%2C_Rear.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4748,
+        "height": 3363,
+        "author": "Harvey Bold",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Harvey_Bold",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "angle": "rear",
+        "alt": "Rolls-Royce Spectre in Wittering Blue, rear three-quarter view",
+        "note": "Same Spectre: fastback roof and slim vertical tail lamps."
+      },
+      {
+        "file": "File:2023 Rolls-Royce Spectre EV - 102kWh (585PS) Electric - Wittering Blue - 06-2024, Side.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_Rolls-Royce_Spectre_EV_-_102kWh_(585PS)_Electric_-_Wittering_Blue_-_06-2024,_Side.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/2023_Rolls-Royce_Spectre_EV_-_102kWh_%28585PS%29_Electric_-_Wittering_Blue_-_06-2024%2C_Side.jpg/1920px-2023_Rolls-Royce_Spectre_EV_-_102kWh_%28585PS%29_Electric_-_Wittering_Blue_-_06-2024%2C_Side.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4633,
+        "height": 2223,
+        "author": "Harvey Bold",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Harvey_Bold",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "angle": "side",
+        "alt": "Rolls-Royce Spectre in Wittering Blue, side profile",
+        "note": "Same Spectre in profile showing the two-door coupé body."
+      }
+    ]
+  },
+  "missing": {}
+}

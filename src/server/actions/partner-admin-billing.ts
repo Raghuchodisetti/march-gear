@@ -35,7 +35,7 @@ async function loadPayment(paymentId: number) {
 
 /** Payment checked against the bank statement → invoice paid, plan active until the period's end. */
 export async function verifyPaymentAction(paymentId: unknown, input: unknown): Promise<ActionResult<{ renewsAt: string }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("admin");
   const pid = id.safeParse(paymentId);
   const parsed = z.object({ remarks: z.string().trim().max(500, "Keep remarks under 500 characters").optional() }).safeParse(input ?? {});
   if (!pid.success) return { ok: false, error: "Payment not found." };
@@ -88,7 +88,7 @@ export async function verifyPaymentAction(paymentId: unknown, input: unknown): P
 
 /** Payment couldn't be matched → rejected with remarks; the invoice is payable again. */
 export async function rejectPaymentAction(paymentId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("admin");
   const pid = id.safeParse(paymentId);
   const parsed = z
     .object({ remarks: z.string({ error: "Tell the dealer why" }).trim().min(5, "Tell the dealer why (at least 5 characters)").max(500, "Keep remarks under 500 characters") })
@@ -142,7 +142,7 @@ const issueSchema = z
   .refine((v) => !realDay(v.periodStart) || !realDay(v.periodEnd) || v.periodEnd <= addDays(v.periodStart, 366), { path: ["periodEnd"], message: "Keep the period to a year or less" });
 
 export async function issueInvoiceAction(input: unknown): Promise<ActionResult<{ id: number; number: string }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("admin");
   const parsed = issueSchema.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const d = parsed.data;
@@ -161,7 +161,7 @@ export async function issueInvoiceAction(input: unknown): Promise<ActionResult<{
 }
 
 export async function voidInvoiceAction(invoiceId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("admin");
   const iid = id.safeParse(invoiceId);
   const parsed = z.object({ reason: z.string({ error: "Give a reason" }).trim().min(5, "Give a reason (at least 5 characters)").max(300) }).safeParse(input);
   if (!iid.success) return { ok: false, error: "Invoice not found." };

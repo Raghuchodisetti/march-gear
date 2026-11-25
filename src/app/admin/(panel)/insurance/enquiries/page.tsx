@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { Download, Inbox } from "lucide-react";
 import { INS_INTENTS, INS_LEAD_STATUS } from "@/db/enums";
 import { INS_INTENT_LABEL, INS_LEAD_STATUS_LABEL, INS_PRODUCT_CATEGORY_LABEL } from "@/insurance/labels";

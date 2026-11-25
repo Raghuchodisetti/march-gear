@@ -87,7 +87,7 @@ const PRODUCT_ACTION: Record<ProductOp, string> = {
 };
 
 export async function productDecisionAction(productId: unknown, input: unknown): Promise<ActionResult<{ status: InsProductStatus; coversApproved: number }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   const parsed = productDecision.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const pid = id.safeParse(productId);
@@ -201,7 +201,7 @@ const coverHref = (type: string) => (type === "addon" ? "/insurance-vendor/add-o
 const coverNoun = (type: string) => (type === "addon" ? "Add-on" : "Coverage item");
 
 export async function coverDecisionAction(coverId: unknown, input: unknown): Promise<ActionResult<{ status: InsCoverStatus }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   const parsed = coverDecision.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const cid = id.safeParse(coverId);
@@ -243,7 +243,7 @@ const bulkCovers = z.object({
 
 /** Approves every selected cover that's still waiting (pending approval). Others are skipped. */
 export async function bulkApproveCoversAction(input: unknown): Promise<ActionResult<{ approved: number; skipped: number }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   const parsed = bulkCovers.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const db = getDb();

@@ -1,0 +1,125 @@
+{
+  "brand": "lotus",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "lotus-eletre": [
+      {
+        "file": "File:Lotus Eletre IMG 4127.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lotus_Eletre_IMG_4127.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Lotus_Eletre_IMG_4127.jpg/1920px-Lotus_Eletre_IMG_4127.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5036,
+        "height": 2761,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Lotus Eletre in grey with black wheels, front three-quarter view",
+        "note": "Eletre electric SUV (2022 on): split headlamps, open 'porous' bodywork at the nose and black lower bumper. Photographed in Böblingen, Germany; a parked van is beside it."
+      },
+      {
+        "file": "File:Lotus Eletre S Type 132 Blossum Grey (6).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lotus_Eletre_S_Type_132_Blossum_Grey_(6).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Lotus_Eletre_S_Type_132_Blossum_Grey_%286%29.jpg/1920px-Lotus_Eletre_S_Type_132_Blossum_Grey_%286%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 3954,
+        "height": 2966,
+        "author": "Damian B Oh",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Damian_B_Oh",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Lotus Eletre S in Blossom Grey, rear three-quarter view",
+        "note": "Eletre S (Type 132) in Korea: full-width rear light blade, floating spoiler and S badge; parking-garage setting."
+      },
+      {
+        "file": "File:Lotus Eletre Auto Zuerich 2024 DSC 6785.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lotus_Eletre_Auto_Zuerich_2024_DSC_6785.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Lotus_Eletre_Auto_Zuerich_2024_DSC_6785.jpg/1920px-Lotus_Eletre_Auto_Zuerich_2024_DSC_6785.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5692,
+        "height": 3805,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "Lotus Eletre dashboard with grey upholstery, central touchscreen and slim driver display",
+        "note": "Eletre cabin at Auto Zürich 2024: thin instrument strip, fold-out central screen and Lotus steering wheel."
+      }
+    ],
+    "lotus-emeya": [
+      {
+        "file": "File:Lotus Emeya IMG 4142.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lotus_Emeya_IMG_4142.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Lotus_Emeya_IMG_4142.jpg/1920px-Lotus_Emeya_IMG_4142.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5086,
+        "height": 2654,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Lotus Emeya in dark grey, front three-quarter view",
+        "note": "Emeya electric four-door GT (2024 on): Eletre-style split headlamps on a low liftback body. Photographed in Böblingen, Germany (plate M-LC 229E)."
+      },
+      {
+        "file": "File:Lotus Emeya IMG 4137.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lotus_Emeya_IMG_4137.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Lotus_Emeya_IMG_4137.jpg/1920px-Lotus_Emeya_IMG_4137.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5400,
+        "height": 2482,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Lotus Emeya in dark grey, rear three-quarter view",
+        "note": "Same Emeya from the rear: full-width light bar and active rear spoiler."
+      },
+      {
+        "file": "File:Lotus Emeya Auto Zuerich 2024 DSC 6791.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lotus_Emeya_Auto_Zuerich_2024_DSC_6791.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Lotus_Emeya_Auto_Zuerich_2024_DSC_6791.jpg/1920px-Lotus_Emeya_Auto_Zuerich_2024_DSC_6791.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5395,
+        "height": 3606,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "Lotus Emeya dashboard with grey upholstery and central touchscreen",
+        "note": "Emeya cabin at Auto Zürich 2024; show hall visible only through the windscreen."
+      }
+    ],
+    "lotus-emira": [
+      {
+        "file": "File:2026 Lotus Emira Turbo SE in Purple Haze, front right.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2026_Lotus_Emira_Turbo_SE_in_Purple_Haze,_front_right.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/2026_Lotus_Emira_Turbo_SE_in_Purple_Haze%2C_front_right.jpg/1920px-2026_Lotus_Emira_Turbo_SE_in_Purple_Haze%2C_front_right.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5251,
+        "height": 2982,
+        "author": "Mr.choppers",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Mr.choppers",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Lotus Emira Turbo SE in Purple Haze, front three-quarter view",
+        "note": "Emira with the 2.0-litre AMG four-cylinder (Turbo), the version sold in India; same body as the V6. Parked at the 2026 Greenwich Concours d'Elegance."
+      },
+      {
+        "file": "File:Lotus Emira Turbo SE Zinc Grey 03.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Lotus_Emira_Turbo_SE_Zinc_Grey_03.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Lotus_Emira_Turbo_SE_Zinc_Grey_03.jpg/1920px-Lotus_Emira_Turbo_SE_Zinc_Grey_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4710,
+        "height": 3028,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Lotus Emira Turbo SE in Zinc Grey, rear three-quarter view",
+        "note": "Emira Turbo SE from the rear: Lotus lettering, slim tail lamps and twin exhausts. Philippine car on a dealer 'registered' plate."
+      }
+    ]
+  },
+  "missing": {}
+}

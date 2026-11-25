@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { deleteCarAction, saveCarAction } from "@/server/actions/catalog";
 import { brandOptions, carForm, carOptions, isBrandVisible, NEW_DEFAULTS } from "@/server/admin/catalog";
 import { requireStaff } from "@/server/auth";
+import { creditsForAdmin } from "@/server/photo-credits";
 import { AdminHeader, ViewOnSite } from "@/components/admin/ui";
 import { formatDate } from "@/lib/format";
 import { DeleteButton } from "@/components/admin/delete-button";
@@ -46,7 +47,9 @@ function ResearchedFacts({ initial }: { initial: Record<string, unknown> }) {
       )}
       <p className="mt-3 text-[12.5px] leading-relaxed text-muted">
         Prices, specs, variants, colours, features and highlights are refreshed each time the importer runs; edits to those fields here are overwritten then.
-        Photos, ratings, the review, overview, pros/cons, trending and status are never touched by the importer.
+        Ratings, the review, overview, pros/cons, trending and status are never touched by the importer.
+        Photos come from the photo importer (genuine Wikimedia Commons photos, credited as their licences require): it resets them when they are all its own
+        photos, so add one of your own uploads to keep a hand-picked set.
         {images === 0 && " This model has no photos yet — the site shows a body-type placeholder until you add licensed ones."}
       </p>
     </section>
@@ -66,6 +69,7 @@ export default async function CarEditPage({ params }: PageProps<"/admin/cars/[id
   if (!initial) notFound();
 
   const sections = withOptions(carSections, { brand: brands, competitors: cars.filter((c) => c.value !== initial.slug) });
+  const imageCredits = await creditsForAdmin(Array.isArray(initial.images) ? (initial.images as string[]) : []);
   const offline = isNew ? null : initial.status !== "published" ? "Draft — not on the site" : !(await isBrandVisible(String(initial.brand))) ? "Brand hidden — not on the site" : null;
 
   return (
@@ -91,6 +95,7 @@ export default async function CarEditPage({ params }: PageProps<"/admin/cars/[id
         listHref="/admin/cars"
         createdHref={isNew ? "/admin/cars/:id" : undefined}
         submitLabel={isNew ? "Create car" : "Save changes"}
+        imageCredits={imageCredits}
       />
     </>
   );

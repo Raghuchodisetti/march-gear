@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { AlertTriangle, FileSignature } from "lucide-react";
 import { INS_QUOTE_AUTHORIZATION } from "@/db/enums";
 import { INS_QUOTE_AUTH_SHORT, INS_QUOTE_STATUS_LABEL } from "@/insurance/labels";

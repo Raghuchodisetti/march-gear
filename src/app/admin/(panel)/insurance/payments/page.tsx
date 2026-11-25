@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { Paperclip, Wallet } from "lucide-react";
 import { PAYMENT_STATUS } from "@/db/enums";
 import { INS_INVOICE_KIND_LABEL, PAYMENT_STATUS_LABEL } from "@/insurance/labels";

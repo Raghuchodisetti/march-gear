@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { AlertTriangle, ArrowUpRight, CheckCircle2, ClipboardCheck, Inbox, Mail, Phone, XCircle } from "lucide-react";
 import { INS_BUSINESS_TYPE_LABEL, INS_VENDOR_CATEGORY_LABEL, INS_VENDOR_CATEGORY_SHORT, INS_VENDOR_IN_REVIEW } from "@/insurance/labels";
 import { getInsVendorDetail, insVendorQueue, requiredInsDocuments, type InsChecklistItem, type InsVendorDetail } from "@/server/admin/insurance";

@@ -1,0 +1,85 @@
+{
+  "brand": "skoda",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "skoda-kylaq": [
+      {
+        "file": "File:2025 Skoda Kylaq.png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2025_Skoda_Kylaq.png",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/2025_Skoda_Kylaq.png",
+        "width": 1920,
+        "height": 1080,
+        "author": "Faisal Khan",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "front",
+        "alt": "Skoda Kylaq in Olive Gold, front three-quarter view",
+        "note": "Indian-market Kylaq on Maharashtra trade plates: split headlamps with slim DRL strip, butterfly grille and silver skid plate. India-only model, so no export lookalike."
+      },
+      {
+        "file": "File:4th International Auto Show, Bangalore (2025) 78.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:4th_International_Auto_Show,_Bangalore_(2025)_78.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/4th_International_Auto_Show%2C_Bangalore_%282025%29_78.jpg/1920px-4th_International_Auto_Show%2C_Bangalore_%282025%29_78.jpg",
+        "width": 4080,
+        "height": 3072,
+        "author": "Gpkp",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Gpkp",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Skoda Kylaq in Olive Gold on a dealer stand, front view",
+        "note": "Kylaq on a Skoda dealer stand at the Bangalore auto show, November 2025. Second front view because no rear, side or interior photo of the Kylaq is on Commons."
+      }
+    ],
+    "skoda-kodiaq": [
+      {
+        "file": "File:Skoda Kodiaq 1.5 TSI iV Selection (II) – f 01032025.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Skoda_Kodiaq_1.5_TSI_iV_Selection_(II)_–_f_01032025.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Skoda_Kodiaq_1.5_TSI_iV_Selection_%28II%29_%E2%80%93_f_01032025.jpg/1920px-Skoda_Kodiaq_1.5_TSI_iV_Selection_%28II%29_%E2%80%93_f_01032025.jpg",
+        "width": 5788,
+        "height": 3109,
+        "author": "© M 93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:M_93",
+        "license": "CC BY-SA 3.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "angle": "front",
+        "alt": "Skoda Kodiaq (second generation) in white, front three-quarter view",
+        "note": "European second-generation Kodiaq. India assembles the same second-generation Kodiaq from kits, so the body and lighting are the same; Indian trims (Lounge, Sportline, L&K) differ in wheels and trim details."
+      },
+      {
+        "file": "File:Skoda Kodiaq 1.5 TSI iV Selection (II) – h 01032025.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Skoda_Kodiaq_1.5_TSI_iV_Selection_(II)_–_h_01032025.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Skoda_Kodiaq_1.5_TSI_iV_Selection_%28II%29_%E2%80%93_h_01032025.jpg/1920px-Skoda_Kodiaq_1.5_TSI_iV_Selection_%28II%29_%E2%80%93_h_01032025.jpg",
+        "width": 5785,
+        "height": 3094,
+        "author": "© M 93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:M_93",
+        "license": "CC BY-SA 3.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "angle": "rear",
+        "alt": "Skoda Kodiaq (second generation) in white, rear three-quarter view",
+        "note": "Same European car: full-width tail lamps and SKODA lettering, as on the Indian Kodiaq."
+      },
+      {
+        "file": "File:Škoda Kodiaq II IMG 9433.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Škoda_Kodiaq_II_IMG_9433.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/%C5%A0koda_Kodiaq_II_IMG_9433.jpg/1920px-%C5%A0koda_Kodiaq_II_IMG_9433.jpg",
+        "width": 5177,
+        "height": 2952,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Skoda Kodiaq (second generation) in white, front three-quarter view from the right",
+        "note": "European second-generation Kodiaq with larger alloys. Second front view because no side view or right-hand-drive interior photo was available."
+      }
+    ]
+  },
+  "missing": {
+    "skoda-kushaq": "Facelift (unveiled January 2026, new grille, lights and bumpers) is the current model; no free-licensed photo of it on Commons as of 2026-11-25, only the 2021-2025 pre-facelift.",
+    "skoda-slavia": "Facelift launched October 2026 with new headlamps, grille and bumper; no free-licensed photo of it on Commons as of 2026-11-25, only the pre-facelift car.",
+    "skoda-octavia-rs": "No free-licensed photo of the facelifted Octavia RS liftback on Commons as of 2026-11-25; facelift RS photos are all of the Combi (estate), a different body style."
+  }
+}

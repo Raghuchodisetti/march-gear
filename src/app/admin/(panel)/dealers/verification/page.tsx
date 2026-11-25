@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { ArrowUpRight, Building2, ClipboardCheck, Inbox, Mail, Phone } from "lucide-react";
 import { BUSINESS_TYPE_LABEL, DOC_KIND_LABEL } from "@/partner/labels";
 import { getPartnerDetail, verificationQueue, type PartnerDetail } from "@/server/admin/partners";

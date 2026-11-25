@@ -5,6 +5,12 @@ import { PARTNER_FILE_MAX, savePartnerFile, savePartnerMedia, sniffDocument } fr
 import { logPartnerActivity } from "@/server/partner/records";
 import { HOUR, take } from "@/server/rate-limit";
 
+/** The image's smaller card copy, made in the browser (checked again when it's stored). */
+const thumbOf = async (form: FormData) => {
+  const t = form.get("thumb");
+  return t && typeof t !== "string" ? Buffer.from(await t.arrayBuffer()) : null;
+};
+
 /**
  * POST multipart { file, kind } from the dealer portal.
  *   kind = "media"            → public image (showroom/vehicle photos, logos, banners)
@@ -44,7 +50,7 @@ export async function POST(req: NextRequest) {
   const data = Buffer.from(await file.arrayBuffer());
 
   if (kind === "media") {
-    const saved = await savePartnerMedia({ partnerId: ctx.partner.id, userId: ctx.user.id, filename: file.name, data, alt: String(form.get("alt") ?? "").slice(0, 300) || null });
+    const saved = await savePartnerMedia({ partnerId: ctx.partner.id, userId: ctx.user.id, filename: file.name, data, thumb: await thumbOf(form), alt: String(form.get("alt") ?? "").slice(0, 300) || null });
     if (!saved) return json({ error: "That isn't a JPEG, PNG, WebP, GIF or AVIF image." }, 415);
     await logPartnerActivity(ctx.partner.id, ctx.user.id, "upload", "media", saved.id, `Uploaded image ${file.name}`);
     return json({ media: saved });

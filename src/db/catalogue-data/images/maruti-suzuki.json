@@ -1,0 +1,472 @@
+{
+  "brand": "maruti-suzuki",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "maruti-alto-k10": [
+      {
+        "file": "File:Maruti Suzuki Alto K10.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Maruti_Suzuki_Alto_K10.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Maruti_Suzuki_Alto_K10.jpg/1920px-Maruti_Suzuki_Alto_K10.jpg",
+        "width": 9248,
+        "height": 6936,
+        "author": "Vis M",
+        "authorUrl": null,
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Maruti Suzuki Alto K10 (2022 generation) in Silky Silver, front three-quarter view at an Indian dealership",
+        "note": "Indian-market Alto K10 shown at a Kerala dealer event (Malayalam banners, ALTO K10 plate): large hexagonal grille with dark corner inserts of the current 2022 generation."
+      },
+      {
+        "file": "File:Maruti Suzuki Alto K10 - front.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Maruti_Suzuki_Alto_K10_-_front.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Maruti_Suzuki_Alto_K10_-_front.jpg/1920px-Maruti_Suzuki_Alto_K10_-_front.jpg",
+        "width": 9248,
+        "height": 6936,
+        "author": "Vis M",
+        "authorUrl": null,
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Maruti Suzuki Alto K10 (2022 generation) in Silky Silver, front view",
+        "note": "Same Indian-market car as the first photo; the Chile-market Alto has a different bumper with fog lamps, so only Indian photos are used."
+      }
+    ],
+    "maruti-s-presso": [
+      {
+        "file": "File:Suzuki S-Presso 1.0 GL Silky Silver Metallic.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Suzuki_S-Presso_1.0_GL_Silky_Silver_Metallic.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Suzuki_S-Presso_1.0_GL_Silky_Silver_Metallic.jpg/1920px-Suzuki_S-Presso_1.0_GL_Silky_Silver_Metallic.jpg",
+        "width": 4578,
+        "height": 2942,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Suzuki S-Presso in Silky Silver, front three-quarter view",
+        "note": "India-built export car (Philippines) with the same body, grille, headlamps and steel wheels with covers as the Indian S-Presso; Silky Silver is an Indian colour."
+      },
+      {
+        "file": "File:Suzuki S-Presso – Dubai (rear).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Suzuki_S-Presso_%E2%80%93_Dubai_(rear).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Suzuki_S-Presso_%E2%80%93_Dubai_%28rear%29.jpg/1920px-Suzuki_S-Presso_%E2%80%93_Dubai_%28rear%29.jpg",
+        "width": 4032,
+        "height": 3024,
+        "author": "Abdulla Al Muhairi",
+        "authorUrl": null,
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "angle": "rear",
+        "alt": "Suzuki S-Presso in silver, rear view",
+        "note": "India-built export car (Dubai); rear tailgate, lamps and bumper are identical to the Indian S-Presso."
+      }
+    ],
+    "maruti-celerio": [
+      {
+        "file": "File:2021 Maruti Suzuki Celerio ZXi (India) front view 01.png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2021_Maruti_Suzuki_Celerio_ZXi_(India)_front_view_01.png",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/2021_Maruti_Suzuki_Celerio_ZXi_%28India%29_front_view_01.png",
+        "width": 1920,
+        "height": 1152,
+        "author": "Exhibit Magazine",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "front",
+        "alt": "Maruti Suzuki Celerio ZXi (second generation, 2021) in Speedy Blue, front three-quarter view",
+        "note": "Indian-registered (HR) current-generation Celerio launched November 2021."
+      },
+      {
+        "file": "File:2021 Maruti Suzuki Celerio ZXi (India) rear view.png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2021_Maruti_Suzuki_Celerio_ZXi_(India)_rear_view.png",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/2021_Maruti_Suzuki_Celerio_ZXi_%28India%29_rear_view.png",
+        "width": 1920,
+        "height": 1152,
+        "author": "Exhibit Magazine",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "rear",
+        "alt": "Maruti Suzuki Celerio ZXi (2021) in Speedy Blue, rear three-quarter view",
+        "note": "Same Indian-registered car as the first photo."
+      },
+      {
+        "file": "File:Maruti Suzuki Celerio.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Maruti_Suzuki_Celerio.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Maruti_Suzuki_Celerio.jpg/1920px-Maruti_Suzuki_Celerio.jpg",
+        "width": 7296,
+        "height": 6912,
+        "author": "Vis M",
+        "authorUrl": null,
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Maruti Suzuki Celerio (2021 generation) in Arctic White, front view at an Indian dealership",
+        "note": "Indian dealer display (Kerala) of the current Celerio."
+      }
+    ],
+    "maruti-wagon-r": [
+      {
+        "file": "File:2020 Maruti Suzuki Wagon R VXi (O) (India) front view.png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2020_Maruti_Suzuki_Wagon_R_VXi_(O)_(India)_front_view.png",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/2020_Maruti_Suzuki_Wagon_R_VXi_%28O%29_%28India%29_front_view.png/1920px-2020_Maruti_Suzuki_Wagon_R_VXi_%28O%29_%28India%29_front_view.png",
+        "width": 1936,
+        "height": 1292,
+        "author": "Riding Hub",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "front",
+        "alt": "Maruti Suzuki Wagon R VXi (O) (third generation) in Solid White, front three-quarter view",
+        "note": "Indian-market Wagon R of the current (2019-on) tall-boy generation at an Indian dealership; the 2022 update kept this body."
+      },
+      {
+        "file": "File:Maruti Wagon R 2019 (rear).png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Maruti_Wagon_R_2019_(rear).png",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Maruti_Wagon_R_2019_%28rear%29.png/1920px-Maruti_Wagon_R_2019_%28rear%29.png",
+        "width": 2064,
+        "height": 1548,
+        "author": "Agratsa",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Agratsa",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Maruti Suzuki Wagon R (2019 generation) in Solid White, rear three-quarter view",
+        "note": "Indian-market current-generation Wagon R photographed in India: vertical tail lamps and chrome tailgate garnish."
+      }
+    ],
+    "maruti-swift": [
+      {
+        "file": "File:Suzuki Swift 1.2 GLX 2025 (54315444201).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Suzuki_Swift_1.2_GLX_2025_(54315444201).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Suzuki_Swift_1.2_GLX_2025_%2854315444201%29.jpg/1920px-Suzuki_Swift_1.2_GLX_2025_%2854315444201%29.jpg",
+        "width": 3330,
+        "height": 2310,
+        "author": "RL GNZLZ from Chile",
+        "authorUrl": "https://www.flickr.com/people/37691369@N08",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "angle": "front",
+        "alt": "Suzuki Swift (2024 generation) in Magma Grey, front three-quarter view",
+        "note": "India-built export car sold in Chile (Swifts for Latin America come from Maruti's Gujarat plant): same Z-series body, grille, headlamps and dual-tone alloys as the Indian ZXi+."
+      },
+      {
+        "file": "File:Suzuki Swift 1.2 GLX 2025.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Suzuki_Swift_1.2_GLX_2025.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Suzuki_Swift_1.2_GLX_2025.jpg/1920px-Suzuki_Swift_1.2_GLX_2025.jpg",
+        "width": 4869,
+        "height": 2741,
+        "author": "RL GNZLZ",
+        "authorUrl": null,
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Suzuki Swift (2024 generation) in Pearl Arctic White, rear three-quarter side view",
+        "note": "India-built Chile-market car with the Indian-design alloys and tail lamps of the current Swift."
+      }
+    ],
+    "maruti-dzire": [
+      {
+        "file": "File:Suzuki Dzire II 1.2 GLX Hybrid Magma Gray Metallic 01.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Suzuki_Dzire_II_1.2_GLX_Hybrid_Magma_Gray_Metallic_01.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Suzuki_Dzire_II_1.2_GLX_Hybrid_Magma_Gray_Metallic_01.jpg/1920px-Suzuki_Dzire_II_1.2_GLX_Hybrid_Magma_Gray_Metallic_01.jpg",
+        "width": 3672,
+        "height": 2448,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Maruti Suzuki Dzire (2024 generation) in Magma Grey, front three-quarter view",
+        "note": "India-built export car (Philippines, imported from Maruti's Gujarat plant): same fourth-generation body, horizontal-slat grille, LED headlamps and alloy design as the Indian ZXi+; Magma Grey is an Indian colour."
+      },
+      {
+        "file": "File:Suzuki Dzire II 1.2 GLX Hybrid Magma Gray Metallic 02.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Suzuki_Dzire_II_1.2_GLX_Hybrid_Magma_Gray_Metallic_02.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Suzuki_Dzire_II_1.2_GLX_Hybrid_Magma_Gray_Metallic_02.jpg/1920px-Suzuki_Dzire_II_1.2_GLX_Hybrid_Magma_Gray_Metallic_02.jpg",
+        "width": 3504,
+        "height": 2336,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Maruti Suzuki Dzire (2024 generation) in Magma Grey, rear three-quarter view",
+        "note": "Same India-built Philippine-market car; Y-shaped LED tail lamps of the current Dzire."
+      },
+      {
+        "file": "File:MIAS 2025 - All-new Suzuki Dzire Hybrid 05.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MIAS_2025_-_All-new_Suzuki_Dzire_Hybrid_05.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/MIAS_2025_-_All-new_Suzuki_Dzire_Hybrid_05.jpg/1920px-MIAS_2025_-_All-new_Suzuki_Dzire_Hybrid_05.jpg",
+        "width": 5184,
+        "height": 3456,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "Maruti Suzuki Dzire (2024 generation) dashboard with beige-and-black trim and touchscreen",
+        "note": "India-built car at the Manila show; beige/black dashboard, steering and floating touchscreen match the Indian ZXi+."
+      }
+    ],
+    "maruti-eeco": [
+      {
+        "file": "File:White Maruti Eeco 01.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:White_Maruti_Eeco_01.jpg",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/White_Maruti_Eeco_01.jpg",
+        "width": 1641,
+        "height": 972,
+        "author": "Bams siblings",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "front",
+        "alt": "Maruti Suzuki Eeco in Solid White, front three-quarter view",
+        "note": "Indian-market Eeco photographed in India; the current Eeco body has been on sale since 2010 (2022 update kept it)."
+      },
+      {
+        "file": "File:White Maruti Eeco 02.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:White_Maruti_Eeco_02.jpg",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/White_Maruti_Eeco_02.jpg",
+        "width": 1485,
+        "height": 935,
+        "author": "Bams siblings",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "rear",
+        "alt": "Maruti Suzuki Eeco in Solid White, rear three-quarter view",
+        "note": "Same Indian-market van as the first photo."
+      }
+    ],
+    "maruti-fronx": [
+      {
+        "file": "File:2023 Suzuki Fronx 1.2 Delta+ (India) front view.png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_Suzuki_Fronx_1.2_Delta%2B_(India)_front_view.png",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/2023_Suzuki_Fronx_1.2_Delta%2B_%28India%29_front_view.png/1920px-2023_Suzuki_Fronx_1.2_Delta%2B_%28India%29_front_view.png",
+        "width": 2624,
+        "height": 1574,
+        "author": "HARSHIT 0008",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "front",
+        "alt": "Maruti Suzuki Fronx Delta+ in Arctic White, front three-quarter view at an Indian NEXA showroom",
+        "note": "Indian-market Fronx (Delta+ trim) photographed in India; split LED DRLs and mesh grille of the current car."
+      },
+      {
+        "file": "File:2023 Suzuki Fronx 1.2 Delta+ (India) rear view.png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_Suzuki_Fronx_1.2_Delta%2B_(India)_rear_view.png",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/2023_Suzuki_Fronx_1.2_Delta%2B_%28India%29_rear_view.png/1920px-2023_Suzuki_Fronx_1.2_Delta%2B_%28India%29_rear_view.png",
+        "width": 2942,
+        "height": 1765,
+        "author": "HARSHIT 0008",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "rear",
+        "alt": "Maruti Suzuki Fronx Delta+ in Arctic White, rear three-quarter view",
+        "note": "Same Indian-market car; connected LED tail-lamp bar."
+      },
+      {
+        "file": "File:2023 Suzuki Fronx 1.2 Delta+ (India) interior.png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_Suzuki_Fronx_1.2_Delta%2B_(India)_interior.png",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/2023_Suzuki_Fronx_1.2_Delta%2B_%28India%29_interior.png/1920px-2023_Suzuki_Fronx_1.2_Delta%2B_%28India%29_interior.png",
+        "width": 3600,
+        "height": 2160,
+        "author": "HARSHIT 0008",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "interior",
+        "alt": "Maruti Suzuki Fronx Delta+ dashboard with touchscreen and automatic gear lever",
+        "note": "Interior of the same Indian-market Fronx (right-hand drive, burgundy-and-black trim)."
+      }
+    ],
+    "maruti-ertiga": [
+      {
+        "file": "File:2022 Maruti Suzuki Ertiga LXi.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2022_Maruti_Suzuki_Ertiga_LXi.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/2022_Maruti_Suzuki_Ertiga_LXi.jpg/1920px-2022_Maruti_Suzuki_Ertiga_LXi.jpg",
+        "width": 4928,
+        "height": 3264,
+        "author": "Ramakrishna Mission Vidyapith",
+        "authorUrl": null,
+        "license": "Public domain",
+        "licenseUrl": null,
+        "angle": "front",
+        "alt": "Maruti Suzuki Ertiga LXi (2022 facelift) in Pearl Arctic White, front three-quarter view",
+        "note": "Indian-market Ertiga photographed in India: chrome-winged grille of the 2022 facelift; a small paper sticker sits on the bonnet."
+      },
+      {
+        "file": "File:Suzuki Ertiga 1.5 GL 2022.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Suzuki_Ertiga_1.5_GL_2022.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Suzuki_Ertiga_1.5_GL_2022.jpg/1920px-Suzuki_Ertiga_1.5_GL_2022.jpg",
+        "width": 4109,
+        "height": 2313,
+        "author": "RL GNZLZ",
+        "authorUrl": null,
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "angle": "rear",
+        "alt": "Suzuki Ertiga (2022 facelift) in light blue, rear three-quarter view",
+        "note": "India-built export car sold in Chile: same 2022-facelift body, tail lamps and chrome tailgate garnish as the Indian Ertiga (roof rails are fitted)."
+      },
+      {
+        "file": "File:2025 Maruti Suzuki Ertiga VXi S-CNG.png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2025_Maruti_Suzuki_Ertiga_VXi_S-CNG.png",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/2025_Maruti_Suzuki_Ertiga_VXi_S-CNG.png/1920px-2025_Maruti_Suzuki_Ertiga_VXi_S-CNG.png",
+        "width": 2686,
+        "height": 1488,
+        "author": "Vivek Singh Moto AV",
+        "authorUrl": "https://www.youtube.com/@MotoAVivek",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "angle": "side",
+        "alt": "Maruti Suzuki Ertiga VXi S-CNG in Pearl Arctic White, side view in an Indian showroom",
+        "note": "Indian-market 2025 Ertiga VXi S-CNG in a dealership."
+      }
+    ],
+    "maruti-jimny": [
+      {
+        "file": "File:2024 Suzuki Jimny 1.5 GLX 5dr in Celestial Blue Pearl Metallic, front right, 07-13-2024.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_Suzuki_Jimny_1.5_GLX_5dr_in_Celestial_Blue_Pearl_Metallic,_front_right,_07-13-2024.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/2024_Suzuki_Jimny_1.5_GLX_5dr_in_Celestial_Blue_Pearl_Metallic%2C_front_right%2C_07-13-2024.jpg/1920px-2024_Suzuki_Jimny_1.5_GLX_5dr_in_Celestial_Blue_Pearl_Metallic%2C_front_right%2C_07-13-2024.jpg",
+        "width": 5024,
+        "height": 3768,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Maruti Suzuki Jimny 5-door in NEXA Blue (Celestial Blue), front three-quarter view",
+        "note": "India-built five-door Jimny exported to the Philippines (every 5-door Jimny is made at Maruti's Gurugram plant): same body, chrome-slat grille, LED headlamps and gunmetal alloys as the Indian Alpha."
+      },
+      {
+        "file": "File:2024 Suzuki Jimny 1.5 GLX 5dr in Celestial Blue Pearl Metallic, rear right, 07-13-2024.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_Suzuki_Jimny_1.5_GLX_5dr_in_Celestial_Blue_Pearl_Metallic,_rear_right,_07-13-2024.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/2024_Suzuki_Jimny_1.5_GLX_5dr_in_Celestial_Blue_Pearl_Metallic%2C_rear_right%2C_07-13-2024.jpg/1920px-2024_Suzuki_Jimny_1.5_GLX_5dr_in_Celestial_Blue_Pearl_Metallic%2C_rear_right%2C_07-13-2024.jpg",
+        "width": 4672,
+        "height": 3504,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Maruti Suzuki Jimny 5-door in NEXA Blue (Celestial Blue), rear three-quarter view",
+        "note": "Same India-built car; five-door body with tailgate-mounted spare wheel."
+      }
+    ],
+    "maruti-victoris": [
+      {
+        "file": "File:Suzuki Across GLX Hybrid 01.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Suzuki_Across_GLX_Hybrid_01.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Suzuki_Across_GLX_Hybrid_01.jpg/1920px-Suzuki_Across_GLX_Hybrid_01.jpg",
+        "width": 2754,
+        "height": 1836,
+        "author": "Haysnawri10",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Haysnawri10",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Maruti Suzuki Victoris (sold abroad as Suzuki Across) in Sizzling Red with black roof, front three-quarter view",
+        "note": "The India-built Victoris is exported to the Gulf as the Suzuki Across (Saudi plates); headlamps, chrome bar, grille, bumper and alloys match the Indian Victoris. No model badge is visible from this angle."
+      }
+    ],
+    "maruti-grand-vitara": [
+      {
+        "file": "File:2022 Maruti Suzuki Grand Vitara Zeta Smart Hybrid (India) front view.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2022_Maruti_Suzuki_Grand_Vitara_Zeta_Smart_Hybrid_(India)_front_view.jpg",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c0/2022_Maruti_Suzuki_Grand_Vitara_Zeta_Smart_Hybrid_%28India%29_front_view.jpg",
+        "width": 1699,
+        "height": 1019,
+        "author": "Siddharth Antre",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "front",
+        "alt": "Maruti Suzuki Grand Vitara Zeta Smart Hybrid in Arctic White, front three-quarter view",
+        "note": "Indian-market Grand Vitara (temporary Indian registration) photographed in India; current 2022-on design."
+      },
+      {
+        "file": "File:2022 Maruti Suzuki Grand Vitara Alpha Smart Hybrid AllGrip rear view 02.png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2022_Maruti_Suzuki_Grand_Vitara_Alpha_Smart_Hybrid_AllGrip_rear_view_02.png",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/2022_Maruti_Suzuki_Grand_Vitara_Alpha_Smart_Hybrid_AllGrip_rear_view_02.png/1920px-2022_Maruti_Suzuki_Grand_Vitara_Alpha_Smart_Hybrid_AllGrip_rear_view_02.png",
+        "width": 2448,
+        "height": 1469,
+        "author": "NA Vlogs",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "rear",
+        "alt": "Maruti Suzuki Grand Vitara Alpha AllGrip in Grandeur Grey, rear three-quarter view",
+        "note": "Indian-registered (HR) Alpha AllGrip; full-width LED tail-lamp bar and GRAND VITARA lettering."
+      },
+      {
+        "file": "File:Suzuki Grand Vitara 1.5 GLX 2024.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Suzuki_Grand_Vitara_1.5_GLX_2024.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Suzuki_Grand_Vitara_1.5_GLX_2024.jpg/1920px-Suzuki_Grand_Vitara_1.5_GLX_2024.jpg",
+        "width": 4811,
+        "height": 2708,
+        "author": "RL GNZLZ",
+        "authorUrl": null,
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "side",
+        "alt": "Suzuki Grand Vitara in grey, side view",
+        "note": "India-built export car sold in Chile, identical body and alloy design to the Indian Alpha."
+      }
+    ],
+    "maruti-e-vitara": [
+      {
+        "file": "File:Suzuki e Vitara in Hamamatsu Sta front.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Suzuki_e_Vitara_in_Hamamatsu_Sta_front.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Suzuki_e_Vitara_in_Hamamatsu_Sta_front.jpg/1920px-Suzuki_e_Vitara_in_Hamamatsu_Sta_front.jpg",
+        "width": 6000,
+        "height": 4000,
+        "author": "IXTA9839",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:IXTA9839",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Maruti Suzuki e Vitara in green-grey with black roof, front three-quarter view",
+        "note": "Every e Vitara is built at Suzuki's Hansalpur plant in Gujarat and the design is the same in all markets; this Japan-display car has the 18-inch aero alloys of the Indian Alpha."
+      },
+      {
+        "file": "File:Suzuki e Vitara in Hamamatsu Sta rear.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Suzuki_e_Vitara_in_Hamamatsu_Sta_rear.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Suzuki_e_Vitara_in_Hamamatsu_Sta_rear.jpg/1920px-Suzuki_e_Vitara_in_Hamamatsu_Sta_rear.jpg",
+        "width": 6000,
+        "height": 4000,
+        "author": "IXTA9839",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:IXTA9839",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Maruti Suzuki e Vitara in green-grey with black roof, rear three-quarter view",
+        "note": "Same India-built car as the first photo; full-width tail-lamp bar and e VITARA lettering as on the Indian model."
+      },
+      {
+        "file": "File:Suzuki e VITARA X (ZAA-PA2AS-TBXA-Z) interior.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Suzuki_e_VITARA_X_(ZAA-PA2AS-TBXA-Z)_interior.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Suzuki_e_VITARA_X_%28ZAA-PA2AS-TBXA-Z%29_interior.jpg/1920px-Suzuki_e_VITARA_X_%28ZAA-PA2AS-TBXA-Z%29_interior.jpg",
+        "width": 2560,
+        "height": 1920,
+        "author": "Tokumeigakarinoaoshima",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Tokumeigakarinoaoshima",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "angle": "interior",
+        "alt": "Maruti Suzuki e Vitara cabin with brown-and-black dashboard and twin screens",
+        "note": "India-built e Vitara (Japanese display car, right-hand drive); dual-tone cabin and integrated screens match the Indian car. A price card sits on the dashboard."
+      }
+    ]
+  },
+  "missing": {
+    "maruti-baleno": "Commons has only the pre-facelift 2022 Baleno; no free-licensed photo of the September 2026 facelift on Commons as of 2026-11-25.",
+    "maruti-brezza": "Commons has only the pre-facelift 2022 Brezza; its one 2026-facelift photo carries a Team-BHP watermark under an own-work CC0 claim, so the licence is doubtful and it was not used.",
+    "maruti-xl6": "Commons has only the pre-facelift 2019 XL6; no free-licensed photo of the current April 2022 facelift (new grille and alloys) on Commons as of 2026-11-25.",
+    "maruti-invicto": "no free-licensed photo of this model on Commons as of 2026-11-25"
+  }
+}

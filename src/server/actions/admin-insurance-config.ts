@@ -89,7 +89,7 @@ const companySchema = z
 
 /** Creates (companyId null) or updates an insurance company. */
 export async function saveInsCompanyAction(companyId: unknown, input: unknown): Promise<ActionResult<{ id: number }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   const parsed = companySchema.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const v = parsed.data;
@@ -185,7 +185,7 @@ export async function saveInsCompanyAction(companyId: unknown, input: unknown): 
 
 /** Admins only: deletes a company that no product uses. */
 export async function deleteInsCompanyAction(companyId: unknown): Promise<ActionResult> {
-  const me = await requireStaff(["admin"]);
+  const me = await requireStaff("admin");
   const cid = id.safeParse(companyId);
   if (!cid.success) return { ok: false, error: "Company not found" };
   const db = getDb();

@@ -5,6 +5,12 @@ import { INS_FILE_MAX, saveInsurerFile, saveInsurerMedia, sniffDocument } from "
 import { logInsurerActivity } from "@/server/insurance/records";
 import { HOUR, take } from "@/server/rate-limit";
 
+/** The image's smaller card copy, made in the browser (checked again when it's stored). */
+const thumbOf = async (form: FormData) => {
+  const t = form.get("thumb");
+  return t && typeof t !== "string" ? Buffer.from(await t.arrayBuffer()) : null;
+};
+
 /**
  * POST multipart { file, kind } from the insurance vendor portal.
  *   kind = "media"            → public image (logo, campaign banner, ad creative)
@@ -47,7 +53,7 @@ export async function POST(req: NextRequest) {
     // Public images (logo, campaign banners, ad creatives) are for approved vendors only — an unreviewed sign-up
     // mustn't be able to host files on MarchGear's /media.
     if (!ctx.approved) return json({ error: "Images can be uploaded once your company is approved." }, 403);
-    const saved = await saveInsurerMedia({ vendorId: ctx.vendor.id, userId: ctx.user.id, filename: file.name, data, alt: String(form.get("alt") ?? "").slice(0, 300) || null });
+    const saved = await saveInsurerMedia({ vendorId: ctx.vendor.id, userId: ctx.user.id, filename: file.name, data, thumb: await thumbOf(form), alt: String(form.get("alt") ?? "").slice(0, 300) || null });
     if (!saved) return json({ error: "That isn't a JPEG, PNG, WebP, GIF or AVIF image." }, 415);
     await logInsurerActivity(ctx.vendor.id, ctx.user.id, "upload", "media", saved.id, `Uploaded image ${file.name}`);
     return json({ media: saved });

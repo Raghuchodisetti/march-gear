@@ -120,7 +120,7 @@ const brandSchema = z.object({
 });
 
 export async function saveBrandAction(recordKey: unknown, input: unknown): Promise<Saved> {
-  const me = await requireStaff();
+  const me = await requireStaff("catalogue");
   const rid = numericId.safeParse(recordKey);
   if (!rid.success) return BAD_ID;
   const id = rid.data;
@@ -157,7 +157,7 @@ export async function saveBrandAction(recordKey: unknown, input: unknown): Promi
 }
 
 export async function deleteBrandAction(id: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("catalogue");
   const rid = recordId.safeParse(id);
   if (!rid.success) return { ok: false, error: "Invalid brand" };
   const [before] = await getDb().select({ name: brands.name }).from(brands).where(eq(brands.id, rid.data));
@@ -286,7 +286,7 @@ async function renameCarReferences(tx: Tx, from: string, to: string) {
 }
 
 export async function saveCarAction(recordKey: unknown, input: unknown): Promise<Saved> {
-  const me = await requireStaff();
+  const me = await requireStaff("catalogue");
   const rid = numericId.safeParse(recordKey);
   if (!rid.success) return BAD_ID;
   const id = rid.data;
@@ -322,7 +322,7 @@ export async function saveCarAction(recordKey: unknown, input: unknown): Promise
 }
 
 export async function deleteCarAction(id: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("catalogue");
   const rid = recordId.safeParse(id);
   if (!rid.success) return { ok: false, error: "Invalid car" };
   const [before] = await getDb().select({ name: cars.name, brand: cars.brand }).from(cars).where(eq(cars.id, rid.data));
@@ -353,7 +353,7 @@ const upcomingSchema = z
   .refine((u) => u.priceMax >= u.priceMin, { path: ["priceMax"], message: "Must be at least the price from" });
 
 export async function saveUpcomingAction(recordKey: unknown, input: unknown): Promise<Saved> {
-  const me = await requireStaff();
+  const me = await requireStaff("catalogue");
   const rid = numericId.safeParse(recordKey);
   if (!rid.success) return BAD_ID;
   let id = rid.data;
@@ -376,7 +376,7 @@ export async function saveUpcomingAction(recordKey: unknown, input: unknown): Pr
 }
 
 export async function deleteUpcomingAction(id: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("catalogue");
   const rid = recordId.safeParse(id);
   if (!rid.success) return { ok: false, error: "Invalid launch" };
   const [before] = await getDb().select({ name: upcomingCars.name, brand: upcomingCars.brand }).from(upcomingCars).where(eq(upcomingCars.id, rid.data));
@@ -418,7 +418,7 @@ const usedSchema = z.object({
 });
 
 export async function saveUsedCarAction(recordKey: unknown, input: unknown): Promise<Saved> {
-  const me = await requireStaff();
+  const me = await requireStaff("catalogue");
   const rid = stringId.safeParse(recordKey);
   if (!rid.success) return BAD_ID;
   let id = rid.data;
@@ -444,7 +444,7 @@ export async function saveUsedCarAction(recordKey: unknown, input: unknown): Pro
 }
 
 export async function deleteUsedCarAction(id: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("catalogue");
   const rid = z.string().min(1).max(64).safeParse(id);
   if (!rid.success) return { ok: false, error: "Invalid listing" };
   const [before] = await getDb().select({ year: usedCars.year, brand: usedCars.brand, name: usedCars.name }).from(usedCars).where(eq(usedCars.id, rid.data));
@@ -489,7 +489,7 @@ const dealerSchema = z.object({
 });
 
 export async function saveDealerAction(recordKey: unknown, input: unknown): Promise<Saved> {
-  const me = await requireStaff();
+  const me = await requireStaff("catalogue");
   const rid = stringId.safeParse(recordKey);
   if (!rid.success) return BAD_ID;
   const id = rid.data;
@@ -511,7 +511,7 @@ export async function saveDealerAction(recordKey: unknown, input: unknown): Prom
 }
 
 export async function deleteDealerAction(id: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("catalogue");
   const rid = z.string().min(1).max(64).safeParse(id);
   if (!rid.success) return { ok: false, error: "Invalid dealer" };
   const [before] = await getDb().select({ name: dealers.name }).from(dealers).where(eq(dealers.id, rid.data));
@@ -541,7 +541,7 @@ const articleSchema = z.object({
 });
 
 export async function saveArticleAction(recordKey: unknown, input: unknown): Promise<Saved> {
-  const me = await requireStaff();
+  const me = await requireStaff("content");
   const rid = numericId.safeParse(recordKey);
   if (!rid.success) return BAD_ID;
   let id = rid.data;
@@ -564,7 +564,7 @@ export async function saveArticleAction(recordKey: unknown, input: unknown): Pro
 }
 
 export async function deleteArticleAction(id: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("content");
   const rid = recordId.safeParse(id);
   if (!rid.success) return { ok: false, error: "Invalid story" };
   const [before] = await getDb().select({ title: articles.title }).from(articles).where(eq(articles.id, rid.data));
@@ -585,7 +585,7 @@ const authorSchema = z.object({
 });
 
 export async function saveAuthorAction(recordKey: unknown, input: unknown): Promise<Saved> {
-  const me = await requireStaff();
+  const me = await requireStaff("content");
   const rid = stringId.safeParse(recordKey);
   if (!rid.success) return BAD_ID;
   const id = rid.data;
@@ -615,7 +615,7 @@ export async function saveAuthorAction(recordKey: unknown, input: unknown): Prom
 }
 
 export async function deleteAuthorAction(id: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("content");
   const rid = z.string().min(1).max(64).safeParse(id);
   if (!rid.success) return { ok: false, error: "Invalid author" };
   const [before] = await getDb().select({ name: authors.name }).from(authors).where(eq(authors.id, rid.data));

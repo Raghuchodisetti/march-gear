@@ -3,13 +3,16 @@ import { and, asc, count, desc, eq, gt, inArray, like, or, type SQL } from "driz
 import { getDb } from "@/db";
 import {
   REVIEW_STATUS,
-  USER_ROLES,
   brands,
   cars,
   dealerReviews,
   dealers,
+  insMembers,
+  insVendors,
   leads,
   ownerReviews,
+  partnerMembers,
+  partners,
   sessions,
   subscribers,
   usedCars,
@@ -19,7 +22,8 @@ import {
   type UserRole,
 } from "@/db/schema";
 import { LEGACY_BRANDS } from "@/lib/catalog";
-import { currentSessionId, requireStaff } from "@/server/auth";
+import { currentSessionId, getDesk, requireStaff } from "@/server/auth";
+import { ACCOUNT_KINDS } from "@/lib/accounts";
 
 const term = (q: string) => `%${q.replace(/[%_\\]/g, (c) => `\\${c}`)}%`;
 
@@ -84,24 +88,76 @@ export async function reviewCounts() {
 
 export const USERS_PAGE_SIZE = 30;
 
-export async function listUsers(q?: string, role?: string, page = 1) {
-  await requireStaff(["admin"]);
+/** Who a dealer or insurance vendor login belongs to (shown in their lists and on their page). */
+export interface AccountOrg {
+  name: string;
+  /** Their organisation's page in the back office (/admin/…). */
+  href: string;
+  /** Their role inside it (owner, sales manager…). */
+  memberRole: string;
+}
+
+/** Dealerships / insurance vendors of these accounts. */
+async function orgsOf(kind: "dealer" | "insurer", ids: number[]): Promise<Map<number, AccountOrg>> {
+  if (!ids.length) return new Map();
   const db = getDb();
-  const conds: SQL[] = [];
+  const rows =
+    kind === "dealer"
+      ? await db
+          .select({ userId: partnerMembers.userId, id: partners.id, trade: partners.tradeName, legal: partners.legalName, ref: partners.reference, memberRole: partnerMembers.role })
+          .from(partnerMembers)
+          .innerJoin(partners, eq(partners.id, partnerMembers.partnerId))
+          .where(inArray(partnerMembers.userId, ids))
+      : await db
+          .select({ userId: insMembers.userId, id: insVendors.id, trade: insVendors.brandName, legal: insVendors.legalName, ref: insVendors.reference, memberRole: insMembers.role })
+          .from(insMembers)
+          .innerJoin(insVendors, eq(insVendors.id, insMembers.vendorId))
+          .where(inArray(insMembers.userId, ids));
+  return new Map(
+    rows.map((r) => [
+      r.userId,
+      {
+        name: r.trade || r.legal || r.ref,
+        href: kind === "dealer" ? `/admin/dealers/details?id=${r.id}` : `/admin/insurance/vendors/${r.id}`,
+        memberRole: r.memberRole.replace(/_/g, " "),
+      },
+    ]),
+  );
+}
+
+export type AccountListKind = "customer" | "dealer" | "insurer" | "team";
+
+/** One kind of account, newest first, a page at a time — for whoever manages that kind. */
+export async function listAccounts(kind: AccountListKind, q?: string, page = 1) {
+  const roles: UserRole[] = kind === "team" ? ["admin", "staff"] : [kind];
+  await requireStaff(ACCOUNT_KINDS[roles[0]].access);
+  const db = getDb();
+  const conds: SQL[] = [inArray(users.role, roles)];
   if (q) conds.push(or(like(users.name, term(q)), like(users.email, term(q)), like(users.phone, term(q)))!);
-  if (role && (USER_ROLES as readonly string[]).includes(role)) conds.push(eq(users.role, role as UserRole));
-  const where = conds.length ? and(...conds) : undefined;
+  const where = and(...conds);
   const [{ total }] = await db.select({ total: count() }).from(users).where(where);
   // A ?page= past the end shows the last page rather than an empty one.
   const current = Math.min(Math.max(1, page), Math.max(1, Math.ceil(total / USERS_PAGE_SIZE)));
   const rows = await db
-    .select({ id: users.id, name: users.name, email: users.email, phone: users.phone, state: users.state, city: users.city, role: users.role, isActive: users.isActive, createdAt: users.createdAt, lastLoginAt: users.lastLoginAt })
+    .select({
+      id: users.id,
+      name: users.name,
+      email: users.email,
+      phone: users.phone,
+      city: users.city,
+      role: users.role,
+      permissions: users.permissions,
+      isActive: users.isActive,
+      createdAt: users.createdAt,
+      lastLoginAt: users.lastLoginAt,
+    })
     .from(users)
     .where(where)
-    .orderBy(desc(users.createdAt), desc(users.id))
+    .orderBy(kind === "team" ? asc(users.name) : desc(users.createdAt), desc(users.id))
     .limit(USERS_PAGE_SIZE)
     .offset((current - 1) * USERS_PAGE_SIZE);
-  return { rows, total, page: current };
+  const orgs = kind === "dealer" || kind === "insurer" ? await orgsOf(kind, rows.map((r) => r.id)) : new Map<number, AccountOrg>();
+  return { rows: rows.map((r) => ({ ...r, org: orgs.get(r.id) ?? null })), total, page: current };
 }
 
 /** Why a saved item can or can't be opened on the public site. */
@@ -160,7 +216,7 @@ async function savedItems(userId: number): Promise<SavedItem[]> {
 /** Sessions that are still valid; `current` marks the browser making this request. */
 async function activeSessions(userId: number) {
   // Staff are looking at this list from the admin, so "this browser" is the staff session.
-  const mine = await currentSessionId("staff");
+  const mine = await currentSessionId(await getDesk());
   const rows = await getDb()
     .select({ id: sessions.id, createdAt: sessions.createdAt, expiresAt: sessions.expiresAt, userAgent: sessions.userAgent, ip: sessions.ip })
     .from(sessions)
@@ -171,13 +227,28 @@ async function activeSessions(userId: number) {
 }
 
 export async function getUserDetail(id: number) {
-  await requireStaff(["admin"]);
+  await requireStaff(["customers", "dealers", "insurance"]);
   const db = getDb();
   const [user] = await db
-    .select({ id: users.id, name: users.name, email: users.email, phone: users.phone, state: users.state, city: users.city, role: users.role, isActive: users.isActive, createdAt: users.createdAt, lastLoginAt: users.lastLoginAt })
+    .select({
+      id: users.id,
+      name: users.name,
+      email: users.email,
+      phone: users.phone,
+      state: users.state,
+      city: users.city,
+      role: users.role,
+      permissions: users.permissions,
+      isActive: users.isActive,
+      createdAt: users.createdAt,
+      lastLoginAt: users.lastLoginAt,
+    })
     .from(users)
     .where(eq(users.id, id));
   if (!user) return null;
+  // Each kind of account belongs to its own section (staff and admins: admins only).
+  await requireStaff(ACCOUNT_KINDS[user.role].access);
+  const org = user.role === "dealer" || user.role === "insurer" ? ((await orgsOf(user.role, [user.id])).get(user.id) ?? null) : null;
   const [userLeads, saved, signedIn] = await Promise.all([
     db
       .select({ id: leads.id, reference: leads.reference, type: leads.type, status: leads.status, subject: leads.subject, createdAt: leads.createdAt })
@@ -188,7 +259,7 @@ export async function getUserDetail(id: number) {
     savedItems(id),
     activeSessions(id),
   ]);
-  return { user, leads: userLeads, saved, sessions: signedIn };
+  return { user, org, leads: userLeads, saved, sessions: signedIn };
 }
 
 /** For the on-screen list (capped; use the CSV export for everything). */

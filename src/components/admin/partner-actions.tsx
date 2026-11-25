@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { useRouter } from "next/navigation";
+import { useDeskRouter as useRouter } from "@/components/admin/desk";
 import {
   Ban,
   Check,

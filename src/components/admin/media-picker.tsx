@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/overlay";
 import { filterInput } from "./ui";
 import { MediaDropzone, UploadQueue, checkerboard, dimensions, useMediaList, useMediaUploads } from "./media-client";
-import type { MediaItem } from "./media-shared";
+import { previewUrl, type MediaItem } from "./media-shared";
 
 /** "Upload / choose" for image fields: opens the picker and hands back the chosen /media/… URL(s). */
 export function MediaPickerButton({ multiple = false, onPick, look = "button", className }: { multiple?: boolean; onPick: (urls: string[]) => void; look?: "button" | "link"; className?: string }) {
@@ -96,7 +96,7 @@ function PickerBody({ multiple, onPick, onCancel }: { multiple: boolean; onPick:
                   >
                     <span className={cn("relative block aspect-[4/3] overflow-hidden border", on ? "border-red" : "border-line group-hover:border-ink/40")} style={checkerboard}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={m.url} alt={m.alt ?? ""} loading="lazy" decoding="async" className="size-full object-contain" />
+                      <img src={previewUrl(m)} alt={m.alt ?? ""} loading="lazy" decoding="async" className="size-full object-contain" />
                       {on && (
                         <span className="absolute right-1.5 top-1.5 inline-flex size-6 items-center justify-center rounded-full bg-red text-[11.5px] font-semibold text-white num">
                           {multiple ? order + 1 : <Check aria-hidden className="size-3.5" strokeWidth={3} />}

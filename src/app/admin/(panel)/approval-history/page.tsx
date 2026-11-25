@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { Download, Lock, ScrollText } from "lucide-react";
 import { APPROVAL_TARGETS } from "@/db/enums";
 import { HISTORY_PAGE_SIZE, historyFilterOptions, isCalendarDay, listApprovalHistory } from "@/server/admin/partners";

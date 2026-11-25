@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
+import { useDeskRouter as useRouter } from "@/components/admin/desk";
 import { Loader2, Pencil, RotateCcw } from "lucide-react";
 import { AD_AUDIENCE, type AdAudience } from "@/db/enums";
 import { restorePlacementDefaultsAction, updatePlacementAction } from "@/server/actions/ads-admin";

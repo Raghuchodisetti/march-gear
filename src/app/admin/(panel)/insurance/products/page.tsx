@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { ClipboardCheck, FileSearch, ShieldCheck } from "lucide-react";
 import { INS_PRODUCT_CATEGORIES } from "@/db/enums";
 import { INS_PRODUCT_CATEGORY_LABEL, INS_VENDOR_STATUS_LABEL } from "@/insurance/labels";

@@ -1,0 +1,155 @@
+{
+  "brand": "volkswagen",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "volkswagen-virtus": [
+      {
+        "file": "File:2023 Volkswagen Virtus Topline front 20230520.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_Volkswagen_Virtus_Topline_front_20230520.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/2023_Volkswagen_Virtus_Topline_front_20230520.jpg/1920px-2023_Volkswagen_Virtus_Topline_front_20230520.jpg",
+        "width": 4096,
+        "height": 2304,
+        "author": "Dairokkan9",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Dairokkan9",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Volkswagen Virtus Topline in Candy White, front three-quarter view",
+        "note": "Indian-market Virtus Topline TSI photographed in India (Chrome styling). This is the India-built Virtus, not the different Brazilian/Argentinian Virtus. The Virtus facelift does not launch until 11 December 2026, so this design is current."
+      },
+      {
+        "file": "File:2023 Volkswagen Virtus Topline rear 20230520.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_Volkswagen_Virtus_Topline_rear_20230520.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/2023_Volkswagen_Virtus_Topline_rear_20230520.jpg/1920px-2023_Volkswagen_Virtus_Topline_rear_20230520.jpg",
+        "width": 4096,
+        "height": 2304,
+        "author": "Dairokkan9",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Dairokkan9",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Volkswagen Virtus Topline in Candy White, rear three-quarter view",
+        "note": "Same Indian Virtus Topline: VIRTUS lettering and TSI badge on the boot lid."
+      },
+      {
+        "file": "File:2022 Volkswagen Virtus 1.5 GT (India) interior.png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2022_Volkswagen_Virtus_1.5_GT_(India)_interior.png",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2e/2022_Volkswagen_Virtus_1.5_GT_%28India%29_interior.png",
+        "width": 1920,
+        "height": 1080,
+        "author": "DriveSpark",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "interior",
+        "alt": "Volkswagen Virtus GT dashboard, right-hand drive",
+        "note": "Indian right-hand-drive Virtus GT cabin with digital cockpit and touchscreen."
+      },
+      {
+        "file": "File:2022 Volkswagen Virtus 1.5 GT (India) front view 02.png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2022_Volkswagen_Virtus_1.5_GT_(India)_front_view_02.png",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/2022_Volkswagen_Virtus_1.5_GT_%28India%29_front_view_02.png",
+        "width": 1920,
+        "height": 1152,
+        "author": "DriveSpark",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "front",
+        "alt": "Volkswagen Virtus GT in Wild Cherry Red, front three-quarter view",
+        "note": "Indian Virtus 1.5 GT (Sport styling, red calipers) on Maharashtra trade plates. Second front view to show the GT/Sport look; no clean side view was available."
+      }
+    ],
+    "volkswagen-tayron": [
+      {
+        "file": "File:VW Tayron R-Line – f 18042026.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:VW_Tayron_R-Line_–_f_18042026.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/VW_Tayron_R-Line_%E2%80%93_f_18042026.jpg/1920px-VW_Tayron_R-Line_%E2%80%93_f_18042026.jpg",
+        "width": 4073,
+        "height": 2264,
+        "author": "© M 93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:M_93",
+        "license": "CC BY-SA 3.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "angle": "front",
+        "alt": "Volkswagen Tayron R-Line in white, front three-quarter view",
+        "note": "European Tayron R-Line (2024 model, not the unrelated Chinese Tayron). The Indian Tayron R-Line is the same design."
+      },
+      {
+        "file": "File:VW Tayron R-Line – h 18042026.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:VW_Tayron_R-Line_–_h_18042026.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/VW_Tayron_R-Line_%E2%80%93_h_18042026.jpg/1920px-VW_Tayron_R-Line_%E2%80%93_h_18042026.jpg",
+        "width": 4008,
+        "height": 2254,
+        "author": "© M 93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:M_93",
+        "license": "CC BY-SA 3.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "angle": "rear",
+        "alt": "Volkswagen Tayron R-Line in white, rear three-quarter view",
+        "note": "Same European R-Line: light bar with TAYRON lettering, as on the Indian car."
+      },
+      {
+        "file": "File:VW Tayron 1.5 eTSI Elegance – f 28022026.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:VW_Tayron_1.5_eTSI_Elegance_–_f_28022026.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/VW_Tayron_1.5_eTSI_Elegance_%E2%80%93_f_28022026.jpg/1920px-VW_Tayron_1.5_eTSI_Elegance_%E2%80%93_f_28022026.jpg",
+        "width": 4056,
+        "height": 2215,
+        "author": "© M 93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:M_93",
+        "license": "CC BY-SA 3.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "angle": "front",
+        "alt": "Volkswagen Tayron (non-R-Line) in white, front three-quarter view",
+        "note": "European Tayron Elegance with the standard (non-R-Line) bumper, the look of the Indian Tayron Life. Second front view; no side view or right-hand-drive interior photo was available."
+      }
+    ],
+    "volkswagen-golf-gti": [
+      {
+        "file": "File:VW Golf GTI (VIII, Facelift) – f 12102024.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:VW_Golf_GTI_(VIII,_Facelift)_–_f_12102024.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/VW_Golf_GTI_%28VIII%2C_Facelift%29_%E2%80%93_f_12102024.jpg/1920px-VW_Golf_GTI_%28VIII%2C_Facelift%29_%E2%80%93_f_12102024.jpg",
+        "width": 5797,
+        "height": 3046,
+        "author": "© M 93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:M_93",
+        "license": "CC BY-SA 3.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "angle": "front",
+        "alt": "Volkswagen Golf GTI (Mk8.5) in Kings Red, front three-quarter view",
+        "note": "European Golf GTI Mk8.5 facelift (illuminated logo, new bumper). India imports the same five-door GTI as a CBU, so the design is identical."
+      },
+      {
+        "file": "File:VW Golf GTI (VIII, Facelift) – h 12102024.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:VW_Golf_GTI_(VIII,_Facelift)_–_h_12102024.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/VW_Golf_GTI_%28VIII%2C_Facelift%29_%E2%80%93_h_12102024.jpg/1920px-VW_Golf_GTI_%28VIII%2C_Facelift%29_%E2%80%93_h_12102024.jpg",
+        "width": 5773,
+        "height": 3129,
+        "author": "© M 93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:M_93",
+        "license": "CC BY-SA 3.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "angle": "rear",
+        "alt": "Volkswagen Golf GTI (Mk8.5) in Kings Red, rear three-quarter view",
+        "note": "Same Mk8.5 GTI: twin exhausts and GTI badge; CBU design identical to the Indian car."
+      },
+      {
+        "file": "File:VW Golf GTI (VIII, Facelift) – f 03102025.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:VW_Golf_GTI_(VIII,_Facelift)_–_f_03102025.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/VW_Golf_GTI_%28VIII%2C_Facelift%29_%E2%80%93_f_03102025.jpg/1920px-VW_Golf_GTI_%28VIII%2C_Facelift%29_%E2%80%93_f_03102025.jpg",
+        "width": 5820,
+        "height": 2928,
+        "author": "© M 93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:M_93",
+        "license": "CC BY-SA 3.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "angle": "front",
+        "alt": "Volkswagen Golf GTI (Mk8.5) in white, front three-quarter view",
+        "note": "European Mk8.5 GTI in white. Second front view because no side view or right-hand-drive interior photo was available."
+      }
+    ]
+  },
+  "missing": {
+    "volkswagen-taigun": "Facelift launched 9 April 2026 with a new illuminated grille and wheels; no free-licensed photo of it on Commons as of 2026-11-25, only the 2021-2025 pre-facelift."
+  }
+}

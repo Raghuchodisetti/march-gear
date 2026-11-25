@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { notFound } from "next/navigation";
 import { ExternalLink, Mail, Phone } from "lucide-react";
 import { STAFF_ROLES } from "@/server/auth";

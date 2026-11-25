@@ -32,6 +32,7 @@ import { BOTTOM_BAR_PADDING, competitorsOf, hasDesignContent, hasEfficiency, isE
 import { accelText, isFactsOnly, known, topFigure } from "@/lib/specs";
 import { DealerStock } from "@/components/car-detail/dealer-stock";
 import { getModelStock } from "@/server/partner/inventory";
+import { creditsFor } from "@/server/photo-credits";
 import { CarOffersPanel } from "@/components/offers/page-sections";
 import { fitDescription, fitTitle, pageMetadata } from "@/components/seo/metadata";
 
@@ -77,8 +78,8 @@ export default async function CarPage(props: PageProps<"/cars/[slug]">) {
   const videos = videosForCar(car, cat);
   const faqs = carFaqs(car, cat);
   const tested = car.safetyAgency !== "Not tested";
-  // Partner dealers' published stock of this model (dealer portal).
-  const stock = await getModelStock(car.slug);
+  // Partner dealers' published stock of this model (dealer portal), and the licence credits of its photos.
+  const [stock, credits] = await Promise.all([getModelStock(car.slug), creditsFor(car.images)]);
 
   // Sections appear only when there's something to show: facts-only models may have no photos, published
   // mileage or performance figures yet, and no expert review.
@@ -123,7 +124,7 @@ export default async function CarPage(props: PageProps<"/cars/[slug]">) {
   const n = (id: string) => String(sections.findIndex((s) => s.id === id) + 1).padStart(2, "0");
 
   return (
-    <CarDetailProvider car={car} brand={brand}>
+    <CarDetailProvider car={car} brand={brand} credits={credits}>
       <div className={BOTTOM_BAR_PADDING}>
         <div className="container-x pt-6 md:pt-8">
           <Breadcrumbs

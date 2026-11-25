@@ -24,7 +24,8 @@ function lifetime(ms: number) {
 
 const SIGN_IN: Record<SessionRealm, string> = {
   customer: "Keeps you signed in to your MarchGear account. Set only when you sign in; removed when you sign out.",
-  staff: "Keeps MarchGear staff signed in to the admin panel.",
+  admin: "Keeps MarchGear administrators signed in to the admin panel.",
+  staff: "Keeps MarchGear staff signed in to the staff desk.",
   dealer: "Keeps dealer partners signed in to the dealer portal.",
   insurer: "Keeps insurance vendors signed in to their portal.",
 };

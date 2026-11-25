@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { Plus, Star } from "lucide-react";
 import { listDealers } from "@/server/admin/catalog";
 import { Button } from "@/components/ui/button";

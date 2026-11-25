@@ -9,10 +9,13 @@ import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { useIsClient, useDialogBehaviour } from "@/components/ui/overlay";
+import type { CreditMap } from "@/lib/photo-credits";
+import { PhotoCreditLine } from "./photo-credit";
 
 /**
  * Swipeable gallery with thumbnails and a full-screen lightbox.
  * Arrow keys navigate while the gallery or lightbox has focus.
+ * Third-party photos with `credits` get their licence credit under the gallery (and in the lightbox).
  */
 export function ImageGallery({
   images,
@@ -21,6 +24,8 @@ export function ImageGallery({
   aspect = "aspect-[16/10]",
   focus,
   priority = false,
+  credits,
+  creditsHref,
 }: {
   images: string[];
   alt: string;
@@ -28,11 +33,15 @@ export function ImageGallery({
   aspect?: string;
   focus?: string;
   priority?: boolean;
+  credits?: CreditMap;
+  /** Where the credit line's "All photo credits" goes (default /photo-credits). */
+  creditsHref?: string;
 }) {
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState(1);
   const [lightbox, setLightbox] = useState(false);
   const count = images.length;
+  const credit = credits?.[images[index]];
 
   const go = useCallback(
     (next: number) => {
@@ -81,7 +90,7 @@ export function ImageGallery({
           >
             <Image
               src={images[index]}
-              alt={carPhotoAlt(images[index], alt, `view ${index + 1}`)}
+              alt={credit?.alt ?? carPhotoAlt(images[index], alt, `view ${index + 1}`)}
               fill
               preload={priority && index === 0}
               sizes="(min-width: 1024px) 66vw, 100vw"
@@ -131,7 +140,9 @@ export function ImageGallery({
         </div>
       )}
 
-      <Lightbox open={lightbox} onClose={() => setLightbox(false)} images={images} index={index} onIndex={go} alt={alt} />
+      {credit && <PhotoCreditLine credit={credit} allCredits={creditsHref ?? true} className="mt-3" />}
+
+      <Lightbox open={lightbox} onClose={() => setLightbox(false)} images={images} index={index} onIndex={go} alt={alt} credits={credits} />
     </div>
   );
 }
@@ -159,6 +170,7 @@ function Lightbox({
   index,
   onIndex,
   alt,
+  credits,
 }: {
   open: boolean;
   onClose: () => void;
@@ -166,8 +178,10 @@ function Lightbox({
   index: number;
   onIndex: (i: number) => void;
   alt: string;
+  credits?: CreditMap;
 }) {
   const isClient = useIsClient();
+  const credit = credits?.[images[index]];
   const ref = useRef<HTMLDivElement>(null);
   useDialogBehaviour(open, onClose, ref);
 
@@ -215,7 +229,7 @@ function Lightbox({
                 transition={{ duration: 0.5, ease: EASE }}
                 className="absolute inset-0 mx-4 md:mx-20"
               >
-                <Image src={images[index]} alt={carPhotoAlt(images[index], alt, `view ${index + 1}`)} fill sizes="100vw" className="object-contain" />
+                <Image src={images[index]} alt={credit?.alt ?? carPhotoAlt(images[index], alt, `view ${index + 1}`)} fill sizes="100vw" className="object-contain" />
               </motion.div>
             </AnimatePresence>
             <button type="button" onClick={() => onIndex(index - 1)} aria-label="Previous image" className="absolute left-3 top-1/2 inline-flex size-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 md:left-6">
@@ -225,6 +239,7 @@ function Lightbox({
               <ChevronRight className="size-5" />
             </button>
           </div>
+          {credit && <PhotoCreditLine credit={credit} tone="dark" className="px-5 pt-4 text-center" />}
           <div className="no-scrollbar flex justify-center gap-2 overflow-x-auto px-5 py-5">
             {images.map((src, i) => (
               <button

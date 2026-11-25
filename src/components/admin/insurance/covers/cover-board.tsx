@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { Ban, Check, CheckCheck, ClipboardList, Info } from "lucide-react";
 import type { InsCoverStatus, InsCoverType, InsProductStatus, InsVendorStatus } from "@/db/enums";
 import { STANDARD_COVER_BY_KEY } from "@/insurance/covers";

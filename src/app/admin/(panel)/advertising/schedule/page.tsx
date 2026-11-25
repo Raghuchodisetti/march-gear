@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
 import { AD_FORMAT_LABEL, AD_STATUS_LABEL, adDisplayStatus } from "@/insurance/labels";
 import { requireStaff } from "@/server/auth";

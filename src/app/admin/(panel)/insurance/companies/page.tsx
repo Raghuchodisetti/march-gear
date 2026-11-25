@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { BadgeCheck, Building2, Plus } from "lucide-react";
 import { INS_COMPANIES_PAGE_SIZE, listInsCompanies } from "@/server/admin/insurance";
 import { requireStaff } from "@/server/auth";

@@ -1,4 +1,6 @@
 import { getCatalog } from "@/server/catalog";
+import { creditFor } from "@/server/photo-credits";
+import { sourceName } from "@/lib/photo-credits";
 import { formatPriceRange } from "@/lib/format";
 import { C, Eyebrow, Wordmark, clip, ogImage, photo } from "./og";
 import { PROFILES, WHEEL_Y } from "@/components/vehicle/silhouettes";
@@ -34,6 +36,8 @@ export async function carShareCard(slug: string) {
   const car = cat.getCar(slug);
   const brand = car ? cat.brandName(car.brand) : "";
   const img = car?.images[0] ? await photo(car.images[0], 620, 630) : null;
+  // Free-licensed photos carry their credit on the card too (the licence travels with the picture).
+  const credit = img ? await creditFor(car?.images[0]) : null;
 
   const facts = car
     ? [
@@ -74,6 +78,11 @@ export async function carShareCard(slug: string) {
       <div style={{ flex: 1, height: "100%", display: "flex", position: "relative", background: C.ink2 }}>
         {/* eslint-disable-next-line @next/next/no-img-element -- rendered by next/og (Satori), not the browser */}
         {img && <img src={img} width={620} height={630} alt="" style={{ width: 620, height: 630, objectFit: "cover" }} />}
+        {credit && (
+          <div style={{ position: "absolute", right: 0, bottom: 0, display: "flex", maxWidth: 600, padding: "6px 12px", background: "rgba(17,17,17,0.72)", fontFamily: "Geist", fontSize: 14, color: "rgba(255,255,255,0.85)" }}>
+            {clip(`Photo: ${credit.author} · ${credit.license} · ${sourceName(credit.sourceUrl)} · resized`, 90)}
+          </div>
+        )}
         {/* No photo yet: the body-type silhouette on the graphite panel, not an empty box. */}
         {!img && car && (
           <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>

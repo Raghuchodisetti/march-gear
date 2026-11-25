@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { notFound } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 import { INDICATIVE_NOTE, INS_QUOTE_AUTH_LABEL, quoteDisplayStatus } from "@/insurance/labels";

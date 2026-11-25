@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import type { ReactNode } from "react";
 import { ChevronLeft, ChevronRight, EyeOff, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";

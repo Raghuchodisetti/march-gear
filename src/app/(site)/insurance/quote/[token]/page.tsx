@@ -6,7 +6,7 @@ import { and, eq, isNull } from "drizzle-orm";
 import { AlertTriangle, BadgeCheck, CalendarClock, Car, Clock, Globe, Info, Mail, Phone, ShieldAlert } from "lucide-react";
 import { getDb } from "@/db";
 import { insQuotes } from "@/db/schema";
-import { getSessionUser } from "@/server/auth";
+import { backOfficeUser, getSessionUser } from "@/server/auth";
 import { todayISO } from "@/server/validation";
 import { getQuoteByToken, isVendorMember, recordInsEvent } from "@/server/insurance/market";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
@@ -59,7 +59,7 @@ export default async function CustomerQuotePage(props: PageProps<"/insurance/quo
 
   // The first view by the customer (not the vendor's own team or MarchGear staff) marks the quote viewed.
   // Each login has its own session, so check the staff and insurance-portal sign-ins separately.
-  const [staffViewer, vendorViewer] = await Promise.all([getSessionUser("staff"), getSessionUser("insurer")]);
+  const [staffViewer, vendorViewer] = await Promise.all([backOfficeUser("insurance"), getSessionUser("insurer")]);
   const insider = Boolean(staffViewer) || (vendorViewer ? await isVendorMember(vendorViewer.id, q.vendorId) : false);
   if (!insider) {
     after(async () => {

@@ -78,6 +78,34 @@
       "when": 1795579474446,
       "tag": "0010_catalogue_sources",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "5",
+      "when": 1795585351060,
+      "tag": "0011_media_credits",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "5",
+      "when": 1795593054001,
+      "tag": "0012_guides",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "5",
+      "when": 1795600783844,
+      "tag": "0013_staff_access",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "5",
+      "when": 1795603608068,
+      "tag": "0014_stored_file_encoding",
+      "breakpoints": true
     }
   ]
 }

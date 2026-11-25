@@ -117,7 +117,7 @@ export const TARGET_KIND_LABEL: Record<TargetKind, string> = {
 };
 
 /** Site areas an advertiser's click may not land on. */
-const PRIVATE_PREFIXES = ["/api", "/ads", "/admin", "/insurance-vendor", "/dealer", "/media", "/_next"];
+const PRIVATE_PREFIXES = ["/api", "/ads", "/admin", "/staff", "/insurance-vendor", "/dealer", "/media", "/_next"];
 
 /**
  * A same-site path: starts with one "/", no "//" or "/\" (which browsers read as another host), no

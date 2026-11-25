@@ -1,0 +1,84 @@
+{
+  "brand": "nissan",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "nissan-magnite": [
+      {
+        "file": "File:4th International Auto Show, Bangalore (2025) 67.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:4th_International_Auto_Show,_Bangalore_(2025)_67.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/4th_International_Auto_Show%2C_Bangalore_%282025%29_67.jpg/1920px-4th_International_Auto_Show%2C_Bangalore_%282025%29_67.jpg",
+        "width": 3264,
+        "height": 2448,
+        "author": "Gpkp",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Gpkp",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Nissan Magnite (2024 facelift) in Flare Garnet Red with Onyx Black roof, front three-quarter view at the 2025 Bangalore auto show",
+        "note": "Indian-market facelifted Magnite (NEW MAGNITE plate) on Nissan's stand in Bangalore: larger chrome-framed grille and boomerang DRLs of the October 2024 facelift."
+      },
+      {
+        "file": "File:Nissan Magnite 2025 1.0 Exclusive at WTC Montevideo - 08.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Nissan_Magnite_2025_1.0_Exclusive_at_WTC_Montevideo_-_08.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Nissan_Magnite_2025_1.0_Exclusive_at_WTC_Montevideo_-_08.jpg/1920px-Nissan_Magnite_2025_1.0_Exclusive_at_WTC_Montevideo_-_08.jpg",
+        "width": 8160,
+        "height": 4592,
+        "author": "NaBUru38",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:NaBUru38",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Nissan Magnite (2024 facelift) in red with black roof, rear three-quarter view",
+        "note": "India-built facelifted Magnite exported to Uruguay; tail lamps and tailgate identical to the Indian car."
+      },
+      {
+        "file": "File:Nissan Magnite 01.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Nissan_Magnite_01.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Nissan_Magnite_01.jpg/1920px-Nissan_Magnite_01.jpg",
+        "width": 16320,
+        "height": 12240,
+        "author": "Ganesh Mohan T",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ganesh_Mohan_T",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "side",
+        "alt": "Nissan Magnite (2024 facelift) in Flare Garnet Red with Onyx Black roof, side view",
+        "note": "Indian-market facelifted Magnite displayed in a mall in India, side profile with the diamond-cut alloys."
+      }
+    ],
+    "nissan-x-trail": [
+      {
+        "file": "File:Nissan X-Trail (left-front), Nissan Gallery Global HQ, 2021.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Nissan_X-Trail_(left-front),_Nissan_Gallery_Global_HQ,_2021.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Nissan_X-Trail_%28left-front%29%2C_Nissan_Gallery_Global_HQ%2C_2021.jpg/1920px-Nissan_X-Trail_%28left-front%29%2C_Nissan_Gallery_Global_HQ%2C_2021.jpg",
+        "width": 3843,
+        "height": 2302,
+        "author": "Kazyakuruma",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Kazyakuruma",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Nissan X-Trail (fourth generation, T33) in Pearl White, front three-quarter view",
+        "note": "Japanese-market T33 X-Trail; India imports this pre-facelift T33 from Japan, with the same V-motion grille, split headlamps and two-tone alloys. Pearl White is an Indian colour."
+      },
+      {
+        "file": "File:2023 Nissan X-Trail Acenta Premium DIG-T - 1497cc 1.5 (163PS) Petrol - Gun Metallic - 02-2024, Rear.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_Nissan_X-Trail_Acenta_Premium_DIG-T_-_1497cc_1.5_(163PS)_Petrol_-_Gun_Metallic_-_02-2024,_Rear.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/2023_Nissan_X-Trail_Acenta_Premium_DIG-T_-_1497cc_1.5_%28163PS%29_Petrol_-_Gun_Metallic_-_02-2024%2C_Rear.jpg/1920px-2023_Nissan_X-Trail_Acenta_Premium_DIG-T_-_1497cc_1.5_%28163PS%29_Petrol_-_Gun_Metallic_-_02-2024%2C_Rear.jpg",
+        "width": 4317,
+        "height": 2764,
+        "author": "Harvey Bold",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Harvey_Bold",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "angle": "rear",
+        "alt": "Nissan X-Trail (fourth generation, T33) 1.5 petrol in grey, rear three-quarter view",
+        "note": "UK-market Japan-built T33 X-Trail with the 1.5 VC-Turbo petrol sold in India; tail lamps and X-TRAIL lettering match. Grey is not an Indian colour."
+      }
+    ]
+  },
+  "missing": {
+    "nissan-gravite": "no free-licensed photo of this model on Commons as of 2026-11-25",
+    "nissan-tekton": "no free-licensed photo of this model on Commons as of 2026-11-25"
+  }
+}

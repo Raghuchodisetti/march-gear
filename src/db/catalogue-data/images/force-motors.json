@@ -1,0 +1,39 @@
+{
+  "brand": "force-motors",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "force-gurkha": [
+      {
+        "file": "File:Force Gurkha at service station (cropped).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Force_Gurkha_at_service_station_(cropped).jpg",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Force_Gurkha_at_service_station_%28cropped%29.jpg",
+        "width": 1536,
+        "height": 1080,
+        "author": "The IT Guy",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "front",
+        "alt": "Force Gurkha (2024 update) in black, front view with LED headlamps lit",
+        "note": "Indian Gurkha on a trade plate with the 2024 front (round LED headlamps with halo DRLs, GURKHA-lettered grille, snorkel). The 3-door and 5-door share this front, so the same photo is used for both; length is not visible from this angle."
+      }
+    ],
+    "force-gurkha-5-door": [
+      {
+        "file": "File:Force Gurkha at service station (cropped).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Force_Gurkha_at_service_station_(cropped).jpg",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Force_Gurkha_at_service_station_%28cropped%29.jpg",
+        "width": 1536,
+        "height": 1080,
+        "author": "The IT Guy",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "front",
+        "alt": "Force Gurkha (2024 update) in black, front view with LED headlamps lit",
+        "note": "Indian Gurkha with the 2024 front (round LED headlamps with halo DRLs, GURKHA-lettered grille) shared by the 3-door and 5-door; used for both models because the body length cannot be seen head-on."
+      }
+    ]
+  },
+  "missing": {}
+}

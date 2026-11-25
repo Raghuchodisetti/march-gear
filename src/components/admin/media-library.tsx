@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useId, useState, type ReactNode } from "react";
-import Link from "next/link";
-import { AlertTriangle, Check, Copy, ExternalLink, ImageOff, Loader2, Pencil, Search, Trash2 } from "lucide-react";
+import Link from "@/components/admin/desk";
+import { AlertTriangle, BadgeCheck, Check, Copy, ExternalLink, ImageOff, Loader2, Lock, Pencil, Search, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { deleteMediaAction, mediaUsageAction, updateMediaAltAction } from "@/server/actions/media";
 import { useUI } from "@/components/providers/app-provider";
@@ -10,7 +10,8 @@ import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/overlay";
 import { filterInput, formatDateTime, formatDay } from "./ui";
 import { MediaDropzone, UploadQueue, checkerboard, copyText, dimensions, useMediaList, useMediaUploads } from "./media-client";
-import { MEDIA_ALT_MAX, MEDIA_TYPES, formatBytes, type MediaItem, type MediaMime, type MediaPage, type MediaUsage } from "./media-shared";
+import { MEDIA_ALT_MAX, MEDIA_TYPES, formatBytes, previewUrl, type MediaCredit, type MediaItem, type MediaMime, type MediaPage, type MediaUsage } from "./media-shared";
+import { sourceName } from "@/lib/photo-credits";
 
 const typeLabel = (mime: string) => (MEDIA_TYPES[mime as MediaMime] ?? mime.replace(/^image\//, "")).toUpperCase();
 
@@ -42,9 +43,9 @@ export function MediaLibrary({ initial, initialQuery }: { initial: MediaPage; in
 
       <div className="flex flex-col gap-3 border border-line bg-white p-3 sm:flex-row sm:items-center sm:justify-between">
         <label className="relative block sm:w-80">
-          <span className="sr-only">Search by file name or alt text</span>
+          <span className="sr-only">Search by file name, alt text or photographer</span>
           <Search aria-hidden className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted" />
-          <input type="search" value={list.q} onChange={(e) => search(e.target.value)} placeholder="Search file name or alt text…" className={cn(filterInput, "w-full pl-9")} />
+          <input type="search" value={list.q} onChange={(e) => search(e.target.value)} placeholder="Search file name, alt text or author…" className={cn(filterInput, "w-full pl-9")} />
         </label>
         <p className="flex items-center gap-2 px-1 text-[13px] text-muted num" aria-live="polite">
           {list.loading && <Loader2 aria-hidden className="size-3.5 animate-spin" />}
@@ -71,8 +72,14 @@ export function MediaLibrary({ initial, initialQuery }: { initial: MediaPage; in
                 <span className="sr-only">Open {m.filename}</span>
                 {/* Library thumbnails of uploaded files — plain <img> on purpose. */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={m.url} alt={m.alt ?? ""} loading="lazy" decoding="async" className="size-full object-contain transition-transform duration-300 group-hover:scale-[1.02]" />
+                <img src={previewUrl(m)} alt={m.alt ?? ""} loading="lazy" decoding="async" className="size-full object-contain transition-transform duration-300 group-hover:scale-[1.02]" />
                 <span className="absolute left-2 top-2 rounded-full bg-ink/80 px-2 py-0.5 text-[10.5px] font-semibold tracking-wide text-white">{typeLabel(m.mime)}</span>
+                {m.credit && (
+                  <span title={`${m.credit.license} · ${m.credit.author}`} className="absolute right-2 top-2 inline-flex max-w-[60%] items-center gap-1 rounded-full bg-white/95 px-2 py-0.5 text-[10.5px] font-semibold text-ink">
+                    <BadgeCheck aria-hidden className="size-3 shrink-0 text-red" />
+                    <span className="truncate">{m.credit.license}</span>
+                  </span>
+                )}
               </button>
               <div className="flex min-w-0 flex-1 items-start gap-1 border-t border-line p-3 pr-1.5">
                 <div className="min-w-0 flex-1">
@@ -88,6 +95,11 @@ export function MediaLibrary({ initial, initialQuery }: { initial: MediaPage; in
                     </time>
                     {m.uploader && ` · ${m.uploader}`}
                   </p>
+                  {m.credit && (
+                    <p className="mt-0.5 truncate text-[12px] text-muted" title={`Photo: ${m.credit.author} · ${m.credit.license} · via ${sourceName(m.credit.sourceUrl)}`}>
+                      Photo: {m.credit.author}
+                    </p>
+                  )}
                   {!m.alt && <p className="mt-1 text-[11.5px] font-medium text-[#9a5b00]">No alt text</p>}
                 </div>
                 <div className="-mt-1 flex shrink-0 flex-col">
@@ -244,8 +256,10 @@ function MediaDetails({
           <dt className="text-muted">Uploaded</dt>
           <dd suppressHydrationWarning>{formatDateTime(item.createdAt)}</dd>
           <dt className="text-muted">By</dt>
-          <dd className="truncate">{item.uploader ?? "—"}</dd>
+          <dd className="truncate">{item.uploader ?? (item.credit ? "Photo importer" : "—")}</dd>
         </dl>
+
+        {item.credit && <CreditDetails credit={item.credit} />}
 
         <div>
           <p className="mb-2 text-[12.5px] font-medium">URL</p>
@@ -303,6 +317,7 @@ function MediaDetails({
                   : usageFailed
                     ? "We couldn't check where it's used. Any page that shows it will show a broken image."
                     : "It isn't used by any car, used car, news story, brand, dealer, upcoming car or site content. Anything else linking to it will show a broken image."}
+              {item.credit && " It's an imported catalogue photo: if its model's image file still lists it, the next `npm run db:import-images` downloads it again."}
             </p>
             <div className="mt-3 flex justify-end gap-2">
               <Button type="button" variant="ghost" size="sm" onClick={() => setConfirming(false)} disabled={deleting}>
@@ -358,5 +373,57 @@ function UsageList({ usage, failed }: { usage: MediaUsage[] | null; failed: bool
         ))}
       </ul>
     </>
+  );
+}
+
+/** The licence credit of an imported photo — read-only: it comes from the photo's source page and the licence requires it. */
+function CreditDetails({ credit }: { credit: MediaCredit }) {
+  const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
+  const linkClass = "underline decoration-ink/25 underline-offset-4 hover:decoration-ink";
+  return (
+    <section aria-label="Photo credit" className="border border-line bg-mist/50 p-4">
+      <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">
+        <Lock aria-hidden className="size-3" /> Credit · read-only
+      </p>
+      <dl className="mt-3 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-1.5 text-[13px]">
+        <dt className="text-muted">Author</dt>
+        <dd className="min-w-0 break-words">
+          {credit.authorUrl ? (
+            <a href={credit.authorUrl} {...ext} className={linkClass}>
+              {credit.author}
+            </a>
+          ) : (
+            credit.author
+          )}
+        </dd>
+        <dt className="text-muted">Licence</dt>
+        <dd>
+          {credit.licenseUrl ? (
+            <a href={credit.licenseUrl} {...ext} className={linkClass}>
+              {credit.license}
+            </a>
+          ) : (
+            credit.license
+          )}
+        </dd>
+        <dt className="text-muted">Source</dt>
+        <dd className="min-w-0">
+          <a href={credit.sourceUrl} {...ext} className={cn(linkClass, "inline-flex items-center gap-1")}>
+            {sourceName(credit.sourceUrl)} file page <ExternalLink aria-hidden className="size-3" />
+          </a>
+        </dd>
+        {credit.note && (
+          <>
+            <dt className="text-muted">Changes</dt>
+            <dd>{credit.note}</dd>
+          </>
+        )}
+      </dl>
+      <p className="mt-3 text-[12px] leading-relaxed text-muted">
+        Set by the photo importer from the photo&apos;s source page. The licence requires this credit on the site (car pages and /photo-credits), so it
+        can&apos;t be edited here: correct it in <code className="text-[11.5px]">src/db/catalogue-data/images/&lt;brand&gt;.json</code> and run{" "}
+        <code className="text-[11.5px]">npm run db:import-images</code>. Alt text stays editable.
+      </p>
+    </section>
   );
 }

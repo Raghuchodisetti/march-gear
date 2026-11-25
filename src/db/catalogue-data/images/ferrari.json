@@ -1,0 +1,171 @@
+{
+  "brand": "ferrari",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "ferrari-296": [
+      {
+        "file": "File:Ferrari 296 GTB DSC 6997.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Ferrari_296_GTB_DSC_6997.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Ferrari_296_GTB_DSC_6997.jpg/1920px-Ferrari_296_GTB_DSC_6997.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4365,
+        "height": 2918,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Ferrari 296 GTB in black, front three-quarter view",
+        "note": "296 GTB berlinetta (2022 on): teardrop headlamps with the DRL 'tear duct' and the flying-buttress rear pillars. Photographed in Böblingen, Germany; same car as sold in India."
+      },
+      {
+        "file": "File:Ferrari 296 GTB DSC 7009.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Ferrari_296_GTB_DSC_7009.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Ferrari_296_GTB_DSC_7009.jpg/1920px-Ferrari_296_GTB_DSC_7009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4842,
+        "height": 3237,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Ferrari 296 GTB in dark grey with a yellow stripe, rear three-quarter view",
+        "note": "296 GTB rear with the single central tailpipe and the active spoiler housing between the tail lamps. The yellow stripe is an optional livery."
+      }
+    ],
+    "ferrari-amalfi": [
+      {
+        "file": "File:2026 Ferrari Amalfi in Verde Costiera, front right.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2026_Ferrari_Amalfi_in_Verde_Costiera,_front_right.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/2026_Ferrari_Amalfi_in_Verde_Costiera%2C_front_right.jpg/1920px-2026_Ferrari_Amalfi_in_Verde_Costiera%2C_front_right.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5038,
+        "height": 3334,
+        "author": "Mr.choppers",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Mr.choppers",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Ferrari Amalfi in Verde Costiera, front three-quarter view",
+        "note": "Amalfi (2025 on, Roma replacement): black band joining the slim headlamps, lower nose without the Roma's body-coloured mesh grille. Verde Costiera is the Amalfi launch colour."
+      },
+      {
+        "file": "File:Ferrari Amalfi IMG 8179.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Ferrari_Amalfi_IMG_8179.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ferrari_Amalfi_IMG_8179.jpg/1920px-Ferrari_Amalfi_IMG_8179.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4003,
+        "height": 2664,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Ferrari Amalfi in a light metallic beige, rear three-quarter view",
+        "note": "Amalfi coupé in a dealer showroom in Böblingen: black glass rear-deck panel with Ferrari lettering and the raised integrated spoiler (checked on a crop), which the Roma lacks."
+      }
+    ],
+    "ferrari-12cilindri": [
+      {
+        "file": "File:2025 Ferrari 12Cilindri in Rosso Imola, front left.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2025_Ferrari_12Cilindri_in_Rosso_Imola,_front_left.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/2025_Ferrari_12Cilindri_in_Rosso_Imola%2C_front_left.jpg/1920px-2025_Ferrari_12Cilindri_in_Rosso_Imola%2C_front_left.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4692,
+        "height": 3032,
+        "author": "Mr.choppers",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Mr.choppers",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Ferrari 12Cilindri in Rosso Imola, front three-quarter view",
+        "note": "12Cilindri (2024 on, 812 replacement): full-width black front band with slim headlamps and the bonnet 'delta' cut-outs. Rosso Imola is a catalogue colour."
+      },
+      {
+        "file": "File:2025 Ferrari 12Cilindri in Rosso Imola, rear left.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2025_Ferrari_12Cilindri_in_Rosso_Imola,_rear_left.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/2025_Ferrari_12Cilindri_in_Rosso_Imola%2C_rear_left.jpg/1920px-2025_Ferrari_12Cilindri_in_Rosso_Imola%2C_rear_left.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5193,
+        "height": 2949,
+        "author": "Mr.choppers",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Mr.choppers",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Ferrari 12Cilindri in Rosso Imola, rear three-quarter view",
+        "note": "Same car from the rear: black delta-wing rear window section and twin tailpipe clusters."
+      },
+      {
+        "file": "File:Ferrari 12Cilindri (2025) (54873468618).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Ferrari_12Cilindri_(2025)_(54873468618).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Ferrari_12Cilindri_%282025%29_%2854873468618%29.jpg/1920px-Ferrari_12Cilindri_%282025%29_%2854873468618%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 6000,
+        "height": 4000,
+        "author": "Charles from Port Chester, New York",
+        "authorUrl": "https://www.flickr.com/people/43494963@N03",
+        "license": "CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "angle": "interior",
+        "alt": "Ferrari 12Cilindri cockpit with black Alcantara and the passenger display",
+        "note": "12Cilindri cabin with the 12Cilindri script on the dashboard and the dual-cockpit layout."
+      }
+    ],
+    "ferrari-purosangue": [
+      {
+        "file": "File:2024 Ferrari Purosangue in Grigio Titanio, front left (Miller).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_Ferrari_Purosangue_in_Grigio_Titanio,_front_left_(Miller).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/2024_Ferrari_Purosangue_in_Grigio_Titanio%2C_front_left_%28Miller%29.jpg/1920px-2024_Ferrari_Purosangue_in_Grigio_Titanio%2C_front_left_%28Miller%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4932,
+        "height": 3162,
+        "author": "Mr.choppers",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Mr.choppers",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "angle": "front",
+        "alt": "Ferrari Purosangue in Grigio Titanio, front three-quarter view",
+        "note": "Purosangue four-door V12 (2023 on): slim DRL strips above deep-set headlamps and the clamshell bonnet. US dealer car; same design worldwide."
+      },
+      {
+        "file": "File:Ferrari Purosangue DSC 7002.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Ferrari_Purosangue_DSC_7002.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Ferrari_Purosangue_DSC_7002.jpg/1920px-Ferrari_Purosangue_DSC_7002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5456,
+        "height": 3108,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Ferrari Purosangue in silver, rear three-quarter view",
+        "note": "Purosangue rear with the floating spoiler, slim tail lamps and twin exhaust pairs."
+      }
+    ],
+    "ferrari-849-testarossa": [
+      {
+        "file": "File:Ferrari 849 Testarossa Auto Zuerich 2026 IMG 8588.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Ferrari_849_Testarossa_Auto_Zuerich_2026_IMG_8588.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Ferrari_849_Testarossa_Auto_Zuerich_2026_IMG_8588.jpg/1920px-Ferrari_849_Testarossa_Auto_Zuerich_2026_IMG_8588.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4498,
+        "height": 2042,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Ferrari 849 Testarossa in red with black roof, front three-quarter view",
+        "note": "849 Testarossa (2025 on, SF90 Stradale replacement): black front band, vertical side strakes recalling the original Testarossa. Shown on the Ferrari dealer stand at Auto Zürich 2026; no other brands in view."
+      },
+      {
+        "file": "File:Ferrari 849 Testarossa Auto Zuerich 2026 IMG 8589.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Ferrari_849_Testarossa_Auto_Zuerich_2026_IMG_8589.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Ferrari_849_Testarossa_Auto_Zuerich_2026_IMG_8589.jpg/1920px-Ferrari_849_Testarossa_Auto_Zuerich_2026_IMG_8589.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4605,
+        "height": 2427,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Ferrari 849 Testarossa in red, rear three-quarter view",
+        "note": "Same car from the rear: twin high-mounted exhausts and the black rear deck. Other show cars are in the far background."
+      }
+    ]
+  },
+  "missing": {}
+}

@@ -3,7 +3,8 @@ import type { Pool, ResultSetHeader, RowDataPacket } from "mysql2/promise";
 import { getDb, type Database } from "@/db";
 import type { PartnerDocKind } from "@/db/enums";
 import type { FileRef } from "@/partner/types";
-import { sniffImage } from "@/server/admin/media";
+import { cardCopy, sniffImage } from "@/server/admin/media";
+import { packPdf, unpack } from "@/server/stored-files";
 
 /* ──────────────────────────────────────────────────────────────
    Dealer uploads.
@@ -48,28 +49,31 @@ const pool = () => (getDb() as Database & { $client: Pool }).$client;
 
 export async function savePartnerFile(f: { partnerId: number; kind: PartnerDocKind; filename: string; mime: DocMime; data: Buffer; uploadedBy: number }): Promise<FileRef> {
   const filename = safeFilename(f.filename, f.mime);
+  // Images arrive compressed from the browser; PDFs are stored deflated when that helps (size stays the original's).
+  const stored = f.mime === "application/pdf" ? packPdf(f.data) : { data: f.data, encoding: null };
   const [res] = await pool().execute<ResultSetHeader>(
-    "INSERT INTO `partner_files` (`partner_id`, `kind`, `filename`, `mime`, `size`, `data`, `uploaded_by`) VALUES (?, ?, ?, ?, ?, ?, ?)",
-    [f.partnerId, f.kind, filename, f.mime, f.data.length, f.data, f.uploadedBy],
+    "INSERT INTO `partner_files` (`partner_id`, `kind`, `filename`, `mime`, `size`, `data`, `encoding`, `uploaded_by`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+    [f.partnerId, f.kind, filename, f.mime, f.data.length, stored.data, stored.encoding, f.uploadedBy],
   );
   return { id: res.insertId, filename, mime: f.mime, size: f.data.length };
 }
 
 export async function readPartnerFile(id: number) {
-  const [rows] = await pool().execute<RowDataPacket[]>("SELECT `partner_id`, `filename`, `mime`, `size`, `data`, `created_at` FROM `partner_files` WHERE `id` = ?", [id]);
+  const [rows] = await pool().execute<RowDataPacket[]>("SELECT `partner_id`, `filename`, `mime`, `size`, `data`, `encoding`, `created_at` FROM `partner_files` WHERE `id` = ?", [id]);
   const r = rows[0];
   if (!r) return null;
-  return { partnerId: r.partner_id as number, filename: r.filename as string, mime: r.mime as string, size: r.size as number, data: r.data as Buffer, createdAt: r.created_at as Date };
+  const data = unpack(r.data as Buffer, r.encoding as string | null);
+  return { partnerId: r.partner_id as number, filename: r.filename as string, mime: r.mime as string, size: data.length, data, createdAt: r.created_at as Date };
 }
 
-/** Saves a public image for a dealer (already downscaled in the browser). Returns its /media URL. */
-export async function savePartnerMedia(f: { partnerId: number; userId: number; filename: string; data: Buffer; alt?: string | null }) {
+/** Saves a public image for a dealer (compressed in the browser, with its smaller card copy). Returns its /media URL. */
+export async function savePartnerMedia(f: { partnerId: number; userId: number; filename: string; data: Buffer; thumb?: Buffer | null; alt?: string | null }) {
   const img = sniffImage(f.data);
   if (!img) return null;
   const filename = safeFilename(f.filename, img.mime);
   const [res] = await pool().execute<ResultSetHeader>(
-    "INSERT INTO `media` (`filename`, `mime`, `size`, `width`, `height`, `alt`, `data`, `created_by`, `partner_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-    [filename, img.mime, f.data.length, img.width, img.height, f.alt ?? null, f.data, f.userId, f.partnerId],
+    "INSERT INTO `media` (`filename`, `mime`, `size`, `width`, `height`, `alt`, `data`, `thumb`, `created_by`, `partner_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    [filename, img.mime, f.data.length, img.width, img.height, f.alt ?? null, f.data, cardCopy(img, f.thumb), f.userId, f.partnerId],
   );
   return { id: res.insertId, url: `/media/${res.insertId}/${filename}`, width: img.width, height: img.height, mime: img.mime, size: f.data.length };
 }

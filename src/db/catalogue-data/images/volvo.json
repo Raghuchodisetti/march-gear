@@ -1,0 +1,241 @@
+{
+  "brand": "volvo",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "volvo-ex30": [
+      {
+        "file": "File:Volvo EX30 Extended Range Cloud Blue - front.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Volvo_EX30_Extended_Range_Cloud_Blue_-_front.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Volvo_EX30_Extended_Range_Cloud_Blue_-_front.jpg/1920px-Volvo_EX30_Extended_Range_Cloud_Blue_-_front.jpg",
+        "width": 3164,
+        "height": 2260,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Volvo EX30 in Cloud Blue, front three-quarter view",
+        "note": "Current (only) EX30 generation: pixel 'Thor's hammer' lamps, closed front panel, EX30 badge. Export car (Philippines), visually identical to the India-assembled EX30; Cloud Blue is an Indian colour."
+      },
+      {
+        "file": "File:2024 Volvo EX30 Rear.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_Volvo_EX30_Rear.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/2024_Volvo_EX30_Rear.jpg/1920px-2024_Volvo_EX30_Rear.jpg",
+        "width": 4071,
+        "height": 2779,
+        "author": "Vauxford",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Vauxford",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Volvo EX30 in Crystal White with black roof, rear three-quarter view",
+        "note": "EX30 rear with vertical tail-lamp stack and VOLVO lettering; same design as sold in India. Crystal White is an Indian colour."
+      },
+      {
+        "file": "File:Volvo EX30 Ultra Single Motor Extended Range (ZAA-2E400R) interior.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Volvo_EX30_Ultra_Single_Motor_Extended_Range_(ZAA-2E400R)_interior.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Volvo_EX30_Ultra_Single_Motor_Extended_Range_%28ZAA-2E400R%29_interior.jpg/1920px-Volvo_EX30_Ultra_Single_Motor_Extended_Range_%28ZAA-2E400R%29_interior.jpg",
+        "width": 2560,
+        "height": 1920,
+        "author": "Tokumeigakarinoaoshima",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Tokumeigakarinoaoshima",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "Volvo EX30 Ultra Single Motor Extended Range dashboard with central portrait touchscreen",
+        "note": "Japanese-market EX30 Ultra single-motor (ZAA-2E400R), right-hand drive like the Indian car; same dashboard and portrait screen."
+      }
+    ],
+    "volvo-ec40": [
+      {
+        "file": "File:Volvo C40 DSC 7985.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Volvo_C40_DSC_7985.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Volvo_C40_DSC_7985.jpg/1920px-Volvo_C40_DSC_7985.jpg",
+        "width": 5095,
+        "height": 2955,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Volvo EC40 in Vapour Grey, front three-quarter view",
+        "note": "Wears the EC40 badge (the renamed C40 Recharge); coupe-roof body, pixel headlamps. Export car (Germany), visually identical to the EC40 sold in India; Vapour Grey is an Indian colour."
+      },
+      {
+        "file": "File:Volvo EC40 Crystal White Pearl - rear.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Volvo_EC40_Crystal_White_Pearl_-_rear.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Volvo_EC40_Crystal_White_Pearl_-_rear.jpg/1920px-Volvo_EC40_Crystal_White_Pearl_-_rear.jpg",
+        "width": 4240,
+        "height": 2832,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Volvo EC40 in Crystal White, rear three-quarter view",
+        "note": "EC40-badged car (Philippines) showing the sloping coupe roofline and split tail lamps; same design as in India."
+      },
+      {
+        "file": "File:Volvo C40 RECHARGE Ultimate Twin Motor (ZAA-XE400AXCE) interior.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Volvo_C40_RECHARGE_Ultimate_Twin_Motor_(ZAA-XE400AXCE)_interior.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Volvo_C40_RECHARGE_Ultimate_Twin_Motor_%28ZAA-XE400AXCE%29_interior.jpg/1920px-Volvo_C40_RECHARGE_Ultimate_Twin_Motor_%28ZAA-XE400AXCE%29_interior.jpg",
+        "width": 2560,
+        "height": 1920,
+        "author": "Tokumeigakarinoaoshima",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Tokumeigakarinoaoshima",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "Volvo C40/EC40 Twin Motor dashboard with portrait touchscreen",
+        "note": "Japanese C40 Recharge Ultimate Twin Motor, right-hand drive like India. The EC40 is the renamed C40 with the same cabin; the photo predates the rename."
+      }
+    ],
+    "volvo-xc60": [
+      {
+        "file": "File:2026 Volvo XC60 (SPA) DSC 2675.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2026_Volvo_XC60_(SPA)_DSC_2675.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/2026_Volvo_XC60_%28SPA%29_DSC_2675.jpg/1920px-2026_Volvo_XC60_%28SPA%29_DSC_2675.jpg",
+        "width": 5416,
+        "height": 3061,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Volvo XC60 (2025 facelift) in Crystal White, front three-quarter view",
+        "note": "2025 facelift (model year 2026): new grille with diagonal pattern and redesigned bumper intakes. German car with dark exterior trim and black wheels; the Indian B5 Ultra may have different trim and wheels. Crystal White is an Indian colour."
+      },
+      {
+        "file": "File:2026 Volvo XC60 (SPA) DSC 2887.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2026_Volvo_XC60_(SPA)_DSC_2887.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/2026_Volvo_XC60_%28SPA%29_DSC_2887.jpg/1920px-2026_Volvo_XC60_%28SPA%29_DSC_2887.jpg",
+        "width": 5453,
+        "height": 2940,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Volvo XC60 (2025 facelift) in Crystal White, rear three-quarter view",
+        "note": "Same German 2025-facelift car as the front photo, with black wheels and dark trim."
+      },
+      {
+        "file": "File:2026 Volvo XC60 (SPA) autoMOBIL Tübingen 2025 DSC 2780.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2026_Volvo_XC60_(SPA)_autoMOBIL_T%C3%BCbingen_2025_DSC_2780.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/2026_Volvo_XC60_%28SPA%29_autoMOBIL_T%C3%BCbingen_2025_DSC_2780.jpg/1920px-2026_Volvo_XC60_%28SPA%29_autoMOBIL_T%C3%BCbingen_2025_DSC_2780.jpg",
+        "width": 5789,
+        "height": 3869,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "Volvo XC60 (2025 facelift) dashboard with 11.2-inch portrait touchscreen and light upholstery",
+        "note": "Facelift cabin with the larger 11.2-inch centre screen. Left-hand-drive German car; India is right-hand drive."
+      }
+    ],
+    "volvo-xc90": [
+      {
+        "file": "File:Volvo XC90 II FL2 T8 AWD Recharge PHEV Crystal White Pearl 01.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Volvo_XC90_II_FL2_T8_AWD_Recharge_PHEV_Crystal_White_Pearl_01.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Volvo_XC90_II_FL2_T8_AWD_Recharge_PHEV_Crystal_White_Pearl_01.jpg/1920px-Volvo_XC90_II_FL2_T8_AWD_Recharge_PHEV_Crystal_White_Pearl_01.jpg",
+        "width": 4452,
+        "height": 2968,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Volvo XC90 (2025 facelift) in Crystal White, front three-quarter view",
+        "note": "Second facelift (2025): diagonal-slat grille, slimmer headlamps, new bumper. Export T8 plug-in hybrid (Philippines); body identical to the Indian B5. Crystal White is an Indian colour."
+      },
+      {
+        "file": "File:Volvo XC90 II FL2 T8 AWD Recharge PHEV Crystal White Pearl 02.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Volvo_XC90_II_FL2_T8_AWD_Recharge_PHEV_Crystal_White_Pearl_02.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Volvo_XC90_II_FL2_T8_AWD_Recharge_PHEV_Crystal_White_Pearl_02.jpg/1920px-Volvo_XC90_II_FL2_T8_AWD_Recharge_PHEV_Crystal_White_Pearl_02.jpg",
+        "width": 4416,
+        "height": 2944,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Volvo XC90 (2025 facelift) in Crystal White, rear three-quarter view",
+        "note": "2025 facelift; same car as the front photo."
+      },
+      {
+        "file": "File:2025 Volvo XC90 B5 Dark AWD front.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2025_Volvo_XC90_B5_Dark_AWD_front.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/2025_Volvo_XC90_B5_Dark_AWD_front.jpg/1920px-2025_Volvo_XC90_B5_Dark_AWD_front.jpg",
+        "width": 5638,
+        "height": 2707,
+        "author": "LuvsMG481",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:LuvsMG481",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "side",
+        "alt": "Volvo XC90 B5 (2025 facelift) in Crystal White, side view from the front",
+        "note": "Right-hand-drive Australian XC90 B5 AWD mild hybrid, the same powertrain as India. It has Dark exterior trim (black grille surround)."
+      },
+      {
+        "file": "File:2025 Volvo XC90 II Auto Zuerich 2024 DSC 6714.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2025_Volvo_XC90_II_Auto_Zuerich_2024_DSC_6714.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/2025_Volvo_XC90_II_Auto_Zuerich_2024_DSC_6714.jpg/1920px-2025_Volvo_XC90_II_Auto_Zuerich_2024_DSC_6714.jpg",
+        "width": 5896,
+        "height": 3941,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "Volvo XC90 (2025 facelift) dashboard with 11.2-inch touchscreen",
+        "note": "Facelift cabin with the larger 11.2-inch screen. Left-hand drive; India is right-hand drive."
+      }
+    ],
+    "volvo-ex90": [
+      {
+        "file": "File:Volvo EX90 Twin Motor Performance Ultra SPA2 Crystal White (5).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Volvo_EX90_Twin_Motor_Performance_Ultra_SPA2_Crystal_White_(5).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Volvo_EX90_Twin_Motor_Performance_Ultra_SPA2_Crystal_White_%285%29.jpg/1920px-Volvo_EX90_Twin_Motor_Performance_Ultra_SPA2_Crystal_White_%285%29.jpg",
+        "width": 3882,
+        "height": 2911,
+        "author": "Damian B Oh",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Damian_B_Oh",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Volvo EX90 in Crystal White, front three-quarter view",
+        "note": "Model-year 2026 EX90 (SPA2, 800 V) in a dealer showroom. Export car, visually identical to the Indian EX90; Crystal White is an Indian colour."
+      },
+      {
+        "file": "File:Volvo EX90 Twin Motor Plus – h 14022026.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Volvo_EX90_Twin_Motor_Plus_%E2%80%93_h_14022026.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Volvo_EX90_Twin_Motor_Plus_%E2%80%93_h_14022026.jpg/1920px-Volvo_EX90_Twin_Motor_Plus_%E2%80%93_h_14022026.jpg",
+        "width": 4080,
+        "height": 1884,
+        "author": "© M 93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:M_93",
+        "license": "CC BY-SA 3.0 de",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "angle": "rear",
+        "alt": "Volvo EX90 Twin Motor in Vapour Grey, rear three-quarter view",
+        "note": "German EX90 Twin Motor in Vapour Grey, an Indian colour. Shows the EX90 C-shaped tail lamps."
+      },
+      {
+        "file": "File:Volvo EX90 Auto Zuerich 2024 DSC 6758.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Volvo_EX90_Auto_Zuerich_2024_DSC_6758.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Volvo_EX90_Auto_Zuerich_2024_DSC_6758.jpg/1920px-Volvo_EX90_Auto_Zuerich_2024_DSC_6758.jpg",
+        "width": 5980,
+        "height": 3997,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "Volvo EX90 dashboard with portrait centre screen and driver display",
+        "note": "EX90 cabin. Left-hand drive; India is right-hand drive."
+      }
+    ]
+  },
+  "missing": {}
+}

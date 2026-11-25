@@ -1,5 +1,5 @@
 import type { NextRequest } from "next/server";
-import { getStaffUser } from "@/server/auth";
+import { backOfficeUser } from "@/server/auth";
 import { getPartnerContext } from "@/server/partner/context";
 import { readPartnerFile } from "@/server/partner/files";
 
@@ -7,8 +7,8 @@ import { readPartnerFile } from "@/server/partner/files";
 export async function GET(req: NextRequest, { params }: RouteContext<"/dealer/files/[id]">) {
   const { id } = await params;
   if (!/^\d+$/.test(id)) return new Response("Not found", { status: 404 });
-  // Staff (admin sign-in) or a member of the dealership (dealer portal sign-in) — each login has its own session.
-  const staff = await getStaffUser();
+  // MarchGear admins or staff with this section (their own sign-ins), or a member of the dealership (dealer portal sign-in) — each login has its own session.
+  const staff = await backOfficeUser("dealers");
   const ctx = staff ? null : await getPartnerContext();
   if (!staff && !ctx) return new Response("Sign in to view this file.", { status: 401 });
 

@@ -2,6 +2,9 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import type { ReactElement, ReactNode } from "react";
+import { eq } from "drizzle-orm";
+import { getDb } from "@/db";
+import { media } from "@/db/schema";
 
 /* ──────────────────────────────────────────────────────────────
    Building blocks for the generated share cards (opengraph-image
@@ -38,9 +41,11 @@ export async function ogImage(element: ReactElement) {
 
 /**
  * A photo as a data URL for the card, or null if it can't be fetched (the card then renders without it).
- * Unsplash photos are requested at the needed size as JPEG (the renderer doesn't read WebP/AVIF).
+ * Unsplash photos are requested at the needed size as JPEG (the renderer doesn't read WebP/AVIF); uploads under
+ * /media are converted to JPEG on the server.
  */
 export async function photo(src: string | undefined, width: number, height: number): Promise<string | null> {
+  if (src && src.startsWith("/media/")) return mediaPhoto(src, width, height);
   if (!src || !/^https:\/\/images\.unsplash\.com\//.test(src)) return null;
   try {
     const url = new URL(src);
@@ -49,6 +54,28 @@ export async function photo(src: string | undefined, width: number, height: numb
     if (!res.ok) return null;
     const buf = Buffer.from(await res.arrayBuffer());
     return `data:image/jpeg;base64,${buf.toString("base64")}`;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * A /media upload (e.g. an imported catalogue photo, stored as WebP) cropped to the card as JPEG. Needs `sharp` at
+ * run time (installed with Next); without it the card has no photo.
+ */
+async function mediaPhoto(src: string, width: number, height: number): Promise<string | null> {
+  const m = /^\/media\/(\d{1,10})\/([^/?#]+)$/.exec(src);
+  if (!m) return null;
+  try {
+    const [row] = await getDb()
+      .select({ filename: media.filename, data: media.data })
+      .from(media)
+      .where(eq(media.id, Number(m[1])))
+      .limit(1);
+    if (!row || row.filename !== m[2]) return null;
+    const { default: sharp } = await import("sharp");
+    const jpeg = await sharp(row.data).rotate().resize(width, height, { fit: "cover", position: "attention" }).jpeg({ quality: 80, mozjpeg: true }).toBuffer();
+    return `data:image/jpeg;base64,${jpeg.toString("base64")}`;
   } catch {
     return null;
   }

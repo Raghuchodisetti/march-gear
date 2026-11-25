@@ -1,12 +1,14 @@
 import type { NextRequest } from "next/server";
-import { getSessionUser, isStaff } from "@/server/auth";
+import { deskUserFor } from "@/server/auth";
+import { accessForPath } from "@/lib/staff-access";
 import { audit } from "@/server/audit";
-import { insertMedia, safeFilename, sniffImage } from "@/server/admin/media";
+import { cardCopy, insertMedia, safeFilename, sniffImage } from "@/server/admin/media";
 import {
   MEDIA_FORMATS_LABEL,
   MEDIA_MAX_BYTES,
   MEDIA_MAX_FILES,
   MEDIA_MAX_SIDE,
+  MEDIA_THUMB_MAX_BYTES,
   formatBytes,
   mediaUrl,
   type MediaItem,
@@ -45,14 +47,13 @@ const hint = (v: FormDataEntryValue | null) => {
 };
 
 export async function POST(request: NextRequest) {
-  const user = await getSessionUser("staff");
-  if (!user) return json({ error: "Your session has expired. Sign in again to upload." }, 401);
-  if (!isStaff(user.role)) return json({ error: "Only staff can upload media." }, 403);
+  const user = await deskUserFor(accessForPath("/admin/media/upload"));
+  if (!user) return json({ error: "Your session has expired, or your account can't upload images. Sign in again to upload." }, 401);
   if (!sameOrigin(request)) return json({ error: "Cross-site upload blocked." }, 403);
 
   // Reject obviously oversized bodies before buffering them.
   const length = Number(request.headers.get("content-length") ?? 0);
-  if (length > MEDIA_MAX_FILES * (MEDIA_MAX_BYTES + 64 * 1024)) return json({ error: `Upload too large — each image must be under ${formatBytes(MEDIA_MAX_BYTES)}.` }, 413);
+  if (length > MEDIA_MAX_FILES * (MEDIA_MAX_BYTES + MEDIA_THUMB_MAX_BYTES + 64 * 1024)) return json({ error: `Upload too large — each image must be under ${formatBytes(MEDIA_MAX_BYTES)}.` }, 413);
 
   let form: FormData;
   try {
@@ -65,6 +66,8 @@ export async function POST(request: NextRequest) {
   if (files.length > MEDIA_MAX_FILES) return json({ error: `Upload up to ${MEDIA_MAX_FILES} images at a time.` }, 400);
   const widths = form.getAll("width");
   const heights = form.getAll("height");
+  // Each image's smaller card copy, made in the browser alongside it (an empty field when there's none).
+  const thumbs = form.getAll("thumb");
 
   const items: MediaItem[] = [];
   const errors: UploadResponse["errors"] = [];
@@ -90,9 +93,11 @@ export async function POST(request: NextRequest) {
       if (w && h && (width === null || (w === width && h === height) || (w === height && h === width))) [width, height] = [w, h];
 
       const filename = safeFilename(name, info.mime);
-      const id = await insertMedia({ filename, mime: info.mime, data, width, height }, user.id);
+      const t = thumbs[i];
+      const thumb = cardCopy({ width }, typeof t === "string" || !t ? null : Buffer.from(await t.arrayBuffer()));
+      const id = await insertMedia({ filename, mime: info.mime, data, width, height, thumb }, user.id);
       const createdAt = new Date().toISOString();
-      items.push({ id, url: mediaUrl(id, filename), filename, mime: info.mime, size: data.length, width, height, alt: null, createdAt, uploader: user.name });
+      items.push({ id, url: mediaUrl(id, filename), filename, mime: info.mime, size: data.length, width, height, alt: null, createdAt, uploader: user.name, credit: null, hasThumb: Boolean(thumb) });
       await audit(user.id, "upload", "media", id, `Uploaded ${filename} (${formatBytes(data.length)}${width && height ? `, ${width}×${height}` : ""})`);
     } catch (err) {
       if (!(err instanceof UploadError)) console.error("[media] upload failed", err);

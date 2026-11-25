@@ -107,7 +107,7 @@ async function freeSlug(name: string) {
 
 /** Moves a vendor application through review: under review, corrections, documents, approve, reject. */
 export async function vendorDecisionAction(vendorId: unknown, input: unknown): Promise<ActionResult<{ status: InsVendorStatus; companyId: number | null }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   const parsed = vendorDecision.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const v = await loadVendor(vendorId);
@@ -259,7 +259,7 @@ const accountChange = z.object({
 
 /** Admins only: suspend an approved vendor (its products leave the public site) or reactivate a suspended one. */
 export async function vendorAccountAction(vendorId: unknown, input: unknown): Promise<ActionResult<{ status: InsVendorStatus }>> {
-  const me = await requireStaff(["admin"]);
+  const me = await requireStaff("admin");
   const parsed = accountChange.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const { op, remarks } = parsed.data;
@@ -291,7 +291,7 @@ export async function vendorAccountAction(vendorId: unknown, input: unknown): Pr
 
 /** Admins only (as for dealers): the full bank account number, decrypted on the server. Every reveal is logged. */
 export async function revealInsBankAccountAction(vendorId: unknown): Promise<ActionResult<{ accountNumber: string }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   if (me.role !== "admin") return { ok: false, error: "Only MarchGear administrators can reveal a full bank account number." };
   const v = await loadVendor(vendorId);
   if (!v) return { ok: false, error: "This vendor no longer exists." };
@@ -309,7 +309,7 @@ export async function revealInsBankAccountAction(vendorId: unknown): Promise<Act
 
 /** A staff-only note on a vendor — kept in the approval history, never shown to the vendor. */
 export async function addInsInternalNoteAction(vendorId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   const parsed = z.object({ note: z.string({ error: "Write a note" }).trim().min(2, "Write a note").max(2000, "Keep this under 2000 characters") }).safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const v = await loadVendor(vendorId);
@@ -329,7 +329,7 @@ const docReview = z.discriminatedUnion("status", [
 
 /** Verify, reject (with a remark) or reset one of a vendor's account documents. */
 export async function reviewInsDocumentAction(fileId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   const parsed = docReview.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const fid = id.safeParse(fileId);
@@ -419,7 +419,7 @@ function applyFields(app: InsurerApplication, fields: Record<string, { from: str
 
 /** Approves (applies) or rejects a vendor's request to change verified business details. */
 export async function decideInsChangeRequestAction(requestId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   const parsed = changeDecision.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const rid = id.safeParse(requestId);

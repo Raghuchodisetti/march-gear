@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useDeskRouter as useRouter } from "@/components/admin/desk";
 import { AlertTriangle, Ban, CheckCircle2, ExternalLink, FilePlus2, Loader2, XCircle } from "lucide-react";
 import type { ActionFailure } from "@/lib/action-result";
 import { formatDate } from "@/lib/format";

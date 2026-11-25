@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useDeskRouter as useRouter } from "@/components/admin/desk";
 import { Loader2, Plus } from "lucide-react";
 import { LEAD_STATUS, LEAD_TYPES, type LeadStatus, type LeadType } from "@/db/enums";
 import { LEAD_STATUS_LABEL, LEAD_TYPE_LABEL } from "@/lib/leads";

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type CSSProperties, type DragEvent } from "react";
+import { useDeskHref } from "@/components/admin/desk";
 import { AlertCircle, CheckCircle2, ImageUp, Loader2, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { listMediaAction } from "@/server/actions/media";
@@ -10,6 +11,8 @@ import {
   MEDIA_FORMATS_LABEL,
   MEDIA_MAX_BYTES,
   MEDIA_RESIZE_TO,
+  MEDIA_THUMB_MAX_BYTES,
+  MEDIA_THUMB_WIDTH,
   MEDIA_TYPES,
   MEDIA_UPLOAD_URL,
   formatBytes,
@@ -32,6 +35,8 @@ export interface PreparedFile {
   height: number;
   /** Size before resizing/re-encoding, when that happened. */
   originalSize?: number;
+  /** A smaller copy (MEDIA_THUMB_WIDTH wide) for cards and thumbnails, when the image is wider than that. */
+  thumb?: Blob;
 }
 
 async function headerType(file: File): Promise<MediaMime | "image/svg+xml" | null> {
@@ -74,6 +79,49 @@ function canEncodeWebp() {
  * PNG while it fits, so transparency survives). GIFs are kept byte-for-byte so animations survive.
  */
 export async function prepareImage(file: File): Promise<PreparedFile> {
+  const main = await prepareMain(file);
+  // GIFs stay as they are (animation); everything else wider than a card also gets a small card copy.
+  const thumb = /\.gif$/i.test(main.filename) ? undefined : await cardCopyOf(main.blob, main.width, main.height);
+  return thumb ? { ...main, thumb } : main;
+}
+
+/** The card copy: MEDIA_THUMB_WIDTH wide, WebP where the browser can write it, under MEDIA_THUMB_MAX_BYTES. */
+async function cardCopyOf(blob: Blob, width: number, height: number): Promise<Blob | undefined> {
+  if (!width || width <= MEDIA_THUMB_WIDTH) return undefined;
+  let bitmap: ImageBitmap;
+  try {
+    bitmap = await createImageBitmap(blob, { imageOrientation: "from-image" });
+  } catch {
+    return undefined;
+  }
+  try {
+    const w = MEDIA_THUMB_WIDTH;
+    const h = Math.max(1, Math.round(height * (w / width)));
+    const canvas = document.createElement("canvas");
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return undefined;
+    const format: OutputType = (await canEncodeWebp()) ? "image/webp" : "image/jpeg";
+    if (format === "image/jpeg") {
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(0, 0, w, h);
+    }
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(bitmap, 0, 0, w, h);
+    for (const q of [0.8, 0.7, 0.6]) {
+      const out = await encode(canvas, format, q);
+      if (out && out.type === format && out.size <= MEDIA_THUMB_MAX_BYTES) return out;
+    }
+    return undefined;
+  } finally {
+    bitmap.close();
+  }
+}
+
+/** The image to store: converted to WebP and resized when that makes it smaller (see prepareImage). */
+async function prepareMain(file: File): Promise<PreparedFile> {
   const type = await headerType(file);
   if (type === "image/svg+xml" || /\.svg$/i.test(file.name)) throw new Error("SVG files aren't allowed. Export it as PNG or WebP and upload that.");
   if (!type) {
@@ -140,15 +188,16 @@ export async function prepareImage(file: File): Promise<PreparedFile> {
   }
 }
 
-/** Sends one prepared file to the upload route, reporting progress from 0 to 1. */
-export function uploadPrepared(file: PreparedFile, onProgress: (fraction: number) => void) {
+/** Sends one prepared file to the upload route (this desk's — see useDeskHref), reporting progress from 0 to 1. */
+export function uploadPrepared(file: PreparedFile, onProgress: (fraction: number) => void, url: string = MEDIA_UPLOAD_URL) {
   return new Promise<MediaItem>((resolve, reject) => {
     const form = new FormData();
     form.append("file", file.blob, file.filename);
     form.append("width", String(file.width));
     form.append("height", String(file.height));
+    if (file.thumb) form.append("thumb", file.thumb, "card.webp");
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", MEDIA_UPLOAD_URL);
+    xhr.open("POST", url);
     xhr.responseType = "json";
     xhr.upload.onprogress = (e) => e.lengthComputable && onProgress(e.loaded / e.total);
     xhr.onload = () => {
@@ -175,6 +224,7 @@ export interface UploadTask {
 
 /** Prepares and uploads files one at a time (resizing is heavy), calling `onUploaded` for each success. */
 export function useMediaUploads(onUploaded: (item: MediaItem) => void) {
+  const uploadUrl = useDeskHref()(MEDIA_UPLOAD_URL);
   const [tasks, setTasks] = useState<UploadTask[]>([]);
   const nextKey = useRef(0);
   const queue = useRef<Promise<void>>(Promise.resolve());
@@ -195,7 +245,7 @@ export function useMediaUploads(onUploaded: (item: MediaItem) => void) {
           ? `${formatBytes(prepared.originalSize)} → ${formatBytes(prepared.blob.size)} · ${prepared.width}×${prepared.height}`
           : `${formatBytes(prepared.blob.size)} · ${prepared.width}×${prepared.height}`;
         patch(key, { status: "uploading", note });
-        const item = await uploadPrepared(prepared, (progress) => patch(key, { progress }));
+        const item = await uploadPrepared(prepared, (progress) => patch(key, { progress }), uploadUrl);
         patch(key, { status: "done", progress: 1 });
         callback.current(item);
         setTimeout(() => dismiss(key), 6000);

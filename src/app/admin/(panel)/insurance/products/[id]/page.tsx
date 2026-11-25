@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { notFound } from "next/navigation";
 import { AlertTriangle, ExternalLink, FileText, Store } from "lucide-react";
 import { INS_PRODUCT_CATEGORY_BLURB, INS_PRODUCT_CATEGORY_LABEL, INS_VENDOR_CATEGORY_LABEL, INS_VENDOR_STATUS_LABEL } from "@/insurance/labels";

@@ -27,7 +27,10 @@ import type { ActionResult } from "@/lib/action-result";
 import { LEAD_STATUS_LABEL, LEAD_TYPE_LABEL } from "@/lib/leads";
 import { DEALER_VISITS, LEAD_CHANNELS } from "@/components/admin/options";
 import { audit } from "@/server/audit";
-import { STAFF_ROLES, currentSessionId, destroyAllSessions, hashPassword, requireStaff, type SessionUser } from "@/server/auth";
+import { STAFF_ROLES, currentSessionId, destroyAllSessions, getDesk, hashPassword, requireAdmin, requireStaff, type SessionUser } from "@/server/auth";
+import { ACCOUNT_KINDS, accountHref } from "@/lib/accounts";
+import { SECTION_KEYS, STAFF_SECTIONS, type Section } from "@/lib/staff-access";
+import type { UserRole } from "@/db/enums";
 import { expireCatalog } from "@/server/catalog";
 import { refreshPartnerDealerRating } from "@/server/partner/public-sync";
 import { isIndianState } from "@/data/states";
@@ -99,7 +102,7 @@ async function applyLeadChanges(me: SessionUser, rows: LeadRef[], patch: LeadPat
 const leadRefColumns = { id: leads.id, reference: leads.reference, status: leads.status, assignedTo: leads.assignedTo };
 
 export async function updateLeadAction(leadId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("leads");
   const parsed = z.object({ status: z.enum(LEAD_STATUS), assignedTo: ownerId }).safeParse(input);
   const lid = id.safeParse(leadId);
   if (!parsed.success || !lid.success) return { ok: false, error: "Invalid update" };
@@ -126,7 +129,7 @@ const bulkChange = z.discriminatedUnion("op", [
 
 /** Sets the status or the owner of several leads at once. */
 export async function bulkUpdateLeadsAction(leadIds: unknown, change: unknown): Promise<ActionResult<{ changed: number }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("leads");
   const ids = bulkIds.safeParse(leadIds);
   const parsed = bulkChange.safeParse(change);
   if (!ids.success) return { ok: false, error: ids.error.issues[0]?.message ?? "Invalid selection" };
@@ -146,7 +149,7 @@ export async function bulkUpdateLeadsAction(leadIds: unknown, change: unknown): 
 }
 
 export async function bulkDeleteLeadsAction(leadIds: unknown): Promise<ActionResult<{ deleted: number }>> {
-  const me = await requireStaff(["admin"]);
+  const me = await requireStaff("admin");
   const ids = bulkIds.safeParse(leadIds);
   if (!ids.success) return { ok: false, error: ids.error.issues[0]?.message ?? "Invalid selection" };
   const db = getDb();
@@ -196,7 +199,7 @@ const newLeadSchema = z
 
 /** A lead taken by phone, walk-in or another channel the website doesn't see. */
 export async function createLeadAction(input: unknown): Promise<ActionResult<{ id: number; reference: string }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("leads");
   const parsed = newLeadSchema.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const { channel, assignedTo, ...lead } = parsed.data;
@@ -231,7 +234,7 @@ export async function createLeadAction(input: unknown): Promise<ActionResult<{ i
 }
 
 export async function addLeadNoteAction(leadId: unknown, body: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("leads");
   const parsed = z.tuple([id, z.string().trim().min(1, "Write a note first").max(4000)]).safeParse([leadId, body]);
   if (!parsed.success) return invalid(parsed.error);
   const db = getDb();
@@ -245,7 +248,7 @@ export async function addLeadNoteAction(leadId: unknown, body: unknown): Promise
 }
 
 export async function deleteLeadAction(leadId: unknown): Promise<ActionResult> {
-  const me = await requireStaff(["admin"]);
+  const me = await requireStaff("admin");
   const lid = id.safeParse(leadId);
   if (!lid.success) return { ok: false, error: "Invalid lead" };
   const db = getDb();
@@ -293,7 +296,7 @@ async function dealerOfReview(rid: string) {
 }
 
 export async function setReviewStatusAction(kind: unknown, reviewKey: unknown, status: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("content");
   const parsed = z.tuple([reviewKind, reviewId, z.enum(REVIEW_STATUS)]).safeParse([kind, reviewKey, status]);
   if (!parsed.success) return { ok: false, error: "Invalid request" };
   const [k, rid, st] = parsed.data;
@@ -315,7 +318,7 @@ export async function setReviewStatusAction(kind: unknown, reviewKey: unknown, s
 }
 
 export async function deleteReviewAction(kind: unknown, reviewKey: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("content");
   const parsed = z.tuple([reviewKind, reviewId]).safeParse([kind, reviewKey]);
   if (!parsed.success) return { ok: false, error: "Invalid request" };
   const [k, rid] = parsed.data;
@@ -343,7 +346,7 @@ const visit = z.enum(DEALER_VISITS, { error: "Choose the visit type" });
 
 /** Staff corrections to a review's wording or rating (typos, personal details, wrong star count). */
 export async function updateReviewAction(kind: unknown, reviewKey: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("content");
   const key = z.tuple([reviewKind, reviewId]).safeParse([kind, reviewKey]);
   if (!key.success) return { ok: false, error: "Invalid request" };
   const [k, rid] = key.data;
@@ -375,7 +378,7 @@ const dealerReviewSchema = z.object({
 
 /** A dealer review collected offline (feedback card, phone survey) and entered by staff. */
 export async function createDealerReviewAction(input: unknown): Promise<ActionResult<{ id: string }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("content");
   const parsed = dealerReviewSchema.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const db = getDb();
@@ -398,7 +401,7 @@ export async function createDealerReviewAction(input: unknown): Promise<ActionRe
 /* ── Subscribers ────────────────────────────────────────────── */
 
 export async function deleteSubscriberAction(subscriberId: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("customers");
   const sid = id.safeParse(subscriberId);
   if (!sid.success) return { ok: false, error: "Invalid subscriber" };
   const db = getDb();
@@ -410,30 +413,80 @@ export async function deleteSubscriberAction(subscriberId: unknown): Promise<Act
   return { ok: true };
 }
 
-/* ── Users (admins only) ────────────────────────────────────── */
+/* ── Accounts ───────────────────────────────────────────────── */
+// Each kind of account is managed by whoever has its section (see ACCOUNT_KINDS): customers, dealer logins and
+// insurance vendor logins by staff with those sections; staff and admin accounts by admins only.
 
 const tempPassword = () => randomBytes(9).toString("base64url");
-const ROLE_NAME: Record<(typeof USER_ROLES)[number], string> = { customer: "customer", editor: "editor", admin: "admin", dealer: "dealer partner", insurer: "insurance vendor" };
-/** Roles staff can hand out here; dealer accounts come from dealer registration. */
-const ASSIGNABLE_ROLES = ["customer", "editor", "admin"] as const;
+const ROLE_NAME: Record<UserRole, string> = { customer: "customer", staff: "staff", admin: "admin", dealer: "dealer partner", insurer: "insurance vendor" };
 
+/** The account to act on, once this desk is allowed to manage its kind (else a redirect or an error). */
+async function managedAccount(userId: unknown) {
+  // Anyone who manages some kind of account; the account's own kind is checked once it's loaded.
+  await requireStaff(["customers", "dealers", "insurance"]);
+  const uid = id.safeParse(userId);
+  if (!uid.success) return { error: "Invalid user" } as const;
+  const [user] = await getDb().select({ name: users.name, email: users.email, role: users.role }).from(users).where(eq(users.id, uid.data));
+  if (!user) return { error: "This account no longer exists." } as const;
+  const me = await requireStaff(ACCOUNT_KINDS[user.role].access);
+  return { me, uid: uid.data, user } as const;
+}
+
+const staffSchema = z.object({
+  role: z.enum(["staff", "admin"]),
+  sections: z.array(z.enum(SECTION_KEYS as [Section, ...Section[]])).default([]),
+});
+
+/** Creates a staff member (or another admin) with a temporary password. Admins only. */
 export async function createStaffAction(input: unknown): Promise<ActionResult<{ id: number; password: string }>> {
-  const me = await requireStaff(["admin"]);
-  const parsed = z.object({ name: personName("Enter their name"), email, role: z.enum(ASSIGNABLE_ROLES) }).safeParse(input);
+  const me = await requireAdmin();
+  const parsed = z.object({ name: personName("Enter their name"), email }).and(staffSchema).safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
+  const { name: newName, email: newEmail, role, sections } = parsed.data;
+  if (role === "staff" && !sections.length) return { ok: false, fieldErrors: { sections: "Tick at least one section." } };
   const db = getDb();
-  const [exists] = await db.select({ id: users.id }).from(users).where(eq(users.email, parsed.data.email));
+  const [exists] = await db.select({ id: users.id }).from(users).where(eq(users.email, newEmail));
   if (exists) return { ok: false, fieldErrors: { email: "An account with this email already exists." } };
   const pw = tempPassword();
-  const [res] = await db.insert(users).values({ ...parsed.data, passwordHash: await hashPassword(pw) });
-  await audit(me.id, "create", "user", res.insertId, `Created ${ROLE_NAME[parsed.data.role]} account for ${parsed.data.name} (${parsed.data.email})`);
-  revalidatePath("/admin/users");
+  const [res] = await db.insert(users).values({ name: newName, email: newEmail, role, permissions: role === "staff" ? sections : null, passwordHash: await hashPassword(pw) });
+  await audit(me.id, "create", "user", res.insertId, `Created ${ROLE_NAME[role]} account for ${newName} (${newEmail})${role === "staff" ? ` with ${sectionNames(sections)}` : ""}`);
+  revalidatePath("/admin/team");
   return { ok: true, id: res.insertId, password: pw };
 }
 
-export async function updateUserAction(userId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff(["admin"]);
+const sectionNames = (keys: readonly string[]) => STAFF_SECTIONS.filter((s) => keys.includes(s.key)).map((s) => s.label).join(", ") || "no sections";
+
+/** Changes a staff member's sections, or makes them an admin (or an admin staff). Admins only. */
+export async function updateStaffAccessAction(userId: unknown, input: unknown): Promise<ActionResult> {
+  const me = await requireAdmin();
   const uid = id.safeParse(userId);
+  if (!uid.success) return { ok: false, error: "Invalid user" };
+  const parsed = staffSchema.safeParse(input);
+  if (!parsed.success) return invalid(parsed.error);
+  const { role, sections } = parsed.data;
+  if (uid.data === me.id && role !== "admin") return { ok: false, error: "You can't remove your own admin access." };
+  if (role === "staff" && !sections.length) return { ok: false, fieldErrors: { sections: "Tick at least one section." } };
+  const db = getDb();
+  const [before] = await db.select({ name: users.name, role: users.role, permissions: users.permissions }).from(users).where(eq(users.id, uid.data));
+  if (!before) return { ok: false, error: "This account no longer exists." };
+  if (before.role !== "staff" && before.role !== "admin") return { ok: false, error: "Only staff and admin accounts have sections." };
+  await db.update(users).set({ role, permissions: role === "staff" ? sections : null }).where(eq(users.id, uid.data));
+  // Switching between the admin and staff desks ends their sessions (each desk has its own sign-in).
+  if (before.role !== role) await destroyAllSessions(uid.data);
+  const what =
+    before.role !== role
+      ? `${role === "admin" ? "made an admin" : `made staff with ${sectionNames(sections)}`}`
+      : `sections: ${sectionNames(sections)}`;
+  await audit(me.id, "update", "user", uid.data, `Changed ${before.name}'s access — ${what}`);
+  revalidatePath("/admin/team");
+  return { ok: true };
+}
+
+/** Profile details and on/off for any account this desk manages. */
+export async function updateAccountAction(userId: unknown, input: unknown): Promise<ActionResult> {
+  const target = await managedAccount(userId);
+  if ("error" in target) return { ok: false, error: target.error };
+  const { me, uid } = target;
   const parsed = z
     .object({
       name: personName("Enter their name"),
@@ -450,94 +503,70 @@ export async function updateUserAction(userId: unknown, input: unknown): Promise
         .max(64)
         .nullable()
         .transform((v) => v || null),
-      role: z.enum(USER_ROLES),
       isActive: z.boolean(),
     })
     .safeParse(input);
-  if (!uid.success) return { ok: false, error: "Invalid user" };
   if (!parsed.success) return invalid(parsed.error);
   const db = getDb();
-  if (uid.data === me.id && (parsed.data.role !== "admin" || !parsed.data.isActive))
-    return { ok: false, error: "You can't remove your own admin access or disable your own account." };
-  const [dupe] = await db.select({ id: users.id }).from(users).where(and(eq(users.email, parsed.data.email), ne(users.id, uid.data)));
+  if (uid === me.id && !parsed.data.isActive) return { ok: false, error: "You can't disable your own account." };
+  const [dupe] = await db.select({ id: users.id }).from(users).where(and(eq(users.email, parsed.data.email), ne(users.id, uid)));
   if (dupe) return { ok: false, fieldErrors: { email: "Another account uses this email." } };
   const [before] = await db
     .select({ name: users.name, email: users.email, phone: users.phone, state: users.state, city: users.city, role: users.role, isActive: users.isActive })
     .from(users)
-    .where(eq(users.id, uid.data));
+    .where(eq(users.id, uid));
   if (!before) return { ok: false, error: "This account no longer exists." };
-  // Dealer and insurance vendor accounts belong to their portal; they can't change role, and nobody can be given those roles here.
-  if (before.role !== parsed.data.role && (["dealer", "insurer"].includes(before.role) || ["dealer", "insurer"].includes(parsed.data.role)))
-    return {
-      ok: false,
-      fieldErrors: {
-        role:
-          before.role === "dealer"
-            ? "Dealer partner accounts keep the dealer role."
-            : before.role === "insurer"
-              ? "Insurance vendor accounts keep the insurance vendor role."
-              : "Dealer and insurance vendor accounts are created by their own registration.",
-      },
-    };
-  await db.update(users).set(parsed.data).where(eq(users.id, uid.data));
-  if (!parsed.data.isActive) await destroyAllSessions(uid.data);
+  await db.update(users).set(parsed.data).where(eq(users.id, uid));
+  if (!parsed.data.isActive) await destroyAllSessions(uid);
 
   const v = parsed.data;
   const changes = [
     before.name !== v.name && `name to “${v.name}”`,
     before.email !== v.email && `email to ${v.email}`,
     (before.phone !== v.phone || before.city !== v.city || before.state !== v.state) && "contact details",
-    before.role !== v.role && `role ${ROLE_NAME[before.role]} → ${ROLE_NAME[v.role]}`,
     before.isActive !== v.isActive && (v.isActive ? "re-enabled" : "disabled"),
   ].filter(Boolean);
-  if (changes.length) await audit(me.id, "update", "user", uid.data, `Updated ${before.name}'s account: ${changes.join(", ")}`);
-  revalidatePath("/admin/users");
+  if (changes.length) await audit(me.id, "update", "user", uid, `Updated ${before.name}'s ${ROLE_NAME[before.role]} account: ${changes.join(", ")}`);
+  revalidatePath(ACCOUNT_KINDS[before.role].list);
   return { ok: true };
 }
 
 export async function resetUserPasswordAction(userId: unknown): Promise<ActionResult<{ password: string }>> {
-  const me = await requireStaff(["admin"]);
-  const uid = id.safeParse(userId);
-  if (!uid.success) return { ok: false, error: "Invalid user" };
-  const db = getDb();
-  const [user] = await db.select({ name: users.name }).from(users).where(eq(users.id, uid.data));
-  if (!user) return { ok: false, error: "This account no longer exists." };
+  const target = await managedAccount(userId);
+  if ("error" in target) return { ok: false, error: target.error };
+  const { me, uid, user } = target;
   const pw = tempPassword();
-  await db
+  await getDb()
     .update(users)
     .set({ passwordHash: await hashPassword(pw) })
-    .where(eq(users.id, uid.data));
-  await destroyAllSessions(uid.data);
-  await audit(me.id, "reset", "user", uid.data, `Reset the password for ${user.name} and signed them out everywhere`);
+    .where(eq(users.id, uid));
+  await destroyAllSessions(uid);
+  await audit(me.id, "reset", "user", uid, `Reset the password for ${user.name} and signed them out everywhere`);
   return { ok: true, password: pw };
 }
 
 /** Ends every session of an account. On your own account, this browser stays signed in. */
 export async function signOutEverywhereAction(userId: unknown): Promise<ActionResult<{ ended: number }>> {
-  const me = await requireStaff(["admin"]);
-  const uid = id.safeParse(userId);
-  if (!uid.success) return { ok: false, error: "Invalid user" };
-  const db = getDb();
-  const [user] = await db.select({ name: users.name }).from(users).where(eq(users.id, uid.data));
-  if (!user) return { ok: false, error: "This account no longer exists." };
-  const current = await currentSessionId("staff");
-  const self = uid.data === me.id;
-  const [res] = await db.delete(sessions).where(self && current ? and(eq(sessions.userId, uid.data), ne(sessions.id, current)) : eq(sessions.userId, uid.data));
-  await audit(me.id, "signout", "user", uid.data, self ? "Signed out of their other sessions" : `Signed ${user.name} out on every device`);
-  revalidatePath(`/admin/users/${uid.data}`);
+  const target = await managedAccount(userId);
+  if ("error" in target) return { ok: false, error: target.error };
+  const { me, uid, user } = target;
+  const current = await currentSessionId(await getDesk());
+  const self = uid === me.id;
+  const [res] = await getDb()
+    .delete(sessions)
+    .where(self && current ? and(eq(sessions.userId, uid), ne(sessions.id, current)) : eq(sessions.userId, uid));
+  await audit(me.id, "signout", "user", uid, self ? "Signed out of their other sessions" : `Signed ${user.name} out on every device`);
+  revalidatePath(accountHref(user.role, uid));
   return { ok: true, ended: res.affectedRows };
 }
 
 export async function deleteUserAction(userId: unknown): Promise<ActionResult> {
-  const me = await requireStaff(["admin"]);
-  const uid = id.safeParse(userId);
-  if (!uid.success) return { ok: false, error: "Invalid user" };
-  if (uid.data === me.id) return { ok: false, error: "You can't delete your own account." };
-  const db = getDb();
-  const [user] = await db.select({ name: users.name, email: users.email, role: users.role }).from(users).where(eq(users.id, uid.data));
-  if (!user) return { ok: true };
-  await db.delete(users).where(eq(users.id, uid.data));
-  await audit(me.id, "delete", "user", uid.data, `Deleted ${ROLE_NAME[user.role]} account ${user.name} (${user.email})`);
-  revalidatePath("/admin/users");
+  const target = await managedAccount(userId);
+  if ("error" in target) return { ok: false, error: target.error };
+  const { me, uid, user } = target;
+  if (uid === me.id) return { ok: false, error: "You can't delete your own account." };
+  await getDb().delete(users).where(eq(users.id, uid));
+  await audit(me.id, "delete", "user", uid, `Deleted ${ROLE_NAME[user.role]} account ${user.name} (${user.email})`);
+  revalidatePath(ACCOUNT_KINDS[user.role].list);
   return { ok: true };
 }

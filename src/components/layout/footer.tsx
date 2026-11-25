@@ -110,7 +110,11 @@ export async function Footer() {
         <div className="border-t border-white/10 py-8">
           <p className="max-w-4xl text-[12px] leading-relaxed text-white/55">
             All vehicle prices, specifications, listings, reviews and dealer details on this site are demonstration data and do not constitute an offer.
-            Photography is representative, sourced from Unsplash, and may not depict the exact model or variant described.
+            Car photos are genuine photos of each model shared on Wikimedia Commons under free licences, credited on our{" "}
+            <Link href="/photo-credits" className="underline decoration-white/25 underline-offset-[3px] transition-colors hover:text-white">
+              photo credits
+            </Link>{" "}
+            page. Other photography is stock from Unsplash and may not depict the exact model or variant described.
           </p>
           {business.length > 0 && <p className="mt-3 max-w-4xl break-words text-[12px] leading-relaxed text-white/50">{business.join(" · ")}</p>}
           <div className="mt-6 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">

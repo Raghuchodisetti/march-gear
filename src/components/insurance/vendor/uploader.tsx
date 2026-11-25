@@ -20,6 +20,12 @@ const MAX = 900 * 1024;
 
 type UploadResult = { media?: { url: string }; file?: FileRef; error?: string };
 
+/** Whether a file is a PDF (by its first bytes, not its name). */
+async function isPdf(file: File) {
+  const head = new Uint8Array(await file.slice(0, 5).arrayBuffer());
+  return String.fromCharCode(...head) === "%PDF-";
+}
+
 function send(body: FormData, onProgress: (f: number) => void): Promise<UploadResult> {
   return new Promise((resolve) => {
     const xhr = new XMLHttpRequest();
@@ -40,26 +46,39 @@ function send(body: FormData, onProgress: (f: number) => void): Promise<UploadRe
 
 /** Uploads one image (resized first) and returns its public URL, or an error message. */
 export async function uploadInsurerImage(file: File, onProgress: (f: number) => void = () => {}): Promise<{ url?: string; error?: string }> {
-  let prepared: { blob: Blob; name: string };
+  let prepared: { blob: Blob; name: string; thumb?: Blob };
   try {
     const p = await prepareImage(file);
-    prepared = { blob: p.blob, name: p.filename };
+    prepared = { blob: p.blob, name: p.filename, thumb: p.thumb };
   } catch (err) {
     return { error: err instanceof Error ? err.message : "That image couldn't be read." };
   }
   const fd = new FormData();
   fd.append("kind", "media");
   fd.append("file", prepared.blob, prepared.name);
+  // The smaller card copy for listings and thumbnails.
+  if (prepared.thumb) fd.append("thumb", prepared.thumb, "card.webp");
   const res = await send(fd, onProgress);
   return res.media ? { url: res.media.url } : { error: res.error ?? "Upload failed." };
 }
 
 /** Uploads one private document and returns its reference, or an error message. */
 export async function uploadInsurerDocument(file: File, kind: InsDocKind, onProgress: (f: number) => void = () => {}): Promise<{ file?: FileRef; error?: string }> {
-  if (file.size > MAX) return { error: `${file.name} is ${(file.size / 1024 / 1024).toFixed(1)} MB. The limit is 900 KB — compress the scan or upload a smaller file.` };
+  // Photos and scans of documents are compressed like any image (WebP, at most 2000 px, under 900 KB); PDFs go as they are.
+  let doc: { blob: Blob; name: string };
+  if (await isPdf(file)) doc = { blob: file, name: file.name };
+  else {
+    try {
+      const p = await prepareImage(file);
+      doc = { blob: p.blob, name: p.filename };
+    } catch (err) {
+      return { error: err instanceof Error ? err.message : "That file couldn't be read. Upload a PDF, JPEG, PNG or WebP." };
+    }
+  }
+  if (doc.blob.size > MAX) return { error: `${file.name} is ${(doc.blob.size / 1024 / 1024).toFixed(1)} MB. PDFs must be under 900 KB — save it smaller (e.g. "reduced size" or a lower scan quality) and try again.` };
   const fd = new FormData();
   fd.append("kind", kind);
-  fd.append("file", file);
+  fd.append("file", doc.blob, doc.name);
   const res = await send(fd, onProgress);
   return res.file ? { file: res.file } : { error: res.error ?? "Upload failed." };
 }

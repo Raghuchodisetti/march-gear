@@ -1,17 +1,68 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { ArrowRight } from "lucide-react";
 import { LEAD_STATUS_LABEL, LEAD_STATUS_TONE, LEAD_TYPE_LABEL } from "@/lib/leads";
 import { getDashboard } from "@/server/admin/dashboard";
 import { recentActivity } from "@/server/admin/activity";
-import { getSessionUser } from "@/server/auth";
+import { getDesk, getDeskUser, requireStaff, staffSections } from "@/server/auth";
+import { STAFF_SECTIONS, type Section } from "@/lib/staff-access";
 import { AdminHeader, Badge, Panel, StatCard, formatDateTime, formatDay } from "@/components/admin/ui";
 import { ActivityFeed } from "@/components/admin/activity";
 
 export const metadata: Metadata = { title: "Dashboard" };
 
+/** Where each section starts. */
+const SECTION_HOME: Record<Section, string> = {
+  leads: "/admin/leads",
+  dealers: "/admin/dealers",
+  insurance: "/admin/insurance/dashboard",
+  advertising: "/admin/advertising",
+  catalogue: "/admin/cars",
+  content: "/admin/news",
+  customers: "/admin/customers",
+  site: "/admin/content",
+};
+
+/** The staff desk's home: the sections this account has. */
+async function StaffHome({ denied }: { denied: boolean }) {
+  const me = await requireStaff();
+  const mine = await staffSections(me.id);
+  const sections = STAFF_SECTIONS.filter((s) => mine.includes(s.key));
+  return (
+    <>
+      <AdminHeader title={`Hello, ${me.name.split(" ")[0]}`} description="These are the parts of MarchGear you look after." />
+      {denied && (
+        <p role="alert" className="mb-6 border-l-2 border-red bg-red-50 px-4 py-3 text-[13.5px] text-red">
+          Your account doesn&apos;t have access to that section. Ask an administrator if you need it.
+        </p>
+      )}
+      {sections.length === 0 ? (
+        <Panel>
+          <p className="text-[14px] text-muted">Your account hasn&apos;t been given any sections yet. Ask an administrator to add the ones you need.</p>
+        </Panel>
+      ) : (
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          {sections.map((s) => (
+            <li key={s.key}>
+              <Link href={SECTION_HOME[s.key]} className="group flex h-full flex-col rounded-[3px] border border-line bg-white p-5 transition-colors hover:border-ink">
+                <span className="flex items-center justify-between gap-3">
+                  <span className="text-[16px] font-semibold">{s.label}</span>
+                  <ArrowRight aria-hidden className="size-4 text-muted transition-transform group-hover:translate-x-0.5 group-hover:text-red" />
+                </span>
+                <span className="mt-1.5 text-[13.5px] leading-relaxed text-muted">{s.hint}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </>
+  );
+}
+
 export default async function DashboardPage({ searchParams }: PageProps<"/admin">) {
-  const [{ kpis, days, byType, recent, deliveries }, activity, me, sp] = await Promise.all([getDashboard(), recentActivity(8), getSessionUser("staff"), searchParams]);
+  const sp = await searchParams;
+  if ((await getDesk()) === "staff") return <StaffHome denied={Boolean(sp.denied)} />;
+  const [{ kpis, days, byType, recent, deliveries }, activity, me] = await Promise.all([getDashboard(), recentActivity(8), getDeskUser()]);
   const max = Math.max(1, ...days.map((d) => d.n));
   const typeMax = Math.max(1, ...byType.map((t) => t.n));
   const delta = kpis.leadsWeek - kpis.leadsPrevWeek;
@@ -22,7 +73,7 @@ export default async function DashboardPage({ searchParams }: PageProps<"/admin"
       <AdminHeader title={`Hello, ${firstName}`} description="Here's what's happening on MarchGear." />
       {sp.denied && (
         <p role="alert" className="mb-6 border-l-2 border-red bg-red-50 px-4 py-3 text-[13.5px] text-red">
-          That section is for admins only.
+          That section isn&apos;t available to your account.
         </p>
       )}
 
@@ -150,7 +201,7 @@ export default async function DashboardPage({ searchParams }: PageProps<"/admin"
         <StatCard label="Live new cars" value={kpis.liveCars} href="/admin/cars" />
         <StatCard label="Used listings" value={kpis.activeUsed} href="/admin/used-cars" />
         <StatCard label="Published stories" value={kpis.liveArticles} href="/admin/news" />
-        <StatCard label="Customers" value={kpis.customers} href={me?.role === "admin" ? "/admin/users" : undefined} />
+        <StatCard label="Customers" value={kpis.customers} href="/admin/customers" />
         <StatCard label="Subscribers" value={kpis.subscribers} href="/admin/subscribers" />
       </div>
     </>

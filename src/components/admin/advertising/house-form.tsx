@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
+import { useDeskRouter as useRouter } from "@/components/admin/desk";
 import { ImageIcon, ImagePlus, Loader2, Megaphone, RefreshCw, Trash2 } from "lucide-react";
 import { createHouseCampaignAction, saveHouseCreativeAction } from "@/server/actions/ads-admin";
 import { AD_FORMAT_LABEL } from "@/insurance/labels";

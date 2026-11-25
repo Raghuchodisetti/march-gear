@@ -16,7 +16,7 @@ import { CarRow } from "./car-row";
 import { type ActiveFilter } from "./filter-ui";
 import { BrandTiles, FilterBar, IconTiles, ImageTiles, ValueTiles, summarise, type Facet } from "./filter-bar";
 import { ListingHeader } from "./listing-header";
-import { BrandPicker, BrandRail } from "./brand-picker";
+import { BrandPicker } from "./brand-picker";
 import { readList, toggleValue, useQueryState, writeList } from "./use-query-state";
 
 /* ── Filter model ────────────────────────────────────────────── */
@@ -193,10 +193,6 @@ export function NewCarsExplorer() {
     });
     scrollToTop();
   };
-  const backToBrands = () => {
-    update((p) => LISTING_PARAMS.forEach((k) => p.delete(k)));
-    scrollToTop();
-  };
   const showAll = () => {
     update((p) => p.set("show", "all"));
     scrollToTop();
@@ -341,7 +337,6 @@ export function NewCarsExplorer() {
           </div>
         }
       >
-        {f.brand.length > 0 && <BrandRail selected={f.brand} onSelect={chooseBrand} onAllBrands={backToBrands} />}
       </ListingHeader>
 
       <FilterBar

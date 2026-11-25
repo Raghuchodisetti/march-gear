@@ -1,0 +1,113 @@
+{
+  "brand": "jeep",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "jeep-compass": [
+      {
+        "file": "File:Jeep Compass (MP) Facelift IMG 5813.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Jeep_Compass_(MP)_Facelift_IMG_5813.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Jeep_Compass_%28MP%29_Facelift_IMG_5813.jpg/1920px-Jeep_Compass_%28MP%29_Facelift_IMG_5813.jpg",
+        "width": 5112,
+        "height": 2779,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Jeep Compass (2021 facelift) in red with black roof, front three-quarter view",
+        "note": "European Compass after the 2021 facelift, the same design India builds at Ranjangaon: honeycomb seven-slot grille, slim LED headlamps, new bumper. Left-hand drive."
+      },
+      {
+        "file": "File:2022 Jeep Compass 1.4 (Indonesia) interior.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2022_Jeep_Compass_1.4_(Indonesia)_interior.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/2022_Jeep_Compass_1.4_%28Indonesia%29_interior.jpg/1920px-2022_Jeep_Compass_1.4_%28Indonesia%29_interior.jpg",
+        "width": 3787,
+        "height": 2524,
+        "author": "Andra Febrian",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Andra_Febrian",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "Jeep Compass (facelift) dashboard with 10.1-inch touchscreen, right-hand drive",
+        "note": "Indonesian-market Compass, imported from Jeep's Indian plant: facelift dashboard with free-standing 10.1-inch screen and digital cluster, as in the Indian car."
+      }
+    ],
+    "jeep-meridian": [
+      {
+        "file": "File:4th International Auto Show, Bangalore (2025) 155.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:4th_International_Auto_Show,_Bangalore_(2025)_155.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/4th_International_Auto_Show%2C_Bangalore_%282025%29_155.jpg/1920px-4th_International_Auto_Show%2C_Bangalore_%282025%29_155.jpg",
+        "width": 4080,
+        "height": 3072,
+        "author": "Gpkp",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Gpkp",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Jeep Meridian in silver, front three-quarter view",
+        "note": "Indian Meridian on Jeep's stand, Bangalore auto show, Nov 2025: MERIDIAN show plate, seven-slot grille with chrome surrounds. Show-floor shot."
+      },
+      {
+        "file": "File:Jeep COMMANDER LIMITED (3DA-H620) rear.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Jeep_COMMANDER_LIMITED_(3DA-H620)_rear.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Jeep_COMMANDER_LIMITED_%283DA-H620%29_rear.jpg/1920px-Jeep_COMMANDER_LIMITED_%283DA-H620%29_rear.jpg",
+        "width": 2560,
+        "height": 1920,
+        "author": "Tokumeigakarinoaoshima",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Tokumeigakarinoaoshima",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Jeep Meridian (sold in Japan as Commander) in white with black roof, rear three-quarter view",
+        "note": "Japanese Jeep Commander (3DA-H620) is the India-built Meridian sold under another name: same body, lamps and wheels; only the tailgate and door badges read COMMANDER."
+      }
+    ],
+    "jeep-wrangler": [
+      {
+        "file": "File:Jeep Wrangler JL FL 2.0T Unlimited Rubicon 5-door Sarge Green Clear Coat.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Jeep_Wrangler_JL_FL_2.0T_Unlimited_Rubicon_5-door_Sarge_Green_Clear_Coat.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Jeep_Wrangler_JL_FL_2.0T_Unlimited_Rubicon_5-door_Sarge_Green_Clear_Coat.jpg/1920px-Jeep_Wrangler_JL_FL_2.0T_Unlimited_Rubicon_5-door_Sarge_Green_Clear_Coat.jpg",
+        "width": 4638,
+        "height": 2982,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Jeep Wrangler Rubicon four-door (2024 facelift) in Sarge Green, front three-quarter view",
+        "note": "2.0 turbo Wrangler Unlimited Rubicon after the 2024 facelift (black slotted grille, no mast antenna), the version sold in India. US-spec car photographed in the Philippines; exterior identical."
+      }
+    ],
+    "jeep-grand-cherokee": [
+      {
+        "file": "File:Jeep GRAND CHEROLEE LIMITED (7BA-WL20) front.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Jeep_GRAND_CHEROLEE_LIMITED_(7BA-WL20)_front.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Jeep_GRAND_CHEROLEE_LIMITED_%287BA-WL20%29_front.jpg/1920px-Jeep_GRAND_CHEROLEE_LIMITED_%287BA-WL20%29_front.jpg",
+        "width": 2560,
+        "height": 1920,
+        "author": "Tokumeigakarinoaoshima",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Tokumeigakarinoaoshima",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Jeep Grand Cherokee Limited (fifth generation, two-row) in grey, front three-quarter view",
+        "note": "Japanese-market five-seat Grand Cherokee Limited (WL), right-hand drive like India's Limited (O); same grille, lamps and wheels."
+      },
+      {
+        "file": "File:Jeep GRAND CHEROLEE LIMITED (7BA-WL20) rear.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Jeep_GRAND_CHEROLEE_LIMITED_(7BA-WL20)_rear.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Jeep_GRAND_CHEROLEE_LIMITED_%287BA-WL20%29_rear.jpg/1920px-Jeep_GRAND_CHEROLEE_LIMITED_%287BA-WL20%29_rear.jpg",
+        "width": 2560,
+        "height": 1920,
+        "author": "Tokumeigakarinoaoshima",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Tokumeigakarinoaoshima",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Jeep Grand Cherokee Limited (fifth generation, two-row) in grey, rear three-quarter view",
+        "note": "Same Japanese two-row Grand Cherokee Limited (WL), the body India sells; slight wide-angle distortion."
+      }
+    ]
+  },
+  "missing": {}
+}

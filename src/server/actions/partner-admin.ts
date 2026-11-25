@@ -116,7 +116,7 @@ async function loadPartner(partnerId: unknown) {
 
 /** Moves a dealer application through review: under review, corrections, documents, approve, reject. */
 export async function partnerDecisionAction(partnerId: unknown, input: unknown): Promise<ActionResult<{ status: PartnerStatus; publicDealerId: string | null }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("dealers");
   const parsed = partnerDecision.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const p = await loadPartner(partnerId);
@@ -212,7 +212,7 @@ const ACCOUNT_FROM: Record<"suspend" | "reactivate" | "deactivate", PartnerStatu
 
 /** Admins only: suspend, reactivate or deactivate a partner. Hides or restores the public listing and mirrored used cars. */
 export async function partnerAccountAction(partnerId: unknown, input: unknown): Promise<ActionResult<{ status: PartnerStatus }>> {
-  const me = await requireStaff(["admin"]);
+  const me = await requireStaff("admin");
   const parsed = accountChange.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const { op, remarks } = parsed.data;
@@ -243,7 +243,7 @@ export async function partnerAccountAction(partnerId: unknown, input: unknown): 
 
 /** Admins only: the full bank account number, decrypted on the server. Every reveal is logged. */
 export async function revealBankAccountAction(partnerId: unknown): Promise<ActionResult<{ accountNumber: string }>> {
-  const me = await requireStaff(["admin"]);
+  const me = await requireStaff("admin");
   const p = await loadPartner(partnerId);
   if (!p) return { ok: false, error: "This dealer no longer exists." };
   const stored = p.application.bank?.accountNumber ?? "";
@@ -260,7 +260,7 @@ export async function revealBankAccountAction(partnerId: unknown): Promise<Actio
 
 /** A staff-only note on a dealer — kept in the approval history, never shown to the dealer. */
 export async function addInternalNoteAction(partnerId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("dealers");
   const parsed = z.object({ note: z.string({ error: "Write a note" }).trim().min(2, "Write a note").max(2000, "Keep this under 2000 characters") }).safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const p = await loadPartner(partnerId);
@@ -279,7 +279,7 @@ const docReview = z.discriminatedUnion("status", [
 ]);
 
 export async function reviewDocumentAction(fileId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("dealers");
   const parsed = docReview.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const fid = id.safeParse(fileId);
@@ -320,7 +320,7 @@ const brandReview = z
   });
 
 export async function reviewBrandAction(brandId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("dealers");
   const parsed = brandReview.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const bid = id.safeParse(brandId);
@@ -398,7 +398,7 @@ function applyFields(app: PartnerApplication, fields: Record<string, { from: str
 
 /** Approves (applies) or rejects a dealer's request to change verified business details. */
 export async function decideChangeRequestAction(requestId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("dealers");
   const parsed = changeDecision.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const rid = id.safeParse(requestId);
@@ -487,7 +487,7 @@ const VEHICLE_ACTION: Record<VehicleOp, string> = {
 };
 
 export async function vehicleDecisionAction(vehicleId: unknown, input: unknown): Promise<ActionResult<{ status: PartnerVehicleStatus; publicUsedCarId: string | null }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("dealers");
   const parsed = vehicleDecision.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const vid = id.safeParse(vehicleId);
@@ -586,7 +586,7 @@ const OFFER_ACTION: Record<OfferOp, string> = {
 const fmtWhen = (d: Date) => d.toLocaleString("en-IN", { timeZone: "Asia/Kolkata", day: "numeric", month: "short", year: "numeric", hour: "numeric", minute: "2-digit" });
 
 export async function offerDecisionAction(offerId: unknown, input: unknown): Promise<ActionResult<{ display: string }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("dealers");
   const parsed = offerDecision.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const oid = id.safeParse(offerId);

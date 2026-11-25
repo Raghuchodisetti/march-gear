@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { describePhoto } from "@/lib/image-alt";
 import { getCatalog } from "@/server/catalog";
+import { creditFor } from "@/server/photo-credits";
+import { PhotoCreditLine } from "@/components/vehicle/photo-credit";
 import { FEATURED_BRAND, SEGMENTS } from "@/data/brands-listing";
 import { formatPrice } from "@/lib/format";
 import { Button } from "@/components/ui/button";
@@ -24,6 +26,7 @@ export default async function BrandsPage() {
   const featured = brandSummary(featuredBrand);
   const featuredLine = carsByBrand(featuredBrand.slug);
   const totalModels = summaries.reduce((n, s) => n + s.models, 0);
+  const heroCredit = await creditFor(featuredBrand.heroImage);
 
   return (
     <>
@@ -45,7 +48,7 @@ export default async function BrandsPage() {
             {featuredBrand.heroImage ? (
               <Image
                 src={featuredBrand.heroImage}
-                alt={describePhoto(featuredBrand.heroImage, `${featuredBrand.name} — featured marque`)}
+                alt={heroCredit?.alt ?? describePhoto(featuredBrand.heroImage, `${featuredBrand.name} — featured marque`)}
                 fill
                 preload
                 sizes="(min-width: 1024px) 58vw, 100vw"
@@ -90,6 +93,7 @@ export default async function BrandsPage() {
                   All luxury cars
                 </Button>
               </div>
+              {heroCredit && <PhotoCreditLine credit={heroCredit} tone="dark" className="mt-8" />}
             </div>
           </div>
         </Reveal>

@@ -7,6 +7,8 @@ import { ArrowLeft, ArrowRight, Check, Plus } from "lucide-react";
 import type { CarModel, Variant } from "@/types";
 import { getVariant } from "@/lib/catalog";
 import { getCatalog } from "@/server/catalog";
+import { creditFor } from "@/server/photo-credits";
+import { PhotoCreditLine } from "@/components/vehicle/photo-credit";
 import { formatPrice, formatPriceShort } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
@@ -96,6 +98,7 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
   // Section numbers follow the sections actually shown.
   const order = ["price-breakdown", ...(showFeatures ? ["key-features"] : []), ...(diff ? ["step-up"] : []), "specifications", "other-variants"];
   const idx = (id: string) => pad2(order.indexOf(id) + 1);
+  const heroCredit = await creditFor(car.images[0]);
 
   return (
     <div className={BOTTOM_BAR_PADDING}>
@@ -120,21 +123,25 @@ export default async function VariantPage(props: PageProps<"/cars/[slug]/[varian
         </div>
 
         <div className="container-x grid grid-cols-1 gap-10 pb-14 pt-8 md:pb-20 lg:grid-cols-12 lg:gap-12">
-          <div className="relative aspect-[4/3] overflow-hidden bg-mist md:aspect-[16/10] lg:col-span-7">
-            <CarImage
-              car={car}
-              alt={car.images[0] ? carPhotoAlt(car.images[0], `${title} ${variant.name}`) : ""}
-              preload
-              sizes="(min-width: 1024px) 56vw, 100vw"
-              className="object-cover"
-              style={{ objectPosition: car.focus ?? "50% 55%" }}
-              name={title}
-            />
-            <span className="absolute left-4 top-4">
-              <Badge tone="glass">
-                Variant {pad2(position)} of {pad2(variants.length)}
-              </Badge>
-            </span>
+          <div className="min-w-0 lg:col-span-7">
+            <div className="relative aspect-[4/3] overflow-hidden bg-mist md:aspect-[16/10]">
+              <CarImage
+                car={car}
+                // A genuine photo shows the model, not necessarily this variant, so it says what it shows.
+                alt={heroCredit?.alt ?? (car.images[0] ? carPhotoAlt(car.images[0], `${title} ${variant.name}`) : "")}
+                preload
+                sizes="(min-width: 1024px) 56vw, 100vw"
+                className="object-cover"
+                style={{ objectPosition: car.focus ?? "50% 55%" }}
+                name={title}
+              />
+              <span className="absolute left-4 top-4">
+                <Badge tone="glass">
+                  Variant {pad2(position)} of {pad2(variants.length)}
+                </Badge>
+              </span>
+            </div>
+            {heroCredit && <PhotoCreditLine credit={heroCredit} allCredits={`/photo-credits#${car.slug}`} className="mt-3" />}
           </div>
 
           <div className="min-w-0 lg:col-span-5 lg:pt-2">

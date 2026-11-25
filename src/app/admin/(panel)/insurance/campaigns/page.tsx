@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { Megaphone, Presentation } from "lucide-react";
 import { INS_CAMPAIGN_TYPES } from "@/db/enums";
 import { INS_CAMPAIGN_STATUS_LABEL, INS_CAMPAIGN_TYPE_LABEL, campaignDisplayStatus } from "@/insurance/labels";

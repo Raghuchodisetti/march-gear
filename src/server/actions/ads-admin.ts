@@ -92,7 +92,7 @@ const TO: Partial<Record<Op, AdCampaignStatus>> = { approve: "approved", request
 const ACTION: Record<Op, string> = { approve: "approved", request_changes: "changes_requested", reject: "rejected", pause: "paused", resume: "resumed", cancel: "cancelled", reschedule: "rescheduled" };
 
 export async function adCampaignDecisionAction(campaignId: unknown, input: unknown): Promise<ActionResult<{ display: string; invoice?: string | null }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("advertising");
   const cid = id.safeParse(campaignId);
   if (!cid.success) return { ok: false, error: "Campaign not found." };
   const parsed = decision.safeParse(input);
@@ -265,7 +265,7 @@ export async function adCampaignDecisionAction(campaignId: unknown, input: unkno
 
 /** A staff-only note on a vendor campaign (never shown to the vendor). */
 export async function adCampaignNoteAction(campaignId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("advertising");
   const cid = id.safeParse(campaignId);
   const parsed = z.object({ remarks: requiredRemarks("Write the note") }).safeParse(input);
   if (!cid.success) return { ok: false, error: "Campaign not found." };
@@ -294,7 +294,7 @@ const CREATIVE_FROM: Record<"approve" | "request_changes" | "reject", AdCreative
 const CREATIVE_TO = { approve: "approved", request_changes: "changes_requested", reject: "rejected" } as const;
 
 export async function adCreativeDecisionAction(creativeId: unknown, input: unknown): Promise<ActionResult<{ status: string }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("advertising");
   const crid = id.safeParse(creativeId);
   if (!crid.success) return { ok: false, error: "Creative not found." };
   const parsed = creativeDecision.safeParse(input);
@@ -360,7 +360,7 @@ function houseTarget(raw: string | null | undefined) {
 }
 
 export async function createHouseCampaignAction(input: unknown): Promise<ActionResult<{ id: number; reference: string }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("advertising");
   const parsed = houseInput.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const d = parsed.data;
@@ -448,7 +448,7 @@ const houseCreativeInput = z.object({ campaignId: id, creativeId: id.nullish(), 
 
 /** Adds or replaces a creative on a house campaign (approved straight away — staff made it). */
 export async function saveHouseCreativeAction(input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("advertising");
   const parsed = houseCreativeInput.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const { campaignId, creativeId, creative: c } = parsed.data;
@@ -503,7 +503,7 @@ const placementInput = z
   .refine((v) => v.maxDays >= v.minDays, { path: ["maxDays"], message: "Must be at least the minimum" });
 
 export async function updatePlacementAction(placementId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("advertising");
   const pid = id.safeParse(placementId);
   if (!pid.success) return { ok: false, error: "Placement not found." };
   const parsed = placementInput.safeParse(input);
@@ -525,7 +525,7 @@ export async function updatePlacementAction(placementId: unknown, input: unknown
 
 /** Puts a placement back to its launch settings from the code (src/ads/placements.ts). */
 export async function restorePlacementDefaultsAction(placementId: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("advertising");
   const pid = id.safeParse(placementId);
   if (!pid.success) return { ok: false, error: "Placement not found." };
   const db = getDb();

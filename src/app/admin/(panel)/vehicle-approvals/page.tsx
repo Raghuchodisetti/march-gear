@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { AlertTriangle, CarFront, ExternalLink, FileText, Library } from "lucide-react";
 import { PARTNER_VEHICLE_STATUS } from "@/db/enums";
 import { PARTNER_STATUS_LABEL, VEHICLE_STATUS_LABEL } from "@/partner/labels";

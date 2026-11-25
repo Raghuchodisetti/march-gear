@@ -32,7 +32,7 @@ const replySchema = z.object({
 
 /** Reply as MarchGear support. The vendor sees "awaiting_dealer" as "Awaiting your reply". */
 export async function staffReplyInsTicketAction(ticketId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   const parsed = replySchema.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const t = await load(ticketId);
@@ -54,7 +54,7 @@ export async function staffReplyInsTicketAction(ticketId: unknown, input: unknow
 }
 
 export async function staffUpdateInsTicketAction(ticketId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   // Only the fields staff changed are sent, so a stale form can't undo a status set by a reply meanwhile.
   const parsed = z.object({ status: z.enum(TICKET_STATUS, { error: "Choose a status" }).optional(), priority: z.enum(TICKET_PRIORITY, { error: "Choose a priority" }).optional() }).safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
@@ -77,7 +77,7 @@ export async function staffUpdateInsTicketAction(ticketId: unknown, input: unkno
 
 /** A staff-only handling note (never shown to the vendor). Stored in the activity log against the ticket. */
 export async function addInsTicketNoteAction(ticketId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   const parsed = z.object({ note: z.string({ error: "Write a note" }).trim().min(3, "Write a note (at least 3 characters)").max(300, "Keep internal notes under 300 characters") }).safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const t = await load(ticketId);

@@ -75,7 +75,7 @@ async function loadPayment(paymentId: number) {
  * a part-payment sends it back to due (or keeps it verifying while another payment waits).
  */
 export async function verifyInsPaymentAction(paymentId: unknown, input: unknown): Promise<ActionResult<{ invoicePaid: boolean; balance: number }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("admin");
   const pid = id.safeParse(paymentId);
   const parsed = z.object({ remarks: z.string().trim().max(500, "Keep remarks under 500 characters").optional() }).safeParse(input ?? {});
   if (!pid.success) return { ok: false, error: "Payment not found." };
@@ -138,7 +138,7 @@ export async function verifyInsPaymentAction(paymentId: unknown, input: unknown)
 
 /** The payment couldn't be matched: rejected with remarks; the invoice is payable again. */
 export async function rejectInsPaymentAction(paymentId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("admin");
   const pid = id.safeParse(paymentId);
   const parsed = z
     .object({ remarks: z.string({ error: "Tell the vendor why" }).trim().min(5, "Tell the vendor why (at least 5 characters)").max(500, "Keep remarks under 500 characters") })
@@ -194,7 +194,7 @@ const markPaidSchema = z.object({
 
 /** Staff saw the money arrive (e.g. paid without recording it): records a verified payment for the balance. */
 export async function markInsInvoicePaidAction(invoiceId: unknown, input: unknown): Promise<ActionResult<{ paymentId: number }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("admin");
   const iid = id.safeParse(invoiceId);
   const parsed = markPaidSchema.safeParse(input);
   if (!iid.success) return { ok: false, error: "Invoice not found." };
@@ -258,7 +258,7 @@ export async function markInsInvoicePaidAction(invoiceId: unknown, input: unknow
 
 /** Admins only. An unpaid invoice raised in error is cancelled; the vendor owes nothing for it. */
 export async function voidInsInvoiceAction(invoiceId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff(["admin"]);
+  const me = await requireStaff("admin");
   const iid = id.safeParse(invoiceId);
   const parsed = z.object({ reason: z.string({ error: "Give a reason" }).trim().min(5, "Give a reason (at least 5 characters)").max(300, "Keep the reason under 300 characters") }).safeParse(input);
   if (!iid.success) return { ok: false, error: "Invoice not found." };
@@ -292,7 +292,7 @@ const createSchema = z
 
 /** A one-off charge (lead fee or other) for a vendor. 18% GST is added. */
 export async function createInsInvoiceAction(input: unknown): Promise<ActionResult<{ id: number; number: string; total: number }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("admin");
   const parsed = createSchema.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const d = parsed.data;
@@ -331,7 +331,7 @@ const refundSchema = z.object({
 
 /** Admins only. Records money MarchGear paid back (no gateway — the transfer happens outside the site). */
 export async function recordInsRefundAction(input: unknown): Promise<ActionResult<{ id: number; refundable: number }>> {
-  const me = await requireStaff(["admin"]);
+  const me = await requireStaff("admin");
   const parsed = refundSchema.safeParse(input);
   if (!parsed.success) return invalid(parsed.error);
   const d = parsed.data;

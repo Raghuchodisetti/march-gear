@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { and, desc, eq, inArray, like, ne, or, sql, type SQL } from "drizzle-orm";
 import { Paperclip } from "lucide-react";
 import { getDb } from "@/db";

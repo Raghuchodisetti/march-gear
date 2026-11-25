@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { carPhotoAlt } from "@/lib/image-alt";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
@@ -9,6 +10,8 @@ import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { useDialogBehaviour, useIsClient } from "@/components/ui/overlay";
+import { PhotoCreditLine } from "@/components/vehicle/photo-credit";
+import { PHOTO_CREDITS_PATH, isStockPhoto, type CreditMap } from "@/lib/photo-credits";
 import { useCarDetail } from "./context";
 import { pad2 } from "./utils";
 
@@ -24,9 +27,10 @@ function spanFor(i: number, count: number) {
 
 /** Editorial mosaic of every model image; any tile opens a full-screen viewer. */
 export function GalleryGrid() {
-  const { car, title } = useCarDetail();
+  const { car, title, credits } = useCarDetail();
   const images = car.images;
   const [open, setOpen] = useState<number | null>(null);
+  const credited = images.filter((src) => credits[src]).length;
 
   return (
     <>
@@ -59,8 +63,20 @@ export function GalleryGrid() {
           </button>
         ))}
       </div>
-      <p className="mt-4 text-[12px] text-muted">Photography is representative and may not depict the exact model or specification.</p>
-      <Lightbox images={images} title={title} index={open} onIndex={setOpen} />
+      {images.some(isStockPhoto) ? (
+        <p className="mt-4 text-[12px] text-muted">Photography is representative and may not depict the exact model or specification.</p>
+      ) : (
+        credited > 0 && (
+          <p className="mt-4 text-[12px] text-muted">
+            {credited === 1 ? "Photo" : "Photos"} from Wikimedia Commons under free licences. Each photo&apos;s credit is shown when you open it — or see{" "}
+            <Link href={PHOTO_CREDITS_PATH} className="underline decoration-ink/20 underline-offset-[3px] hover:text-ink hover:decoration-ink">
+              all photo credits
+            </Link>
+            .
+          </p>
+        )
+      )}
+      <Lightbox images={images} title={title} index={open} onIndex={setOpen} credits={credits} />
     </>
   );
 }
@@ -70,13 +86,16 @@ function Lightbox({
   title,
   index,
   onIndex,
+  credits,
 }: {
   images: string[];
   title: string;
   index: number | null;
   onIndex: (i: number | null) => void;
+  credits: CreditMap;
 }) {
   const isClient = useIsClient();
+  const credit = index === null ? undefined : credits[images[index]];
   const ref = useRef<HTMLDivElement>(null);
   const open = index !== null;
   const close = useCallback(() => onIndex(null), [onIndex]);
@@ -134,7 +153,7 @@ function Lightbox({
                 transition={{ duration: 0.5, ease: EASE }}
                 className="absolute inset-0 mx-4 md:mx-24"
               >
-                <Image src={images[index]} alt={carPhotoAlt(images[index], title, `photo ${index + 1}`)} fill sizes="100vw" className="object-contain" />
+                <Image src={images[index]} alt={credit?.alt ?? carPhotoAlt(images[index], title, `photo ${index + 1}`)} fill sizes="100vw" className="object-contain" />
               </motion.div>
             </AnimatePresence>
             {images.length > 1 && (
@@ -158,6 +177,7 @@ function Lightbox({
               </>
             )}
           </div>
+          {credit && <PhotoCreditLine credit={credit} tone="dark" className="px-5 pt-4 text-center" />}
           <div className="no-scrollbar flex justify-center gap-2 overflow-x-auto px-5 py-5">
             {images.map((src, i) => (
               <button

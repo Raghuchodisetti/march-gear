@@ -281,6 +281,7 @@ export const footerColumns: MegaColumn[] = [
       { label: "Expert reviews", href: "/reviews" },
       { label: "Owner reviews", href: "/reviews/owners" },
       { label: "News & media", href: "/news" },
+      { label: "Guides", href: "/guides" },
       { label: "EMI calculator", href: "/tools/emi-calculator" },
       { label: "All car tools", href: "/tools" },
     ],
@@ -304,4 +305,5 @@ export const footerLegal: NavLink[] = [
   { label: "Terms & conditions", href: "/terms" },
   { label: "Cookie policy", href: "/cookies" },
   { label: "Refund policy", href: "/refund-policy" },
+  { label: "Photo credits", href: "/photo-credits" },
 ];

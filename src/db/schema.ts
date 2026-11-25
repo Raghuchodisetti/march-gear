@@ -26,6 +26,7 @@ import type {
   Transmission,
 } from "@/types";
 import type { UserPreferences } from "@/lib/action-result";
+import type { GuideBlock } from "@/lib/guides";
 import {
   AD_AUDIENCE,
   AD_CAMPAIGN_STATUS,
@@ -413,6 +414,8 @@ export const users = mysqlTable("users", {
   role: mysqlEnum("role", USER_ROLES).notNull().default("customer"),
   /** Contact & alert preferences from the profile page (null = defaults). */
   preferences: json<UserPreferences | null>("preferences"),
+  /** Staff accounts: the admin sections they may use (see STAFF_SECTIONS). Admins have every section; others none. */
+  permissions: json<string[] | null>("permissions"),
   isActive: boolean("is_active").notNull().default(true),
   lastLoginAt: datetime("last_login_at"),
   createdAt: created(),
@@ -606,9 +609,30 @@ export const media = mysqlTable(
     partnerId: int("partner_id").references((): AnyMySqlColumn => partners.id, { onDelete: "set null" }),
     /** Set for uploads from the insurance vendor portal (each vendor sees only its own). */
     insVendorId: int("ins_vendor_id").references((): AnyMySqlColumn => insVendors.id, { onDelete: "set null" }),
+    /*
+     * Credits for third-party photos (free-licensed Wikimedia Commons photos loaded by `npm run db:import-images`).
+     * All null for our own uploads. The licences require them to be shown (see /photo-credits); `credit_note`
+     * records what we changed, which CC BY-SA requires us to indicate.
+     */
+    /** The photo's page at its source (the Commons file page), which also identifies it for re-imports. */
+    sourceUrl: varchar("source_url", { length: 500 }),
+    author: varchar("author", { length: 160 }),
+    authorUrl: varchar("author_url", { length: 500 }),
+    /** As the source names it: "CC BY-SA 4.0", "CC0", "Public domain". */
+    license: varchar("license", { length: 60 }),
+    licenseUrl: varchar("license_url", { length: 300 }),
+    /** "Resized and converted to WebP". */
+    creditNote: varchar("credit_note", { length: 200 }),
+    /** A smaller WebP rendition (960 px wide) for cards and thumbnails, served at /media/<id>/<name>?w=960. Null = serve the original. */
+    thumb: longblob("thumb"),
     createdAt: created(),
   },
-  (t) => [index("media_created_idx").on(t.createdAt), index("media_partner_idx").on(t.partnerId), index("media_ins_vendor_idx").on(t.insVendorId)],
+  (t) => [
+    index("media_created_idx").on(t.createdAt),
+    index("media_partner_idx").on(t.partnerId),
+    index("media_ins_vendor_idx").on(t.insVendorId),
+    index("media_source_idx").on(t.sourceUrl),
+  ],
 );
 
 /** Who changed what in the admin panel. */
@@ -731,6 +755,8 @@ export const partnerFiles = mysqlTable(
     mime: varchar("mime", { length: 60 }).notNull(),
     size: int("size").notNull(),
     data: longblob("data").notNull(),
+    /** "deflate" when `data` is stored compressed (PDFs that weren't compressed inside); null = as uploaded. `size` is the original size. */
+    encoding: varchar("encoding", { length: 16 }),
     status: mysqlEnum("status", FILE_REVIEW_STATUS).notNull().default("pending"),
     remarks: text("remarks"),
     uploadedBy: int("uploaded_by").references(() => users.id, { onDelete: "set null" }),
@@ -1248,6 +1274,8 @@ export const insFiles = mysqlTable(
     mime: varchar("mime", { length: 60 }).notNull(),
     size: int("size").notNull(),
     data: longblob("data").notNull(),
+    /** "deflate" when `data` is stored compressed (PDFs that weren't compressed inside); null = as uploaded. `size` is the original size. */
+    encoding: varchar("encoding", { length: 16 }),
     status: mysqlEnum("status", FILE_REVIEW_STATUS).notNull().default("pending"),
     remarks: text("remarks"),
     uploadedBy: int("uploaded_by").references(() => users.id, { onDelete: "set null" }),
@@ -1844,4 +1872,49 @@ export const adStats = mysqlTable(
     enquiries: int("enquiries").notNull().default(0),
   },
   (t) => [primaryKey({ columns: [t.campaignId, t.day] })],
+);
+
+/* ── Guides ─────────────────────────────────────────────────── */
+
+/**
+ * Topic pages at /guides/<slug>, created by staff from a PDF: the PDF's text becomes `content`
+ * (editable afterwards) and the PDF itself is kept in guide_files, optionally offered as a download.
+ */
+export const guides = mysqlTable(
+  "guides",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    slug: varchar("slug", { length: 160 }).notNull().unique(),
+    subject: varchar("subject", { length: 120 }).notNull(),
+    title: varchar("title", { length: 200 }).notNull(),
+    summary: text("summary").notNull(),
+    content: json<GuideBlock[]>("content").notNull(),
+    words: int("words").notNull().default(0),
+    /** The uploaded PDF (null once removed). */
+    pdfName: varchar("pdf_name", { length: 200 }),
+    pdfSize: int("pdf_size"),
+    pdfPages: int("pdf_pages"),
+    /** "deflate" when the stored PDF pieces are compressed (see src/server/stored-files.ts); `pdfSize` is the original size. */
+    pdfEncoding: varchar("pdf_encoding", { length: 16 }),
+    /** Offer the original PDF as a download on the page. */
+    showPdf: boolean("show_pdf").notNull().default(true),
+    status: mysqlEnum("status", PUBLISH_STATUS).notNull().default("published"),
+    createdBy: int("created_by").references(() => users.id, { onDelete: "set null" }),
+    createdAt: created(),
+    updatedAt: updated(),
+  },
+  (t) => [index("guides_subject_idx").on(t.subject), index("guides_status_idx").on(t.status)],
+);
+
+/** A guide's PDF in 512 KB pieces, so each insert stays under MySQL's default 1 MB max_allowed_packet. */
+export const guideFiles = mysqlTable(
+  "guide_files",
+  {
+    guideId: int("guide_id")
+      .notNull()
+      .references(() => guides.id, { onDelete: "cascade" }),
+    seq: int("seq").notNull(),
+    data: longblob("data").notNull(),
+  },
+  (t) => [primaryKey({ columns: [t.guideId, t.seq] })],
 );

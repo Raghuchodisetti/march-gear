@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { notFound } from "next/navigation";
 import { INS_VENDOR_STATUS_LABEL, INS_VENDOR_STATUS_TONE } from "@/insurance/labels";
 import { requireStaff } from "@/server/auth";

@@ -1,0 +1,205 @@
+{
+  "brand": "mg",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "mg-comet-ev": [
+      {
+        "file": "File:MG Comet EV side view.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MG_Comet_EV_side_view.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/MG_Comet_EV_side_view.jpg/1920px-MG_Comet_EV_side_view.jpg",
+        "width": 4032,
+        "height": 3024,
+        "author": "Saiphani02",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Saiphani02",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "side",
+        "alt": "MG Comet EV in white with black roof, side profile",
+        "note": "Indian MG Comet EV at an MG showroom in India: two-door tall-boy body with MG badges (not the Wuling Air EV it is based on). No usable front three-quarter photo exists, so the side view is first."
+      },
+      {
+        "file": "File:MG Comet EV Rear view.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MG_Comet_EV_Rear_view.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/MG_Comet_EV_Rear_view.jpg/1920px-MG_Comet_EV_Rear_view.jpg",
+        "width": 3024,
+        "height": 4032,
+        "author": "Saiphani02",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Saiphani02",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "MG Comet EV in white, rear view",
+        "note": "Same Indian showroom: MG badge and COMET lettering on the tailgate, Andhra Pradesh trade plate."
+      },
+      {
+        "file": "File:MG Comet EV Inside.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MG_Comet_EV_Inside.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/MG_Comet_EV_Inside.jpg/1920px-MG_Comet_EV_Inside.jpg",
+        "width": 3024,
+        "height": 4032,
+        "author": "Saiphani02",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Saiphani02",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "MG Comet EV dashboard with twin screens, right-hand drive",
+        "note": "Right-hand-drive Indian Comet EV cabin with MG-badged steering wheel and twin 10.25-inch screen panel."
+      }
+    ],
+    "mg-zs-ev": [
+      {
+        "file": "File:MG ZS EV SUV.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MG_ZS_EV_SUV.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/MG_ZS_EV_SUV.jpg/1920px-MG_ZS_EV_SUV.jpg",
+        "width": 5512,
+        "height": 4134,
+        "author": "Oleg Yunakov",
+        "authorUrl": "https://commons.wikimedia.org/w/index.php?title=User:Oleg_Yunakov&action=edit&redlink=1",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "MG ZS EV (2022 facelift) in black, front three-quarter view",
+        "note": "Indian ZS EV on a Kerala green EV plate: facelift closed grille with textured panel and MG logo charging flap."
+      },
+      {
+        "file": "File:2023 MG ZS EV AZS1 Essence rear.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_MG_ZS_EV_AZS1_Essence_rear.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/2023_MG_ZS_EV_AZS1_Essence_rear.jpg/1920px-2023_MG_ZS_EV_AZS1_Essence_rear.jpg",
+        "width": 6004,
+        "height": 3240,
+        "author": "LuvsMG481",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:LuvsMG481",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "MG ZS EV (facelift) in white, rear three-quarter view",
+        "note": "Australian-market ZS EV facelift (right-hand drive), visually the same as the Indian facelift: LED tail lamps and ZS EV badging."
+      },
+      {
+        "file": "File:2023 MG ZS EV AZS1 Essence front.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_MG_ZS_EV_AZS1_Essence_front.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/2023_MG_ZS_EV_AZS1_Essence_front.jpg/1920px-2023_MG_ZS_EV_AZS1_Essence_front.jpg",
+        "width": 5696,
+        "height": 2875,
+        "author": "LuvsMG481",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:LuvsMG481",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "MG ZS EV (facelift) in white, front three-quarter view",
+        "note": "Same Australian facelift car, identical to the Indian ZS EV design. Second front view because no side view or interior photo of the Indian car was available."
+      }
+    ],
+    "mg-astor": [
+      {
+        "file": "File:2021 MG Astor Sharp 220 Turbo (India) front view.png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2021_MG_Astor_Sharp_220_Turbo_(India)_front_view.png",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/2021_MG_Astor_Sharp_220_Turbo_%28India%29_front_view.png",
+        "width": 1920,
+        "height": 1080,
+        "author": "DriveSpark",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "front",
+        "alt": "MG Astor in white, front three-quarter view",
+        "note": "Indian MG Astor: Celestial grille with chrome studs and ASTOR placard. The Astor has not been facelifted in India, so the launch design is current."
+      },
+      {
+        "file": "File:2021 MG Astor Sharp 220 Turbo (India) rear view.png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2021_MG_Astor_Sharp_220_Turbo_(India)_rear_view.png",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/2021_MG_Astor_Sharp_220_Turbo_%28India%29_rear_view.png",
+        "width": 1920,
+        "height": 1151,
+        "author": "DriveSpark",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "rear",
+        "alt": "MG Astor in white, rear three-quarter view",
+        "note": "Same Indian car: ASTOR lettering on the tailgate. The 220 Turbo engine has since been dropped but the body is unchanged."
+      }
+    ],
+    "mg-cyberster": [
+      {
+        "file": "File:2024 MG Cyberster.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_MG_Cyberster.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/2024_MG_Cyberster.jpg/1920px-2024_MG_Cyberster.jpg",
+        "width": 4411,
+        "height": 2497,
+        "author": "MrWalkr",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:MrWalkr",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "MG Cyberster in silver, front three-quarter view",
+        "note": "UK-registered right-hand-drive Cyberster; India gets the same car as a CBU through MG Select, so the design is identical."
+      },
+      {
+        "file": "File:2024 MG Cyberster Rear.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_MG_Cyberster_Rear.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/2024_MG_Cyberster_Rear.jpg/1920px-2024_MG_Cyberster_Rear.jpg",
+        "width": 4596,
+        "height": 2477,
+        "author": "MrWalkr",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:MrWalkr",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "MG Cyberster in silver, rear three-quarter view",
+        "note": "Same UK car: arrow-shaped LED tail lamps; CBU design identical to the Indian car."
+      },
+      {
+        "file": "File:MG Cyberster IMG 3470.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MG_Cyberster_IMG_3470.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/MG_Cyberster_IMG_3470.jpg/1920px-MG_Cyberster_IMG_3470.jpg",
+        "width": 5043,
+        "height": 3356,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "MG Cyberster in yellow, front three-quarter view",
+        "note": "European Cyberster in yellow (a colour offered in India), roof up while charging. Second front view because no clean side view or right-hand-drive interior photo was available."
+      }
+    ],
+    "mg-m9": [
+      {
+        "file": "File:MG Mifa 9 EV Wine Red 01.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:MG_Mifa_9_EV_Wine_Red_01.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/MG_Mifa_9_EV_Wine_Red_01.jpg/1920px-MG_Mifa_9_EV_Wine_Red_01.jpg",
+        "width": 3606,
+        "height": 2404,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "MG M9 (Mifa 9) electric MPV in wine red, front three-quarter view",
+        "note": "Philippine-market MG Mifa 9 EV: the MG-badged electric MPV that MG sells in India and Europe as the M9, with the same lamps and body as the Singapore 'MG M9 EV' showcar. Not the Maxus-badged version."
+      },
+      {
+        "file": "File:(SGP-Singapore) Showcar MG M9 EV No-plate rear 2024-09-14 - 1.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Showcar_MG_M9_EV_No-plate_rear_2024-09-14_-_1.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/%28SGP-Singapore%29_Showcar_MG_M9_EV_No-plate_rear_2024-09-14_-_1.jpg/1920px-%28SGP-Singapore%29_Showcar_MG_M9_EV_No-plate_rear_2024-09-14_-_1.jpg",
+        "width": 3776,
+        "height": 3021,
+        "author": "S5A-0043",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:S5A-0043",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "angle": "rear",
+        "alt": "MG M9 EV in white, rear three-quarter view",
+        "note": "Singapore 'All-New MG M9 EV' showroom car: M9 EV badge and full-width tail lamps, as on the Indian M9."
+      }
+    ]
+  },
+  "missing": {
+    "mg-windsor-ev": "No free-licensed photo of the MG-badged Windsor EV on Commons as of 2026-11-25; only the Wuling Cloud EV / Baojun Yunduo it is based on, which carry different badges and are not used.",
+    "mg-hector": "Facelift launched 15 December 2025 with a new grille; no free-licensed photo of it on Commons as of 2026-11-25 (only 2019-2023 Hectors).",
+    "mg-hector-tomahawk-ev": "No free-licensed photo of the Hector Tomahawk EV on Commons as of 2026-11-25.",
+    "mg-hector-tomahawk-phev": "No free-licensed photo of the Hector Tomahawk PHEV on Commons as of 2026-11-25.",
+    "mg-majestor": "No free-licensed photo of the MG Majestor on Commons as of 2026-11-25; only the Maxus D90 it is related to, which is a different design and badge."
+  }
+}

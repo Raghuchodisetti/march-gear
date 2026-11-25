@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import type { ReactNode } from "react";
 import { ArrowRight, ClipboardCheck, Layers, Megaphone, Presentation, ShieldCheck, Store, Wallet } from "lucide-react";
 import { INS_VENDOR_STATUS, type InsVendorStatus } from "@/db/enums";

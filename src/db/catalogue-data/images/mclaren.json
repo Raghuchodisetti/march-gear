@@ -1,0 +1,153 @@
+{
+  "brand": "mclaren",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "mclaren-750s": [
+      {
+        "file": "File:2024 McLaren 750S Nero Black Front Three Quarter at McLaren Seattle.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_McLaren_750S_Nero_Black_Front_Three_Quarter_at_McLaren_Seattle.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/2024_McLaren_750S_Nero_Black_Front_Three_Quarter_at_McLaren_Seattle.jpg/1920px-2024_McLaren_750S_Nero_Black_Front_Three_Quarter_at_McLaren_Seattle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 6000,
+        "height": 4000,
+        "author": "Trans-nyan",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Trans-nyan",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "McLaren 750S coupé in black, front three-quarter view",
+        "note": "750S (2023 on, 720S successor): narrower headlamp sockets with the new DRL signature and the reshaped front splitter. Dealer showroom car (McLaren Seattle); a charging cable hangs from the front."
+      },
+      {
+        "file": "File:McLaren 750S (Rear).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:McLaren_750S_(Rear).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/McLaren_750S_%28Rear%29.jpg/1920px-McLaren_750S_%28Rear%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4000,
+        "height": 3000,
+        "author": "Aos.1905",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Aos.1905",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "McLaren 750S coupé in yellow with doors open, rear three-quarter view",
+        "note": "750S rear with the central exhaust in the mesh panel and the larger active rear wing. Shown on McLaren's own stand at the Osaka Motor Show 2023; visitors in the background."
+      },
+      {
+        "file": "File:Interior of a McLaren 750S (Japanese specification).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Interior_of_a_McLaren_750S_(Japanese_specification).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Interior_of_a_McLaren_750S_%28Japanese_specification%29.jpg/1920px-Interior_of_a_McLaren_750S_%28Japanese_specification%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4032,
+        "height": 2272,
+        "author": "Aos.1905",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Aos.1905",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "McLaren 750S cabin, right-hand drive, with black Alcantara and yellow-trimmed seats",
+        "note": "Right-hand-drive Japanese-spec 750S interior (same layout as Indian cars): binnacle-mounted instruments and carbon racing seats."
+      }
+    ],
+    "mclaren-artura": [
+      {
+        "file": "File:McLaren Artura IMG 0534.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:McLaren_Artura_IMG_0534.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/McLaren_Artura_IMG_0534.jpg/1920px-McLaren_Artura_IMG_0534.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4680,
+        "height": 2744,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "McLaren Artura in orange, front three-quarter view",
+        "note": "Artura V6 plug-in hybrid (2022 on): small headlamp eye sockets with vertical intakes and the side intake behind the door. Photographed at Motorworld Böblingen, Germany."
+      },
+      {
+        "file": "File:2024 McLaren Artura McLaren Orange rear three quarter at McLaren Seattle.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_McLaren_Artura_McLaren_Orange_rear_three_quarter_at_McLaren_Seattle.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/2024_McLaren_Artura_McLaren_Orange_rear_three_quarter_at_McLaren_Seattle.jpg/1920px-2024_McLaren_Artura_McLaren_Orange_rear_three_quarter_at_McLaren_Seattle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 6000,
+        "height": 4000,
+        "author": "Trans-nyan",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Trans-nyan",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "McLaren Artura in McLaren Orange, rear three-quarter view",
+        "note": "Artura rear with the twin high-mounted exhausts and mesh panel; showroom car on charge at McLaren Seattle."
+      },
+      {
+        "file": "File:Interior of a McLaren Artura (Japanese specification).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Interior_of_a_McLaren_Artura_(Japanese_specification).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Interior_of_a_McLaren_Artura_%28Japanese_specification%29.jpg/1920px-Interior_of_a_McLaren_Artura_%28Japanese_specification%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4032,
+        "height": 2272,
+        "author": "Aos.1905",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Aos.1905",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "McLaren Artura cabin, right-hand drive, with grey Alcantara and orange stitching",
+        "note": "Right-hand-drive Japanese-spec Artura interior with the binnacle-mounted controls; same layout as Indian cars."
+      }
+    ],
+    "mclaren-gts": [
+      {
+        "file": "File:McLaren GTS (front three-quarter view) Japan Mobility Show Kansai 2025.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:McLaren_GTS_(front_three-quarter_view)_Japan_Mobility_Show_Kansai_2025.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/McLaren_GTS_%28front_three-quarter_view%29_Japan_Mobility_Show_Kansai_2025.jpg/1920px-McLaren_GTS_%28front_three-quarter_view%29_Japan_Mobility_Show_Kansai_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 2690,
+        "height": 1595,
+        "author": "Aos.1905",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Aos.1905",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "McLaren GTS in dark grey with doors open, front three-quarter view",
+        "note": "GTS (2023 on, replaces the GT): GTS plate on the bumper and the restyled front intakes. Shown on McLaren's own stand at Japan Mobility Show Kansai 2025; visitors' faces in the background are blurred."
+      },
+      {
+        "file": "File:McLaren GTS, Frankfurt am Main (P1032579).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:McLaren_GTS,_Frankfurt_am_Main_(P1032579).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/McLaren_GTS%2C_Frankfurt_am_Main_%28P1032579%29.jpg/1920px-McLaren_GTS%2C_Frankfurt_am_Main_%28P1032579%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5184,
+        "height": 2916,
+        "author": "Matti Blume",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:MB-one",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+        "angle": "rear",
+        "alt": "McLaren GTS in black, rear three-quarter view",
+        "note": "GTS in a Frankfurt McLaren showroom: GTS badge on the tail and the long glazed rear hatch of the grand tourer."
+      },
+      {
+        "file": "File:McLaren GTS, Frankfurt am Main (P1032580).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:McLaren_GTS,_Frankfurt_am_Main_(P1032580).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/McLaren_GTS%2C_Frankfurt_am_Main_%28P1032580%29.jpg/1920px-McLaren_GTS%2C_Frankfurt_am_Main_%28P1032580%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5184,
+        "height": 3456,
+        "author": "Matti Blume",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:MB-one",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+        "angle": "side",
+        "alt": "McLaren GTS in black, side profile",
+        "note": "Same GTS in profile; 'GTS' script behind the front wheel."
+      },
+      {
+        "file": "File:Interior of McLaren GTS at Japan Mobility Show Kansai 2025.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Interior_of_McLaren_GTS_at_Japan_Mobility_Show_Kansai_2025.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Interior_of_McLaren_GTS_at_Japan_Mobility_Show_Kansai_2025.jpg/1920px-Interior_of_McLaren_GTS_at_Japan_Mobility_Show_Kansai_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4032,
+        "height": 2268,
+        "author": "Aos.1905",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Aos.1905",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "McLaren GTS cabin, right-hand drive, with tan leather seats",
+        "note": "Right-hand-drive GTS interior from the same show car; same layout as Indian cars."
+      }
+    ]
+  },
+  "missing": {}
+}

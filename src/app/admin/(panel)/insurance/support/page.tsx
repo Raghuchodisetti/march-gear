@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { LifeBuoy } from "lucide-react";
 import { TICKET_PRIORITY, TICKET_STATUS } from "@/db/enums";
 import { TICKET_PRIORITY_LABEL } from "@/partner/labels";

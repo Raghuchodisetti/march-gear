@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { ClipboardCheck, ExternalLink, FileSearch, ScrollText, Store } from "lucide-react";
 import { PLAN_STATUS_LABEL } from "@/partner/labels";
 import { planById } from "@/partner/plans";

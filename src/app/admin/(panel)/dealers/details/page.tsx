@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { notFound } from "next/navigation";
 import { Building2, CarFront, ClipboardCheck, ExternalLink, FileText, Mail, MapPin, Phone, Wrench } from "lucide-react";
 import { BUSINESS_TYPE_LABEL, DOC_KIND_LABEL, OFFER_CATEGORY_LABEL, PARTNER_ROLE_LABEL, PLAN_STATUS_LABEL, offerDisplayStatus } from "@/partner/labels";

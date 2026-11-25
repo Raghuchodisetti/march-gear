@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import DeskLink from "@/components/admin/desk";
 
 type Variant = "primary" | "dark" | "outline" | "ghost" | "light" | "outline-light" | "link";
 type Size = "sm" | "md" | "lg";
@@ -59,10 +60,12 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
   const classes = buttonClasses({ variant, size, className });
 
   if ("href" in rest && rest.href !== undefined) {
+    // Back-office links (/admin/…) follow the desk being used — /staff/… on the staff desk.
+    const L = typeof rest.href === "string" && /^\/admin(?=[/?#]|$)/.test(rest.href) ? DeskLink : Link;
     return (
-      <Link {...(rest as ComponentProps<typeof Link>)} className={classes}>
+      <L {...(rest as ComponentProps<typeof Link>)} className={classes}>
         {content}
-      </Link>
+      </L>
     );
   }
   const { type = "button", ...buttonRest } = rest as ComponentProps<"button">;

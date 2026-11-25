@@ -7,6 +7,8 @@ import { ArrowRight, ArrowUpRight, Clock, MapPin, Star } from "lucide-react";
 import type { Article, Brand } from "@/types";
 import { toCarLite, type Catalog } from "@/lib/catalog";
 import { getCatalog } from "@/server/catalog";
+import { creditFor } from "@/server/photo-credits";
+import { PhotoCreditLine } from "@/components/vehicle/photo-credit";
 import { formatDate, formatMonth, formatPriceRange } from "@/lib/format";
 import { Badge, DemoNote } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
@@ -76,6 +78,7 @@ export default async function BrandPage(props: PageProps<"/brands/[brand]">) {
   const others = cat.brands.filter((b) => b.slug !== brand.slug);
   const price = summary.startingPrice ? priceParts(summary.startingPrice) : null;
   const [lead, ...moreStories] = stories;
+  const heroCredit = await creditFor(brand.heroImage);
 
   return (
     <>
@@ -110,6 +113,7 @@ export default async function BrandPage(props: PageProps<"/brands/[brand]">) {
                 Book a test drive
               </EnquiryButton>
             </div>
+            {heroCredit && <PhotoCreditLine credit={heroCredit} tone="dark" className="mt-8" />}
           </Reveal>
         </div>
       </section>

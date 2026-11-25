@@ -106,7 +106,7 @@ export interface AccountUser {
   state: string;
   city: string;
   memberSince: string;
-  role: "customer" | "editor" | "admin" | "dealer" | "insurer";
+  role: "customer" | "staff" | "admin" | "dealer" | "insurer";
 }
 /** @deprecated Use AccountUser. */
 export type MockUser = AccountUser;

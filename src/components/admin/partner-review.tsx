@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo, useState, type ReactNode } from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import Link from "@/components/admin/desk";
+import { useDeskRouter as useRouter } from "@/components/admin/desk";
 import { Ban, CalendarClock, CalendarPlus, Check, ClipboardList, Eye, EyeOff, ImageOff, PauseCircle, PlayCircle, Rocket, X } from "lucide-react";
 import type { OfferStatus, PartnerStatus, PartnerVehicleStatus } from "@/db/enums";
 import { OFFER_STATUS_LABEL, PARTNER_STATUS_LABEL, offerDisplayStatus } from "@/partner/labels";

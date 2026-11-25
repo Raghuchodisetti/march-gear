@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { Lock } from "lucide-react";
 import type { ApprovalTarget } from "@/db/enums";
 import { BRAND_STATUS_LABEL, FILE_STATUS_LABEL, OFFER_STATUS_LABEL, PARTNER_STATUS_LABEL, VEHICLE_STATUS_LABEL } from "@/partner/labels";

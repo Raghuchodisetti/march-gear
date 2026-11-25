@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import type { ReactNode } from "react";
 import { AlertTriangle, ArrowUpRight, CheckCircle2, Circle, XCircle } from "lucide-react";
 import type { OfferDiscount } from "@/partner/types";

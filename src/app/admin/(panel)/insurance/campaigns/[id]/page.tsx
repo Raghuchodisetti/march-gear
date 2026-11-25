@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { notFound } from "next/navigation";
 import { ExternalLink, ImageOff, Presentation } from "lucide-react";
 import { INS_CAMPAIGN_STATUS_LABEL, INS_CAMPAIGN_TYPE_LABEL, INS_PRODUCT_CATEGORY_LABEL, INS_PRODUCT_STATUS_LABEL, INS_VENDOR_STATUS_LABEL, INS_VENDOR_STATUS_TONE, campaignDisplayStatus } from "@/insurance/labels";

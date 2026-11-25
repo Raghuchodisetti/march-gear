@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { Plus } from "lucide-react";
 import { formatPriceRange } from "@/lib/format";
 import { brandOptions, listCars } from "@/server/admin/catalog";

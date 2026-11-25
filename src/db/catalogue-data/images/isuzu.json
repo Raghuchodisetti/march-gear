@@ -1,0 +1,69 @@
+{
+  "brand": "isuzu",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "isuzu-d-max-v-cross": [
+      {
+        "file": "File:2018 Isuzu D-Max Hi Lander Cab-4 Z-Prestige 1.9 Ddi Blue Power 01.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2018_Isuzu_D-Max_Hi_Lander_Cab-4_Z-Prestige_1.9_Ddi_Blue_Power_01.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/2018_Isuzu_D-Max_Hi_Lander_Cab-4_Z-Prestige_1.9_Ddi_Blue_Power_01.jpg/1920px-2018_Isuzu_D-Max_Hi_Lander_Cab-4_Z-Prestige_1.9_Ddi_Blue_Power_01.jpg",
+        "width": 3264,
+        "height": 2448,
+        "author": "Jirapat Chroenkeskij",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Jirapat_Chroenkeskij",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "angle": "front",
+        "alt": "Isuzu D-Max double cab (second-generation facelift, as sold in India as the V-Cross) in white, front three-quarter view",
+        "note": "Thai-market second-generation D-Max 1.9 double cab, Z-Prestige trim; the Indian V-Cross (2021 update) uses this facelifted front: chrome ISUZU bar, bi-LED headlamps with LED DRL, chrome C-shaped fog-lamp surrounds. Trim details may differ."
+      },
+      {
+        "file": "File:2017 Isuzu D-Max Hi-Lander 1.9 Ddi Z-Prestige Double-Cab.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2017_Isuzu_D-Max_Hi-Lander_1.9_Ddi_Z-Prestige_Double-Cab.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2017_Isuzu_D-Max_Hi-Lander_1.9_Ddi_Z-Prestige_Double-Cab.jpg/1920px-2017_Isuzu_D-Max_Hi-Lander_1.9_Ddi_Z-Prestige_Double-Cab.jpg",
+        "width": 4608,
+        "height": 3456,
+        "author": "Chanokchon",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Chanokchon",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Isuzu D-Max double cab (second-generation facelift, as sold in India as the V-Cross) in Nautilus Blue, front three-quarter view",
+        "note": "Thai-market D-Max 1.9 Z-Prestige double cab with the same facelifted front as the Indian V-Cross. Nautilus Blue is an Indian V-Cross colour. Taken at a mall display."
+      }
+    ],
+    "isuzu-mu-x": [
+      {
+        "file": "File:2018 Isuzu MU-X Premiere 4x2 2.5 UCR86 (190316).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2018_Isuzu_MU-X_Premiere_4x2_2.5_UCR86_(190316).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/2018_Isuzu_MU-X_Premiere_4x2_2.5_UCR86_%28190316%29.jpg/1920px-2018_Isuzu_MU-X_Premiere_4x2_2.5_UCR86_%28190316%29.jpg",
+        "width": 4753,
+        "height": 2518,
+        "author": "オーバードライブ83",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%83%89%E3%83%A9%E3%82%A4%E3%83%9683",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Isuzu MU-X (first-generation facelift) in silver, front three-quarter view",
+        "note": "Indonesian-market first-generation MU-X facelift; the Indian MU-X keeps this generation and front: chrome grille with ISUZU bar, projector headlamps with LED DRL, chrome fog-lamp surrounds."
+      },
+      {
+        "file": "File:Isuzu MUX 4x2 LSA 2019 (1).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Isuzu_MUX_4x2_LSA_2019_(1).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Isuzu_MUX_4x2_LSA_2019_%281%29.jpg/1920px-Isuzu_MUX_4x2_LSA_2019_%281%29.jpg",
+        "width": 8160,
+        "height": 6120,
+        "author": "Captainmorlypogi1959",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Captainmorlypogi1959",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Isuzu MU-X (first-generation facelift) in dark brown, front three-quarter view",
+        "note": "Philippine-market first-generation MU-X facelift with the same front design as the Indian MU-X."
+      }
+    ]
+  },
+  "missing": {
+    "isuzu-hi-lander": "No photo of the Indian Hi-Lander trim on Commons as of 2026-11-25; foreign D-Max trims of this generation differ in grille and lamp details, so none was used."
+  }
+}

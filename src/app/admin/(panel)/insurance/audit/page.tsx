@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { inArray } from "drizzle-orm";
 import { Lock, ScrollText } from "lucide-react";
 import { getDb } from "@/db";

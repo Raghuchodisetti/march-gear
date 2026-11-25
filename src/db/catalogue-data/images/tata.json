@@ -1,0 +1,114 @@
+{
+  "brand": "tata",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "tata-nexon": [
+      {
+        "file": "File:Tata Nexon 2023 Rear View 2.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Tata_Nexon_2023_Rear_View_2.jpg",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Tata_Nexon_2023_Rear_View_2.jpg",
+        "width": 1728,
+        "height": 1728,
+        "author": "Harshvyas1001",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Harshvyas1001",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Tata Nexon (2023 facelift) in white, rear three-quarter view",
+        "note": "Post-Sept-2023 facelift: full-width LED tail-lamp bar and spaced NEXON lettering on the tailgate; new unregistered car in India. No .ev badge, so taken to be the petrol/diesel Nexon."
+      }
+    ],
+    "tata-curvv": [
+      {
+        "file": "File:2025 Tata Curvv Creative+ S Petrol (India) front view.png",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2025_Tata_Curvv_Creative+_S_Petrol_(India)_front_view.png",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/2025_Tata_Curvv_Creative%2B_S_Petrol_%28India%29_front_view.png",
+        "width": 1438,
+        "height": 959,
+        "author": "Manish Bhardwaj",
+        "authorUrl": null,
+        "license": "CC BY 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+        "angle": "front",
+        "alt": "Tata Curvv Creative+ S petrol in grey, front three-quarter view",
+        "note": "Still from a 2025 Indian review video of the Curvv petrol (UP-registered): ICE Curvv grille with light bar; current body. Series X (2026) is a line-up/trim change. Original is 1438 px wide."
+      }
+    ],
+    "tata-curvv-ev": [
+      {
+        "file": "File:Tata Curvv.EV.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Tata_Curvv.EV.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Tata_Curvv.EV.jpg/1920px-Tata_Curvv.EV.jpg",
+        "width": 2899,
+        "height": 2538,
+        "author": "VideshiBhaktNRI",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:VideshiBhaktNRI",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "angle": "rear",
+        "alt": "Tata Curvv.ev in Pure Grey, rear three-quarter view",
+        "note": "CURVV.ev tailgate lettering, aero wheels, Karnataka trade plate (2024). Same body as the current SeriesX Curvv.ev."
+      }
+    ],
+    "tata-harrier": [
+      {
+        "file": "File:Gajab.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Gajab.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Gajab.jpg/1920px-Gajab.jpg",
+        "width": 4096,
+        "height": 2304,
+        "author": "Pramodbhardwaj214",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Pramodbhardwaj214",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Tata Harrier (2023 facelift) #DARK edition in black, front three-quarter view",
+        "note": "Facelift (Oct 2023 on): full-width LED bar, new grille, vertically stacked headlamps; HARRIER showroom plate, photographed in Rajasthan in 2025."
+      }
+    ],
+    "tata-harrier-ev": [
+      {
+        "file": "File:4th International Auto Show, Bangalore (2025) 110.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:4th_International_Auto_Show,_Bangalore_(2025)_110.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/4th_International_Auto_Show%2C_Bangalore_%282025%29_110.jpg/1920px-4th_International_Auto_Show%2C_Bangalore_%282025%29_110.jpg",
+        "width": 3264,
+        "height": 2448,
+        "author": "Gpkp",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Gpkp",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Tata Harrier.ev in grey, front three-quarter view",
+        "note": "Identified as Harrier EV by the photographer (Bangalore auto show, Nov 2025): closed slatted grille panel, full-width LED bar, vertical Harrier headlamp stacks. Show-floor shot; rear of the car is cropped."
+      }
+    ],
+    "tata-safari": [
+      {
+        "file": "File:4th International Auto Show, Bangalore (2025) 108.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:4th_International_Auto_Show,_Bangalore_(2025)_108.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/4th_International_Auto_Show%2C_Bangalore_%282025%29_108.jpg/1920px-4th_International_Auto_Show%2C_Bangalore_%282025%29_108.jpg",
+        "width": 4080,
+        "height": 3072,
+        "author": "Gpkp",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Gpkp",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Tata Safari (2023 facelift) #DARK edition in black, front three-quarter view",
+        "note": "Facelift (Oct 2023 on): SAFARI plate, new grille and vertical headlamp stacks, black #DARK alloys; Bangalore auto show, Nov 2025. Some show-light reflections."
+      }
+    ]
+  },
+  "missing": {
+    "tata-tiago": "No free-licensed photo of the next-generation Tiago (launched May 2026) on Commons as of 2026-11-25; all Commons Tiago photos show the previous generation.",
+    "tata-tiago-ev": "No free-licensed photo of the next-generation Tiago.ev (launched May 2026) on Commons as of 2026-11-25; only a video still of the previous-generation car.",
+    "tata-tigor-ev": "No usable free-licensed photo of the Tigor.ev on Commons as of 2026-11-25: only one rear shot of a fleet car in full advertising livery, plus pre-2020 petrol Tigors.",
+    "tata-aeris": "No free-licensed photo of this model on Commons as of 2026-11-25 (launched September 2026).",
+    "tata-altroz": "No free-licensed photo of the 2025 updated Altroz on Commons as of 2026-11-25; Commons only has the 2019–2024 design and one heavily modified show car.",
+    "tata-punch": "No free-licensed photo of the January 2026 Punch facelift on Commons as of 2026-11-25; only 2021–22 pre-facelift Punch photos.",
+    "tata-punch-ev": "No free-licensed photo of the 2026 Punch.ev facelift on Commons as of 2026-11-25; the two Commons photos show the 2024–25 pre-facelift car.",
+    "tata-nexon-ev": "No free-licensed photo of the Sept 2023 Nexon.ev facelift on Commons as of 2026-11-25; Commons only has the 2020–22 pre-facelift Nexon EV.",
+    "tata-sierra": "No free-licensed photo of the 2025 Sierra on Commons as of 2026-11-25; Commons only has the 1991–2003 original Sierra.",
+    "tata-sierra-ev": "No free-licensed photo of the Sierra.ev on Commons as of 2026-11-25 (launched June 2026)."
+  }
+}

@@ -1,17 +1,17 @@
 import "server-only";
 import type { Pool, ResultSetHeader } from "mysql2/promise";
-import { and, count, desc, eq, like, lt, or, type SQL } from "drizzle-orm";
+import { and, count, desc, eq, like, lt, or, sql, type SQL } from "drizzle-orm";
 import { getDb, type Database } from "@/db";
 import { articles, brands, cars, dealers, media, siteContent, upcomingCars, usedCars, users } from "@/db/schema";
 import { BLOCKS, isBlockKey } from "@/content/registry";
 import { requireStaff } from "@/server/auth";
-import { MEDIA_PAGE_SIZE, MEDIA_TYPES, mediaUrl, type MediaItem, type MediaMime, type MediaPage, type MediaUsage } from "@/components/admin/media-shared";
+import { MEDIA_PAGE_SIZE, MEDIA_THUMB_MAX_BYTES, MEDIA_THUMB_WIDTH, MEDIA_TYPES, mediaUrl, type MediaItem, type MediaMime, type MediaPage, type MediaUsage } from "@/components/admin/media-shared";
 
 const term = (q: string) => `%${q.replace(/[%_\\]/g, (c) => `\\${c}`)}%`;
 
 /* ── Reading ────────────────────────────────────────────────── */
 
-// Metadata only — never the blob.
+// Metadata only — never the blobs.
 const columns = {
   id: media.id,
   filename: media.filename,
@@ -22,11 +22,41 @@ const columns = {
   alt: media.alt,
   createdAt: media.createdAt,
   uploader: users.name,
+  sourceUrl: media.sourceUrl,
+  author: media.author,
+  authorUrl: media.authorUrl,
+  license: media.license,
+  licenseUrl: media.licenseUrl,
+  creditNote: media.creditNote,
+  hasThumb: sql<number>`(${media.thumb} IS NOT NULL)`.mapWith(Number),
 };
 
-type Row = { id: number; filename: string; mime: string; size: number; width: number | null; height: number | null; alt: string | null; createdAt: Date; uploader: string | null };
+type Row = {
+  id: number;
+  filename: string;
+  mime: string;
+  size: number;
+  width: number | null;
+  height: number | null;
+  alt: string | null;
+  createdAt: Date;
+  uploader: string | null;
+  sourceUrl: string | null;
+  author: string | null;
+  authorUrl: string | null;
+  license: string | null;
+  licenseUrl: string | null;
+  creditNote: string | null;
+  hasThumb: number;
+};
 
-const toItem = (r: Row): MediaItem => ({ ...r, url: mediaUrl(r.id, r.filename), createdAt: r.createdAt.toISOString() });
+const toItem = ({ sourceUrl, author, authorUrl, license, licenseUrl, creditNote, hasThumb, ...r }: Row): MediaItem => ({
+  ...r,
+  url: mediaUrl(r.id, r.filename),
+  createdAt: r.createdAt.toISOString(),
+  hasThumb: Boolean(hasThumb),
+  credit: sourceUrl ? { author: author ?? "Unknown", authorUrl, license: license ?? "See source", licenseUrl, sourceUrl, note: creditNote, hasThumb: Boolean(hasThumb) } : null,
+});
 
 /** Newest first, `limit` at a time; `before` is the last id of the previous page. */
 export async function listMedia({ q, before, limit = MEDIA_PAGE_SIZE }: { q?: string; before?: number; limit?: number } = {}): Promise<MediaPage> {
@@ -34,7 +64,7 @@ export async function listMedia({ q, before, limit = MEDIA_PAGE_SIZE }: { q?: st
   const db = getDb();
   const query = q?.trim();
   const search = query
-    ? or(like(media.filename, term(query)), like(media.alt, term(query)), ...(/^\d{1,10}$/.test(query) ? [eq(media.id, Number(query))] : []))
+    ? or(like(media.filename, term(query)), like(media.alt, term(query)), like(media.author, term(query)), ...(/^\d{1,10}$/.test(query) ? [eq(media.id, Number(query))] : []))
     : undefined;
   const conds: (SQL | undefined)[] = [search, before ? lt(media.id, before) : undefined];
   const [rows, [{ total }]] = await Promise.all([
@@ -94,13 +124,27 @@ export async function mediaUsage(id: number): Promise<MediaUsage[]> {
  * queries as text, where a Buffer is written as hex — doubling it — so a 900 KB image
  * would blow the server's 1 MB max_allowed_packet. A prepared statement sends raw bytes.
  */
-export async function insertMedia(file: { filename: string; mime: MediaMime; data: Buffer; width: number | null; height: number | null; alt?: string | null }, userId: number) {
+export async function insertMedia(
+  file: { filename: string; mime: MediaMime; data: Buffer; width: number | null; height: number | null; thumb?: Buffer | null; alt?: string | null },
+  userId: number,
+) {
   const pool = (getDb() as Database & { $client: Pool }).$client;
   const [res] = await pool.execute<ResultSetHeader>(
-    "INSERT INTO `media` (`filename`, `mime`, `size`, `width`, `height`, `alt`, `data`, `created_by`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-    [file.filename, file.mime, file.data.length, file.width, file.height, file.alt ?? null, file.data, userId],
+    "INSERT INTO `media` (`filename`, `mime`, `size`, `width`, `height`, `alt`, `data`, `thumb`, `created_by`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    [file.filename, file.mime, file.data.length, file.width, file.height, file.alt ?? null, file.data, cardCopy({ width: file.width }, file.thumb), userId],
   );
   return res.insertId;
+}
+
+/**
+ * The browser-made card copy of an upload (a smaller WebP/JPEG, MEDIA_THUMB_WIDTH wide), if it really is one —
+ * otherwise null, and the full image is served everywhere. Served at /media/<id>/<name>?w=960 (see the media route).
+ */
+export function cardCopy(main: { width: number | null }, thumb: Buffer | null | undefined): Buffer | null {
+  if (!thumb?.length || thumb.length > MEDIA_THUMB_MAX_BYTES) return null;
+  const info = sniffImage(thumb);
+  if (!info || (info.mime !== "image/webp" && info.mime !== "image/jpeg") || !info.width || info.width > MEDIA_THUMB_WIDTH) return null;
+  return main.width && info.width >= main.width ? null : thumb;
 }
 
 export async function setMediaAlt(id: number, alt: string | null) {

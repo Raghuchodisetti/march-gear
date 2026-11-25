@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { notFound } from "next/navigation";
 import { Building2, ClipboardCheck, ExternalLink, FileText, Landmark, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 import {

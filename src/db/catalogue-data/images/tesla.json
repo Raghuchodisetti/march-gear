@@ -1,0 +1,81 @@
+{
+  "brand": "tesla",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "tesla-model-y": [
+      {
+        "file": "File:2025 Tesla Model Y Juniper Long Range RWD.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2025_Tesla_Model_Y_Juniper_Long_Range_RWD.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/2025_Tesla_Model_Y_Juniper_Long_Range_RWD.jpg/1920px-2025_Tesla_Model_Y_Juniper_Long_Range_RWD.jpg",
+        "width": 4608,
+        "height": 3456,
+        "author": "Chanokchon",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Chanokchon",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Tesla Model Y (2025 refresh) RWD in Ultra Red, front three-quarter view",
+        "note": "Refreshed Model Y (Juniper) RWD in a Bangkok showroom (2026): full-width front light bar and 19-inch Crossflow wheels, as on the India-spec Premium RWD. Thailand is right-hand drive."
+      },
+      {
+        "file": "File:2025 Tesla Model Y Juniper Long Range RWD (Rear).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2025_Tesla_Model_Y_Juniper_Long_Range_RWD_(Rear).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/2025_Tesla_Model_Y_Juniper_Long_Range_RWD_%28Rear%29.jpg/1920px-2025_Tesla_Model_Y_Juniper_Long_Range_RWD_%28Rear%29.jpg",
+        "width": 4608,
+        "height": 3456,
+        "author": "Chanokchon",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Chanokchon",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Tesla Model Y (2025 refresh) RWD in Ultra Red, rear three-quarter view",
+        "note": "Same Thai refreshed Model Y RWD: full-width tail-lamp bar, the design sold in India."
+      },
+      {
+        "file": "File:(SGP-Singapore) Showcar Tesla Model Y No-plate Interior 2025-02-01.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Showcar_Tesla_Model_Y_No-plate_Interior_2025-02-01.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/%28SGP-Singapore%29_Showcar_Tesla_Model_Y_No-plate_Interior_2025-02-01.jpg/1920px-%28SGP-Singapore%29_Showcar_Tesla_Model_Y_No-plate_Interior_2025-02-01.jpg",
+        "width": 5000,
+        "height": 4000,
+        "author": "S5A-0043",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:S5A-0043",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "angle": "interior",
+        "alt": "Tesla Model Y (2025 refresh) dashboard with 15.4-inch screen, right-hand drive",
+        "note": "Right-hand-drive refreshed Model Y show car in Singapore (2025): new steering wheel, ambient light strip and centre screen, as in Indian cars. A display-only sign is in shot."
+      }
+    ],
+    "tesla-model-y-l": [
+      {
+        "file": "File:Tesla Model Y L, Shanghai 1.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Tesla_Model_Y_L,_Shanghai_1.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Tesla_Model_Y_L%2C_Shanghai_1.jpg/1920px-Tesla_Model_Y_L%2C_Shanghai_1.jpg",
+        "width": 4596,
+        "height": 3677,
+        "author": "Yuqiao",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Yuqiao",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "angle": "front",
+        "alt": "Tesla Model Y L in Cosmic Silver, front three-quarter view",
+        "note": "Six-seat Model Y L in a Shanghai Tesla store (Dec 2025): L-specific wheels and the longer rear doors visible; Cosmic Silver is offered in India."
+      },
+      {
+        "file": "File:2026 Tesla Model Y L Long Range AWD (Rear).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2026_Tesla_Model_Y_L_Long_Range_AWD_(Rear).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/2026_Tesla_Model_Y_L_Long_Range_AWD_%28Rear%29.jpg/1920px-2026_Tesla_Model_Y_L_Long_Range_AWD_%28Rear%29.jpg",
+        "width": 4608,
+        "height": 3456,
+        "author": "Chanokchon",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Chanokchon",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Tesla Model Y L in Pearl White, rear three-quarter view",
+        "note": "Thai-market Model Y L AWD (2026, right-hand drive), with the Model Y L tailgate badge and the longer body and rear quarter of the six-seater. Store staff at the right edge."
+      }
+    ]
+  },
+  "missing": {}
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useDeskRouter as useRouter } from "@/components/admin/desk";
 import { Check, Loader2, Plus } from "lucide-react";
 import type { ActionResult } from "@/lib/action-result";
 import { createDealerReviewAction, updateReviewAction } from "@/server/actions/admin";

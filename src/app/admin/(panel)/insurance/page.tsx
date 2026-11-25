@@ -1,8 +1,7 @@
-import { redirect } from "next/navigation";
-import { requireStaff } from "@/server/auth";
+import { deskRedirect, requireStaff } from "@/server/auth";
 
-/** /admin/insurance → the insurance dashboard. */
+/** /admin/insurance → the insurance dashboard (on this desk). */
 export default async function InsuranceAdminIndex() {
-  await requireStaff();
-  redirect("/admin/insurance/dashboard");
+  await requireStaff("insurance");
+  await deskRedirect("/admin/insurance/dashboard");
 }

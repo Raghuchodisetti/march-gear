@@ -84,7 +84,7 @@ export function OnRoadBreakdown({ exShowroom, ev, variantName }: { exShowroom: n
             <dd className="type-h3 shrink-0 num">{formatINR(b.total)}</dd>
           </div>
         </dl>
-        <DemoNote>Indicative split for demonstration. Actual taxes depend on state rules, ownership type and the insurer.</DemoNote>
+        <DemoNote>Indicative estimate. Actual road tax, registration and insurance depend on your state&apos;s rules, ownership type and the insurer — confirm the final on-road price with the dealer.</DemoNote>
       </div>
 
       <div className="min-w-0 lg:col-span-5">

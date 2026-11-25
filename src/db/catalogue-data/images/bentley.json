@@ -1,0 +1,37 @@
+{
+  "brand": "bentley",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "bentley-bentayga": [
+      {
+        "file": "File:Bentley Bentayga EWB Azure Burgundy Metallic 01.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Bentley_Bentayga_EWB_Azure_Burgundy_Metallic_01.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Bentley_Bentayga_EWB_Azure_Burgundy_Metallic_01.jpg/1920px-Bentley_Bentayga_EWB_Azure_Burgundy_Metallic_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4670,
+        "height": 2628,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "Bentley Bentayga EWB Azure in dark burgundy metallic, front three-quarter view",
+        "note": "Bentayga Extended Wheelbase (2022 on) with the 2020-on facelift front (elliptical lamps, wider matrix grille). The longer rear door of the EWB is visible. Philippine dealer car; same as the Indian Bentayga EWB."
+      },
+      {
+        "file": "File:Bentley Bentayga EWB Azure Burgundy Metallic 02.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Bentley_Bentayga_EWB_Azure_Burgundy_Metallic_02.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Bentley_Bentayga_EWB_Azure_Burgundy_Metallic_02.jpg/1920px-Bentley_Bentayga_EWB_Azure_Burgundy_Metallic_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4284,
+        "height": 2409,
+        "author": "Ethan Llamas",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Ethan_Llamas",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "Bentley Bentayga EWB Azure in dark burgundy metallic, rear three-quarter view",
+        "note": "Same Bentayga EWB from the rear: elliptical tail lamps and number plate in the bumper of the facelifted model; long rear door visible."
+      }
+    ]
+  },
+  "missing": {}
+}

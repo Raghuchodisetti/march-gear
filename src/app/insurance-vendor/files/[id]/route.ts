@@ -1,5 +1,5 @@
 import type { NextRequest } from "next/server";
-import { getStaffUser } from "@/server/auth";
+import { backOfficeUser } from "@/server/auth";
 import { getInsurerContext } from "@/server/insurance/context";
 import { privateFileHeaders, readInsurerFile } from "@/server/insurance/files";
 
@@ -7,8 +7,8 @@ import { privateFileHeaders, readInsurerFile } from "@/server/insurance/files";
 export async function GET(req: NextRequest, { params }: RouteContext<"/insurance-vendor/files/[id]">) {
   const { id } = await params;
   if (!/^\d+$/.test(id)) return new Response("Not found", { status: 404 });
-  // Staff (admin sign-in) or a member of the vendor (insurance portal sign-in) — each login has its own session.
-  const staff = await getStaffUser();
+  // MarchGear admins or staff with this section (their own sign-ins), or a member of the vendor (insurance portal sign-in) — each login has its own session.
+  const staff = await backOfficeUser("insurance");
   const ctx = staff ? null : await getInsurerContext();
   if (!staff && !ctx) return new Response("Sign in to view this file.", { status: 401 });
 

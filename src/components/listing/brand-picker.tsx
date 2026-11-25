@@ -1,12 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { ArrowLeft, ArrowUpRight, LayoutGrid } from "lucide-react";
+import { ArrowUpRight, LayoutGrid } from "lucide-react";
 import type { Brand, CarLite } from "@/types";
 import { formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { RevealGroup, RevealItem } from "@/components/ui/reveal";
-import { BrandMonogram } from "@/components/ui/page-header";
 import { BrandMark } from "@/components/ui/brand-logo";
 import { useCatalog } from "@/components/providers/catalog-provider";
 
@@ -97,51 +95,5 @@ export function BrandPicker({ onSelect, onShowAll }: { onSelect: (slug: string) 
         </button>
       </div>
     </section>
-  );
-}
-
-/** Step two: a slim brand switcher that sits above the model results. */
-export function BrandRail({ selected, onSelect, onAllBrands }: { selected: string[]; onSelect: (slug: string) => void; onAllBrands: () => void }) {
-  const { brands, carsByBrand } = useCatalog();
-  const rail = useRef<HTMLElement>(null);
-  const key = selected.join(",");
-
-  useEffect(() => {
-    const el = rail.current;
-    const chip = el?.querySelector<HTMLElement>('[aria-pressed="true"]');
-    if (!el || !chip || el.scrollWidth <= el.clientWidth) return;
-    el.scrollTo({ left: chip.offsetLeft - el.clientWidth / 2 + chip.offsetWidth / 2, behavior: "smooth" });
-  }, [key]);
-
-  return (
-    <nav ref={rail} aria-label="Switch brand" className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 md:mx-0 md:flex-wrap md:px-0">
-      <button
-        type="button"
-        onClick={onAllBrands}
-        className="inline-flex h-10 shrink-0 items-center gap-1.5 rounded-full border border-ink px-4 text-[13px] font-medium transition-colors duration-[250ms] hover:bg-ink hover:text-white"
-      >
-        <ArrowLeft aria-hidden className="size-3.5" />
-        All brands
-      </button>
-      {brands.map((b) => {
-        const on = selected.includes(b.slug);
-        return (
-          <button
-            key={b.slug}
-            type="button"
-            aria-pressed={on}
-            onClick={() => onSelect(b.slug)}
-            className={cn(
-              "inline-flex h-10 shrink-0 items-center gap-2 rounded-full border pl-1.5 pr-4 text-[13px] font-medium transition-[background-color,border-color,color] duration-[250ms]",
-              on ? "border-ink bg-ink text-white" : "border-line bg-white text-ink hover:border-ink/40",
-            )}
-          >
-            <BrandMonogram name={b.name} className={cn("size-7 rounded-full text-[10px]", on && "bg-white/15 text-white")} />
-            {b.name}
-            <span className={cn("text-[11.5px] num", on ? "text-white/60" : "text-muted")}>{carsByBrand(b.slug).length}</span>
-          </button>
-        );
-      })}
-    </nav>
   );
 }

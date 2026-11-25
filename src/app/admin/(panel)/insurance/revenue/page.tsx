@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { ChevronDown, Download } from "lucide-react";
 import { INS_INVOICE_KIND_LABEL } from "@/insurance/labels";
 import { requireStaff } from "@/server/auth";

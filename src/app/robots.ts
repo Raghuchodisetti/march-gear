@@ -18,6 +18,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: [
         "/admin",
+        "/staff",
         "/dealer$",
         "/dealer/",
         "/insurance-vendor",

@@ -39,7 +39,7 @@ const like_ = (s: string) => `%${s.replace(/[%_\\]/g, (c) => `\\${c}`)}%`;
  * enabled — never twice for the same enquiry (an open or paid lead-fee invoice naming it blocks another).
  */
 export async function verifyConversionAction(enquiryId: unknown, input: unknown): Promise<ActionResult<{ invoice: { id: number; number: string; total: number } | null }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   const eid = id.safeParse(enquiryId);
   const parsed = remarksOptional.safeParse(input ?? {});
   if (!eid.success) return { ok: false, error: "Enquiry not found." };
@@ -105,7 +105,7 @@ export async function verifyConversionAction(enquiryId: unknown, input: unknown)
 
 /** Takes a verification back (e.g. the policy was cancelled or the evidence was wrong). */
 export async function unverifyConversionAction(enquiryId: unknown, input: unknown): Promise<ActionResult<{ openLeadFee: { id: number; number: string } | null }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   const eid = id.safeParse(enquiryId);
   const parsed = z
     .object({ reason: z.string({ error: "Give a reason" }).trim().min(5, "Give a reason (at least 5 characters)").max(500, "Keep the reason under 500 characters") })
@@ -141,7 +141,7 @@ export async function unverifyConversionAction(enquiryId: unknown, input: unknow
 
 /** Compliance withdrawal: the customer's link stops offering the quote; the vendor is told why. */
 export async function withdrawQuoteAction(quoteId: unknown, input: unknown): Promise<ActionResult> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   const qid = id.safeParse(quoteId);
   const parsed = remarksRequired("why it was withdrawn").safeParse(input);
   if (!qid.success) return { ok: false, error: "Quote not found." };
@@ -188,7 +188,7 @@ const TITLE: Record<CampaignDecision, (t: string) => string> = {
 };
 
 export async function campaignDecisionAction(campaignId: unknown, input: unknown): Promise<ActionResult<{ status: InsCampaignStatus }>> {
-  const me = await requireStaff();
+  const me = await requireStaff("insurance");
   const cid = id.safeParse(campaignId);
   const parsed = z
     .object({

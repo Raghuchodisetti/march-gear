@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/motion";
 import { Reveal } from "@/components/ui/reveal";
 import { CarPlaceholder } from "@/components/vehicle/car-image";
+import { PhotoCreditLine } from "@/components/vehicle/photo-credit";
+import { hasAngles, pickPhoto } from "@/lib/photo-credits";
 import { isFactsOnly, known } from "@/lib/specs";
 import type { CarModel } from "@/types";
 import { useCarDetail } from "./context";
@@ -28,12 +30,18 @@ function sizeSentence(car: CarModel) {
 
 /** Interior & exterior: two editorial split blocks and a colour selector. */
 export function CarDesign() {
-  const { car, title } = useCarDetail();
+  const { car, title, credits } = useCarDetail();
   const [colorIndex, setColorIndex] = useState(0);
   const color = car.colors[colorIndex] ?? car.colors[0];
   // Models without photos yet show the body-type silhouette in the selected factory colour, and no cabin photo.
-  const exteriorImage = car.images[2] ?? car.images[0];
-  const interiorImage = car.images[1] ?? car.images[0];
+  // Imported photos name their view in the file name, so the cabin block only ever shows a real cabin photo and the
+  // exterior block an outside view (side profile first — the hero already shows the front). The seeded stock photos
+  // keep their old order (hero, cabin, exterior).
+  const tagged = hasAngles(car.images);
+  const exteriorImage = tagged ? pickPhoto(car.images, "side", "rear", "front") : (car.images[2] ?? car.images[0]);
+  const interiorImage = tagged ? pickPhoto(car.images, "interior") : (car.images[1] ?? car.images[0]);
+  const exteriorCredit = exteriorImage ? credits[exteriorImage] : undefined;
+  const interiorCredit = interiorImage ? credits[interiorImage] : undefined;
   const size = sizeSentence(car);
   const interiorStats = [
     ["Wheelbase", known(car.dimensions.wheelbase) ? formatNumber(car.dimensions.wheelbase) : "", "mm"],
@@ -53,17 +61,25 @@ export function CarDesign() {
         <Reveal className="lg:col-span-7">
           <div className="relative aspect-[4/3] overflow-hidden bg-mist">
             {exteriorImage ? (
-              <Image src={exteriorImage} alt={carPhotoAlt(exteriorImage, title, "exterior detail")} fill sizes="(min-width: 1024px) 56vw, 100vw" className="object-cover" />
+              <Image
+                src={exteriorImage}
+                alt={exteriorCredit?.alt ?? carPhotoAlt(exteriorImage, title, "exterior detail")}
+                fill
+                sizes="(min-width: 1024px) 56vw, 100vw"
+                className="object-cover"
+              />
             ) : (
               <CarPlaceholder bodyType={car.bodyType} paint={color?.hex} label={color ? "Colour swatch is approximate · photos coming soon" : undefined} />
             )}
-            {color && (
+            {/* On a genuine photo the chip would claim the car is in the selected colour, so it labels the painted placeholder only. */}
+            {color && !exteriorCredit && (
               <div className="absolute bottom-4 left-4 flex items-center gap-2.5 bg-white/90 py-2 pl-2 pr-3.5 backdrop-blur-sm">
                 <span aria-hidden className="size-5 rounded-full border border-ink/10" style={{ backgroundColor: color.hex }} />
                 <span className="text-[12px] font-medium">{color.name}</span>
               </div>
             )}
           </div>
+          {exteriorCredit && <PhotoCreditLine credit={exteriorCredit} allCredits={false} className="mt-2.5" />}
         </Reveal>
         <Reveal delay={0.1} className="lg:col-span-5">
           <p className="type-eyebrow text-muted">Exterior</p>
@@ -138,8 +154,9 @@ export function CarDesign() {
         {interiorImage && (
           <Reveal className="lg:order-2 lg:col-span-7">
             <div className="relative aspect-[4/3] overflow-hidden bg-mist lg:aspect-[5/4]">
-              <Image src={interiorImage} alt={carPhotoAlt(interiorImage, title, "cabin")} fill sizes="(min-width: 1024px) 56vw, 100vw" className="object-cover" />
+              <Image src={interiorImage} alt={interiorCredit?.alt ?? carPhotoAlt(interiorImage, title, "cabin")} fill sizes="(min-width: 1024px) 56vw, 100vw" className="object-cover" />
             </div>
+            {interiorCredit && <PhotoCreditLine credit={interiorCredit} allCredits={false} className="mt-2.5" />}
           </Reveal>
         )}
         <Reveal delay={0.1} className={interiorImage ? "lg:order-1 lg:col-span-5" : "lg:col-span-7"}>

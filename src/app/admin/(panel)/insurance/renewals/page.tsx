@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { RefreshCw } from "lucide-react";
 import { INS_RENEWAL_STATUS } from "@/db/enums";
 import { INS_RENEWAL_OPEN, INS_RENEWAL_STATUS_LABEL } from "@/insurance/labels";

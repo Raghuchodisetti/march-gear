@@ -3,6 +3,13 @@
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
+  // PDF.js (via unpdf, used to read guide PDFs) is loaded by Node at runtime rather than bundled.
+  serverExternalPackages: ["unpdf"],
+  experimental: {
+    // Requests through src/proxy.ts (the /admin and /staff desks) are buffered up to this size — room for a guide's
+    // 15 MB PDF upload (the default is 10 MB).
+    proxyClientMaxBodySize: "20mb",
+  },
   images: {
     // Unsplash serves resized, format-negotiated renditions from its own CDN,
     // so we hand sizing off to it instead of the built-in optimizer.
@@ -33,6 +40,15 @@ const nextConfig = {
       {
         // The admin panel must never be framed (clickjacking).
         source: "/admin/:path*",
+        headers: [
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "Content-Security-Policy", value: "frame-ancestors 'none'" },
+          { key: "Referrer-Policy", value: "same-origin" },
+        ],
+      },
+      {
+        // Nor the staff desk (the same pages as /admin).
+        source: "/staff/:path*",
         headers: [
           { key: "X-Frame-Options", value: "DENY" },
           { key: "Content-Security-Policy", value: "frame-ancestors 'none'" },

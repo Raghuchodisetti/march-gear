@@ -13,6 +13,7 @@ import {
   getSessionUser,
   hashPassword,
   realmOf,
+  getDesk,
   verifyPassword,
   type SessionRealm,
   type SessionUser,
@@ -122,7 +123,7 @@ async function checkCredentials(input: unknown) {
 
 /** "This is a staff account — use the staff admin sign-in." */
 const otherLogin = (realm: SessionRealm, kind: string) => `This is ${kind} account. Use ${REALM_LOGIN[realm].label} (${REALM_LOGIN[realm].href}).`;
-const ACCOUNT_KIND: Record<SessionRealm, string> = { customer: "a MarchGear website", staff: "a staff", dealer: "a dealer partner", insurer: "an insurance vendor" };
+const ACCOUNT_KIND: Record<SessionRealm, string> = { customer: "a MarchGear website", admin: "an admin", staff: "a staff", dealer: "a dealer partner", insurer: "an insurance vendor" };
 
 export async function signInAction(input: unknown): Promise<AuthResult> {
   const checked = await checkCredentials(input);
@@ -138,21 +139,23 @@ export async function signOutAction(): Promise<ActionResult> {
   return { ok: true };
 }
 
-/* Staff admin sign-in: staff accounts only, with their own session. */
+/* Back-office sign-in: the admin desk (/admin/login) takes admin accounts and the staff desk (/staff/login) staff
+   accounts — each with its own session, so both can be signed in side by side. */
 
 export async function adminSignInAction(input: unknown): Promise<ActionResult> {
+  const desk = await getDesk();
   const checked = await checkCredentials(input);
   if (checked.result) return checked.result;
   const realm = realmOf(checked.user!.role);
-  if (realm !== "staff") return { ok: false, error: otherLogin(realm, ACCOUNT_KIND[realm]) };
-  await createSession(checked.user!.id, "staff");
-  await audit(checked.user!.id, "login", "session", checked.user!.id, `${checked.user!.name} signed in to the admin panel`);
+  if (realm !== desk) return { ok: false, error: otherLogin(realm, ACCOUNT_KIND[realm]) };
+  await createSession(checked.user!.id, desk);
+  await audit(checked.user!.id, "login", "session", checked.user!.id, `${checked.user!.name} signed in to the ${desk === "admin" ? "admin panel" : "staff desk"}`);
   return { ok: true };
 }
 
-/** Signs out of the staff admin only. */
+/** Signs out of this desk only (the other desk, the website and the portals keep their own sign-ins). */
 export async function adminSignOutAction(): Promise<ActionResult> {
-  await destroySession("staff");
+  await destroySession(await getDesk());
   return { ok: true };
 }
 
@@ -178,12 +181,12 @@ export async function changePasswordAction(input: unknown): Promise<ActionResult
   return changePassword("customer", input);
 }
 
-/** Staff admin password change (/admin/account). */
+/** Back-office password change (/admin/account, /staff/account). */
 export async function adminChangePasswordAction(input: unknown): Promise<ActionResult> {
-  return changePassword("staff", input);
+  return changePassword(await getDesk(), input);
 }
 
-async function changePassword(realm: "customer" | "staff", input: unknown): Promise<ActionResult> {
+async function changePassword(realm: "customer" | "admin" | "staff", input: unknown): Promise<ActionResult> {
   const me = await getSessionUser(realm);
   if (!me) return { ok: false, error: "Your session has expired. Please sign in again." };
   const parsed = passwordSchema.safeParse(input);

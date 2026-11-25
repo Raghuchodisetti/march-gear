@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import type { ReactNode } from "react";
 import { AlertTriangle, Lock } from "lucide-react";
 import type { FileReviewStatus, InsApprovalTarget, InsCampaignStatus, InsCoverStatus, InsDocKind, InsProductStatus, InsVendorStatus } from "@/db/enums";

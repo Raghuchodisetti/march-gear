@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useDeskRouter as useRouter } from "@/components/admin/desk";
 import { Loader2, Send } from "lucide-react";
 import { TICKET_PRIORITY, TICKET_STATUS, type TicketPriority, type TicketStatus } from "@/db/enums";
 import type { ActionFailure } from "@/lib/action-result";

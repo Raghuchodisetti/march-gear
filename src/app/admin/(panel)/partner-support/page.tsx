@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { and, count, desc, eq, inArray, like, max, or, type SQL } from "drizzle-orm";
 import { getDb } from "@/db";
 import { TICKET_PRIORITY, TICKET_STATUS, partnerTicketMessages, partnerTickets, partners, type TicketPriority, type TicketStatus } from "@/db/schema";

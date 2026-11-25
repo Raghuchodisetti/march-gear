@@ -11,7 +11,7 @@ export interface SessionUser {
   phone: string | null;
   state: string | null;
   city: string | null;
-  role: "customer" | "editor" | "admin" | "dealer" | "insurer";
+  role: "customer" | "staff" | "admin" | "dealer" | "insurer";
   memberSince: string;
 }
 

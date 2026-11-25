@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
-import { useRouter } from "next/navigation";
+import { useDeskRouter as useRouter } from "@/components/admin/desk";
 import { BadgeCheck, Building2, Check, Loader2, ShieldAlert, X } from "lucide-react";
 import type { InsVendorStatus } from "@/db/enums";
 import { INS_VENDOR_STATUS_LABEL } from "@/insurance/labels";

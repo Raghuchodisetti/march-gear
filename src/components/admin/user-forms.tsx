@@ -1,28 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useDeskRouter as useRouter } from "@/components/admin/desk";
 import { Check, Copy, KeyRound, Loader2, LogOut, UserPlus } from "lucide-react";
-import { USER_ROLES, type UserRole } from "@/db/enums";
+import type { UserRole } from "@/db/enums";
 import { INDIAN_STATES } from "@/data/states";
 import type { ActionResult } from "@/lib/action-result";
+import { STAFF_SECTIONS, type Section } from "@/lib/staff-access";
+import { cn } from "@/lib/utils";
 import { adminChangePasswordAction } from "@/server/actions/auth";
-import { createStaffAction, resetUserPasswordAction, signOutEverywhereAction, updateUserAction } from "@/server/actions/admin";
+import { createStaffAction, resetUserPasswordAction, signOutEverywhereAction, updateAccountAction, updateStaffAccessAction } from "@/server/actions/admin";
 import { useUI } from "@/components/providers/app-provider";
 import { Button } from "@/components/ui/button";
 import { SelectField, TextField } from "@/components/ui/field";
 import { Panel } from "./ui";
 
-const ROLE_LABEL: Record<UserRole, string> = {
-  customer: "Customer",
-  editor: "Editor — catalogue, content & leads",
-  admin: "Admin — everything, incl. users",
-  dealer: "Dealer partner — dealer portal only",
-  insurer: "Insurance vendor — insurance vendor portal only",
-};
-// Portal accounts are created by dealer / insurance vendor registration and keep their role.
-const PORTAL_ROLES: UserRole[] = ["dealer", "insurer"];
-const roleOptions = USER_ROLES.filter((r) => !PORTAL_ROLES.includes(r)).map((r) => ({ value: r, label: ROLE_LABEL[r] }));
+const DESK_ROLES = [
+  { value: "staff", label: "Staff", hint: "Signs in at /staff/login and uses only the sections you tick." },
+  { value: "admin", label: "Admin", hint: "Signs in at /admin/login and can use everything, including staff accounts and billing." },
+] as const;
 
 function useSubmit() {
   const { toast } = useUI();
@@ -78,14 +74,14 @@ export function UserEditor({
   const router = useRouter();
   const { toast } = useUI();
   const { busy, errors, run } = useSubmit();
-  const [v, setV] = useState({ name: user.name, email: user.email, phone: user.phone ?? "", state: user.state ?? "", city: user.city ?? "", role: user.role, isActive: user.isActive });
+  const [v, setV] = useState({ name: user.name, email: user.email, phone: user.phone ?? "", state: user.state ?? "", city: user.city ?? "", isActive: user.isActive });
   const [temp, setTemp] = useState<string | null>(null);
   const [resetting, setResetting] = useState(false);
   const set = (k: keyof typeof v, value: string | boolean) => setV((p) => ({ ...p, [k]: value }));
 
   const save = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (await run(() => updateUserAction(user.id, { ...v, state: v.state || null, city: v.city || null }), "User updated")) router.refresh();
+    if (await run(() => updateAccountAction(user.id, { ...v, state: v.state || null, city: v.city || null }), "Account updated")) router.refresh();
   };
 
   const reset = async () => {
@@ -100,7 +96,7 @@ export function UserEditor({
   return (
     <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1fr)_340px]">
       <form onSubmit={save} noValidate>
-        <Panel title="Profile & access">
+        <Panel title="Profile">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <TextField label="Name" value={v.name} onChange={(e) => set("name", e.target.value)} error={errors.name} />
             <TextField label="Email" type="email" value={v.email} onChange={(e) => set("email", e.target.value)} error={errors.email} />
@@ -114,14 +110,6 @@ export function UserEditor({
               error={errors.state}
             />
             <TextField label="City" value={v.city} onChange={(e) => set("city", e.target.value)} error={errors.city} />
-            <SelectField
-              label="Role"
-              value={v.role}
-              onChange={(e) => set("role", e.target.value)}
-              options={PORTAL_ROLES.includes(user.role) ? [{ value: user.role, label: ROLE_LABEL[user.role] }] : roleOptions}
-              disabled={PORTAL_ROLES.includes(user.role)}
-              className="sm:col-span-2"
-            />
             <label className="flex cursor-pointer items-start gap-3 rounded-[3px] border border-line px-4 py-3.5 sm:col-span-2">
               <input type="checkbox" checked={v.isActive} onChange={(e) => set("isActive", e.target.checked)} className="mt-0.5 size-4 accent-[var(--color-red)]" />
               <span>
@@ -146,17 +134,62 @@ export function UserEditor({
   );
 }
 
+/** Ticks for the sections a staff member may use. */
+function SectionPicker({ value, onChange, error, disabled }: { value: Section[]; onChange: (v: Section[]) => void; error?: string; disabled?: boolean }) {
+  const toggle = (key: Section) => onChange(value.includes(key) ? value.filter((k) => k !== key) : [...value, key]);
+  return (
+    <fieldset disabled={disabled} className="disabled:opacity-50">
+      <legend className="mb-2 text-[12.5px] font-medium text-ink">Sections they can use</legend>
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+        {STAFF_SECTIONS.map((s) => (
+          <label key={s.key} className={cn("flex cursor-pointer items-start gap-3 rounded-[3px] border px-4 py-3 transition-colors hover:border-ink/30", value.includes(s.key) ? "border-ink bg-mist/60" : "border-line")}>
+            <input type="checkbox" checked={value.includes(s.key)} onChange={() => toggle(s.key)} className="mt-0.5 size-4 accent-[var(--color-red)]" />
+            <span>
+              <span className="block text-[14px] font-medium">{s.label}</span>
+              <span className="mt-0.5 block text-[12px] leading-snug text-muted">{s.hint}</span>
+            </span>
+          </label>
+        ))}
+      </div>
+      {error ? (
+        <p className="mt-2 text-xs text-red">{error}</p>
+      ) : (
+        <p className="mt-2 text-[12px] text-muted">Staff accounts, billing and the activity log are for admins only.</p>
+      )}
+    </fieldset>
+  );
+}
+
+function RolePicker({ value, onChange, disabled }: { value: "staff" | "admin"; onChange: (v: "staff" | "admin") => void; disabled?: boolean }) {
+  return (
+    <fieldset disabled={disabled}>
+      <legend className="mb-2 text-[12.5px] font-medium text-ink">Sign-in</legend>
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+        {DESK_ROLES.map((r) => (
+          <label key={r.value} className={cn("flex cursor-pointer items-start gap-3 rounded-[3px] border px-4 py-3 transition-colors hover:border-ink/30", value === r.value ? "border-ink bg-mist/60" : "border-line")}>
+            <input type="radio" name="desk-role" checked={value === r.value} onChange={() => onChange(r.value)} className="mt-0.5 size-4 accent-[var(--color-red)]" />
+            <span>
+              <span className="block text-[14px] font-medium">{r.label}</span>
+              <span className="mt-0.5 block text-[12px] leading-snug text-muted">{r.hint}</span>
+            </span>
+          </label>
+        ))}
+      </div>
+    </fieldset>
+  );
+}
+
 export function CreateStaffForm() {
   const router = useRouter();
   const { busy, errors, run } = useSubmit();
-  const [v, setV] = useState<{ name: string; email: string; role: UserRole }>({ name: "", email: "", role: "editor" });
-  const [created, setCreated] = useState<{ id: number; email: string; password: string } | null>(null);
+  const [v, setV] = useState<{ name: string; email: string; role: "staff" | "admin"; sections: Section[] }>({ name: "", email: "", role: "staff", sections: [] });
+  const [created, setCreated] = useState<{ id: number; email: string; password: string; role: "staff" | "admin" } | null>(null);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const res = await run(() => createStaffAction(v), "Account created");
     if (res) {
-      setCreated({ id: res.id, email: v.email, password: res.password });
+      setCreated({ id: res.id, email: v.email, password: res.password, role: v.role });
       router.refresh();
     }
   };
@@ -164,29 +197,64 @@ export function CreateStaffForm() {
   if (created)
     return (
       <Panel title="Account created">
+        <p className="text-[13.5px] text-muted">
+          They sign in at <strong className="font-semibold text-ink">{created.role === "admin" ? "/admin/login" : "/staff/login"}</strong> with this email and the temporary password below.
+        </p>
         <TempPassword email={created.email} password={created.password} />
         <div className="mt-5 flex gap-2">
-          <Button href={`/admin/users/${created.id}`} size="sm">
+          <Button href={`/admin/team/${created.id}`} size="sm">
             Open account
           </Button>
-          <Button href="/admin/users" variant="outline" size="sm">
-            Back to users
+          <Button href="/admin/team" variant="outline" size="sm">
+            Back to staff
           </Button>
         </div>
       </Panel>
     );
 
   return (
-    <form onSubmit={submit} noValidate className="max-w-xl">
+    <form onSubmit={submit} noValidate className="max-w-3xl">
       <Panel title="New staff account">
-        <div className="space-y-4">
-          <TextField label="Name" value={v.name} onChange={(e) => setV({ ...v, name: e.target.value })} error={errors.name} />
-          <TextField label="Work email" type="email" value={v.email} onChange={(e) => setV({ ...v, email: e.target.value })} error={errors.email} />
-          <SelectField label="Role" value={v.role} onChange={(e) => setV({ ...v, role: e.target.value as UserRole })} options={roleOptions} />
+        <div className="space-y-5">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <TextField label="Name" value={v.name} onChange={(e) => setV({ ...v, name: e.target.value })} error={errors.name} />
+            <TextField label="Work email" type="email" value={v.email} onChange={(e) => setV({ ...v, email: e.target.value })} error={errors.email} />
+          </div>
+          <RolePicker value={v.role} onChange={(role) => setV({ ...v, role })} />
+          {v.role === "staff" && <SectionPicker value={v.sections} onChange={(sections) => setV({ ...v, sections })} error={errors.sections} />}
         </div>
         <p className="mt-4 text-[12.5px] text-muted">A temporary password is generated for you to share.</p>
         <Button type="submit" className="mt-5" disabled={busy} icon={busy ? <Loader2 className="size-4 animate-spin" aria-hidden /> : <UserPlus className="size-4" aria-hidden />}>
           Create account
+        </Button>
+      </Panel>
+    </form>
+  );
+}
+
+/** A staff member's sign-in (staff or admin) and sections. Admins only. */
+export function StaffAccessEditor({ user, self }: { user: { id: number; name: string; role: "staff" | "admin"; permissions: Section[] }; self: boolean }) {
+  const router = useRouter();
+  const { busy, errors, run } = useSubmit();
+  const [v, setV] = useState<{ role: "staff" | "admin"; sections: Section[] }>({ role: user.role, sections: user.permissions });
+  const dirty = v.role !== user.role || [...v.sections].sort().join() !== [...user.permissions].sort().join();
+
+  const save = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (v.role !== user.role && !window.confirm(`Change ${user.name}'s sign-in to ${v.role === "admin" ? "the admin panel (/admin/login)" : "the staff desk (/staff/login)"}? They'll be signed out.`)) return;
+    if (await run(() => updateStaffAccessAction(user.id, v), "Access updated")) router.refresh();
+  };
+
+  return (
+    <form onSubmit={save} noValidate>
+      <Panel title="Access">
+        <div className="space-y-5">
+          <RolePicker value={v.role} onChange={(role) => setV({ ...v, role })} disabled={self} />
+          {self && <p className="-mt-2 text-[12.5px] text-muted">You can&apos;t change your own access — ask another admin.</p>}
+          {v.role === "staff" && <SectionPicker value={v.sections} onChange={(sections) => setV({ ...v, sections })} error={errors.sections} />}
+        </div>
+        <Button type="submit" className="mt-5" disabled={busy || !dirty || self} icon={busy ? <Loader2 className="size-4 animate-spin" aria-hidden /> : <Check className="size-4" aria-hidden />}>
+          Save access
         </Button>
       </Panel>
     </form>

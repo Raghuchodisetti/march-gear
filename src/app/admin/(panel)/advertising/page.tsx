@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { CalendarRange, ChevronRight, ImageIcon, LayoutTemplate, Plus, Presentation } from "lucide-react";
 import { AD_FORMAT_LABEL } from "@/insurance/labels";
 import { requireStaff } from "@/server/auth";

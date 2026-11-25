@@ -4,6 +4,7 @@ import * as s from "@/db/schema";
 import { getCatalog } from "@/server/catalog";
 import { liveOffers } from "@/server/partner/offers";
 import { getPublicProducts, getPublicProviders } from "@/server/insurance/public";
+import { listGuides } from "@/server/guides";
 import { INDEXABLE, absoluteUrl } from "@/components/seo/site";
 
 /*
@@ -12,7 +13,7 @@ import { INDEXABLE, absoluteUrl } from "@/components/seo/site";
  *
  * Only what the public pages would show is listed: active brands, published cars (and their variants),
  * active dealers, active used listings, published articles dated today or earlier, live offers, public
- * insurance products and their providers, and the insurance guides. Private areas (account, portals,
+ * insurance products and their providers, the insurance guides and the published /guides topics. Private areas (account, portals,
  * quote links) and query variants are never listed. lastModified comes from the rows' updated_at.
  */
 
@@ -60,7 +61,7 @@ async function timestamps() {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (!INDEXABLE) return [];
 
-  const [cat, t, offers, products, providers] = await Promise.all([getCatalog(), timestamps(), liveOffers(), getPublicProducts(), getPublicProviders()]);
+  const [cat, t, offers, products, providers, topics] = await Promise.all([getCatalog(), timestamps(), liveOffers(), getPublicProducts(), getPublicProviders(), listGuides()]);
   const { brands, cars, upcoming, dealers, usedCars, articles, content } = cat;
   const entry = (path: string, lastModified: Date | undefined, changeFrequency: Freq, priority: number, images?: (string | undefined)[]): Entry => ({
     url: absoluteUrl(path),
@@ -83,6 +84,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const refundUpdated = latest(content.refundPolicy.updated, block("refundPolicy"));
   const evs = cars.filter((c) => c.fuelTypes.includes("Electric") && c.ev);
   const guides = content.insuranceGuides.guides;
+  const topicsUpdated = latest(...topics.map((g) => g.updatedAt));
   const insuranceUpdated = latest(productsUpdated, block("insurancePage"), block("insuranceSettings"));
 
   const staticPages: Entry[] = [
@@ -102,6 +104,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/reviews", latest(carsUpdated, block("reviewsFeatured")), "weekly", 0.7),
     entry("/reviews/owners", undefined, "weekly", 0.6),
     entry("/news", newsUpdated, "daily", 0.8),
+    ...(topics.length ? [entry("/guides", topicsUpdated, "weekly", 0.7)] : []),
     entry("/pdi-check", latest(block("pdiPage"), block("pdiPlans")), "monthly", 0.6),
     // Tools
     entry("/tools", block("toolRates"), "monthly", 0.6),
@@ -132,6 +135,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry("/terms", legalUpdated, "yearly", 0.2),
     entry("/cookies", cookiesUpdated, "yearly", 0.2),
     entry("/refund-policy", refundUpdated, "yearly", 0.2),
+    entry("/photo-credits", carsUpdated, "monthly", 0.2),
   ];
 
   return [
@@ -147,5 +151,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...providers.map((p) => entry(`/insurance/providers/${p.slug}`, latest(t.company.get(p.slug), productsUpdated), "weekly", 0.5)),
     ...products.map((p) => entry(`/insurance/products/${p.reference}`, latest(t.product.get(p.reference), p.publishedAt), "weekly", 0.5)),
     ...guides.map((g) => entry(`/insurance/guides/${g.slug}`, block("insuranceGuides"), "monthly", 0.5, [g.image || undefined])),
+    ...topics.map((g) => entry(`/guides/${g.slug}`, latest(g.updatedAt), "monthly", 0.6)),
   ];
 }

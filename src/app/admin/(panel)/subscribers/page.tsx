@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { getDesk } from "@/server/auth";
+import { deskPath } from "@/lib/staff-access";
 import { Download } from "lucide-react";
 import { deleteSubscriberAction } from "@/server/actions/admin";
 import { countSubscribers, listSubscribers } from "@/server/admin/audience";
@@ -19,7 +21,7 @@ export default async function SubscribersPage({ searchParams }: PageProps<"/admi
         description="People who signed up for the newsletter on the website."
         actions={
           // A plain download link: a client-side <Link> would fetch the route twice (RSC request, then a full load).
-          <a href="/admin/subscribers/export" download className={buttonClasses({ variant: "outline", size: "sm" })}>
+          <a href={deskPath(await getDesk(), "/admin/subscribers/export")} download className={buttonClasses({ variant: "outline", size: "sm" })}>
             <Download className="size-4" aria-hidden />
             Export CSV
           </a>

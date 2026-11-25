@@ -1,0 +1,619 @@
+{
+  "brand": "bmw",
+  "checkedOn": "2026-11-25",
+  "models": {
+    "bmw-2-series-gran-coupe": [
+      {
+        "file": "File:BMW 220 (F74) IMG 5014.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_220_(F74)_IMG_5014.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/BMW_220_%28F74%29_IMG_5014.jpg/1920px-BMW_220_%28F74%29_IMG_5014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5347,
+        "height": 3559,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW 2 Series Gran Coupé (F74, second generation) M Sport in Alpine White, front three-quarter view",
+        "note": "Second-generation F74 Gran Coupé with the M Sport bumper that India's 218 M Sport has; German 220 shown, visually the same car apart from the boot badge."
+      },
+      {
+        "file": "File:BMW 218d (F74) IMG 4488.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_218d_(F74)_IMG_4488.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/BMW_218d_%28F74%29_IMG_4488.jpg/1920px-BMW_218d_%28F74%29_IMG_4488.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 3736,
+        "height": 2487,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW 2 Series Gran Coupé (F74) M Sport in Alpine White, rear three-quarter view",
+        "note": "F74 Gran Coupé M Sport (German 218d); same body, lamps and M Sport bumper as the Indian 218 M Sport."
+      },
+      {
+        "file": "File:BMW 220d (F74) Sindelfingen 2025 DSC 9131-cropped.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_220d_(F74)_Sindelfingen_2025_DSC_9131-cropped.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/BMW_220d_%28F74%29_Sindelfingen_2025_DSC_9131-cropped.jpg/1920px-BMW_220d_%28F74%29_Sindelfingen_2025_DSC_9131-cropped.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5611,
+        "height": 3448,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "BMW 2 Series Gran Coupé (F74) dashboard with curved display and M steering wheel",
+        "note": "F74 Gran Coupé cabin (curved display, new centre console) as in the Indian car; European car photographed at Sindelfingen."
+      }
+    ],
+    "bmw-3-series-lwb": [
+      {
+        "file": "File:2024 BMW 330Li M-Sport front.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_BMW_330Li_M-Sport_front.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/2024_BMW_330Li_M-Sport_front.jpg/1920px-2024_BMW_330Li_M-Sport_front.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5882,
+        "height": 2797,
+        "author": "LuvsMG481",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:LuvsMG481",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW 3 Series long-wheelbase 330Li M Sport (G28 facelift) in grey, front three-quarter view",
+        "note": "Malaysian-market 330Li M Sport: the same G28 long-wheelbase facelift sedan with M Sport bumpers that India sells as the 3 Series LWB (330Li M Sport); the longer rear door is visible."
+      },
+      {
+        "file": "File:2024 BMW 330Li M-Sport rear.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_BMW_330Li_M-Sport_rear.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/2024_BMW_330Li_M-Sport_rear.jpg/1920px-2024_BMW_330Li_M-Sport_rear.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5559,
+        "height": 2652,
+        "author": "LuvsMG481",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:LuvsMG481",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW 3 Series long-wheelbase 330Li M Sport (G28 facelift) in grey, rear three-quarter view",
+        "note": "Same Malaysian 330Li M Sport (G28 LWB facelift) as the front photo; 330Li badge and long rear door visible."
+      },
+      {
+        "file": "File:2023 BMW 3-Series Gran Sedan 320Li M Sport.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2023_BMW_3-Series_Gran_Sedan_320Li_M_Sport.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/2023_BMW_3-Series_Gran_Sedan_320Li_M_Sport.jpg/1920px-2023_BMW_3-Series_Gran_Sedan_320Li_M_Sport.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4608,
+        "height": 2592,
+        "author": "Chanokchon",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Chanokchon",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW 3 Series long-wheelbase 320Li M Sport (G28 facelift) in white, front three-quarter view in a showroom",
+        "note": "Malaysian 320Li M Sport (G28 LWB facelift); identical exterior to the Indian 3 Series LWB M Sport (India's diesel is the 320Ld)."
+      }
+    ],
+    "bmw-3-series": [
+      {
+        "file": "File:2024 BMW M340i xDrive - 2998cc 3.0 (374PS) Petrol - Brooklyn Grey - 11-2024, Front.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_BMW_M340i_xDrive_-_2998cc_3.0_(374PS)_Petrol_-_Brooklyn_Grey_-_11-2024,_Front.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/2024_BMW_M340i_xDrive_-_2998cc_3.0_%28374PS%29_Petrol_-_Brooklyn_Grey_-_11-2024%2C_Front.jpg/1920px-2024_BMW_M340i_xDrive_-_2998cc_3.0_%28374PS%29_Petrol_-_Brooklyn_Grey_-_11-2024%2C_Front.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4698,
+        "height": 2564,
+        "author": "Harvey Bold",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Harvey_Bold",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "angle": "front",
+        "alt": "BMW M340i xDrive (G20 facelift) in M Brooklyn Grey, front three-quarter view",
+        "note": "G20 facelift (LCI) M340i with mesh grille, M Performance bumper and red M brakes; UK car, same design as the Indian M340i xDrive. Brooklyn Grey is offered in India."
+      },
+      {
+        "file": "File:BMW G20 LCI M340i Black Sapphire Metallic (5).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_G20_LCI_M340i_Black_Sapphire_Metallic_(5).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/BMW_G20_LCI_M340i_Black_Sapphire_Metallic_%285%29.jpg/1920px-BMW_G20_LCI_M340i_Black_Sapphire_Metallic_%285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 3880,
+        "height": 2910,
+        "author": "Damian B Oh",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Damian_B_Oh",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW M340i (G20 facelift) in Black Sapphire, rear three-quarter view",
+        "note": "G20 LCI M340i (badge and dual trapezoid exhausts visible); same design as the Indian M340i xDrive."
+      }
+    ],
+    "bmw-5-series": [
+      {
+        "file": "File:BMW 5 SERIES LWB SEDAN (G60) China (2).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_5_SERIES_LWB_SEDAN_(G60)_China_(2).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/BMW_5_SERIES_LWB_SEDAN_%28G60%29_China_%282%29.jpg/1920px-BMW_5_SERIES_LWB_SEDAN_%28G60%29_China_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 7092,
+        "height": 3762,
+        "author": "Dinkun Chen",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Dinkun_Chen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW 5 Series long-wheelbase 530Li M Sport (G68) in dark grey, front three-quarter view",
+        "note": "Chinese G68 long-wheelbase 5 Series with M Sport bumper and metallic grille surround, matching India's 530Li M Sport (also a G68 LWB); same car as the rear photo, 530Li badge."
+      },
+      {
+        "file": "File:BMW 5 SERIES LWB SEDAN (G60) China (3).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_5_SERIES_LWB_SEDAN_(G60)_China_(3).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/BMW_5_SERIES_LWB_SEDAN_%28G60%29_China_%283%29.jpg/1920px-BMW_5_SERIES_LWB_SEDAN_%28G60%29_China_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 6768,
+        "height": 3533,
+        "author": "Dinkun Chen",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Dinkun_Chen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW 5 Series long-wheelbase 530Li M Sport (G68), rear three-quarter view",
+        "note": "Rear of the same Chinese 530Li M Sport (G68 LWB): 530Li badge and the long rear door are visible."
+      },
+      {
+        "file": "File:BMW 5 SERIES LWB SEDAN (G60) China.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_5_SERIES_LWB_SEDAN_(G60)_China.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/BMW_5_SERIES_LWB_SEDAN_%28G60%29_China.jpg/1920px-BMW_5_SERIES_LWB_SEDAN_%28G60%29_China.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5494,
+        "height": 3057,
+        "author": "Dinkun Chen",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Dinkun_Chen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW 5 Series long-wheelbase (G68) M Sport in white, front three-quarter view",
+        "note": "Chinese G68 LWB 5 Series (blue plate, combustion engine) with M Sport bumper as on the Indian 530Li M Sport. A driver is visible through the windscreen but is not the subject."
+      }
+    ],
+    "bmw-i5-lwb": [
+      {
+        "file": "File:BMW i5 (G60) China (4).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_i5_(G60)_China_(4).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/BMW_i5_%28G60%29_China_%284%29.jpg/1920px-BMW_i5_%28G60%29_China_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 6811,
+        "height": 3619,
+        "author": "Dinkun Chen",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Dinkun_Chen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW i5 long-wheelbase eDrive35L M Sport in white, front three-quarter view",
+        "note": "Chinese i5 eDrive35L (G68 LWB, green EV plate) with M Sport bumper and bronze-tone trim, the same model India assembles as the i5 eDrive35L M Sport."
+      },
+      {
+        "file": "File:BMW i5 (G60) China (5).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_i5_(G60)_China_(5).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/BMW_i5_%28G60%29_China_%285%29.jpg/1920px-BMW_i5_%28G60%29_China_%285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 6927,
+        "height": 3863,
+        "author": "Dinkun Chen",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Dinkun_Chen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW i5 long-wheelbase eDrive35L M Sport in white, rear three-quarter view",
+        "note": "Same Chinese i5 LWB as the front photo; eDrive35L badge visible."
+      },
+      {
+        "file": "File:BMW i5 (G60) China (2).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_i5_(G60)_China_(2).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/BMW_i5_%28G60%29_China_%282%29.jpg/1920px-BMW_i5_%28G60%29_China_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 7732,
+        "height": 3624,
+        "author": "Dinkun Chen",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Dinkun_Chen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW i5 long-wheelbase eDrive35L M Sport in dark blue, front three-quarter view",
+        "note": "Chinese i5 LWB (green EV plate) with M Sport bumper; the long rear door of the LWB body is clear in this view."
+      }
+    ],
+    "bmw-i5": [
+      {
+        "file": "File:BMW i5 M60 (G60) Washington DC Metro Area, USA (1).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_i5_M60_(G60)_Washington_DC_Metro_Area,_USA_(1).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/BMW_i5_M60_%28G60%29_Washington_DC_Metro_Area%2C_USA_%281%29.jpg/1920px-BMW_i5_M60_%28G60%29_Washington_DC_Metro_Area%2C_USA_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 2700,
+        "height": 2160,
+        "author": "OWS Photography",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:OWS_Photography",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "angle": "front",
+        "alt": "BMW i5 M60 xDrive (G60) in Black Sapphire, front three-quarter view",
+        "note": "Standard-wheelbase G60 i5 M60 xDrive (M badge in grille, M60 wheels); India imports the same CBU car."
+      },
+      {
+        "file": "File:BMW i5 M60 DSC 3757.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_i5_M60_DSC_3757.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/BMW_i5_M60_DSC_3757.jpg/1920px-BMW_i5_M60_DSC_3757.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5368,
+        "height": 2618,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW i5 M60 xDrive (G60) in Alpine White, rear three-quarter view",
+        "note": "G60 i5 M60 with M60 badge and M Sport rear apron; CBU-identical to the Indian i5 M60."
+      },
+      {
+        "file": "File:BMW i5 M60 IAA 2023 1X7A0425.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_i5_M60_IAA_2023_1X7A0425.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/BMW_i5_M60_IAA_2023_1X7A0425.jpg/1920px-BMW_i5_M60_IAA_2023_1X7A0425.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5982,
+        "height": 2337,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "side",
+        "alt": "BMW i5 M60 xDrive (G60) in Aventurine Red, side profile",
+        "note": "i5 M60 on BMW's own stand at IAA 2023 ('The new i5 M60' signage); Aventurine Red is offered in India."
+      }
+    ],
+    "bmw-i7": [
+      {
+        "file": "File:2027 BMW i7 M70 IMG 7303.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2027_BMW_i7_M70_IMG_7303.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/2027_BMW_i7_M70_IMG_7303.jpg/1920px-2027_BMW_i7_M70_IMG_7303.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 3868,
+        "height": 2575,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW i7 M70 xDrive (2026 facelift) in dark blue, rear three-quarter view",
+        "note": "Facelifted G70 i7 M70 with the new wider, slimmer tail-lamps; India sells this 2026 facelift (launched Sept 2026). No free photo of the facelift's front yet, so only the rear is shown."
+      }
+    ],
+    "bmw-m5": [
+      {
+        "file": "File:BMW M5 (G90) IMG 3266.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_M5_(G90)_IMG_3266.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/BMW_M5_%28G90%29_IMG_3266.jpg/1920px-BMW_M5_%28G90%29_IMG_3266.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4789,
+        "height": 2504,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW M5 (G90) sedan in M Marina Bay Blue, front three-quarter view",
+        "note": "G90 M5 sedan (plug-in hybrid V8), the CBU car India imports; Marina Bay Blue is offered in India."
+      },
+      {
+        "file": "File:BMW M5 (G90) IMG 3271.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_M5_(G90)_IMG_3271.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/BMW_M5_%28G90%29_IMG_3271.jpg/1920px-BMW_M5_%28G90%29_IMG_3271.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4922,
+        "height": 2494,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW M5 (G90) sedan in M Marina Bay Blue, rear three-quarter view",
+        "note": "Same G90 M5 sedan as the front photo (quad exhausts, sedan body not Touring)."
+      },
+      {
+        "file": "File:BMW M5 (G90) Auto Zuerich 2024 DSC 6967.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_M5_(G90)_Auto_Zuerich_2024_DSC_6967.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/BMW_M5_%28G90%29_Auto_Zuerich_2024_DSC_6967.jpg/1920px-BMW_M5_%28G90%29_Auto_Zuerich_2024_DSC_6967.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5571,
+        "height": 3723,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "BMW M5 (G90) dashboard with M steering wheel, red M buttons and carbon trim",
+        "note": "G90 M5 cabin photographed at Auto Zürich 2024."
+      }
+    ],
+    "bmw-m2": [
+      {
+        "file": "File:BMW M2 (G87) IMG 8806.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_M2_(G87)_IMG_8806.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/BMW_M2_%28G87%29_IMG_8806.jpg/1920px-BMW_M2_%28G87%29_IMG_8806.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4990,
+        "height": 2628,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW M2 Coupé (G87) in red, front three-quarter view",
+        "note": "G87 M2 Coupé, the CBU car India imports (2026 photo, current version)."
+      },
+      {
+        "file": "File:BMW M2 (G87) IMG 8797.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_M2_(G87)_IMG_8797.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/BMW_M2_%28G87%29_IMG_8797.jpg/1920px-BMW_M2_%28G87%29_IMG_8797.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5079,
+        "height": 2524,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW M2 Coupé (G87) in red, rear three-quarter view",
+        "note": "Same G87 M2 as the front photo."
+      }
+    ],
+    "bmw-m4": [
+      {
+        "file": "File:2024 BMW M4 (G82) Competition IMG 9367.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_BMW_M4_(G82)_Competition_IMG_9367.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/2024_BMW_M4_%28G82%29_Competition_IMG_9367.jpg/1920px-2024_BMW_M4_%28G82%29_Competition_IMG_9367.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4934,
+        "height": 2609,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW M4 Competition Coupé (G82 facelift) in grey, front three-quarter view",
+        "note": "2024 facelift (LCI) M4 Competition: angular DRL signature with blue laser accents; India sells the facelifted M4 Competition M xDrive as a CBU."
+      },
+      {
+        "file": "File:2024 BMW M4 (G82) Competition IMG 9370.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_BMW_M4_(G82)_Competition_IMG_9370.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/2024_BMW_M4_%28G82%29_Competition_IMG_9370.jpg/1920px-2024_BMW_M4_%28G82%29_Competition_IMG_9370.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5043,
+        "height": 2555,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW M4 Competition Coupé (G82 facelift) in grey, rear three-quarter view",
+        "note": "Same 2024 M4 Competition (LCI) as the front photo."
+      },
+      {
+        "file": "File:BMW M4 CS (G82) IMG 0107.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_M4_CS_(G82)_IMG_0107.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/BMW_M4_CS_%28G82%29_IMG_0107.jpg/1920px-BMW_M4_CS_%28G82%29_IMG_0107.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4896,
+        "height": 3259,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW M4 CS (G82) in light blue, front three-quarter view",
+        "note": "M4 CS (red-outlined grille, carbon bonnet), the CS variant listed in India; factory car at a dealer lot."
+      }
+    ],
+    "bmw-4-series-convertible": [
+      {
+        "file": "File:2024 BMW G23 M440i Auto Zuerich 2024 DSC 6969.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2024_BMW_G23_M440i_Auto_Zuerich_2024_DSC_6969.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/2024_BMW_G23_M440i_Auto_Zuerich_2024_DSC_6969.jpg/1920px-2024_BMW_G23_M440i_Auto_Zuerich_2024_DSC_6969.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 3305,
+        "height": 2209,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW M440i Convertible (G23 facelift) in M Brooklyn Grey, rear three-quarter view with roof open",
+        "note": "Facelifted (2024) G23 M440i Convertible with the new laser tail-lamps and M440i badge, the CBU car India sells; on a BMW dealer stand at Auto Zürich 2024. No free front photo of the facelifted M440i Convertible found."
+      }
+    ],
+    "bmw-x1-lwb": [
+      {
+        "file": "File:BMW X1 (U11) China (5).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_X1_(U11)_China_(5).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/BMW_X1_%28U11%29_China_%285%29.jpg/1920px-BMW_X1_%28U11%29_China_%285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 6671,
+        "height": 3842,
+        "author": "Dinkun Chen",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Dinkun_Chen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW X1 long-wheelbase M Sport in Alpine White, front three-quarter view",
+        "note": "Chinese X1 (all Chinese X1s are the long-wheelbase version India now assembles) with M Sport bumper, matching the Indian sDrive18Li M Sport; long rear door visible."
+      },
+      {
+        "file": "File:BMW X1 (U11) China (6).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_X1_(U11)_China_(6).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/BMW_X1_%28U11%29_China_%286%29.jpg/1920px-BMW_X1_%28U11%29_China_%286%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 7189,
+        "height": 4461,
+        "author": "Dinkun Chen",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Dinkun_Chen",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW X1 long-wheelbase M Sport in Alpine White, rear three-quarter view",
+        "note": "Same Chinese long-wheelbase X1 M Sport as the front photo."
+      }
+    ],
+    "bmw-x1": [
+      {
+        "file": "File:2022 BMW X1 sDrive18d M Sport MHEV Automatic 2.0 Front.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2022_BMW_X1_sDrive18d_M_Sport_MHEV_Automatic_2.0_Front.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/2022_BMW_X1_sDrive18d_M_Sport_MHEV_Automatic_2.0_Front.jpg/1920px-2022_BMW_X1_sDrive18d_M_Sport_MHEV_Automatic_2.0_Front.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4146,
+        "height": 2317,
+        "author": "Vauxford",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Vauxford",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW X1 sDrive18d M Sport (U11) in Space Silver, front three-quarter view",
+        "note": "Standard-wheelbase U11 X1 sDrive18d M Sport, the same variant India sells; UK car. Space Silver is offered in India."
+      },
+      {
+        "file": "File:2022 BMW X1 sDrive18d M Sport MHEV Automatic 2.0 Rear.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2022_BMW_X1_sDrive18d_M_Sport_MHEV_Automatic_2.0_Rear.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/2022_BMW_X1_sDrive18d_M_Sport_MHEV_Automatic_2.0_Rear.jpg/1920px-2022_BMW_X1_sDrive18d_M_Sport_MHEV_Automatic_2.0_Rear.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4188,
+        "height": 2511,
+        "author": "Vauxford",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Vauxford",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW X1 sDrive18d M Sport (U11) in Space Silver, rear three-quarter view",
+        "note": "Same UK X1 sDrive18d M Sport as the front photo."
+      }
+    ],
+    "bmw-ix1": [
+      {
+        "file": "File:2025 BMW iX1 eDrive 20 L M Sport.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:2025_BMW_iX1_eDrive_20_L_M_Sport.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/2025_BMW_iX1_eDrive_20_L_M_Sport.jpg/1920px-2025_BMW_iX1_eDrive_20_L_M_Sport.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4000,
+        "height": 3000,
+        "author": "Chanokchon",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Chanokchon",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW iX1 eDrive20L M Sport (long wheelbase) in Alpine White, front three-quarter view",
+        "note": "Thai-market iX1 eDrive20L M Sport (dealer plate): the long-wheelbase iX1 from China, the same version India sells as the iX1 LWB eDrive20L M Sport."
+      }
+    ],
+    "bmw-x3": [
+      {
+        "file": "File:BMW G45 20 IMG 3794.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_G45_20_IMG_3794.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/BMW_G45_20_IMG_3794.jpg/1920px-BMW_G45_20_IMG_3794.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4741,
+        "height": 2664,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW X3 (G45) M Sport in Alpine White, front three-quarter view",
+        "note": "Fourth-generation G45 X3 with M Sport Pro look (black grille, red calipers), as India's X3 M Sport / M Sport Pro; standard-wheelbase European car (not the Chinese long-wheelbase X3)."
+      },
+      {
+        "file": "File:BMW G45 20 IMG 3783.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_G45_20_IMG_3783.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/BMW_G45_20_IMG_3783.jpg/1920px-BMW_G45_20_IMG_3783.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4897,
+        "height": 2783,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW X3 (G45) M Sport in Alpine White, rear three-quarter view",
+        "note": "Same G45 X3 as the front photo."
+      }
+    ],
+    "bmw-x5": [
+      {
+        "file": "File:BMW G05 LCI X5 M Sport Manhattan Metallic.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_G05_LCI_X5_M_Sport_Manhattan_Metallic.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/BMW_G05_LCI_X5_M_Sport_Manhattan_Metallic.jpg/1920px-BMW_G05_LCI_X5_M_Sport_Manhattan_Metallic.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 3759,
+        "height": 2819,
+        "author": "Damian B Oh",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Damian_B_Oh",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW X5 (G05 facelift) M Sport in Manhattan Metallic, front three-quarter view",
+        "note": "2023 facelift (LCI) X5 with M Sport bumper and new headlamps; standard-wheelbase car (Korea), same design as the Indian X5."
+      },
+      {
+        "file": "File:BMW G05 LCI X5 xDrive40i M Sport Carbon Black Metallic (2).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_G05_LCI_X5_xDrive40i_M_Sport_Carbon_Black_Metallic_(2).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/BMW_G05_LCI_X5_xDrive40i_M_Sport_Carbon_Black_Metallic_%282%29.jpg/1920px-BMW_G05_LCI_X5_xDrive40i_M_Sport_Carbon_Black_Metallic_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 3831,
+        "height": 2873,
+        "author": "Damian B Oh",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Damian_B_Oh",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW X5 xDrive40i M Sport (G05 facelift) in Carbon Black, rear three-quarter view",
+        "note": "G05 LCI X5 xDrive40i M Sport, a variant India sells."
+      }
+    ],
+    "bmw-x6": [
+      {
+        "file": "File:BMW G06 M60i IMG 9712.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_G06_M60i_IMG_9712.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/BMW_G06_M60i_IMG_9712.jpg/1920px-BMW_G06_M60i_IMG_9712.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4996,
+        "height": 2688,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW X6 M60i (G06 facelift) in M Isle of Man Green, front three-quarter view",
+        "note": "Facelifted G06 X6 M60i (M badge, M60i bumper), the CBU variant India sells; Isle of Man Green is offered in India."
+      },
+      {
+        "file": "File:BMW G06 M60i IMG 9119.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_G06_M60i_IMG_9119.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/BMW_G06_M60i_IMG_9119.jpg/1920px-BMW_G06_M60i_IMG_9119.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5233,
+        "height": 2932,
+        "author": "Alexander-93",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW X6 M60i (G06 facelift) in M Isle of Man Green, rear three-quarter view",
+        "note": "G06 LCI X6 M60i, rear with M60i badge and quad exhausts."
+      }
+    ],
+    "bmw-x7": [
+      {
+        "file": "File:BMW G07 (2022) 1X7A6449.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_G07_(2022)_1X7A6449.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/BMW_G07_%282022%29_1X7A6449.jpg/1920px-BMW_G07_%282022%29_1X7A6449.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5630,
+        "height": 3284,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "front",
+        "alt": "BMW X7 (G07 facelift) M Sport in dark grey, front three-quarter view",
+        "note": "2022 facelift (LCI) X7 with split headlamps and M Sport bumper, as India's X7 xDrive40i/40d M Sport."
+      },
+      {
+        "file": "File:BMW G07 (2022) 1X7A6447.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_G07_(2022)_1X7A6447.jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/BMW_G07_%282022%29_1X7A6447.jpg/1920px-BMW_G07_%282022%29_1X7A6447.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 5926,
+        "height": 3237,
+        "author": "Alexander Migl",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Alexander-93",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "rear",
+        "alt": "BMW X7 (G07 facelift) M Sport in dark grey, rear three-quarter view",
+        "note": "Same X7 LCI M Sport as the front photo."
+      },
+      {
+        "file": "File:BMW G07 LCI X7 BMW Individual Extended Merino Leather Tartufo (2).jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:BMW_G07_LCI_X7_BMW_Individual_Extended_Merino_Leather_Tartufo_(2).jpg",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/BMW_G07_LCI_X7_BMW_Individual_Extended_Merino_Leather_Tartufo_%282%29.jpg/1920px-BMW_G07_LCI_X7_BMW_Individual_Extended_Merino_Leather_Tartufo_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4000,
+        "height": 3000,
+        "author": "Damian B Oh",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:Damian_B_Oh",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "angle": "interior",
+        "alt": "BMW X7 (G07 facelift) dashboard with curved display and Tartufo Merino leather",
+        "note": "X7 LCI cabin (curved display, X7 trim strip) in a showroom."
+      }
+    ]
+  },
+  "missing": {
+    "bmw-7-series": "No free-licensed photo of the 2026 facelifted 7 Series (740), sold in India since Sept 2026, on Commons as of 2026-11-25; pre-facelift G70 photos rejected."
+  }
+}

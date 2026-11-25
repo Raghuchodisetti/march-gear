@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { useRouter } from "next/navigation";
+import { useDeskRouter as useRouter } from "@/components/admin/desk";
 import { Ban, Check, ClipboardList, Copy, Eye, EyeOff, FileSearch, FileText, FileUp, Loader2, Lock, MessageSquarePlus, PlayCircle, Power, RotateCcw, ShieldCheck, X } from "lucide-react";
 import type { InsVendorStatus } from "@/db/enums";
 import { INS_DOC_KIND_LABEL } from "@/insurance/labels";

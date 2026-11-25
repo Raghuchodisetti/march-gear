@@ -13,7 +13,7 @@ export type ReviewStatus = (typeof REVIEW_STATUS)[number];
  * "dealer" accounts sign in to the dealer partner portal (/dealer) and "insurer" accounts to the insurance
  * vendor portal (/insurance-vendor) — never to the staff admin.
  */
-export const USER_ROLES = ["customer", "editor", "admin", "dealer", "insurer"] as const;
+export const USER_ROLES = ["customer", "staff", "admin", "dealer", "insurer"] as const;
 export type UserRole = (typeof USER_ROLES)[number];
 
 export const LEAD_TYPES = [

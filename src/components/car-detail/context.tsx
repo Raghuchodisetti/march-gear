@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
 import type { CarModel, City, Variant } from "@/types";
+import type { CreditMap } from "@/lib/photo-credits";
 import { useCity } from "@/components/providers/app-provider";
 import { useCatalog } from "@/components/providers/catalog-provider";
 import { isEv } from "./utils";
@@ -18,12 +19,15 @@ interface CarDetailValue {
   city: City;
   /** Indicative on-road price of the selected variant in the selected city */
   onRoad: number;
+  /** Licence credits of the model's third-party photos, keyed by URL (shown under the photos). */
+  credits: CreditMap;
 }
 
 const CarDetailContext = createContext<CarDetailValue | null>(null);
+const NO_CREDITS: CreditMap = {};
 
 /** Holds the selected variant so the hero, sticky bars and EMI stay in sync. */
-export function CarDetailProvider({ car, brand, children }: { car: CarModel; brand: string; children: ReactNode }) {
+export function CarDetailProvider({ car, brand, credits, children }: { car: CarModel; brand: string; credits?: CreditMap; children: ReactNode }) {
   const [slug, setSlug] = useState(car.variants[0].slug);
   const { city } = useCity();
   const { onRoadPrice } = useCatalog();
@@ -40,8 +44,9 @@ export function CarDetailProvider({ car, brand, children }: { car: CarModel; bra
       setVariant: setSlug,
       city,
       onRoad: onRoadPrice(variant.price, city.slug, ev),
+      credits: credits ?? NO_CREDITS,
     };
-  }, [car, brand, slug, city, onRoadPrice]);
+  }, [car, brand, slug, city, onRoadPrice, credits]);
 
   return <CarDetailContext.Provider value={value}>{children}</CarDetailContext.Provider>;
 }

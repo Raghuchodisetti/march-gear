@@ -10,16 +10,17 @@ import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { ImageGallery } from "@/components/vehicle/image-gallery";
 import { CarPlaceholder } from "@/components/vehicle/car-image";
+import { PHOTO_CREDITS_PATH } from "@/lib/photo-credits";
 import { hasOwnerRating } from "@/lib/specs";
 import { CompareToggle, WishlistButton } from "@/components/vehicle/toggles";
 import { useUI } from "@/components/providers/app-provider";
 import { useCarDetail } from "./context";
 import { ShareButton, scrollToSection } from "./buy-actions";
-import { emiFrom, sortedVariants } from "./utils";
+import { emiFrom, onRoadBreakdown, sortedVariants } from "./utils";
 
 /** Model page opener: title row, large gallery and the buy panel. */
 export function CarHero({ expertScore }: { expertScore: number }) {
-  const { car, brand, title, ev } = useCarDetail();
+  const { car, brand, title, ev, credits } = useCarDetail();
   // Facts-only models have no owner rating or road-test score yet: those badges are left out, not shown as zeros.
   const rated = hasOwnerRating(car);
   const scored = expertScore > 0;
@@ -86,6 +87,8 @@ export function CarHero({ expertScore }: { expertScore: number }) {
             alt={title}
             focus={car.focus}
             priority
+            credits={credits}
+            creditsHref={`${PHOTO_CREDITS_PATH}#${car.slug}`}
             aspect="aspect-[4/3] md:aspect-[16/10]"
             className="min-w-0 lg:col-span-8"
           />
@@ -101,7 +104,15 @@ export function CarHero({ expertScore }: { expertScore: number }) {
 }
 
 function BuyPanel() {
-  const { car, title, variant, onRoad, city } = useCarDetail();
+  const { car, title, variant, onRoad, city, ev } = useCarDetail();
+  // Indicative build-up of the on-road price for the chosen variant and city (same split as the variant page).
+  const breakup = onRoadBreakdown(variant.price, onRoad, ev);
+  const breakupLines = [
+    { label: "Ex-showroom price", value: breakup.exShowroom },
+    { label: ev ? "Registration (EV road-tax waiver)" : "RTO & road tax", value: breakup.roadTax },
+    { label: "Insurance (first year)", value: breakup.insurance },
+    { label: "Other charges", note: "FASTag, number plates", value: breakup.other },
+  ];
   const { openEnquiry, setLocationOpen } = useUI();
 
   return (
@@ -145,6 +156,23 @@ function BuyPanel() {
             Change city
           </button>
         </div>
+
+        <dl aria-label={`On-road price breakup in ${city.name}`} className="mt-4 space-y-2 text-[13px]">
+          {breakupLines.map((l) => (
+            <div key={l.label} className="flex items-baseline justify-between gap-4">
+              <dt className="min-w-0 text-muted">
+                {l.label}
+                {l.note && <span className="text-[11.5px]"> · {l.note}</span>}
+              </dt>
+              <dd className="shrink-0 num">{formatINR(l.value)}</dd>
+            </div>
+          ))}
+          <div className="flex items-baseline justify-between gap-4 border-t border-line pt-2 font-semibold">
+            <dt>On-road price</dt>
+            <dd className="shrink-0 num">{formatINR(breakup.total)}</dd>
+          </div>
+        </dl>
+        <p className="mt-2 text-[11.5px] leading-snug text-muted">Indicative estimate — road tax, registration and insurance depend on your state and insurer. Confirm with the dealer.</p>
 
         <button
           type="button"

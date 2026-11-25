@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { notFound } from "next/navigation";
 import { deleteInsCompanyAction } from "@/server/actions/admin-insurance-config";
 import { getInsCompany, insurerVendorOptions } from "@/server/admin/insurance";

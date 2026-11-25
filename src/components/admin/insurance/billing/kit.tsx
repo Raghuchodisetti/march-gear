@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import type { ReactNode } from "react";
 import type { InsInvoiceKind, InvoiceStatus } from "@/db/enums";
 import type { insVendors } from "@/db/schema";

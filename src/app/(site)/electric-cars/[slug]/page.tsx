@@ -5,6 +5,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getCatalog } from "@/server/catalog";
+import { creditsFor } from "@/server/photo-credits";
+import { hasAngles, pickPhoto } from "@/lib/photo-credits";
+import { PhotoCreditLine } from "@/components/vehicle/photo-credit";
 import { carFaqs } from "@/data/car-faqs";
 import { formatPrice, formatPriceShort } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -81,7 +84,11 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
   const compareHref = `/compare?cars=${[car.slug, ...rivals.map((r) => r.slug)].join(",")}`;
   const faqs = carFaqs(car, cat);
   const evTech = Array.from(new Set([...(car.features.find((g) => g.group === "Performance")?.items ?? []), ...car.highlights])).slice(0, 7);
-  const techImage = car.images[1] ?? car.images[0];
+  // Imported photos name their view: the technology block prefers the cabin (screens, controls), never repeating the hero if it can help it.
+  const techImage = hasAngles(car.images) ? (pickPhoto(car.images, "interior", "detail", "side", "rear") ?? car.images[0]) : (car.images[1] ?? car.images[0]);
+  const credits = await creditsFor([car.images[0], techImage]);
+  const heroCredit = car.images[0] ? credits[car.images[0]] : undefined;
+  const techCredit = techImage ? credits[techImage] : undefined;
   const factsOnly = isFactsOnly(car);
   // Charging times as published; the timeline needs both a DC and an AC time to draw.
   const timeline = dc.minutes > 0 && ac.hours > 0;
@@ -106,7 +113,7 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
         {car.images[0] ? (
           <Image
             src={car.images[0]}
-            alt={carPhotoAlt(car.images[0], title)}
+            alt={heroCredit?.alt ?? carPhotoAlt(car.images[0], title)}
             fill
             preload
             sizes="100vw"
@@ -184,6 +191,7 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
               </div>
             ))}
           </dl>
+          {heroCredit && <PhotoCreditLine credit={heroCredit} tone="dark" allCredits={`/photo-credits#${car.slug}`} className="mt-8" />}
         </div>
       </section>
 
@@ -252,9 +260,10 @@ export default async function ElectricCarPage(props: PageProps<"/electric-cars/[
           <Reveal className="lg:col-span-5">
             {techImage && (
               <div className="relative aspect-[4/5] overflow-hidden bg-ink-2 max-lg:aspect-[4/3]">
-                <Image src={techImage} alt={carPhotoAlt(techImage, title, "charging and technology detail")} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover opacity-90" />
+                <Image src={techImage} alt={techCredit?.alt ?? carPhotoAlt(techImage, title, "charging and technology detail")} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover opacity-90" />
               </div>
             )}
+            {techCredit && <PhotoCreditLine credit={techCredit} tone="dark" allCredits={false} className="mb-3 mt-2.5" />}
             <dl className="mt-px grid grid-cols-3 gap-px bg-white/10">
               {[
                 ["Power", specText(car.power)],

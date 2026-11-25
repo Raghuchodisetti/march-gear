@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { Star } from "lucide-react";
 import { REVIEW_STATUS } from "@/db/enums";
 import { cn } from "@/lib/utils";

@@ -16,7 +16,9 @@
     "db:seed-demo": "tsx --env-file=.env.local src/db/seed-demo-dealer.ts",
     "db:seed-insurance": "tsx --env-file=.env.local src/db/seed-demo-insurance.ts",
     "db:catalogue-listings": "tsx --env-file=.env.local src/db/catalogue-listings.ts",
-    "db:import-catalogue": "tsx --env-file=.env.local src/db/import-catalogue.ts"
+    "db:import-catalogue": "tsx --env-file=.env.local src/db/import-catalogue.ts",
+    "db:import-images": "tsx --env-file=.env.local src/db/import-images.ts",
+    "db:compress-stored": "tsx --env-file=.env.local src/db/compress-stored.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
@@ -31,6 +33,7 @@
     "react-dom": "19.3.0",
     "server-only": "^0.0.1",
     "tailwind-merge": "^3.7.0",
+    "unpdf": "1.6.0",
     "zod": "^4.6.7"
   },
   "devDependencies": {

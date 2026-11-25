@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/admin/desk";
 import { Badge, formatDateTime, type BadgeTone } from "./ui";
 
 /* Server-safe pieces for showing activity-log entries (the /admin/activity page and the dashboard). */

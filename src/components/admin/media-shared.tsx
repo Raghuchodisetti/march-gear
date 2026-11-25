@@ -13,6 +13,10 @@ export const MEDIA_MAX_SIDE = 8000;
 /** Files accepted per upload request. */
 export const MEDIA_MAX_FILES = 10;
 export const MEDIA_ALT_MAX = 300;
+/** Width of the card rendition imported catalogue photos carry (served for /media/<id>/<name>?w=<this or less>). */
+export const MEDIA_THUMB_WIDTH = 960;
+/** The most a card copy may weigh (they're usually 60–200 KB). */
+export const MEDIA_THUMB_MAX_BYTES = 300 * 1024;
 export const MEDIA_PAGE_SIZE = 40;
 export const MEDIA_UPLOAD_URL = "/admin/media/upload";
 
@@ -40,6 +44,22 @@ export interface MediaItem {
   /** ISO timestamp. */
   createdAt: string;
   uploader: string | null;
+  /** Third-party photos (imported from Wikimedia Commons): who made it, under which licence, and where it came from. */
+  credit: MediaCredit | null;
+  /** A smaller card copy is stored (served at `?w=960`). */
+  hasThumb?: boolean;
+}
+
+/** Read-only in the admin: the importer sets these from the photo's source page, and the licence requires them. */
+export interface MediaCredit {
+  author: string;
+  authorUrl: string | null;
+  license: string;
+  licenseUrl: string | null;
+  sourceUrl: string;
+  note: string | null;
+  /** True when a smaller card rendition is stored (served at `?w=960`). */
+  hasThumb: boolean;
 }
 
 export interface MediaPage {
@@ -66,6 +86,10 @@ export interface UploadResponse {
 }
 
 export const mediaUrl = (id: number, filename: string) => `/media/${id}/${filename}`;
+
+/** For library grids: the card rendition when there is one (imported photos), otherwise the file itself. */
+/** The small card copy for previews when the image has one (imported photos and newer uploads), else the image itself. */
+export const previewUrl = (m: Pick<MediaItem, "url" | "credit" | "hasThumb">) => (m.hasThumb || m.credit?.hasThumb ? `${m.url}?w=${MEDIA_THUMB_WIDTH}` : m.url);
 
 export function formatBytes(n: number) {
   if (n < 1024) return `${n} B`;
